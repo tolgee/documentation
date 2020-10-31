@@ -1,0 +1,16 @@
+import io.polygloat.node.PolygloatNodePlugin
+
+idea {
+    module {
+        excludeDirs += file('node_modules')
+        excludeDirs += file('build')
+        excludeDirs += file('.docusaurus')
+    }
+}
+
+apply plugin: PolygloatNodePlugin
+
+polygloatNpm {
+    library = false
+}
+

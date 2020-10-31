@@ -1,0 +1,9 @@
+@font-face {
+    font-family: Rubik;
+    src: url(Rubik-Regular.woff2);
+}
+
+body {
+    font-family: Rubik, Arial, sans-serif;
+    font-weight: normal;
+}
