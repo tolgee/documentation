@@ -16,11 +16,11 @@ jobs:
           node-version: '12.x'
       - run: npm install
       - run: npm run build
-      - env:
-        - CI: true
+        env:
+          CI: true
       - uses: appleboy/scp-action@master
         with:
-          - host: polygloat.io
-          - key: ${{ secrets.DEPLOYMENT_SSH_KEY }}
-          - source: "dist/*"
-          - target: "/data/polygloat/deployment_test/"
+          host: polygloat.io
+          key: ${{ secrets.DEPLOYMENT_SSH_KEY }}
+          source: "dist/*"
+          target: "/data/polygloat/deployment_test/"
