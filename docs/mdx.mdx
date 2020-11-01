@@ -5,6 +5,8 @@ title: Powered by MDX
 
 You can write JSX and use React components within your Markdown thanks to [MDX](https://mdxjs.com/).
 
+import {T} from "polygloat-react";
+
 export const Highlight = ({children, color}) => ( <span style={{
       backgroundColor: color,
       borderRadius: '2px',
@@ -13,5 +15,7 @@ export const Highlight = ({children, color}) => ( <span style={{
     }}>{children}</span> );
 
 <Highlight color="#25c2a0">Docusaurus green</Highlight> and <Highlight color="#1877F2">Facebook blue</Highlight> are my favorite colors.
+
+<T>I can translate inside the doc files!</T>
 
 I can write **Markdown** alongside my _JSX_!

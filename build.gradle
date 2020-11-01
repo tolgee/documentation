@@ -12,5 +12,6 @@ apply plugin: PolygloatNodePlugin
 
 polygloatNpm {
     library = false
+    linkablePackages = ["polygloat", "polygloat-react"]
 }
 

@@ -68,8 +68,8 @@ module.exports = {
             copyright: `Copyright © ${new Date().getFullYear()} Polygloat`,
         },
         algolia: {
-            apiKey: 'YOUR_API_KEY',
-            indexName: 'YOUR_INDEX_NAME',
+            apiKey: '0502b545345a891c1ce24777bbed2fa9',
+            indexName: 'polygloat',
             searchParameters: {}, // Optional (if provided by Algolia)
         },
     },
@@ -94,6 +94,9 @@ module.exports = {
                 },
             },
         ],
+    ],
+    plugins: [
+        'docusaurus2-dotenv',
     ],
     stylesheets: [
         'font.css'

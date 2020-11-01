@@ -5,33 +5,34 @@ import Link from '@docusaurus/Link';
 import useDocusaurusContext from '@docusaurus/useDocusaurusContext';
 import useBaseUrl from '@docusaurus/useBaseUrl';
 import styles from './styles.module.css';
+import {T} from "polygloat-react";
 
 const features = [
     {
-        title: 'In context localization',
+        title: <T>In context localization</T>,
         imageUrl: 'img/undraw_social_strategy_1wuq.svg',
         description: (
-            <>
+            <T>
                 Let your colleagues or translators edit the translation strings directly in the app you develop!
-            </>
+            </T>
         ),
     },
     {
-        title: 'Relieve developers of localization process',
+        title: <T>Relieve developers of localization process</T>,
         imageUrl: 'img/undraw_researching_22gp.svg',
         description: (
-            <>
+            <T>
                 Let translators modify translated texts without involving developer.
-            </>
+            </T>
         ),
     },
     {
-        title: 'Web application',
+        title: <T>Web application</T>,
         imageUrl: 'img/undraw_segment_uwu1.svg',
         description: (
-            <>
+            <T>
                 Manage your localization string using simple web application!
-            </>
+            </T>
         ),
     },
 ];
@@ -58,6 +59,7 @@ function Home() {
         <Layout
             title={`${siteConfig.title}`}
             description="Description will go into a meta tag in <head />">
+
             <header className={clsx('hero hero--primary', styles.heroBanner)}>
                 <div className="container">
                     <div className="row">
@@ -84,17 +86,17 @@ function Home() {
                 </div>
             </header>
             <main>
-                {features && features.length > 0 && (
-                    <section className={styles.features}>
-                        <div className="container">
-                            <div className="row">
-                                {features.map((props, idx) => (
-                                    <Feature key={idx} {...props} />
-                                ))}
+                    {features && features.length > 0 && (
+                        <section className={styles.features}>
+                            <div className="container">
+                                <div className="row">
+                                    {features.map((props, idx) => (
+                                        <Feature key={idx} {...props} />
+                                    ))}
+                                </div>
                             </div>
-                        </div>
-                    </section>
-                )}
+                        </section>
+                    )}
             </main>
         </Layout>
     );
