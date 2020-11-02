@@ -19,11 +19,8 @@ jobs:
       - run: npm run build
         env:
           CI: true
-      - uses: appleboy/scp-action@master
         name: Publish (deploy)
-        with:
-          host: polygloat.io
-          username: github
-          key: ${{ secrets.DEPLOYMENT_SSH_KEY }}
-          source: "build/*"
-          target: "/data/polygloat/deployment_test/."
+      - run: echo ${{ secrets.DEPLOYMENT_SSH_KEY }} >> key.rsa
+      - run: chmod 600
+      - run: scp -i key.rsa ./build/* github@polygloat.io:/data/polygloat/deployment_test/
+      - run: rm key.rsa
