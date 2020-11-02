@@ -22,6 +22,7 @@ jobs:
       - uses: appleboy/scp-action@master
         with:
           host: polygloat.io
+          user: github
           key: ${{ secrets.DEPLOYMENT_SSH_KEY }}
           source: "build/*"
           target: "/data/polygloat/deployment_test/"
