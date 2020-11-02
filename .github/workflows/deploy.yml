@@ -20,7 +20,7 @@ jobs:
         env:
           CI: true
         name: Publish (deploy)
-      - run: echo ${{ secrets.DEPLOYMENT_SSH_KEY }} >> key.rsa
+      - run: echo "${{ secrets.DEPLOYMENT_SSH_KEY }}" >> key.rsa
       - run: chmod 600
       - run: scp -i key.rsa ./build/* github@polygloat.io:/data/polygloat/deployment_test/
       - run: rm key.rsa
