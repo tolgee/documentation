@@ -15,12 +15,15 @@ jobs:
         with:
           node-version: '12.x'
       - run: npm install
+      - run: touch .env
       - run: npm run build
         env:
           CI: true
       - uses: appleboy/scp-action@master
+        name: Publish (deploy)
         with:
           host: polygloat.io
+          username: github
           key: ${{ secrets.DEPLOYMENT_SSH_KEY }}
-          source: "dist/*"
-          target: "/data/polygloat/deployment_test/"
+          source: "build/*"
+          target: "/data/polygloat/website/."
