@@ -23,5 +23,5 @@ jobs:
         with:
           host: polygloat.io
           key: ${{ secrets.DEPLOYMENT_SSH_KEY }}
-          source: "dist/*"
+          source: "build/*"
           target: "/data/polygloat/deployment_test/"
