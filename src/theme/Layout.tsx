@@ -1,20 +1,28 @@
-// Note: importing from "@theme/Footer" would fail due to the file importing itself
 import OriginalLayout from '@theme-original/Layout';
-import React from 'react';
-import {PolygloatProvider} from "polygloat-react";
-import {UI} from "polygloat/ui";
+import React, {useEffect, useState} from 'react';
+import {PolygloatProvider} from "../component/polygloat";
 
+// noinspection JSUnusedGlobalSymbols
 export default function Layout(props) {
-    return (
-        <>
-            <PolygloatProvider
-                apiUrl={process.env.polygloatApiUrl}
-                apiKey={process.env.polygloatApiKey}
-                ui={process.env.polygloatWithUI === "true" && UI}
-            >
-                <OriginalLayout {...props} />
-            </PolygloatProvider>
+    const [UI, setUI] = useState({ui: null})
 
-        </>
+    useEffect(() => {
+        process.env.polygloatWithUI === "true" && import("polygloat/ui").then(ui => {
+            setUI({ui: ui.UI});
+        });
+    }, []);
+
+    if(!UI.ui){
+        return "Loading...";
+    }
+
+    return (
+        <PolygloatProvider
+            apiUrl={process.env.polygloatApiUrl}
+            apiKey={process.env.polygloatApiKey}
+            ui={UI.ui}
+        >
+            <OriginalLayout {...props} />
+        </PolygloatProvider>
     );
 }
