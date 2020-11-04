@@ -47,7 +47,7 @@ module.exports = {
                     items: [
                         {
                             label: 'GitHub',
-                            href: 'https://github.com/JanCizmar/polygloat',
+                            href: 'https://github.com/polygloat',
                         },
                     ],
                 },
@@ -81,13 +81,13 @@ module.exports = {
                     sidebarPath: require.resolve('./sidebars.js'),
                     // Please change this to your repo.
                     editUrl:
-                        'https://github.com/JanCizmar/polygloat/doc',
+                        'https://github.com/polygloat/documentation/tree/production',
                 },
                 blog: {
                     showReadingTime: true,
                     // Please change this to your repo.
                     editUrl:
-                        'https://github.com/JanCizmar/polygloat/blog',
+                        'https://github.com/polygloat/documentation/tree/production',
                 },
                 theme: {
                     customCss: require.resolve('./src/css/custom.css'),

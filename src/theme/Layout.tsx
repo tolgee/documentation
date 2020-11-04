@@ -1,28 +1,32 @@
 import OriginalLayout from '@theme-original/Layout';
 import React, {useEffect, useState} from 'react';
 import {PolygloatProvider} from "../component/polygloat";
+import {UI} from "polygloat/ui";
 
 // noinspection JSUnusedGlobalSymbols
 export default function Layout(props) {
-    const [UI, setUI] = useState({ui: null})
+    const [uiWrapped, setUiWrapped] = useState({ui: null} as { ui: typeof UI });
 
     useEffect(() => {
         process.env.polygloatWithUI === "true" && import("polygloat/ui").then(ui => {
-            setUI({ui: ui.UI});
+            setUiWrapped({ui: ui.UI});
         });
     }, []);
 
-    if(!UI.ui){
+    if (!uiWrapped.ui) {
         return "Loading...";
     }
 
     return (
-        <PolygloatProvider
-            apiUrl={process.env.polygloatApiUrl}
-            apiKey={process.env.polygloatApiKey}
-            ui={UI.ui}
-        >
-            <OriginalLayout {...props} />
-        </PolygloatProvider>
+        <>
+            <PolygloatProvider
+                apiUrl={process.env.polygloatApiUrl}
+                apiKey={process.env.polygloatApiKey}
+                ui={process.env.polygloatWithUI === "true" && uiWrapped.ui}
+            >
+                <OriginalLayout {...props} />
+            </PolygloatProvider>
+
+        </>
     );
 }

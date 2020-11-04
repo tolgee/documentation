@@ -14,11 +14,12 @@
     "@docusaurus/preset-classic": "2.0.0-alpha.65",
     "@mdx-js/react": "^1.5.8",
     "clsx": "^1.1.1",
-    "react": "^16.8.4",
-    "react-dom": "^16.8.4",
     "docusaurus2-dotenv": "^1.4.0",
-    "polygloat-react": "^0.2.1",
-    "polygloat": "^0.2.1"
+    "polygloat": "^1.0.0-alpha.1",
+    "polygloat-react": "^1.0.0-alpha.1",
+    "react": "^16.14.0",
+    "react-dom": "^16.14.0",
+    "use-onclickoutside": "^0.3.1"
   },
   "browserslist": {
     "production": [
