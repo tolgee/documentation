@@ -1,6 +1,6 @@
 module.exports = {
     title: 'Polygloat',
-    tagline: 'Localization made easy',
+    tagline: 'Dead simple localization!',
     url: 'https://polygloat.io',
     baseUrl: '/',
     onBrokenLinks: 'throw',

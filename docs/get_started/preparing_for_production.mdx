@@ -1,0 +1,69 @@
+---
+id: preparing_for_production
+title: Preparing for production
+sidebar_label: Preparing for production
+slug: /get_started/preparing_for_production
+---
+
+In production environment, you should never leak your API key. In context must be available just for your translators,
+ developers or other stuff, but not to outside world.
+
+:::warning
+
+Never leak your apiKey! We strongly recommend against adding API key into git repository.
+
+:::
+
+To prepare your application for production you will need to let Polygloat use exported .json files.
+You can get these files by exporting your translations from web application.
+See [exporting translations](web_app/exporting_translations.mdx).
+
+To make Polygloat look for json files, just remove **apiKey** property from configuration object. If we continue on
+our [hello world example](hello_world.mdx), production configuration object will look like this:
+```javascript
+{
+    inputPrefix: "{{",
+    inputSuffix: "}}",
+    watch: true
+}
+```
+
+In production mode `apiUrl` and `ui` properties are useless as we don't allow anybody to change our translations in the app accessible from outside world.
+So we can also remove the `script` tag importing polygloat UI.
+
+Next we should add exported translations into some public path, so Polygloat can reach them.
+By default, Polygloat looks for the translation files in `/i18n/[lang].json`.
+To change this, you may provide `filesUrlPrefix` property to configuration object, but for out example we can stick with default.
+
+Lets take the exported json files and put them into the i18n directory placed as a sibling of our html file:
+```
+├── i18n
+│   ├── cs.json
+│   └── en.json
+├── index.html
+```
+
+That's it! Our app is ready for production. Here is a final HTML page:
+```html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>hello world</title>
+</head>
+<body>
+    <h1>{{hello_world}}</h1>
+</body>
+<script src="https://unpkg.com/@polygloat/core"></script>
+<script src="https://unpkg.com/@polygloat/ui"></script>
+<script>
+const pg = new window["@polygloat/core"].Polygloat({
+    inputPrefix: "{{",
+    inputSuffix: "}}",
+    watch: true,
+});
+pg.run();
+</script>
+</html>
+```
+Now you maybe wish to [add loading overlay](get_started/adding_loading_overlay.mdx), to make untranslated texts invisible.
