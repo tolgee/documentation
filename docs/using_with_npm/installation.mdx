@@ -4,3 +4,71 @@ title: Installation
 sidebar_label: Installation
 slug: using_with_npm/installation
 ---
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
+
+To install Polygloat run:
+<Tabs
+    defaultValue="npm"
+    values={[
+        {label: 'npm', value: 'npm',},
+        {label: 'yarn', value: 'yarn'},
+    ]
+    }>
+<TabItem value="npm">
+
+```shell
+npm install @polygloat/core --save
+```
+
+</TabItem>
+<TabItem value="yarn">
+
+```shell
+yarn add @polygloat/core
+```
+
+</TabItem>
+</Tabs>
+
+To install UI bundle for in-context translating, you will also need to install package `@polygloat/ui`.
+
+<Tabs
+    defaultValue="npm"
+    values={[
+        {label: 'npm', value: 'npm'},
+        {label: 'yarn', value: 'yarn'},
+    ]
+    }>
+<TabItem value="npm">
+
+```shell
+npm install @polygloat/ui --save
+```
+
+</TabItem>
+<TabItem value="yarn">
+
+```shell
+yarn add @polygloat/ui
+```
+
+</TabItem>
+</Tabs>
+
+After installing packages you can use it like this:
+
+```javascript
+import {Polygloat} from "@polygloat/core";
+import {UI} from "@polygloat/ui";
+
+const pg = new Polygloat({
+    apiKey: "your_api_key",
+    apiUrl: "https://app.polygloat.io",
+    ui: UI
+})
+
+pg.run();
+```
+
+Then you can use polygloat instance the same way as described in [translating programmatically](get_started/translating_programmatically.mdx).

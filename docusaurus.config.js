@@ -1,18 +1,19 @@
 module.exports = {
     title: 'Polygloat',
-    tagline: 'Dead simple localization!',
+    tagline: 'The localization framework',
     url: 'https://polygloat.io',
     baseUrl: '/',
     onBrokenLinks: 'throw',
     favicon: 'img/favicon.svg',
-    organizationName: 'facebook', // Usually your GitHub org/user name.
-    projectName: 'docusaurus', // Usually your repo name.
+    organizationName: 'polygloat', // Usually your GitHub org/user name.
+    projectName: 'Polygloat', // Usually your repo name.
     themeConfig: {
         navbar: {
             title: 'Polygloat',
             logo: {
                 alt: 'Polygloat',
                 src: 'img/polygloatLogo.svg',
+                srcDark: 'img/polygloatLogoDark.svg',
             },
             items: [
                 {

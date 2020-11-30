@@ -12,6 +12,10 @@ module.exports = {
             ]
         },
         {
+            id: "understanding_polygloat",
+            type: "doc"
+        },
+        {
             label: "Using with npm", type: "category", items: [
                 'using_with_npm/installation',
             ]

@@ -27,7 +27,6 @@ export default function Layout(props) {
             >
                 <OriginalLayout {...props} />
             </PolygloatProvider>
-
         </>
     );
 }

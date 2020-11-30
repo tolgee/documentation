@@ -1,6 +1,88 @@
 ---
 id: installation
-title: installation
-sidebar_label: installation
+title: Installation
+sidebar_label: Installation
 slug: using_with_react/installation
 ---
+
+To get full image of working React integration check our [React example application](https://github.com/polygloat/react-sampleapp).
+To install Polygloat React integration, run:
+
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
+
+<Tabs
+    defaultValue="npm"
+    values={[
+        {label: 'npm', value: 'npm',},
+        {label: 'yarn', value: 'yarn'},
+    ]
+    }>
+<TabItem value="npm">
+
+```shell
+npm install @polygloat/react --save
+```
+
+</TabItem>
+<TabItem value="yarn">
+
+```shell
+yarn add @polygloat/react
+```
+
+</TabItem>
+</Tabs>
+
+To install UI bundle for in-context translating, you will also need to install package `@polygloat/ui`.
+
+<Tabs
+    defaultValue="npm"
+    values={[
+        {label: 'npm', value: 'npm'},
+        {label: 'yarn', value: 'yarn'},
+    ]
+    }>
+<TabItem value="npm">
+
+```shell
+npm install @polygloat/ui --save
+```
+
+</TabItem>
+<TabItem value="yarn">
+
+```shell
+yarn add @polygloat/ui
+```
+
+</TabItem>
+</Tabs>
+
+First of all you will need to wrap your application with `PolygloatProvider` component.
+
+```javascript
+import {PolygloatProvider} from "@polygloat/react";
+import {UI} from "@polygloat/ui";
+
+...
+
+<PolygloatProvider
+    filesUrlPrefix="i18n/"
+    apiUrl={process.env.REACT_APP_POLYGLOAT_API_URL}
+    apiKey={process.env.REACT_APP_POLYGLOAT_API_KEY}
+    ui={process.env.REACT_APP_POLYGLOAT_API_KEY === "true" && UI}
+>
+    <Your app components>
+</PolygloatProvider>
+```
+
+If you bootstrapped your application with Create React App, your .env file should look like this:
+
+```shell
+REACT_APP_POLYGLOAT_API_URL=https://app.polygloat.io
+REACT_APP_POLYGLOAT_API_KEY=bkcq7tkoinjg9ehk9hc4t3duq3
+REACT_APP_POLYGLOAT_WITH_UI=true
+```
+
+Otherwise, you can set the properties directly, or you can use plugins like [dotenv-webpack plugin](https://www.npmjs.com/package/dotenv-webpack).
