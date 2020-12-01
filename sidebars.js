@@ -39,7 +39,7 @@ module.exports = {
             ]
         },
         {
-            label: "Using web application", type: "category", items: [
+            label: "Using Polygloat App", type: "category", items: [
                 'web_app/creating_repository',
                 'web_app/obtaining_api_key',
                 'web_app/exporting_translations'

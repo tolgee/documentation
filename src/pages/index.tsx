@@ -13,7 +13,7 @@ const features = [
         imageUrl: 'img/undraw_social_strategy_1wuq.svg',
         description: (
             <T>
-                Let your colleagues or translators edit the translation strings directly in the app you develop!
+                Let your colleagues or translators edit the translation strings directly in the App you develop!
             </T>
         ),
     },
@@ -31,7 +31,7 @@ const features = [
         imageUrl: 'img/undraw_segment_uwu1.svg',
         description: (
             <T>
-                Manage your localization string using simple web application!
+                Manage your localization strings using simple web application!
             </T>
         ),
     },
@@ -86,17 +86,35 @@ function Home() {
                 </div>
             </header>
             <main>
-                    {features && features.length > 0 && (
-                        <section className={styles.features}>
-                            <div className="container">
-                                <div className="row">
-                                    {features.map((props, idx) => (
-                                        <Feature key={idx} {...props} />
-                                    ))}
+                {features && features.length > 0 && (
+                    <section className={styles.features}>
+                        <div className="container">
+                            <div className="row">
+                                {features.map((props, idx) => (
+                                    <Feature key={idx} {...props} />
+                                ))}
+                            </div>
+                        </div>
+                    </section>
+                )}
+                <section className="hero">
+                    <div className="container">
+                        <div className="row">
+                            <div className="col col--12" style={{display: "flex", alignItems: "center", justifyContent: "center"}}>
+                                <div>
+                                    <h1 className="hero__title">It is Open Source!</h1>
+                                    <p className="hero__subtitle">Yes, Polygloat is free to use and it's very simple to deploy it locally or
+                                        on your private infrastructure.
+                                    </p>
+                                    <Link
+                                        to={useBaseUrl('docs/running_server/running_with_docker')}>
+                                        Let's go!
+                                    </Link>
                                 </div>
                             </div>
-                        </section>
-                    )}
+                        </div>
+                    </div>
+                </section>
             </main>
         </Layout>
     );

@@ -3,7 +3,7 @@ import OriginalNavbarItem from '@theme-original/NavbarItem';
 import {T} from "../component/polygloat";
 
 export default function NavbarItem(props) {
-    const newProps = {...props, label: <T>{`Header - ${props.label}`}</T>}
+    const newProps = props;//{...props, label: <T>{`Header - ${props.label}`}</T>}
     return (
         <>
             <OriginalNavbarItem {...newProps} />

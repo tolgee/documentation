@@ -5,8 +5,8 @@ module.exports = {
     baseUrl: '/',
     onBrokenLinks: 'throw',
     favicon: 'img/favicon.svg',
-    organizationName: 'polygloat', // Usually your GitHub org/user name.
-    projectName: 'Polygloat', // Usually your repo name.
+    organizationName: 'polygloat',
+    projectName: 'Polygloat',
     themeConfig: {
         navbar: {
             title: 'Polygloat',
@@ -41,6 +41,22 @@ module.exports = {
                             label: 'Motivation',
                             to: 'docs/',
                         },
+                        {
+                            label: 'Get Started',
+                            to: 'docs/get_started/hello_world',
+                        },
+                        {
+                            label: 'Using with React',
+                            to: 'docs/using_with_react/installation',
+                        },
+                        {
+                            label: 'Running server',
+                            to: 'docs/running_server/running_with_docker',
+                        },
+                        {
+                            label: 'Using Polygloat App',
+                            to: 'docs/web_app',
+                        },
                     ],
                 },
                 {
@@ -50,6 +66,14 @@ module.exports = {
                             label: 'GitHub',
                             href: 'https://github.com/polygloat',
                         },
+                        {
+                            label: 'Docker Hub',
+                            href: "https://hub.docker.com/orgs/polygloat"
+                        },
+                        {
+                            label: "Npm",
+                            href: "https://www.npmjs.com/org/polygloat"
+                        }
                     ],
                 },
                 {
@@ -63,6 +87,18 @@ module.exports = {
                             label: 'Go to App',
                             href: 'https://app.polygloat.io',
                         },
+                        {
+                            label: 'Facebook @polygloatLocalization',
+                            href: 'https://www.facebook.com/polygloatLocalization'
+                        },
+                        {
+                            label: "Twitter @polygloatLoc",
+                            href: "https://twitter.com/PolygloatLoc"
+                        },
+                        {
+                            label: "Linked in",
+                            href: "https://www.linkedin.com/company/polygloat"
+                        }
                     ],
                 },
             ],
