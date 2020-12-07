@@ -15,8 +15,10 @@
     --ifm-color-primary-lighter: #5496e8;
     --ifm-color-primary-lightest: #7fb0ee;
     --ifm-code-font-size: 95%;
+    --ifm-colour-background-purple: #3a2df3;
 }
 
+/*noinspection CssUnresolvedCustomProperty*/
 .docusaurus-highlight-code-line {
     background-color: rgb(72, 77, 91);
     display: block;
@@ -29,4 +31,29 @@
     color: var(--ifm-color-primary-lightest);
     border-radius: 15px;
     margin-right: 15px;
+}
+
+.header {
+    background: linear-gradient(45deg, var(--ifm-color-primary-lighter), var(--ifm-color-primary-dark), var(--ifm-color-primary-lighter));
+    background-size: 400% 400%;
+
+    -webkit-animation: BackgroundAnimation 20s ease infinite;
+    -moz-animation: BackgroundAnimation 20s ease infinite;
+    animation: BackgroundAnimation 20s ease infinite;
+}
+
+@-webkit-keyframes BackgroundAnimation {
+    0%{background-position:0 14%}
+    50%{background-position:100% 87%}
+    100%{background-position:0 14%}
+}
+@-moz-keyframes BackgroundAnimation {
+    0%{background-position:0 14%}
+    50%{background-position:100% 87%}
+    100%{background-position:0 14%}
+}
+@keyframes BackgroundAnimation {
+    0%{background-position:0 14%}
+    50%{background-position:100% 87%}
+    100%{background-position:0 14%}
 }

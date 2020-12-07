@@ -4,3 +4,17 @@ title: Running with Java
 sidebar_label: Running with Java
 slug: running_server/running_with_java
 ---
+
+To run Polygloat server using java download the latest release from
+[github](https://github.com/polygloat/server/releases).
+
+Then you can run it with:
+```
+java -jar polygloat-<version>.jar
+```
+
+By default, server is exposed on port 8080. To change this you can set `server.port` to different value.
+```
+java -jar polygloat-<version>.jar --server.port=80
+```
+See [configuration](docs/running_server/configuration.mdx) page for other configuration options.

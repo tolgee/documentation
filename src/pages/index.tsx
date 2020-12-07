@@ -55,12 +55,13 @@ function Feature({imageUrl, title, description}) {
 function Home() {
     const context = useDocusaurusContext();
     const {siteConfig = {}} = context;
+    // noinspection HtmlUnknownTarget
     return (
         <Layout
             title={`${siteConfig.title}`}
             description="Description will go into a meta tag in <head />">
 
-            <header className={clsx('hero hero--primary', styles.heroBanner)}>
+            <header className={clsx('hero hero--primary header', styles.heroBanner)}>
                 <div className="container">
                     <div className="row">
                         <div className="col col--6">

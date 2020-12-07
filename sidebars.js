@@ -9,14 +9,15 @@ module.exports = {
                 'get_started/preparing_for_production',
                 'get_started/adding_loading_overlay',
                 'get_started/translating_programmatically'
-            ]
+            ],
+            collapsed: false
         },
         {
             id: "understanding_polygloat",
             type: "doc"
         },
         {
-            label: "Using with npm", type: "category", items: [
+            label: "Using with Npm", type: "category", items: [
                 'using_with_npm/installation',
             ]
         },
@@ -24,7 +25,8 @@ module.exports = {
             label: "Using with React", type: "category", items: [
                 'using_with_react/installation',
                 'using_with_react/translating'
-            ]
+            ],
+            collapsed: false
         },
         {
             label: "Using with Angular", type: "category", items: [
@@ -36,6 +38,7 @@ module.exports = {
             label: "Running server", type: "category", items: [
                 'running_server/running_with_docker',
                 'running_server/running_with_java',
+                'running_server/configuration',
             ]
         },
         {
