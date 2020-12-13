@@ -6,7 +6,7 @@ slug: /using_with_react/installation
 ---
 
 To get full image of working React integration check our [React example application](https://github.com/polygloat/react-sampleapp).
-To install Polygloat React integration, run:
+To install Polygloat React integration run:
 
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
@@ -34,7 +34,7 @@ yarn add @polygloat/react
 </TabItem>
 </Tabs>
 
-To install UI bundle for in-context translating, you will also need to install package `@polygloat/ui`.
+To install UI bundle for in-context translating you will also need to install package `@polygloat/ui`.
 
 <Tabs
     defaultValue="npm"
@@ -59,7 +59,7 @@ yarn add @polygloat/ui
 </TabItem>
 </Tabs>
 
-First of all you will need to wrap your application with `PolygloatProvider` component.
+First of all, you will need to wrap your application with `PolygloatProvider` component.
 
 ```javascript
 import {PolygloatProvider} from "@polygloat/react";
@@ -85,4 +85,4 @@ REACT_APP_POLYGLOAT_API_KEY=bkcq7tkoinjg9ehk9hc4t3duq3
 REACT_APP_POLYGLOAT_WITH_UI=true
 ```
 
-Otherwise, you can set the properties directly, or you can use plugins like [dotenv-webpack plugin](https://www.npmjs.com/package/dotenv-webpack).
+Otherwise, you can set the properties directly or you can use plugins like [dotenv-webpack plugin](https://www.npmjs.com/package/dotenv-webpack).

@@ -9,18 +9,18 @@ To work with Polygloat properly you should be familiar with basic Polygloat conc
 
 ## Modes
 
-Polygloat work in two modes - development and production.
+Polygloat works in two modes: development and production.
 
 ### Development mode
-Users, who access the page are able to change localization texts in-context in development mode. To achieve this, Polygloat
-needs to identify what texts in [DOM](https://developer.mozilla.org/en-US/docs/Web/API/Document_Object_Model/Introduction)
+Users, who access the page are able to change localization text in-context in development mode. To achieve this, Polygloat
+needs to identify which text in [DOM](https://developer.mozilla.org/en-US/docs/Web/API/Document_Object_Model/Introduction)
 should be translated. Polygloat basically checks specific DOM subtree on every change and looks for translations keys
-wrapped in strings provided by configuration properties `inputPrefix` and `inputSuffix`. This is reason, why wrapped keys
+wrapped in strings provided by configuration properties `inputPrefix` and `inputSuffix`. This is the reason why wrapped keys
 and params are returned from `translate` and `instant` functions in development mode.
 
 ### Production mode
-On the other hand in production mode, `translate` and `instant` methods return the translated texts directly.
-Polygloat is unable to change the occurrences anymore. When language change, you should
+On the contrary in production mode, `translate` and `instant` methods return the translated text directly.
+Polygloat is unable to change the occurrences anymore. When language changes, you should
 rerender every translated text manually. However, our integrations for React and Angular handle this out of the box.
 
 ## Key and parameters wrapping
@@ -30,7 +30,7 @@ In development mode Polygloat wraps every key and it's params into a specific fo
 <inputPrefix><translationKey>:[<param1>:<value1>,...,,<paramN>:<valueN>]<inputSuffix>
 ```
 
-For example
+For example:
 ```javascript
 polygloat.instant("peter_has_n_dogs", {dogsCount: "5"});
 ```
