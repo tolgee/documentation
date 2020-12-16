@@ -26,4 +26,4 @@ jobs:
           username: github
           key: ${{ secrets.DEPLOYMENT_SSH_KEY }}
           source: "build/*"
-          target: "/data/polygloat/deployment_test/."
+          target: "/data/polygloat/website/."

@@ -1,0 +1,69 @@
+---
+id: running_with_docker
+title: Running with Docker
+sidebar_label: Running with Docker
+slug: /running_server/running_with_docker
+---
+
+## Running it locally
+To run server locally, you should be fine just with running simple docker image with mounted data volume. By default
+polygloat is using H2 database to store the data, so you don't need another database to run it.
+
+```
+docker run -v polygloat_data:/data/ -p 8085:8080 \
+-e polygloat.authentication.enabled=false \
+polygloat/polygloat
+```
+
+This will:
+ - mount polygloat_db image into it's directory inside the container
+ - exposes polygloat container port on port 8085
+ - disables authentication
+ - runs the image!
+
+Now you should be able to access Polygloat web application on [http://localhost:8085](http://localhost:8085)
+
+## Running with compose
+To run it on company infrastructure it is better to use some more optimized database system. Polygloat supports PostgreSQL.
+You can run it using docker-compose.
+To start lets create and enter a folder to store Polygloat related files:
+```
+mkdir polygloat && cd polygloat
+```
+
+Create a file named `docker-compose.yml` containing following content.
+```yaml title="docker-compose.yml"
+version: '3'
+
+services:
+  db:
+    image: postgres:11
+    environment:
+      - POSTGRES_PASSWORD=postgres
+  app:
+    image: polygloat/polygloat
+    volumes:
+     - ./data:/data
+    ports:
+      - "8090:8080"
+    env_file:
+      - .env
+    depends_on:
+      - "db"
+```
+
+To provide a configuration, add following .env file.
+```properties title=".env"
+spring.datasource.url=jdbc:postgresql://db:5432/postgres
+spring.datasource.username=postgres
+spring.datasource.password=postgres
+```
+Similarly, you can define other [configuration properties](running_server/configuration.mdx).
+
+Your initial username is `admin`. Initial password is automatically generated and stored in /data/initial.pwd file in the
+polygloat container. You can print it by executing this:
+```
+cat data/initial.pwd
+```
+
+The is now accessible on [http://localhost:8090](http://localhost:8090).
