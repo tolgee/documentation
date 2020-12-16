@@ -19,12 +19,12 @@ jobs:
       - run: npm run build
         env:
           CI: true
-      - uses: garygrossgarten/github-action-scp@release
+      - uses: nogsantos/scp-deploy@master
         name: Publish (deploy)
         with:
           host: polygloat.io
-          username: github
-          privateKey: ${{ secrets.DEPLOYMENT_SSH_KEY }}
-          overwrite: true
-          local: "build"
+          user: github
+          port: 22
+          key: ${{ secrets.DEPLOYMENT_SSH_KEY }}
+          src: "./build/*"
           remote: "/data/polygloat/website"
