@@ -1,0 +1,123 @@
+---
+id: configuration
+title: Server configuration
+sidebar_label: Configuration
+slug: /running_server/configuration
+---
+
+As server is based on Spring framework, it follows its configuration standards. You can provide configuration properties
+as command line arguments when you run Polygloat with `java -jar` command or as environment variables.
+
+## server.port
+Port on which Polygloat exposes itself (default: `8080`)
+
+## Polygloat
+Configuration specific to Polygloat
+### polygloat.data-path
+Path to directory, where Polygloat stores its files. (default: `<user's home>/.polygloat/`, with docker `/data/`)
+
+## Authentication
+Prefix: `polygloat.authentication`
+
+### enabled
+Whether authentication is enabled. If not, Polygloat will create implicit user on first startup and will automatically log
+you in. No login page shows, no permissions are managed. This is very useful, when you want to use Polygloat on your local
+machine, or you just want to test it. (default: `true`)
+
+### jwtSecret
+Secret used to sign JWT authentication tokens with. It will be generated automatically, if not provided. (default: `null`).
+You will be fine with 64 characters long random string.
+
+### jwtExpiration
+Expiration time of generated JWT tokens in milliseconds. (default `604800000` = 7 days)
+
+### nativeEnabled
+Whether user credentials are stored in Polygloat's database. If you would like to use LDAP, set this to false. (default `true`)
+
+### registrationsAllowed
+Enable/disable sign ups into polygloat. (default: `false`)
+
+### createInitialUser
+If true, Polygloat creates initial user on first start-up. (default: `true`)
+
+### initialUsername
+Username of initial user. (default: `false`)
+
+## Github authentication properties
+Pefix: `polygloat.authentication.github`
+
+If you want to allow your users to login using github, set these configuration properties.
+### clientSecret
+Client secret obtained in github administration. (default: `null`)
+
+### clientId
+Client id obtained in github administration. (default: `null`) Github authentication can be used in combination
+with LDAP or native authentication.
+
+
+## SMTP properties
+To allow Polygloat to send emails to your users like password reset links or notifications, configure these properties.
+These properties are prefixed with `polygloat.smtp`.
+
+For AWS SES it would look like this:
+```
+polygloat.smtp.host=email-smtp.eu-central-1.amazonaws.com
+polygloat.smtp.username=*****************
+polygloat.smtp.password=*****************
+polygloat.smtp.port=465
+polygloat.smtp.auth=true
+polygloat.smtp.sslEnabled=true
+polygloat.smtp.from=Polygloat <no-reply@polygloat.yourserver.something>
+```
+
+### host
+Smtp host
+### username
+The username for smtp authentication
+### password
+Password for smtp authentication
+### port
+
+### auth
+Whether authentication is enabled. (default: `false`)
+### tlsEnabled
+Whether tls is enabled (default: `false`)
+### sslEnabled
+Whether sss is enabled (default: `false`)
+### tlsRequired
+Whether sss is required (default: `false`)
+### from
+The sender name and address in standard SMTP format.
+
+## LDAP authentication properties
+This feature is currently experimental! (prefix: polygloat.authentication.ldap)
+ - enabled
+ - port
+ - urls
+ - baseDn
+ - securityPrincipal
+ - principalPassword
+ - userDnPattern
+
+## `.env` example
+```
+#JAVA_OPTS="-Xms128m -Xmx1024m"
+########## JWT #############
+#polygloat.authentication.jwtSecret=...
+
+########## NATIVE
+#polygloat.auth.allow-registrations=false
+
+########## github oauth server
+#polygloat.authentication.github.client-secret=78b8922f155cf8d8093fc5717667dce91926fa05
+#polygloat.authentication.github.client-id=ec5047f79c53e578f05d
+
+######### SMTP ###########
+#polygloat.smtp.host=
+#polygloat.smtp.username=
+#polygloat.smtp.password=
+#polygloat.smtp.port=
+#polygloat.smtp.auth=
+#polygloat.smtp.sslEnabled=
+#polygloat.smtp.from=
+```
