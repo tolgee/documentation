@@ -1,4 +1,4 @@
-name: Build
+name: Deploy
 
 on:
   push:
@@ -25,5 +25,6 @@ jobs:
           host: polygloat.io
           username: github
           key: ${{ secrets.DEPLOYMENT_SSH_KEY }}
-          source: "build/*"
-          target: "/data/polygloat/deployment_test/."
+          overwrite: true
+          source: "build"
+          target: "/data/polygloat/website"
