@@ -3,7 +3,7 @@ name: Deploy
 on:
   push:
     branches:
-      - 'production'
+      - '!production'
 
 jobs:
   build:
@@ -19,12 +19,12 @@ jobs:
       - run: npm run build
         env:
           CI: true
-      - uses: appleboy/scp-action@master
+      - uses: garygrossgarten/github-action-scp@release
         name: Publish (deploy)
         with:
           host: polygloat.io
           username: github
-          key: ${{ secrets.DEPLOYMENT_SSH_KEY }}
+          privateKey: ${{ secrets.DEPLOYMENT_SSH_KEY }}
           overwrite: true
-          source: "build"
-          target: "/data/polygloat/website"
+          local: "build"
+          remote: "/data/polygloat/website"
