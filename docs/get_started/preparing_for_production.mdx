@@ -10,7 +10,7 @@ In production environment, you should never leak your API key. In-context locali
 
 :::warning
 
-Never leak your API key! We strongly recommend not to add API key into git repository.
+Never leak your API key! We strongly recommend against adding API key into git repository.
 
 :::
 
@@ -28,7 +28,7 @@ our [hello world example](hello_world.mdx), production configuration object will
 }
 ```
 
-In production mode are `apiUrl` and `ui` properties useless as we don't allow anybody to change our translations in the app accessible from the outside world.
+In production mode, `apiUrl` and `ui` properties are useless as we don't allow anybody to change our translations in the app accessible from the outside world.
 We can also remove the `script` tag importing polygloat UI.
 
 Next, we should add exported translations into some public path so Polygloat can reach them.

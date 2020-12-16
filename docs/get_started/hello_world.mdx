@@ -25,17 +25,17 @@ Let's start with simple html code:
 ```
 There is text `Hello world!` in the body, which we would like to translate.
 
-For loading Polygloat in your web application, it is as simple as including one dependency. To do so, we can simply use unpkg
+Loading Polygloat in your web application is as simple as including one dependency. To do so, we can simply use unpkg
 repository:
 ```html
 <script src="https://unpkg.com/@polygloat/core"></script>
 ```
 
-To translate your text interactively, you will need one more dependency.
+To translate your content interactively, you will need one more dependency.
 ```html
 <script src="https://unpkg.com/@polygloat/ui"></script>
 ```
-This dependency is Polygloat's UI so dialog can appear when you **ALT + click** on your translation.
+This dependency is Polygloat's UI so dialog can appear when you **ALT + click** your translation.
 
 Now it's time to configure. To do so just create an instance of it. Polygloat's constructor
 accepts configuration object as a parameter.
@@ -60,7 +60,7 @@ In configuration object you can specify many other parameters, but in this examp
 - **watch** - parameter defining whether Polygloat should watch for changes in the DOM and update translations
 - **ui** - constructor of Polygloat's UI to render interactive translation modal window
 
-After that you create the instance you need to wrap the text **Hello world!** with your `inputPrefix` and `inputSuffix`.
+Afterwards you create the instance you need to wrap the text **Hello world!** with your `inputPrefix` and `inputSuffix`.
 
 ```html
 <body>
@@ -103,5 +103,5 @@ pg.run().then(() => {
 </script>
 </html>
 ```
-After opening this document in a browser you should be able to `ALT + click` on your text and translate it directly.
+After opening this document in a browser you should be able to `ALT + click` your text and translate it directly.
 After that you should see your translated version right away!
