@@ -2,6 +2,7 @@ name: Build
 
 on:
   push:
+    - "!production"
   pull_request:
 
 jobs:
