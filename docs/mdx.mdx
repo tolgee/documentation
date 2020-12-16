@@ -2,10 +2,13 @@
 id: mdx
 title: Powered by MDX
 ---
+import {T} from "../src/component/polygloat";
 
 You can write JSX and use React components within your Markdown thanks to [MDX](https://mdxjs.com/).
 
-import {T} from "polygloat-react";
+//import {T} from "polygloat-react";
+
+const T = ({children}) => <>{children}</>
 
 export const Highlight = ({children, color}) => ( <span style={{
       backgroundColor: color,
