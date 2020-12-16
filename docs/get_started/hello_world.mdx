@@ -6,7 +6,7 @@ slug: /get_started/hello_world
 ---
 
 Polygloat can be used in any web application. It is completely framework independent. There are prepared packages for
-React and Angular, but first of all let's look on simple application without any framework.
+React and Angular. But first of all, let's look on simple application without any framework.
 
 Check out our [example application on github](https://github.com/polygloat/window-example)
 
@@ -23,21 +23,21 @@ Let's start with simple html code:
 </body>
 </html>
 ```
-There is text `Hello world!` in the body, what we would like to translate.
+There is text `Hello world!` in the body, which we would like to translate.
 
-To load Polygloat in your web application, it is as simple as including one dependency. To do so, we can simply use unpkg
+Loading Polygloat in your web application is as simple as including one dependency. To do so, we can simply use unpkg
 repository:
 ```html
 <script src="https://unpkg.com/@polygloat/core"></script>
 ```
 
-To translate your texts interactively, you will need one more dependency.
+To translate your content interactively, you will need one more dependency.
 ```html
 <script src="https://unpkg.com/@polygloat/ui"></script>
 ```
-This dependency is Polygloat's UI, so dialog can appear, when you **ALT + click** your translation.
+This dependency is Polygloat's UI so dialog can appear when you **ALT + click** your translation.
 
-Now it's time to configure! To do so, create an instance of it. Polygloat's constructor
+Now it's time to configure. To do so just create an instance of it. Polygloat's constructor
 accepts configuration object as a parameter.
 ```html
 <script>
@@ -53,14 +53,14 @@ const pg = new window["@polygloat/core"].Polygloat({
 ```
 In configuration object you can specify many other parameters, but in this example we stick with:
 - **apiUrl** - url of the api, where we are saving the data
-- **apiKey**, what you can obtain in the [app](https://app.polygloat.io) or in your self hosted app by following
+- **apiKey** - which you can obtain in the [app](https://app.polygloat.io) or in your self-hosted app by following
 [this documentation page](web_app/obtaining_api_key.mdx)
 - **inputPrefix** - character sequence which appears before the text you wish to translate
-- **inputPrefix** - character sequence which appears after the text you wish to translate
-- **watch** - whether Polygloat should watch for changes in the DOM and update translations
+- **inputSuffix** - character sequence which appears after the text you wish to translate
+- **watch** - parameter defining whether Polygloat should watch for changes in the DOM and update translations
 - **ui** - constructor of Polygloat's UI to render interactive translation modal window
 
-After you create the instance, you need to wrap the text **Hello world!** with your `inputPrefix` and `inputSuffix`.
+Afterwards you create the instance you need to wrap the text **Hello world!** with your `inputPrefix` and `inputSuffix`.
 
 ```html
 <body>
@@ -74,7 +74,7 @@ Finally, lets run the beast!
 pg.run().then(() => {})
 ```
 
-So you should end with this HTML document:
+You should end with this HTML document:
 ```html
 <!DOCTYPE html>
 <html lang="en">
@@ -103,5 +103,5 @@ pg.run().then(() => {
 </script>
 </html>
 ```
-After opening this document in a browser you should be able to `ALT + click` your text and translate it.
+After opening this document in a browser you should be able to `ALT + click` your text and translate it directly.
 After that you should see your translated version right away!

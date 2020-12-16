@@ -17,7 +17,7 @@ import {T} from "@polygloat/react";
 <T>translation_key</T>
 ```
 
-To pass parameters parameters just assign parameters property.
+To pass parameters just assign parameters property.
 
 ```jsx
 <T parameters={{param: "value"}}>text_with_params</T>
@@ -25,13 +25,13 @@ To pass parameters parameters just assign parameters property.
 
 For translated text `This is {{param}} of the text` it will result in `This is value of the text`.
 
-To skip key wrapping in translation mode use T component with noWrap param such as:
+To skip key wrapping in translation mode use `T` component with noWrap param such as:
 
 ```jsx
 <T parameters={{param: "value"}} noWrap={true}>text_with_params</T>
 ```
 
-This will prevent any possible problems with Polygloat's wrapping technology, but you won't be able use in-contexts
+This will prevent any possible problems with Polygloat's wrapping technology but you won't be able use in-contexts
 translation feature for this particular occurrence.
 
 Other option how to translate is using of `useTranslate` hook. You can use it this way:
@@ -53,10 +53,10 @@ t("key_to_translate")
 ```javascript
 t("key_to_translate", {param: "value"});
 ```
-or noWrap parameter as 3rd parameter
+or noWrap parameter as third parameter:
 ```javascript
 t("key_to_translate", {}, true);
 ```
 
-More complex codebase showing usage of Polygloat React integration check
+For more complex codebase showing usage of Polygloat React integration check
 [React example application](https://github.com/polygloat/react-sampleapp).

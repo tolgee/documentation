@@ -6,7 +6,7 @@ slug: /get_started/adding_loading_overlay
 ---
 
 As Polygloat loads the localization files from REST API or from provided localization files, user could
-see untranslated texts with their wrappers such as `{{helo_world}}`, what isn't quiet nice. To avoid this behaviour we can
+see untranslated texts with their wrappers such as `{{helo_world}}` which is not what you really want. To avoid this behaviour we can
 add a loading overlay and remove it when translations load.
 
 To do so add to your page some overlaying div like this:
@@ -25,9 +25,9 @@ To do so add to your page some overlaying div like this:
 </div>
 ```
 In a real page you should probably put your styles in separate style file or at least into `<style>` tag.
-For simplicity, I will stick with inline styles.
+For the demonstration, I will stick with inline styles.
 
-This div will cover all visible content, so user won't see anything else. This code makes it disappear in the right time:
+This div will cover all visible content so user won't see anything else. This code makes it disappear in the right time:
 ```javascript
 pg.run().then(() => {
     document.getElementById("loading").style.display = "none";
