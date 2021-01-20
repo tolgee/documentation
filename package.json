@@ -14,7 +14,7 @@
     "@docusaurus/preset-classic": "2.0.0-alpha.65",
     "@mdx-js/react": "^1.5.8",
     "@polygloat/react": "^1.0.0-alpha.3",
-    "@polygloat/ui": "^1.0.0-alpha.2",
+    "@polygloat/ui": "^1.0.0-alpha.21",
     "clsx": "^1.1.1",
     "docusaurus2-dotenv": "^1.4.0",
     "react": "^16.14.0",
