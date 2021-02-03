@@ -5,6 +5,7 @@ module.exports = {
     baseUrl: '/',
     onBrokenLinks: 'throw',
     favicon: 'img/favicon.svg',
+    onBrokenMarkdownLinks: 'warn',
     organizationName: 'polygloat',
     projectName: 'Polygloat',
     themeConfig: {
@@ -136,6 +137,6 @@ module.exports = {
         'docusaurus2-dotenv',
     ],
     stylesheets: [
-        'font.css'
+        '/font.css'
     ],
 };

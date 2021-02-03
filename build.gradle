@@ -1,5 +1,3 @@
-import io.polygloat.node.PolygloatNodePlugin
-
 idea {
     module {
         excludeDirs += file('node_modules')
@@ -7,11 +5,3 @@ idea {
         excludeDirs += file('.docusaurus')
     }
 }
-
-apply plugin: PolygloatNodePlugin
-
-polygloatNpm {
-    library = false
-    linkablePackages = ["@polygloat/core", "polygloat-react"]
-}
-

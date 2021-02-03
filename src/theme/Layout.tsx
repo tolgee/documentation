@@ -1,7 +1,7 @@
 import OriginalLayout from '@theme-original/Layout';
 import React, {useEffect, useState} from 'react';
-import {PolygloatProvider} from "../component/polygloat";
-import {UI} from "@polygloat/ui";
+//import {PolygloatProvider} from "../component/polygloat";
+//import {UI} from "@polygloat/ui";
 
 // noinspection JSUnusedGlobalSymbols
 export default function Layout(props) {
