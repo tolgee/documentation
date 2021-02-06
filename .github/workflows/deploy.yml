@@ -19,12 +19,20 @@ jobs:
       - run: npm run build
         env:
           CI: true
-      - uses: nogsantos/scp-deploy@master
-        name: Publish (deploy)
+
+      - name: Build & Publish docker images
+        run: |
+          docker build -t docker.dev.tolgee.io/documentation:latest -f docker/Dockerfile .
+          docker login docker.dev.tolgee.io -u github -p $DOCKER_REGISTRY_PASSWORD
+          docker tag docker.dev.tolgee.io/documentation:latest docker.dev.tolgee.io/documentation:production
+          docker push --all-tags
+        env:
+          DOCKER_REGISTRY_PASSWORD: ${{ secrets.DOCKER_REGISTRY_PASSWORD }}
+
+      - name: Deploy
+        uses: steebchen/kubectl@master
+        env:
+          KUBE_CONFIG_DATA: ${{ secrets.KUBERNETES_SERVICE_CONFIG }}
+          KUBECTL_VERSION: "1.19"
         with:
-          host: polygloat.io
-          user: github
-          port: 22
-          key: ${{ secrets.DEPLOYMENT_SSH_KEY }}
-          src: "./build/*"
-          remote: "/data/polygloat/website"
+          args: '"rollout restart deployment/tolgee-website-deployment"'

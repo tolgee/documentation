@@ -10,7 +10,7 @@ There are several ways how to translate a text using our React integration.
 First way is the 'T' component. You can use it like this:
 
 ```jsx
-import {T} from "@polygloat/react";
+import {T} from "@tolgee/react";
 
 ...
 
@@ -31,13 +31,13 @@ To skip key wrapping in translation mode use `T` component with noWrap param suc
 <T parameters={{param: "value"}} noWrap={true}>text_with_params</T>
 ```
 
-This will prevent any possible problems with Polygloat's wrapping technology but you won't be able use in-contexts
+This will prevent any possible problems with Tolgee's wrapping technology but you won't be able use in-contexts
 translation feature for this particular occurrence.
 
 Other option how to translate is using of `useTranslate` hook. You can use it this way:
 
 ```javascript
-import {useTranslate} from "@polygloat/react";
+import {useTranslate} from "@tolgee/react";
 
 ...
 
@@ -58,5 +58,5 @@ or noWrap parameter as third parameter:
 t("key_to_translate", {}, true);
 ```
 
-For more complex codebase showing usage of Polygloat React integration check
-[React example application](https://github.com/polygloat/react-sampleapp).
+For more complex codebase showing usage of Tolgee React integration check
+[React example application](https://github.com/tolgee/react-sampleapp).

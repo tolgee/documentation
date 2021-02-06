@@ -7,7 +7,7 @@ slug: using_with_npm/installation
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-To install Polygloat run:
+To install Tolgee run:
 <Tabs
     defaultValue="npm"
     values={[
@@ -18,20 +18,20 @@ To install Polygloat run:
 <TabItem value="npm">
 
 ```shell
-npm install @polygloat/core --save
+npm install @tolgee/core --save
 ```
 
 </TabItem>
 <TabItem value="yarn">
 
 ```shell
-yarn add @polygloat/core
+yarn add @tolgee/core
 ```
 
 </TabItem>
 </Tabs>
 
-To install UI bundle for in-context translating you will also need to install package `@polygloat/ui`.
+To install UI bundle for in-context translating you will also need to install package `@tolgee/ui`.
 
 <Tabs
     defaultValue="npm"
@@ -43,14 +43,14 @@ To install UI bundle for in-context translating you will also need to install pa
 <TabItem value="npm">
 
 ```shell
-npm install @polygloat/ui --save
+npm install @tolgee/ui --save
 ```
 
 </TabItem>
 <TabItem value="yarn">
 
 ```shell
-yarn add @polygloat/ui
+yarn add @tolgee/ui
 ```
 
 </TabItem>
@@ -59,16 +59,16 @@ yarn add @polygloat/ui
 After installing packages you can use it like this:
 
 ```javascript
-import {Polygloat} from "@polygloat/core";
-import {UI} from "@polygloat/ui";
+import {Tolgee} from "@tolgee/core";
+import {UI} from "@tolgee/ui";
 
-const pg = new Polygloat({
+const pg = new Tolgee({
     apiKey: "your_api_key",
-    apiUrl: "https://app.polygloat.io",
+    apiUrl: "https://app.tolgee.io",
     ui: UI
 })
 
 pg.run();
 ```
 
-Then you can use Polygloat instance the same way as described in [translating programmatically](get_started/translating_programmatically.mdx).
+Then you can use Tolgee instance the same way as described in [translating programmatically](get_started/translating_programmatically.mdx).

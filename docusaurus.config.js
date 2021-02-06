@@ -1,20 +1,20 @@
 module.exports = {
-    title: 'Polygloat',
+    title: 'Tolgee',
     tagline: 'The localization framework',
-    url: 'https://polygloat.io',
+    url: 'https://tolgee.io',
     baseUrl: '/',
     onBrokenLinks: 'throw',
     favicon: 'img/favicon.svg',
     onBrokenMarkdownLinks: 'warn',
-    organizationName: 'polygloat',
-    projectName: 'Polygloat',
+    organizationName: 'tolgee',
+    projectName: 'Tolgee',
     themeConfig: {
         navbar: {
-            title: 'Polygloat',
+            title: 'Tolgee',
             logo: {
-                alt: 'Polygloat',
-                src: 'img/polygloatLogo.svg',
-                srcDark: 'img/polygloatLogoDark.svg',
+                alt: 'Tolgee',
+                src: 'img/tolgeeLogo.svg',
+                srcDark: 'img/tolgeeLogoDark.svg',
             },
             items: [
                 {
@@ -25,7 +25,7 @@ module.exports = {
                 },
                 // {to: 'blog', label: 'Blog', position: 'left'},
                 {
-                    href: 'https://app.polygloat.io',
+                    href: 'https://app.tolgee.io',
                     label: 'Go to app',
                     position: 'right',
                     className: 'goToAppButton'
@@ -55,7 +55,7 @@ module.exports = {
                             to: 'docs/running_server/running_with_docker',
                         },
                         {
-                            label: 'Using Polygloat App',
+                            label: 'Using Tolgee App',
                             to: 'docs/web_app',
                         },
                     ],
@@ -65,15 +65,15 @@ module.exports = {
                     items: [
                         {
                             label: 'GitHub',
-                            href: 'https://github.com/polygloat',
+                            href: 'https://github.com/tolgee',
                         },
                         {
                             label: 'Docker Hub',
-                            href: "https://hub.docker.com/orgs/polygloat"
+                            href: "https://hub.docker.com/orgs/tolgee"
                         },
                         {
                             label: "Npm",
-                            href: "https://www.npmjs.com/org/polygloat"
+                            href: "https://www.npmjs.com/org/tolgee"
                         }
                     ],
                 },
@@ -86,28 +86,28 @@ module.exports = {
                         },*/
                         {
                             label: 'Go to App',
-                            href: 'https://app.polygloat.io',
+                            href: 'https://app.tolgee.io',
                         },
                         {
-                            label: 'Facebook @polygloatLocalization',
-                            href: 'https://www.facebook.com/polygloatLocalization'
+                            label: 'Facebook @tolgeeLocalization',
+                            href: 'https://www.facebook.com/tolgeeLocalization'
                         },
                         {
-                            label: "Twitter @polygloatLoc",
-                            href: "https://twitter.com/PolygloatLoc"
+                            label: "Twitter @tolgeeLoc",
+                            href: "https://twitter.com/TolgeeLoc"
                         },
                         {
                             label: "Linked in",
-                            href: "https://www.linkedin.com/company/polygloat"
+                            href: "https://www.linkedin.com/company/tolgee"
                         }
                     ],
                 },
             ],
-            copyright: `Copyright © ${new Date().getFullYear()} Polygloat`,
+            copyright: `Copyright © ${new Date().getFullYear()} Tolgee`,
         },
         algolia: {
             apiKey: '0502b545345a891c1ce24777bbed2fa9',
-            indexName: 'polygloat',
+            indexName: 'tolgee',
             searchParameters: {}, // Optional (if provided by Algolia)
         },
     },
@@ -119,13 +119,13 @@ module.exports = {
                     sidebarPath: require.resolve('./sidebars.js'),
                     // Please change this to your repo.
                     editUrl:
-                        'https://github.com/polygloat/documentation/tree/production',
+                        'https://github.com/tolgee/documentation/tree/production',
                 },
                 blog: {
                     showReadingTime: true,
                     // Please change this to your repo.
                     editUrl:
-                        'https://github.com/polygloat/documentation/tree/production',
+                        'https://github.com/tolgee/documentation/tree/production',
                 },
                 theme: {
                     customCss: require.resolve('./src/css/custom.css'),
