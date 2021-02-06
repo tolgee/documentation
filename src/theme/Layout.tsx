@@ -1,14 +1,14 @@
 import OriginalLayout from '@theme-original/Layout';
 import React, {useEffect, useState} from 'react';
-//import {PolygloatProvider} from "../component/polygloat";
-//import {UI} from "@polygloat/ui";
+//import {TolgeeProvider} from "../component/tolgee";
+//import {UI} from "@tolgee/ui";
 
 // noinspection JSUnusedGlobalSymbols
 export default function Layout(props) {
     //const [uiWrapped, setUiWrapped] = useState({ui: null} as { ui: typeof UI });
 
     /* useEffect(() => {
-         process.env.polygloatWithUI === "true" && import("@polygloat/ui").then(ui => {
+         process.env.tolgeeWithUI === "true" && import("@tolgee/ui").then(ui => {
              setUiWrapped({ui: ui.UI});
          });
      }, []);
@@ -19,14 +19,14 @@ export default function Layout(props) {
  */
     /* return (
          <>
-             <PolygloatProvider
-                 apiUrl={process.env.polygloatApiUrl}
-                 apiKey={process.env.polygloatApiKey}
-                 ui={process.env.polygloatWithUI === "true" && uiWrapped.ui}
+             <TolgeeProvider
+                 apiUrl={process.env.tolgeeApiUrl}
+                 apiKey={process.env.tolgeeApiKey}
+                 ui={process.env.tolgeeWithUI === "true" && uiWrapped.ui}
                  inputPrefix="%-%pglt:"
              >
                  <OriginalLayout {...props} />
-             </PolygloatProvider>
+             </TolgeeProvider>
          </>
      );*/
 

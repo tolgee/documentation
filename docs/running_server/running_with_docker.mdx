@@ -7,28 +7,28 @@ slug: /running_server/running_with_docker
 
 ## Running it locally
 To run server locally, you should be fine just with running simple docker image with mounted data volume. By default
-polygloat is using H2 database to store the data, so you don't need another database to run it.
+tolgee is using H2 database to store the data, so you don't need another database to run it.
 
 ```
-docker run -v polygloat_data:/data/ -p 8085:8080 \
--e polygloat.authentication.enabled=false \
-polygloat/polygloat
+docker run -v tolgee_data:/data/ -p 8085:8080 \
+-e tolgee.authentication.enabled=false \
+tolgee/tolgee
 ```
 
 This will:
- - mount polygloat_db image into it's directory inside the container
- - exposes polygloat container port on port 8085
+ - mount tolgee_db image into it's directory inside the container
+ - exposes tolgee container port on port 8085
  - disables authentication
  - runs the image!
 
-Now you should be able to access Polygloat web application on [http://localhost:8085](http://localhost:8085)
+Now you should be able to access Tolgee web application on [http://localhost:8085](http://localhost:8085)
 
 ## Running with compose
-To run it on company infrastructure it is better to use some more optimized database system. Polygloat supports PostgreSQL.
+To run it on company infrastructure it is better to use some more optimized database system. Tolgee supports PostgreSQL.
 You can run it using docker-compose.
-To start lets create and enter a folder to store Polygloat related files:
+To start lets create and enter a folder to store Tolgee related files:
 ```
-mkdir polygloat && cd polygloat
+mkdir tolgee && cd tolgee
 ```
 
 Create a file named `docker-compose.yml` containing following content.
@@ -41,7 +41,7 @@ services:
     environment:
       - POSTGRES_PASSWORD=postgres
   app:
-    image: polygloat/polygloat
+    image: tolgee/tolgee
     volumes:
      - ./data:/data
     ports:
@@ -61,7 +61,7 @@ spring.datasource.password=postgres
 Similarly, you can define other [configuration properties](running_server/configuration.mdx).
 
 Your initial username is `admin`. Initial password is automatically generated and stored in /data/initial.pwd file in the
-polygloat container. You can print it by executing this:
+tolgee container. You can print it by executing this:
 ```
 cat data/initial.pwd
 ```
