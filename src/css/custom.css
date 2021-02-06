@@ -43,17 +43,42 @@
 }
 
 @-webkit-keyframes BackgroundAnimation {
-    0%{background-position:0 14%}
-    50%{background-position:100% 87%}
-    100%{background-position:0 14%}
+    0% {
+        background-position: 0 14%
+    }
+    50% {
+        background-position: 100% 87%
+    }
+    100% {
+        background-position: 0 14%
+    }
 }
+
 @-moz-keyframes BackgroundAnimation {
-    0%{background-position:0 14%}
-    50%{background-position:100% 87%}
-    100%{background-position:0 14%}
+    0% {
+        background-position: 0 14%
+    }
+    50% {
+        background-position: 100% 87%
+    }
+    100% {
+        background-position: 0 14%
+    }
 }
+
 @keyframes BackgroundAnimation {
-    0%{background-position:0 14%}
-    50%{background-position:100% 87%}
-    100%{background-position:0 14%}
+    0% {
+        background-position: 0 14%
+    }
+    50% {
+        background-position: 100% 87%
+    }
+    100% {
+        background-position: 0 14%
+    }
+}
+
+.button--outline {
+    border-width: 1px;
+    border-style: solid;
 }

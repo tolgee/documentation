@@ -4,26 +4,31 @@
   "private": true,
   "scripts": {
     "docusaurus": "docusaurus",
-    "start": "docusaurus start --port 3001",
+    "start": "docusaurus start",
     "build": "docusaurus build",
     "swizzle": "docusaurus swizzle",
-    "serve": "docusaurus serve"
+    "deploy": "docusaurus deploy",
+    "serve": "docusaurus serve",
+    "clear": "docusaurus clear"
   },
   "dependencies": {
-    "@docusaurus/core": "2.0.0-alpha.65",
-    "@docusaurus/preset-classic": "2.0.0-alpha.65",
-    "@mdx-js/react": "^1.5.8",
-    "@polygloat/react": "^1.0.0-alpha.3",
-    "@polygloat/ui": "^1.0.0-alpha.2",
+    "@docusaurus/core": "2.0.0-alpha.70",
+    "@docusaurus/preset-classic": "2.0.0-alpha.70",
+    "@mdx-js/react": "^1.6.21",
     "clsx": "^1.1.1",
-    "docusaurus2-dotenv": "^1.4.0",
-    "react": "^16.14.0",
-    "react-dom": "^16.14.0",
-    "use-onclickoutside": "^0.3.1"
+    "react": "^16.8.4",
+    "react-dom": "^16.8.4",
+    "@docusaurus/module-type-aliases": "^2.0.0-alpha.70",
+    "@tsconfig/docusaurus": "^1.0.2",
+    "@types/react": "^16.8.4",
+    "@types/react-helmet": "^6.1.0",
+    "@types/react-router-dom": "^5.1.7",
+    "typescript": "^4.0.5",
+    "docusaurus2-dotenv": "^1.4.0"
   },
   "browserslist": {
     "production": [
-      ">0.2%",
+      ">0.5%",
       "not dead",
       "not op_mini all"
     ],
@@ -32,13 +37,5 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
-  },
-  "devDependencies": {
-    "@docusaurus/module-type-aliases": "^2.0.0-alpha.65",
-    "@tsconfig/docusaurus": "^1.0.2",
-    "@types/react": "^16.9.55",
-    "@types/react-helmet": "^6.1.0",
-    "@types/react-router-dom": "^5.1.6",
-    "typescript": "^4.0.5"
   }
 }

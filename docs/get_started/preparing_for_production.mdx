@@ -14,11 +14,11 @@ Never leak your API key! We strongly recommend against adding API key into git r
 
 :::
 
-To prepare your application for production you will need to let Polygloat use exported .json files.
+To prepare your application for production you will need to let Tolgee use exported .json files.
 You can get these files by exporting your translations from web application.
 See [exporting translations](web_app/exporting_translations.mdx).
 
-To make Polygloat look for json files just remove **apiKey** property from configuration object. If we continue with
+To make Tolgee look for json files just remove **apiKey** property from configuration object. If we continue with
 our [hello world example](hello_world.mdx), production configuration object will look like this:
 ```javascript
 {
@@ -29,10 +29,10 @@ our [hello world example](hello_world.mdx), production configuration object will
 ```
 
 In production mode, `apiUrl` and `ui` properties are useless as we don't allow anybody to change our translations in the app accessible from the outside world.
-We can also remove the `script` tag importing polygloat UI.
+We can also remove the `script` tag importing tolgee UI.
 
-Next, we should add exported translations into some public path so Polygloat can reach them.
-By default, Polygloat looks for the translation files in `/i18n/[lang].json`.
+Next, we should add exported translations into some public path so Tolgee can reach them.
+By default, Tolgee looks for the translation files in `/i18n/[lang].json`.
 To change this, you may provide `filesUrlPrefix` property to configuration object but for out example we can stick with default.
 
 Let's take the exported json files and put them into the i18n directory placed as a sibling of our html file:
@@ -54,10 +54,10 @@ That's it! Our app is ready for production. Here is the final HTML page:
 <body>
     <h1>{{hello_world}}</h1>
 </body>
-<script src="https://unpkg.com/@polygloat/core"></script>
-<script src="https://unpkg.com/@polygloat/ui"></script>
+<script src="https://unpkg.com/@tolgee/core"></script>
+<script src="https://unpkg.com/@tolgee/ui"></script>
 <script>
-const pg = new window["@polygloat/core"].Polygloat({
+const pg = new window["@tolgee/core"].Tolgee({
     inputPrefix: "{{",
     inputSuffix: "}}",
     watch: true,

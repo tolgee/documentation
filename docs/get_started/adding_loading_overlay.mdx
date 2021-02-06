@@ -5,7 +5,7 @@ sidebar_label: Adding loading overlay
 slug: /get_started/adding_loading_overlay
 ---
 
-As Polygloat loads the localization files from REST API or from provided localization files, user could
+As Tolgee loads the localization files from REST API or from provided localization files, user could
 see untranslated texts with their wrappers such as `{{helo_world}}` which is not what you want. To avoid this behaviour we can
 add a loading overlay and remove it when translations load.
 
@@ -58,16 +58,16 @@ You should end up this document:
     </div>
     <h1>{{hello_world}}</h1>
 </body>
-<script src="https://unpkg.com/@polygloat/core"></script>
-<script src="https://unpkg.com/@polygloat/ui"></script>
+<script src="https://unpkg.com/@tolgee/core"></script>
+<script src="https://unpkg.com/@tolgee/ui"></script>
 <script>
-const pg = new window["@polygloat/core"].Polygloat({
-    apiUrl: "https://app.polygloat.io",
+const pg = new window["@tolgee/core"].Tolgee({
+    apiUrl: "https://app.tolgee.io",
     apiKey: "you_secret_api_key",
     inputPrefix: "{{",
     inputSuffix: "}}",
     watch: true,
-    ui: window["@polygloat/ui"].UI,
+    ui: window["@tolgee/ui"].UI,
 });
 pg.run().then(() => {
     document.getElementById("loading").style.display = "none";

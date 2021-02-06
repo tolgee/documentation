@@ -5,7 +5,7 @@ import Link from '@docusaurus/Link';
 import useDocusaurusContext from '@docusaurus/useDocusaurusContext';
 import useBaseUrl from '@docusaurus/useBaseUrl';
 import styles from './styles.module.css';
-import {T} from "../component/polygloat";
+import {T} from "../component/tolgee";
 
 const features = [
     {
@@ -104,7 +104,7 @@ function Home() {
                             <div className="col col--12" style={{display: "flex", alignItems: "center", justifyContent: "center"}}>
                                 <div>
                                     <h1 className="hero__title">It is Open Source!</h1>
-                                    <p className="hero__subtitle">Yes, Polygloat is free to use and it's very simple to deploy it locally or
+                                    <p className="hero__subtitle">Yes, Tolgee is free to use and it's very simple to deploy it locally or
                                         on your private infrastructure.
                                     </p>
                                     <Link

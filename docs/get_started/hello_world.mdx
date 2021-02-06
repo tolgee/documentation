@@ -5,10 +5,10 @@ sidebar_label: Hello world
 slug: /get_started/hello_world
 ---
 
-Polygloat can be used in any web application. It is completely framework independent. There are prepared packages for
+Tolgee can be used in any web application. It is completely framework independent. There are prepared packages for
 React and Angular. But first of all, let's look on simple application without any framework.
 
-Check out our [example application on github](https://github.com/polygloat/window-example)
+Check out our [example application on github](https://github.com/tolgee/window-example)
 
 Let's start with simple html code:
 ```html
@@ -25,40 +25,40 @@ Let's start with simple html code:
 ```
 There is text `Hello world!` in the body, which we would like to translate.
 
-Loading Polygloat in your web application is as simple as including one dependency. To do so, we can simply use unpkg
+Loading Tolgee in your web application is as simple as including one dependency. To do so, we can simply use unpkg
 repository:
 ```html
-<script src="https://unpkg.com/@polygloat/core"></script>
+<script src="https://unpkg.com/@tolgee/core"></script>
 ```
 
 To translate your content interactively, you will need one more dependency.
 ```html
-<script src="https://unpkg.com/@polygloat/ui"></script>
+<script src="https://unpkg.com/@tolgee/ui"></script>
 ```
-This dependency is Polygloat's UI so dialog can appear when you **ALT + click** your translation.
+This dependency is Tolgee's UI so dialog can appear when you **ALT + click** your translation.
 
-Now it's time to configure. To do so just create an instance of it. Polygloat's constructor
+Now it's time to configure. To do so just create an instance of it. Tolgee's constructor
 accepts configuration object as a parameter.
 ```html
 <script>
-const pg = new window["@polygloat/core"].Polygloat({
-    apiUrl: "https://app.polygloat.io",
+const pg = new window["@tolgee/core"].Tolgee({
+    apiUrl: "https://app.tolgee.io",
     apiKey: "you_secret_api_key",
     inputPrefix: "{{",
     inputSuffix: "}}",
     watch: true,
-    ui: window["@polygloat/ui"].UI,
+    ui: window["@tolgee/ui"].UI,
 });
 </script>
 ```
 In configuration object you can specify many other parameters, but in this example we stick with:
 - **apiUrl** - url of the api, where we are saving the data
-- **apiKey** - which you can obtain in the [app](https://app.polygloat.io) or in your self-hosted app by following
+- **apiKey** - which you can obtain in the [app](https://app.tolgee.io) or in your self-hosted app by following
 [this documentation page](web_app/obtaining_api_key.mdx)
 - **inputPrefix** - character sequence which appears before the text you wish to translate
 - **inputSuffix** - character sequence which appears after the text you wish to translate
-- **watch** - parameter defining whether Polygloat should watch for changes in the DOM and update translations
-- **ui** - constructor of Polygloat's UI to render interactive translation modal window
+- **watch** - parameter defining whether Tolgee should watch for changes in the DOM and update translations
+- **ui** - constructor of Tolgee's UI to render interactive translation modal window
 
 Afterwards you create the instance you need to wrap the text **Hello world!** with your `inputPrefix` and `inputSuffix`.
 
@@ -85,19 +85,19 @@ You should end with this HTML document:
 <body>
     <h1>{{hello_world}}</h1>
 </body>
-<script src="https://unpkg.com/@polygloat/core"></script>
-<script src="https://unpkg.com/@polygloat/ui"></script>
+<script src="https://unpkg.com/@tolgee/core"></script>
+<script src="https://unpkg.com/@tolgee/ui"></script>
 <script>
-const pg = new window["@polygloat/core"].Polygloat({
-    apiUrl: "https://app.polygloat.io",
+const pg = new window["@tolgee/core"].Tolgee({
+    apiUrl: "https://app.tolgee.io",
     apiKey: "you_secret_api_key",
     inputPrefix: "{{",
     inputSuffix: "}}",
     watch: true,
-    ui: window["@polygloat/ui"].UI,
+    ui: window["@tolgee/ui"].UI,
 });
 pg.run().then(() => {
-    // This block is executed after polygloat loads it's translation.
+    // This block is executed after tolgee loads it's translation.
     // So here you have nice possibility to remove your loading overlay
 })
 </script>

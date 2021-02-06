@@ -13,7 +13,7 @@ module.exports = {
             collapsed: false
         },
         {
-            id: "understanding_polygloat",
+            id: "understanding_tolgee",
             type: "doc"
         },
         {
@@ -42,7 +42,7 @@ module.exports = {
             ]
         },
         {
-            label: "Using Polygloat App", type: "category", items: [
+            label: "Using Tolgee App", type: "category", items: [
                 'web_app/creating_repository',
                 'web_app/obtaining_api_key',
                 'web_app/exporting_translations'
