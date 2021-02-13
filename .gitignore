@@ -20,4 +20,4 @@ yarn-debug.log*
 yarn-error.log*
 tolgeeRestructure.documentation.iml
 .env
-*.iml
+**/*.iml
