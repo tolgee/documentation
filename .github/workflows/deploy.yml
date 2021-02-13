@@ -25,7 +25,7 @@ jobs:
           docker build -t docker.dev.tolgee.io/documentation:latest -f docker/Dockerfile .
           docker login docker.dev.tolgee.io -u github -p $DOCKER_REGISTRY_PASSWORD
           docker tag docker.dev.tolgee.io/documentation:latest docker.dev.tolgee.io/documentation:production
-          docker push --all-tags
+          docker push --all-tags docker.dev.tolgee.io/documentation
         env:
           DOCKER_REGISTRY_PASSWORD: ${{ secrets.DOCKER_REGISTRY_PASSWORD }}
 
