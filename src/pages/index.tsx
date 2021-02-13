@@ -59,7 +59,7 @@ function Home() {
     return (
         <Layout
             title={`${siteConfig.title}`}
-            description="Description will go into a meta tag in <head />">
+            description="Tolgee localization framework">
 
             <header className={clsx('hero hero--primary header', styles.heroBanner)}>
                 <div className="container">
