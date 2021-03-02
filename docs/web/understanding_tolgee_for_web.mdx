@@ -1,8 +1,8 @@
 ---
-id: understanding_tolgee
-title: Understanding Tolgee
+id: understanding_tolgee_for_web
+title: Understanding Tolgee for Web
 sidebar_label: Understanding Tolgee
-slug: /understanding_tolgee
+slug: /web/understanding_tolgee_for_web
 ---
 
 To work with Tolgee properly you should be familiar with basic Tolgee concepts.
@@ -12,9 +12,9 @@ To work with Tolgee properly you should be familiar with basic Tolgee concepts.
 Tolgee works in two modes: development and production.
 
 ### Development mode
-Users, who access the page are able to change localization text in-context in development mode. To achieve this, Tolgee
-needs to identify which text in [DOM](https://developer.mozilla.org/en-US/docs/Web/API/Document_Object_Model/Introduction)
-should be translated. Tolgee basically checks specific DOM subtree on every change and looks for translations keys
+Users, who access the page in development mode, are able to change localization texts in context of the page.
+To achieve this, Tolgee needs to identify which text in [DOM](https://developer.mozilla.org/en-US/docs/Web/API/Document_Object_Model/Introduction)
+should be translated. Tolgee basically checks specific DOM subtree on every change and looks for translation keys
 wrapped in strings provided by configuration properties `inputPrefix` and `inputSuffix`. This is the reason why wrapped keys
 and params are returned from `translate` and `instant` functions in development mode.
 

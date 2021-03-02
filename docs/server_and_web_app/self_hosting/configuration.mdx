@@ -2,10 +2,10 @@
 id: configuration
 title: Server configuration
 sidebar_label: Configuration
-slug: /running_server/configuration
+slug: /server_and_web_app/self_hosting/configuration
 ---
 
-As server is based on Spring framework, it follows its configuration standards. You can provide configuration properties
+As the Server is based on Spring framework, it follows its configuration standards. You can provide configuration properties
 as command line arguments when you run Tolgee with `java -jar` command or as environment variables.
 
 ## server.port
@@ -83,9 +83,9 @@ Whether authentication is enabled. (default: `false`)
 ### tlsEnabled
 Whether tls is enabled (default: `false`)
 ### sslEnabled
-Whether sss is enabled (default: `false`)
+Whether ssl is enabled (default: `false`)
 ### tlsRequired
-Whether sss is required (default: `false`)
+Whether ssl is required (default: `false`)
 ### from
 The sender name and address in standard SMTP format.
 
@@ -100,6 +100,8 @@ This feature is currently experimental! (prefix: tolgee.authentication.ldap)
  - userDnPattern
 
 ## `.env` example
+Example .env file which you can start with:
+
 ```
 #JAVA_OPTS="-Xms128m -Xmx1024m"
 ########## JWT #############
@@ -109,8 +111,8 @@ This feature is currently experimental! (prefix: tolgee.authentication.ldap)
 #tolgee.auth.allow-registrations=false
 
 ########## github oauth server
-#tolgee.authentication.github.client-secret=78b8922f155cf8d8093fc5717667dce91926fa05
-#tolgee.authentication.github.client-id=ec5047f79c53e578f05d
+#tolgee.authentication.github.client-secret=
+#tolgee.authentication.github.client-id=
 
 ######### SMTP ###########
 #tolgee.smtp.host=

@@ -55,11 +55,12 @@ function Feature({imageUrl, title, description}) {
 function Home() {
     const context = useDocusaurusContext();
     const {siteConfig = {}} = context;
+    console.log(siteConfig);
     // noinspection HtmlUnknownTarget
     return (
         <Layout
-            title={`${siteConfig.title}`}
-            description="Tolgee localization framework">
+            title={`Localization tool for efficiency`}
+            description="Simple localization framework, which is easy to integrate to React, Angular and other applications.">
 
             <header className={clsx('hero hero--primary header', styles.heroBanner)}>
                 <div className="container">
@@ -108,7 +109,7 @@ function Home() {
                                         on your private infrastructure.
                                     </p>
                                     <Link
-                                        to={useBaseUrl('docs/running_server/running_with_docker')}>
+                                        to={useBaseUrl('docs/server_and_web_app/self_hosting/running_with_docker')}>
                                         Let's go!
                                     </Link>
                                 </div>

@@ -1,16 +1,16 @@
 module.exports = {
-    title: 'Tolgee',
-    tagline: 'The localization framework',
+    title: 'Tolgee Toolkit',
+    tagline: 'Localization tools for efficiency',
     url: 'https://tolgee.io',
     baseUrl: '/',
     onBrokenLinks: 'throw',
     favicon: 'img/favicon.svg',
     onBrokenMarkdownLinks: 'warn',
-    organizationName: 'tolgee',
+    organizationName: 'Tolgee',
     projectName: 'Tolgee',
     themeConfig: {
         navbar: {
-            title: 'Tolgee',
+            title: 'Tolgee Toolkit',
             logo: {
                 alt: 'Tolgee',
                 src: 'img/tolgeeLogo.svg',
@@ -39,24 +39,24 @@ module.exports = {
                     title: 'Docs',
                     items: [
                         {
-                            label: 'Motivation',
+                            label: 'What is Tolgee Toolkit',
                             to: 'docs/',
                         },
                         {
                             label: 'Get Started',
-                            to: 'docs/get_started/hello_world',
+                            to: 'docs/web/get_started/hello_world',
                         },
                         {
                             label: 'Using with React',
-                            to: 'docs/using_with_react/installation',
+                            to: 'docs/web/using_with_react/installation',
                         },
                         {
                             label: 'Running server',
-                            to: 'docs/running_server/running_with_docker',
+                            to: 'docs/server_and_web_app/self_hosting/running_with_docker',
                         },
                         {
                             label: 'Using Tolgee App',
-                            to: 'docs/web_app',
+                            to: 'docs/server_and_web_app',
                         },
                     ],
                 },
@@ -106,7 +106,7 @@ module.exports = {
             copyright: `Copyright © ${new Date().getFullYear()} Tolgee`,
         },
         algolia: {
-            apiKey: '0502b545345a891c1ce24777bbed2fa9',
+            apiKey: '4611f8562d237546845c8bdede50243f',
             indexName: 'tolgee',
             searchParameters: {}, // Optional (if provided by Algolia)
         },

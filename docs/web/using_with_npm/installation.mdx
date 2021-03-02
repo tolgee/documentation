@@ -2,8 +2,9 @@
 id: installation
 title: Installation
 sidebar_label: Installation
-slug: using_with_npm/installation
+slug: /web/using_with_npm/installation
 ---
+
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
@@ -59,10 +60,10 @@ yarn add @tolgee/ui
 After installing packages you can use it like this:
 
 ```javascript
-import {Tolgee} from "@tolgee/core";
+import {Tolgee} from "../clients/js/packages/core/lib/index";
 import {UI} from "@tolgee/ui";
 
-const pg = new Tolgee({
+const tg = new Tolgee({
     apiKey: "your_api_key",
     apiUrl: "https://app.tolgee.io",
     ui: UI
@@ -71,4 +72,4 @@ const pg = new Tolgee({
 pg.run();
 ```
 
-Then you can use Tolgee instance the same way as described in [translating programmatically](get_started/translating_programmatically.mdx).
+Then you can use Tolgee instance the same way as described in [translating programmatically](../get_started/translating_programmatically).
