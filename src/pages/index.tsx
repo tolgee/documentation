@@ -10,16 +10,16 @@ import {T} from "../component/tolgee";
 const features = [
     {
         title: <T>In context localization</T>,
-        imageUrl: 'img/undraw_social_strategy_1wuq.svg',
+        imageUrl: 'img/undraw_click.svg',
         description: (
             <T>
-                Let your colleagues or translators edit the translation strings directly in the App you develop!
+                Let your colleagues or translators edit translation strings directly in the App you develop!
             </T>
         ),
     },
     {
         title: <T>Relieve developers of localization process</T>,
-        imageUrl: 'img/undraw_researching_22gp.svg',
+        imageUrl: 'img/undraw_freedom.svg',
         description: (
             <T>
                 Let translators modify translated texts without involving developer.
@@ -28,7 +28,7 @@ const features = [
     },
     {
         title: <T>Web application</T>,
-        imageUrl: 'img/undraw_segment_uwu1.svg',
+        imageUrl: 'img/undraw_web_app.svg',
         description: (
             <T>
                 Manage your localization strings using simple web application!
@@ -55,17 +55,18 @@ function Feature({imageUrl, title, description}) {
 function Home() {
     const context = useDocusaurusContext();
     const {siteConfig = {}} = context;
+    console.log(siteConfig);
     // noinspection HtmlUnknownTarget
     return (
         <Layout
-            title={`${siteConfig.title}`}
-            description="Tolgee localization framework">
+            title={`Localization tool for efficiency`}
+            description="Simple localization framework, which is easy to integrate to React, Angular and other applications.">
 
             <header className={clsx('hero hero--primary header', styles.heroBanner)}>
                 <div className="container">
                     <div className="row">
-                        <div className="col col--6">
-                            <img src="img/undraw_connected_world_wuay.svg" alt="World" style={{height: "300px"}}/>
+                        <div style={{fontSize: "200px", height: "300px"}} className="col col--6">
+                            🧀
                         </div>
                         <div className="col col--6" style={{display: "flex", alignItems: "center", justifyContent: "center"}}>
                             <div>
@@ -108,8 +109,8 @@ function Home() {
                                         on your private infrastructure.
                                     </p>
                                     <Link
-                                        to={useBaseUrl('docs/running_server/running_with_docker')}>
-                                        Let's go!
+                                        to={useBaseUrl('docs/server_and_web_app/self_hosting/running_with_docker')}>
+                                        Let's get started!
                                     </Link>
                                 </div>
                             </div>

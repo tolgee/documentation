@@ -1,0 +1,123 @@
+---
+id: translating
+title: Translating with Angular
+sidebar_label: Translating with Angular
+slug: /web/using_with_angular/translating
+---
+
+To get full image of working Angular integration check our [Angular example application](https://github.com/tolgee/ngx-example).
+
+To translate strings in Angular you can use pipe or translation methods.
+
+## Using pipe
+To translate a string use `translate` pipe.
+
+```angular2html
+<h1>{{'hello_world' | translate}}</h1>
+```
+
+To provide parameters for translation pass them as first parameter of `translate` pipe.
+
+```typescript
+params = {name: "John Doe"};
+```
+
+```angular2html
+<h1>{{'hello' | translate:params}}</h1>
+```
+
+## Using translate methods
+To translate texts in your component code use `get` or `instant` method.
+
+These methods are part of translateService, which can be injected by dependency injection:
+
+```typescript
+import {Component, OnInit} from '@angular/core';
+import {TranslateService} from "@tolgee/ngx";
+
+@Component({
+  selector: 'app-root',
+  templateUrl: './app.component.html',
+  styleUrls: ['./app.component.css']
+})
+export class AppComponent implements OnInit {
+
+  constructor(private translateService: TranslateService) {}
+
+  helloWorld: string;
+
+  async ngOnInit(): Promise<void> {
+    this.translateService.get('hello_world').subscribe(r => this.helloWorld = r);
+  }
+}
+```
+
+`get` method returns [**Observable**](https://rxjs-dev.firebaseapp.com/guide/observable) as the result. That means, the
+result is provided asynchronously, when the localization strings are loaded.
+
+
+```typescript
+this.translateService.get('hello_world').subscribe(r => this.helloWorld = r);
+```
+
+If you are unable to use this asynchronous approach for some reason, you can use `instant` method.
+
+```typescript
+this.helloWorld = this.translateService.instant('hello_world');
+```
+
+:::warning
+Don't overuse `instant` method. When it's possible always use `translate` method. When the translations are not loaded,
+instant method will not provide a valid result. Unfortunately this can happen just in **production** mode, so this
+could lead to very confusing bugs.
+:::
+
+## Parameter interpolation
+
+If you would like to provide parameters for interpolation, pass your params object as second parameter
+to `get` or `instant` functions.
+
+```typescript
+this.translateService.get('hello', {name: "John Doe"}).subscribe(r => this.hello = r);
+```
+
+## Safe translating (without wrapping)
+When translating with Tolgee, there could be situations, when your texts are rendered incorrectly because of
+[wrapping](http://localhost:3000/docs/understanding_tolgee#key-and-parameters-wrapping).
+For example encoded strings like `%-%tolgee:something%-%` will be rendered in your document or tooltips will be rendered
+with incorrect width. To handle this, you can disable wrapping and let Tolgee to translate texts right away.
+
+To avoid wrapping of localization string in development mode use `stranslate` pipe, `getSafe` or `instantSafe` methods.
+
+Doing this will disable in-context localization for this string.
+
+## Changing language
+
+To change language, use `setLang` method of `translateService`.
+
+```typescript
+this.translateService.setLang("en");
+```
+
+## Obtaining current language
+To obtain current language, use `getCurrentLang` method of `translateService`.
+
+```typescript
+this.translateService.getCurrentLang();
+```
+
+## Subscribing to language change event
+Your programatically translated texts will be not automatically updated in production mode. To do so, you will need to
+listen to onLanguageChange EventEmitter and refresh your values manually.
+
+```typescript
+  async ngOnInit(): Promise<void> {
+    this.refresh()
+    this.translateService.onLangChange.subscribe(() => this.refresh());
+  }
+
+  private refresh() {
+    this.translateService.get('hello').subscribe(r => this.hello = r);
+  }
+```
+

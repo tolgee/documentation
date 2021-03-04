@@ -1,0 +1,125 @@
+---
+id: configuration
+title: Server configuration
+sidebar_label: Configuration
+slug: /server_and_web_app/self_hosting/configuration
+---
+
+As the Server is based on Spring framework, it follows its configuration standards. You can provide configuration properties
+as command line arguments when you run Tolgee with `java -jar` command or as environment variables.
+
+## server.port
+Port on which Tolgee exposes itself (default: `8080`)
+
+## Tolgee
+Configuration specific to Tolgee
+### tolgee.data-path
+Path to directory where Tolgee stores its files. (default: `<user's home>/.tolgee/`, with docker `/data/`)
+
+## Authentication
+Prefix: `tolgee.authentication`
+
+### enabled
+Whether authentication is enabled. If not, Tolgee will create implicit user on first startup and will automatically log
+you in. No login page shows, no permissions are managed. This is very useful, when you want to use Tolgee on your local
+machine, or you just want to test it. (default: `true`)
+
+### jwtSecret
+Secret used to sign JWT authentication tokens with. It will be generated automatically, if not provided. (default: `null`).
+You will be fine with 64 characters long random string.
+
+### jwtExpiration
+Expiration time of generated JWT tokens in milliseconds. (default `604800000` = 7 days)
+
+### nativeEnabled
+Whether user credentials are stored in Tolgee's database. If you would like to use LDAP, set this to false. (default `true`)
+
+### registrationsAllowed
+Enable/disable sign ups into Tolgee. (default: `false`)
+
+### createInitialUser
+If true, Tolgee creates initial user on first start-up. (default: `true`)
+
+### initialUsername
+Username of initial user. (default: `false`)
+
+## Github authentication properties
+Pefix: `tolgee.authentication.github`
+
+If you want to allow your users to login using Github, set these configuration properties.
+### clientSecret
+Client secret obtained in github administration. (default: `null`)
+
+### clientId
+Client id obtained in Github administration. (default: `null`) Github authentication can be used in combination
+with LDAP or native authentication.
+
+
+## SMTP properties
+To allow Tolgee to send emails to your users like password reset links or notifications, configure these properties.
+These properties are prefixed with `tolgee.smtp`.
+
+For AWS SES it would look like this:
+```
+tolgee.smtp.host=email-smtp.eu-central-1.amazonaws.com
+tolgee.smtp.username=*****************
+tolgee.smtp.password=*****************
+tolgee.smtp.port=465
+tolgee.smtp.auth=true
+tolgee.smtp.sslEnabled=true
+tolgee.smtp.from=Tolgee <no-reply@tolgee.yourserver.something>
+```
+
+### host
+Smtp host
+### username
+The username for smtp authentication
+### password
+Password for smtp authentication
+### port
+
+### auth
+Whether authentication is enabled. (default: `false`)
+### tlsEnabled
+Whether tls is enabled (default: `false`)
+### sslEnabled
+Whether ssl is enabled (default: `false`)
+### tlsRequired
+Whether ssl is required (default: `false`)
+### from
+The sender name and address in standard SMTP format.
+
+## LDAP authentication properties
+This feature is currently experimental! (prefix: tolgee.authentication.ldap)
+ - enabled
+ - port
+ - urls
+ - baseDn
+ - securityPrincipal
+ - principalPassword
+ - userDnPattern
+
+## `.env` example
+Example .env file which you can start with:
+
+```
+#JAVA_OPTS="-Xms128m -Xmx1024m"
+########## JWT #############
+#tolgee.authentication.jwtSecret=...
+
+########## NATIVE
+#tolgee.auth.allow-registrations=false
+
+########## github oauth server
+#tolgee.authentication.github.client-secret=
+#tolgee.authentication.github.client-id=
+
+######### SMTP ###########
+#tolgee.smtp.host=
+#tolgee.smtp.username=
+#tolgee.smtp.password=
+#tolgee.smtp.port=
+#tolgee.smtp.auth=
+#tolgee.smtp.sslEnabled=
+#tolgee.smtp.from=
+```
