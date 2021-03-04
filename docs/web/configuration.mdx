@@ -34,7 +34,7 @@ inputPrefix = '%-%tolgee:';
 inputSuffix = '%-%';
 ```
 
-These strings are unique enough to not clash witch any other strings in your DOM, so it will not break your document.
+These strings are unique enough to not clash with any other strings in your DOM, so it will not break your document.
 
 ### defaultLanguage
 Default language to be set by as currentLanguage default. (default: `en`)
@@ -58,25 +58,25 @@ your localization data will be loaded from file loaded from url `https://example
 You can obtain these files by [downloading them from Tolgee Web Application](/docs/server_and_web_app/exporting_translations)
 
 ### watch
-In development mode, watch is always set to `true`, because Tolgee needs to find strings to replace with translated values
-every time when DOM is changed. In production mode, watching is not always necessary, because integration libraries for
+In development mode, watch is always set to `true` because Tolgee needs to find strings to replace with translated values
+every time when DOM is changed. In production mode, watching is not always necessary because integration libraries for
 React and Angular return translated values directly without wrapping, so wrapped encoded strings are never inserted to DOM.
 
-If you are not using any JS framework, and you wish Tolgee to replace wrapped endoded texts even in production mode, set
+If you are not using any JS framework, and you wish Tolgee to replace wrapped encoded texts even in production mode, set
 this to `true`.
 
 `watch: true` is used in [preparing for production part](docs/web/get_started/preparing_for_production) or get started tutorial,
 because this tutorial is framework independent and so no framework integration library is used.
 
 ### ui
-To use tolgee in development with in-context localization, you need to provide a constructor for UI class.
+To use Tolgee in development with in-context localization, you need to provide a constructor for UI class.
 
 Example:
 ```
 ui: window["@tolgee/ui"].UI,
 ```
 
-`@tolgee/core` and `@tolgee/ui` are separated to reduce size of `@tolgee/core` library, while `ui` library is needed just
+`@tolgee/core` and `@tolgee/ui` are separated to reduce size of `@tolgee/core` library while `ui` library is needed just
 in development mode and may be omitted in production mode.
 
 ### targetElement
@@ -84,7 +84,7 @@ Element where wrapped strings are expected in development mode. (default: `docum
 
 ### tagAttributes
 Tolgee is able to watch also for wrapped localization strings in attributes of DOM elements. These attributes must be
-specified in this configuration properties.
+specified in these configuration properties.
 
 Example:
 ```javascript
@@ -114,14 +114,14 @@ Default: `[ModifierKey.Alt]`
 
 ### passToParent
 There are elements which can contain wrapped string to be translated, but user is not able to click on them. For example
-an option of `select` HTML element cannot be used for capturing click event with `ALT` down. For these reasons, you can
+an option of `select` HTML element cannot be used for capturing click even with `ALT` down. For these reasons you can
 configure Tolgee to "pass" these strings to parent and listen for click events on the parent.
 
 Default: `["option", "optgroup"]`
 
 
 ### restrictedElement
-Array of elements, in which you don't want Tolgee to replace wrapped strings.
+Array of elements in which you don't want Tolgee to replace wrapped strings.
 
 Default: `['script', 'style']`
 

@@ -14,7 +14,7 @@ Port on which Tolgee exposes itself (default: `8080`)
 ## Tolgee
 Configuration specific to Tolgee
 ### tolgee.data-path
-Path to directory, where Tolgee stores its files. (default: `<user's home>/.tolgee/`, with docker `/data/`)
+Path to directory where Tolgee stores its files. (default: `<user's home>/.tolgee/`, with docker `/data/`)
 
 ## Authentication
 Prefix: `tolgee.authentication`
@@ -35,7 +35,7 @@ Expiration time of generated JWT tokens in milliseconds. (default `604800000` = 
 Whether user credentials are stored in Tolgee's database. If you would like to use LDAP, set this to false. (default `true`)
 
 ### registrationsAllowed
-Enable/disable sign ups into tolgee. (default: `false`)
+Enable/disable sign ups into Tolgee. (default: `false`)
 
 ### createInitialUser
 If true, Tolgee creates initial user on first start-up. (default: `true`)
@@ -46,12 +46,12 @@ Username of initial user. (default: `false`)
 ## Github authentication properties
 Pefix: `tolgee.authentication.github`
 
-If you want to allow your users to login using github, set these configuration properties.
+If you want to allow your users to login using Github, set these configuration properties.
 ### clientSecret
 Client secret obtained in github administration. (default: `null`)
 
 ### clientId
-Client id obtained in github administration. (default: `null`) Github authentication can be used in combination
+Client id obtained in Github administration. (default: `null`) Github authentication can be used in combination
 with LDAP or native authentication.
 
 

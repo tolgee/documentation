@@ -6,8 +6,8 @@ slug: /server_and_web_app/self_hosting/running_with_docker
 ---
 
 ## Running it locally
-To run server locally, you should be fine just with running simple docker image with mounted data volume. By default
-tolgee is using H2 database to store the data, so you don't need another database to run it.
+To run server locally you should be fine just with running simple docker image with mounted data volume. By default
+Tolgee is using H2 database to store the data so you don't need another database to run it.
 
 ```
 docker run -v tolgee_data:/data/ -p 8085:8080 \
@@ -26,7 +26,7 @@ Now you should be able to access Tolgee web application on [http://localhost:808
 ## Running with compose
 To run it on company infrastructure it is better to use some more optimized database system. Tolgee supports PostgreSQL.
 You can run it using docker-compose.
-To start lets create and enter a folder to store Tolgee related files:
+To start let's create and enter a folder to store Tolgee related files:
 ```
 mkdir tolgee && cd tolgee
 ```
@@ -61,7 +61,7 @@ spring.datasource.password=postgres
 Similarly, you can define other [configuration properties](configuration).
 
 Your initial username is `admin`. Initial password is automatically generated and stored in /data/initial.pwd file in the
-tolgee container. You can print it by executing this:
+Tolgee container. You can print it by executing this:
 ```
 cat data/initial.pwd
 ```
