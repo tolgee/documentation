@@ -53,7 +53,7 @@ export class AppComponent implements OnInit {
 ```
 
 `get` method returns [**Observable**](https://rxjs-dev.firebaseapp.com/guide/observable) as the result. That means, the
-result is provided asynchronously, when the localization string are loaded.
+result is provided asynchronously, when the localization strings are loaded.
 
 
 ```typescript
@@ -75,7 +75,7 @@ could lead to very confusing bugs.
 ## Parameter interpolation
 
 If you would like to provide parameters for interpolation, pass your params object as second parameter
-to `get` ot `instant` functions.
+to `get` or `instant` functions.
 
 ```typescript
 this.translateService.get('hello', {name: "John Doe"}).subscribe(r => this.hello = r);

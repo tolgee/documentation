@@ -19,7 +19,7 @@ dev_dependencies:
   tolgee: ^1.0.0
 ```
 
-Then run
+Then run:
 
     pub get
 
@@ -88,7 +88,7 @@ querySelector('#output').text = await tolgee.translate('peter_has_n_dogs', {"dog
 
 ### Disabling wrapping in development mode
 In rare cases the wrapping and unwrapping process can be unwanted. For example tooltips could be rendered with improper
-size, or you will se encoded text such as `%-%:tolgee:something%-%`. To avoid this, you will need to disable wrapping, which
+size, or you will see encoded text such as `%-%:tolgee:something%-%`. To avoid this, you will need to disable wrapping, which
 disables the in-context localization, so it will be impossible to translate the text by simple **ALT + clicking** it.
 
 To do that, set the third parameter of translation functions to `true`
@@ -99,7 +99,7 @@ await tolgee.translate('peter_has_n_dogs', {"dogCount": 5}, true) // Peter has 5
 This will return translated text directly without wrapping even in development mode.
 
 ## Getting JavaScript Tolgee instance
-To get javascript Tolgee class instance, call
+To get javascript Tolgee class instance, call:
 ```
 var jsInstance = tolgee.getJsInstance();
 ```

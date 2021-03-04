@@ -13,7 +13,7 @@ const features = [
         imageUrl: 'img/undraw_click.svg',
         description: (
             <T>
-                Let your colleagues or translators edit the translation strings directly in the App you develop!
+                Let your colleagues or translators edit translation strings directly in the App you develop!
             </T>
         ),
     },
@@ -110,7 +110,7 @@ function Home() {
                                     </p>
                                     <Link
                                         to={useBaseUrl('docs/server_and_web_app/self_hosting/running_with_docker')}>
-                                        Let's go!
+                                        Let's get started!
                                     </Link>
                                 </div>
                             </div>

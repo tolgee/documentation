@@ -1,6 +1,6 @@
 ---
 id: using_with_php
-title: Using with php
+title: Using with PHP
 sidebar_label: Using with PHP
 slug: /web/using_with_php
 ---
@@ -21,7 +21,7 @@ composer require tolgee
 
 ## Tolgee instance initialization
 
-To use tolgee with php, start with creating TolgeeConfig class instance and Tolgee class instance.
+To use Tolgee with PHP, start with creating TolgeeConfig class instance and Tolgee class instance.
 
 ```php
 <?php
@@ -38,7 +38,7 @@ $config->mode = Modes::DEVELOPMENT;
 $tolgee = new Tolgee($config);
 ```
 
-Then you can simply use tolgee to translate strings:
+Then you can simply use Tolgee to translate strings:
 
 ```php
 $tolgee->translate("hello_world");
@@ -64,13 +64,13 @@ Peter has 5 dogs.
 
 ## Safe translating
 
-If the translation cannot be handled by mutation observer running in browser, use third parameter `noWrap = true`,
+If the translation cannot be handled by mutation observer running in browser, use third parameter `noWrap = true`
 to ge translation right away.
 
 ```php
 $tolgee->translate("peter_has_n_dogs", ["dogCount" => "5"], true); //Peter has 5 dogs.
 ```
-Return value of this function is `Peter has 5 dogs`. This is useful when you want to use tolgee for translations ending
+Return value of this function is `Peter has 5 dogs`. This is useful when you want to use Tolgee for translations ending
 up in e-mails (where obviously JS library has no power) or when you can see some ugly encoded string such as
 `%-%tolgee:peter_has_n_dogs:dogCount:5%-%` in web page rendered in browser.
 
@@ -79,7 +79,7 @@ up in e-mails (where obviously JS library has no power) or when you can see some
 In production mode all your translations are loaded from local JSON localization files. You can obtain there files by
 [exporting them using Tolgee Web Application](http://localhost:3000/docs/server_and_web_app/exporting_translations).
 
-To configure an absolute path, where Tolgee will find the localization files set `localFilesAbsolutePath`
+To configure an absolute path where Tolgee will find the localization files set `localFilesAbsolutePath`
 of `TolgeeConfig` class instance.
 
 ```php
@@ -128,7 +128,7 @@ illustration this example should be fine.
 The important thing is to keep configuration parameters same as in your PHP code.
 
 ## Configuration properties
-The `TolgeeConfig` file contains following configuration properties.
+The `TolgeeConfig` file contains following configuration properties:
 
 ### mode
 Whether to use Tolgee in development or production mode. (bool, default: `Modes::PRODUCTION`)
@@ -149,7 +149,7 @@ Your secret key, which you can [obtain in web application](../server_and_web_app
 The default language. (string, default: `en`)
 
 ### fallbackLanguage
-The language used when current text is not available in currentLanguage. (string, default: `en`)
+The language used when current text is not available in current language. (string, default: `en`)
 
 ### developmentTranslationsSource
 Whether to use local files to translate without wrapping in development mode or to use values obtained from REST API.
