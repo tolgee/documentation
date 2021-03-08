@@ -80,21 +80,9 @@ module.exports = {
                 {
                     title: 'More',
                     items: [
-                        /*{
-                            label: 'Blog',
-                            to: 'blog',
-                        },*/
                         {
                             label: 'Go to App',
                             href: 'https://app.tolgee.io',
-                        },
-                        {
-                            label: 'Facebook @tolgeeLocalization',
-                            href: 'https://www.facebook.com/tolgeeLocalization'
-                        },
-                        {
-                            label: "Twitter @tolgeeLoc",
-                            href: "https://twitter.com/TolgeeLoc"
                         },
                         {
                             label: "Linked in",
