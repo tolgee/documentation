@@ -12,7 +12,7 @@ To work with Tolgee properly you should be familiar with basic Tolgee concepts.
 Tolgee works in two modes: development and production.
 
 ### Development mode
-Users, who access the page in development mode, are able to change localization texts in context of the page.
+Users who access the page in development mode are able to change localization texts in context of the page.
 To achieve this, Tolgee needs to identify which text in [DOM](https://developer.mozilla.org/en-US/docs/Web/API/Document_Object_Model/Introduction)
 should be translated. Tolgee basically checks specific DOM subtree on every change and looks for translation keys
 wrapped in strings provided by configuration properties `inputPrefix` and `inputSuffix`. This is the reason why wrapped keys
@@ -34,7 +34,7 @@ For example:
 ```javascript
 tolgee.instant("peter_has_n_dogs", {dogsCount: "5"});
 ```
-returns
+returns:
 ```
 %-%tolgee:peter_has_n_dogs:dogsCount:5%-%
 ```
