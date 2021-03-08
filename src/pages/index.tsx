@@ -65,8 +65,8 @@ function Home() {
             <header className={clsx('hero hero--primary header', styles.heroBanner)}>
                 <div className="container">
                     <div className="row">
-                        <div style={{fontSize: "200px", height: "300px"}} className="col col--6">
-                            🧀
+                        <div className="col col--6 hero__image-wrapper">
+                            <img src="img/cheese_flags.svg" alt="Cheese with flags" className="hero__image"></img>
                         </div>
                         <div className="col col--6" style={{display: "flex", alignItems: "center", justifyContent: "center"}}>
                             <div>
