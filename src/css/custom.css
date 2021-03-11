@@ -82,9 +82,7 @@
     border-style: solid;
 }
 
-
 .hero__image{
-    opacity: 0.5;
     width: 300px;
     filter: drop-shadow(2px 2px 10px rgba(0, 0, 0, 0.3));
 }
