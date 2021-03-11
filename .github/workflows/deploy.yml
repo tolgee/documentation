@@ -35,4 +35,4 @@ jobs:
           KUBE_CONFIG_DATA: ${{ secrets.KUBERNETES_SERVICE_CONFIG }}
           KUBECTL_VERSION: "1.19"
         with:
-          args: '"rollout restart deployment/tolgee-website-deployment"'
+          args: '"rollout restart deployment/tolgee-documentation-deployment"'
