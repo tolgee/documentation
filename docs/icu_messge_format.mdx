@@ -1,0 +1,90 @@
+---
+id: icu_message_format
+title: ICU message format
+sidebar_label: ICU message format
+slug: /icu_message_format
+---
+All Tolgee SDKs are following
+[ICU (International Components for Unicode) message format](https://en.wikipedia.org/wiki/International_Components_for_Unicode).
+Let's see, how to work with it.
+
+## Providing values
+The easiest example is how to include external parameters in your message.
+
+    Hello, I am {name}.
+
+If your parameter `name` is `John`, the output will be `Hello, I am John`.
+
+## Plurals
+Sometimes you need to specify the form of some part of the message depending on provided number value.
+
+    {dogsCount, plural, one {One dog is} other {# dogs are}} here.
+
+In english this is relatively easy. We need just 2 forms of the word `dog` and `be` verb. If we would like to be even cooler,
+we could provide special form for 0 dogs.
+
+    {dogsCount, plural, =0 {No dogs} one {One dog is} other {# dogs are}} here.
+
+If we are translating for other languages, this could be much more complicated. Fortunately, it's simple to cover all
+the cases. For example in Czech language we will need to cover these cases:
+```
+{dogsCount, plural,
+=0 {Žádní psi tu nejsou}
+one {Je tu jeden pes}
+few {Jsou tu # psi}
+other {Je tu # psů}}.
+```
+
+Notice, that you can also you tags like `few` or `meny`.
+
+All supported tags are:
+```
+=# (=0, =1, etc.)
+zero
+one (singular)
+two (dual)
+few (paucal)
+many (also used for fractions if they have a separate class)
+other (required—general plural form—also used if the language only has a single form)
+```
+
+
+This will cover all the cases we need. For more information about plural rules, read
+[http://cldr.unicode.org/index/cldr-spec/plural-rules](this).
+
+## Selecting value
+Sometimes we need to change the form of some part of translation depending on exact value match. One of these cases is
+selecing proper form by gender. Again, this is something, you will need in Czech language.
+
+```
+{gender, select, male {Uživatel uložil} female {Uživatelka uložila} other {Uživatel uložil}} soubor.
+```
+
+## Combining the rules
+Sometimes, you would like to combine the rules. This is no problem, you can provide messages like this:
+```
+"{gender_of_host, select, "
+  "female {"
+    "{num_guests, plural, offset:1 "
+      "=0 {{host} does not give a party.}"
+      "=1 {{host} invites {guest} to her party.}"
+      "=2 {{host} invites {guest} and one other person to her party.}"
+      "other {{host} invites {guest} and # other people to her party.}}}"
+  "male {"
+    "{num_guests, plural, offset:1 "
+      "=0 {{host} does not give a party.}"
+      "=1 {{host} invites {guest} to his party.}"
+      "=2 {{host} invites {guest} and one other person to his party.}"
+      "other {{host} invites {guest} and # other people to his party.}}}"
+  "other {"
+    "{num_guests, plural, offset:1 "
+      "=0 {{host} does not give a party.}"
+      "=1 {{host} invites {guest} to their party.}"
+      "=2 {{host} invites {guest} and one other person to their party.}"
+      "other {{host} invites {guest} and # other people to their party.}}}}"
+```
+
+
+To read more about ICU format, you can follow [this guide](http://userguide.icu-project.org/formatparse/messages).
+
+Source: [userguide.icu-project.org](http://userguide.icu-project.org/formatparse/messages).

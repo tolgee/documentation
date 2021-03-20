@@ -75,6 +75,7 @@ module.exports = {
                 },
             ],
 
-        }
+        },
+        {type: 'doc', id: 'icu_message_format'}
     ],
 }

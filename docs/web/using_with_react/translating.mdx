@@ -17,13 +17,13 @@ import {T} from "@tolgee/react";
 <T>translation_key</T>
 ```
 
-To pass parameters just assign parameters property.
+To pass values just assign parameters property.
 
 ```jsx
 <T parameters={{param: "value"}}>text_with_params</T>
 ```
 
-For translated text `This is {{param}} of the text` it will result in `This is value of the text`.
+For translated text `This is {param} of the text` it will result in `This is value of the text`.
 
 To skip key wrapping in translation mode use `T` component with noWrap param such as:
 
@@ -60,3 +60,13 @@ t("key_to_translate", {}, true);
 
 For more complex codebase showing usage of Tolgee React integration check
 [React example application](https://github.com/tolgee/react-sampleapp).
+
+## Message format
+All Tolgee integrations follow ICU message format standard.
+
+```{dogsCount, plural, one {One dog is} other {# dogs are}} here.```
+
+To read more about it, check
+[ICU Message Format](/docs/icu_message_format) documentation page.
+
+All Tolgee JS integrations are using [MessageFormat class of formatJs library](https://formatjs.io/docs/intl-messageformat/).
