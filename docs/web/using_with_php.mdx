@@ -47,13 +47,15 @@ $tolgee->translate("hello_world");
 In development mode this function will return `%-%tolgee:hello_world%-%`. This output is meant to be translated in
 browser by tolgee JS library. See [hello world example](get_started/hello_world).
 
-You can also provide translation parameters as second parameter of `translate` function.
+## Providing values
+
+You can provide translation values as second parameter of `translate` function.
 
 ```php
 $tolgee->translate("peter_has_n_dogs", ["dogCount" => "5"]); //
 ```
 
-When the translation text before parameter interpolation is "Peter has {{dogCount}}", returned value will be
+When the translation text before parameter interpolation is "Peter has {dogCount}", returned value will be
 ```
 `%-%tolgee:peter_has_n_dogs:dogCount:5%-%`
 ```
@@ -61,6 +63,17 @@ Again, this value will be handled by JS library running in browser, so the visib
 ```
 Peter has 5 dogs.
 ```
+
+### Message format
+:::info
+Since v1.2-BETA, ICU message format is used.
+:::
+
+All Tolgee integration libraries follow ICU message format. Tolgee for PHP is using `MessageFormatter::format` method
+to format the messages. That's why you will need to enable PHP `intl` extension.
+
+To learn more about this format, read this article on [Wikipedia](https://en.wikipedia.org/wiki/International_Components_for_Unicode).
+Or use play with it using this nice [tool](https://devpal.co/icu-message-editor/).
 
 ## Safe translating
 
