@@ -25,7 +25,7 @@ we could provide special form for 0 dogs.
 
     {dogsCount, plural, =0 {No dogs} one {One dog is} other {# dogs are}} here.
 
-If we are translating for other languages, this could be much more complicated. Fortunately, it's simple to cover all
+If we are translating into other languages, this could be much more complicated. Fortunately, it's simple to cover all
 the cases. For example in Czech language we will need to cover these cases:
 ```
 {dogsCount, plural,
@@ -54,7 +54,7 @@ This will cover all the cases we need. For more information about plural rules, 
 
 ## Selecting value
 Sometimes we need to change the form of some part of translation depending on exact value match. One of these cases is
-selecing proper form by gender. Again, this is something, you will need in Czech language.
+selecting proper form by gender. Again, this is something you will need in Czech language.
 
 ```
 {gender, select, male {Uživatel uložil} female {Uživatelka uložila} other {Uživatel uložil}} soubor.
