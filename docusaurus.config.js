@@ -23,6 +23,12 @@ module.exports = {
                     label: 'Docs',
                     position: 'left',
                 },
+                {
+                    to: 'apiReference',
+                    activeBasePath: 'apiReference',
+                    label: 'API',
+                    position: 'left',
+                },
                 // {to: 'blog', label: 'Blog', position: 'left'},
                 {
                     href: 'https://app.tolgee.io',
@@ -127,4 +133,7 @@ module.exports = {
     stylesheets: [
         '/font.css'
     ],
+    customFields: {
+        apiSpec: "https://app.tolgee.io/v3/api-docs/Accessible%20with%20API%20key"
+    }
 };
