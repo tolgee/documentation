@@ -1,0 +1,45 @@
+version: 2
+updates:
+- package-ecosystem: npm
+  directory: "/"
+  schedule:
+    interval: daily
+    time: "04:00"
+  open-pull-requests-limit: 10
+  ignore:
+  - dependency-name: "@docusaurus/core"
+    versions:
+    - 2.0.0-alpha.71
+    - 2.0.0-alpha.72
+    - 2.0.0-alpha.73
+  - dependency-name: "@docusaurus/module-type-aliases"
+    versions:
+    - 2.0.0-alpha.71
+    - 2.0.0-alpha.72
+    - 2.0.0-alpha.73
+  - dependency-name: "@docusaurus/preset-classic"
+    versions:
+    - 2.0.0-alpha.71
+    - 2.0.0-alpha.72
+    - 2.0.0-alpha.73
+  - dependency-name: mobx
+    versions:
+    - 6.2.0
+  - dependency-name: redoc
+    versions:
+    - 2.0.0-rc.51
+  - dependency-name: styled-components
+    versions:
+    - 5.2.2
+  - dependency-name: "@types/react"
+    versions:
+    - 17.0.2
+    - 17.0.3
+  - dependency-name: typescript
+    versions:
+    - 4.1.5
+    - 4.2.2
+    - 4.2.3
+  - dependency-name: react
+    versions:
+    - 17.0.1
