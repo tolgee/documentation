@@ -23,7 +23,7 @@
     "clsx": "^1.1.1",
     "docusaurus2-dotenv": "^1.4.0",
     "mobx": "^6.1.8",
-    "mobx-react": "^7.1.0",
+    "mobx-react": "^7.2.0",
     "react": "^16.8.4",
     "react-dom": "^16.8.4",
     "redoc": "^2.0.0-rc.48",
