@@ -22,7 +22,7 @@
     "@types/react-router-dom": "^5.1.7",
     "clsx": "^1.1.1",
     "docusaurus2-dotenv": "^1.4.0",
-    "mobx": "^6.1.8",
+    "mobx": "^6.3.2",
     "mobx-react": "^7.1.0",
     "react": "^16.8.4",
     "react-dom": "^16.8.4",
