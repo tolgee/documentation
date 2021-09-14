@@ -1,0 +1,29 @@
+---
+id: ssr
+title: SSR support
+sidebar_label: SSR support
+slug: /web/using_with_react/ssr/ssr
+---
+
+To use Tolgee with your SSR framework such as Next or Gatsby, you should provide localization data imported as object
+using staticData property of TolgeeProvider component, so in production mode you data will be ready when your app is
+rendered on server, or your static page is built from sources.
+
+```typescript jsx
+import localeEn from 'i18n/en.json';
+import localeDe from 'i18n/de.json';
+
+...
+
+<TolgeeProvider
+     staticData={{
+        en: localeEn,
+        de: localeDe,
+      }}
+...
+>
+...
+</TolgeePrivider>
+```
+
+To get started with SSR continue with following [Next.js](./using_with_next) or Gatsby integration guides

@@ -39,6 +39,15 @@ These strings are unique enough to not clash with any other strings in your DOM,
 ### defaultLanguage
 Default language to be set by as currentLanguage default. (default: `en`)
 
+### fallbackLanguage
+When translation is not provided in current language, Tolgee tries to find it in fallbackLanguage.
+(default: value of `defaultLanguage` property)
+
+### preloadFallback
+When `true` Tolgee loads both current language and fallback language before promise is resolved from `Tolgee.run()` method.
+Otherwise, Tolgee will try to load fallback language localization data just when it's needed (when some translation is missing in current language).
+That way some inappropriate value may be rendered when some text is missing in current language. (default `false`)
+
 ### availableLanguages
 Tolgee chooses language automatically by user's default language provided by
 [browser navigator object](https://developer.mozilla.org/en-US/docs/Web/API/NavigatorLanguage/language). To do so, it
@@ -56,6 +65,31 @@ When your current language is "en" and your `filesUrlPrefix` is `https://example
 your localization data will be loaded from file loaded from url `https://example.com/loc/files/en.json`.
 
 You can obtain these files by [downloading them from Tolgee Web Application](/docs/server_and_web_app/exporting_translations)
+
+### staticData
+Using this property, you can provide localization data to Tolgee as an object. Tolgee will use this data in production mode.
+```typescript
+import * as localeEn from 'i18n/en.json';
+import * as localeDe from 'i18n/de.json';
+
+...
+const config = {
+  staticData: {
+        en: localeEn,
+        de: localeDe,
+      }
+  };
+```
+
+or you can provide the data using provider functions returning promises, so it works great with dynamic import feature:
+```typescript
+const config = {
+  staticData: {
+        en: () => import('./i18n/en.json'),
+        de: () => import('./i18n/de.json'),
+      }
+  };
+```
 
 ### watch
 In development mode, watch is always set to `true` because Tolgee needs to find strings to replace with translated values
@@ -129,10 +163,10 @@ Default: `['script', 'style']`
 Background color of highlighted element.
 
 Default: `rgb(224 240 255)`&nbsp;&nbsp;<div style={{
-    backgroundColor: "rgb(224 240 255)",
-    width: "20px",
-    height: "20px",
-    display: "inline-block",
-    verticalAlign: "middle"
+backgroundColor: "rgb(224 240 255)",
+width: "20px",
+height: "20px",
+display: "inline-block",
+verticalAlign: "middle"
 }}></div>
 
