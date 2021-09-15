@@ -5,9 +5,14 @@ sidebar_label: Translating with React
 slug: /web/using_with_react/translating
 ---
 
-There are several ways how to translate a text using our React integration.
+There are several ways how to translate a text using our React SDK. For more complex codebase showing usage
+of Tolgee React integration check [React example application](https://github.com/tolgee/react-sampleapp).
 
-First way is the 'T' component. You can use it like this:
+To translate strings with React, you can use `<T>` component or `useTranslate` hook.
+
+## The T component
+
+The recommended way is the `T` component. You can use it like this:
 
 ```jsx
 import {T} from "@tolgee/react";
@@ -25,17 +30,9 @@ To pass values just assign parameters property.
 
 For translated text `This is {param} of the text` it will result in `This is value of the text`.
 
-To skip key wrapping in translation mode use `T` component with noWrap param such as:
+## The useTranslate hook
 
-```jsx
-<T parameters={{param: "value"}} noWrap={true}>text_with_params</T>
-```
-
-This will prevent any possible problems with Tolgee's wrapping technology but you won't be able use in-contexts
-translation feature for this particular occurrence.
-
-Other option how to translate is using of `useTranslate` hook. You can use it this way:
-
+Another option how to translate texts is using of `useTranslate` hook. You can use it this way:
 ```javascript
 import {useTranslate} from "@tolgee/react";
 
@@ -57,6 +54,81 @@ or noWrap parameter as third parameter:
 ```javascript
 t("key_to_translate", {}, true);
 ```
+
+Without `noWrap` parameter set to true it will lead to similar result as using T component with
+`strategy="TEXT_WRAP"`. The key will always be wrapped with `inputPrefix` and `inputSuffix` configuration property values.
+Tolgee library then finds the texts wrapped with these values and replaces it by the translated value.
+Then you will be able to `ALT + click` the parent element and translate text interactively.
+
+:::caution
+If you don't have to use `useTranslate`, always use `<T>` component since it provides more flexibility, how text to translate
+is handled by Tolgee.
+
+However, sometimes there is no other way than using this hook.
+For example if a component accepts just pure string as parameter then you cannot pass JSX containing T component.
+:::
+## The T component wrapping strategy
+
+You can also provide a strategy prop to T component which defines how Tolgee recognizes that your DOM
+is containing the text to translate.
+
+### Strategy ELEMENT_WRAP (default and recommended)
+
+This strategy will wrap your translated text with `<span>` element with specific data-attribute to allow Tolgee to recognize
+this element as containing translation in DOM. It is the safest way of using Tolgee React SDK, since the result in
+development and production mode is the same.
+
+Consider this code:
+```
+<T strategy="ELEMENT_WRAP">my_cool_key</T>
+```
+or
+```
+<T>my_cool_key</T> // since ELEMENT_WRAP is default strategy
+```
+
+When translated value of `my_cool_key` is `My cool translation!`, it will be rendered to this:
+```
+<span data-tolgee-key-only="my_cool_key">My cool translation!</span>
+```
+Tolgee will then allow you to `ALT + click` the span and translate it directly.
+
+### Strategy TEXT_WRAP
+
+Using `TEXT_WRAP` strategy your key will be wrapped with `inputPrefix` and `inputSuffix` configuration properties.
+Tolgee will then find this text in DOM and replace it with translated value.
+
+Consider this code:
+```
+<T strategy="TEXT_WRAP">my_cool_key</T>
+```
+
+At first, this will be rendered as `%-%tolgee:my_cool_key%-%`, but Tolgee immediately finds this text and replaces it with
+"My cool translation!". It also enables you to `ALT + click` it's parent element to translate the text.
+
+:::caution
+Use TEXT_WRAP strategy just when you know what you're doing. The good reason to use this strategy is when you really
+don't want the additional span wrapper rendered in your DOM, but you still want to translate the text interactively.
+:::
+
+### Strategy NO_WRAP
+Using `NO_WRAP` strategy, Tolgee will just render the actual translated value. There is no way Tolgee can recognize this string as
+translation in DOM, so you won't be able to translate it in context.
+
+:::caution
+Use TEXT_WRAP strategy just when you know what you're doing. NO_WRAP strategy doesn't allow you to translate text
+in-context.
+:::
+
+### noWrap prop (deprecated)
+
+The `noWrap` property is just alias for `NO_WRAP` strategy. Don't use it anymore.
+
+```jsx
+<T parameters={{param: "value"}} noWrap={true}>text_with_params</T>
+```
+
+## Example
 
 For more complex codebase showing usage of Tolgee React integration check
 [React example application](https://github.com/tolgee/react-sampleapp).
