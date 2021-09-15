@@ -120,12 +120,13 @@ Element where wrapped strings are expected in development mode. (default: `docum
 Tolgee is able to watch also for wrapped localization strings in attributes of DOM elements. These attributes must be
 specified in these configuration properties.
 
-Example:
+Default:
 ```javascript
 tagAttributes: {
-        'textarea': ['placeholder'],
-        'input': ['value', 'placeholder'],
-        'select': ["aria-label"]
+    textarea: ['placeholder'],
+    input: ['value', 'placeholder'],
+    img: ['alt'],
+    '*': ['aria-label', 'title'],
 }
 ```
 
