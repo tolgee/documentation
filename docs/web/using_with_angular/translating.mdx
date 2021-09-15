@@ -9,6 +9,50 @@ To get full image of working Angular integration check our [Angular example appl
 
 To translate strings in Angular you can use pipe or translation methods.
 
+## Using TComponent (recommended)
+To get your text translated using T component, you have to add `t` attribute to your element.
+The element content will be then replaced with translated value and Tolgee will enable you
+to translate texts interactively.
+
+Consider this template:
+```html title="./app.component.html"
+<div t key="hello_world"></div>
+```
+
+when translation of key `hello_world` is `Hello world`, this content will be rendered to:
+```html
+<div ... data-tolgee-key-only="hello_world">hello_world!</div>
+```
+
+### Providing parameters to interpolate
+Sometimes you need to provide some parameters to your localization text. To do so, provide these parameters as an object
+to your element with `t` attribute.
+
+To provide parameters, just add params attribute to the element such as:
+```html title="./app.component.html"
+<div t key="hello" [params]="params"></div>
+```
+
+and provide the parameters object.
+
+```typescript title="./app.component.ts"
+import { Component } from '@angular/core';
+
+@Component({
+  selector: 'app-root',
+  templateUrl: './app.component.html',
+  styleUrls: ['./app.component.css'],
+})
+export class AppComponent {
+  params = { name: 'my friend'};
+}
+```
+
+Now, when `hello` key is translated to "Hello {name}!". You will get "Hello my friend!" content in your element.
+To learn more about the message format we are using here, [jump to message format section](./translating#message-format).
+
+That's it. Now you can translate your texts by `ALT + clicking` the texts in development mode.
+
 ## Using pipe
 To translate a string use `translate` pipe.
 
