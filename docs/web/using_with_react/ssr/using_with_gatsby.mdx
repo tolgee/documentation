@@ -1,0 +1,122 @@
+---
+id: using_with_gatsby
+title: Using with Gatsby
+sidebar_label: Using with Gatsby
+slug: /web/using_with_react/ssr/using_with_gatsby
+---
+
+To use Tolgee with Gatsby follow this Guide.
+
+## Prerequisites
+1. Created Gatsby project with installed `@tolgee/react` and `@tolgee/ui` modules
+2. Created project in Tolgee platform with 2 languages. In our case it is English (en) and Czech (cs).
+3. Added some localization key and translations for both languages. In our case the key name is `hello_world`
+4. Generated API key for your project
+5. Exported data as zip of jsons
+
+## Set up your environment.
+Create file (if not exists) `.env.development` and add this content to it.
+```
+GATSBY_TOLGEE_API_KEY=<your api key>
+GATSBY_TOLGEE_API_URL=https://app.tolgee.io
+```
+Then replace `<your api key>` with your generated API key.
+
+## Save exported data to project structure
+Save exported json files to `src/i18n` folder in your project structure.
+
+## Create pages for each language
+English version in the root.
+```typescript jsx title="src/pages/index.js"
+import * as React from 'react';
+import {TolgeeProvider} from '@tolgee/react';
+import {UI} from '@tolgee/ui';
+import * as translationsEn from '../i18n/en.json';
+import {HomePageInner} from "../component/homePageInner";
+
+const IndexPage = () => {
+    return (
+        <main>
+            <div>
+                {/*This is a link to Czech version of the website.*/}
+                <a href={'/cs'}>CS</a>
+            </div>
+            <TolgeeProvider
+                forceLanguage="en"
+                ui={UI}
+                apiKey={process.env.GATSBY_TOLGEE_API_KEY}
+                apiUrl={process.env.GATSBY_TOLGEE_API_URL}
+                staticData={{
+                    en: translationsEn
+                }}
+            >
+                <HomePageInner/>
+            </TolgeeProvider>
+        </main>
+    );
+};
+
+export default IndexPage;
+
+```
+
+Czech version in `cs` directory.
+
+```typescript jsx title="src/pages/cs/index.js"
+import * as React from 'react';
+import {TolgeeProvider} from '@tolgee/react';
+import * as translationsEn from '../../i18n/en.json';
+import * as translationsCs from '../../i18n/cs.json';
+import {HomePageInner} from "../../component/homePageInner";
+
+const IndexPage = () => {
+    return (
+        <main>
+            <div>
+                <a href={'/'}>EN</a>
+            </div>
+            <TolgeeProvider
+                forceLanguage="cs"
+                apiKey={process.env.GATSBY_TOLGEE_API_KEY}
+                apiUrl={process.env.GATSBY_TOLGEE_API_URL}
+                staticData={{
+                    // fallback language data as well if you are not sure you have translated all keys
+                    en: translationsEn,
+                    cs: translationsCs,
+                }}
+            >
+                <HomePageInner />
+            </TolgeeProvider>
+        </main>
+    );
+};
+
+export default IndexPage;
+```
+The localization data is imported and provided to TolgeeProvider using `staticData` prop, so in production mode
+(when your page is built) Tolgee will use this data.
+
+The `forceLanguage` prop forces Tolgee to use specific language. It won't try to change it
+using its own way.
+
+Now, the `HomePageInner` component can contain some translations
+
+```typescript jsx title="homePageInner.jsx"
+import * as React from 'react';
+import {T} from '@tolgee/react';
+
+export const HomePageInner = () => {
+    return (
+        <>
+            <h1><T>hello_world</T></h1>
+            <T>translated_with_tolgee</T>
+        </>
+    )
+};
+```
+
+
+You are done! Now you can translate your strings directly in your application, and enjoy the features of Gatsby in the same time!
+You can find final application code in this repo: [github.com/tolgee/gatsby-example](https://github.com/tolgee/gatsby-example).
+
+Now you can use translation methods described [here](../translating).

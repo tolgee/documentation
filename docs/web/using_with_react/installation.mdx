@@ -72,18 +72,21 @@ import {UI} from "@tolgee/ui";
     filesUrlPrefix="i18n/"
     apiUrl={process.env.REACT_APP_TOLGEE_API_URL}
     apiKey={process.env.REACT_APP_TOLGEE_API_KEY}
-    ui={process.env.REACT_APP_TOLGEE_API_KEY === "true" && UI}
+    ui={process.env.REACT_APP_TOLGEE_API_KEY && UI}
+    loadingFallback={<>Loading...</>} //content to show when localization data is loading
 >
     <Your app components>
 </TolgeeProvider>
 ```
 
-If you bootstrapped your application with Create React App, your .env file should look like this:
+If you bootstrapped your application with Create React App, your `.env.development.local` file should look like this:
 
 ```shell
 REACT_APP_TOLGEE_API_URL=https://app.tolgee.io
 REACT_APP_TOLGEE_API_KEY=bkcq7tkoinjg9ehk9hc4t3duq3
-REACT_APP_TOLGEE_WITH_UI=true
 ```
+Otherwise, you can set the properties directly, or you can use plugins like [dotenv-webpack plugin](https://www.npmjs.com/package/dotenv-webpack).
 
-Otherwise, you can set the properties directly or you can use plugins like [dotenv-webpack plugin](https://www.npmjs.com/package/dotenv-webpack).
+## Other configuration properties
+Configuration properties for all web integrations are similar. They are described in [configuration](../configuration)
+section.
