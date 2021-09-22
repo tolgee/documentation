@@ -60,7 +60,7 @@ yarn add @tolgee/ui
 After installing packages you can use it like this:
 
 ```javascript
-import {Tolgee} from "../clients/js/packages/core/lib/index";
+import {Tolgee} from "@tolgee/core";
 import {UI} from "@tolgee/ui";
 
 const tg = new Tolgee({
@@ -69,7 +69,7 @@ const tg = new Tolgee({
     ui: UI
 })
 
-pg.run();
+tg.run();
 ```
 
 Then you can use Tolgee instance the same way as described in [translating programmatically](../get_started/translating_programmatically).
