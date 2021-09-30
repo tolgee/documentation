@@ -12,7 +12,7 @@ To translate strings in Angular you can use pipe or translation methods.
 ## Using pipe
 To translate a string use `translate` pipe.
 
-```angular2html
+```html
 <h1>{{'hello_world' | translate}}</h1>
 ```
 
@@ -22,8 +22,26 @@ To provide parameters for translation pass them as first parameter of `translate
 params = {name: "John Doe"};
 ```
 
-```angular2html
+```html
 <h1>{{'hello' | translate:params}}</h1>
+```
+
+You can also provide default value.
+```html
+<h1>{{'hello' | translate:params:'Default!'}}</h1> // with params
+<h1>{{'hello' | translate:'Default!'}}</h1> // or without params
+```
+
+## Element with `t` attribute
+You can also use element with `t` attribute. Angular will render Tolgee component with `t` attribute selector.
+```html
+<h1 t key="providing_default_values"></h1>
+<p t key="Peter has n dogs" [params]="params"></p> // with params
+```
+
+Default value can be provided as well
+```html
+<p t key="using_t_with_default" default="This is default"></p>
 ```
 
 ## Using translate methods
@@ -107,7 +125,7 @@ this.translateService.getCurrentLang();
 ```
 
 ## Subscribing to language change event
-Your programatically translated texts will be not automatically updated in production mode. To do so, you will need to
+Your programmatically translated texts will be not automatically updated in production mode. To do so, you will need to
 listen to onLanguageChange EventEmitter and refresh your values manually.
 
 ```typescript

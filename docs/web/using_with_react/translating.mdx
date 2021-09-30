@@ -7,7 +7,9 @@ slug: /web/using_with_react/translating
 
 There are several ways how to translate a text using our React integration.
 
-First way is the 'T' component. You can use it like this:
+## The T component
+
+First way is the `<T>` component. You can use it like this:
 
 ```jsx
 import {T} from "@tolgee/react";
@@ -31,8 +33,18 @@ To skip key wrapping in translation mode use `T` component with noWrap param suc
 <T parameters={{param: "value"}} noWrap={true}>text_with_params</T>
 ```
 
-This will prevent any possible problems with Tolgee's wrapping technology but you won't be able use in-contexts
+This will prevent any possible problems with Tolgee wrapping technology, but you won't be able use in-contexts
 translation feature for this particular occurrence.
+
+### Providing default value
+
+When `keyName` property is provided, then children prop of T component is considered as default value.
+```jsx
+<T keyName="translation_key">This is default value.</T>
+```
+The default value will be rendered when no translation is provided in current nor fallback language.
+
+## `useTranslate` hook
 
 Other option how to translate is using of `useTranslate` hook. You can use it this way:
 
@@ -56,6 +68,21 @@ t("key_to_translate", {param: "value"});
 or noWrap parameter as third parameter:
 ```javascript
 t("key_to_translate", {}, true);
+```
+
+To provide default value to `t` function, use its 4th parameter.
+```jsx
+t("key_to_translate", {}, true, "This is also default!")
+```
+
+You can also pass props object to `t` function.
+```jsx
+t({
+  key: "key_to_translate",
+  parameters: { param: "value" },
+  noWrap: false,
+  defaultValue: "This is default",
+})
 ```
 
 For more complex codebase showing usage of Tolgee React integration check

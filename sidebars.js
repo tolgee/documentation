@@ -39,6 +39,8 @@ module.exports = {
             "web/get_started/preparing_for_production",
             "web/get_started/adding_loading_overlay",
             "web/get_started/translating_programmatically",
+            "web/get_started/providing_default_value",
+            "web/get_started/parameter_interpolation",
           ],
           collapsed: false,
         },
