@@ -28,12 +28,12 @@ There is text `Hello world!` in the body, which we would like to translate.
 Loading Tolgee in your web application is as simple as including one dependency. To do so, we can simply use unpkg
 repository:
 ```html
-<script src="https://unpkg.com/@tolgee/core"></script>
+<script src="https://unpkg.com/@tolgee/core/dist/tolgee.umd.min.js"></script>
 ```
 
 To translate your content interactively, you will need one more dependency.
 ```html
-<script src="https://unpkg.com/@tolgee/ui"></script>
+<script src="https://unpkg.com/@tolgee/ui/dist/tolgee-ui.umd.min.js"></script>
 ```
 This dependency is Tolgee's UI, so dialog can appear when you **ALT + click** your translation.
 
@@ -59,11 +59,12 @@ In configuration object you can specify many other parameters, but in this examp
 - **watch** - parameter defining whether Tolgee should watch for changes in the DOM and update translations
 - **ui** - constructor of Tolgee's UI to render interactive translation modal window
 
-Afterwards you create the instance you need to wrap the text **Hello world!** with your `inputPrefix` and `inputSuffix`.
+Afterwards you create the instance you need to replace the text **Hello world!** with localization key wrapped
+with your `inputPrefix` and `inputSuffix`.
 
 ```html
 <body>
-    <h1>{{hello world!}}</h1>
+    <h1>{{hello_world}}</h1>
 </body>
 ```
 
@@ -84,8 +85,8 @@ You should end with this HTML document:
 <body>
     <h1>{{hello_world}}</h1>
 </body>
-<script src="https://unpkg.com/@tolgee/core"></script>
-<script src="https://unpkg.com/@tolgee/ui"></script>
+<script src="https://unpkg.com/@tolgee/core/dist/tolgee.umd.min.js"></script>
+<script src="https://unpkg.com/@tolgee/ui/dist/tolgee-ui.umd.min.js"></script>
 <script>
 const pg = new window["@tolgee/core"].Tolgee({
     apiUrl: "https://app.tolgee.io",
