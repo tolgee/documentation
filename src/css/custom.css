@@ -15,6 +15,8 @@
     --ifm-color-primary-lighter: #974569;
     --ifm-color-primary-lightest: #a16a7b;
     --ifm-code-font-size: 95%;
+    --ifm-font-family-base: Rubik, Arial, sans-serif;
+    --header-image-background: rgb(105, 16, 53);
 }
 
 /*noinspection CssUnresolvedCustomProperty*/
@@ -32,13 +34,167 @@
     margin-right: 15px;
 }
 
-.header {
-    background: linear-gradient(45deg, var(--ifm-color-primary-light), var(--ifm-color-primary-darkest), var(--ifm-color-primary-light));
-    background-size: 600% 600%;
+.header__wrapper {
+    position: relative;
+    /*background: linear-gradient(180deg, #35061C 6.79%, #691036 15.71%, #691036 40.1%, #872748 100%);*/
+    background: radial-gradient(closest-corner, rgba(135, 39, 72, 1) 0%, rgba(116, 25, 61, 1) 24%, rgba(105, 16, 54, 1) 80%, #470826 100%);
+}
 
-    -webkit-animation: BackgroundAnimation 20s ease infinite;
-    -moz-animation: BackgroundAnimation 20s ease infinite;
-    animation: BackgroundAnimation 20s ease infinite;
+.header__wrapper::before {
+    content: '';
+    height: 0px;
+    width: 100%;
+    display: block;
+    position: absolute;
+    box-shadow: 0px 8px 49px 12px rgba(0, 0, 0, 0.53);
+    top: 0;
+}
+
+.header__wrapper .hero {
+    background-color: transparent;
+}
+
+.header {
+    display: flex;
+    padding: 0;
+    align-items: stretch;
+    max-width: 2000px;
+    margin: 0 auto;
+    background-image: url("/img/hero.png");
+    background-size: contain;
+    background-position: left top;
+    background-repeat: no-repeat;
+}
+
+.header:before {
+    content: '';
+    display: block;
+    padding-top: 22%;
+}
+
+.header__container {
+    display: flex;
+    justify-content: flex-end;
+}
+
+.header__content {
+    text-align: left;
+}
+
+.tagline__weapon-wrapper {
+    display: inline-block;
+    background: rgba(177, 177, 177, 0.24);
+    padding: 4px;
+    position: relative;
+    width: 120px;
+    border-radius: 10px;
+    margin-left: 10px;
+    overflow: hidden;
+    font-family: monaco, "andale mono", "lucida console", "courier new", monospace;
+}
+
+.hero__subtitle {
+    display: flex;
+    align-items: center;
+    max-width: 250px;
+}
+
+.hero__title, .navbar__title {
+    font-family: Righteous, Arial, sans-serif;;
+    font-weight: 500;
+}
+
+@media only screen and (max-width: 1250px) and (min-width: 950px) {
+    .header .hero__title {
+        font-size: 40px
+    }
+
+    .header__content {
+        padding: 16px 0 16px 0;
+    }
+}
+
+@media only screen and (max-width: 1000px) {
+    .header__container {
+        flex-direction: column;
+    }
+
+    .header__content {
+        background: none;
+        z-index: 2;
+    }
+
+    .header__content > div {
+        padding: 16px;
+    }
+
+    .header {
+        background-size: cover;
+        position: relative;
+    }
+
+    .header:after {
+        content: '';
+        position: absolute;
+        display: block;
+        width: 100%;
+        height: 100%;
+        background-color: var(--header-image-background);
+        opacity: 0.7;
+        backdrop-filter: blur(10px);
+    }
+}
+
+.tagline__weapon-wrapper:before {
+    content: ".";
+    visibility: hidden;
+}
+
+.tagline__weapon {
+    width: 100%;
+    display: block;
+    position: absolute;
+    top: 50px;
+    left: 0;
+    padding: 4px;
+    animation: 2s TagLineMove infinite;
+}
+
+.tagline__weapon--active {
+    top: 0;
+}
+
+
+@keyframes TagLineMove {
+    0% {
+        top: -50px;
+        opacity: 0
+    }
+
+    5% {
+        top: -50px;
+        opacity: 1
+    }
+
+    10% {
+        top: 0;
+        opacity: 1
+    }
+
+    80% {
+        top: 0;
+        opacity: 1;
+    }
+
+    85% {
+        top: 50px;
+        opacity: 1;
+    }
+
+    90% {
+        top: 50px;
+        opacity: 0;
+    }
 }
 
 @-webkit-keyframes BackgroundAnimation {
@@ -82,7 +238,26 @@
     border-style: solid;
 }
 
-.hero__image{
+.hero__image {
     width: 300px;
     filter: drop-shadow(2px 2px 10px rgba(0, 0, 0, 0.3));
+}
+
+.dark-mode-disabled {
+    background-color: white;
+}
+
+.dark-mode-disabled > :not(.navbar, footer), .dark-mode-disabled > :not(.navbar, footer) .cookie-consent__content {
+    color: var(--ifm-color-gray-900);
+    --ifm-hero-text-color: var(--ifm-color-gray-900);
+    --ifm-font-color-base-inverse: #FFFFFF;
+    --ifm-button-border-color: #FFFFFF;
+}
+
+.dark-mode-disabled .header__wrapper .button--outline:hover {
+    background-color: transparent;
+}
+
+.dark-mode-disabled > .cookie-consent {
+    color: var(--ifm-color-gray-900);
 }

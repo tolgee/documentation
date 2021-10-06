@@ -53,6 +53,10 @@ module.exports = {
           type: "doc",
         },
         {
+          id: "web/automated_screenshot_generation",
+          type: "doc",
+        },
+        {
           label: "Integrations",
           collapsed: false,
           type: "category",

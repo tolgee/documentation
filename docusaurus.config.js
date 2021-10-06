@@ -1,6 +1,6 @@
 module.exports = {
-  title: "Tolgee Toolkit",
-  tagline: "Localization tools for efficiency",
+  title: "Tolgee",
+  tagline: "Localization for everyone",
   url: "https://tolgee.io",
   baseUrl: "/",
   onBrokenLinks: "throw",
@@ -10,7 +10,7 @@ module.exports = {
   projectName: "Tolgee",
   themeConfig: {
     navbar: {
-      title: "Tolgee Toolkit",
+      title: "Tolgee",
       logo: {
         alt: "Tolgee",
         src: "img/tolgeeLogo.svg",
@@ -24,9 +24,27 @@ module.exports = {
           position: "left",
         },
         {
-          to: "apiReference",
-          activeBasePath: "apiReference",
+          to: "api",
+          activeBasePath: "api",
           label: "API",
+          position: "left",
+        },
+        {
+          to: "pricing",
+          activeBasePath: "pricing",
+          label: "Pricing",
+          position: "left",
+        },
+        {
+          to: "roadmap",
+          activeBasePath: "roadmap",
+          label: "Roadmap",
+          position: "left",
+        },
+        {
+          to: "opensource",
+          activeBasePath: "opensource",
+          label: "Why Open-source?",
           position: "left",
         },
         // {to: 'blog', label: 'Blog', position: 'left'},
@@ -45,7 +63,7 @@ module.exports = {
           title: "Docs",
           items: [
             {
-              label: "What is Tolgee Toolkit",
+              label: "What is Tolgee",
               to: "docs/",
             },
             {
@@ -91,8 +109,12 @@ module.exports = {
               href: "https://app.tolgee.io",
             },
             {
-              label: "Linked in",
+              label: "LinkedIn",
               href: "https://www.linkedin.com/company/tolgee",
+            },
+            {
+              label: "Terms of use",
+              href: "/docs/terms_of_use",
             },
           ],
         },
@@ -103,6 +125,9 @@ module.exports = {
       apiKey: "4611f8562d237546845c8bdede50243f",
       indexName: "tolgee",
       searchParameters: {}, // Optional (if provided by Algolia)
+    },
+    gtag: {
+      trackingID: "G-K37DGCFGLS" || process.env.DOCUSAURUS_GOOGLE_TRACKING_ID,
     },
   },
   presets: [
@@ -124,10 +149,46 @@ module.exports = {
         },
       },
     ],
+    [
+      "redocusaurus",
+      {
+        specs: [
+          {
+            specUrl:
+              "https://app.tolgee.io/v3/api-docs/Accessible%20with%20API%20key",
+            routePath: "/api",
+          },
+        ],
+        theme: {
+          primaryColor: "#822B55",
+
+          redocOptions: {
+            theme: {
+              sidebar: {
+                backgroundColor: "#333333",
+              },
+              typography: {
+                color: "white",
+              },
+            },
+          },
+        },
+      },
+    ],
   ],
   plugins: ["docusaurus2-dotenv"],
   stylesheets: ["/font.css"],
   customFields: {
     apiSpec: "https://app.tolgee.io/v3/api-docs/Accessible%20with%20API%20key",
   },
+  scripts: [
+    ...(process.env.DOCUSAURUS_TAWK_URL
+      ? [
+          {
+            src: process.env.DOCUSAURUS_TAWK_URL,
+            async: true,
+          },
+        ]
+      : []),
+  ],
 };

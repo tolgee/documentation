@@ -10,16 +10,13 @@ To run server locally you should be fine just with running simple docker image w
 Tolgee is using H2 database to store the data so you don't need another database to run it.
 
 ```
-docker run -v tolgee_data:/data/ -p 8085:8080 \
--e tolgee.authentication.enabled=false \
-tolgee/tolgee
+docker run -v tolgee_data:/data/ -p 8085:8080 tolgee/tolgee
 ```
 
 This will:
  - mount tolgee_db image into it's directory inside the container
- - exposes tolgee container port on port 8085
- - disables authentication
- - runs the image!
+ - expose tolgee container port on port 8085
+ - run the image!
 
 Now you should be able to access Tolgee web application on [http://localhost:8085](http://localhost:8085)
 
@@ -59,6 +56,16 @@ spring.datasource.username=postgres
 spring.datasource.password=postgres
 ```
 Similarly, you can define other [configuration properties](configuration).
+
+:::info
+Some versions of docker-compose doesn't accept dots (".") in `.env` file key names. Then you can replace `.` characters with
+underscores `_`.
+```properties title=".env"
+spring_datasource_url=jdbc:postgresql://db:5432/postgres
+spring_datasource_username=postgres
+spring_datasource_password=postgres
+```
+:::
 
 Your initial username is `admin`. Initial password is automatically generated and stored in /data/initial.pwd file in the
 Tolgee container. You can print it by executing this:

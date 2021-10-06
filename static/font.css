@@ -4,6 +4,10 @@
 }
 
 body {
-    font-family: Rubik, Arial, sans-serif;
     font-weight: normal;
+}
+
+@font-face {
+    font-family: Righteous;
+    src: url('./righteous-latin.woff2') format('woff2');
 }
