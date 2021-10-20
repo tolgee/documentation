@@ -78,7 +78,7 @@ import { environment } from '../environments/environment';
     NgxTolgeeModule.forRoot({
       apiUrl: environment.tolgeeApiUrl,
       apiKey: environment.tolgeeApiKey,
-      ui: environment.tolgeeApiKey && UI
+      ui: environment.tolgeeApiKey ? UI : undefined
     }),
 ...,
 ],

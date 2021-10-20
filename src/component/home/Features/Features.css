@@ -1,0 +1,98 @@
+.feature .feature__header {
+    font-size: 40px;
+    margin-bottom: 68px;
+}
+
+.feature {
+    color: var(--ifm-hero-text-color);
+}
+
+.feature .feature__text {
+    font-size: 20px;
+    line-height: 28px;
+    margin-top: 30px;
+}
+
+.feature > div {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    position: relative;
+}
+
+.feature .feature__image, .feature .feature__image-and-play {
+    display: flex;
+    width: 400px;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+}
+
+.feature__content {
+    margin: 50px 0;
+    max-width: 750px;
+    flex-shrink: 1;
+}
+
+.feature__technologies {
+    max-width: 80%;
+    padding-top: 48px;
+    display: flex;
+    gap: 20px;
+}
+
+.feature__technologies img {
+    filter: grayscale(1);
+    flex-shrink: 1;
+    height: 60px;
+}
+
+.feature__technologies a:hover > img {
+    filter: grayscale(0);
+    transition: filter 1s;
+}
+
+
+.feature .feature__image svg {
+    width: 50%;
+}
+
+.feature .feature__play {
+    position: absolute;
+    right: 140px;
+    top: 70px;
+}
+
+
+.feature:first-child {
+    margin-top: 48px
+}
+
+.feature:last-child {
+    margin-bottom: 48px
+}
+
+
+.feature:nth-child(2n + 1) > div {
+    --gradient-angle: -90deg
+}
+
+.feature:nth-child(2n) > div {
+    --gradient-angle: 90deg;
+    flex-direction: row-reverse;
+    background-color: #F2F2F2;
+}
+
+@media screen and (min-width: 1100px) {
+    .feature > div {
+        background: linear-gradient(var(--gradient-angle), #F2F2F2 0%, #FFFFFF 49.25%);
+        border-radius: 1000px;
+        justify-content: space-between;
+    }
+}
+
+@media screen and (min-width: 900px) {
+    .feature > div {
+        flex-wrap: nowrap;
+    }
+}
