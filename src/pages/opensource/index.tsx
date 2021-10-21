@@ -54,10 +54,8 @@ export default () => {
 
           <p>
             👨‍💻 <b>Software as a Service</b> &#x2011; Firstly, paying for the
-            cloud system hosted by Tolgee is done in the spare time of
-            developers maintaining the system and making the whole process more
-            comfortable. We will arrange everything needed, and you can be sure
-            that the latest version of Tolgee will be safe and secure to use.
+            cloud system hosted by Tolgee will save time for developers
+            maintaining the system and make the whole process more comfortable.
           </p>
 
           <p>

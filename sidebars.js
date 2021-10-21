@@ -10,7 +10,7 @@ module.exports = {
           label: "Usage",
           type: "category",
           items: [
-            "server_and_web_app/creating_repository",
+            "server_and_web_app/creating_project",
             "server_and_web_app/obtaining_api_key",
             "server_and_web_app/exporting_translations",
           ],

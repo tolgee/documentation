@@ -50,6 +50,17 @@
     top: 0;
 }
 
+.header__wrapper::after {
+    content: '';
+    height: 0px;
+    width: 100%;
+    display: block;
+    position: relative;
+    box-shadow: 0px 8px 49px 12px rgba(0, 0, 0, 0.3);
+    top: 0;
+}
+
+
 .header__wrapper .hero {
     background-color: transparent;
 }
@@ -145,94 +156,6 @@
     }
 }
 
-.tagline__weapon-wrapper:before {
-    content: ".";
-    visibility: hidden;
-}
-
-.tagline__weapon {
-    width: 100%;
-    display: block;
-    position: absolute;
-    top: 50px;
-    left: 0;
-    padding: 4px;
-    animation: 2s TagLineMove infinite;
-}
-
-.tagline__weapon--active {
-    top: 0;
-}
-
-
-@keyframes TagLineMove {
-    0% {
-        top: -50px;
-        opacity: 0
-    }
-
-    5% {
-        top: -50px;
-        opacity: 1
-    }
-
-    10% {
-        top: 0;
-        opacity: 1
-    }
-
-    80% {
-        top: 0;
-        opacity: 1;
-    }
-
-    85% {
-        top: 50px;
-        opacity: 1;
-    }
-
-    90% {
-        top: 50px;
-        opacity: 0;
-    }
-}
-
-@-webkit-keyframes BackgroundAnimation {
-    0% {
-        background-position: 0 14%
-    }
-    50% {
-        background-position: 100% 87%
-    }
-    100% {
-        background-position: 0 14%
-    }
-}
-
-@-moz-keyframes BackgroundAnimation {
-    0% {
-        background-position: 0 14%
-    }
-    50% {
-        background-position: 100% 87%
-    }
-    100% {
-        background-position: 0 14%
-    }
-}
-
-@keyframes BackgroundAnimation {
-    0% {
-        background-position: 0 14%
-    }
-    50% {
-        background-position: 100% 87%
-    }
-    100% {
-        background-position: 0 14%
-    }
-}
-
 .button--outline {
     border-width: 1px;
     border-style: solid;
@@ -261,3 +184,48 @@
 .dark-mode-disabled > .cookie-consent {
     color: var(--ifm-color-gray-900);
 }
+
+.home__video-placeholder-wrapper {
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 80px 20px;
+    position: relative;
+}
+
+.home__main {
+    position: relative;
+}
+
+.home__animated-mouse {
+    width: 150px;
+    position: absolute;
+    bottom: 150px;
+    filter: grayscale(0.9) brightness(1.3);
+    opacity: 0.7;
+    margin-left: -150px;
+    transition: 0.02s ease-in-out;
+}
+
+.home__main::before {
+    content: '';
+    display: block;
+    height: 400px;
+    background: linear-gradient(180deg, rgba(196, 196, 196, 0.24) 0%, #FFFFFF 100%);
+    position: absolute;
+    width: 100%;
+}
+
+.home__animated-mouse-and-video-wrapper {
+    position: relative;
+}
+
+.home__animated-mouse-and-video-wrapper:before {
+    height: 1px;
+    position: absolute;
+    bottom: 150px;
+    content: '';
+    display: block;
+    width: 100%;
+    box-shadow: 10px 0 10px rgba(116, 116, 116, 0.46);
+}
+
