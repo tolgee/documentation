@@ -3,7 +3,6 @@ import clsx from "clsx";
 import Layout from "@theme/Layout";
 import Link from "@docusaurus/Link";
 import useDocusaurusContext from "@docusaurus/useDocusaurusContext";
-import useBaseUrl from "@docusaurus/useBaseUrl";
 import styles from "./styles.module.css";
 import { Features } from "../component/home/Features/Features";
 import { Social } from "../component/home/Social/Social";
@@ -60,7 +59,7 @@ function Home() {
                         "button button--outline button--lg",
                         styles.getStarted
                       )}
-                      to={useBaseUrl("docs/")}
+                      to={"https://app.tolgee.io/sign_up"}
                     >
                       Get Started
                     </Link>
