@@ -24,7 +24,6 @@ import logoNext from "./images/technologies/logo-next.png";
 import logoPhp from "./images/technologies/logo-php.png";
 // @ts-ignore
 import logoReact from "./images/technologies/logo-react.png";
-import { Video } from "../../video/Video";
 
 export const Features = () => {
   return (
@@ -65,13 +64,8 @@ export const Features = () => {
               </Link>
             </div>
           </div>
-          <div className="feature__image-and-play">
-            <div className="feature__play">
-              <Video src="/intro.mp4" />
-            </div>
-            <div className="feature__image">
-              <AllInOneImage />
-            </div>
+          <div className="feature__image">
+            <AllInOneImage />
           </div>
         </div>
       </div>
