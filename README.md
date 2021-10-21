@@ -1,4 +1,4 @@
-# Tolgee Toolkit documentation
+# Tolgee documentation
 
 <img src="./tolgee_logo_text.svg" alt="logo" width="100px">
 

@@ -10,6 +10,11 @@ React and Angular. But first of all, let's look on simple application without an
 
 Check out our [example application on github](https://github.com/tolgee/window-example)
 
+:::info
+Tolgee doesn't work properly when the app is opened as `.html` file from filesystem. Use some tool like
+[serve npm package](https://www.npmjs.com/package/serve) or [Live Server VS code plugin](https://marketplace.visualstudio.com/items?itemName=ritwickdey.LiveServer).
+:::
+
 Let's start with simple html code:
 ```html
 <!DOCTYPE html>
@@ -26,7 +31,7 @@ Let's start with simple html code:
 There is text `Hello world!` in the body, which we would like to translate.
 
 Loading Tolgee in your web application is as simple as including one dependency. To do so, we can simply use unpkg
-repository:
+cdn:
 ```html
 <script src="https://unpkg.com/@tolgee/core/dist/tolgee.umd.min.js"></script>
 ```
