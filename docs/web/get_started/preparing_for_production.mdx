@@ -55,15 +55,14 @@ That's it! Our app is ready for production. Here is the final HTML page:
 <body>
     <h1>{{hello_world}}</h1>
 </body>
-<script src="https://unpkg.com/@tolgee/core"></script>
-<script src="https://unpkg.com/@tolgee/ui"></script>
+<script src="https://unpkg.com/@tolgee/core/dist/tolgee.umd.min.js"></script>
 <script>
-const pg = new window["@tolgee/core"].Tolgee({
+const tg = new window["@tolgee/core"].Tolgee({
     inputPrefix: "{{",
     inputSuffix: "}}",
     watch: true,
 });
-pg.run();
+tg.run();
 </script>
 </html>
 ```
