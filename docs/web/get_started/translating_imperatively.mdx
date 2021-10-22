@@ -1,8 +1,8 @@
 ---
-id: translating_programmatically
-title: Translating programmatically
-sidebar_label: Translating programmatically
-slug: /web/get_started/translating_programmatically
+id: translating_imperatively
+title: Translating imperatively
+sidebar_label: Translating imperatively
+slug: /web/get_started/translating_imperatively
 ---
 
 There are occurrences of texts to translate that can appear outside the DOM subtree handled by Tolgee or as visible properties
@@ -32,7 +32,7 @@ inspecting DOM (see [understanding Tolgee](../understanding_tolgee_for_web)).
 :::important
 If you can see wrapped text on rendered page such as `{{something}}` or<br/>
 `%-%tolgee:something%-%` you should probably try
-to translate it programmatically with third parameter set to `true` like:
+to translate it imperatively with `noWrap` parameter set to `true` like:
 
 ```javascript
 tg.instant("something", undefined, true)
@@ -41,6 +41,8 @@ or
 ```javascript
 tg.translate("something", undefined, true).then(translation => {})
 ```
+
+This way, you'll get unwrapped translation value and you can manually place it wherever you need.
 
 :::
 
