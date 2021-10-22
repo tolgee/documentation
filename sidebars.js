@@ -11,7 +11,8 @@ module.exports = {
           type: "category",
           items: [
             "server_and_web_app/creating_project",
-            "server_and_web_app/obtaining_api_key",
+            "server_and_web_app/integration",
+            "server_and_web_app/managing_api_keys",
             "server_and_web_app/exporting_translations",
           ],
         },
@@ -38,7 +39,7 @@ module.exports = {
             "web/get_started/hello_world",
             "web/get_started/preparing_for_production",
             "web/get_started/adding_loading_overlay",
-            "web/get_started/translating_programmatically",
+            "web/get_started/translating_imperatively",
             "web/get_started/providing_default_value",
             "web/get_started/parameter_interpolation",
           ],

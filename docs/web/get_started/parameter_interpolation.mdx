@@ -30,7 +30,7 @@ You can also omit the default value, ft you don't want to provide it in your cod
 <h1>{{hello:name:John,surname:Doe}}<h1>
 ```
 
-## Parameter interpolation when translating programmatically
+## Parameter interpolation when translating imperatively
 To provide parameters object to the `translate` function pass it as the 2nd argument.
 ```javascript
 tg.translate("hello", {name: "John", surname: "Doe"}).then((t) => ...);
