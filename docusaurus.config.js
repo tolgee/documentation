@@ -127,7 +127,7 @@ module.exports = {
       searchParameters: {}, // Optional (if provided by Algolia)
     },
     gtag: {
-      trackingID: "G-K37DGCFGLS" || process.env.DOCUSAURUS_GOOGLE_TRACKING_ID,
+      trackingID: process.env.DOCUSAURUS_GOOGLE_TRACKING_ID || "G-K37DGCFGLS",
     },
   },
   presets: [
