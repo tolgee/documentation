@@ -86,6 +86,18 @@ module.exports = {
               ],
             },
             {
+              label: "Using with Vue",
+              type: "category",
+              items: [
+                "web/using_with_vue/installation",
+                "web/using_with_vue/translating",
+                "web/using_with_vue/switching_languages",
+                "web/using_with_vue/preparing_for_production",
+                "web/using_with_vue/advanced_translating",
+                "web/using_with_vue/api"
+              ],
+            },
+            {
               label: "Using with Angular",
               type: "category",
               items: [

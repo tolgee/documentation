@@ -1,0 +1,62 @@
+---
+id: translating
+title: Translating
+sidebar_label: Translating
+slug: /web/using_with_vue/translating
+---
+
+There are two ways how to translate with Tolgee.
+
+## The [`T`](./api#t-component) component
+
+```html
+<template>
+  <T keyName="translation_key" />
+</template>
+
+<script>
+import { T } from '@tolgee/vue';
+
+export default {
+  components: { T }
+}
+</script>
+```
+
+### Parameter interpolation
+To pass parameters, just add parameters property:
+
+```html
+<T keyName="translation_key" :parameters="{param: 'value'}" />
+```
+
+For translated text `This is {param} of the text` it will result in `This is value of the text`.
+
+### Providing default value
+
+```html
+<T keyName="translation_key">This is default value.</T>
+```
+
+The default value will be rendered when no translation is provided in current nor fallback language.
+
+## Imperative translation
+
+This solution is designed for cases where you can't use components (e.g. props).
+Use [TolgeeMixin](./api#tolgeemixin), then you'll get access to the [`$t`](./api#function-t) function,
+which has similar API as [`T`](./api#t-component) component, but you can use it anywhere. 
+You can check all [`$t`](./api#function-t) parameters in [API section](./api#function-t)
+
+```html
+<template>
+  <div :title="$t('translation_key')">Hello</div>
+</template>
+
+<script>
+  import { TolgeeMixin } from '@tolgee/vue';
+
+  export default {
+    mixins: [TolgeeMixin],
+  };
+</script>
+```
