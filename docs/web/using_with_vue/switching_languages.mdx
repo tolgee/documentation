@@ -1,0 +1,30 @@
+---
+id: switching_languages
+title: Switching languages
+sidebar_label: Switching languages
+slug: /web/using_with_vue/switching_languages
+---
+
+For language management, use [`TolgeeMixin`](./api#tolgeemixin)'s [`tolgeeLanguage`](./api#property-tolgeelanguage) property,
+which is reactive, so you can use it easily with `v-model`:
+
+```html
+<template>
+  <select v-model="tolgeeLanguage">
+    <option value="en">🇬🇧 English</option>
+    <option value="de">🇩🇪 Deutsch</option>
+  </select>
+</template>
+
+<script lang="ts">
+import { TolgeeMixin } from '@tolgee/vue';
+import { defineComponent } from 'vue';
+
+export default defineComponent({
+  mixins: [TolgeeMixin],
+  name: 'LanguageSelect',
+});
+</script>
+```
+
+Of course you can use it also to manually get or set language.

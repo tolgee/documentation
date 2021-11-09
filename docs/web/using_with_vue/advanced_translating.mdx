@@ -1,0 +1,43 @@
+---
+id: advanced_translating
+title: Advanced translating
+sidebar_label: Advanced translating
+slug: /web/using_with_vue/advanced_translating
+---
+
+To make in-context localization work, we need a way to identify translations on the page
+and find their parent DOM element to attach event listeners.
+
+In case of [`T`](./api#t-component) component we simply wrap the translation with `span`. This has an advantage,
+that every translation is uniquely identifiable, but there might be cases, where you really need to only render
+text. You can switch this off through property [`strategy="NO_WRAP"`](./api#prop-strategy). This has the drawback, that in-context translation
+won't work in this case.
+
+```html
+<T keyName="translation_key" strategy="NO_WRAP" />
+```
+
+## [`$t`](./api#function-t) function wrapping
+
+[`$t`](./api#function-t) function is a bit more complicated, because we cannot attach our own html element into the DOM.
+So in this case the function is returning Tolgee custom made [wrapping](../understanding_tolgee_for_web#key-and-parameters-wrapping),
+which is then captured by DOM [MutationObserver](https://developer.mozilla.org/en-US/docs/Web/API/MutationObserver) and that will find suitable parent element, where the translation gets
+registred and so in-context localization can work there. In production mode, this whole logic can be omitted and [`$t`](./api#function-t) function
+returns only the translated string.
+
+This can be problematic in cases where you put translation outside of DOM document, because then the change is not
+picked up by the DOM observer. You can do that with [`noWrap`](./api#parameter-nowrap) parameter.
+
+Here is example how to set document title:
+
+```ts
+export default {
+  mixins: [TolgeeMixin],
+  created() {
+    document.title = this.$t({ key: 'page_title', noWrap: true });
+  },
+  beforeUpdate() {
+    document.title = this.$t({ key: 'page_title', noWrap: true });
+  },
+};
+```
