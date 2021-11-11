@@ -15,13 +15,9 @@ const appendScript = (url: string) => {
 export const Social = () => {
   useEffect(() => {
     const removeGithub = appendScript("https://buttons.github.io/buttons.js");
-    const removeTwitter = appendScript(
-      "https://platform.twitter.com/widgets.js"
-    );
 
     return () => {
       removeGithub();
-      removeTwitter();
     };
   }, []);
 
@@ -50,13 +46,6 @@ export const Social = () => {
             aria-label="Star tolgee/tolgee-js on GitHub"
           >
             Tolgee JS
-          </a>
-          <a
-            href="https://twitter.com/tolgee_i18n?ref_src=twsrc%5Etfw"
-            className="twitter-follow-button"
-            data-show-count="false"
-          >
-            Follow @tolgee_i18n
           </a>
         </div>
       </div>

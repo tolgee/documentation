@@ -1,0 +1,9 @@
+.cool-button {
+    display: inline-flex;
+    gap: 10px;
+    min-height: 50px;
+    padding: 15px;
+    box-shadow: 3px 3px 15px var(--ifm-color-primary);
+    align-items: center;
+    border-radius: 2px;
+}
