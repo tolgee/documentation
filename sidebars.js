@@ -95,6 +95,18 @@ module.exports = {
               ],
             },
             {
+              label: "Using with Svelte",
+              type: "category",
+              items: [
+                "web/using_with_svelte/installation",
+                "web/using_with_svelte/translating",
+                "web/using_with_svelte/switching_language",
+                "web/using_with_svelte/preparing_for_production",
+                "web/using_with_svelte/advanced_translating",
+                "web/using_with_svelte/api",
+              ],
+            },
+            {
               id: "web/using_with_php",
               type: "doc",
             },

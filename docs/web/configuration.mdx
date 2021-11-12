@@ -10,7 +10,6 @@ All Tolgee JS integrations such as integration library for Angular or React shar
 ## Configuration properties
 
 ### mode
-
 There are two modes - production and development. When `apiKey` property is not provided, default mode is `production`.
 When both `apiKey` and `apiUrl` properties are provided, default mode is `development`.
 
@@ -42,6 +41,16 @@ Default language to be set by as currentLanguage default. (default: `en`)
 ### fallbackLanguage
 When translation is not provided in current language, Tolgee tries to find it in fallbackLanguage.
 (default: value of `defaultLanguage` property)
+
+### forceLanguage
+By default, Tolgee tries to set the language according to user's system language. Sometimes you need to force it to
+use specific language. For example when you are working with SSR or your language is determined by route.
+Providing value to forceLanguage will disable language switching and Tolgee will use just the forced language.
+```js
+const config = {
+  forceLanguage: 'en'
+}
+```
 
 ### preloadFallback
 When `true` Tolgee loads both current language and fallback language before promise is resolved from `Tolgee.run()` method.
