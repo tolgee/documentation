@@ -1,0 +1,10 @@
+.cool-button__image {
+    display: flex;
+    font-size: 35px;
+    line-height: 20px;
+    max-height: 35px;
+}
+
+.cool-button__image > img {
+    max-height: 30px;
+}
