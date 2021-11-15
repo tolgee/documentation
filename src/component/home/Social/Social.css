@@ -1,20 +1,54 @@
-.github__thanks {
+.github__thanks, .discord_ask {
+    font-size: 24px;
     text-align: center;
-    font-size: 28px;
 }
 
-.github__buttons {
+
+.github__buttons, .discord_button {
     display: flex;
-    justify-content: center;
     gap: 20px;
-    margin: 30px;
     align-items: center;
+    justify-content: center;
 }
 
 .github__buttons > span {
     display: flex;
 }
 
-.github {
-    margin: 200px 0;
+.social {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    width: 100%;
+    margin-top: 150px;
+    gap: 20px;
+}
+
+.discord_button img {
+    border-radius: 4px;
+}
+
+.discord_ask{
+    margin-top: 40px;
+}
+
+@media screen and (min-width: 1440px) {
+    .github__thanks, .discord_ask {
+        font-size: 24px;
+        text-align: left;
+    }
+
+    .github__buttons {
+        align-items: flex-start;
+        justify-content: left;
+    }
+
+    .discord_button{
+        justify-content: left;
+    }
+
+    .social {
+        max-width: 340px;
+        margin-top: 0;
+    }
 }

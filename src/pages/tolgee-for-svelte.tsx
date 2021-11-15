@@ -42,7 +42,9 @@ export default () => {
               "https://img.shields.io/github/stars/tolgee/server?label=Tolgee%20Server&logo=github&style=social",
           },
         ]}
-      />
+      >
+        Tolgee for Svelte
+      </LandingPageHeadline>
       <LandingPageDescription installationCommand="npm i @tolgee/svelte @tolgee/ui">
         <p>
           Tolgee for Svelte provides simple API to create multi-lingual Svelte
@@ -179,7 +181,7 @@ const svelteProviderCode = `<script lang="ts">
 </TolgeeProvider>`;
 
 const usingTCode = `<script>
-  import { T } from "../clients/js/packages/svelte/package/index";
+  import { T } from "@tolgee/svelte";
 </script>
 <h1>
   <T keyName="translate_me">Translate me!</T>
