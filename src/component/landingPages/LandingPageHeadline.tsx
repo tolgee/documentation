@@ -23,13 +23,13 @@ export const LandingPageHeadline: FC<{
             </a>
           ))}
         </div>
-        <h1>Tolgee for Svelte</h1>
+        <h1>{children}</h1>
       </div>
       <div className="integration__headline-right">
         <div className="integration__headline-image">
           <TechnologyLove
-            technologyName="Svelte"
-            technologyImgUrl="/img/technologies/logo-svelte.svg"
+            technologyName={loveImage.name}
+            technologyImgUrl={loveImage.imgSrc}
           />{" "}
         </div>
       </div>

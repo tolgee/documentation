@@ -73,21 +73,21 @@ function Home() {
           <div className="home__animated-mouse-and-video-wrapper">
             <div
               className="home__animated-mouse"
-              style={{ left: `${animatedMouseLeft}%` }}
+              style={{ right: `${animatedMouseLeft}%` }}
             >
               <RoboMouse />
             </div>
-            <div className="home__video-placeholder-wrapper">
-              <VideoPlaceholder
-                src="/intro.mp4"
-                placeholderSrc="/img/video-placeholder.png"
-              />
+            <div className="home__video-and-social-wrapper container">
+              <div className="home__video-wrapper">
+                <VideoPlaceholder
+                  src="/intro.mp4"
+                  placeholderSrc="/img/video-placeholder.png"
+                />
+              </div>
+              <Social />
             </div>
           </div>
           <Features />
-          <section>
-            <Social />
-          </section>
         </main>
       </Layout>
     </div>

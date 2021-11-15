@@ -39,11 +39,13 @@
     padding-top: 48px;
     display: flex;
     gap: 20px;
+    flex-wrap: wrap;
 }
 
 .feature__technologies img {
     filter: grayscale(1);
     flex-shrink: 1;
+    min-width: 60px;
     height: 60px;
 }
 
