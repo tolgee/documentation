@@ -47,7 +47,7 @@ module.exports = {
           label: "Why Open-source?",
           position: "left",
         },
-        // {to: 'blog', label: 'Blog', position: 'left'},
+        { to: "blog", label: "Blog", position: "left" },
         {
           href: "https://app.tolgee.io",
           label: "Go to app",
@@ -111,6 +111,10 @@ module.exports = {
             {
               label: "LinkedIn",
               href: "https://www.linkedin.com/company/tolgee",
+            },
+            {
+              label: "Twitter",
+              href: "https://twitter.com/Tolgee_i18n",
             },
             {
               label: "Terms of use",

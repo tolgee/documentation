@@ -23,9 +23,7 @@ export const Social = () => {
 
   return (
     <div className="social">
-      <div className="github__thanks">
-        Thanks for staring or following our project! 👍
-      </div>
+      <div className="github__thanks">Thanks for your support! ⭐ ❤️</div>
       <div className="github__buttons">
         <a
           className="github-button"
