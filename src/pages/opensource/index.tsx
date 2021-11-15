@@ -42,10 +42,9 @@ export default () => {
             power of the community, we can collaborate on new integrations and
             features together, making Tolgee accessible to many more users and
             clearing the way for them for easy localization of their projects.
-            💪
           </p>
 
-          <h2>So what are Tolgee’s revenue streams? 🤔💭</h2>
+          <h2>So what are Tolgee’s revenue streams?</h2>
 
           <p>
             We’re planning multiple ways for how to cover the developing cost of
