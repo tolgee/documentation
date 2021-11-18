@@ -25,93 +25,83 @@ Then replace `<your api key>` with your generated API key.
 ## Save exported data to project structure
 Save exported json files to `src/i18n` folder in your project structure.
 
-## Create pages for each language
-English version in the root.
-```typescript jsx title="src/pages/index.js"
-import * as React from 'react';
-import {TolgeeProvider} from '@tolgee/react';
-import {UI} from '@tolgee/ui';
+## Use Intl extension
+
+```sh
+npm install -D gatsby-plugin-react-intl
+```
+
+```js title="gatsby-config.js"
+module.exports = {
+  plugins: [
+    {
+      resolve: `gatsby-plugin-react-intl`,
+      options: {
+        path: `${__dirname}/src/i18n`,
+        languages: [`en`, `cs`],
+        defaultLanguage: `en`,
+        redirect: true,
+      },
+    },
+  ],
+};
+
+```
+
+## Use TolgeeProvider
+
+```jsx
+import { useIntl } from 'gatsby-plugin-react-intl';
+
 import * as translationsEn from '../i18n/en.json';
-import {HomePageInner} from "../component/homePageInner";
+import * as translationsCs from '../i18n/cs.json';
 
-const IndexPage = () => {
-    return (
-        <main>
-            <div>
-                {/*This is a link to Czech version of the website.*/}
-                <a href={'/cs'}>CS</a>
-            </div>
-            <TolgeeProvider
-                forceLanguage="en"
-                ui={UI}
-                apiKey={process.env.GATSBY_TOLGEE_API_KEY}
-                apiUrl={process.env.GATSBY_TOLGEE_API_URL}
-                staticData={{
-                    en: translationsEn
-                }}
-            >
-                <HomePageInner/>
-            </TolgeeProvider>
-        </main>
-    );
+export const AppWrapper: React.FC = ({ children }) => {
+  const intl = useIntl();
+
+  return (
+    <TolgeeProvider
+      forceLanguage={intl.locale}
+      apiKey={process.env.GATSBY_TOLGEE_API_KEY}
+      apiUrl={process.env.GATSBY_TOLGEE_API_URL}
+      staticData={{
+        en: translationsEn,
+        cs: translationsCs,
+      }}
+      loadingFallback={<div>Loading...</div>}
+      ui={
+        process.env.GATSBY_TOLGEE_API_KEY ? require('@tolgee/ui').UI : undefined
+      }
+    >
+      {children}
+    </TolgeeProvider>
+  );
 };
-
-export default IndexPage;
-
 ```
 
-Czech version in `cs` directory.
-
-```typescript jsx title="src/pages/cs/index.js"
-import * as React from 'react';
-import {TolgeeProvider} from '@tolgee/react';
-import * as translationsEn from '../../i18n/en.json';
-import * as translationsCs from '../../i18n/cs.json';
-import {HomePageInner} from "../../component/homePageInner";
-
-const IndexPage = () => {
-    return (
-        <main>
-            <div>
-                <a href={'/'}>EN</a>
-            </div>
-            <TolgeeProvider
-                forceLanguage="cs"
-                apiKey={process.env.GATSBY_TOLGEE_API_KEY}
-                apiUrl={process.env.GATSBY_TOLGEE_API_URL}
-                staticData={{
-                    // fallback language data as well if you are not sure you have translated all keys
-                    en: translationsEn,
-                    cs: translationsCs,
-                }}
-            >
-                <HomePageInner />
-            </TolgeeProvider>
-        </main>
-    );
-};
-
-export default IndexPage;
-```
 The localization data is imported and provided to TolgeeProvider using `staticData` prop, so in production mode
 (when your page is built) Tolgee will use this data.
 
-The `forceLanguage` prop forces Tolgee to use specific language. It won't try to change it
-using its own way.
+The `forceLanguage` prop forces Tolgee to use specific language. 
+So here we are using intl plugin to manage selected language. 
+To change language use the plugin build-in method.
 
-Now, the `HomePageInner` component can contain some translations
+```jsx
+import { useCurrentLanguage } from '@tolgee/react';
+import { changeLocale } from 'gatsby-plugin-react-intl';
 
-```typescript jsx title="homePageInner.jsx"
-import * as React from 'react';
-import {T} from '@tolgee/react';
+export const LangSelector: React.FC = () => {
+  const getLang = useCurrentLanguage();
 
-export const HomePageInner = () => {
-    return (
-        <>
-            <h1><T>hello_world</T></h1>
-            <T>translated_with_tolgee</T>
-        </>
-    )
+  return (
+    <select
+      onChange={(e) => changeLocale(e.target.value)}
+      value={getLang()}
+    >
+      <option value="en">🇬🇧 English</option>
+      <option value="cs">🇨🇿 Česky</option>
+    </select>
+  );
 };
 ```
 
