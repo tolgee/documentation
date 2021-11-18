@@ -1,0 +1,141 @@
+---
+id: advanced_translating
+title: Advanced translating
+sidebar_label: Advanced translating
+slug: /web/using_with_react/advanced_translating
+---
+
+Using Tolgee provides great features which help you to produce perfectly localized web apps to your users. However, sometimes
+you can get to some trouble while using it. To be able to shoot those troubles, you have to understand the base principles
+of Tolgee and be prepared to use translation methods in more advanced way.
+
+## T component strategies
+To achieve the ability to translate texts in context, Tolgee should be able to determine which elements in DOM contain
+the translated localization keys and to be able to change them dynamically. To enable this, there are several
+strategies to use `T` component with.
+
+### `ELEMENT_WRAP` strategy (default and recommended)
+Using `ElEMENT_WRAP` strategy, Tolgee React SDK will wrap your translated text with `<span>` element with
+`data-tolgee-key-only` attribute. Elements marked with this attribute can be found in the DOM and handled by Tolgee.
+```jsx
+<T keyName="key">...</T>
+// or
+<T keyName="key" strategy="ELEMENT_WRAP">...</T>
+```
+
+This will result in this to be rendered in DOM when the key `key` is translated to value `Translated` for the current language.
+
+```jsx
+<span data-tolgee-key-only="key">Translated</span>
+```
+
+Like this Tolgee finds out, that this element contains key named `key` and enables the in-context translation.
+
+### `TEXT_WRAP` strategy
+When you don't want Tolgee to wrap your string with `<span>` element, you can use `TEXT_WRAP` strategy. Tolgee will wrap
+encoded key, params and default value with prefix and suffix, configurable in config property of [`TolgeeProvider`](/docs/web/using_with_react/api#tolgeeprovider) component.
+(See [configuration doc page](/docs/web/configuration))
+
+This code:
+```jsx
+<T keyName="key" parameters={{key: "value", key2: "value2"}} strategy="TEXT_WRAP" />
+```
+
+This will be rendered to DOM in **development** mode:
+```
+%-%tolgee:key:key:value,key2:value2%-%
+```
+
+However, in development mode, Tolgee listens to changes of DOM using
+[MutationObserver](https://developer.mozilla.org/en-US/docs/Web/API/MutationObserver) and replaces all strings like this
+with the translated values. Even in specific attributes like `placeholder` of `<input>` or `aria-label` of any element.
+
+In **production** mode, the rendered result will be
+```
+Translated
+```
+when the key is translated to value `Translated` for the current language.
+
+To read more about wrapping, see [Understanding Tolgee for Web doc page](/docs/web/understanding_tolgee_for_web).
+
+### `NO_WRAP` strategy (not recommended)
+The most simple strategy is `NO_WRAP` strategy. With this strategy, the translated text will be rendered directly without
+any wrapping.
+
+:::caution
+When using `NO_WRAP` strategy, you won't be able to translate strings in-context since Tolgee have no way to find out
+that the string is translation.
+:::
+
+This code:
+```jsx
+<T keyName="key" strategy="NO_WRAP" />
+```
+Will be rendered to:
+
+```
+Translated
+```
+
+## [`t`](./api#function-t) function wrapping
+
+[`t`](./api#function-t) function is a bit more complicated, because we cannot attach our own html element into the DOM.
+So in this case the function is returning Tolgee custom made [wrapping](../understanding_tolgee_for_web#key-and-parameters-wrapping),
+which is then captured by DOM [MutationObserver](https://developer.mozilla.org/en-US/docs/Web/API/MutationObserver) and that will find suitable parent element, where the translation gets
+registred and so in-context localization can work there. In production mode, this whole logic can be omitted and [`t`](./api#function-t) function
+returns only the translated string.
+
+This can be problematic in cases where you put translation outside of DOM document, because then the change is not
+picked up by the DOM observer. You can do that with [`noWrap`](./api#parameter-nowrap) parameter.
+
+Here is example how to set document title:
+
+```js
+const Component = () => {
+  const t = useTranslate()
+
+  useEffect(() => {
+    document.title = t({ key: 'key', noWrap: true });
+  });
+}
+```
+
+## Translations with HTML tags
+
+Our JS SDKs currently don't support rendering of HTML tags natively. However, if you really really need to render HTML tags there is a way.
+
+:::danger
+This is dangerous, and you should know what you are doing.
+:::
+
+Consider a translation value:
+```
+'<h1>'Hello'</h1>'
+```
+
+Notice that `h1` tags are wrapped with `'` characters. This tells ICU message formatter to ignore those tags.
+To get HTML you can use `t` method with `noWrap` set to `true`;
+
+```ts
+t('key_with_html_translation', undefined, noWrap) // results in: <h1>Hello</h1>
+```
+
+Nice, but React doesn't allow us to set HTML into element so easily, so we have to set it using `dangerouslySetInnerHTML`,
+which enables us to set inner HTML of the element.
+```jsx
+<div>
+  data-tolgee-key-only="key_with_html_translation"
+  dangerouslySetInnerHTML={{
+    __html: t('key_with_html_translation', undefined, true),
+  }}
+></div>
+```
+
+Using `data-tolgee-key-only` we tell Tolgee, that there is a key in the element. So it will enable its in-context localization.
+
+:::danger
+Using `dangerouslySetInnerHTML` is not safe, since somebody can simply inject an HTML into a parameter. When you are
+doing this you have to be sure, that your translation or params don't contain any dangerous HTML code.
+
+TIP: Maybe you can remove tags from your translated value or parameters using [striptags library](https://www.npmjs.com/package/striptags).
+:::

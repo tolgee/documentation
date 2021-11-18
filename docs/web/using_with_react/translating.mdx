@@ -1,44 +1,36 @@
 ---
 id: translating
 title: Translating with React
-sidebar_label: Translating with React
+sidebar_label: Translating
 slug: /web/using_with_react/translating
 ---
 
 There are several ways how to translate a text using our React integration.
 
-## The T component
+## The [`T`](./api#t-component) component
 
-First way is the `<T>` component. You can use it like this:
+First way is the [`<T>`](./api#t-component) component. You can use it like this:
 
 ```jsx
 import {T} from "@tolgee/react";
-
 ...
-
-<T>translation_key</T>
+<T keyName="translation_key" />
 ```
 
 To pass values just assign parameters property.
 
 ```jsx
-<T parameters={{param: "value"}}>text_with_params</T>
+<T keyName="text_with_params" parameters={{ param: "value" }} />
 ```
 
 For translated text `This is {param} of the text` it will result in `This is value of the text`.
-
-To skip key wrapping in translation mode use `T` component with noWrap param such as:
-
-```jsx
-<T parameters={{param: "value"}} noWrap={true}>text_with_params</T>
-```
 
 This will prevent any possible problems with Tolgee wrapping technology, but you won't be able use in-contexts
 translation feature for this particular occurrence.
 
 ### Providing default value
 
-When `keyName` property is provided, then children prop of T component is considered as default value.
+When `keyName` property is provided, then children prop of [`T`](./api#t-component) component is considered as default value.
 ```jsx
 <T keyName="translation_key">This is default value.</T>
 ```
@@ -46,87 +38,26 @@ The default value will be rendered when no translation is provided in current no
 
 ## `useTranslate` hook
 
-Other option how to translate is using of `useTranslate` hook. You can use it this way:
+Other option how to translate is using of [`useTranslate`](./api#hook-usetranslate) hook. You can use it this way:
 
 ```javascript
 import {useTranslate} from "@tolgee/react";
-
 ...
-
 const t = useTranslate();
-
 ...
-
 t("key_to_translate")
 ```
 
-`t` function also accepts parameters object as second parameter:
+Function [`t`](./api#function-t) also accepts parameters object as second parameter:
 
 ```javascript
-t("key_to_translate", {param: "value"});
-```
-or noWrap parameter as third parameter:
-```javascript
-t("key_to_translate", {}, true);
-```
-
-To provide default value to `t` function, use its 4th parameter.
-```jsx
-t("key_to_translate", {}, true, "This is also default!")
-```
-
-You can also pass props object to `t` function.
-```jsx
-t({
-  key: "key_to_translate",
-  parameters: { param: "value" },
-  noWrap: false,
-  defaultValue: "This is default",
-})
+t("key_to_translate", { param: "value" });
 ```
 
 For more complex codebase showing usage of Tolgee React integration check
 [React example application](https://github.com/tolgee/react-sampleapp).
 
-## Translations with HTML tags
 
-Our JS SDKs currently don't support rendering of HTML tags natively. However, if you really really need to render HTML tags there is a way.
-
-:::danger
-This is dangerous, and you should know what you are doing.
-:::
-
-Consider a translation value:
-```
-'<h1>'Hello'</h1>'
-```
-
-Notice that `h1` tags are wrapped with `'` characters. This tells ICU message formatter to ignore those tags.
-To get HTML you can use `t` method with `noWrap` set to `true`;
-
-```ts
-t('key_with_html_translation', undefined, noWrap) // results in: <h1>Hello</h1>
-```
-
-Nice, but React doesn't allow us to set HTML into element so easily, so we have to set it using `dangerouslySetInnerHTML`,
-which enables us to set inner HTML of the element.
-```jsx
-<div>
-  data-tolgee-key-only="key_with_html_translation"
-  dangerouslySetInnerHTML={{
-    __html: t('key_with_html_translation', undefined, true),
-  }}
-></div>
-```
-
-Using `data-tolgee-key-only` we tell Tolgee, that there is a key in the element. So it will enable its in-context localization.
-
-:::danger
-Using `dangerouslySetInnerHTML` is not safe, since somebody can simply inject an HTML into a parameter. When you are
-doing this you have to be sure, that your translation or params don't contain any dangerous HTML code.
-
-TIP: Maybe you can remove tags from your translated value or parameters using [striptags library](https://www.npmjs.com/package/striptags).
-:::
 
 ## Message format
 All Tolgee integrations follow ICU message format standard.
