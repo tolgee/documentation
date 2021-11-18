@@ -1,8 +1,8 @@
 ---
-id: react_preparing_for_production
+id: preparing_for_production
 title: Preparing for production (React)
 sidebar_label: Preparing for production
-slug: /web/using_with_react/react_preparing_for_production
+slug: /web/using_with_react/preparing_for_production
 ---
 In production mode you should never use localization data from Tolgee REST API and you should never leak your API key.
 You should use data exported from Tolgee platform.
@@ -16,35 +16,35 @@ fetch the data from or providing imported data as reference or provider in Tolge
 To provide your localization data using dynamic import you will need to add providers for every supported language to
 TolgeeProvider's configuration property.
 
-```typescript jsx
+```jsx
 <TolgeeProvider
-      staticData={{
-        en: () => import('./i18n/en.json'),
-        de: () => import('./i18n/de.json'),
-      }}
-...
+  staticData={{
+    en: () => import('./i18n/en.json'),
+    de: () => import('./i18n/de.json'),
+  }}
+  ...
 >
-...
+  ...
 </TolgeePrivider>
 ```
 
 Using this approach data will be fetched just when it's needed, so you will save some network traffic.
 
 ## Using imported object
-```typescript jsx
+```jsx
 import * as localeEn from 'i18n/en.json';
 import * as localeDe from 'i18n/de.json';
 
 ...
 
 <TolgeeProvider
-     staticData={{
-        en: localeEn,
-        de: localeDe,
-      }}
-...
+  staticData={{
+    en: localeEn,
+    de: localeDe,
+  }}
+  ...
 >
-...
+  ...
 </TolgeePrivider>
 ```
 
@@ -52,13 +52,13 @@ Using this approach, all localization data are bundled with your application, so
 This approach could be very useful for SSR, when you need your localization data imported to be rendered by your SSR engine.
 
 ## Providing data using filesUrlPrefix option
-```typescript jsx
+```jsx
 <TolgeeProvider
-    filesUrlPrefix="i18n/"
-...
+  filesUrlPrefix="i18n/"
+  ...
 >
-...
+  ...
 </TolgeePrivider>
 ```
-This option tells Tolgee, that localization data (en.json, de.json) can be found on `https://yoururl.com/i18n`,
+This option tells Tolgee, that localization data (en.json, de.json) can be found on `https://<your url>/i18n`,
 so it will be fetched with every page load.

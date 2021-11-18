@@ -73,7 +73,9 @@ module.exports = {
               items: [
                 "web/using_with_react/installation",
                 "web/using_with_react/translating",
-                "web/using_with_react/react_preparing_for_production",
+                "web/using_with_react/switching_languages",
+                "web/using_with_react/preparing_for_production",
+                "web/using_with_react/advanced_translating",
                 {
                   label: "Server Side Rendering (SSR)",
                   type: "category",
@@ -83,6 +85,17 @@ module.exports = {
                     "web/using_with_react/ssr/using_with_gatsby",
                   ],
                 },
+                "web/using_with_react/api",
+              ],
+            },
+            {
+              label: "Using with Angular",
+              type: "category",
+              items: [
+                "web/using_with_angular/installation",
+                "web/using_with_angular/translating",
+                "web/using_with_angular/switching_language",
+                "web/using_with_angular/angular_preparing_for_production",
               ],
             },
             {
@@ -95,15 +108,6 @@ module.exports = {
                 "web/using_with_vue/preparing_for_production",
                 "web/using_with_vue/advanced_translating",
                 "web/using_with_vue/api"
-              ],
-            },
-            {
-              label: "Using with Angular",
-              type: "category",
-              items: [
-                "web/using_with_angular/installation",
-                "web/using_with_angular/translating",
-                "web/using_with_angular/angular_preparing_for_production",
               ],
             },
             {

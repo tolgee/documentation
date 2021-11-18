@@ -1,0 +1,27 @@
+---
+id: switching_languages
+title: Switching languages
+sidebar_label: Switching languages
+slug: /web/using_with_react/switching_languages
+---
+
+For language management, use `useCurrentLanguage` and `useSetLanguage` hooks.
+
+```jsx
+import { useSetLanguage, useCurrentLanguage } from '@tolgee/react';
+
+export const LangSelector = () => {
+  const setLanguage = useSetLanguage();
+  const getLanguage = useCurrentLanguage();
+
+  return (
+    <select
+      onChange={(e) => setLanguage(e.target.value)}
+      value={getLanguage()}
+    >
+      <option value="en">🇬🇧 English</option>
+      <option value="cs">🇨🇿 Česky</option>
+    </select>
+  );
+};
+```
