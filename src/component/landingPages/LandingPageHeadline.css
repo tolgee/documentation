@@ -6,15 +6,14 @@
     min-height: 234px;
     margin-bottom: 100px;
     flex-wrap: wrap;
+    overflow: hidden;
 }
 
 .integration__headline-background-wrapper {
     background: radial-gradient(#ffffff 24%, #e8e8e8 80%, #dedede 100%);
 }
 
-.integration__headline-left {
-    min-width: 400px;
-}
+
 
 .integration__headline-right {
     padding: 20px 0;
@@ -22,7 +21,8 @@
 
 .integration__badges {
     display: flex;
-    gap: 10px
+    gap: 0px 10px;
+    flex-wrap: wrap;
 }
 
 .integration__badges img {
@@ -37,7 +37,6 @@
 }
 
 .integration__headline-image {
-    min-width: 400px;
     max-width: 400px;
     text-align: right;
 }

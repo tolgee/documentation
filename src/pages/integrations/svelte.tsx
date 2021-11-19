@@ -1,18 +1,18 @@
 import React from "react";
-import { LandingPage } from "../component/landingPages/LandingPage";
-import { LandingPageHeadline } from "../component/landingPages/LandingPageHeadline";
-import { LandingPageDescription } from "../component/landingPages/LandingPageDescription";
-import { LandingPagePreviewFeatures } from "../component/landingPages/LandingPagePreviewFeatures";
-import { LandingPagePreviewFeature } from "../component/landingPages/LandingPagePreviewFeature";
-import { LandingPageFeatures } from "../component/landingPages/LandingPageFeatures";
-import { LandingPageFeature } from "../component/landingPages/LandingPageFeature";
-import { LandingPageInstallationStep } from "../component/landingPages/LandingPageInstallationStep";
-import { LandingPageInstallation } from "../component/landingPages/LandingPageInstallation";
-import { LandingPageInstallationCode } from "../component/landingPages/LandingPageInstallationCode";
-import { CoolButton } from "../component/buttons/CoolButton";
-import { CoolButtonText } from "../component/buttons/CoolButtonText";
+import { LandingPage } from "../../component/landingPages/LandingPage";
+import { LandingPageHeadline } from "../../component/landingPages/LandingPageHeadline";
+import { LandingPageDescription } from "../../component/landingPages/LandingPageDescription";
+import { LandingPagePreviewFeatures } from "../../component/landingPages/LandingPagePreviewFeatures";
+import { LandingPagePreviewFeature } from "../../component/landingPages/LandingPagePreviewFeature";
+import { LandingPageFeatures } from "../../component/landingPages/LandingPageFeatures";
+import { LandingPageFeature } from "../../component/landingPages/LandingPageFeature";
+import { LandingPageInstallationStep } from "../../component/landingPages/LandingPageInstallationStep";
+import { LandingPageInstallation } from "../../component/landingPages/LandingPageInstallation";
+import { LandingPageInstallationCode } from "../../component/landingPages/LandingPageInstallationCode";
+import { CoolButton } from "../../component/buttons/CoolButton";
+import { CoolButtonText } from "../../component/buttons/CoolButtonText";
 import Link from "@docusaurus/Link";
-import { CoolButtonImage } from "../component/buttons/CoolButtonImage";
+import { CoolButtonImage } from "../../component/buttons/CoolButtonImage";
 
 export default () => {
   return (
@@ -60,7 +60,7 @@ export default () => {
         </p>
       </LandingPageDescription>
       <LandingPagePreviewFeatures>
-        <LandingPagePreviewFeature videoSrc="/svelte_landing/in_context.mov">
+        <LandingPagePreviewFeature videoSrc="/landing/in_context.mov">
           <h2>In-context localization 🐁</h2>
           <p>
             Tolgee for Svelte is not just an i18n library. It provides much
@@ -70,7 +70,7 @@ export default () => {
           </p>
         </LandingPagePreviewFeature>
         <LandingPagePreviewFeature
-          videoSrc="/svelte_landing/platform.mov"
+          videoSrc="/landing/platform.mov"
           bigger={true}
         >
           <h2>Localization platform ☁️</h2>
@@ -125,21 +125,21 @@ export default () => {
             npm i @tolgee/svelte @tolgee/ui
           </LandingPageInstallationCode>
           <p>Then wrap your code with TolgeeProvider</p>
-          <LandingPageInstallationCode language="svelte" fullWidth={true}>
+          <LandingPageInstallationCode language="svelte" fullWidth>
             {svelteProviderCode}
           </LandingPageInstallationCode>
         </LandingPageInstallationStep>
         <LandingPageInstallationStep title="3. Use T component to translate your texts">
-          <LandingPageInstallationCode language="svelte">
+          <LandingPageInstallationCode language="svelte" fullWidth>
             {usingTCode}
-          </LandingPageInstallationCode>{" "}
+          </LandingPageInstallationCode>
           <p>Now you are able to Alt + Click & translate your texts!</p>
         </LandingPageInstallationStep>
 
         <LandingPageInstallationStep title="Explore the Docs and check out example app!">
           <p>Continue exploring...</p>
 
-          <div style={{ display: "flex", gap: "20px" }}>
+          <div style={{ display: "flex", gap: "20px", flexWrap: 'wrap' }}>
             <CoolButton
               component={Link}
               to="/docs/web/using_with_svelte/installation"
@@ -163,16 +163,16 @@ export default () => {
   );
 };
 
-const svelteProviderCode = `<script lang="ts">
+const svelteProviderCode = `<script>
   import { TolgeeProvider } from "@tolgee/svelte";
   import UI from "@tolgee/ui";
-  import type { TolgeeConfig } from "@tolgee/core";
 
   const tolgeeConfig = {
-  preloadFallback: true,
-  ui: UI,
-  apiKey: '<your API key>',
-} as TolgeeConfig;
+    preloadFallback: true,
+    ui: UI,
+    apiUrl: 'https://app.tolgee.io',
+    apiKey: '<your API key>',
+  };
 </script>
 
 <TolgeeProvider config={tolgeeConfig}>

@@ -1,4 +1,5 @@
 import React, { FC } from "react";
+import { CSSProperties } from "styled-components";
 import { TechnologyLove } from "../TechnologyLove";
 import "./LandingPageHeadline.css";
 
@@ -12,8 +13,9 @@ export const LandingPageHeadline: FC<{
     name: string;
     imgSrc: string;
   };
-}> = ({ loveImage, badges, children }) => (
-  <div className="integration__headline-background-wrapper">
+  style?: CSSProperties
+}> = ({ loveImage, badges, children, style }) => (
+  <div className="integration__headline-background-wrapper" style={style}>
     <div className="integration__headline container">
       <div className="integration__headline-left">
         <div className="integration__badges">
