@@ -5,9 +5,15 @@ author_title: Tolgee Team
 author_url: https://github.com/stepan662
 author_image_url: https://avatars.githubusercontent.com/u/8831144?v=4
 tags: [react.js, javascript, typescript, opensource]
+image: '/img/blog/optimizations/thumbnail.png'
 ---
 
+![Thumbnail](/img/blog/optimizations/thumbnail.png)
+
+
 In Tolgee platform, we manage translations. So our most important view is a list of translations, every row contains key and related translations in different languages. As this view serves multiple purposes, we have quite a lot of requirements and fulfilling all of them required quite a bit of optimizations, which I'd like to share with you today.
+
+<!--truncate-->
 
 
 ### What are we dealing with
@@ -77,5 +83,3 @@ I was quite scared when I realized that our Application is becoming very slow an
 I'm now proud developer and I spend quite a lot of my working time just scrolling around in our App.
 
 ![Fast scrolling](/img/blog/optimizations/scrolling-fast.gif)
-
-> PS: Check [Tolgee.io](https://tolgee.io/) and give us [github stars](https://github.com/tolgee/server) 
