@@ -10,6 +10,8 @@ tags: [react.js, i18n, webdev, javascript, SDK, tutorial]
 
 Translating an App to multiple languages (localization) is tricky part of many applications. Tolgee is simplifying the localization process and saves developer's time 👨‍💻👩🏻‍💻 by removing repetitive tasks 🔁 ❌. Saving time? That's what I want. Show me!
 
+<!--truncate-->
+
 ## What is Tolgee
 Tolgee is **open-source** tool combining localization platform and SDKs to provide simple way to translate the web applications for both developers and translators. 👨‍💻👩🏻‍💻🧖🏼👩🏻‍💻🧖🏼
 

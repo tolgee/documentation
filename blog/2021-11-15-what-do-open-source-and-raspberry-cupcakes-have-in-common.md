@@ -9,6 +9,7 @@ tags: [open-source, co-founder life, startup lessons]
 ---
 
 ![Raspberry cupcake](/img/blog/raspberry-cupcake.jpg)
+<!--truncate-->
 *Photo by Tobias Marks on Unsplash*
 
 As an open-source startup co-founder I often got one question from people around me, who are not really into IT:
