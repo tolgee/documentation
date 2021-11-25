@@ -45,43 +45,38 @@ To get started, you can simply follow the integration guides provided in the pla
 
 ## Let's integrate it into CRA App 
 1. Generate brand new CRA App and open it your favorite editor
-
-    ```bash
-npx create-react-app tolgee-hello-world
-```
-
+   
+        npx create-react-app tolgee-hello-world
 
 2. Install Tolgee packages ⬇️
 
-    ```
-npm install @tolgee/react @tolgee/ui --save
-```
+        npm install @tolgee/react @tolgee/ui --save
 
 
 2. Add Tolgee properties to you development `.env` file `env.development.local` by **copying it** from the integration guide
-```
-REACT_APP_TOLGEE_API_URL=https://app.tolgee.io
-REACT_APP_TOLGEE_API_KEY=<your API key>
-```
+
+        REACT_APP_TOLGEE_API_URL=https://app.tolgee.io
+        REACT_APP_TOLGEE_API_KEY=<your API key>
+
 
 
 3. Wrap your App component in `index.js` with `TolgeeProvider` component. Again, you can copy it from the integration guide.
 
 4. Go to `App.js` and replace all the crap with simple "Hello world!" message.
 
-    ```jsx
-    import './App.css';
+       ```jsx
+       import './App.css';
 
-    function App() {
-      return (
-       <div className="App">
-         <h1>Hello world!</h1>
-       </div>
-      );
-    }
+       function App() {
+         return (
+          <div className="App">
+            <h1>Hello world!</h1>
+          </div>
+         );
+       }
     
-    export default App;
-```
+       export default App;
+       ```
 
 
 5. Wrap the "Hello world!" with `<T>` component and add keyName prop.
@@ -99,7 +94,7 @@ REACT_APP_TOLGEE_API_KEY=<your API key>
     }
     
     export default App;
-```
+    ```
 
 6. Let's run the App in the browser and see the magic! 🪄 Hold your *ALT* key and move your mouse over the text. It should be highlighted. When you click it, dialog opens and you're able to edit the text ✏️ or generate screenshots. 📷
 
@@ -126,6 +121,4 @@ Tolgee is open-source tool simplifying the process of web based application. It 
  🙏🙏🙏 If you like what we do, please star our GitHub projects. 🙏🙏🙏
  - [Tolgee Server](https://github.com/tolgee/server) ⭐
  - [Tolgee JS](https://github.com/tolgee/tolgee-js) ⭐
-
-
-[![Mouse](https://dev-to-uploads.s3.amazonaws.com/uploads/articles/rq3xtc3ikjzpbkx3it93.jpg)](https://tolgee.io)
+ 
