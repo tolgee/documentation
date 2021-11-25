@@ -38,3 +38,7 @@
 .getStartedButton {
     border: 1px solid;
 }
+
+:global(.navbar__items) {
+    white-space: nowrap;
+}
