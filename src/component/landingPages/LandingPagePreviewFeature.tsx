@@ -15,7 +15,7 @@ export const LandingPagePreviewFeature: FC<{
         bigger && "integration__preview-feature-video--bigger"
       )}
     >
-      <video loop autoPlay muted>
+      <video loop autoPlay muted playsInline>
         <source src={videoSrc} />
       </video>
     </div>

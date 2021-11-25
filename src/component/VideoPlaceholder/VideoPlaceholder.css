@@ -18,13 +18,12 @@
     border-radius: 6px;
 }
 
-.video-placeholder__button:hover::before {
+.video-placeholder__button_play:hover {
     background-color: var(--ifm-color-primary);
     opacity: 1;
 }
 
-.video-placeholder__button::before {
-    content: '▶';
+.video-placeholder__button_play{
     display: flex;
     align-items: center;
     justify-content: center;
@@ -39,6 +38,10 @@
     transform: translateX(-50%) translateY(-50%);
     top: 50%;
     left: 50%;
+}
+
+.video-placeholder__button_play > img {
+    height: 45%;
 }
 
 
