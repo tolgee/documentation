@@ -30,9 +30,8 @@
 
 .integration__preview-feature-text {
   max-width: 0;
-  min-width: 400px;
+  min-width: min(400px, 100%);
 }
-
 
 
 .browser {

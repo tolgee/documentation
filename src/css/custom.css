@@ -196,7 +196,7 @@
 
 .home__video-wrapper {
     max-width: 900px;
-    min-width: 300px;
+    min-width: min(300px, 90vw);
     position: relative;
 }
 

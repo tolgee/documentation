@@ -18,14 +18,19 @@
     align-items: center;
     z-index: 999999;
     box-shadow: rgba(0, 0, 0, 0.1) 0 -1px 2px 0;
+    flex-wrap: wrap;
+    padding: 5px;
+    gap: 10px 16px;
+}
+
+@media screen and (max-width: 1000px) {
+    .cookie-consent__container {
+        padding-right: 100px;
+    }
 }
 
 .cookie-consent__content {
     background: white;
     flex-shrink: 1;
     color: var(--ifm-font-color-base);
-}
-
-.cookie-consent__button-wrapper {
-    margin-left: 16px;
 }

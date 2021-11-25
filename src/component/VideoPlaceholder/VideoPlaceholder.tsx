@@ -13,6 +13,9 @@ export const VideoPlaceholder: FC<{ src: string; placeholderSrc: string }> = ({
         onClick={() => setOpen(true)}
         className="video-placeholder__button"
       >
+        <div className="video-placeholder__button_play">
+          <img src="/play-triangle.svg" />
+        </div>
         <img src={placeholderSrc} alt="Play video" />️
       </button>
       <Modal

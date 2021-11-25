@@ -23,6 +23,7 @@
 .feature .feature__image, .feature .feature__image-and-play {
     display: flex;
     width: 400px;
+    max-width: 100vw;
     align-items: center;
     justify-content: center;
     flex-shrink: 0;
