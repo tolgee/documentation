@@ -1,10 +1,7 @@
 ---
 slug: what-do-open-source-and-raspberry-cupcakes-have-in-common
 title: What do open-source and raspberry cupcakes have in common?
-author: Marketa Chalupnikova
-author_title: Co-founder & Generalist
-author_url: https://github.com/marketachalupnikova
-author_image_url: https://avatars.githubusercontent.com/u/75572718
+authors: [mchalupnikova]
 tags: [open-source, co-founder life, startup lessons]
 ---
 
