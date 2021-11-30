@@ -6,6 +6,7 @@
     color: var(--ifm-color-primary);
     font-size: 16px;
     cursor: pointer;
+    white-space: nowrap;
 }
 
 .cookie-consent__container {
@@ -18,14 +19,12 @@
     align-items: center;
     z-index: 999999;
     box-shadow: rgba(0, 0, 0, 0.1) 0 -1px 2px 0;
+    padding: 5px 10px;
+    gap: 10px 16px;
 }
 
 .cookie-consent__content {
     background: white;
     flex-shrink: 1;
     color: var(--ifm-font-color-base);
-}
-
-.cookie-consent__button-wrapper {
-    margin-left: 16px;
 }

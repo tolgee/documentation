@@ -1,9 +1,6 @@
 ---
 title: Faster! Optimizing React app to the bone
-author: Štěpán Granát
-author_title: Tolgee Team
-author_url: https://github.com/stepan662
-author_image_url: https://avatars.githubusercontent.com/u/8831144?v=4
+authors: [sgranat]
 tags: [react.js, javascript, typescript, opensource]
 image: '/img/blog/optimizations/thumbnail.png'
 ---

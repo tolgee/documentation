@@ -1,10 +1,7 @@
 ---
 slug: tolgee-for-svelte-released
 title: Tolgee for Svelte released
-author: Jan Cizmar
-author_title: Tolgee CTO
-author_url: https://github.com/JanCizmar
-author_image_url: https://avatars.githubusercontent.com/u/18496315?v=4
+authors: [jcizmar]
 tags: [svelte, i18n, tolgee, javascript, SDK, integration]
 ---
 
