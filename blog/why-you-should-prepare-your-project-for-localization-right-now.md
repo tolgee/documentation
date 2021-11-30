@@ -91,7 +91,7 @@ So you will provide file like this.
 }
 ```
 
-But the translator don't have any context information about the texts. Where is on the page? What's the purpose of the
+But the translator don't have any context information about the texts. Where is it on the page? What's the purpose of the
 button? What is the gender of the objects? Is this noun or verb?
 
 ## How can you do better?
