@@ -42,6 +42,21 @@ module.exports = {
               activeBasePath: "integrations/svelte",
               label: "Svelte",
             },
+            {
+              to: "integrations/next",
+              activeBasePath: "integrations/next",
+              label: "Next.js",
+            },
+            {
+              to: "integrations/gatsby",
+              activeBasePath: "integrations/gatsby",
+              label: "Gatsby",
+            },
+            {
+              to: "docs/integrations",
+              activeBasePath: "docs/integrations",
+              label: "more...",
+            },
           ],
         },
         {

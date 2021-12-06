@@ -33,19 +33,6 @@ module.exports = {
       type: "category",
       items: [
         {
-          label: "Get started",
-          type: "category",
-          items: [
-            "web/get_started/hello_world",
-            "web/get_started/preparing_for_production",
-            "web/get_started/adding_loading_overlay",
-            "web/get_started/translating_imperatively",
-            "web/get_started/providing_default_value",
-            "web/get_started/parameter_interpolation",
-          ],
-          collapsed: false,
-        },
-        {
           id: "web/understanding_tolgee_for_web",
           type: "doc",
         },
@@ -62,6 +49,18 @@ module.exports = {
           collapsed: false,
           type: "category",
           items: [
+            {
+              label: "Vanilla HTML + JS",
+              type: "category",
+              items: [
+                "web/get_started/hello_world",
+                "web/get_started/preparing_for_production",
+                "web/get_started/adding_loading_overlay",
+                "web/get_started/translating_imperatively",
+                "web/get_started/providing_default_value",
+                "web/get_started/parameter_interpolation",
+              ],
+            },
             {
               label: "Using with Npm",
               type: "category",
