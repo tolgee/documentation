@@ -60,7 +60,7 @@ export default () => {
             <ReactDocsCoolButton/>
             <CoolButton
               component={Link}
-              to="http://localhost:3000/docs/web/using_with_react/ssr/using_with_gatsby"
+              to="/docs/web/using_with_react/ssr/using_with_gatsby"
             >
               <CoolButtonText>Tolgee for Gatsby Docs</CoolButtonText>
               <CoolButtonImage>📖</CoolButtonImage>
