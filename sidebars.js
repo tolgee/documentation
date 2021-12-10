@@ -95,6 +95,7 @@ module.exports = {
                 "web/using_with_angular/translating",
                 "web/using_with_angular/switching_language",
                 "web/using_with_angular/angular_preparing_for_production",
+                "web/using_with_angular/api",
               ],
             },
             {
