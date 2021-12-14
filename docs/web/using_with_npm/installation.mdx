@@ -58,12 +58,14 @@ yarn add @tolgee/ui
 </Tabs>
 
 After installing packages you can use it like this:
-
+:::info
+Inicialization has changed in [version 3](/docs/changelog/version_3)
+:::
 ```javascript
-import {Tolgee} from "@tolgee/core";
+import {Tolgee, IcuFormatter} from "@tolgee/core";
 import {UI} from "@tolgee/ui";
 
-const tg = new Tolgee({
+const tg = Tolgee.use(IcuFormatter).init({
     apiKey: "your_api_key",
     apiUrl: "https://app.tolgee.io",
     ui: UI

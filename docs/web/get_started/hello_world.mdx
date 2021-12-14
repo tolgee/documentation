@@ -43,9 +43,13 @@ To translate your content interactively, you will need one more dependency.
 This dependency is Tolgee's UI, so dialog can appear when you **ALT + click** your translation.
 
 Now it's time to configure the library. To do so, just pass configuration object as first parameter of Tolgee constructor.
+:::info
+Inicialization has changed in [version 3](/docs/changelog/version_3)
+:::
 ```html
 <script>
-const pg = new window["@tolgee/core"].Tolgee({
+const { Tolgee, IcuFormatter } = window["@tolgee/core"]
+const tg = Tolgee.use(IcuFormatter).init({
     apiUrl: "https://app.tolgee.io",
     apiKey: "you_secret_api_key",
     inputPrefix: "{{",
@@ -76,7 +80,7 @@ with your `inputPrefix` and `inputSuffix`.
 Finally, lets run the beast!
 
 ```javascript
-pg.run().then(() => {})
+tg.run().then(() => {})
 ```
 
 You should end with this HTML document:
@@ -93,7 +97,8 @@ You should end with this HTML document:
 <script src="https://unpkg.com/@tolgee/core/dist/tolgee.umd.min.js"></script>
 <script src="https://unpkg.com/@tolgee/ui/dist/tolgee-ui.umd.min.js"></script>
 <script>
-const pg = new window["@tolgee/core"].Tolgee({
+const { Tolgee, IcuFormatter } = window["@tolgee/core"]
+const tg = Tolgee.use(IcuFormatter).init({
     apiUrl: "https://app.tolgee.io",
     apiKey: "you_secret_api_key",
     inputPrefix: "{{",
@@ -101,7 +106,7 @@ const pg = new window["@tolgee/core"].Tolgee({
     watch: true,
     ui: window["@tolgee/ui"].UI,
 });
-pg.run().then(() => {
+tg.run().then(() => {
     // This block is executed after tolgee loads it's translation.
     // So here you have nice possibility to remove your loading overlay
 })

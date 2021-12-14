@@ -73,7 +73,8 @@ Full HTML example page is here:
 <script src="https://unpkg.com/@tolgee/core"></script>
 <script src="https://unpkg.com/@tolgee/ui"></script>
 <script>
-const tg = new window["@tolgee/core"].Tolgee({
+const { Tolgee, IcuFormatter } = window["@tolgee/core"]
+const tg = Tolgee.use(IcuFormatter).init({
     apiUrl: "https://app.tolgee.io",
     apiKey: "you_secret_api_key",
     inputPrefix: "{{",

@@ -107,7 +107,7 @@ module.exports = {
                 "web/using_with_vue/switching_languages",
                 "web/using_with_vue/preparing_for_production",
                 "web/using_with_vue/advanced_translating",
-                "web/using_with_vue/api"
+                "web/using_with_vue/api",
               ],
             },
             {
@@ -135,5 +135,10 @@ module.exports = {
       ],
     },
     { type: "doc", id: "icu_message_format" },
+    {
+      label: "Changelog",
+      type: "category",
+      items: [{ type: "doc", id: "changelog/version_3" }],
+    },
   ],
 };
