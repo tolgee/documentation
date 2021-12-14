@@ -57,7 +57,8 @@ That's it! Our app is ready for production. Here is the final HTML page:
 </body>
 <script src="https://unpkg.com/@tolgee/core/dist/tolgee.umd.min.js"></script>
 <script>
-const tg = new window["@tolgee/core"].Tolgee({
+const { Tolgee, IcuFormatter } = window["@tolgee/core"]
+const tg = Tolgee.use(IcuFormatter).init({
     inputPrefix: "{{",
     inputSuffix: "}}",
     watch: true,

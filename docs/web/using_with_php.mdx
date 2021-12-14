@@ -111,6 +111,9 @@ Tolgee in the browser, you will get just ugly encoded strings such as
 
 See `getTolgeeFrontendPart`
 [function of our example](https://github.com/tolgee/php-example/blob/9b6b38c023b7169d9767b37fc3892536b5230d57/TolgeeManager.php#L35).
+:::info
+Inicialization has changed in [version 3](/docs/changelog/version_3)
+:::
 ```html
 <div id="loading" style="position: fixed; top:0; left: 0; width: 100%; height: 100%;
             background-color: white; display: flex; align-items: center; justify-content: center;">
@@ -119,7 +122,8 @@ See `getTolgeeFrontendPart`
 <script src="node_modules/@tolgee/core/dist/tolgee.window.js"></script>
 <script src="node_modules/@tolgee/ui/dist/tolgee.window.js"></script>
 <script>
-    const tg = new window["@tolgee/core"].Tolgee({
+    const { Tolgee, IcuFormatter } = window["@tolgee/core"]
+    const tg = Tolgee.use(IcuFormatter).init({
         apiUrl: "' . $this->getConfig()->apiUrl . '",
         apiKey: "' . $this->getConfig()->apiKey . '",
         defaultLanguage: "' . $this->getConfig()->defaultLanguage . '",
