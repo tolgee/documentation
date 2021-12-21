@@ -106,7 +106,7 @@ this.translateService.get('hello', {name: "John Doe"}).subscribe(r => this.hello
 
 ## Safe translating (without wrapping)
 When translating with Tolgee, there could be situations, when your texts are rendered incorrectly because of
-[wrapping](http://localhost:3000/docs/understanding_tolgee#key-and-parameters-wrapping).
+[wrapping](/docs/web/wrapping).
 For example encoded strings like `%-%tolgee:something%-%` will be rendered in your document or tooltips will be rendered
 with incorrect width. To handle this, you can disable wrapping and let Tolgee to translate texts right away.
 
