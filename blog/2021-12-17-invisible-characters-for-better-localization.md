@@ -2,6 +2,7 @@
 title: Using invisible text for better localization
 authors: [sgranat]
 tags: [SDK, i18n, i18next]
+image: '/img/blog/invisible-text/invisible_text.png'
 ---
 
 ![Text with ghosts](/img/blog/invisible-text/invisible_text.png)
