@@ -37,6 +37,10 @@ module.exports = {
           type: "doc",
         },
         {
+          id: "web/wrapping",
+          type: "doc",
+        },
+        {
           id: "web/configuration",
           type: "doc",
         },
@@ -120,6 +124,17 @@ module.exports = {
                 "web/using_with_svelte/preparing_for_production",
                 "web/using_with_svelte/advanced_translating",
                 "web/using_with_svelte/api",
+              ],
+            },
+            {
+              label: "Using with i18next",
+              type: "category",
+              items: [
+                "web/using_with_i18next/installation",
+                "web/using_with_i18next/react",
+                "web/using_with_i18next/vue",
+                "web/using_with_i18next/preparing_for_production",
+                "web/using_with_i18next/api",
               ],
             },
             {

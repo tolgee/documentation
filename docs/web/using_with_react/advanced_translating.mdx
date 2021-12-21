@@ -56,7 +56,7 @@ Translated
 ```
 when the key is translated to value `Translated` for the current language.
 
-To read more about wrapping, see [Understanding Tolgee for Web doc page](/docs/web/understanding_tolgee_for_web).
+To read more about wrapping, see [Understanding Tolgee for Web doc page](/docs/web/wrapping).
 
 ### `NO_WRAP` strategy (not recommended)
 The most simple strategy is `NO_WRAP` strategy. With this strategy, the translated text will be rendered directly without
@@ -80,7 +80,7 @@ Translated
 ## [`t`](./api#function-t) function wrapping
 
 [`t`](./api#function-t) function is a bit more complicated, because we cannot attach our own html element into the DOM.
-So in this case the function is returning Tolgee custom made [wrapping](../understanding_tolgee_for_web#key-and-parameters-wrapping),
+So in this case the function is returning Tolgee custom made [wrapping](../wrapping),
 which is then captured by DOM [MutationObserver](https://developer.mozilla.org/en-US/docs/Web/API/MutationObserver) and that will find suitable parent element, where the translation gets
 registred and so in-context localization can work there. In production mode, this whole logic can be omitted and [`t`](./api#function-t) function
 returns only the translated string.

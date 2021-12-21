@@ -21,7 +21,7 @@ Url of Tolgee server.
 
 ### inputPrefix and inputSuffix
 In development mode, strings to be translated are wrapped by `@tolgee/core` library at first and then parsed and replaced with
-translated value. This mechanism is called [wrapping](/docs/web/understanding_tolgee_for_web#key-and-parameters-wrapping).
+translated value. This mechanism is called [wrapping](/docs/web/wrapping).
 
 `inputPrefix` is inserted before the encoded string and `inputSuffix` is inserted after the string. By those 2 strings
 Tolgee recognises strings, which are meant to be translated, so its good idea to make them unique enough not to collide
@@ -182,7 +182,7 @@ verticalAlign: "middle"
 
 ### wrapperMode
 
-Will determine how are translations wrapped
+Will determine how are translations wrapped ([read more](./wrapping))
 
- - `text` (default) - uses [standard wrapping](./understanding_tolgee_for_web#key-and-parameters-wrapping)
+ - `text` (default) - uses standard wrapping
  - `invisible` (experimental) - uses zero width invisible characters to encode key info directly into translation
