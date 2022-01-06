@@ -49,7 +49,7 @@ export default () => {
                   </div>
                   <Link
                     className="pricing__option-button"
-                    to="/docs/server_and_web_app/self_hosting/running_with_docker"
+                    to="/docs/platform/self_hosting/running_with_docker"
                   >
                     Docs
                   </Link>

@@ -90,7 +90,7 @@ up in e-mails (where obviously JS library has no power) or when you can see some
 ## Production mode
 
 In production mode all your translations are loaded from local JSON localization files. You can obtain there files by
-[exporting them using Tolgee Web Application](/docs/server_and_web_app/exporting_translations).
+[exporting them using Tolgee Web Application](/docs/platform/exporting_translations).
 
 To configure an absolute path where Tolgee will find the localization files set `localFilesAbsolutePath`
 of `TolgeeConfig` class instance.
@@ -112,7 +112,7 @@ Tolgee in the browser, you will get just ugly encoded strings such as
 See `getTolgeeFrontendPart`
 [function of our example](https://github.com/tolgee/php-example/blob/9b6b38c023b7169d9767b37fc3892536b5230d57/TolgeeManager.php#L35).
 :::info
-Inicialization has changed in [version 3](/docs/changelog/version_3)
+Inicialization has changed in [version 3](/docs/changelog/tolgee_js_version_3)
 :::
 ```html
 <div id="loading" style="position: fixed; top:0; left: 0; width: 100%; height: 100%;
@@ -160,7 +160,7 @@ The suffix, which is appended to encoded localization string. (string, default: 
 The URL to fetch localization texts from in development mode. (string, default: `https://app.tolgee.io`)
 
 ### apiKey
-Your secret key, which you can [obtain in web application](../server_and_web_app/managing_api_keys). (string, default: empty string)
+Your secret key, which you can [obtain in web application](../platform/managing_api_keys). (string, default: empty string)
 
 ### defaultLanguage
 The default language. (string, default: `en`)

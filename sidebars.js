@@ -2,27 +2,27 @@ module.exports = {
   someSidebar: [
     { type: "doc", id: "what_is_tolgee" },
     {
-      label: "Tolgee Server and Web application",
+      label: "Tolgee Platform",
       type: "category",
       items: [
-        "server_and_web_app/introduction",
+        "platform/introduction",
         {
           label: "Usage",
           type: "category",
           items: [
-            "server_and_web_app/creating_project",
-            "server_and_web_app/integration",
-            "server_and_web_app/managing_api_keys",
-            "server_and_web_app/exporting_translations",
+            "platform/creating_project",
+            "platform/integration",
+            "platform/managing_api_keys",
+            "platform/exporting_translations",
           ],
         },
         {
           label: "Self hosting",
           type: "category",
           items: [
-            "server_and_web_app/self_hosting/running_with_docker",
-            "server_and_web_app/self_hosting/running_with_java",
-            "server_and_web_app/self_hosting/configuration",
+            "platform/self_hosting/running_with_docker",
+            "platform/self_hosting/running_with_java",
+            "platform/self_hosting/configuration",
           ],
         },
       ],
@@ -153,7 +153,7 @@ module.exports = {
     {
       label: "Changelog",
       type: "category",
-      items: [{ type: "doc", id: "changelog/version_3" }],
+      items: [{ type: "doc", id: "changelog/tolgee_js_version_3" }],
     },
   ],
 };

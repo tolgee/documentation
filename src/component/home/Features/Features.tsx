@@ -147,7 +147,7 @@ export const Features = () => {
             <div className="feature__text">
               <Link
                 to={useBaseUrl(
-                  "docs/server_and_web_app/self_hosting/running_with_docker"
+                  "docs/platform/self_hosting/running_with_docker"
                 )}
               >
                 Learn how to deploy it!
