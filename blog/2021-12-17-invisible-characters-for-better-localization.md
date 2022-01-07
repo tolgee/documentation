@@ -48,7 +48,7 @@ The fact that each secret byte is 9 characters long is making long texts extreme
 
 ### Can I try this?
 
-We've just shipped Tolgee version 3, where it is as an optional [setting](https://tolgee.io/docs/changelog/version_3#wrappermode-setting), so you can try it yourself. We'll see if we find any issues with this approach and if not, we'll probably make it default way for wrapping translations in Tolgee.
+We've just shipped Tolgee version 3, where it is as an optional [setting](https://tolgee.io/docs/changelog/tolgee_js_version_3#wrappermode-setting), so you can try it yourself. We'll see if we find any issues with this approach and if not, we'll probably make it default way for wrapping translations in Tolgee.
 
 ### Conclusion
 

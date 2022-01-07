@@ -118,11 +118,11 @@ module.exports = {
             },
             {
               label: "Running server",
-              to: "docs/server_and_web_app/self_hosting/running_with_docker",
+              to: "docs/platform/self_hosting/running_with_docker",
             },
             {
               label: "Using Tolgee App",
-              to: "docs/server_and_web_app",
+              to: "docs/platform",
             },
           ],
         },

@@ -2,12 +2,17 @@
 id: running_with_docker
 title: Running with Docker
 sidebar_label: Running with Docker
-slug: /server_and_web_app/self_hosting/running_with_docker
+slug: /platform/self_hosting/running_with_docker
 ---
 
-## Running it locally
-To run server locally you should be fine just with running simple docker image with mounted data volume. By default
-Tolgee is using H2 database to store the data so you don't need another database to run it.
+:::info
+Since v2, Tolgee runs PostgreSQL database in its container by default. To disable embedded Postgres, set
+`tolgee.postgres-autostart.enabled` property to `false`.
+:::
+
+## Running Tolgee in single container (recommended)
+To run server locally you should be fine just with running simple Docker image with mounted data volume.
+Tolgee has embedded PostgreSQL database, so you don't have to manually set it.
 
 ```
 docker run -v tolgee_data:/data/ -p 8085:8080 tolgee/tolgee
@@ -54,6 +59,7 @@ To provide a configuration, add following .env file.
 spring.datasource.url=jdbc:postgresql://db:5432/postgres
 spring.datasource.username=postgres
 spring.datasource.password=postgres
+tolgee.postgres-autostart.enabled=false
 ```
 Similarly, you can define other [configuration properties](configuration).
 
@@ -64,6 +70,7 @@ underscores `_`.
 spring_datasource_url=jdbc:postgresql://db:5432/postgres
 spring_datasource_username=postgres
 spring_datasource_password=postgres
+tolgee_postgres-autostart_enabled=false
 ```
 :::
 

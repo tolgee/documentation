@@ -2,11 +2,18 @@
 id: running_with_java
 title: Running with Java
 sidebar_label: Running with Java
-slug: /server_and_web_app/self_hosting/running_with_java
+slug: /platform/self_hosting/running_with_java
 ---
 
 To run Tolgee server using Java download the latest release from
 [github](https://github.com/tolgee/server/releases).
+
+To run Tolgee like this, Docker has to be installed on your machine.
+
+:::info
+Since v2, Tolgee tries to run PostgreSQL container by default.
+To disable this, set `tolgee.postgres-autostart.enabled` property to `false` and provide Postgres configuration yourself.
+:::
 
 Then you can run it with:
 ```
