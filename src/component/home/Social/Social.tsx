@@ -1,16 +1,6 @@
-import React, { useEffect } from "react";
+import React, {useEffect} from "react";
 import "./Social.css";
-
-const appendScript = (url: string) => {
-  const script = document.createElement("script");
-  script.src = url;
-  script.defer = true;
-  script.async = true;
-  document.head.append(script);
-  return () => {
-    document.head.removeChild(script);
-  };
-};
+import {appendScript} from "../../externalScripts/appendScript";
 
 export const Social = () => {
   useEffect(() => {
