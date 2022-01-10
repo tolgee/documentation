@@ -89,7 +89,7 @@ module.exports = {
           label: "Why Open-source?",
           position: "left",
         },
-        { to: "blog", label: "Blog", position: "left" },
+        {to: "blog", label: "Blog", position: "left"},
         {
           href: "https://app.tolgee.io",
           label: "Go to app",
@@ -162,6 +162,9 @@ module.exports = {
               label: "Terms of use",
               href: "/docs/terms_of_use",
             },
+            {
+             html: '<a class="footer__link-item" href="javascript:;" onclick="openCookieSettings()">Cookie settings</a>'
+            },
           ],
         },
       ],
@@ -225,16 +228,18 @@ module.exports = {
   plugins: ["docusaurus2-dotenv"],
   stylesheets: ["/font.css"],
   customFields: {
-    apiSpec: "https://app.tolgee.io/v3/api-docs/Accessible%20with%20API%20key",
+    googleTrackingId: process.env.DOCUSAURUS_GOOGLE_TRACKING_ID,
+    chatwootToken: process.env.DOCUSAURUS_CHATWOOT_TOKEN
   },
   scripts: [
-    ...(process.env.DOCUSAURUS_TAWK_URL
-      ? [
-          {
-            src: process.env.DOCUSAURUS_TAWK_URL,
-            async: true,
-          },
-        ]
-      : []),
+    {
+      src: "https://www.googletagmanager.com/gtag/js?id="+process.env.DOCUSAURUS_GOOGLE_TRACKING_ID,
+      async: true
+    },
+    {
+      src: "scripts/cookieconsent.js",
+      defer: true,
+      async: true
+    }
   ],
 };
