@@ -45,14 +45,14 @@ which also can handle typos.
 
 Another important feature we need, is finding similarity of two texts, which we need to implement translation memory (
 reusing strings already translated before). In H2 database there is no built-in function returning an information about
-how two string are similar. However, in postgres there is a
+how two string are similar. However, in Postgres there is a
 [`pg_trgm`](https://www.postgresql.org/docs/9.6/pgtrgm.html) module with `similarity` method, which is exactly what we
 need.
 
 ## How it's going to work now?
 Since version 2 of the Tolgee Platform, Postgres is embedded in the 
 [`tolgee/tolgee` Docker image](/docs/platform/self_hosting/running_with_docker). Tolgee starts Postgre 
-server automatically on its startup. So you can still run tolgee with no configuration just by running the
+server automatically on its startup. So you can still run Tolgee with no configuration just by running the
 single Docker container.  
 
 There is also `DOCKER` mode of [`tolgee-autostart`](/docs/platform/self_hosting/configuration#postgres-autostart),
@@ -64,4 +64,4 @@ outside of Docker container with Java, and they don't want to configure Postgres
 - Tolgee is dropping H2 database, since it doesn't have features we need for further development.
 - We are going to implement Translation memory and improve search in translation view
 - You can still run Tolgee with Docker using a single command
-- Postgres is now embedded in `tolgee/tolfee` Docker image
+- Postgres is now embedded in `tolgee/tolgee` Docker image
