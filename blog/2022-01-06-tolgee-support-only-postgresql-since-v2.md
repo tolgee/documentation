@@ -3,6 +3,7 @@ slug: tolgee-support-only-postgres-since-v2
 title: Why Tolgee supports only PostgreSQL since v2
 authors: [jcizmar]
 tags: [tolgee, database, postgres, h2, server]
+image: '/img/blog/postgres.png'
 ---
 
 When I started to develop Tolgee for my master thesis about 2 years ago, one of my goals was to provide a localization
