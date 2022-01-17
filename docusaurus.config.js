@@ -237,7 +237,7 @@ module.exports = {
       async: true
     },
     {
-      src: "scripts/cookieconsent.js",
+      src: "/scripts/cookieconsent.js",
       defer: true,
       async: true
     }

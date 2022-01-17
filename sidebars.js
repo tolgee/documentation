@@ -1,6 +1,6 @@
 module.exports = {
   someSidebar: [
-    { type: "doc", id: "what_is_tolgee" },
+    {type: "doc", id: "what_is_tolgee"},
     {
       label: "Tolgee Platform",
       type: "category",
@@ -149,11 +149,14 @@ module.exports = {
         },
       ],
     },
-    { type: "doc", id: "icu_message_format" },
+    {type: "doc", id: "icu_message_format"},
     {
       label: "Changelog",
       type: "category",
-      items: [{ type: "doc", id: "changelog/tolgee_js_version_3" }],
+      items: [
+        {type: "doc", id: "changelog/tolgee_js_version_3"},
+        {type: "doc", id: "changelog/tolgee_server_version_2"}
+      ],
     },
   ],
 };
