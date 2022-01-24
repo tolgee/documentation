@@ -28,8 +28,8 @@
 }
 
 .goToAppButton {
-    border: 1px solid var(--ifm-color-primary-lightest);
-    color: var(--ifm-color-primary-lightest);
+    border: 1px solid var(--ifm-color-primary-dark);
+    color: var(--ifm-color-primary-dark);
     border-radius: 15px;
     margin-right: 15px;
 }
@@ -71,16 +71,21 @@
     align-items: stretch;
     max-width: 2000px;
     margin: 0 auto;
-    background-image: url("/img/hero.png");
-    background-size: contain;
-    background-position: left top;
-    background-repeat: no-repeat;
+    position: relative;
+    overflow: hidden;
 }
 
 .header:before {
     content: '';
     display: block;
     padding-top: 22%;
+}
+
+.header__image {
+    height: 100%;
+    width: auto;
+    position: absolute;
+    pointer-events: none;
 }
 
 .header__container {
@@ -139,9 +144,9 @@
         padding: 16px;
     }
 
-    .header {
-        background-size: cover;
-        position: relative;
+    .header__image {
+        width: 100%;
+        object-fit: cover;
     }
 
     .header:after {

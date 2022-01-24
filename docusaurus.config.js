@@ -89,7 +89,7 @@ module.exports = {
           label: "Why Open-source?",
           position: "left",
         },
-        {to: "blog", label: "Blog", position: "left"},
+        { to: "blog", label: "Blog", position: "left" },
         {
           href: "https://app.tolgee.io",
           label: "Go to app",
@@ -163,12 +163,12 @@ module.exports = {
               href: "/docs/terms_of_use",
             },
             {
-              html: '<a class="footer__link-item" href="javascript:;" onclick="openCookieSettings()">Cookie settings</a>'
+              html: '<a class="footer__link-item" href="javascript:;" onclick="openCookieSettings()">Cookie settings</a>',
             },
           ],
         },
       ],
-      copyright: `Copyright © ${new Date().getFullYear()} Tolgee`,
+      copyright: `<a class="footer__link-item" href="/">© 2021-${new Date().getFullYear()} Tolgee s.r.o. All rights reserved</a>`,
     },
     algolia: {
       apiKey: "4611f8562d237546845c8bdede50243f",
@@ -189,8 +189,8 @@ module.exports = {
           editUrl: "https://github.com/tolgee/documentation/tree/main",
         },
         blog: {
-          blogSidebarTitle: 'All posts',
-          blogSidebarCount: 'ALL',
+          blogSidebarTitle: "All posts",
+          blogSidebarCount: "ALL",
           showReadingTime: true,
           // Please change this to your repo.
           editUrl: "https://github.com/tolgee/documentation/tree/main",
@@ -231,17 +231,19 @@ module.exports = {
   stylesheets: ["/font.css"],
   customFields: {
     googleTrackingId: process.env.DOCUSAURUS_GOOGLE_TRACKING_ID,
-    chatwootToken: process.env.DOCUSAURUS_CHATWOOT_TOKEN
+    chatwootToken: process.env.DOCUSAURUS_CHATWOOT_TOKEN,
   },
   scripts: [
     {
-      src: "https://www.googletagmanager.com/gtag/js?id=" + process.env.DOCUSAURUS_GOOGLE_TRACKING_ID,
-      async: true
+      src:
+        "https://www.googletagmanager.com/gtag/js?id=" +
+        process.env.DOCUSAURUS_GOOGLE_TRACKING_ID,
+      async: true,
     },
     {
       src: "/scripts/cookieconsent.js",
       defer: true,
-      async: true
-    }
+      async: true,
+    },
   ],
 };

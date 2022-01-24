@@ -8,6 +8,12 @@ import { Features } from "../component/home/Features/Features";
 import { Social } from "../component/home/Social/Social";
 import { VideoPlaceholder } from "../component/VideoPlaceholder/VideoPlaceholder";
 import { RoboMouse } from "../component/images/RoboMouse";
+import Head from "@docusaurus/Head";
+import baseSchema from "../info/organization";
+
+const hero1000 = "/img/hero-1000.png";
+const hero2000 = "/img/hero-2000.png";
+const hero3000 = "/img/hero-3000.png";
 
 function Home() {
   const context = useDocusaurusContext();
@@ -22,18 +28,31 @@ function Home() {
         setAnimatedMouseLeft(newLeft);
       }
     };
-    window.addEventListener("scroll", onScroll);
+    window.addEventListener("scroll", onScroll, { passive: true });
     return () => window.removeEventListener("scroll", onScroll);
   }, []);
 
   return (
     <div className="dark-mode-disabled">
+      <Head>
+        <script type="application/ld+json">{JSON.stringify(baseSchema)}</script>
+      </Head>
       <Layout
-        title={`All in One localization for your project`}
-        description="Localization tool which makes the localization process simple. Easy to integrate to React, Angular and other applications."
+        title={baseSchema.slogan}
+        description={baseSchema.description}
+        image={baseSchema.image}
       >
         <div className="header__wrapper">
           <header className={clsx("hero hero--primary header")}>
+            <img
+              srcSet={`
+                ${hero1000} 1000w,
+                ${hero2000} 2000w,
+                ${hero3000} 3000w,
+              `}
+              className="header__image"
+              alt="Tolgee city"
+            />
             <div className={"header__container container"}>
               <div
                 className="header__content"
@@ -79,10 +98,7 @@ function Home() {
             </div>
             <div className="home__video-and-social-wrapper container">
               <div className="home__video-wrapper">
-                <VideoPlaceholder
-                  src="/intro.mp4"
-                  placeholderSrc="/img/video-placeholder.png"
-                />
+                <VideoPlaceholder src="/intro.mp4" />
               </div>
               <Social />
             </div>
