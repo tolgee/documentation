@@ -11,26 +11,29 @@ tags: [react, i18n, i18next, javascript, typescript, integration]
 So you develop an app in React and you want many users to use it, right? To make your app usable for users in foreign
 countries, you have to translate your App to their languages. 🇬🇧 🇨🇳 🇮🇹 🇪🇸 🇫🇷
 
-In this article I am going to show you, how to integrate i18next and Tolgee to your project and how easy and fast you
+In this article, I am going to show you, how to integrate i18next and Tolgee into your project and how easy and fast you
 can translate a React app using these tools.
+
+> Tolgee has also its native integrations. Which are a bit easier to set up, so if you're not used to i18next, maybe it
+> would be easier for you to [start with those](http://localhost:3000/docs/web/using_with_react/installation).
 
 <!--truncate-->
 
 ### What is [i18next](https://www.i18next.com/)?
 
-`i18next` is a library enabling you to localize your app. Basically, in your code you are calling methods of this
+`i18next` is a library enabling you to localize your app. Basically, you are calling methods of this
 library providing keys to be translated. The methods return value in specified language retrieved from localization
 files. There is much more about i18next, but let's keep it simple for this tutorial. You can read more about
 i18next [here](https://www.i18next.com/).
 
 ### OK! And what is [Tolgee](https://tolgee.io)?
 
-Tolgee is open-source tool combining localization platform and integrations to provide simple way to translate the web
+Tolgee is an open-source tool combining localization platform and integrations to provide a simple way to translate the web
 applications for both developers and translators. 👨‍💻👩🏻‍💻🧖🏼👩🏻‍💻🧖🏼
 
 Tolgee Localization Platform is a place, where you can manage all your localization strings in the simple UI. It's made
 to simplify the localization process as much as possible. With Tolgee you can translate the localization strings
-directly in the Application you develop without editing localization data files. You can also automatically generate
+directly in the application you develop without editing localization data files. You can also automatically generate
 screenshots from your app, which can be used in the future by translators of your project.
 
 So let's dive in to the hacking!
@@ -250,7 +253,7 @@ Great! Now you are able to switch the language!
 ## Preparing for production
 
 In production mode you **don't want to leak you API key**. You want your translations to be part of the production
-build. There are multiple options to obtain you exported localization files.
+build. There are multiple options to obtain your exported localization files.
 
 ### Option 1: Using Tolgee Platform
 
@@ -291,8 +294,8 @@ src
 
 Now, lets provide the data to Tolgee. There are multiple ways, how to do
 so [described in docs](https://tolgee.io/docs/web/using_with_i18next/preparing_for_production). But I am going to
-provide them as imported static objects, which is good option, since the App is small and there are not many translations
-yet.
+provide them as imported static objects, which is good option, since the App is small and there are not many
+translations yet.
 
 Go to the `index.tsx` file and import the localization jsons:
 
@@ -330,9 +333,9 @@ Congrats! 🎉 Now you are able to speed up your localization process!
 
 ## TL;DR
 
-- Tolgee is open-source tool, simplifying localization process and removing unnecessary tasks
+- Tolgee is an open-source tool, simplifying localization process and removing unnecessary tasks
 - It enables you or your colleagues to modify translated string in the context of developed web application
-- Tolgee is also localization platform, where you can manage all your translations
+- Tolgee is also a localization platform, where you can manage all your translations
 - If you like our project, please star our projects on GitHub
     - [github.com/tolgee/server](https://github.com/tolgee/server) ⭐
     - [github.com/tolgee/js](https://github.com/tolgee/js) ⭐
