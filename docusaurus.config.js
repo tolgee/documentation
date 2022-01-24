@@ -163,7 +163,7 @@ module.exports = {
               href: "/docs/terms_of_use",
             },
             {
-             html: '<a class="footer__link-item" href="javascript:;" onclick="openCookieSettings()">Cookie settings</a>'
+              html: '<a class="footer__link-item" href="javascript:;" onclick="openCookieSettings()">Cookie settings</a>'
             },
           ],
         },
@@ -189,6 +189,8 @@ module.exports = {
           editUrl: "https://github.com/tolgee/documentation/tree/main",
         },
         blog: {
+          blogSidebarTitle: 'All posts',
+          blogSidebarCount: 'ALL',
           showReadingTime: true,
           // Please change this to your repo.
           editUrl: "https://github.com/tolgee/documentation/tree/main",
@@ -233,7 +235,7 @@ module.exports = {
   },
   scripts: [
     {
-      src: "https://www.googletagmanager.com/gtag/js?id="+process.env.DOCUSAURUS_GOOGLE_TRACKING_ID,
+      src: "https://www.googletagmanager.com/gtag/js?id=" + process.env.DOCUSAURUS_GOOGLE_TRACKING_ID,
       async: true
     },
     {
