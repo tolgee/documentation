@@ -5,6 +5,8 @@ title: Super fast React Localization 🌍 (i18n) with i18next and Tolgee 🐁
 
 authors: [jcizmar]
 
+image: "/img/blog/2022-01-20-super-fast-react-localizaton-with-i18next-and-tolgee/cover.jpg"
+
 tags: [react, i18n, i18next, javascript, typescript, integration]
 ---
 
