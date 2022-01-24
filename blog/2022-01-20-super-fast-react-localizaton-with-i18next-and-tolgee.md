@@ -15,7 +15,7 @@ In this article, I am going to show you, how to integrate i18next and Tolgee int
 can translate a React app using these tools.
 
 > Tolgee has also its native integrations. Which are a bit easier to set up, so if you're not used to i18next, maybe it
-> would be easier for you to [start with those](http://localhost:3000/docs/web/using_with_react/installation).
+> would be easier for you to [start with those](/docs/web/using_with_react/installation).
 
 <!--truncate-->
 
@@ -42,7 +42,7 @@ So let's dive in to the hacking!
 
 I am going to use Create React App for this, since it's the simplest way to bootstrap a React app.
 
-![Image description](https://dev-to-uploads.s3.amazonaws.com/uploads/articles/6lponm0ze5mohgslsagm.gif)
+![Dwight](https://dev-to-uploads.s3.amazonaws.com/uploads/articles/6lponm0ze5mohgslsagm.gif)
 
 I am going to use Typescript, but if you're JavaScript purist, remove the `--template typescript` part. Open your
 terminal and command it to execute...
