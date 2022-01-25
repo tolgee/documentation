@@ -2,10 +2,10 @@ import React, { FC, useState } from "react";
 import Modal from "react-modal";
 import "./VideoPlaceholder.css";
 
-export const VideoPlaceholder: FC<{ src: string; placeholderSrc: string }> = ({
-  src,
-  placeholderSrc,
-}) => {
+const thumbnail1000 = "/img/video-placeholder-1000.png";
+const thumbnail1920 = "/img/video-placeholder-1920.png";
+
+export const VideoPlaceholder: FC<{ src: string }> = ({ src }) => {
   const [open, setOpen] = useState(false);
   return (
     <>
@@ -14,9 +14,17 @@ export const VideoPlaceholder: FC<{ src: string; placeholderSrc: string }> = ({
         className="video-placeholder__button"
       >
         <div className="video-placeholder__button_play">
-          <img src="/play-triangle.svg" />
+          <img src="/play-triangle.svg" alt="Play video" />
         </div>
-        <img src={placeholderSrc} alt="Play video" />️
+        <img
+          srcSet={`
+          ${thumbnail1000} 1000w,
+          ${thumbnail1920} 1920w
+        `}
+          alt="Play video"
+          width={1920}
+          height={1080}
+        />
       </button>
       <Modal
         isOpen={open}

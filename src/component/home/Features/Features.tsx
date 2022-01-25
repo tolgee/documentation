@@ -51,16 +51,16 @@ export const Features = () => {
                 <img src={logoGatsby} alt="Gatsby" />
               </Link>
               <Link to="/docs/web/using_with_npm/installation">
-                <img src={logoJs} />
+                <img src={logoJs} alt="JS" />
               </Link>
               <Link to="/docs/web/using_with_react/ssr/using_with_next">
-                <img src={logoNext} />
+                <img src={logoNext} alt="Next.js" />
               </Link>
               <Link to="/docs/web/using_with_php">
-                <img src={logoPhp} />
+                <img src={logoPhp} alt="PHP" />
               </Link>
               <Link to="/docs/web/using_with_react/installation">
-                <img src={logoReact} />
+                <img src={logoReact} alt="React.js" />
               </Link>
             </div>
           </div>
