@@ -175,9 +175,9 @@ module.exports = {
       indexName: "tolgee",
       searchParameters: {}, // Optional (if provided by Algolia)
     },
-    gtag: {
-      trackingID: process.env.DOCUSAURUS_GOOGLE_TRACKING_ID || "G-K37DGCFGLS",
-    },
+    // gtag: {
+    //   trackingID: process.env.DOCUSAURUS_GOOGLE_TRACKING_ID || "G-K37DGCFGLS",
+    // },
   },
   presets: [
     [
@@ -192,8 +192,11 @@ module.exports = {
           blogSidebarTitle: "All posts",
           blogSidebarCount: "ALL",
           showReadingTime: true,
-          // Please change this to your repo.
           editUrl: "https://github.com/tolgee/documentation/tree/main",
+          feedOptions: {
+            type: 'all',
+            copyright: `Copyright © ${new Date().getFullYear()} Tolgee`,
+          },
         },
         theme: {
           customCss: require.resolve("./src/css/custom.css"),
