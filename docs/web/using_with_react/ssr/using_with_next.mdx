@@ -55,7 +55,7 @@ import {useRouter} from "next/router";
 import {TolgeeProvider} from "@tolgee/react";
 
 function MyApp({Component, pageProps}: AppProps) {
-const {locale: activeLocale} = useRouter()
+    const {locale: activeLocale} = useRouter()
 
     return <TolgeeProvider
         ui={UI}
@@ -75,6 +75,66 @@ export default MyApp
 ```
 The `forceLanguage` prop forces Tolgee to use the language which is provided by Next.js. It will not try to change it
 using its own way.
+
+We can optimize bundle size by only including locale which is needed for rendered page by using getInitialProps.
+
+```jsx
+
+function MyApp({Component, pageProps, locales}: AppProps) {
+    const {locale: activeLocale} = useRouter()
+
+    return <TolgeeProvider
+        ui={UI}
+        forceLanguage={activeLocale}
+        apiKey={process.env.NEXT_PUBLIC_TOLGEE_API_KEY}
+        apiUrl={process.env.NEXT_PUBLIC_TOLGEE_API_URL}
+        staticData={{
+            en: () => import('../i18n/en.json'),
+            cs: () => import('../i18n/cs.json'),
+            ...locales
+        }}
+    >
+        <Component {...pageProps} />
+    </TolgeeProvider>
+}
+
+MyApp.getInitialProps = async (context) => {
+  const locale = context.router.locale;
+  const result = {
+    locales: {
+      [locale]: await import(`../i18n/${locale}.json`),
+    },
+  };
+  return result;
+};
+```
+
+Similarly, you can use `getServerSideProps` or `getStaticProps` on each page.
+
+
+## Change language with next.js router
+
+As we need locale information both on server and client we need to use next.js native way.
+```jsx
+import { useRouter } from 'next/router';
+
+export const LangSelector: React.FC = () => {
+  const router = useRouter();
+  const setLanguage = (lang: string) => {
+    router.replace(router.pathname, undefined, { locale: lang });
+  };
+
+  return (
+    <select
+      onChange={(e) => setLanguage(e.target.value)}
+      value={router.locale}
+    >
+      <option value="en">🇬🇧 English</option>
+      <option value="cs">🇨🇿 Česky</option>
+    </select>
+  );
+};
+```
 
 ## Use T component to translate something
 Use T component to translate some text somewhere in your app.

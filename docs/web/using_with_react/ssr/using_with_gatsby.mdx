@@ -53,11 +53,8 @@ module.exports = {
 ```jsx
 import { useIntl } from 'gatsby-plugin-react-intl';
 
-import * as translationsEn from '../i18n/en.json';
-import * as translationsCs from '../i18n/cs.json';
-
 export const AppWrapper: React.FC = ({ children }) => {
-  const intl = useIntl();
+  const { locale, messages } = useIntl();
 
   return (
     <TolgeeProvider
@@ -65,8 +62,10 @@ export const AppWrapper: React.FC = ({ children }) => {
       apiKey={process.env.GATSBY_TOLGEE_API_KEY}
       apiUrl={process.env.GATSBY_TOLGEE_API_URL}
       staticData={{
-        en: translationsEn,
-        cs: translationsCs,
+        en: () => import(`../i18n/en.json`),
+        cs: () => import('../i18n/cs.json'),
+        // translations provided by intl plugin
+        [locale]: messages,
       }}
       loadingFallback={<div>Loading...</div>}
       ui={
@@ -79,12 +78,12 @@ export const AppWrapper: React.FC = ({ children }) => {
 };
 ```
 
-The localization data is imported and provided to TolgeeProvider using `staticData` prop, so in production mode
-(when your page is built) Tolgee will use this data.
 
-The `forceLanguage` prop forces Tolgee to use specific language. 
-So here we are using intl plugin to manage selected language. 
-To change language use the plugin build-in method.
+Intl plugin manages locale for us and also gives us content of localization file based on locale, which we provide
+statically to Tolgee. On production Gatsby will generate pages separately for each locale, so only locale that is needed
+is provided statically.
+
+## Change language with intl plugin
 
 ```jsx
 import { useCurrentLanguage } from '@tolgee/react';
