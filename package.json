@@ -55,6 +55,6 @@
     "react-modal": "3.14.4"
   },
   "engines": {
-    "node": ">=14"
+    "node": ">=14 <15"
   }
 }

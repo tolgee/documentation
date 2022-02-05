@@ -2,28 +2,27 @@ import React from "react";
 import Link from "@docusaurus/Link";
 import useBaseUrl from "@docusaurus/useBaseUrl";
 import "./Features.css";
-import { AllInOneImage } from "./images/AllInOneImage";
 // @ts-ignore
-import IntegrationInLessThenOneMinute from "./images/Integration-in-one-minute.svg";
+import IntegrationInLessThenOneMinute from "../../../../static/img/home/Integration-in-one-minute.svg";
 // @ts-ignore
-import ProvideContext from "./images/screenshots.svg";
+import ProvideContext from "../../../../static/img/home/screenshots.svg";
 // @ts-ignore
-import InContextEditing from "./images/In-context-editing.svg";
+import InContextEditing from "../../../../static/img/home/In-context-editing.svg";
 // @ts-ignore
-import MouseOpenSource from "./images/mouse-opensource.svg";
+import MouseOpenSource from "../../../../static/img/home/mouse-opensource.svg";
 
 // @ts-ignore
-import logoAngular from "./images/technologies/logo-angular.png";
+import logoAngular from "../../../../static/img/home/technologies/logo-angular.png";
 // @ts-ignore
-import logoGatsby from "./images/technologies/logo-gatsby.png";
+import logoGatsby from "../../../../static/img/home/technologies/logo-gatsby.png";
 // @ts-ignore
-import logoJs from "./images/technologies/logo-js.png";
+import logoJs from "../../../../static/img/home/technologies/logo-js.png";
 // @ts-ignore
-import logoNext from "./images/technologies/logo-next.png";
+import logoNext from "../../../../static/img/home/technologies/logo-next.png";
 // @ts-ignore
-import logoPhp from "./images/technologies/logo-php.png";
+import logoPhp from "../../../../static/img/home/technologies/logo-php.png";
 // @ts-ignore
-import logoReact from "./images/technologies/logo-react.png";
+import logoReact from "../../../../static/img/home/technologies/logo-react.png";
 
 export const Features = () => {
   return (
@@ -45,27 +44,27 @@ export const Features = () => {
             </div>
             <div className="feature__technologies">
               <Link to="docs/web/using_with_angular/installation">
-                <img src={logoAngular} alt="Angular" />
+                <img src={logoAngular} alt="Angular"/>
               </Link>
               <Link to="/docs/web/using_with_react/ssr/using_with_gatsby">
-                <img src={logoGatsby} alt="Gatsby" />
+                <img src={logoGatsby} alt="Gatsby"/>
               </Link>
               <Link to="/docs/web/using_with_npm/installation">
-                <img src={logoJs} alt="JS" />
+                <img src={logoJs} alt="JS"/>
               </Link>
               <Link to="/docs/web/using_with_react/ssr/using_with_next">
-                <img src={logoNext} alt="Next.js" />
+                <img src={logoNext} alt="Next.js"/>
               </Link>
               <Link to="/docs/web/using_with_php">
-                <img src={logoPhp} alt="PHP" />
+                <img src={logoPhp} alt="PHP"/>
               </Link>
               <Link to="/docs/web/using_with_react/installation">
-                <img src={logoReact} alt="React.js" />
+                <img src={logoReact} alt="React.js"/>
               </Link>
             </div>
           </div>
           <div className="feature__image">
-            <AllInOneImage />
+            <img src="/img/home/AllInOneImage.svg" alt="All in one"/>
           </div>
         </div>
       </div>
@@ -90,7 +89,7 @@ export const Features = () => {
             </div>
           </div>
           <div className="feature__image">
-            <InContextEditing />
+            <img src="/img/home/In-context-editing.svg" alt="In context-editing"/>
           </div>
         </div>
       </div>
@@ -111,7 +110,7 @@ export const Features = () => {
             </div>
           </div>
           <div className="feature__image">
-            <ProvideContext />
+            <img src="/img/home/screenshots.svg" alt="Take screenshots"/>
           </div>
         </div>
       </div>
@@ -132,7 +131,7 @@ export const Features = () => {
             </div>
           </div>
           <div className="feature__image">
-            <IntegrationInLessThenOneMinute />
+            <img src="/img/home/Integration-in-one-minute.svg" alt="Integrate fast"/>
           </div>
         </div>
       </div>
@@ -155,7 +154,7 @@ export const Features = () => {
             </div>
           </div>
           <div className="feature__image">
-            <MouseOpenSource />
+            <img src="/img/home/mouse-opensource.svg" alt="Integrate fast"/>
           </div>
         </div>
       </div>

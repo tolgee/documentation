@@ -56,7 +56,7 @@
 }
 
 
-.feature .feature__image svg {
+.feature .feature__image svg, .feature .feature__image img {
     width: 50%;
     filter: drop-shadow(-5px 5px 10px rgba(54, 54, 54, 0.5));
 }
