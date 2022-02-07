@@ -5,9 +5,9 @@ title: All you need to know to deal with user avatars 👤 in React
 
 authors: [jcizmar]
 
-image: "/img/blog/avatar/generatedAvatars.png"
+image: "/img/blog/avatar/ogImage.png"
 
-tags: [react, i18n, i18next, javascript, typescript, integration]
+tags: [react, avatar, javascript, typescript]
 ---
 
 Most of the information systems using user authentication also work with some kind of avatars - images enabling other
@@ -17,6 +17,8 @@ In this article I am going to show you how to:
 - generate user avatar by their unique ID using `jdenticon`
 - select avatar from file
 - crop selected avatar using `cropper.js` and `react-cropper` libraries
+
+<!--truncate-->
 
 ## Generating default avatar
 When the user hasn't selected their own avatar, we have few options what to show instead of it.
@@ -35,7 +37,7 @@ import { ComponentProps, FC, useState } from 'react';
 
 export const AutoAvatar: FC<
   ComponentProps<'img'> & { userId: number; size: number }
-> = ({ userId, size, ...imgProps }) => {
+  > = ({ userId, size, ...imgProps }) => {
   const [base64, setBase64] = useState(undefined as string | undefined);
 
   // using dynamic import to save some loading
