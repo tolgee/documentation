@@ -5,7 +5,7 @@ title: All you need to know to deal with user avatars 👤 in React
 
 authors: [jcizmar]
 
-image: "/img/blog/2022-01-20-super-fast-react-localizaton-with-i18next-and-tolgee/cover.jpg"
+image: "/img/blog/avatar/generatedAvatars.png"
 
 tags: [react, i18n, i18next, javascript, typescript, integration]
 ---
@@ -198,7 +198,7 @@ show the image `dataUrl` is our choice.
 
 Cool! So now we can also crop the image. Now, let's combine it all together!
 ```tsx
- React, {createRef, useState} from 'react';
+import React, {createRef, useState} from 'react';
 import './App.css';
 import {Cropper, ReactCropperElement} from "react-cropper";
 import 'cropperjs/dist/cropper.css';
