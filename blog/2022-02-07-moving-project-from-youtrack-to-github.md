@@ -5,15 +5,17 @@ title: Moving project from YouTrack to GitHub
 
 authors: [jcizmar]
 
-image: "/img/blog/avatar/ogImage.png"
+image: "/img/blog/movingFromYoutrack.png"
 
 tags: [project, tolgee, youtrack, github]
 ---
 
+![Moving from YoyTrack to GitHub](/img/blog/movingFromYoutrack.png)
+
 Before I started to work on Tolgee I was used to working with Jira. But I didn't like it much, so I chose YouTrack for
-project monitoring that time. Now it seems better to move the project management to GitHub,
-since it's more transparent for developers. Also, there is a kanban board feature on GitHub, so we can move the issues as
-we were used to in YouTrack, but it's also visible to everyone. 
+project monitoring that time. Now it seems better to move the project management to GitHub, since it's more transparent
+for developers. Also, there is a kanban board feature on GitHub, so we can move the issues as we were used to in
+YouTrack, but it's also visible to everyone.
 
 <!--truncate-->
 
