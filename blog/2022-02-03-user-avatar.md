@@ -5,7 +5,7 @@ title: All you need to know to deal with user avatars 👤 in React
 
 authors: [jcizmar]
 
-image: "/img/blog/avatar/generatedAvatars.png"
+image: "/img/blog/avatar/ogImage.png"
 
 tags: [react, i18n, i18next, javascript, typescript, integration]
 ---
