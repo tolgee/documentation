@@ -16,6 +16,8 @@ haven't finished any of the features, we wanted to finish before the end of the 
 roadmap. We decided to reschedule everything and target more on the segment of developers than translators.
 Ladies and gentlemen, we are introducing [improved roadmap](/roadmap)! 🎉
 
+<!--truncate-->
+
 ## 2022/Q1
 We are just finishing the translation memory, machine translations and automated translating. So users translating their
 projects in Tolgee platform will feel much more comfortable. The platform will be able to suggest translations from 
