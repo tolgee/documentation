@@ -2,7 +2,7 @@ import React from "react";
 import Layout from "../../theme/Layout";
 import "./roadmap.css";
 
-type Item = { name: string; description: string[] | string; done?: boolean };
+type Item = { name: string; description: string[] | string; done?: boolean; inProgressLink?: string };
 type PeriodData = {
   active?: boolean;
   future?: boolean;
@@ -10,7 +10,7 @@ type PeriodData = {
 };
 
 const roadmapData = {
-  "2022/Q1-Q4": {
+  "2022/Q3-Q4": {
     future: true,
     items: [
       {
@@ -54,7 +54,47 @@ than finding the ideal translator for your app.`,
       },
     ],
   },
-  "2021/Q4": {
+  "2021/Q1": {
+    active: true,
+    items: [
+      {
+        name: "Translation memory",
+        description: `Translation memory will suggest sentences that will have already been 
+translated in your projects before.`,
+        inProgressLink: "https://github.com/tolgee/server/pull/920"
+      },
+      {
+        name: "Automated/Machine translations",
+        description: `Don't translate everything manually. With an automated translations feature, 
+services like DeepL, Google Translate, or AWS translate will help by suggesting or 
+translating your new keys automatically when enabled.`,
+        inProgressLink: "https://github.com/tolgee/server/pull/920"
+      },
+      {
+        name: "Translating on production",
+        description: `Currently, in-context localization works only when the application is in development mode which is cool, but we would like
+         to enable users to translate directly in the deployed app by providing API key using the Tolgee Tools Chrome plugin.`,
+        inProgressLink: "https://github.com/tolgee/tolgee-js/pull/1775"
+      },
+      {
+        name: "More export options",
+        description: `More formats (json, xliff) and export options like filtering or structuring will be provided, so exports will be more versatile.`
+      },
+      {
+        name: "Project Dashboard",
+        description: `To see detailed statistics for the project and for each language.`
+      },
+      {
+        name: "Translation history",
+        description: `Enable users to see, how translation was edited in the past.`
+      },
+      {
+        name: "Translation permissions limited by language",
+        description: `Add option specifying a particular language an user can translate to.`
+      }
+    ],
+  },
+  "2021/Q2": {
     active: true,
     items: [
       {
@@ -64,26 +104,18 @@ terminology to reuse it in the future. Glossaries are the feature that enables
 you to do that.`,
       },
       {
-        name: "Translation memory",
-        description: `Translation memory will suggest sentences that will have already been 
-translated in your projects before.`,
-      },
-
-      {
-        name: "Automated translations",
-        description: `Don't translate everything manually. With an automated translations feature, 
-services like DeepL, Google Translate, or AWS translate will help you to 
-translate your strings automatically.`,
-      },
-      {
-        name: "Paywall for Tolgee Cloud",
+        name: "Billing on Tolgee Cloud",
         description: `To generate some profit from providing this great localization tool, we need to
-enable our users to pay for our services. To do so, we have to implement 
-backend services and UI to bill for our services.`,
+enable our users to pay for our services. To do so, we have to implement backend services and UI to bill for our services.
+If you are self-hosting Tolgee, don't worry. Tolgee stays free for you.`,
+      },
+      {
+        name: "Namespaces/Scoping in Tolgee JS integrations",
+        description: `To support localization data split by namespaces or multi-level scopes.`,
       },
     ],
   },
-  "2021/Q3": {
+  "2021/Q3-Q4": {
     items: [
       {
         name: "V1 Release",
@@ -120,24 +152,18 @@ key in the in-context translation UI.`,
 
 const passedPeriods = Object.entries(roadmapData)
   .filter((i) => !i[1].active && !i[1].future)
-  .reduce((acc, [name, data]) => ({ ...acc, [name]: data }), {}) as Record<
-  string,
-  PeriodData
->;
+  .reduce((acc, [name, data]) => ({...acc, [name]: data}), {}) as Record<string,
+  PeriodData>;
 
 const activePeriods = Object.entries(roadmapData)
   .filter((i) => i[1].active)
-  .reduce((acc, [name, data]) => ({ ...acc, [name]: data }), {}) as Record<
-  string,
-  PeriodData
->;
+  .reduce((acc, [name, data]) => ({...acc, [name]: data}), {}) as Record<string,
+  PeriodData>;
 
 const futurePeriods = Object.entries(roadmapData)
   .filter((i) => i[1].future)
-  .reduce((acc, [name, data]) => ({ ...acc, [name]: data }), {}) as Record<
-  string,
-  PeriodData
->;
+  .reduce((acc, [name, data]) => ({...acc, [name]: data}), {}) as Record<string,
+  PeriodData>;
 
 export default () => {
   return (
@@ -162,12 +188,12 @@ export default () => {
                           item.done ? "roadmap-item--done" : ""
                         }`}
                       >
-                        <h3>{item.name}</h3>
+                        <h3>{item.name}<InProgress link={item.inProgressLink}/></h3>
                         {(typeof item.description === "string"
-                          ? [item.description]
-                          : item.description
+                            ? [item.description]
+                            : item.description
                         ).map((d, i) => (
-                          <p key={i} dangerouslySetInnerHTML={{ __html: d }} />
+                          <p key={i} dangerouslySetInnerHTML={{__html: d}}/>
                         ))}
                       </div>
                     ))}
@@ -181,3 +207,10 @@ export default () => {
     </div>
   );
 };
+
+const InProgress = (props: { link?: string }) => {
+  return (
+    props.link ?
+      <>{` `}<a href={props.link}>(In progress)</a></> : null
+  )
+}

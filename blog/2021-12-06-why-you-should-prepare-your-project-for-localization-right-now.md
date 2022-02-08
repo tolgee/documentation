@@ -3,12 +3,8 @@ slug: why-you-should-prepare-your-project-for-localization-right-now
 
 title: 🌎 Why you should prepare your project for localization (i18n) right now
 
-author: Jan Cizmar 😎
+authors: [jcizmar]
 
-author_title: Tolgee CTO
-
-author_url: https://github.com/JanCizmar
-author_image_url: https://avatars.githubusercontent.com/u/18496315?v=4
 tags: [webdev, javascript]
 ---
 
