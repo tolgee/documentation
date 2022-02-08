@@ -5,7 +5,7 @@ title: Updating Roadmap
 
 authors: [jcizmar]
 
-image: "/img/blog/avatar/ogImage.png"
+image: "/img/blog/roadMap.jpeg"
 
 tags: [roadmap, tolgee, future]
 ---
