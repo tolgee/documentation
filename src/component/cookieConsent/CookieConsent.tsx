@@ -16,6 +16,10 @@ declare global {
 
 export const CookieConsent = () => {
   useEffect(() => {
+    if (typeof window.initCookieConsent !== 'function') {
+      return;
+    }
+
     const cc = window.initCookieConsent();
 
     window.openCookieSettings = () => {
