@@ -1,0 +1,27 @@
+---
+id: in_context
+title: In-context translating
+sidebar_label: In-context translating
+slug: /web/in_context
+---
+
+For local development, supply `apiUrl`,`apiKey` and `ui` to Tolgee configuration (see [Integration](/docs/platform/integration)). If you set everything properly, you can use in-context translating:
+
+ 1. Press and hold `Alt`/`Option` key
+ 2. Navigate mouse over any translation on your website
+ 3. It should get highlighted
+ 4. Click on it to open "Quick translation" dialog
+ 5. You can edit translations (changes will get stored to Tolgee platform)
+
+![In-context translating](/img/in-context.gif)
+
+## In-context on production
+
+To enable in-context translating on production you can pass `apiKey` and `apiUrl` through [Tolgee Tools](https://chrome.google.com/webstore/detail/tolgee-tools/hacnbapajkkfohnonhbmegojnddagfnj) plugin, that way Tolgee will switch to development mode (plugin will also supply `@tolgee/ui` package automatically).
+
+:::warning
+Never include `apiKey` in Tolgee configuration on production.
+This property is intended only for local development, as it's not meant to be publicly visible.
+:::
+
+![In-context translating](/img/in-context-production.gif)

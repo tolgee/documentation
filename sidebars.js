@@ -45,6 +45,10 @@ module.exports = {
           type: "doc",
         },
         {
+          id: "web/in_context",
+          type: "doc",
+        },
+        {
           id: "web/automated_screenshot_generation",
           type: "doc",
         },
