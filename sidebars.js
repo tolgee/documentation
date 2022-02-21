@@ -80,6 +80,7 @@ module.exports = {
               items: [
                 "web/using_with_react/installation",
                 "web/using_with_react/translating",
+                "web/using_with_react/tags_interpolation",
                 "web/using_with_react/switching_languages",
                 "web/using_with_react/preparing_for_production",
                 "web/using_with_react/advanced_translating",
