@@ -37,7 +37,7 @@ import { T } from '@tolgee/react';
 `String` - translation key.
 
 #### Prop `parameters?`
-`Record<string, string>` - variable parameters, which can be used in translation value 
+`Record<string, string | number | ReactElement | (val) => ReactNode>` - variable parameters, which can be used in translation value 
 (read more about [ICU message format](../../icu_message_format)).
 
 #### Prop `strategy?`
@@ -72,7 +72,7 @@ so component will be re-rendered every time translation changes.
 ```ts
 function t(
   key: string, 
-  parameters: Record<string, string>,
+  parameters?: Record<string, string | number | ReactElement | (val) => ReactNode>,
   noWrap?: boolean,
   defaultValue?: string
 ): string
@@ -80,7 +80,7 @@ function t(
 // or with options object
 function t(options: {
   key: string;
-  parameters?: Record<string, string>;
+  parameters?: Record<string, string | number | ReactElement | (val) => ReactNode>;
   noWrap?: boolean;
   defaultValue?: string;
 }): string
@@ -90,7 +90,7 @@ function t(options: {
 `String` - translation key.
 
 #### Parameter `parameters?`
-`Record<string, string>` - variable parameters, which can be used in translation value 
+`Record<string, string | number | ReactElement | (val) => ReactNode>` - variable parameters, which can be used in translation value 
 (read more about [ICU message format](../../icu_message_format)).
 
 #### Parameter `noWrap?`
