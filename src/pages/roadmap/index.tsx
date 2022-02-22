@@ -54,7 +54,7 @@ than finding the ideal translator for your app.`,
       },
     ],
   },
-  "2021/Q1": {
+  "2022/Q1": {
     active: true,
     items: [
       {
@@ -94,7 +94,7 @@ translating your new keys automatically when enabled.`,
       }
     ],
   },
-  "2021/Q2": {
+  "2022/Q2": {
     active: true,
     items: [
       {
