@@ -19,9 +19,6 @@ In this article, I will show you how it works and how to set it up.
 
 <!--truncate-->
 
-In-context is basically a way how to modify translations live on your page, so you can see the location of all translations and also how exactly will the page look like with the new translation.
-
-
 ## What do you need
 
  1. Your web page which is using Tolgee (at least version 3.3.0)
