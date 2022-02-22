@@ -14,6 +14,8 @@ tags: [react, angular, svelte, vue, javascript, typescript, integration]
 
 In this article, I would like to describe how I optimized our Spring Boot tests to run a bit faster.
 
+<!--truncate-->
+
 ## 1. Moved from TestNG to JUnit
 I was using TestNG before, because we used it in NetSuite, where I worked before, but while using it with Spring Boot and
 Kotlin I found a few annoying drawbacks.
