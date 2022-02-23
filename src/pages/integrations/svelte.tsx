@@ -13,13 +13,15 @@ import { CoolButton } from "../../component/buttons/CoolButton";
 import { CoolButtonText } from "../../component/buttons/CoolButtonText";
 import Link from "@docusaurus/Link";
 import { CoolButtonImage } from "../../component/buttons/CoolButtonImage";
+import SvelteLogo from "../../../static/img/technologies/logo-svelte.svg";
+
 
 export default () => {
   return (
     <LandingPage title={"Tolgee for Svelte"}>
       <LandingPageHeadline
         loveImage={{
-          imgSrc: "/img/technologies/logo-svelte.svg",
+          img: <SvelteLogo width={65} />,
           name: "Svelte",
         }}
         badges={[

@@ -14,13 +14,15 @@ import { CoolButton } from "../../component/buttons/CoolButton";
 import { CoolButtonText } from "../../component/buttons/CoolButtonText";
 import Link from "@docusaurus/Link";
 import { CoolButtonImage } from "../../component/buttons/CoolButtonImage";
+import VueLogo from "../../../static/img/technologies/logo-vue.svg";
+
 
 export default () => {
   return (
     <LandingPage title={"Tolgee for Vue"}>
       <LandingPageHeadline
         loveImage={{
-          imgSrc: "/img/technologies/logo-vue.svg",
+          img: <VueLogo width={80} />,
           name: "Vue",
         }}
         badges={[

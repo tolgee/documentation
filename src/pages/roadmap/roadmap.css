@@ -40,7 +40,7 @@ h2.roadmap-period__passed-divider {
     height: 150px;
     width: 3px;
     position: absolute;
-    background-color: #FFFFFF;
+    background: var(--ifm-background-color);
     left: -30px;
     top: -70px;
 }

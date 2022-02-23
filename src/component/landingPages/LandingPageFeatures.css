@@ -10,7 +10,7 @@
 .integration__feature-section-background-wrapper {
     padding: 40px 0;
     margin-top: 100px;
-    background: radial-gradient(#ffffff 24%, #f5f5f5 80%);
+    background: radial-gradient(var(--gradient-main-color) 24%, var(--gradient-start-color) 80%);
 }
 
 @media screen and (min-width: 1000px) {

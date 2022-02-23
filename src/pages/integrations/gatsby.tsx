@@ -16,13 +16,14 @@ import {InstallationStepCreateProjectInTolgeePlatform} from "../../component/lan
 import {ReactDocsCoolButton} from "../../component/landingPages/js/ReactDocsCoolButton";
 import {ReactBaseParagraph} from "../../component/landingPages/ReactBaseParagraph";
 import {ReactInstallationStepUseTComponent} from "../../component/landingPages/js/TeactInstallationStepUseTComponent";
+import GatsbyLogo from "../../../static/img/technologies/logo-gatsby.svg";
 
 export default () => {
   return (
     <LandingPage title={"Tolgee for Gatsby"}>
       <LandingPageHeadline
         loveImage={{
-          imgSrc: "/img/technologies/logo-gatsby.svg",
+          img: <GatsbyLogo width={70} />,
           name: "Gatsby",
         }}
         badges={baseBadges}

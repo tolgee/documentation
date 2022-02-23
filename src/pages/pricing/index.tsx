@@ -22,7 +22,7 @@ const SlashUser = styled((props) => <span {...props}>/user</span>)`
 
 export default () => {
   return (
-    <div className="dark-mode-disabled">
+    <div>
       <Layout title={`Pricing`}>
         <div className="pricing__background-wrapper">
           <div className="container pricing__container">

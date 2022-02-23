@@ -13,13 +13,14 @@ import { CoolButton } from "../../component/buttons/CoolButton";
 import { CoolButtonText } from "../../component/buttons/CoolButtonText";
 import Link from "@docusaurus/Link";
 import { CoolButtonImage } from "../../component/buttons/CoolButtonImage";
+import ReactLogo from "../../../static/img/technologies/logo-react.svg";
 
 export default () => {
   return (
     <LandingPage title={"Tolgee for React"}>
       <LandingPageHeadline
         loveImage={{
-          imgSrc: "/img/technologies/logo-react.svg",
+          img: <ReactLogo width={80} />,
           name: "React",
         }}
         badges={[

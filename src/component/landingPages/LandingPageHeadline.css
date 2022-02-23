@@ -13,6 +13,10 @@
     background: radial-gradient(#ffffff 24%, #e8e8e8 80%, #dedede 100%);
 }
 
+html[data-theme='dark'] .integration__headline-background-wrapper {
+    background: radial-gradient(#1a1a1a 24%, #202020 80%, #242424 100%);
+}
+
 
 
 .integration__headline-right {
