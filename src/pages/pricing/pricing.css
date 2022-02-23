@@ -3,7 +3,7 @@
     display: block;
     height: 440px;
     width: 100%;
-    background: linear-gradient(180deg, rgba(196, 196, 196, 0.24) 0%, #FFFFFF 100%);
+    background: linear-gradient(180deg, var(--gradient-start-color) 0%, var(--gradient-main-color) 100%);
     position: absolute;
     z-index: 2;
 }
@@ -22,6 +22,10 @@
     left: 50%;
     transform: translateX(-50%) rotate(-19deg);
     border-radius: 300px;
+}
+
+html[data-theme='dark'] .pricing__background-wrapper::after {
+    background: #161616;
 }
 
 .pricing__background-wrapper {
@@ -55,25 +59,23 @@
 }
 
 .pricing__option--highlighted > div {
-    box-shadow: 0px 0px 15px #AA4365 !important;
+    box-shadow: 0px 0px 15px var(--ifm-color-primary) !important;
     padding-bottom: 16px !important;
-
 }
 
 .pricing__option--highlighted {
     padding-top: 0 !important;
     padding-bottom: 0 !important;
-
 }
 
 .pricing__option > div {
     z-index: 2;
-    background-color: #FFFFFF;
+    background-color: var(--ifm-color-emphasis-200);
     padding: 16px;
     display: flex;
     flex-direction: column;
     flex-grow: 1;
-    box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.25);
+    box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.35);
     border-radius: 10px;
 }
 

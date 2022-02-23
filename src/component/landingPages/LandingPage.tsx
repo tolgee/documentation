@@ -6,7 +6,7 @@ export const LandingPage: FC<{
   title: string;
 }> = ({ title, children }) => (
   <>
-    <div className="dark-mode-disabled">
+    <div>
       <Layout title={title}>
         <div className="integration">{children}</div>
       </Layout>

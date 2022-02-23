@@ -4,7 +4,7 @@ import "./openSource.css";
 
 export default () => {
   return (
-    <div className="dark-mode-disabled">
+    <div>
       <Layout title={`Why open-source?`}>
         <div className="container opensource__container">
           <h1 className="opensource__title">Why Open-source?</h1>

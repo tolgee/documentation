@@ -13,13 +13,15 @@ import { CoolButton } from "../../component/buttons/CoolButton";
 import { CoolButtonText } from "../../component/buttons/CoolButtonText";
 import Link from "@docusaurus/Link";
 import { CoolButtonImage } from "../../component/buttons/CoolButtonImage";
+import AngularLogo from "../../../static/img/technologies/logo-angular.svg";
+
 
 export default () => {
   return (
     <LandingPage title={"Tolgee for Angular"}>
       <LandingPageHeadline
         loveImage={{
-          imgSrc: "/img/technologies/logo-angular.svg",
+          img: <AngularLogo width={80} />,
           name: "Angular",
         }}
         badges={[

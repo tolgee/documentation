@@ -167,7 +167,7 @@ const futurePeriods = Object.entries(roadmapData)
 
 export default () => {
   return (
-    <div className="dark-mode-disabled">
+    <div>
       <Layout title={`Roadmap`}>
         <div className="container roadmap__container">
           <h1 className="roadmap__title">Tolgee Roadmap</h1>

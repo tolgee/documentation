@@ -19,6 +19,7 @@ function Home() {
   const context = useDocusaurusContext();
   const { siteConfig = {} } = context;
   const [animatedMouseLeft, setAnimatedMouseLeft] = useState(0);
+
   useEffect(() => {
     const onScroll = () => {
       const scroll = window.scrollY;
@@ -33,7 +34,7 @@ function Home() {
   }, []);
 
   return (
-    <div className="dark-mode-disabled">
+    <div className="home__container">
       <Head>
         <script type="application/ld+json">{JSON.stringify(baseSchema)}</script>
       </Head>

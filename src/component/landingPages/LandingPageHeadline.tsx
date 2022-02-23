@@ -11,9 +11,9 @@ export const LandingPageHeadline: FC<{
   }[];
   loveImage: {
     name: string;
-    imgSrc: string;
+    img: React.ReactNode;
   };
-  style?: CSSProperties
+  style?: CSSProperties;
 }> = ({ loveImage, badges, children, style }) => (
   <div className="integration__headline-background-wrapper" style={style}>
     <div className="integration__headline container">
@@ -29,10 +29,9 @@ export const LandingPageHeadline: FC<{
       </div>
       <div className="integration__headline-right">
         <div className="integration__headline-image">
-          <TechnologyLove
-            technologyName={loveImage.name}
-            technologyImgUrl={loveImage.imgSrc}
-          />{" "}
+          <TechnologyLove technologyName={loveImage.name}>
+            {loveImage.img}
+          </TechnologyLove>
         </div>
       </div>
     </div>

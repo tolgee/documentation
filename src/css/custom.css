@@ -16,7 +16,25 @@
     --ifm-color-primary-lightest: #a16a7b;
     --ifm-code-font-size: 95%;
     --ifm-font-family-base: Rubik, Arial, sans-serif;
+    /* --ifm-color-primary-text:  */
     --header-image-background: rgb(105, 16, 53);
+    --gradient-start-color: var(--ifm-color-emphasis-200);
+    --ifm-background-color: rgb(255, 255, 255);
+    --gradient-main-color: var(--ifm-background-color);
+}
+
+html[data-theme='dark'] {
+    --ifm-color-primary: #af4465;
+    --ifm-color-primary-dark: #9b4b77;
+    --ifm-color-primary-darker: #77375a;
+    --ifm-color-primary-darkest: #691743;
+    --ifm-color-primary-light: #96294a;
+    --ifm-color-primary-lighter: #974569;
+    --ifm-color-primary-lightest: #a16a7b;
+    --header-image-background: rgb(56, 8, 28);
+    --gradient-start-color: #18191a;
+    --ifm-background-color: var(--ifm-color-emphasis-100);
+    --gradient-main-color: var(--ifm-color-emphasis-100);
 }
 
 /*noinspection CssUnresolvedCustomProperty*/
@@ -28,8 +46,8 @@
 }
 
 .goToAppButton {
-    border: 1px solid var(--ifm-color-primary-dark);
-    color: var(--ifm-color-primary-dark);
+    border: 1px solid var(--ifm-link-color);
+    color: var(--ifm-link-color);
     border-radius: 15px;
     margin-right: 15px;
 }
@@ -73,6 +91,7 @@
     margin: 0 auto;
     position: relative;
     overflow: hidden;
+    color: white;
 }
 
 .header:before {
@@ -171,23 +190,13 @@
     filter: drop-shadow(2px 2px 10px rgba(0, 0, 0, 0.3));
 }
 
-.dark-mode-disabled {
-    background-color: white;
-}
-
-.dark-mode-disabled > :not(.navbar, footer), .dark-mode-disabled > :not(.navbar, footer) .cookie-consent__content {
-    color: var(--ifm-color-gray-900);
-    --ifm-hero-text-color: var(--ifm-color-gray-900);
-    --ifm-font-color-base-inverse: #FFFFFF;
-    --ifm-button-border-color: #FFFFFF;
-}
-
-.dark-mode-disabled .header__wrapper .button--outline:hover {
+.header__wrapper .button--outline:hover {
     background-color: transparent;
+    color: var(--ifm-color-gray-300)
 }
 
-.dark-mode-disabled > .cookie-consent {
-    color: var(--ifm-color-gray-900);
+.home__container {
+    background-color: var(--gradient-main-color);
 }
 
 .home__video-and-social-wrapper {
@@ -213,7 +222,7 @@
     content: '';
     display: block;
     height: 400px;
-    background: linear-gradient(180deg, rgba(196, 196, 196, 0.24) 0%, #FFFFFF 100%);
+    background: linear-gradient(180deg, var(--gradient-start-color) 0%, var(--gradient-main-color) 100%);
     position: absolute;
     width: 100%;
 }

@@ -2,27 +2,12 @@ import React from "react";
 import Link from "@docusaurus/Link";
 import useBaseUrl from "@docusaurus/useBaseUrl";
 import "./Features.css";
-// @ts-ignore
-import IntegrationInLessThenOneMinute from "../../../../static/img/home/Integration-in-one-minute.svg";
-// @ts-ignore
-import ProvideContext from "../../../../static/img/home/screenshots.svg";
-// @ts-ignore
-import InContextEditing from "../../../../static/img/home/In-context-editing.svg";
-// @ts-ignore
-import MouseOpenSource from "../../../../static/img/home/mouse-opensource.svg";
-
-// @ts-ignore
-import logoAngular from "../../../../static/img/home/technologies/logo-angular.png";
-// @ts-ignore
-import logoGatsby from "../../../../static/img/home/technologies/logo-gatsby.png";
-// @ts-ignore
-import logoJs from "../../../../static/img/home/technologies/logo-js.png";
-// @ts-ignore
-import logoNext from "../../../../static/img/home/technologies/logo-next.png";
-// @ts-ignore
-import logoPhp from "../../../../static/img/home/technologies/logo-php.png";
-// @ts-ignore
-import logoReact from "../../../../static/img/home/technologies/logo-react.png";
+import LogoAngular from "../../../../static/img/technologies/logo-angular.svg";
+import LogoGatsby from "../../../../static/img/technologies/logo-gatsby.svg";
+import LogoNext from "../../../../static/img/technologies/logo-next.svg";
+import LogoReact from "../../../../static/img/technologies/logo-react.svg";
+import LogoVue from "../../../../static/img/technologies/logo-vue.svg";
+import LogoSvelte from "../../../../static/img/technologies/logo-svelte.svg";
 
 export const Features = () => {
   return (
@@ -43,23 +28,23 @@ export const Features = () => {
               integrate into your projects.
             </div>
             <div className="feature__technologies">
-              <Link to="docs/web/using_with_angular/installation">
-                <img src={logoAngular} alt="Angular"/>
+              <Link to="integrations/angular">
+                <LogoAngular  />
               </Link>
-              <Link to="/docs/web/using_with_react/ssr/using_with_gatsby">
-                <img src={logoGatsby} alt="Gatsby"/>
+              <Link to="integrations/svelte">
+                <LogoSvelte className="technology__smaller" />
               </Link>
-              <Link to="/docs/web/using_with_npm/installation">
-                <img src={logoJs} alt="JS"/>
+              <Link to="integrations/vue">
+                <LogoVue className="technology__smaller" />
               </Link>
-              <Link to="/docs/web/using_with_react/ssr/using_with_next">
-                <img src={logoNext} alt="Next.js"/>
+              <Link to="integrations/gatsby">
+                <LogoGatsby className="technology__smaller" />
               </Link>
-              <Link to="/docs/web/using_with_php">
-                <img src={logoPhp} alt="PHP"/>
+              <Link to="integrations/next">
+                <LogoNext className="technology__smaller" />
               </Link>
-              <Link to="/docs/web/using_with_react/installation">
-                <img src={logoReact} alt="React.js"/>
+              <Link to="integrations/react">
+                <LogoReact />
               </Link>
             </div>
           </div>

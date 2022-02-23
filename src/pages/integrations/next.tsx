@@ -16,13 +16,14 @@ import {InstallationStepCreateProjectInTolgeePlatform} from "../../component/lan
 import {ReactDocsCoolButton} from "../../component/landingPages/js/ReactDocsCoolButton";
 import {ReactBaseParagraph} from "../../component/landingPages/ReactBaseParagraph";
 import {ReactInstallationStepUseTComponent} from "../../component/landingPages/js/TeactInstallationStepUseTComponent";
+import NextLogo from "../../../static/img/technologies/logo-next.svg";
 
 export default () => {
   return (
     <LandingPage title={"Tolgee for Next"}>
       <LandingPageHeadline
         loveImage={{
-          imgSrc: "/img/technologies/logo-next.svg",
+          img: <NextLogo width={80} />,
           name: "Next.js",
         }}
         badges={baseBadges}
