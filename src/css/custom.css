@@ -21,6 +21,7 @@
     --gradient-start-color: var(--ifm-color-emphasis-200);
     --ifm-background-color: rgb(255, 255, 255);
     --gradient-main-color: var(--ifm-background-color);
+    --overlay-background: rgba(255, 255, 255, 0.9);
 }
 
 html[data-theme='dark'] {
@@ -35,6 +36,7 @@ html[data-theme='dark'] {
     --gradient-start-color: #18191a;
     --ifm-background-color: var(--ifm-color-emphasis-100);
     --gradient-main-color: var(--ifm-color-emphasis-100);
+    --overlay-background: rgba(0, 0, 0, 0.9);
 }
 
 /*noinspection CssUnresolvedCustomProperty*/
@@ -92,6 +94,11 @@ html[data-theme='dark'] {
     position: relative;
     overflow: hidden;
     color: white;
+}
+
+.header__content .button {
+    color: white;
+    border-color: white;
 }
 
 .header:before {
