@@ -37,6 +37,7 @@ export const VideoPlaceholder: FC<{ src: string }> = ({ src }) => {
             display: "flex",
             alignItems: "center",
             justifyContent: "center",
+            backgroundColor: 'var(--overlay-background)'
           },
           content: {
             display: "flex",
