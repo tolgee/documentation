@@ -13,7 +13,7 @@
   },
   "dependencies": {
     "@docusaurus/core": "2.0.0-beta.15",
-    "@docusaurus/mdx-loader": "2.0.0-beta.15",
+    "@docusaurus/mdx-loader": "2.0.0-beta.16",
     "@docusaurus/module-type-aliases": "2.0.0-beta.15",
     "@docusaurus/preset-classic": "2.0.0-beta.15",
     "@mdx-js/react": "^1.6.21",
