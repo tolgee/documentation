@@ -107,6 +107,17 @@ This setting is applicable only for `DOCKER` mode. Defaults to `25432`.
 ### `container-name`
 This setting is applicable only for `DOCKER` mode. Defaults to `tolgee-postgres`.
 
+## Rate Limits
+Prefix: `tolgee.rate-limits`
+By default Tolgee Platform limits requests to endpoints according to these rules.
+
+- Single IP is not allowed to request more than 20 000 times in 5 minutes
+- Single IP is not allowed to request public endpoints (authentication, sign-ups) more than 1000 times per hour
+- Single authenticated user cannot do more than 400 requests per minute
+
+### `enabled`
+To turn these rate limits of, set this value to `false`. Defaults to `true`
+
 ## SMTP properties
 To allow Tolgee to send emails to your users like password reset links or notifications, configure these properties.
 These properties are prefixed with `tolgee.smtp`.
