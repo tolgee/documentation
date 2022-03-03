@@ -171,6 +171,8 @@ module.exports = {
       copyright: `<a class="footer__link-item" href="/">© 2021-${new Date().getFullYear()} Tolgee s.r.o. All rights reserved</a>`,
     },
     algolia: {
+      appId: 'PWTO4FHFDY',
+      appKey: '39d677e031bdbffe820cd7d9baf86529',
       apiKey: "4611f8562d237546845c8bdede50243f",
       indexName: "tolgee",
       searchParameters: {}, // Optional (if provided by Algolia)
