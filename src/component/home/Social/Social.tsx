@@ -38,12 +38,12 @@ export const Social = () => {
       <div className="discord_ask">Need help? We are here! 💬</div>
       <div className="discord_button">
         <a
-          href="https://discord.com/channels/887646957043064872"
+          href="https://github.com/tolgee/server/discussions"
           target="_blank"
         >
           <img
-            src="https://img.shields.io/discord/887646957043064872?logo=discord&label=Discord&style=for-the-badge"
-            alt="Discord"
+            src="https://img.shields.io/github/discussions/tolgee/server?style=for-the-badge"
+            alt="Github discussions"
           />
         </a>
       </div>
