@@ -57,7 +57,7 @@ const tolgeeConfig = {
   import { T } from "@tolgee/svelte";
 </script>
 
-<T keyName="keyName" parameters="{{parameter: 'value'}}" strategy="ELEMENT_WRAP">Default value</T>
+<T keyName="keyName" parameters="{{parameter: 'value'}}" />
 ```
 
 #### Prop `keyName`
@@ -67,19 +67,15 @@ const tolgeeConfig = {
 `Record<string, string>` - variable parameters, which can be used in translation value
 (read more about [ICU message format](../../icu_message_format)).
 
-#### Prop `strategy?`
-`'ELEMENT_WRAP' | 'TEXT_WRAP' | 'NO_WRAP'` (default: `ELEMENT_WRAP`)
-- `ELEMENT_WRAP` - translation is wrapped with `span` element, which makes in-context localization work
-- `TEXT_WRAP` - translation is wrapped with text, in-context localization works
-([see Advanced translating](/docs/web/using_with_svelte/advanced_translating#text_wrap-strategy))
-- `NO_WRAP` - no wrapping, only raw string is rendered, in-context localization won't work, use wisely
+#### Prop `noWrap?`
+`Boolean` (default: `false`)
+ - `false` - in development mode translation will be [wrapped](../wrapping)
+ - `true` - use when wrapping in dev mode causes problems, in this case in-context translation won't work
 
-#### Slot `default?`
-- You can pass default value in a default slot. It will be rendered if there is no translation
-for this key (in selected language nor base language). If you don't provide this value, `keyName` will be rendered instead.
-```svelte
-<T keyName="...">This will be rendered when translation is missing!</T>
-```
+#### Prop `defaultValue?`
+`String` - You can pass default value, which will be rendered if there is no translation
+for this key (in selected language nor base language). If you won't provide this value, `keyName` will be rendered instead.
+
 ## `getTranslate` function
 Returns store containing translating function
 ```typescript

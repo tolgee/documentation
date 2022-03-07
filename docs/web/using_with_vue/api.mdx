@@ -43,7 +43,7 @@ import { T } from '@tolgee/vue';
 ```
 
 ```html
-<T keyName="..." :parameters="{ param: '...' }">default value ...</T>
+<T keyName="..." :parameters="{ param: '...' }" />
 ```
 
 #### Prop `keyName`
@@ -53,19 +53,14 @@ import { T } from '@tolgee/vue';
 `Record<string, string>` - variable parameters, which can be used in translation value 
 (read more about [ICU message format](../../icu_message_format)).
 
-#### Prop `strategy?`
-`'ELEMENT_WRAP' | 'NO_WRAP'` (default: `ELEMENT_WRAP`)
- - `ELEMENT_WRAP` - translation is wrapped with `span` element, which makes in-context localization work.
- - `NO_WRAP` - no wrapping, only raw string is rendered, in-context localization won't work, use wisely
+#### Prop `noWrap?`
+`Boolean` (default: `false`)
+ - `false` - in development mode translation will be [wrapped](../wrapping)
+ - `true` - use when wrapping in dev mode causes problems, in this case in-context translation won't work
 
 #### Prop `defaultValue?`
 `String` - You can pass default value, which will be rendered if there is no translation
 for this key (in selected language nor base language). If you won't provide this value, `keyName` will be rendered instead.
-
-#### Children `defaultValue?`
-`String` - You can also pass default value as a child. Due to Vue API limitation, this value is rendered "as is",
-so no parameters can be used here. If you want to use parameters here, use `defaultValue` prop.
-
 
 ## TolgeeMixin
 ```ts
