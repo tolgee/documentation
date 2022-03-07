@@ -15,6 +15,7 @@ import { CoolButtonText } from "../../component/buttons/CoolButtonText";
 import Link from "@docusaurus/Link";
 import { CoolButtonImage } from "../../component/buttons/CoolButtonImage";
 import VueLogo from "../../../static/img/technologies/logo-vue.svg";
+import { baseBadges } from "../../component/landingPages/js/baseBadges";
 
 
 export default () => {
@@ -25,26 +26,7 @@ export default () => {
           img: <VueLogo width={80} />,
           name: "Vue",
         }}
-        badges={[
-          {
-            name: "Discord",
-            aHref: "https://discord.com/channels/887646957043064872",
-            imgSrc:
-              "https://img.shields.io/discord/887646957043064872?logo=discord&label=Discord",
-          },
-          {
-            name: "Github Tolgee jS",
-            aHref: "https://github.com/tolgee/tolgee-js",
-            imgSrc:
-              "https://img.shields.io/github/stars/tolgee/tolgee-js?label=Tolgee%20JS&logo=github&style=social",
-          },
-          {
-            name: "Github Tolgee Server",
-            aHref: "https://github.com/tolgee/server",
-            imgSrc:
-              "https://img.shields.io/github/stars/tolgee/server?label=Tolgee%20Server&logo=github&style=social",
-          },
-        ]}
+        badges={baseBadges}
       >
         Tolgee for Vue
       </LandingPageHeadline>

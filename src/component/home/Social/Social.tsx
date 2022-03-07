@@ -35,8 +35,8 @@ export const Social = () => {
           Tolgee JS
         </a>
       </div>
-      <div className="discord_ask">Need help? We are here! 💬</div>
-      <div className="discord_button">
+      <div className="connect_ask">Need help? We are here! 💬</div>
+      <div className="connect_button">
         <a
           href="https://github.com/tolgee/server/discussions"
           target="_blank"
