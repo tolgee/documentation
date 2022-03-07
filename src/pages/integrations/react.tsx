@@ -14,6 +14,7 @@ import { CoolButtonText } from "../../component/buttons/CoolButtonText";
 import Link from "@docusaurus/Link";
 import { CoolButtonImage } from "../../component/buttons/CoolButtonImage";
 import ReactLogo from "../../../static/img/technologies/logo-react.svg";
+import { baseBadges } from "../../component/landingPages/js/baseBadges";
 
 export default () => {
   return (
@@ -23,26 +24,7 @@ export default () => {
           img: <ReactLogo width={80} />,
           name: "React",
         }}
-        badges={[
-          {
-            name: "Discord",
-            aHref: "https://discord.com/channels/887646957043064872",
-            imgSrc:
-              "https://img.shields.io/discord/887646957043064872?logo=discord&label=Discord",
-          },
-          {
-            name: "Github Tolgee JS",
-            aHref: "https://github.com/tolgee/tolgee-js",
-            imgSrc:
-              "https://img.shields.io/github/stars/tolgee/tolgee-js?label=Tolgee%20JS&logo=github&style=social",
-          },
-          {
-            name: "Github Tolgee Server",
-            aHref: "https://github.com/tolgee/server",
-            imgSrc:
-              "https://img.shields.io/github/stars/tolgee/server?label=Tolgee%20Server&logo=github&style=social",
-          },
-        ]}
+        badges={baseBadges}
       >
         Tolgee for React
       </LandingPageHeadline>

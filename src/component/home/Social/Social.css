@@ -1,10 +1,10 @@
-.github__thanks, .discord_ask {
+.github__thanks, .connect_ask {
     font-size: 24px;
     text-align: center;
 }
 
 
-.github__buttons, .discord_button {
+.github__buttons, .connect_button {
     display: flex;
     gap: 20px;
     align-items: center;
@@ -24,16 +24,16 @@
     gap: 20px;
 }
 
-.discord_button img {
+.connect_button img {
     border-radius: 4px;
 }
 
-.discord_ask{
+.connect_ask{
     margin-top: 40px;
 }
 
 @media screen and (min-width: 1440px) {
-    .github__thanks, .discord_ask {
+    .github__thanks, .connect_ask {
         font-size: 24px;
         text-align: left;
     }
@@ -43,7 +43,7 @@
         justify-content: left;
     }
 
-    .discord_button{
+    .connect_button{
         justify-content: left;
     }
 
