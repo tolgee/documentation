@@ -170,6 +170,6 @@ export default {
 </script>`;
 
 const usingTCode = `<template>
-  <T keyName="translation_key">Translate me!</T>
+  <T keyName="translation_key" defaultValue="Translate me!" />
 </template>
 `;

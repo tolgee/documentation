@@ -83,7 +83,6 @@ module.exports = {
                 "web/using_with_react/tags_interpolation",
                 "web/using_with_react/switching_languages",
                 "web/using_with_react/preparing_for_production",
-                "web/using_with_react/advanced_translating",
                 {
                   label: "Server Side Rendering (SSR)",
                   type: "category",
@@ -115,7 +114,6 @@ module.exports = {
                 "web/using_with_vue/translating",
                 "web/using_with_vue/switching_languages",
                 "web/using_with_vue/preparing_for_production",
-                "web/using_with_vue/advanced_translating",
                 "web/using_with_vue/api",
               ],
             },
@@ -127,7 +125,6 @@ module.exports = {
                 "web/using_with_svelte/translating",
                 "web/using_with_svelte/switching_language",
                 "web/using_with_svelte/preparing_for_production",
-                "web/using_with_svelte/advanced_translating",
                 "web/using_with_svelte/api",
               ],
             },
@@ -159,6 +156,7 @@ module.exports = {
       label: "Changelog",
       type: "category",
       items: [
+        {type: "doc", id: "changelog/tolgee_js_version_4"},
         {type: "doc", id: "changelog/tolgee_js_version_3"},
         {type: "doc", id: "changelog/tolgee_server_version_2"}
       ],

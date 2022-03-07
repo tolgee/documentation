@@ -34,10 +34,10 @@ We are using ICU message format. To read more about it, check
 
 ### Providing default value
 
-You can also provide default value as default slot of the [`T`](/docs/web/using_with_svelte/api#t-component) component. This value will be used when no translation
+You can also provide `defaultValue` prop to the [`T`](/docs/web/using_with_svelte/api#t-component) component. This value will be used when no translation
 has been found in localization data.
 ```svelte
-<T keyName="this_is_a_key">This is default.</T>
+<T keyName="this_is_a_key" defaultValue="This is default." />
 ```
 
 ## `getTranslate` method

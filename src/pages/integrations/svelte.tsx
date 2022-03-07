@@ -168,5 +168,5 @@ const usingTCode = `<script>
   import { T } from "@tolgee/svelte";
 </script>
 <h1>
-  <T keyName="translate_me">Translate me!</T>
+  <T keyName="translate_me" defaultValue="Translate me!" />
 </h1>`;
