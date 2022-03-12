@@ -17,21 +17,57 @@ configuration props. These properties can be omitted when using
 [`postgres-autostart`](/docs/platform/self_hosting/configuration#postgres-autostart), which is enabled
 by default.
 
-### `spring.datasource.url`
+### spring.datasource.url
 The url of the datasource in format `jdbc:postgresql://<host>:<port>/<dbname>`.
 
 e.g. `jdbc:postgresql://db:5432/postgres`
 
-### `spring.datasource.username`
+### spring.datasource.username
 Database username. e.g. `postgres`
 
-### `spring.datasource.password`
+### spring.datasource.password
 Database password. e.g. `postgres`
 
 ## Tolgee
 Configuration specific to Tolgee
-### tolgee.data-path
-Path to directory where Tolgee stores its files. (default: `<user's home>/.tolgee/`, with docker `/data/`)
+
+### tolgee.app-name
+Name of the app, shown on the user interface. (default: `Tolgee`)
+
+### tolgee.front-end-url
+Public URL where Tolgee is accessible. Used to generate links to Tolgee (e.g. email confirmation link).
+
+### tolgee.file-storage-url
+Public base path where files are accessible. Used by the user interface. (default: same origin, at the root).
+
+### tolgee.max-upload-file-size
+Maximum size of uploaded files (in kilobytes). (default: `2048` ≈ 2MB)
+
+### tolgee.max-screenshots-per-key
+Maximum amount of screenshots which can be uploaded per API key. (default: `20`)
+
+### tolgee.max-translation-text-length
+Maximum length of translations. (default: `10000`)
+
+### tolgee.open-replay-api-key
+API key for [OpenReplay](https://www.openreplay.com/). If unset, OpenReplay is disabled. (default: `null`)
+
+## File storage
+Prefix: `tolgee.file-storage`
+
+### fs-data-path
+Path to directory where Tolgee will store its files. (default: `~/.tolgee/`, with docker `/data/`)
+
+### s3.enabled
+Tolgee supports storing its files on an S3-compatible storage server. When enabled, Tolgee will store all its files on
+the S3 server rather than on disk. (default: `false`)
+
+When enabled, you will need to set the following configuration properties as well:
+ - s3.access-key
+ - s3.secret-key
+ - s3.endpoint
+ - s3.signing-region
+ - s3.bucket-name
 
 ## Authentication
 Prefix: `tolgee.authentication`
@@ -41,35 +77,103 @@ Whether authentication is enabled. If not, Tolgee will create implicit user on f
 you in. No login page shows, no permissions are managed. This is very useful, when you want to use Tolgee on your local
 machine, or you just want to test it. (default: `false`)
 
-### jwtSecret
+### jwt-secret
 Secret used to sign JWT authentication tokens with. It will be generated automatically, if not provided. (default: `null`).
 You will be fine with 64 characters long random string.
 
-### jwtExpiration
-Expiration time of generated JWT tokens in milliseconds. (default `604800000` = 7 days)
+### jwt-expiration
+Expiration time of generated JWT tokens in milliseconds. (default: `604800000` = 7 days)
 
-### nativeEnabled
+### native-enabled
 Whether user credentials are stored in Tolgee's database. If you would like to use LDAP, set this to false. (default `true`)
 
-### registrationsAllowed
+### registrations-allowed
 Enable/disable sign ups into Tolgee. (default: `false`)
 
-### createInitialUser
+### needs-email-verification
+Whether users need to verify their email addresses when creating their account. Requires a valid
+[SMTP configuration](#SMTP). (default `false`)
+
+### create-initial-user
 If true, Tolgee creates initial user on first start-up. (default: `true`)
 
-### initialUsername
+### initial-username
 Username of initial user. (default: `false`)
 
-## GitHub authentication properties
-Pefix: `tolgee.authentication.github`
+### initial-password
+Password of initial user. If unspecified, a random password will be generated and stored in the `initial.pwd` file,
+located at the root of Tolgee's data path. (default: `null`)
 
-If you want to allow your users to login using Github, set these configuration properties.
-### clientSecret
-Client secret obtained in GitHub administration. (default: `null`)
+### secured-image-retrieval
+Whether image assets should be protected by Tolgee. When enabled, all images are served with a secure token valid for
+a set period of time to prevent unauthorized access to images. (default: `false`)
 
-### clientId
-Client id obtained in GitHub administration. (default: `null`) GitHub authentication can be used in combination
-with LDAP or native authentication.
+### secured-image-timestamp-max-age
+Expiration time of a generated image access token in seconds (default: `600000` ≈ a week)
+
+### user-can-create-projects
+Whether regular users are allowed to create projects. When disabled, only administrators can create projects
+(default: `true`)
+
+### user-can-create-organizations
+Whether regular users are allowed to create organizations. When disabled, only administrators can create organizations
+(default: `true`)
+
+## GitHub authentication
+Prefix: `tolgee.authentication.github`
+
+:::info
+GitHub authentication can be used in combination with LDAP or native authentication.
+:::
+
+### client-id
+OAuth Client ID, obtained in GitHub administration. (default: `null`)
+
+### client-secret
+OAuth Client secret, obtained in GitHub administration. (default: `null`)
+
+### authorization-url
+URL to the OAuth authorization screen. Useful if you want to authenticate against a self-hosted GitHub Enterprise Server.
+(default: `https://github.com/login/oauth/access_token`)
+
+### user-url
+URL to GitHub's /user API endpoint. Useful if you want to authenticate against a self-hosted GitHub Enterprise Server.
+(default: `https://api.github.com/user`)
+
+## LDAP authentication
+Prefix: `tolgee.authentication.ldap`
+:::warning
+This feature is experimental!
+:::
+
+:::info
+LDAP authentication can be used in combination with GitHub or native authentication.
+:::
+
+Tolgee can use a LDAP server to authenticate users. This is very useful if you already use LDAP as a primary mean of
+authentication for other services.
+
+### enabled
+Whether LDAP authentication is enabled. (default: `false`)
+When enabled, you will need to set the following common LDAP properties:
+ - urls
+ - port
+ - base-dn
+ - security-principal
+ - principal-password
+ - user-dn-pattern
+
+## ReCAPTCHA
+Prefix: `tolgee.recaptcha`
+
+When configured, reCAPTCHA v3 is used to protect the sign up page against bots. By default, reCAPTCHA is disabled.
+
+To enable it, you first need to [register a new site on reCAPTCHA](https://www.google.com/recaptcha/admin). Make sure
+to select reCAPTCHA v3 when registering your site.
+
+Then, you simply need to set the following configuration properties:
+ - site-key
+ - secret-key
 
 ## Postgres autostart
 Prefix: `tolgee.postgres-autostart`
@@ -80,10 +184,10 @@ This feature was added in v2.
 
 Defines, whether and how is PostgreSQL started on Tolgee startup.
 
-### `enabled`
+### enabled
 Is PostgreSQL run on startup? Defaults to `true`.
 
-### `mode`
+### mode
 How is Tolgee running PostgreSQL.
 
 Options:
@@ -91,20 +195,20 @@ Options:
 using Java. See [Running with Java](/docs/platform/self_hosting/running_with_java)
  - `EMBEDDED` - Tolgee tries to run it's embedded PostgreSQL which is bundled in the `tolgee/tolgee` Docker image.
 
-### `user`
+### user
 Database user to bootstrap Postgres with. Defaults to `postgres`
 
-### `password`
+### password
 Database password to bootstrap Postgres with. Defaults to `postgres`
 
-### `database-name`
+### database-name
 The name of the database created to store Tolgee data. Defaults to `postgres`
 
-### `port`
+### port
 The port of Postgres to listen on host machine.
 This setting is applicable only for `DOCKER` mode. Defaults to `25432`.
 
-### `container-name`
+### container-name
 This setting is applicable only for `DOCKER` mode. Defaults to `tolgee-postgres`.
 
 ## Rate Limits
@@ -115,10 +219,10 @@ By default Tolgee Platform limits requests to endpoints according to these rules
 - Single IP is not allowed to request public endpoints (authentication, sign-ups) more than 1000 times per hour
 - Single authenticated user cannot do more than 400 requests per minute
 
-### `enabled`
+### enabled
 To turn these rate limits of, set this value to `false`. Defaults to `true`
 
-## SMTP properties
+## SMTP
 To allow Tolgee to send emails to your users like password reset links or notifications, configure these properties.
 These properties are prefixed with `tolgee.smtp`.
 
@@ -129,38 +233,189 @@ tolgee.smtp.username=*****************
 tolgee.smtp.password=*****************
 tolgee.smtp.port=465
 tolgee.smtp.auth=true
-tolgee.smtp.sslEnabled=true
+tolgee.smtp.ssl-enabled=true
 tolgee.smtp.from=Tolgee <no-reply@tolgee.yourserver.something>
 ```
 
 ### host
-Smtp host
+SMTP host
 ### username
-The username for smtp authentication
+The username for SMTP authentication
 ### password
-Password for smtp authentication
+Password for SMTP authentication
 ### port
+SMTP port
 
 ### auth
 Whether authentication is enabled. (default: `false`)
-### tlsEnabled
-Whether tls is enabled (default: `false`)
-### sslEnabled
-Whether ssl is enabled (default: `false`)
-### tlsRequired
-Whether ssl is required (default: `false`)
+### tls-enabled
+Whether TLS is enabled .(default: `false`)
+### ssl-enabled
+Whether SSL is enabled. (default: `false`)
+### tls-required
+Whether SSL is required. (default: `false`)
 ### from
 The sender name and address in standard SMTP format.
 
-## LDAP authentication properties
-This feature is currently experimental! (prefix: tolgee.authentication.ldap)
- - enabled
- - port
- - urls
- - baseDn
- - securityPrincipal
- - principalPassword
- - userDnPattern
+## Machine translation
+Prefix: `tolgee.machine-translation`
+
+### free-credits-amount
+Amount of machine translations users of the Free tier can request per month. Used by Tolgee Cloud,
+see [pricing](/pricing).
+
+## Google Cloud's Cloud Translation
+Prefix: `tolgee.machine-translation.google`
+
+See [Google Cloud's Cloud Translation](https://cloud.google.com/translate) page for more information and applicable
+pricing.
+
+### default-enabled
+Whether Google-powered machine translation is enabled. (default: `true`)
+
+### default-primary
+Whether to use Google Cloud's Cloud Translation as a primary translation engine. (default: `true`)
+
+### api-key
+Google Cloud API key.
+
+## Amazon Translate
+Prefix: `tolgee.machine-translation.aws`
+
+See [AWS's Amazon Translate](https://aws.amazon.com/translate) page for more information and applicable pricing.
+
+### default-enabled
+Whether AWS-powered machine translation is enabled. (default `true`)
+
+### default-primary
+Whether to use Amazon Translate as a primary translation engine. (default: `false`)
+
+### access-key
+AWS access key.
+
+### secret-key
+AWS secret key.
+
+### region
+AWS region. (default: `eu-central-1`)
+
+## Socket.IO
+Prefix: `tolgee.socket-io`
+
+Tolgee exposes a Socket.IO server to allow you to get realtime data modification events.
+
+### enabled
+Whether the Socket.IO server is enabled. (default: `true`)
+
+### port
+Port the Socket.IO server will listen on. (default: `9090`)
+
+### host
+Host the Socket.IO server will listen on. (default: `0.0.0.0`)
+
+### use-redis
+Whether Tolgee should use Redis to store clients. Useful if you have multiple instances of Tolgee for load balancing.
+(default: `false`)
+
+:::info
+In a distributed environment, you **should** use a Redis server to ensure consistent broadcast of events to all
+clients. For a simple single-node deployment, this is unnecessary.
+:::
+
+:::info
+Tolgee uses [Redisson](https://github.com/redisson/redisson) to interface with the Redis server. You can find the
+properties Redisson expects [here](https://github.com/redisson/redisson/tree/56ea7f5/redisson-spring-boot-starter#2-add-settings-into-applicationsettings-file).
+:::
+
+### external-url
+Public URL where the Socket.IO server is available. Exposed to clients via the public configuration API endpoint.
+(default: `null`)
+
+### allowed-transports
+Array of allowed Socket.IO transport methods. (default: `[ "websocket", "polling" ]`). Refer to the
+[Socket.IO documentation](https://socket.io/docs/v4/how-it-works/#transports) for more information.
+
+:::tip
+To configure an array via properties, you need to use the `[index]` notation:
+```
+tolgee.socket-io.allowed-transports[0]=websocket
+tolgee.socket-io.allowed-transports[1]=polling
+```
+
+See [Spring's documentation](https://docs.spring.io/spring-boot/docs/2.6.4/reference/html/features.html#features.external-config.yaml.mapping-to-properties) for more information.
+:::
+
+## Cache
+Prefix: `tolgee.cache`
+
+At the expense of higher memory footprint, Tolgee can use a cache to reduce the stress on the database and fetch the
+data it needs faster. Cache is also used to track certain states, such as rate limits.
+
+### enabled
+Whether Tolgee should use a cache. (default: `false`)
+
+### use-redis
+Whether Tolgee should use Redis to store cache data instead of storing it in-memory. (default: `false`)
+
+:::info
+In a distributed environment, you **should** use a Redis server to ensure consistent enforcement of rate limits, as
+they heavily rely on cache. For a simple single-node deployment, in-memory cache is sufficient.
+:::
+
+:::info
+Tolgee uses [Redisson](https://github.com/redisson/redisson) to interface with the Redis server. You can find the
+properties Redisson expects [here](https://github.com/redisson/redisson/tree/56ea7f5/redisson-spring-boot-starter#2-add-settings-into-applicationsettings-file).
+:::
+
+### default-ttl
+TTL of cache data, in milliseconds. (default: `120 * 60 * 1000` = 2 hours)
+
+### caffeine-max-size
+Maximum size of the Caffeine cache. When exceeded, some entries will be purged from cache. Set to -1 to disable size
+limitation. This has no effect when Redis cache is used. See
+[Caffeine's documentation about size-based eviction](https://github.com/ben-manes/caffeine/wiki/Eviction#size-based)
+for more information. (default: `-1`)
+
+## Sentry
+Prefix: `tolgee.sentry`
+
+Tolgee uses [Sentry](https://sentry.io/) for error reporting.
+
+### server-dsn
+Server DSN. If unset, error reporting is disabled on the server. (default: `null`)
+
+### client-dsn
+Client DSN. If unset, error reporting is disabled on the client. (default: `null`)
+
+## Sendinblue
+Prefix: `tolgee.send-in-blue-properties`
+
+Configuration for the [Sendinblue](https://www.sendinblue.com/) marketting tool. Used by Tolgee Cloud.
+
+### api-key
+Sendinblue API key. (default: `null`)
+
+### list-id
+The marketting list ID users will be added/removed from. (default: `null`)
+
+## Import
+Prefix: `tolgee.import`
+
+Bulk-imports exported json files in the database during startup. Useful to quickly provision a development server, and
+used for unit testing.
+
+### dir
+File path of the directory where the file to import are located.
+
+### create-amplicit-api-key
+Whether an implicit API key should be created. (default: `false`)
+
+The key is built with a predictable format: `${lowercase filename (without extension)}-${initial username}-imported-project-implicit`
+
+:::danger
+While this is useful for unit tests, make sure to keep this **disabled** if you're importing projects on a production
+server, as trying this predictable key may be the first thing an attacker will attempt to gain unauthorized access!
+:::
 
 ## `.env` example
 Example .env file which you can start with:
@@ -168,15 +423,15 @@ Example .env file which you can start with:
 ```
 JAVA_OPTS="-Xms128m -Xmx1024m"
 ########## JWT #############
-tolgee.authentication.jwtSecret=...
+tolgee.authentication.jwt-secret=...
 
 ########## Data source #############
 spring.datasource.url=jdbc:postgresql://db:5432/postgres
 spring.datasource.username=postgres
 spring.datasource.password=postgres
 
-########## NATIVE
-tolgee.auth.allow-registrations=false
+########## NATIVE #############
+tolgee.authentication.registrations-allowed=false
 
 ######### SMTP ###########
 tolgee.smtp.host=
@@ -184,6 +439,6 @@ tolgee.smtp.username=
 tolgee.smtp.password=
 tolgee.smtp.port=
 tolgee.smtp.auth=
-tolgee.smtp.sslEnabled=
+tolgee.smtp.ssl-enabled=
 tolgee.smtp.from=
 ```
