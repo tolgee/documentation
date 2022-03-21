@@ -61,36 +61,43 @@ than finding the ideal translator for your app.`,
         name: "Translation memory",
         description: `Translation memory will suggest sentences that will have already been 
 translated in your projects before.`,
-        inProgressLink: "https://github.com/tolgee/server/pull/920"
+        inProgressLink: "https://github.com/tolgee/server/pull/920",
+        done: true
       },
       {
         name: "Automated/Machine translations",
         description: `Don't translate everything manually. With an automated translations feature, 
 services like DeepL, Google Translate, or AWS translate will help by suggesting or 
 translating your new keys automatically when enabled.`,
-        inProgressLink: "https://github.com/tolgee/server/pull/920"
+        inProgressLink: "https://github.com/tolgee/server/pull/920",
+        done: true
       },
       {
         name: "Translating on production",
         description: `Currently, in-context localization works only when the application is in development mode which is cool, but we would like
          to enable users to translate directly in the deployed app by providing API key using the Tolgee Tools Chrome plugin.`,
-        inProgressLink: "https://github.com/tolgee/tolgee-js/pull/1775"
+        inProgressLink: "https://github.com/tolgee/tolgee-js/pull/1775",
+        done: true
       },
       {
         name: "More export options",
-        description: `More formats (json, xliff) and export options like filtering or structuring will be provided, so exports will be more versatile.`
+        description: `More formats (json, xliff) and export options like filtering or structuring will be provided, so exports will be more versatile.`,
+        done: true
       },
       {
         name: "Project Dashboard",
-        description: `To see detailed statistics for the project and for each language.`
+        description: `To see detailed statistics for the project and for each language.`,
+        inProgressLink: "https://github.com/tolgee/server/issues/915"
       },
       {
         name: "Translation history",
-        description: `Enable users to see, how translation was edited in the past.`
+        description: `Enable users to see, how translation was edited in the past.`,
+        inProgressLink: "https://github.com/tolgee/server/issues/1001"
       },
       {
         name: "Translation permissions limited by language",
-        description: `Add option specifying a particular language an user can translate to.`
+        description: `Add option specifying a particular language an user can translate to.`,
+        inProgressLink: "https://github.com/tolgee/server/pull/991"
       }
     ],
   },
@@ -188,7 +195,7 @@ export default () => {
                           item.done ? "roadmap-item--done" : ""
                         }`}
                       >
-                        <h3>{item.name}<InProgress link={item.inProgressLink}/></h3>
+                        <h3>{item.name}<InProgress done={item.done} link={item.inProgressLink}/></h3>
                         {(typeof item.description === "string"
                             ? [item.description]
                             : item.description
@@ -208,9 +215,9 @@ export default () => {
   );
 };
 
-const InProgress = (props: { link?: string }) => {
+const InProgress = (props: { link?: string, done: boolean }) => {
   return (
-    props.link ?
+    (props.link && !props.done) ?
       <>{` `}<a href={props.link}>(In progress)</a></> : null
   )
 }
