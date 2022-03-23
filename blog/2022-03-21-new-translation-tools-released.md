@@ -7,6 +7,8 @@ authors: [jcizmar]
 
 image: "/img/blog/translation-tools/cover.png"
 
+description: Machine Translation, Translation Memory, and Auto Translation released!
+
 tags: [i18n, l10n, translation, tools]
 ---
 
