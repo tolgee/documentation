@@ -8,7 +8,7 @@ slug: /web/using_with_react/ssr/using_with_next
 To use localize your Next.js app you can use the Next.js [i18n-routing feature](https://nextjs.org/docs/advanced-features/i18n-routing).
 
 ## Prerequisites
-1. Created Next.js project with installed `@tolgee/react` and `@tolgee/ui` modules
+1. Created Next.js project with installed `@tolgee/react` module
 2. Created project in Tolgee platform with 2 languages. In our case it is English (en) and Czech (cs).
 3. Added some localization key and translations for both languages. In our case the key name is `hello_world`
 4. Generated API key for your project
@@ -48,7 +48,6 @@ Import the localization data and provide them to TolgeeProvider using `staticDat
 ```typescript jsx
 import '../styles/globals.css'
 import type {AppProps} from 'next/app'
-import UI from "@tolgee/ui";
 import enLocale from "../i18n/en.json";
 import csLocale from "../i18n/cs.json";
 import {useRouter} from "next/router";
@@ -58,7 +57,6 @@ function MyApp({Component, pageProps}: AppProps) {
     const {locale: activeLocale} = useRouter()
 
     return <TolgeeProvider
-        ui={UI}
         forceLanguage={activeLocale}
         apiKey={process.env.NEXT_PUBLIC_TOLGEE_API_KEY}
         apiUrl={process.env.NEXT_PUBLIC_TOLGEE_API_URL}

@@ -8,7 +8,7 @@ slug: /web/using_with_react/ssr/using_with_gatsby
 To use Tolgee with Gatsby follow this Guide.
 
 ## Prerequisites
-1. Created Gatsby project with installed `@tolgee/react` and `@tolgee/ui` modules
+1. Created Gatsby project with installed `@tolgee/react` module
 2. Created project in Tolgee platform with 2 languages. In our case it is English (en) and Czech (cs).
 3. Added some localization key and translations for both languages. In our case the key name is `hello_world`
 4. Generated API key for your project
@@ -68,9 +68,6 @@ export const AppWrapper: React.FC = ({ children }) => {
         [locale]: messages,
       }}
       loadingFallback={<div>Loading...</div>}
-      ui={
-        process.env.GATSBY_TOLGEE_API_KEY ? require('@tolgee/ui').UI : undefined
-      }
     >
       {children}
     </TolgeeProvider>

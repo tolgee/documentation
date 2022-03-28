@@ -30,7 +30,7 @@ export default () => {
       >
         Tolgee for Gatsby
       </LandingPageHeadline>
-      <LandingPageDescription installationCommand="npm i @tolgee/react @tolgee/ui">
+      <LandingPageDescription installationCommand="npm i @tolgee/react">
         <p>To use Tolgee with your Gatsby application, use React integration library together with Gatsby i18n support.</p>
         <ReactBaseParagraph/>
         <ExampleAppLinkDescriptionParagraph repoName={"gatsby-example"} technologyName={"Gatsby"}/>
@@ -41,7 +41,7 @@ export default () => {
         <LandingPageInstallationStep title="2. Setup Tolgee integration">
           <p>Install the npm packages.</p>
           <LandingPageInstallationCode>
-            npm i @tolgee/react @tolgee/ui gatsby-plugin-react-intl
+            npm i @tolgee/react gatsby-plugin-react-intl
           </LandingPageInstallationCode>
           <p>Prepare your gatsby-config.js.</p>
           <LandingPageInstallationCode language="js">
@@ -97,7 +97,6 @@ const gatsbyConfigCode = `module.exports = {
 };`
 
 const reactProviderCode = `import { TolgeeProvider } from "@tolgee/react";
-import { UI } from "@tolgee/ui";
 import enLocale from "../i18n/en.json";
 import csLocale from "../i18n/cs.json";
 
@@ -109,7 +108,6 @@ export const Wrapper = () => {
       filesUrlPrefix="i18n/"
       apiUrl="https://app.tolgee.io"
       apiKey="<your api key>"
-      ui={UI}
       forceLanguage={intl.locale}
       staticData={{
             en: enLocale,

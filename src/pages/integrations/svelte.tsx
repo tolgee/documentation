@@ -29,7 +29,7 @@ export default () => {
       >
         Tolgee for Svelte
       </LandingPageHeadline>
-      <LandingPageDescription installationCommand="npm i @tolgee/svelte @tolgee/ui">
+      <LandingPageDescription installationCommand="npm i @tolgee/svelte">
         <p>
           Tolgee for Svelte provides simple API to create multi-lingual Svelte
           application. With Tolgee i18n library for Svelte you can enjoy all
@@ -106,7 +106,7 @@ export default () => {
         <LandingPageInstallationStep title="2. Setup Tolgee integration">
           <p>Install the npm packages.</p>
           <LandingPageInstallationCode>
-            npm i @tolgee/svelte @tolgee/ui
+            npm i @tolgee/svelte
           </LandingPageInstallationCode>
           <p>Then wrap your code with TolgeeProvider</p>
           <LandingPageInstallationCode language="svelte" fullWidth>
@@ -149,11 +149,9 @@ export default () => {
 
 const svelteProviderCode = `<script>
   import { TolgeeProvider } from "@tolgee/svelte";
-  import UI from "@tolgee/ui";
 
   const tolgeeConfig = {
     preloadFallback: true,
-    ui: UI,
     apiUrl: 'https://app.tolgee.io',
     apiKey: '<your API key>',
   };
