@@ -30,7 +30,7 @@ export default () => {
       >
         Tolgee for Vue
       </LandingPageHeadline>
-      <LandingPageDescription installationCommand="npm i @tolgee/vue @tolgee/ui">
+      <LandingPageDescription installationCommand="npm i @tolgee/vue">
         <p>
           Tolgee for Vue provides simple API to create multi-lingual Vue
           application. With Tolgee i18n library for Vue you can enjoy all Tolgee
@@ -105,7 +105,7 @@ export default () => {
         <LandingPageInstallationStep title="2. Setup Tolgee integration">
           <p>Install the npm packages.</p>
           <LandingPageInstallationCode>
-            npm i @tolgee/vue @tolgee/ui
+            npm i @tolgee/vue
           </LandingPageInstallationCode>
           <p>Then wrap your code with TolgeeProvider</p>
           <LandingPageInstallationCode language="html" fullWidth={true}>
@@ -154,7 +154,6 @@ const providerCode = `<template>
 
 <script>
 import { TolgeeProvider } from '@tolgee/vue';
-import { UI } from '@tolgee/ui';
 
 export default {
   data() {
@@ -162,7 +161,6 @@ export default {
       config: {
         apiUrl: 'https://app.tolgee.io',
         apiKey: '<your api key>',
-        ui: UI
       },
     };
   },

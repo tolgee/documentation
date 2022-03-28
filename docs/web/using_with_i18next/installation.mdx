@@ -33,31 +33,6 @@ yarn add i18next @tolgee/i18next
 </TabItem>
 </Tabs>
 
-To install UI bundle for in-context translating you will also need to install package `@tolgee/ui`.
-
-<Tabs
-    defaultValue="npm"
-    values={[
-        {label: 'npm', value: 'npm'},
-        {label: 'yarn', value: 'yarn'},
-    ]
-    }>
-<TabItem value="npm">
-
-```shell
-npm install @tolgee/ui
-```
-
-</TabItem>
-<TabItem value="yarn">
-
-```shell
-yarn add @tolgee/ui
-```
-
-</TabItem>
-</Tabs>
-
 Then wrap your i18next instance [`withTolgee`](./api#function-withtolgeei18next-tolgeeconfig):
 
 ```ts
@@ -67,7 +42,6 @@ import { withTolgee } from '@tolgee/i18next';
 withTolgee(i18n, {
   apiUrl: ...,
   apiKey: ...,
-  ui: ...,
   ...
 })
   .use(...)

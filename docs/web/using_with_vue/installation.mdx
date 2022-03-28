@@ -42,31 +42,6 @@ yarn add @tolgee/vue
 </TabItem>
 </Tabs>
 
-To install UI bundle for in-context translating you will also need to install package `@tolgee/ui`.
-
-<Tabs
-    defaultValue="npm"
-    values={[
-        {label: 'npm', value: 'npm'},
-        {label: 'yarn', value: 'yarn'},
-    ]
-    }>
-<TabItem value="npm">
-
-```shell
-npm install @tolgee/ui
-```
-
-</TabItem>
-<TabItem value="yarn">
-
-```shell
-yarn add @tolgee/ui
-```
-
-</TabItem>
-</Tabs>
-
 First, you will need to wrap your application with [`TolgeeProvider`](./api#tolgeeprovider) component.
 
 ```html
@@ -89,9 +64,6 @@ export default {
       config: {
         apiUrl: process.env.VUE_APP_TOLGEE_API_URL,
         apiKey: process.env.VUE_APP_TOLGEE_API_KEY,
-        ui: process.env.VUE_APP_TOLGEE_API_KEY
-          ? require('@tolgee/ui').UI
-          : undefined,
       },
     };
   },

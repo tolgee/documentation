@@ -28,7 +28,7 @@ export default () => {
       >
         Tolgee for React
       </LandingPageHeadline>
-      <LandingPageDescription installationCommand="npm i @tolgee/react @tolgee/ui">
+      <LandingPageDescription installationCommand="npm i @tolgee/react">
         <p>
           Tolgee for React provides simple API to create multi-lingual React
           application. With Tolgee i18n library for React you can enjoy all
@@ -105,7 +105,7 @@ export default () => {
         <LandingPageInstallationStep title="2. Setup Tolgee integration">
           <p>Install the npm packages.</p>
           <LandingPageInstallationCode>
-            npm i @tolgee/react @tolgee/ui
+            npm i @tolgee/react
           </LandingPageInstallationCode>
           <p>Then wrap your code with TolgeeProvider</p>
           <LandingPageInstallationCode language="jsx" fullWidth={true}>
@@ -147,15 +147,12 @@ export default () => {
 };
 
 const reactProviderCode = `import { TolgeeProvider } from "@tolgee/react";
-import { UI } from "@tolgee/ui";
-
 export const Wrapper = () => {
   return (
     <TolgeeProvider
       filesUrlPrefix="i18n/"
       apiUrl="https://app.tolgee.io"
       apiKey="<your api key>"
-      ui={UI}
       loadingFallback="Loading..."
     >
       <App />

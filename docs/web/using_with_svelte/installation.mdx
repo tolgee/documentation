@@ -40,42 +40,16 @@ yarn add @tolgee/svelte
   </TabItem>
 </Tabs>
 
-To install UI bundle for in-context translating you will also need to install package `@tolgee/ui`:
-<Tabs
-  defaultValue="npm"
-  values={[
-    { label: 'npm', value: 'npm' },
-    { label: 'yarn', value: 'yarn' },
-  ]
-  }>
-  <TabItem value="npm">
-
-```shell
-npm install @tolgee/ui
-```
-
-  </TabItem>
-  <TabItem value="yarn">
-
-```shell
-yarn add @tolgee/ui
-```
-
-  </TabItem>
-</Tabs>
-
 First, you will need to wrap your application code with [`TolgeeProvider`](/docs/web/using_with_svelte/api#tolgeeprovider) component.
 
 ```svelte
 <script lang="ts">
   import { TolgeeProvider } from "@tolgee/svelte";
-  import UI from "@tolgee/ui";
   import type { TolgeeConfig } from "@tolgee/core";
 
   const tolgeeConfig = {
     preloadFallback: true,
     apiUrl: import.meta.env.VITE_TOLGEE_API_URL, // or provide your API URL directly
-    ui: import.meta.env.VITE_TOLGEE_API_KEY ? UI : undefined, // UI is not needed for production mode
     apiKey: import.meta.env.VITE_TOLGEE_API_KEY, // or provide API_KEY directly
   } as TolgeeConfig;
 </script>

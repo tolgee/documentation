@@ -30,7 +30,7 @@ export default () => {
       >
         Tolgee for Next
       </LandingPageHeadline>
-      <LandingPageDescription installationCommand="npm i @tolgee/react @tolgee/ui">
+      <LandingPageDescription installationCommand="npm i @tolgee/react">
         <p>To use Tolgee with your Next application, use React integration library together with Next i18n support.</p>
         <ReactBaseParagraph/>
         <ExampleAppLinkDescriptionParagraph repoName={"next-example"} technologyName={"Next"}/>
@@ -41,7 +41,7 @@ export default () => {
         <LandingPageInstallationStep title="2. Setup Tolgee integration">
           <p>Install the npm packages.</p>
           <LandingPageInstallationCode>
-            npm i @tolgee/react @tolgee/ui
+            npm i @tolgee/react
           </LandingPageInstallationCode>
           <p>Prepare your next-config.js.</p>
           <LandingPageInstallationCode language="js">
@@ -93,7 +93,6 @@ module.exports = {
 }`
 
 const reactProviderCode = `import { TolgeeProvider } from "@tolgee/react";
-import { UI } from "@tolgee/ui";
 import enLocale from "../i18n/en.json";
 import csLocale from "../i18n/cs.json";
 
@@ -105,11 +104,10 @@ export const Wrapper = () => {
       filesUrlPrefix="i18n/"
       apiUrl="https://app.tolgee.io"
       apiKey="<your api key>"
-      ui={UI}
       forceLanguage={activeLocale}
       staticData={{
-            en: enLocale,
-            cs: csLocale
+        en: enLocale,
+        cs: csLocale
       }}
     >
       <App />
