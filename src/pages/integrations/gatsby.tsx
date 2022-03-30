@@ -1,21 +1,22 @@
 import React from "react";
-import {LandingPage} from "../../component/landingPages/LandingPage";
-import {LandingPageHeadline} from "../../component/landingPages/LandingPageHeadline";
-import {LandingPageDescription} from "../../component/landingPages/LandingPageDescription";
-import {LandingPageInstallationStep} from "../../component/landingPages/LandingPageInstallationStep";
-import {LandingPageInstallation} from "../../component/landingPages/LandingPageInstallation";
-import {LandingPageInstallationCode} from "../../component/landingPages/LandingPageInstallationCode";
-import {CoolButton} from "../../component/buttons/CoolButton";
-import {CoolButtonText} from "../../component/buttons/CoolButtonText";
+import ThemedImage from "@theme/ThemedImage";
+import { LandingPage } from "../../component/landingPages/LandingPage";
+import { LandingPageHeadline } from "../../component/landingPages/LandingPageHeadline";
+import { LandingPageDescription } from "../../component/landingPages/LandingPageDescription";
+import { LandingPageInstallationStep } from "../../component/landingPages/LandingPageInstallationStep";
+import { LandingPageInstallation } from "../../component/landingPages/LandingPageInstallation";
+import { LandingPageInstallationCode } from "../../component/landingPages/LandingPageInstallationCode";
+import { CoolButton } from "../../component/buttons/CoolButton";
+import { CoolButtonText } from "../../component/buttons/CoolButtonText";
 import Link from "@docusaurus/Link";
-import {CoolButtonImage} from "../../component/buttons/CoolButtonImage";
-import {baseBadges} from "../../component/landingPages/js/baseBadges";
-import {ReactBaseFeatures} from "../../component/landingPages/js/ReactBaseFeatures";
-import {ExampleAppLinkDescriptionParagraph} from "../../component/landingPages/common/ExampleAppLinkDescriptionParagraph";
-import {InstallationStepCreateProjectInTolgeePlatform} from "../../component/landingPages/common/InstallationStepCreateProjectInTolgeePlatform";
-import {ReactDocsCoolButton} from "../../component/landingPages/js/ReactDocsCoolButton";
-import {ReactBaseParagraph} from "../../component/landingPages/ReactBaseParagraph";
-import {ReactInstallationStepUseTComponent} from "../../component/landingPages/js/TeactInstallationStepUseTComponent";
+import { CoolButtonImage } from "../../component/buttons/CoolButtonImage";
+import { baseBadges } from "../../component/landingPages/js/baseBadges";
+import { ReactBaseFeatures } from "../../component/landingPages/js/ReactBaseFeatures";
+import { ExampleAppLinkDescriptionParagraph } from "../../component/landingPages/common/ExampleAppLinkDescriptionParagraph";
+import { InstallationStepCreateProjectInTolgeePlatform } from "../../component/landingPages/common/InstallationStepCreateProjectInTolgeePlatform";
+import { ReactDocsCoolButton } from "../../component/landingPages/js/ReactDocsCoolButton";
+import { ReactBaseParagraph } from "../../component/landingPages/ReactBaseParagraph";
+import { ReactInstallationStepUseTComponent } from "../../component/landingPages/js/TeactInstallationStepUseTComponent";
 import GatsbyLogo from "../../../static/img/technologies/logo-gatsby.svg";
 
 export default () => {
@@ -31,13 +32,19 @@ export default () => {
         Tolgee for Gatsby
       </LandingPageHeadline>
       <LandingPageDescription installationCommand="npm i @tolgee/react">
-        <p>To use Tolgee with your Gatsby application, use React integration library together with Gatsby i18n support.</p>
-        <ReactBaseParagraph/>
-        <ExampleAppLinkDescriptionParagraph repoName={"gatsby-example"} technologyName={"Gatsby"}/>
+        <p>
+          To use Tolgee with your Gatsby application, use React integration
+          library together with Gatsby i18n support.
+        </p>
+        <ReactBaseParagraph />
+        <ExampleAppLinkDescriptionParagraph
+          repoName={"gatsby-example"}
+          technologyName={"Gatsby"}
+        />
       </LandingPageDescription>
-      <ReactBaseFeatures technologyName="Gatsby.js"/>
+      <ReactBaseFeatures technologyName="Gatsby.js" />
       <LandingPageInstallation>
-        <InstallationStepCreateProjectInTolgeePlatform/>
+        <InstallationStepCreateProjectInTolgeePlatform />
         <LandingPageInstallationStep title="2. Setup Tolgee integration">
           <p>Install the npm packages.</p>
           <LandingPageInstallationCode>
@@ -52,13 +59,13 @@ export default () => {
             {reactProviderCode}
           </LandingPageInstallationCode>
         </LandingPageInstallationStep>
-        <ReactInstallationStepUseTComponent/>
+        <ReactInstallationStepUseTComponent />
 
         <LandingPageInstallationStep title="Explore the Docs and check out example app!">
           <p>Continue exploring...</p>
 
-          <div style={{display: "flex", gap: "20px", flexWrap: 'wrap'}}>
-            <ReactDocsCoolButton/>
+          <div style={{ display: "flex", gap: "20px", flexWrap: "wrap" }}>
+            <ReactDocsCoolButton />
             <CoolButton
               component={Link}
               to="/docs/web/using_with_react/ssr/using_with_gatsby"
@@ -72,7 +79,13 @@ export default () => {
             >
               <CoolButtonText>Tolgee + Gatsby Example App</CoolButtonText>
               <CoolButtonImage>
-                <img src="/img/github.svg" alt="GitHub"/>
+                <ThemedImage
+                  sources={{
+                    light: "/img/github.svg",
+                    dark: "/img/githubLight.svg",
+                  }}
+                  alt="GitHub"
+                />
               </CoolButtonImage>
             </CoolButton>
           </div>
@@ -94,7 +107,7 @@ const gatsbyConfigCode = `module.exports = {
       },
     },
   ],
-};`
+};`;
 
 const reactProviderCode = `import { TolgeeProvider } from "@tolgee/react";
 import enLocale from "../i18n/en.json";

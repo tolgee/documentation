@@ -8,7 +8,7 @@
 /* You can override the default Infima variables here. */
 :root {
     --ifm-color-primary: #822B55;
-    --ifm-color-primary-dark: #6d244c;
+    --ifm-color-primary-dark: #822B55;
     --ifm-color-primary-darker: #4d2139;
     --ifm-color-primary-darkest: #4e012a;
     --ifm-color-primary-light: #96294a;
@@ -25,18 +25,20 @@
 }
 
 html[data-theme='dark'] {
-    --ifm-color-primary: #af4465;
-    --ifm-color-primary-dark: #9b4b77;
-    --ifm-color-primary-darker: #77375a;
+    --ifm-color-primary: #F4A5B8;
+    --ifm-color-primary-dark: #db7493;
+    --ifm-color-primary-darker: #DB5E83;
     --ifm-color-primary-darkest: #691743;
     --ifm-color-primary-light: #96294a;
     --ifm-color-primary-lighter: #974569;
     --ifm-color-primary-lightest: #a16a7b;
+    --ifm-background-color: #182230;
+    --ifm-background-surface-color: #1F2D40;
     --header-image-background: rgb(56, 8, 28);
-    --gradient-start-color: #18191a;
-    --ifm-background-color: var(--ifm-color-emphasis-100);
-    --gradient-main-color: var(--ifm-color-emphasis-100);
+    --gradient-start-color: #1F2D40;
+    --gradient-main-color: #182230;
     --overlay-background: rgba(0, 0, 0, 0.9);
+    --docsearch-hit-active-color: rgb(0, 0, 0);
 }
 
 /*noinspection CssUnresolvedCustomProperty*/
@@ -52,6 +54,7 @@ html[data-theme='dark'] {
     color: var(--ifm-link-color);
     border-radius: 15px;
     margin-right: 15px;
+    background: var(--ifm-background-surface-color);
 }
 
 .header__wrapper {

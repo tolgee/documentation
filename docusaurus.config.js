@@ -216,18 +216,7 @@ module.exports = {
           },
         ],
         theme: {
-          primaryColor: "#822B55",
-
-          redocOptions: {
-            theme: {
-              sidebar: {
-                backgroundColor: "#333333",
-              },
-              typography: {
-                color: "white",
-              },
-            },
-          },
+          primaryColor: "#a94676",
         },
       },
     ],

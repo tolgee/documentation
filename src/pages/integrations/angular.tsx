@@ -1,4 +1,5 @@
 import React from "react";
+import ThemedImage from "@theme/ThemedImage";
 import { LandingPage } from "../../component/landingPages/LandingPage";
 import { LandingPageHeadline } from "../../component/landingPages/LandingPageHeadline";
 import { LandingPageDescription } from "../../component/landingPages/LandingPageDescription";
@@ -15,7 +16,6 @@ import Link from "@docusaurus/Link";
 import { CoolButtonImage } from "../../component/buttons/CoolButtonImage";
 import AngularLogo from "../../../static/img/technologies/logo-angular.svg";
 import { baseBadges } from "../../component/landingPages/js/baseBadges";
-
 
 export default () => {
   return (
@@ -37,10 +37,7 @@ export default () => {
         </p>
         <p>
           To see Angular with Tolgee in action, check{" "}
-          <a href="https://github.com/tolgee/ngx-example">
-            this example app
-          </a>
-          .
+          <a href="https://github.com/tolgee/ngx-example">this example app</a>.
         </p>
       </LandingPageDescription>
       <LandingPagePreviewFeatures>
@@ -123,7 +120,7 @@ export default () => {
         <LandingPageInstallationStep title="Explore the Docs and check out example app!">
           <p>Continue exploring...</p>
 
-          <div style={{ display: "flex", gap: "20px", flexWrap: 'wrap' }}>
+          <div style={{ display: "flex", gap: "20px", flexWrap: "wrap" }}>
             <CoolButton
               component={Link}
               to="/docs/web/using_with_angular/installation"
@@ -137,7 +134,13 @@ export default () => {
             >
               <CoolButtonText>Tolgee + Angular Example App</CoolButtonText>
               <CoolButtonImage>
-                <img src="/img/github.svg" alt="GitHub" />
+                <ThemedImage
+                  sources={{
+                    light: "/img/github.svg",
+                    dark: "/img/githubLight.svg",
+                  }}
+                  alt="GitHub"
+                />
               </CoolButtonImage>
             </CoolButton>
           </div>
