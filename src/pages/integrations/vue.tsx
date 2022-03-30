@@ -1,4 +1,5 @@
 import React from "react";
+import ThemedImage from "@theme/ThemedImage";
 import { LandingPage } from "../../component/landingPages/LandingPage";
 import { LandingPageHeadline } from "../../component/landingPages/LandingPageHeadline";
 import { LandingPageDescription } from "../../component/landingPages/LandingPageDescription";
@@ -16,7 +17,6 @@ import Link from "@docusaurus/Link";
 import { CoolButtonImage } from "../../component/buttons/CoolButtonImage";
 import VueLogo from "../../../static/img/technologies/logo-vue.svg";
 import { baseBadges } from "../../component/landingPages/js/baseBadges";
-
 
 export default () => {
   return (
@@ -136,7 +136,13 @@ export default () => {
             >
               <CoolButtonText>Tolgee + Vue Example App</CoolButtonText>
               <CoolButtonImage>
-                <img src="/img/github.svg" alt="GitHub" />
+                <ThemedImage
+                  sources={{
+                    light: "/img/github.svg",
+                    dark: "/img/githubLight.svg",
+                  }}
+                  alt="GitHub"
+                />
               </CoolButtonImage>
             </CoolButton>
           </div>

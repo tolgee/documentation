@@ -14,7 +14,6 @@
     height: 650px;
     width: 1700px;
     max-width: 100%;
-    background: #FFFFFF;
     top: -120px;
     position: absolute;
     opacity: 0.3;
@@ -22,15 +21,17 @@
     left: 50%;
     transform: translateX(-50%) rotate(-19deg);
     border-radius: 300px;
+    background: rgba(0, 0, 0, 0.05);
 }
 
 html[data-theme='dark'] .pricing__background-wrapper::after {
-    background: #161616;
+    background: rgba(0, 0, 0, 0.2);
 }
 
 .pricing__background-wrapper {
     position: relative;
     overflow: hidden;
+    background: var(--gradient-main-color);
 }
 
 .pricing__container {
@@ -63,6 +64,10 @@ html[data-theme='dark'] .pricing__background-wrapper::after {
     padding-bottom: 16px !important;
 }
 
+html[data-theme='dark'] .pricing__option--highlighted > div {
+    box-shadow: 0px 0px 15px var(--ifm-color-emphasis-800) !important;
+}
+
 .pricing__option--highlighted {
     padding-top: 0 !important;
     padding-bottom: 0 !important;
@@ -70,12 +75,12 @@ html[data-theme='dark'] .pricing__background-wrapper::after {
 
 .pricing__option > div {
     z-index: 2;
-    background-color: var(--ifm-color-emphasis-200);
+    background-color: var(--ifm-background-surface-color);
     padding: 16px;
     display: flex;
     flex-direction: column;
     flex-grow: 1;
-    box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.35);
+    box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.2);
     border-radius: 10px;
 }
 
@@ -103,39 +108,37 @@ html[data-theme='dark'] .pricing__background-wrapper::after {
     justify-self: flex-end;
     width: 100%;
     padding: 8px;
-    background: white;
+    background: transparent;
     border-radius: 10px;
     border: 2px solid var(--ifm-color-primary);
     text-align: center;
     cursor: pointer;
+    color: var(--ifm-color-primary);
     z-index: 5;
+    transition: filter 0.2s ease-in-out;
+}
+
+html[data-theme='dark'] .pricing__option-button, 
+html[data-theme='dark'] .pricing__option-button:hover {
+    background: var(--ifm-color-primary);
+    color: #000000;
 }
 
 .pricing__option-button:hover {
-    color: var(--ifm-color-primary-lightest);
     text-decoration: none;
+    filter: brightness(90%);
 }
 
-.pricing__option-button--contained {
-    background: var(--ifm-color-primary);
-    color: #FFFFFF;
+.pricing__option-button--contained, .pricing__option-button--contained:hover {
+    background: var(--ifm-color-primary-dark) !important;
+    border-color: var(--ifm-color-primary-dark) !important;
+    color: var(--cc-btn-primary-text) !important;
 }
 
-.pricing__option-button--grey {
-    background: #D6D6D6;
-    color: #000000;
-    border-color: #D6D6D6;
-}
-
-.pricing__option-button--grey:hover{
-    color: #000000;
-    background: #dbdbdb;
-}
-
-.pricing__option-button--contained:hover {
-    background: var(--ifm-color-primary-lighter);
-    border-color: var(--ifm-color-primary-lighter);
-    color: #FFFFFF;
+.pricing__option-button--grey, .pricing__option-button--grey:hover {
+    background: #e6e6e6 !important;
+    color: #000000 !important;
+    border-color: #e6e6e6 !important;
 }
 
 /** Robo mice **/

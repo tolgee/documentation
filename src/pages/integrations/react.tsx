@@ -1,4 +1,5 @@
 import React from "react";
+import ThemedImage from "@theme/ThemedImage";
 import { LandingPage } from "../../component/landingPages/LandingPage";
 import { LandingPageHeadline } from "../../component/landingPages/LandingPageHeadline";
 import { LandingPageDescription } from "../../component/landingPages/LandingPageDescription";
@@ -36,9 +37,7 @@ export default () => {
         </p>
         <p>
           To see React with Tolgee in action, check{" "}
-          <a href="https://github.com/tolgee/react-example">
-            this example app
-          </a>
+          <a href="https://github.com/tolgee/react-example">this example app</a>
           .
         </p>
       </LandingPageDescription>
@@ -46,8 +45,8 @@ export default () => {
         <LandingPagePreviewFeature videoSrc="/landing/in_context.mov">
           <h2>In-context localization 🐁</h2>
           <p>
-            Tolgee for React is not just an i18n library. It provides much
-            more. With in-context localization feature, you can just Alt + Click
+            Tolgee for React is not just an i18n library. It provides much more.
+            With in-context localization feature, you can just Alt + Click
             translations in your app and translate them directly. No more
             extracting, no more editing of .jsons or .xliff.
           </p>
@@ -113,7 +112,7 @@ export default () => {
           </LandingPageInstallationCode>
         </LandingPageInstallationStep>
         <LandingPageInstallationStep title="3. Use T component to translate your texts">
-          <LandingPageInstallationCode language="jsx" fullWidth >
+          <LandingPageInstallationCode language="jsx" fullWidth>
             {usingTCode}
           </LandingPageInstallationCode>
           <p>Now you are able to Alt + Click & translate your texts!</p>
@@ -122,7 +121,7 @@ export default () => {
         <LandingPageInstallationStep title="Explore the Docs and check out example app!">
           <p>Continue exploring...</p>
 
-          <div style={{ display: "flex", gap: "20px", flexWrap: 'wrap' }}>
+          <div style={{ display: "flex", gap: "20px", flexWrap: "wrap" }}>
             <CoolButton
               component={Link}
               to="/docs/web/using_with_react/installation"
@@ -136,7 +135,13 @@ export default () => {
             >
               <CoolButtonText>Tolgee + React Example App</CoolButtonText>
               <CoolButtonImage>
-                <img src="/img/github.svg" alt="GitHub" />
+                <ThemedImage
+                  sources={{
+                    light: "/img/github.svg",
+                    dark: "/img/githubLight.svg",
+                  }}
+                  alt="GitHub"
+                />
               </CoolButtonImage>
             </CoolButton>
           </div>
@@ -160,7 +165,6 @@ export const Wrapper = () => {
   );
 }
 `;
-    
 
 const usingTCode = `import { T } from "@tolgee/react";
 
