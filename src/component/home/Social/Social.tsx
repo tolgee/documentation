@@ -46,6 +46,15 @@ export const Social = () => {
             alt="Github discussions"
           />
         </a>
+        <a
+          href="https://join.slack.com/t/tolgeecommunity/shared_invite/zt-16l0sf7ae-6fmAl2Fb9wqFCV0uzSa7bw"
+          target="_blank"
+        >
+          <img
+            src="https://img.shields.io/badge/slack-Tolgee%20community-blue?style=for-the-badge"
+            alt="Tolgee community slack"
+          />
+        </a>
       </div>
     </div>
   );
