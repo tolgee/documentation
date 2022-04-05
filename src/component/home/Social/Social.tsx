@@ -38,11 +38,11 @@ export const Social = () => {
       <div className="connect_ask">Need help? We are here! 💬</div>
       <div className="connect_button">
         <a
-          href="https://github.com/tolgee/server/discussions"
+          href="https://github.com/tolgee/tolgee-platform/discussions"
           target="_blank"
         >
           <img
-            src="https://img.shields.io/github/discussions/tolgee/server?style=for-the-badge"
+            src="https://img.shields.io/github/discussions/tolgee/tolgee-platform?style=for-the-badge"
             alt="Github discussions"
           />
         </a>
