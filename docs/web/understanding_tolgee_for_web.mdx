@@ -18,6 +18,8 @@ should be translated. Tolgee basically checks specific DOM subtree on every chan
 wrapped in strings provided by configuration properties `inputPrefix` and `inputSuffix`. This is the reason why wrapped keys
 and params are returned from `translate` and `instant` functions in development mode.
 
+Tolgee is in development mode when `apiUrl` + `apiKey` are defined and valid.
+
 ### Production mode
 On the contrary in production mode, `translate` and `instant` methods return the translated text directly.
 Tolgee is unable to change the occurrences anymore. When language changes, you should

@@ -13,11 +13,13 @@ All Tolgee JS integrations such as integration library for Angular or React shar
 There are two modes - production and development. When `apiKey` property is not provided, default mode is `production`.
 When both `apiKey` and `apiUrl` properties are provided, default mode is `development`.
 
-### apiKey
-Your api key, which can be [obtained using Tolgee web application.](platform/managing_api_keys.mdx)
-
 ### apiUrl
 Url of Tolgee server.
+
+### apiKey
+Your api key, which can be [obtained using Tolgee web application.](platform/managing_api_keys.mdx).
+When both `apiKey` and `apiUrl` properties are provided, Tolgee runs in `development` mode, 
+otherwise it runs in `production` mode.
 
 ### inputPrefix and inputSuffix
 In development mode, strings to be translated are wrapped by `@tolgee/core` library at first and then parsed and replaced with
