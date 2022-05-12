@@ -293,6 +293,24 @@ AWS secret key.
 ### region
 AWS region. (default: `eu-central-1`)
 
+## DeepL Translate
+Prefix: `tolgee.machine-translation.deepl`
+
+See [DeepL's](https://www.deepl.com/) page for more information and applicable pricing.
+
+### default-enabled
+Whether DeepL-powered machine translation is enabled. (default `true`)
+
+### default-primary
+Whether to use DeepL Translate as a primary translation engine. (default: `false`)
+
+### auth-key
+DeepL auth key. Both key types (commercial and free) are supported.
+
+### formality
+Whether the translated text should lean towards formal or informal language.
+See [DeepL's documentation](https://www.deepl.com/docs-api/translating-text/request/) for supported languages and details. (default: `default`)
+
 ## Socket.IO
 Prefix: `tolgee.socket-io`
 
