@@ -134,6 +134,29 @@ URL to the OAuth authorization screen. Useful if you want to authenticate agains
 URL to GitHub's /user API endpoint. Useful if you want to authenticate against a self-hosted GitHub Enterprise Server.
 (default: `https://api.github.com/user`)
 
+## Google authentication
+Prefix: `tolgee.authentication.google`
+
+The following instructions explain how to set up Google OAuth. [Setting up OAuth 2.0](https://support.google.com/cloud/answer/6158849)
+
+### client-id
+OAuth Client ID, obtained in Google Cloud Console. (default: `null`)
+
+### client-secret
+OAuth Client secret, obtained in Google Cloud Console. (default: `null`)
+
+### workspace-domain
+The registration can be limited to users of a Google Workspace domain. If nothing is set, anyone can log in with their Google account.
+(default: `null`)
+
+### authorization-url
+URL to Google /token API endpoint. This usually does not need to be changed.
+(default: `https://oauth2.googleapis.com/token`)
+
+### user-url
+URL to Google /userinfo API endpoint. This usually does not need to be changed.
+(default: `https://www.googleapis.com/oauth2/v3/userinfo`)
+
 ## LDAP authentication
 Prefix: `tolgee.authentication.ldap`
 :::warning
