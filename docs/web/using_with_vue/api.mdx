@@ -62,7 +62,72 @@ import { T } from '@tolgee/vue';
 `String` - You can pass default value, which will be rendered if there is no translation
 for this key (in selected language nor base language). If you won't provide this value, `keyName` will be rendered instead.
 
+## Composition API
+
+### `useTranslate` with function `t`
+
+This composition function returns reactive function for translating in template.
+
+```jsx
+<template>
+  {{ t('example_key', 'Default value') }}
+</template>
+
+<script>
+  export default {
+    setup() {
+      const t = useTranslate();
+      return { t };
+    }
+  }
+</script>
+```
+
+Function `t` has following interface:
+
+```ts
+function t(
+  key: string, 
+  parameters: Record<string, string>,
+  noWrap?: boolean,
+  defaultValue?: string
+): string
+
+// or with options object
+function t(options: {
+  key: string;
+  parameters?: Record<string, string>;
+  noWrap?: boolean;
+  defaultValue?: string;
+}): string
+```
+
+### `useLanguage`
+
+Returns reactive `language`, which you can use for language switching.
+
+```jsx
+<select v-model="language">
+  ... languages ...
+</select>
+
+<script>
+  export default {
+    setup() {
+      const language = useLanguage();
+      return { language };
+    }
+  }
+</script>
+```
+
+
 ## TolgeeMixin
+
+:::info
+We recommend using composition API instead of mixin, as it is more modern and cleaner approach.
+:::
+
 ```ts
 import { TolgeeMixin } from '@tolgee/vue';
 ```
