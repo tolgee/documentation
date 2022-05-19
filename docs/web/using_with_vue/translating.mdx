@@ -43,20 +43,21 @@ The default value will be rendered when no translation is provided in current no
 ## Imperative translation
 
 This solution is designed for cases where you can't use components (e.g. props).
-Use [TolgeeMixin](./api#tolgeemixin), then you'll get access to the [`$t`](./api#function-t) function,
+Use [useTranslate](./api#usetranslate-with-function-t), then you'll get access to the [`t`](./api#function-t) function,
 which has similar API as [`T`](./api#t-component) component, but you can use it anywhere. 
-You can check all [`$t`](./api#function-t) parameters in [API section](./api#function-t)
+You can check all [`t`](./api#usetranslate-with-function-t) parameters in [API section](./api#usetranslate-with-function-t)
 
 ```html
 <template>
-  <div :title="$t('translation_key')">Hello</div>
+  <div :title="t('translation_key')">Hello</div>
 </template>
 
 <script>
-  import { TolgeeMixin } from '@tolgee/vue';
-
   export default {
-    mixins: [TolgeeMixin],
-  };
+    setup() {
+      const t = useTranslate();
+      return { t };
+    },
+  }
 </script>
 ```
