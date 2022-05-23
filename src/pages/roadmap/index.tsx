@@ -2,7 +2,12 @@ import React from "react";
 import Layout from "../../theme/Layout";
 import "./roadmap.css";
 
-type Item = { name: string; description: string[] | string; done?: boolean; inProgressLink?: string };
+type Item = {
+  name: string;
+  description: string[] | string;
+  done?: boolean;
+  inProgressLink?: string;
+};
 type PeriodData = {
   active?: boolean;
   future?: boolean;
@@ -13,6 +18,12 @@ const roadmapData = {
   "2022/Q3-Q4": {
     future: true,
     items: [
+      {
+        name: "Glossaries",
+        description: `To translate the same terms the same way every time, you need to store the
+terminology to reuse it in the future. Glossaries are the feature that enables
+you to do that.`,
+      },
       {
         name: "Design tools integrations",
         description: `With Tolgee, developers and translators can translate apps very easily. We 
@@ -54,61 +65,26 @@ than finding the ideal translator for your app.`,
       },
     ],
   },
-  "2022/Q1": {
-    active: true,
-    items: [
-      {
-        name: "Translation memory",
-        description: `Translation memory will suggest sentences that will have already been 
-translated in your projects before.`,
-        inProgressLink: "https://github.com/tolgee/server/pull/920",
-        done: true
-      },
-      {
-        name: "Automated/Machine translations",
-        description: `Don't translate everything manually. With an automated translations feature, 
-services like DeepL, Google Translate, or AWS translate will help by suggesting or 
-translating your new keys automatically when enabled.`,
-        inProgressLink: "https://github.com/tolgee/server/pull/920",
-        done: true
-      },
-      {
-        name: "Translating on production",
-        description: `Currently, in-context localization works only when the application is in development mode which is cool, but we would like
-         to enable users to translate directly in the deployed app by providing API key using the Tolgee Tools Chrome plugin.`,
-        inProgressLink: "https://github.com/tolgee/tolgee-js/pull/1775",
-        done: true
-      },
-      {
-        name: "More export options",
-        description: `More formats (json, xliff) and export options like filtering or structuring will be provided, so exports will be more versatile.`,
-        done: true
-      },
-      {
-        name: "Project Dashboard",
-        description: `To see detailed statistics for the project and for each language.`,
-        inProgressLink: "https://github.com/tolgee/server/issues/915"
-      },
-      {
-        name: "Translation history",
-        description: `Enable users to see, how translation was edited in the past.`,
-        inProgressLink: "https://github.com/tolgee/server/issues/1001"
-      },
-      {
-        name: "Translation permissions limited by language",
-        description: `Add option specifying a particular language an user can translate to.`,
-        inProgressLink: "https://github.com/tolgee/server/pull/991"
-      }
-    ],
-  },
   "2022/Q2": {
     active: true,
     items: [
       {
-        name: "Glossaries",
-        description: `To translate the same terms the same way every time, you need to store the 
-terminology to reuse it in the future. Glossaries are the feature that enables 
-you to do that.`,
+        name: "Project Dashboard",
+        description: `To see detailed statistics for the project and for each language.`,
+        inProgressLink: "https://github.com/tolgee/server/issues/915",
+        done: true,
+      },
+      {
+        name: "Translation history",
+        description: `Enable users to see, how translation was edited in the past.`,
+        inProgressLink: "https://github.com/tolgee/server/issues/1001",
+        done: true,
+      },
+      {
+        name: "Translation permissions limited by language",
+        description: `Add option specifying a particular language an user can translate to.`,
+        inProgressLink: "https://github.com/tolgee/server/pull/991",
+        done: true,
       },
       {
         name: "Billing on Tolgee Cloud",
@@ -119,6 +95,37 @@ If you are self-hosting Tolgee, don't worry. Tolgee stays free for you.`,
       {
         name: "Namespaces/Scoping in Tolgee JS integrations",
         description: `To support localization data split by namespaces or multi-level scopes.`,
+      },
+    ],
+  },
+  "2022/Q1": {
+    items: [
+      {
+        name: "Translation memory",
+        description: `Translation memory will suggest sentences that will have already been 
+translated in your projects before.`,
+        inProgressLink: "https://github.com/tolgee/server/pull/920",
+        done: true,
+      },
+      {
+        name: "Automated/Machine translations",
+        description: `Don't translate everything manually. With an automated translations feature, 
+services like DeepL, Google Translate, or AWS translate will help by suggesting or 
+translating your new keys automatically when enabled.`,
+        inProgressLink: "https://github.com/tolgee/server/pull/920",
+        done: true,
+      },
+      {
+        name: "Translating on production",
+        description: `Currently, in-context localization works only when the application is in development mode which is cool, but we would like
+         to enable users to translate directly in the deployed app by providing API key using the Tolgee Tools Chrome plugin.`,
+        inProgressLink: "https://github.com/tolgee/tolgee-js/pull/1775",
+        done: true,
+      },
+      {
+        name: "More export options",
+        description: `More formats (json, xliff) and export options like filtering or structuring will be provided, so exports will be more versatile.`,
+        done: true,
       },
     ],
   },
@@ -159,18 +166,24 @@ key in the in-context translation UI.`,
 
 const passedPeriods = Object.entries(roadmapData)
   .filter((i) => !i[1].active && !i[1].future)
-  .reduce((acc, [name, data]) => ({...acc, [name]: data}), {}) as Record<string,
-  PeriodData>;
+  .reduce((acc, [name, data]) => ({ ...acc, [name]: data }), {}) as Record<
+  string,
+  PeriodData
+>;
 
 const activePeriods = Object.entries(roadmapData)
   .filter((i) => i[1].active)
-  .reduce((acc, [name, data]) => ({...acc, [name]: data}), {}) as Record<string,
-  PeriodData>;
+  .reduce((acc, [name, data]) => ({ ...acc, [name]: data }), {}) as Record<
+  string,
+  PeriodData
+>;
 
 const futurePeriods = Object.entries(roadmapData)
   .filter((i) => i[1].future)
-  .reduce((acc, [name, data]) => ({...acc, [name]: data}), {}) as Record<string,
-  PeriodData>;
+  .reduce((acc, [name, data]) => ({ ...acc, [name]: data }), {}) as Record<
+  string,
+  PeriodData
+>;
 
 export default () => {
   return (
@@ -179,35 +192,46 @@ export default () => {
         <div className="container roadmap__container">
           <h1 className="roadmap__title">Tolgee Roadmap</h1>
           <div className="roadmap__items-wrapper">
-            {[activePeriods, futurePeriods, passedPeriods].map((periods) =>
-              Object.entries(periods).map(([period, data]) => (
-                <section className="roadmap-period__section">
-                  {periods == passedPeriods && (
-                    <h2 className="roadmap-period__passed-divider">
-                      What have we done so far...
-                    </h2>
-                  )}
-                  <h2 className="roadmap-period__title">{period}</h2>
-                  <div className={`roadmap-period__items`}>
-                    {data.items.map((item) => (
-                      <div
-                        className={`roadmap-item ${
-                          item.done ? "roadmap-item--done" : ""
-                        }`}
-                      >
-                        <h3>{item.name}<InProgress done={item.done} link={item.inProgressLink}/></h3>
-                        {(typeof item.description === "string"
+            {[activePeriods, futurePeriods, passedPeriods].map((periods, i) => (
+              <React.Fragment key={i}>
+                {periods == passedPeriods && (
+                  <h2 className="roadmap-period__passed-divider">
+                    What have we done so far...
+                  </h2>
+                )}
+                {Object.entries(periods).map(([period, data]) => (
+                  <section className="roadmap-period__section">
+                    <h2 className="roadmap-period__title">{period}</h2>
+                    <div className={`roadmap-period__items`}>
+                      {data.items.map((item) => (
+                        <div
+                          className={`roadmap-item ${
+                            item.done ? "roadmap-item--done" : ""
+                          }`}
+                        >
+                          <h3>
+                            {item.name}
+                            <InProgress
+                              done={item.done}
+                              link={item.inProgressLink}
+                            />
+                          </h3>
+                          {(typeof item.description === "string"
                             ? [item.description]
                             : item.description
-                        ).map((d, i) => (
-                          <p key={i} dangerouslySetInnerHTML={{__html: d}}/>
-                        ))}
-                      </div>
-                    ))}
-                  </div>
-                </section>
-              ))
-            )}
+                          ).map((d, i) => (
+                            <p
+                              key={i}
+                              dangerouslySetInnerHTML={{ __html: d }}
+                            />
+                          ))}
+                        </div>
+                      ))}
+                    </div>
+                  </section>
+                ))}
+              </React.Fragment>
+            ))}
           </div>
         </div>
       </Layout>
@@ -215,9 +239,11 @@ export default () => {
   );
 };
 
-const InProgress = (props: { link?: string, done: boolean }) => {
-  return (
-    (props.link && !props.done) ?
-      <>{` `}<a href={props.link}>(In progress)</a></> : null
-  )
-}
+const InProgress = (props: { link?: string; done: boolean }) => {
+  return props.link && !props.done ? (
+    <>
+      {` `}
+      <a href={props.link}>(In progress)</a>
+    </>
+  ) : null;
+};
