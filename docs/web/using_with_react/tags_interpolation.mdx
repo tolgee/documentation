@@ -37,11 +37,13 @@ Tags in translation are mapped to react components supplied in `parameters` and 
 
 You can also pass a function which will return React component:
 
-```jsx
+```tsx
+const myFunction = (content) => <i title={content}>{content}</i>
+
 t({
   key: 'translation_key',
   parameters: { 
-    i: (content) =>  <i title={content}>{content}</i> 
+    i: myFunction
   },
   defaultValue: 'This is <i>formatted</i>',
 })
