@@ -184,18 +184,18 @@ pipe, but it doesn't wrap the key in development mode, so in-context editing is 
 
 Syntax:
 ```
-key to translate | translate[:default value]
+key to stranslate | stranslate[:default value]
 // or
-key to translate | translate[:parameters]
+key to stranslate | stranslate[:parameters]
 // or
-key to translate | translate[:defafault value][:parameters]
+key to stranslate | stranslate[:defafault value][:parameters]
 ```
 
 Example usages:
 ```angular2html
-{{ 'this_key_does_not_exist' | translate:'This is default'}}
-{{ 'this_is_a_key_with_params' | translate:{key: 'value', key2: 'value2'} }}
-{{ 'this_is_a_key_with_params' | translate:"Default value":{key: 'value', key2: 'value2'} }}
+{{ 'this_key_does_not_exist' | stranslate:'This is default'}}
+{{ 'this_is_a_key_with_params' | stranslate:{key: 'value', key2: 'value2'} }}
+{{ 'this_is_a_key_with_params' | stranslate:"Default value":{key: 'value', key2: 'value2'} }}
 ```
 - Default value of type `string`
 - Parameters are `Record<string, any>`
