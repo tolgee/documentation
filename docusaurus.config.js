@@ -171,7 +171,7 @@ module.exports = {
       copyright: `<a class="footer__link-item" href="/">© 2021-${new Date().getFullYear()} Tolgee s.r.o. All rights reserved</a>`,
     },
     algolia: {
-      appId: 'PWTO4FHFDY',
+      appId: "PWTO4FHFDY",
       apiKey: "22a72d1546c01b9b386c0257604f2a38",
       indexName: "tolgee",
       searchParameters: {}, // Optional (if provided by Algolia)
@@ -195,10 +195,10 @@ module.exports = {
           showReadingTime: true,
           editUrl: "https://github.com/tolgee/documentation/tree/main",
           feedOptions: {
-            type: 'all',
+            type: "all",
             copyright: `Copyright © ${new Date().getFullYear()} Tolgee`,
           },
-          archiveBasePath: null
+          archiveBasePath: null,
         },
         theme: {
           customCss: require.resolve("./src/css/custom.css"),
@@ -221,7 +221,53 @@ module.exports = {
       },
     ],
   ],
-  plugins: ["docusaurus2-dotenv"],
+  plugins: [
+    "docusaurus2-dotenv",
+    [
+      "@docusaurus/plugin-client-redirects",
+      {
+        redirects: [
+          // fixing legacy backlinks
+          {
+            from: "/docs/get_started/hello_world",
+            to: "/docs/",
+          },
+          {
+            from: "/docs/changelog/version_3",
+            to: "/docs/changelog/tolgee_js_version_3",
+          },
+          {
+            from: "/docs/server_and_web_app/self_hosting/running_with_docker",
+            to: "/docs/platform/self_hosting/running_with_docker",
+          },
+          {
+            from: "/docs/web_app",
+            to: "/docs/web/understanding_tolgee_for_web",
+          },
+          {
+            from: "/docs/web_app/creating_repository",
+            to: "/docs/platform/creating_project",
+          },
+          {
+            from: "/docs/web_app/obtaining_api_key",
+            to: "/docs/platform/integration",
+          },
+          {
+            from: "/docs/web/using_with_react/react_preparing_for_production",
+            to: "/docs/web/using_with_react/preparing_for_production",
+          },
+          {
+            from: "/server_and_web_app/self_hosting/configuration",
+            to: "/docs/platform/self_hosting/configuration",
+          },
+          {
+            from: "/tolgee-for-svelte",
+            to: "/integrations/svelte",
+          },
+        ],
+      },
+    ],
+  ],
   stylesheets: ["/font.css"],
   customFields: {
     googleTrackingId: process.env.DOCUSAURUS_GOOGLE_TRACKING_ID,
