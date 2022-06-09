@@ -5,6 +5,7 @@ import { PricingBase } from "../../component/pricing/PricingBase";
 import Link from "@docusaurus/Link";
 import { RoboMouse } from "../../component/images/RoboMouse";
 import { PricingFeatures } from "../../component/pricing/PricingFeatures";
+import { PricingDescription } from "../../component/pricing/PricingDescription";
 
 export default () => {
   return (
@@ -21,9 +22,7 @@ export default () => {
               <b>free forever</b>. However, you have to serve yourself.
             </p>
             <ul className="pricing__option-highlights" />
-            <div className="pricing__option-price">
-              0 €<span>/mo</span>
-            </div>
+            <div className="pricing__option-price">0 €</div>
             <Link
               className="pricing__option-button"
               to="/docs/platform/self_hosting/running_with_docker"
@@ -41,9 +40,18 @@ export default () => {
               support.
             </p>
             <ul className="pricing__option-highlights">
-              <li>Professional <span className="pricing__option-value">setup</span></li>
-              <li><span className="pricing__option-value">Support</span> from our team</li>
-              <li>Prioritized <span className="pricing__option-value">feature requests</span></li>
+              <li>
+                Professional{" "}
+                <span className="pricing__option-value">setup</span>
+              </li>
+              <li>
+                <span className="pricing__option-value">Support</span> from our
+                team
+              </li>
+              <li>
+                Prioritized{" "}
+                <span className="pricing__option-value">feature requests</span>
+              </li>
             </ul>
             <Link
               className="pricing__option-button pricing__option-button--grey"
@@ -65,15 +73,7 @@ export default () => {
       </div>
 
       <div className="pricing__description">
-        <p>
-          We are currently not applying any limits to the Tolgee Cloud since we
-          are in the implementation phase of applying these limits and enabling
-          users to pay via paywall.
-        </p>
-        <p>
-          We are publishing this preview so as not to surprise our users with
-          our future pricing strategy.
-        </p>
+        <PricingDescription />
       </div>
     </PricingBase>
   );

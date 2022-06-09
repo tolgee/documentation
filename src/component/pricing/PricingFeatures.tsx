@@ -4,9 +4,6 @@ import { PricingFeatureRow } from "./PricingFeatureRow";
 export const PricingFeatures = () => {
   return (
     <>
-      {/* <div className="pricing__features-description">
-        Currently we offer identical features in all packages.
-      </div> */}
       <div className="pricing__features-table">
         <PricingFeatureRow
           name="In-context translating"
