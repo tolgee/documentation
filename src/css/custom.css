@@ -25,8 +25,8 @@
 }
 
 html[data-theme='dark'] {
-    --ifm-color-primary: #F4A5B8;
-    --ifm-color-primary-dark: #db7493;
+    --ifm-color-primary: rgb(255, 105, 149);
+    --ifm-color-primary-dark: #e55e86;
     --ifm-color-primary-darker: #DB5E83;
     --ifm-color-primary-darkest: #691743;
     --ifm-color-primary-light: #96294a;
@@ -39,6 +39,10 @@ html[data-theme='dark'] {
     --gradient-main-color: #182230;
     --overlay-background: rgba(0, 0, 0, 0.9);
     --docsearch-hit-active-color: rgb(0, 0, 0);
+}
+
+*[itemprop="headline"] {
+    font-size: 2rem !important;
 }
 
 /*noinspection CssUnresolvedCustomProperty*/
