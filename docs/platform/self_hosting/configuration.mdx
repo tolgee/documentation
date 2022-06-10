@@ -157,6 +157,36 @@ URL to Google /token API endpoint. This usually does not need to be changed.
 URL to Google /userinfo API endpoint. This usually does not need to be changed.
 (default: `https://www.googleapis.com/oauth2/v3/userinfo`)
 
+## OAuth2 authentication
+Prefix: `tolgee.authentication.oauth2`
+
+OAuth 2.0 is the industry-standard protocol for authorization. 
+This enables the integration of a wide range of authorization providers into tolgee, such as Auth0, KeyCloak, Okta and others.
+
+### client-id
+OAuth2 Client ID (default: `null`)
+
+### client-secret
+OAuth2 Client secret (default: `null`)
+
+### scopes
+Oauth2 scopes (as list) (default: `null`)
+
+Tolgee absolutely requires rights to view the email and user information (also known as openid data). 
+In most cases the scopes `openid email profile` is used for this. (But can also be different depending on the provider)
+
+### authorization-url
+URL to OAuth2 authorize API endpoint. This endpoint will exposed to the frontend. 
+(default: `null`)
+
+### token-url
+URL to OAuth2 token API endpoint.
+(default: `null`)
+
+### user-url
+URL to OAuth2 userinfo API endpoint. 
+(default: `null`)
+
 ## LDAP authentication
 Prefix: `tolgee.authentication.ldap`
 :::warning
