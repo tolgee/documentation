@@ -1,6 +1,8 @@
 import Layout from '@theme/Layout';
 import React from 'react';
-import { RoboMouse } from '../images/RoboMouse';
+import {RoboMouse} from "../images/RoboMouse";
+import {PricingFeatures} from "./PricingFeatures";
+import {PricingDescription} from "./PricingDescription";
 
 export const PricingBase: React.FC = ({children}) => {
   return (
@@ -14,7 +16,19 @@ export const PricingBase: React.FC = ({children}) => {
 
             {children}
 
-            
+            <div className="pricing__bottom-center-robomouse">
+              <RoboMouse/>
+            </div>
+            <div className="pricing__features-title">
+              <h3>Key features</h3>
+            </div>
+            <div className="pricing__features">
+              <PricingFeatures/>
+            </div>
+
+            <div className="pricing__description">
+              <PricingDescription/>
+            </div>
           </div>
         </div>
       </Layout>

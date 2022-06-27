@@ -41,7 +41,7 @@ export const PricingFeatures = () => {
         />
 
         <PricingFeatureRow
-          name="REST Api"
+          name="REST API"
           description="Let the machines talk to each other"
         />
       </div>

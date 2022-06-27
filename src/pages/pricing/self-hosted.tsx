@@ -1,11 +1,8 @@
 import React from "react";
 import "./pricing.css";
-import { PricingToggle } from "../../component/pricing/PricingToggle";
-import { PricingBase } from "../../component/pricing/PricingBase";
+import {PricingToggle} from "../../component/pricing/PricingToggle";
+import {PricingBase} from "../../component/pricing/PricingBase";
 import Link from "@docusaurus/Link";
-import { RoboMouse } from "../../component/images/RoboMouse";
-import { PricingFeatures } from "../../component/pricing/PricingFeatures";
-import { PricingDescription } from "../../component/pricing/PricingDescription";
 
 export default () => {
   return (
@@ -61,19 +58,6 @@ export default () => {
             </Link>
           </div>
         </div>
-      </div>
-      <div className="pricing__bottom-center-robomouse">
-        <RoboMouse />
-      </div>
-      <div className="pricing__features-title">
-        <h3>Key features</h3>
-      </div>
-      <div className="pricing__features">
-        <PricingFeatures />
-      </div>
-
-      <div className="pricing__description">
-        <PricingDescription />
       </div>
     </PricingBase>
   );

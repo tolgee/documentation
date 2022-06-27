@@ -20,7 +20,10 @@ const Translations = () => {
     <Tooltip
       content={
         <div className="pricing__tooltip">
-          Number of keys ✕ number of languages
+          Amount of translations you can store in <br/>
+          projects in your organization.<br/>
+          Current amount of translations is calculated <br/>
+          as sum of keys multiplied by languages for every project.
         </div>
       }
     >
@@ -36,7 +39,7 @@ const Credits = () => {
         <div className="pricing__tooltip">Credits for machine translation</div>
       }
     >
-      <span className="pricing__with-hint">credits</span>
+      <span className="pricing__with-hint">MT credits</span>
     </Tooltip>
   );
 };

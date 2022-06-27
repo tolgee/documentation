@@ -103,19 +103,6 @@ export default () => {
           />
         </div>
       </div>
-      <div className="pricing__bottom-center-robomouse">
-        <RoboMouse />
-      </div>
-      <div className="pricing__features-title">
-        <h3>Key features</h3>
-      </div>
-      <div className="pricing__features">
-        <PricingFeatures />
-      </div>
-
-      <div className="pricing__description">
-        <PricingDescription />
-      </div>
     </PricingBase>
   );
 };
