@@ -10,7 +10,7 @@ import {NotConvincedYet} from "../component/home/NotConvincedYet";
 import {PageHeader} from "../component/pageComponents/PageHeader";
 import {TwoColumnSection} from "../component/pageComponents/twoColumnSection/TwoColumnSection";
 import {ImageColumn} from "../component/pageComponents/twoColumnSection/ImageColumn";
-import {TextColumn} from "../component/pageComponents/twoColumnSection/TextColumn";
+import {TextColumn, TextColumnText, TextColumnTitle} from "../component/pageComponents/twoColumnSection/TextColumn";
 import {GradientText} from "../component/GradientText";
 
 function Home() {
@@ -27,17 +27,18 @@ function Home() {
           <PageHeader title="Perfect translation." title2="Users everywhere."/>
           <TwoColumnSection>
             <ImageColumn/>
-            <TextColumn title="Revolution is here." text={
-              <>
+            <TextColumn>
+              <TextColumnTitle>Revolution is here.</TextColumnTitle>
+              <TextColumnText>
                 Integrate Tolgee into your App in minutes.
                 Speed up your translation process by <GradientText>90%</GradientText> by using Tolgee <GradientText>revolutionary</GradientText> integrations.
                 Let your <GradientText>mama</GradientText> translate your App with in-context localization feature.
-              </>
-            }/>
+              </TextColumnText>
+            </TextColumn>
           </TwoColumnSection>
           <Features/>
           <Technologies/>
-          <References />
+          <References/>
           <Pricing/>
           <NotConvincedYet/>
         </div>
