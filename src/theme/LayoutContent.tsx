@@ -1,26 +1,30 @@
-import React, { useEffect } from "react";
+import React, {useEffect} from "react";
 
-import { useColorMode } from "@docusaurus/theme-common";
+import {useColorMode} from "@docusaurus/theme-common";
 import Head from "@docusaurus/Head";
 import useDocusaurusContext from "@docusaurus/useDocusaurusContext";
-import { getChatwootScript } from "../component/externalScripts/getChatwootScript";
-import { getGtagScript } from "../component/externalScripts/getGtagScript";
+import {getChatwootScript} from "../component/externalScripts/getChatwootScript";
+import {getGtagScript} from "../component/externalScripts/getGtagScript";
 import websiteSchema from "../info/website";
 
-export const LayoutContent = ({ children }) => {
-  const { isDarkTheme } = useColorMode();
-  const { siteConfig } = useDocusaurusContext();
+export const LayoutContent = ({children}) => {
+  const isDarkTheme = useColorMode().colorMode === "dark";
+  const {siteConfig} = useDocusaurusContext();
 
   const trackingId = siteConfig.customFields.googleTrackingId;
   const chatwootToken = siteConfig.customFields.chatwootToken;
 
   useEffect(() => {
-    // this switches cookie content to dark mode
-    if (isDarkTheme) {
-      document.body.classList.add("c_darkmode");
-    } else {
-      document.body.classList.remove("c_darkmode");
-    }
+    setTimeout(() => {
+      // this switches cookie content to dark mode
+      if (isDarkTheme) {
+        document.body.parentElement.classList.add("c_darkmode");
+        document.body.parentElement.classList.add("dark");
+      } else {
+        document.body.parentElement.classList.remove("c_darkmode");
+        document.body.parentElement.classList.remove("dark");
+      }
+    }, 30)
   }, [isDarkTheme]);
   return (
     <>

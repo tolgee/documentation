@@ -21,6 +21,7 @@ module.exports = {
           type: "dropdown",
           activeBasePath: "integrations",
           label: "Integrations",
+          position: "right",
           items: [
             {
               to: "integrations/react",
@@ -63,38 +64,48 @@ module.exports = {
           to: "docs/",
           activeBasePath: "docs",
           label: "Docs",
-          position: "left",
+          position: "right",
         },
         {
           to: "api",
           activeBasePath: "api",
           label: "API",
-          position: "left",
+          position: "right",
         },
         {
           to: "pricing",
           activeBasePath: "pricing",
           label: "Pricing",
-          position: "left",
+          position: "right",
         },
         {
           to: "roadmap",
           activeBasePath: "roadmap",
           label: "Roadmap",
-          position: "left",
+          position: "right",
         },
         {
           to: "opensource",
           activeBasePath: "opensource",
           label: "Why Open-source?",
-          position: "left",
-        },
-        { to: "blog", label: "Blog", position: "left" },
-        {
-          href: "https://app.tolgee.io",
-          label: "Go to app",
           position: "right",
-          className: "goToAppButton",
+        },
+        {
+          to: "blog",
+          label: "Blog",
+          position: "right"
+        },
+        {
+          to: "https://app.tolgee.io",
+          label: "Login",
+          position: "right",
+          className: "login-button",
+        },
+        {
+          to: "https://app.tolgee.io/sign_up",
+          label: "Get started for free",
+          position: "right",
+          className: "get-started-button",
         },
       ],
     },
@@ -267,6 +278,17 @@ module.exports = {
         ],
       },
     ],
+    async function tailwind() {
+      return {
+        name: "docusaurus-tailwindcss",
+        configurePostCss(postcssOptions) {
+          // Appends TailwindCSS and AutoPrefixer.
+          postcssOptions.plugins.push(require("tailwindcss"));
+          postcssOptions.plugins.push(require("autoprefixer"));
+          return postcssOptions;
+        },
+      };
+    },
   ],
   stylesheets: ["/font.css"],
   customFields: {

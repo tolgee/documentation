@@ -1,7 +1,7 @@
-import React from "react";
+import React, {ComponentProps} from "react";
 
-export const RoboMouse = () => (
-  <svg viewBox="0 0 279 181" fill="none" xmlns="http://www.w3.org/2000/svg">
+export const RoboMouse = (props: ComponentProps<'svg'>) => (
+  <svg viewBox="0 0 279 181" fill="none" xmlns="http://www.w3.org/2000/svg" {...props}>
     <path
       d="M187.422 148.139L147.344 170.135L132.624 159.104L169.854 139.529L187.422 148.139Z"
       fill="#8C3758"

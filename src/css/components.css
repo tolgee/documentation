@@ -1,0 +1,236 @@
+@tailwind components;
+@tailwind utilities;
+
+@layer components {
+    .header__title {
+        @apply md:text-6xl text-5xl text-home-text font-[600] mb-0;
+        line-height: 66px;
+    }
+
+    .text-gradient {
+        background: linear-gradient(90deg, var(--emphasis-gradient-start) 39.37%, var(--emphasis-gradient-end) 62.64%);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        background-clip: text;
+        text-fill-color: transparent;
+    }
+
+    .header__title--active {
+        @apply header__title text-gradient;
+    }
+
+    .button--primary {
+        @apply text-[color:var(--ifm-color-emphasis-0)]
+        border-[color:var(--ifm-color-primary)] border-[1px]
+        py-[15px] px-[40px]
+        text-[18px]
+        rounded-[16px]
+        decoration-0
+        transition-all duration-300
+        bg-[color:var(--ifm-color-primary)] font-[500];
+    }
+
+    .button--primary:hover {
+        background: var(--ifm-color-primary-light);
+        color: var(--ifm-color-emphasis-0);
+        text-decoration: none;
+    }
+
+    .button--primary-reverse {
+        @apply text-primary
+        border-none
+        py-[15px] px-[40px]
+        bg-white
+        text-[18px]
+        rounded-[16px]
+        decoration-0
+        border-none
+        font-[500];
+        position: relative;
+        overflow: hidden;
+        z-index: 2;
+    }
+
+    .button--primary-reverse::before {
+        position: absolute;
+        z-index: 1;
+        opacity: 0;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        content: '';
+        background-color: var(--ifm-color-primary-lightest);
+        transition: opacity 0.2s;
+    }
+
+    .button--primary-reverse:hover::before {
+        opacity: 0.2;
+    }
+
+    .button--primary-reverse:hover {
+        text-decoration: none;
+    }
+
+    .page-with-decoration .navbar {
+        position: fixed;
+        width: 100%;
+        transition: background-color 0.3s;
+    }
+
+    .page-with-decoration--not-scrolled .navbar {
+        background-color: transparent;
+        box-shadow: none;
+    }
+
+    .page-with-decoration--scrolled .navbar {
+        background-color: var(--ifm-navbar-background-color);
+    }
+
+    .page-with-decoration {
+        position: relative;
+        overflow: hidden;
+    }
+
+    .page-with-decoration--content::before {
+        content: "";
+        display: block;
+        height: 440px;
+        width: 100%;
+        background: linear-gradient(
+                180deg,
+                var(--gradient-start-color) 0%,
+                var(--gradient-main-color) 100%
+        );
+        position: absolute;
+        z-index: 2;
+        top: 0;
+    }
+
+    .page-with-decoration--content-inner {
+        z-index: 3;
+        position: relative;
+    }
+
+    .page-with-decoration::after {
+        content: "";
+        display: block;
+        height: 650px;
+        width: 1700px;
+        max-width: 100%;
+        top: 190px;
+        position: absolute;
+        opacity: 0.3;
+        z-index: 2;
+        left: 50%;
+        transform: translateX(-50%) rotate(-20deg);
+        border-radius: 300px;
+        background: var(--page-decoration-color);
+    }
+
+    .home-technologies > a > * {
+        filter: grayscale(1);
+        transition: 0.5s;
+    }
+
+
+    .home-technologies > a:hover > * {
+        filter: grayscale(0);
+    }
+
+    .references:before {
+        @apply content-[''] absolute w-[100%] h-[50%] rounded-full bg-white/10 dark:bg-black/5 top-[50%] left-[50%] hidden xl:block;
+        transform-origin: top left;
+        transform: rotate(-40deg);
+    }
+
+    .references__avatar-wrapper {
+        @apply row-start-2 md:row-span-2 col-span-2 flex flex-col justify-center w-full;
+    }
+
+    .references__avatar {
+        @apply aspect-square relative flex;
+        transform: rotate(-45deg);
+    }
+
+    .references__avatar > img {
+        transform: rotate(45deg);
+    }
+
+    .references__avatar:before {
+        @apply md:content-[''] absolute bg-white/30 dark:bg-black/10 w-[1000%]
+        h-full rounded-full z-10;
+    }
+
+    .references-section:hover .references__nav {
+        @apply opacity-100;
+    }
+
+    .references__nav {
+        @apply opacity-0 relative border-none h-[50px] min-w-[50px] md:h-[80px] md:min-w-[80px] bg-transparent relative
+        z-20 cursor-pointer transition-opacity duration-500;
+    }
+
+    .references__nav:hover:before {
+        filter: drop-shadow(0px 0px 4px var(--ifm-color-primary));
+    }
+
+    .references__nav:before {
+        content: '';
+        @apply w-1/2 h-1/2 absolute border-t-[1px] border-l-[1px] border-[0] border-primary border-solid top-[25%] left-[10%] transition-all duration-200;
+        transform: rotate(135deg)
+    }
+
+    .references__nav--left {
+        @apply ml-2;
+        transform: rotate(-180deg)
+    }
+
+    .references__nav--right {
+        @apply mr-2;
+    }
+
+    .home-pricing-decorated {
+        @apply relative overflow-hidden;
+    }
+
+    .home-pricing-decorated:before {
+        @apply content-[''] absolute top-[-10%] left-[-50%] w-full h-[60%] md:h-full bg-primary-lightest rounded-full opacity-10;
+        transform: rotate(-33deg);
+    }
+}
+
+.login-button {
+    @apply ml-[10px] desktop:ml-[6px];
+    border: 1px solid var(--ifm-link-color);
+    color: var(--ifm-link-color);
+    border-radius: 8px;
+    position: relative;
+    overflow: hidden;
+    z-index: 2;
+    padding: var(--ifm-navbar-item-padding-vertical) var(--ifm-navbar-item-padding-horizontal);
+}
+
+.login-button::before {
+    position: absolute;
+    z-index: 1;
+    opacity: 0;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    content: '';
+    background-color: var(--ifm-color-primary-lightest);
+    transition: opacity 0.2s;
+}
+
+.login-button:hover::before {
+    opacity: 0.05;
+}
+
+.get-started-button {
+    @apply button--primary text-[16px] font-bold ml-[10px] desktop:mx-[10px] mt-[10px] desktop:mt-0;
+
+    border-radius: 8px;
+    padding: var(--ifm-navbar-item-padding-vertical) var(--ifm-navbar-item-padding-horizontal);
+}
