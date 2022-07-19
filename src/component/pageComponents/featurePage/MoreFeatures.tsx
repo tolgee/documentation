@@ -9,7 +9,7 @@ export const MoreFeatures = (props) => {
 
   const currentSlug = location.pathname.replace(/(.*)\/([a-zA-Z\-]+)$/, "$2");
 
-  const currentIndex = features.findIndex((f) => f.slug === currentSlug)
+  const currentIndex = features.findIndex((f) => f.id === currentSlug)
   const firstIndex = currentIndex - 1 > -1 ? currentIndex - 1 : features.length - 1;
 
   const filteredFeatures = [
@@ -20,7 +20,7 @@ export const MoreFeatures = (props) => {
 
   return <>
     <FeaturesContainer showCallToAction={false} title="More features">
-      {filteredFeatures.map(f => <Feature key={f.slug} feature={f}/>)}
+      {filteredFeatures.map(f => <Feature key={f.id} feature={f}/>)}
     </FeaturesContainer>
   </>
 }

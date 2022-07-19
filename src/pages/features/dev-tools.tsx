@@ -8,8 +8,12 @@ import {TextColumn, TextColumnText, TextColumnTitle} from "../../component/pageC
 import {ImageColumn} from "../../component/pageComponents/twoColumnSection/ImageColumn";
 import {GradientText} from "../../component/GradientText";
 import {CoolButton} from "../../component/buttons/CoolButton";
-import {FeaturesContainer} from "../../component/pageComponents/FeaturesContainer";
 import {MoreFeatures} from "../../component/pageComponents/featurePage/MoreFeatures";
+import {FeatureHeader} from "../../component/pageComponents/featurePage/FeatureHeader";
+import {InContextFeature} from "../../component/pageComponents/featurePage/devTools/InContextFeature";
+import {OneClickScreenshotsFeature} from "../../component/pageComponents/featurePage/devTools/OneClickScreenshotsFeature";
+import {TranslatingOnProductionFeature} from "../../component/pageComponents/featurePage/devTools/TranslatingOnProductionFeature";
+import {TrueIntegrationsFeature} from "../../component/pageComponents/featurePage/devTools/TrueIntegrationsFeature";
 
 export default () => {
   return (<div className="home__container">
@@ -20,27 +24,11 @@ export default () => {
       title={baseSchema.slogan}
       description={baseSchema.description}
     >
-      <div className="text-home-text">
-        <PageHeader title="I came, I saw, I conquered." title2="Story of your project."/>
-        <TwoColumnSection>
-          <ImageColumn/>
-          <TextColumn>
-            <TextColumnTitle>Watch the growth.</TextColumnTitle>
-            <TextColumnText>
-              See who modified, reviewed or commented the phrases in your project. Clearly.
-            </TextColumnText>
-          </TextColumn>
-        </TwoColumnSection>
-        <TwoColumnSection>
-          <TextColumn>
-            <TextColumnTitle>Translation history.</TextColumnTitle>
-            <TextColumnText>
-              See the changes of specific translation of specific key in specific language. Something is wrong? Blame the guilty!
-            </TextColumnText>
-          </TextColumn>
-          <ImageColumn/>
-        </TwoColumnSection>
-      </div>
+      <PageHeader title="Translation assistance." title2="Let the machines work for you."/>
+      <InContextFeature/>
+      <OneClickScreenshotsFeature/>
+      <TranslatingOnProductionFeature/>
+      <TrueIntegrationsFeature/>
       <MoreFeatures/>
     </DecoratedLayout>
   </div>)
