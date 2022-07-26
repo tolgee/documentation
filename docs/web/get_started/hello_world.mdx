@@ -44,7 +44,7 @@ This dependency is Tolgee's UI, so dialog can appear when you **ALT + click** yo
 
 Now it's time to configure the library. To do so, just pass configuration object as first parameter of Tolgee constructor.
 :::info
-Inicialization has changed in [version 3](/docs/changelog/tolgee_js_version_3)
+Initialization has changed in [version 3](/docs/changelog/tolgee_js_version_3)
 :::
 ```html
 <script>
@@ -59,7 +59,7 @@ const tg = Tolgee.use(IcuFormatter).init({
 });
 </script>
 ```
-In configuration object you can specify many other parameters, but in this example we stick with:
+You can specify many other parameters in the configuration object, but in this example we stick with:
 - **apiUrl** - url of the api, where we are saving the data
 - **apiKey** - which you can obtain in the [app](https://app.tolgee.io) or in your self-hosted app by following
 [this documentation page](platform/managing_api_keys.mdx)
@@ -68,8 +68,7 @@ In configuration object you can specify many other parameters, but in this examp
 - **watch** - parameter defining whether Tolgee should watch for changes in the DOM and update translations
 - **ui** - constructor of Tolgee's UI to render interactive translation modal window
 
-Afterwards you create the instance you need to replace the text **Hello world!** with localization key wrapped
-with your `inputPrefix` and `inputSuffix`.
+Replace the text with the localization placeholder, wrapped with the `inputPrefix` and `inputSuffix`:
 
 ```html
 <body>
@@ -83,7 +82,7 @@ Finally, lets run the beast!
 tg.run().then(() => {})
 ```
 
-You should end with this HTML document:
+You should end up with this HTML document:
 ```html
 <!DOCTYPE html>
 <html lang="en">
