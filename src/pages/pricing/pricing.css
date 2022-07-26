@@ -57,6 +57,8 @@ html[data-theme="dark"] .pricing__background-wrapper::after {
   grid-template-areas: "free basic premium enterprise";
   gap: 24px;
   padding: var(--ifm-spacing-horizontal);
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+
 }
 
 @media screen and (max-width: 1200px) {
@@ -64,6 +66,7 @@ html[data-theme="dark"] .pricing__background-wrapper::after {
     grid-template-areas:
       "basic premium"
       "free  enterprise";
+    grid-template-columns: 1fr 1fr;
   }
 }
 
@@ -74,6 +77,8 @@ html[data-theme="dark"] .pricing__background-wrapper::after {
       "basic"
       "premium"
       "enterprise";
+    grid-template-columns: 1fr;
+    justify-items: center;
   }
 }
 
@@ -143,9 +148,10 @@ html[data-theme="dark"] .pricing__option--highlighted > div {
 .pricing__option {
   height: 430px;
   min-width: 270px;
-  max-width: 300px;
+  max-width: 320px;
   display: flex;
   flex-direction: column;
+  width: 100%;
 }
 
 .pricing__option--highlighted {

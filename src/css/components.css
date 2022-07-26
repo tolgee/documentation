@@ -15,10 +15,6 @@
         text-fill-color: transparent;
     }
 
-    .header__title--active {
-        @apply header__title text-gradient;
-    }
-
     .button--primary {
         @apply text-[color:var(--ifm-color-emphasis-0)]
         border-[color:var(--ifm-color-primary)] border-[1px]
@@ -75,7 +71,8 @@
     .page-with-decoration .navbar {
         position: fixed;
         width: 100%;
-        transition: background-color 0.3s;
+        background-color: transparent;
+
     }
 
     .page-with-decoration--not-scrolled .navbar {
@@ -83,9 +80,31 @@
         box-shadow: none;
     }
 
-    .page-with-decoration--scrolled .navbar {
+    .page-with-decoration .navbar .navbar__inner {
+        z-index: 10;
+    }
+
+    .page-with-decoration .navbar:before {
+        background-color: transparent;
+        transition: background-color 0.3s;
+    }
+
+    .page-with-decoration .navbar:before {
+        transition: background-color 0.3s;
+        opacity: 0.88;
+        backdrop-filter: blur(10px);
+        content: '';
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        top: 0;
+        left: 0;
+    }
+
+    .page-with-decoration--scrolled .navbar:before {
         background-color: var(--ifm-navbar-background-color);
     }
+
 
     .page-with-decoration {
         position: relative;

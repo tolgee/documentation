@@ -7,7 +7,7 @@ import {Technologies} from "../component/home/Technologies";
 import {References} from "../component/home/References";
 import {Pricing} from "../component/home/Pricing";
 import {NotConvincedYet} from "../component/home/NotConvincedYet";
-import {PageHeader} from "../component/pageComponents/PageHeader";
+import {EmphasisPageHeader} from "../component/pageComponents/header/EmphasisPageHeader";
 import {TwoColumnSection} from "../component/pageComponents/twoColumnSection/TwoColumnSection";
 import {ImageColumn} from "../component/pageComponents/twoColumnSection/ImageColumn";
 import {TextColumn, TextColumnText, TextColumnTitle} from "../component/pageComponents/twoColumnSection/TextColumn";
@@ -24,7 +24,7 @@ function Home() {
         description={baseSchema.description}
       >
         <div className="text-home-text">
-          <PageHeader title="Perfect translation." title2="Users everywhere."/>
+          <EmphasisPageHeader title="Perfect translation." title2="Users everywhere."/>
           <TwoColumnSection>
             <ImageColumn/>
             <TextColumn>

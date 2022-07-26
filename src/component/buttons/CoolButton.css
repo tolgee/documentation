@@ -3,19 +3,17 @@
     gap: 10px;
     min-height: 50px;
     padding: 10px 15px;
-    border: 1px solid var(--ifm-color-primary);
     align-items: center;
-    border-radius: 2px;
+    border-radius: 5px;
     text-decoration: none;
-    box-shadow: 3px 3px 10px 0px var(--ifm-color-gray-800);
+    box-shadow: 3px 3px 10px 0px var(--ifm-color-gray-300);
     transition: all 200ms ease-in-out;
 }
 
 .cool-button:hover {
     text-decoration: none;
-    border: 1px solid var(--ifm-color-primary-darker);
     color: var(--ifm-color-primary-darker);
-    box-shadow: 4px 4px 10px 2px var(--ifm-color-gray-800);
+    box-shadow: 4px 4px 10px 2px var(--ifm-color-gray-500);
 }
 
 

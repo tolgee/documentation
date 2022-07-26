@@ -1,6 +1,12 @@
 import React from "react";
 import Layout from "../../theme/Layout";
 import "./roadmap.css";
+import DecoratedLayout from "../../theme/DecoratedLayout";
+import {EmphasisPageHeader} from "../../component/pageComponents/header/EmphasisPageHeader";
+import {GradientText} from "../../component/GradientText";
+import {PageHeader} from "../../component/pageComponents/header/PageHeader";
+import {PageHeaderTitle} from "../../component/pageComponents/header/PageHeaderTitle";
+import {PageHeaderSubtitle} from "../../component/pageComponents/header/PageHeaderSubtitle";
 
 type Item = {
   name: string;
@@ -166,31 +172,28 @@ key in the in-context translation UI.`,
 
 const passedPeriods = Object.entries(roadmapData)
   .filter((i) => !i[1].active && !i[1].future)
-  .reduce((acc, [name, data]) => ({ ...acc, [name]: data }), {}) as Record<
-  string,
-  PeriodData
->;
+  .reduce((acc, [name, data]) => ({...acc, [name]: data}), {}) as Record<string,
+  PeriodData>;
 
 const activePeriods = Object.entries(roadmapData)
   .filter((i) => i[1].active)
-  .reduce((acc, [name, data]) => ({ ...acc, [name]: data }), {}) as Record<
-  string,
-  PeriodData
->;
+  .reduce((acc, [name, data]) => ({...acc, [name]: data}), {}) as Record<string,
+  PeriodData>;
 
 const futurePeriods = Object.entries(roadmapData)
   .filter((i) => i[1].future)
-  .reduce((acc, [name, data]) => ({ ...acc, [name]: data }), {}) as Record<
-  string,
-  PeriodData
->;
+  .reduce((acc, [name, data]) => ({...acc, [name]: data}), {}) as Record<string,
+  PeriodData>;
 
 export default () => {
   return (
     <div>
-      <Layout title={`Roadmap`}>
+      <DecoratedLayout title={`Roadmap`}>
+        <PageHeader className="mb-[220px]">
+          <PageHeaderSubtitle>Roadmap</PageHeaderSubtitle>
+          <PageHeaderTitle active>We are on it.</PageHeaderTitle>
+        </PageHeader>
         <div className="container roadmap__container">
-          <h1 className="roadmap__title">Tolgee Roadmap</h1>
           <div className="roadmap__items-wrapper">
             {[activePeriods, futurePeriods, passedPeriods].map((periods, i) => (
               <React.Fragment key={i}>
@@ -217,12 +220,12 @@ export default () => {
                             />
                           </h3>
                           {(typeof item.description === "string"
-                            ? [item.description]
-                            : item.description
+                              ? [item.description]
+                              : item.description
                           ).map((d, i) => (
                             <p
                               key={i}
-                              dangerouslySetInnerHTML={{ __html: d }}
+                              dangerouslySetInnerHTML={{__html: d}}
                             />
                           ))}
                         </div>
@@ -234,7 +237,7 @@ export default () => {
             ))}
           </div>
         </div>
-      </Layout>
+      </DecoratedLayout>
     </div>
   );
 };

@@ -2,7 +2,7 @@ import React from "react"
 import Head from "@docusaurus/Head";
 import baseSchema from "../../info/organization";
 import DecoratedLayout from "../../theme/DecoratedLayout";
-import {PageHeader} from "../../component/pageComponents/PageHeader";
+import {EmphasisPageHeader} from "../../component/pageComponents/header/EmphasisPageHeader";
 import {TwoColumnSection} from "../../component/pageComponents/twoColumnSection/TwoColumnSection";
 import {TextColumn, TextColumnText, TextColumnTitle} from "../../component/pageComponents/twoColumnSection/TextColumn";
 import {ImageColumn} from "../../component/pageComponents/twoColumnSection/ImageColumn";
@@ -24,7 +24,7 @@ export default () => {
       title={baseSchema.slogan}
       description={baseSchema.description}
     >
-      <PageHeader title="Translation assistance." title2="Let the machines work for you."/>
+      <EmphasisPageHeader title="Translation assistance." title2="Let the machines work for you."/>
       <InContextFeature/>
       <OneClickScreenshotsFeature/>
       <TranslatingOnProductionFeature/>

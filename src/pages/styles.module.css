@@ -44,5 +44,5 @@
 }
 
 .header__title {
-    @apply text-6xl text-light-home-text font-[600] mb-0;
+    @apply text-6xl text-home-text font-[600] mb-0;
 }

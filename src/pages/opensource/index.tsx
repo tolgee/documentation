@@ -1,13 +1,22 @@
 import React from "react";
 import Layout from "../../theme/Layout";
 import "./openSource.css";
+import DecoratedLayout from "../../theme/DecoratedLayout";
+import {PageHeader} from "../../component/pageComponents/header/PageHeader";
+import {PageHeaderTitle} from "../../component/pageComponents/header/PageHeaderTitle";
+import {PageHeaderSubtitle} from "../../component/pageComponents/header/PageHeaderSubtitle";
+import {GradientText} from "../../component/GradientText";
 
 export default () => {
   return (
     <div>
-      <Layout title={`Why open-source?`}>
+      <DecoratedLayout title={`Why open-source?`}>
+        <PageHeader className="mb-[180px]">
+          <PageHeaderTitle active>Opensource is our passion.</PageHeaderTitle>
+          <PageHeaderSubtitle>Why so?</PageHeaderSubtitle>
+        </PageHeader>
+
         <div className="container opensource__container">
-          <h1 className="opensource__title">Why Open-source?</h1>
           <p>Open-source is just a wonderful thing 😍</p>
 
           <p>
@@ -44,7 +53,7 @@ export default () => {
             clearing the way for them for easy localization of their projects.
           </p>
 
-          <h2>So what are Tolgee’s revenue streams?</h2>
+          <h2><GradientText>So what are Tolgee’s revenue streams?</GradientText></h2>
 
           <p>
             We’re planning multiple ways for how to cover the developing cost of
@@ -52,18 +61,18 @@ export default () => {
           </p>
 
           <p>
-            👨‍💻 <b>Software as a Service</b> &#x2011; Firstly, paying for the
+            👨‍💻 <GradientText>Software as a Service</GradientText> &#x2011; Firstly, paying for the
             cloud system hosted by Tolgee will save time for developers
             maintaining the system and make the whole process more comfortable.
           </p>
 
           <p>
-            🛒 <b>Marketplace of translators</b> &#x2011; We plan to create a
+            🛒 <GradientText>Marketplace of translators</GradientText> &#x2011; We plan to create a
             place where you can find IT&#x2011;experienced translators to
             translate your projects fast.
           </p>
         </div>
-      </Layout>
+      </DecoratedLayout>
     </div>
   );
 };

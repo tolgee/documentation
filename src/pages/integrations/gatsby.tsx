@@ -18,6 +18,7 @@ import { ReactDocsCoolButton } from "../../component/landingPages/js/ReactDocsCo
 import { ReactBaseParagraph } from "../../component/landingPages/ReactBaseParagraph";
 import { ReactInstallationStepUseTComponent } from "../../component/landingPages/js/TeactInstallationStepUseTComponent";
 import GatsbyLogo from "../../../static/img/technologies/logo-gatsby.svg";
+import {Features} from "../../component/home/Features";
 
 export default () => {
   return (
@@ -42,7 +43,6 @@ export default () => {
           technologyName={"Gatsby"}
         />
       </LandingPageDescription>
-      <ReactBaseFeatures technologyName="Gatsby.js" />
       <LandingPageInstallation>
         <InstallationStepCreateProjectInTolgeePlatform />
         <LandingPageInstallationStep title="2. Setup Tolgee integration">
@@ -91,6 +91,7 @@ export default () => {
           </div>
         </LandingPageInstallationStep>
       </LandingPageInstallation>
+      <Features/>
     </LandingPage>
   );
 };

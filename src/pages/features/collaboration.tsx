@@ -2,7 +2,7 @@ import React from "react"
 import Head from "@docusaurus/Head";
 import baseSchema from "../../info/organization";
 import DecoratedLayout from "../../theme/DecoratedLayout";
-import {PageHeader} from "../../component/pageComponents/PageHeader";
+import {EmphasisPageHeader} from "../../component/pageComponents/header/EmphasisPageHeader";
 import {MoreFeatures} from "../../component/pageComponents/featurePage/MoreFeatures";
 import {CommentsFeature} from "../../component/pageComponents/featurePage/collaboration/CommentsFeature";
 import {ActivityLogFeature} from "../../component/pageComponents/featurePage/collaboration/ActivityLogFeature";
@@ -18,7 +18,7 @@ export default () => {
       title={baseSchema.slogan}
       description={baseSchema.description}
     >
-      <PageHeader title="Collaboration." title2="Have fun working together."/>
+      <EmphasisPageHeader title="Collaboration." title2="Have fun working together."/>
       <ActivityLogFeature/>
       <CommentsFeature/>
       <TranslationHistoryFeature/>
