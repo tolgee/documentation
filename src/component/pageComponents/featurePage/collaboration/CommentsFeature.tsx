@@ -10,13 +10,15 @@ export const CommentsFeature = () => {
     <>
       <FeatureHeader title="Comment on translations" id="comments"/>
       <TwoColumnSection>
-        <ImageColumn/>
         <TextColumn>
           <TextColumnTitle>Say what you think.</TextColumnTitle>
           <TextColumnText>
             Something odd? Tell others what you would change. You can comment <GradientText>every translation</GradientText> in Tolgee platform.
           </TextColumnText>
         </TextColumn>
+        <ImageColumn>
+          <img alt="Translation memory" src="/img/features/translation-comments-light.svg"/>
+        </ImageColumn>
       </TwoColumnSection>
     </>)
 }

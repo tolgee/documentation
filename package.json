@@ -9,14 +9,18 @@
     "swizzle": "docusaurus swizzle",
     "deploy": "docusaurus deploy",
     "serve": "docusaurus serve",
-    "clear": "docusaurus clear"
+    "clear": "docusaurus clear",
+    "generate-pricing": "ts-node scripts/generatePricingData.ts"
   },
   "dependencies": {
     "@docusaurus/core": "2.0.0-beta.21",
     "@docusaurus/mdx-loader": "2.0.0-beta.21",
     "@docusaurus/module-type-aliases": "2.0.0-beta.21",
     "@docusaurus/preset-classic": "2.0.0-beta.21",
+    "@emotion/react": "11.9.3",
+    "@emotion/styled": "11.9.3",
     "@mdx-js/react": "^1.6.21",
+    "@mui/material": "5.9.2",
     "@tsconfig/docusaurus": "^1.0.2",
     "@types/react": "^17.0.45",
     "@types/react-helmet": "^6.1.0",
@@ -38,6 +42,7 @@
     "schema-dts": "^1.0.0",
     "styled-components": "5.3.3",
     "tailwindcss": "3.1.4",
+    "ts-node": "^10.9.1",
     "typescript": "^4.5.5"
   },
   "browserslist": {

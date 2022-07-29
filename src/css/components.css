@@ -92,7 +92,7 @@
     .page-with-decoration .navbar:before {
         transition: background-color 0.3s;
         opacity: 0.88;
-        backdrop-filter: blur(10px);
+        backdrop-filter: blur(4px);
         content: '';
         position: absolute;
         width: 100%;
@@ -104,7 +104,6 @@
     .page-with-decoration--scrolled .navbar:before {
         background-color: var(--ifm-navbar-background-color);
     }
-
 
     .page-with-decoration {
         position: relative;
