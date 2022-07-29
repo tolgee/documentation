@@ -15,6 +15,7 @@ import {OneClickScreenshotsFeature} from "../../component/pageComponents/feature
 import {TranslatingOnProductionFeature} from "../../component/pageComponents/featurePage/devTools/TranslatingOnProductionFeature";
 import {TrueIntegrationsFeature} from "../../component/pageComponents/featurePage/devTools/TrueIntegrationsFeature";
 
+// noinspection JSUnusedGlobalSymbols
 export default () => {
   return (<div className="home__container">
     <Head>
@@ -24,7 +25,7 @@ export default () => {
       title={baseSchema.slogan}
       description={baseSchema.description}
     >
-      <EmphasisPageHeader title="Translation assistance." title2="Let the machines work for you."/>
+      <EmphasisPageHeader title="Dev tools." title2="Do it faster."/>
       <InContextFeature/>
       <OneClickScreenshotsFeature/>
       <TranslatingOnProductionFeature/>

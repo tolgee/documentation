@@ -26,6 +26,7 @@ export default function Layout({
   useKeyboardNavigation();
 
   return (
+
     <div className={clsx(wholePageWrapperClassName)}>
       <LayoutProviders>
         <PageMetadata title={title} description={description}/>

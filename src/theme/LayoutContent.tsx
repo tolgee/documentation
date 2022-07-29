@@ -1,4 +1,4 @@
-import React, {useEffect} from "react";
+import React, {useEffect, useMemo} from "react";
 
 import {useColorMode} from "@docusaurus/theme-common";
 import Head from "@docusaurus/Head";
@@ -6,6 +6,12 @@ import useDocusaurusContext from "@docusaurus/useDocusaurusContext";
 import {getChatwootScript} from "../component/externalScripts/getChatwootScript";
 import {getGtagScript} from "../component/externalScripts/getGtagScript";
 import websiteSchema from "../info/website";
+import {createTheme, ThemeProvider as MuiThemeProvider} from "@mui/material";
+
+const ColorModeContext = React.createContext({
+  toggleColorMode: () => {
+  }
+});
 
 export const LayoutContent = ({children}) => {
   const isDarkTheme = useColorMode().colorMode === "dark";
@@ -26,6 +32,18 @@ export const LayoutContent = ({children}) => {
       }
     }, 30)
   }, [isDarkTheme]);
+
+
+  const theme = useMemo(() => {
+    return createTheme({
+      palette: {
+        primary: {
+          main: isDarkTheme ? 'rgb(255, 105, 149)' : '#822B55',
+        }
+      }
+    })
+  }, [isDarkTheme])
+
   return (
     <>
       <Head>
@@ -37,7 +55,9 @@ export const LayoutContent = ({children}) => {
           {JSON.stringify(websiteSchema)}
         </script>
       </Head>
-      {children}
+      <MuiThemeProvider theme={theme}>
+        {children}
+      </MuiThemeProvider>
     </>
-  );
+  )
 };

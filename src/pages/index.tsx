@@ -25,7 +25,7 @@ function Home() {
       >
         <div className="text-home-text">
           <EmphasisPageHeader title="Perfect translation." title2="Users everywhere."/>
-          <TwoColumnSection>
+          <TwoColumnSection className="md:h-[750px]">
             <ImageColumn/>
             <TextColumn>
               <TextColumnTitle>Revolution is here.</TextColumnTitle>
