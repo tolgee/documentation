@@ -11,7 +11,8 @@ export const ActivityLogFeature = () => {
       <TwoColumnSection>
         <ImageColumn>
           <img alt="Activity log" src="/img/features/activity-log-light.svg"/>
-        </ImageColumn>        <TextColumn>
+        </ImageColumn>
+        <TextColumn>
           <TextColumnTitle>Watch the growth.</TextColumnTitle>
           <TextColumnText>
             See who modified, reviewed or commented the phrases in your project. Clearly.

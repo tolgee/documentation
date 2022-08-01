@@ -14,23 +14,16 @@ import {InContextFeature} from "../../component/pageComponents/featurePage/devTo
 import {OneClickScreenshotsFeature} from "../../component/pageComponents/featurePage/devTools/OneClickScreenshotsFeature";
 import {TranslatingOnProductionFeature} from "../../component/pageComponents/featurePage/devTools/TranslatingOnProductionFeature";
 import {TrueIntegrationsFeature} from "../../component/pageComponents/featurePage/devTools/TrueIntegrationsFeature";
+import {BaseFeaturePage} from "../../component/pageComponents/featurePage/BaseFeaturePage";
 
 // noinspection JSUnusedGlobalSymbols
 export default () => {
-  return (<div className="home__container">
-    <Head>
-      <script type="application/ld+json">{JSON.stringify(baseSchema)}</script>
-    </Head>
-    <DecoratedLayout
-      title={baseSchema.slogan}
-      description={baseSchema.description}
-    >
-      <EmphasisPageHeader title="Dev tools." title2="Do it faster."/>
+  return (
+    <BaseFeaturePage title="Dev tools" title2="Do it faster.">
       <InContextFeature/>
       <OneClickScreenshotsFeature/>
       <TranslatingOnProductionFeature/>
       <TrueIntegrationsFeature/>
-      <MoreFeatures/>
-    </DecoratedLayout>
-  </div>)
+    </BaseFeaturePage>
+  )
 }
