@@ -9,8 +9,9 @@ export const OneClickScreenshotsFeature = () => {
     <>
       <FeatureHeader title="One click screenshots" id="one-click-screenshots"/>
       <TwoColumnSection>
-        <ImageColumn/>
-        <TextColumn>
+        <ImageColumn>
+          <img alt="One-click screenshots" src="/img/features/one-click-screenshots1-light.svg"/>
+        </ImageColumn>        <TextColumn>
           <TextColumnTitle>Twice.</TextColumnTitle>
           <TextColumnText>
             That's how many times you have to click to provide screenshot from your application with highlighted phrase to
@@ -19,6 +20,9 @@ export const OneClickScreenshotsFeature = () => {
         </TextColumn>
       </TwoColumnSection>
       <TwoColumnSection>
+        <ImageColumn>
+          <img alt="One-click screenshots" src="/img/features/one-click-screenshots2-light.svg"/>
+        </ImageColumn>
         <TextColumn>
           <TextColumnTitle>Highlighted.</TextColumnTitle>
           <TextColumnText>
@@ -26,7 +30,6 @@ export const OneClickScreenshotsFeature = () => {
             till your customers tell you what's wrong. Provide perfect results right away.
           </TextColumnText>
         </TextColumn>
-        <ImageColumn/>
       </TwoColumnSection>
     </>
   )

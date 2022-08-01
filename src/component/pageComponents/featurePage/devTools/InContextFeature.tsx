@@ -1,14 +1,8 @@
 import React from "react"
-import Head from "@docusaurus/Head";
-import baseSchema from "../../../../info/organization";
-import DecoratedLayout from "../../../../theme/DecoratedLayout";
-import {EmphasisPageHeader} from "../../header/EmphasisPageHeader";
 import {TwoColumnSection} from "../../twoColumnSection/TwoColumnSection";
 import {TextColumn, TextColumnText, TextColumnTitle} from "../../twoColumnSection/TextColumn";
 import {ImageColumn} from "../../twoColumnSection/ImageColumn";
 import {GradientText} from "../../../GradientText";
-import {CoolButton} from "../../../buttons/CoolButton";
-import {MoreFeatures} from "../MoreFeatures";
 import {FeatureHeader} from "../FeatureHeader";
 
 export const InContextFeature = () => {
@@ -16,7 +10,9 @@ export const InContextFeature = () => {
     <>
       <FeatureHeader title="In context translating" id="in-context"/>
       <TwoColumnSection>
-        <ImageColumn/>
+        <ImageColumn>
+          <img alt="In context ALT key" src="/img/features/in-context1-ligth.svg"/>
+        </ImageColumn>
         <TextColumn>
           <TextColumnTitle>No more time wasted.</TextColumnTitle>
           <TextColumnText>
@@ -29,6 +25,9 @@ export const InContextFeature = () => {
       </TwoColumnSection>
 
       <TwoColumnSection>
+        <ImageColumn>
+          <img alt="In context dialog" src="/img/features/in-context2-light.svg"/>
+        </ImageColumn>
         <TextColumn>
           <TextColumnTitle>No more mistakes.</TextColumnTitle>
           <TextColumnText>
@@ -37,7 +36,6 @@ export const InContextFeature = () => {
             App.
           </TextColumnText>
         </TextColumn>
-        <ImageColumn/>
       </TwoColumnSection>
     </>)
 }
