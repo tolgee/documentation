@@ -1,9 +1,6 @@
 import React from "react";
-import Layout from "../../theme/Layout";
 import "./roadmap.css";
 import DecoratedLayout from "../../theme/DecoratedLayout";
-import {EmphasisPageHeader} from "../../component/pageComponents/header/EmphasisPageHeader";
-import {GradientText} from "../../component/GradientText";
 import {PageHeader} from "../../component/pageComponents/header/PageHeader";
 import {PageHeaderTitle} from "../../component/pageComponents/header/PageHeaderTitle";
 import {PageHeaderSubtitle} from "../../component/pageComponents/header/PageHeaderSubtitle";

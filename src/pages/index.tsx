@@ -20,6 +20,7 @@ function Home() {
     let initialPageY: number;
 
     document.addEventListener("mousemove", parallax);
+
     function parallax(event) {
       if (typeof initialPageY === 'undefined' || typeof initialPageX === 'undefined') {
         initialPageX = event.pageX;
@@ -53,7 +54,8 @@ function Home() {
         description={baseSchema.description}
       >
         <div className="text-home-text">
-          <EmphasisPageHeader title="Perfect translation." title2="Users everywhere."/>
+          <EmphasisPageHeader title2="Fast integration." title="Smart platform." title3="Painless localization."/>
+
           <section
             className="flex items-center md:max-w-[1500px] mx-auto md:min-h-[600locapx] ">
             <div className="flex gap-12 sm:m-12 m-8 flex-col lg:flex-row">
@@ -63,9 +65,10 @@ function Home() {
               <TextColumn className="min-w-[300px] lg:items-end md:items-center md:text-center lg:text-left">
                 <TextColumnTitle>Revolution is here.</TextColumnTitle>
                 <TextColumnText>
-                  Integrate Tolgee into your App in minutes.
-                  Speed up your translation process by <GradientText>90%</GradientText> by using Tolgee <GradientText>revolutionary</GradientText> integrations.
-                  Let your <GradientText>mama</GradientText> translate your App with in-context localization feature.
+                  Speed up your translation process by <span><GradientText>90%</GradientText></span> using
+                  Tolgee. It has <GradientText>revolutionary</GradientText> integrations.
+                  Setup Tolgee in seconds.
+                  Let <GradientText>anyone</GradientText> translate your App with in-context localization feature.
                 </TextColumnText>
               </TextColumn>
             </div>
