@@ -55,15 +55,14 @@ function Home() {
       >
         <div className="text-home-text">
           <EmphasisPageHeader title2="Fast integration." title="Smart platform." title3="Painless localization."/>
-
           <section
-            className="flex items-center md:max-w-[1500px] mx-auto md:min-h-[600locapx] ">
+            className="my-[100px] flex items-center md:max-w-[1500px] mx-auto">
             <div className="flex gap-12 sm:m-12 m-8 flex-col lg:flex-row">
               <ImageColumn>
                 <HeroLight className="hero-svg"/>
               </ImageColumn>
               <TextColumn className="min-w-[300px] lg:items-end md:items-center md:text-center lg:text-left">
-                <TextColumnTitle>Revolution is here.</TextColumnTitle>
+                <TextColumnTitle>Revolution is here</TextColumnTitle>
                 <TextColumnText>
                   Speed up your translation process by <span><GradientText>90%</GradientText></span> using
                   Tolgee. It has <GradientText>revolutionary</GradientText> integrations.

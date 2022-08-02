@@ -34,9 +34,9 @@
     --dark-home-text: #e0e4ea;
     --navbar-link-text-color: #303846;
     --home-text: var(--light-home-text);
-    --home-features-gradient-1: var(--ifm-color-primary);
-    --home-features-gradient-2: var(--ifm-color-primary);
-    --home-features-gradient-3: var(--ifm-color-primary-light);
+    --home-features-gradient-1: #EBEDF0;
+    --home-features-gradient-2: #EBEDF0;
+    --home-features-gradient-3: #FFFFFF;
     --references-bg: #EEEEF0;
     --footer-background-gradient-start: #FFFFFF;
     --footer-background-gradient-stop: #EBEDF0;
