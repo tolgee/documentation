@@ -88,16 +88,16 @@ module.exports = {
               to: "docs/web/get_started/hello_world",
             },
             {
-              label: "Using with React",
-              to: "docs/web/using_with_react/installation",
+              label: "Using Tolgee App",
+              to: "docs/platform",
             },
             {
               label: "Running server",
               to: "docs/platform/self_hosting/running_with_docker",
             },
             {
-              label: "Using Tolgee App",
-              to: "docs/platform",
+              label: "Using with React",
+              to: "docs/web/using_with_react/installation",
             },
           ],
         },
@@ -109,12 +109,20 @@ module.exports = {
               href: "https://github.com/tolgee",
             },
             {
+              label: "Discussions",
+              href: "https://github.com/tolgee/tolgee-platform/discussions",
+            },
+            {
               label: "Docker Hub",
               href: "https://hub.docker.com/orgs/tolgee",
             },
             {
               label: "Npm",
               href: "https://www.npmjs.com/org/tolgee",
+            },
+            {
+              label: "Slack",
+              href: "https://join.slack.com/t/tolgeecommunity/shared_invite/zt-195isb5u8-_RcSRgVJfvgsPpOBIok~IQ",
             },
           ],
         },
@@ -126,12 +134,20 @@ module.exports = {
               href: "https://app.tolgee.io",
             },
             {
+              label: "Docs",
+              to: "/docs",
+            },
+            {
               label: "LinkedIn",
               href: "https://www.linkedin.com/company/tolgee",
             },
             {
               label: "Twitter",
               href: "https://twitter.com/Tolgee_i18n",
+            },
+            {
+              label: "Facebook",
+              href: "https://www.facebook.com/Tolgee.i18n",
             },
             {
               label: "Terms of use",
