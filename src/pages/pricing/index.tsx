@@ -1,18 +1,16 @@
-import React, { useState } from "react";
-import "./pricing.css";
-import { RoboMouse } from "../../component/images/RoboMouse";
-import { PricingToggle } from "../../component/pricing/PricingToggle";
-import { PricingBase } from "../../component/pricing/PricingBase";
-import Link from "@docusaurus/Link";
-import { PricingFeatures } from "../../component/pricing/PricingFeatures";
-import { PricingPlan } from "../../component/pricing/PricingPlan";
-import { PricingDescription } from "../../component/pricing/PricingDescription";
+import React, { useState } from 'react';
+import './pricing.css';
+import { RoboMouse } from '../../component/images/RoboMouse';
+import { PricingToggle } from '../../component/pricing/PricingToggle';
+import { PricingBase } from '../../component/pricing/PricingBase';
+import Link from '@docusaurus/Link';
+import { PricingPlan } from '../../component/pricing/PricingPlan';
 
-export default () => {
-  const [billing, setBilling] = useState<"monthly" | "annually">("annually");
+export default function Pricing() {
+  const [billing, setBilling] = useState<'monthly' | 'annually'>('annually');
 
   const toggleBilling = () => {
-    setBilling((val) => (val === "annually" ? "monthly" : "annually"));
+    setBilling((val) => (val === 'annually' ? 'monthly' : 'annually'));
   };
 
   return (
@@ -105,4 +103,4 @@ export default () => {
       </div>
     </PricingBase>
   );
-};
+}

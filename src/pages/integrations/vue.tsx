@@ -1,31 +1,27 @@
-import React from "react";
-import ThemedImage from "@theme/ThemedImage";
-import {LandingPage} from "../../component/landingPages/LandingPage";
-import {LandingPageHeadline} from "../../component/landingPages/LandingPageHeadline";
-import {LandingPageDescription} from "../../component/landingPages/LandingPageDescription";
-import {LandingPagePreviewFeatures} from "../../component/landingPages/LandingPagePreviewFeatures";
-import {LandingPagePreviewFeature} from "../../component/landingPages/LandingPagePreviewFeature";
-import {LandingPageFeatures} from "../../component/landingPages/LandingPageFeatures";
-import {LandingPageFeature} from "../../component/landingPages/LandingPageFeature";
-import {LandingPageInstallationStep} from "../../component/landingPages/LandingPageInstallationStep";
-import {LandingPageInstallation} from "../../component/landingPages/LandingPageInstallation";
-import {LandingPageInstallationCode} from "../../component/landingPages/LandingPageInstallationCode";
-import {AlertInfo} from "../../component/AlertInfo";
-import {CoolButton} from "../../component/buttons/CoolButton";
-import {CoolButtonText} from "../../component/buttons/CoolButtonText";
-import Link from "@docusaurus/Link";
-import {CoolButtonImage} from "../../component/buttons/CoolButtonImage";
-import VueLogo from "../../../static/img/technologies/logo-vue.svg";
-import {baseBadges} from "../../component/landingPages/js/baseBadges";
-import {Features} from "../../component/home/Features";
+import React from 'react';
+import ThemedImage from '@theme/ThemedImage';
+import { LandingPage } from '../../component/landingPages/LandingPage';
+import { LandingPageHeadline } from '../../component/landingPages/LandingPageHeadline';
+import { LandingPageDescription } from '../../component/landingPages/LandingPageDescription';
+import { LandingPageInstallationStep } from '../../component/landingPages/LandingPageInstallationStep';
+import { LandingPageInstallation } from '../../component/landingPages/LandingPageInstallation';
+import { LandingPageInstallationCode } from '../../component/landingPages/LandingPageInstallationCode';
+import { AlertInfo } from '../../component/AlertInfo';
+import { CoolButton } from '../../component/buttons/CoolButton';
+import { CoolButtonText } from '../../component/buttons/CoolButtonText';
+import Link from '@docusaurus/Link';
+import { CoolButtonImage } from '../../component/buttons/CoolButtonImage';
+import VueLogo from '../../../static/img/technologies/logo-vue.svg';
+import { baseBadges } from '../../component/landingPages/js/baseBadges';
+import { Features } from '../../component/home/Features';
 
-export default () => {
+export default function Vue() {
   return (
-    <LandingPage title={"Tolgee for Vue"}>
+    <LandingPage title={'Tolgee for Vue'}>
       <LandingPageHeadline
         loveImage={{
-          img: <VueLogo width={80}/>,
-          name: "Vue",
+          img: <VueLogo width={80} />,
+          name: 'Vue',
         }}
         badges={baseBadges}
       >
@@ -38,22 +34,20 @@ export default () => {
           i18n features.
         </p>
         <p>
-          To see Vue with Tolgee in action, check{" "}
+          To see Vue with Tolgee in action, check{' '}
           <a href="https://github.com/tolgee/vue-example">this example app</a>.
         </p>
       </LandingPageDescription>
-
-
 
       <LandingPageInstallation>
         <AlertInfo>Tolgee for Vue currently supports only Vue v3.</AlertInfo>
         <LandingPageInstallationStep title="1. Create project in Tolgee platform">
           <p>
             Go to <a href="https://app.tolgee.io">Tolgee Cloud app</a> or access
-            your{" "}
+            your{' '}
             <a href="/docs/platform/self_hosting/running_with_docker">
               self-hosted instance
-            </a>{" "}
+            </a>{' '}
             and create a project. Then obtain your API key.
           </p>
         </LandingPageInstallationStep>
@@ -76,7 +70,7 @@ export default () => {
 
         <LandingPageInstallationStep title="Explore the Docs and check out example app!">
           <p>Continue exploring...</p>
-          <div style={{display: "flex", gap: "20px", flexWrap: "wrap"}}>
+          <div style={{ display: 'flex', gap: '20px', flexWrap: 'wrap' }}>
             <CoolButton
               component={Link}
               to="/docs/web/using_with_vue/installation"
@@ -92,8 +86,8 @@ export default () => {
               <CoolButtonImage>
                 <ThemedImage
                   sources={{
-                    light: "/img/github.svg",
-                    dark: "/img/githubLight.svg",
+                    light: '/img/github.svg',
+                    dark: '/img/githubLight.svg',
                   }}
                   alt="GitHub"
                 />
@@ -103,11 +97,10 @@ export default () => {
         </LandingPageInstallationStep>
       </LandingPageInstallation>
 
-      <Features/>
-
+      <Features />
     </LandingPage>
   );
-};
+}
 
 const providerCode = `<template>
   <TolgeeProvider :config="config">
@@ -116,7 +109,6 @@ const providerCode = `<template>
 </template>
 
 <script>
-import { TolgeeProvider } from '@tolgee/vue';
 
 export default {
   data() {

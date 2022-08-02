@@ -1,6 +1,6 @@
-import React, { FC } from "react";
+import React, { FC } from 'react';
 
-export const LandingPagePreviewFeatures: FC<{}> = ({ children }) => (
+export const LandingPagePreviewFeatures: FC = ({ children }) => (
   <div className="container integration">
     <section className="integration__preview-feature-section">
       {children}

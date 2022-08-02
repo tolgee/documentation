@@ -1,20 +1,23 @@
 .integration__feature-section {
-    margin: 0 auto;
-    display: flex;
-    gap: 30px;
-    flex-wrap: wrap;
-    min-width: 0;
-    justify-content: space-around;
+  margin: 0 auto;
+  display: flex;
+  gap: 30px;
+  flex-wrap: wrap;
+  min-width: 0;
+  justify-content: space-around;
 }
 
 .integration__feature-section-background-wrapper {
-    padding: 40px 0;
-    margin-top: 100px;
-    background: radial-gradient(var(--gradient-main-color) 24%, var(--gradient-start-color) 80%);
+  padding: 40px 0;
+  margin-top: 100px;
+  background: radial-gradient(
+    var(--gradient-main-color) 24%,
+    var(--gradient-start-color) 80%
+  );
 }
 
 @media screen and (min-width: 1000px) {
-    .integration__feature-section {
-        justify-content: space-between;
-    }
+  .integration__feature-section {
+    justify-content: space-between;
+  }
 }

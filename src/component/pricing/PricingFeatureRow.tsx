@@ -1,4 +1,4 @@
-import React from "react";
+import React from 'react';
 
 type Props = {
   name: string;
@@ -9,7 +9,7 @@ export const PricingFeatureRow: React.FC<Props> = ({ name, description }) => {
   return (
     <>
       <div className="pricing__features-table-name">{name}</div>
-      <div>{">"}</div>
+      <div>{'>'}</div>
       <div className="pricing__features-table-description">{description}</div>
     </>
   );

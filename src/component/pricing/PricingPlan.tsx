@@ -1,6 +1,6 @@
-import Link from "@docusaurus/Link";
-import Tooltip from "react-simple-tooltip";
-import React from "react";
+import Link from '@docusaurus/Link';
+import Tooltip from 'react-simple-tooltip';
+import React from 'react';
 
 type Props = {
   name: string;
@@ -9,7 +9,7 @@ type Props = {
   numCredits: number | undefined;
   freeForOpensource?: boolean;
   billing?: { monthly: number; annually: number };
-  billingType?: "monthly" | "annually";
+  billingType?: 'monthly' | 'annually';
   toggleBillingType?: () => void;
   price?: number;
   action: React.ReactNode;
@@ -20,9 +20,10 @@ const Translations = () => {
     <Tooltip
       content={
         <div className="pricing__tooltip">
-          Amount of translations you can store in <br/>
-          projects in your organization.<br/>
-          Current amount of translations is calculated <br/>
+          Amount of translations you can store in <br />
+          projects in your organization.
+          <br />
+          Current amount of translations is calculated <br />
           as sum of keys multiplied by languages for every project.
         </div>
       }
@@ -59,9 +60,9 @@ export const PricingPlan: React.FC<Props> = ({
   const BillingSwitch = () => {
     return (
       <button onClick={toggleBillingType} className="pricing__billing-switch">
-        {billingType === "monthly"
-          ? "Switch to annual billing"
-          : "Switch to monthly billing"}
+        {billingType === 'monthly'
+          ? 'Switch to annual billing'
+          : 'Switch to monthly billing'}
       </button>
     );
   };
@@ -83,16 +84,16 @@ export const PricingPlan: React.FC<Props> = ({
           <span className="pricing__option-value">
             {numTranslations !== undefined
               ? numTranslations.toLocaleString()
-              : "unlimited"}
-          </span>{" "}
+              : 'unlimited'}
+          </span>{' '}
           <Translations />
         </li>
         <li>
           <span className="pricing__option-value">
             {numCredits !== undefined
               ? numCredits.toLocaleString()
-              : "unlimited"}
-          </span>{" "}
+              : 'unlimited'}
+          </span>{' '}
           <Credits />
         </li>
         <li>
@@ -108,13 +109,13 @@ export const PricingPlan: React.FC<Props> = ({
           <BillingSwitch />
 
           <div className="pricing__option-price">
-            {billingType === "monthly" ? (
+            {billingType === 'monthly' ? (
               <div>
                 {Number(billing.monthly).toLocaleString()} €<span>/mo</span>
               </div>
             ) : (
               <div>
-                {Number(billing.annually).toLocaleString()} €<span>/mo</span>{" "}
+                {Number(billing.annually).toLocaleString()} €<span>/mo</span>{' '}
                 <span className="pricing__option-billing">
                   (annual billing)
                 </span>

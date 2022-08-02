@@ -1,4 +1,4 @@
-import pricesData from '../../../../generated/mtCreditPrices.json'
+import pricesData from '../../../../generated/mtCreditPrices.json';
 
 type SliderValue = {
   totalAmount: number;
@@ -8,7 +8,7 @@ type SliderValue = {
   regularPrice: number | undefined;
 };
 
-const prices = pricesData._embedded.prices
+const prices = pricesData._embedded.prices;
 const sortedPrices = prices.sort((a, b) => a.amount - b.amount);
 
 let currentStep = 0;

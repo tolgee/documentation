@@ -1,12 +1,12 @@
 .video__video {
-    max-width: 800px;
-    max-height: 100%;
-    border-radius: 5px;
-    min-width: 0;
+  max-width: 800px;
+  max-height: 100%;
+  border-radius: 5px;
+  min-width: 0;
 }
 
 .video__button {
-    border: none;
-    cursor: pointer;
-    background: none;
+  border: none;
+  cursor: pointer;
+  background: none;
 }

@@ -5,9 +5,8 @@
   align-items: center;
   margin-bottom: 50px;
   margin-top: 100px;
-  gap: 20px
+  gap: 20px;
 }
-
 
 @media screen and (min-width: 950px) {
   .integration__preview-feature:nth-child(2n + 1) {
@@ -19,7 +18,8 @@
   }
 }
 
-.integration__preview-feature:nth-child(2n) .integration__preview-feature-video {
+.integration__preview-feature:nth-child(2n)
+  .integration__preview-feature-video {
   margin-right: 0;
   flex-grow: 1;
 }
@@ -33,7 +33,6 @@
   min-width: min(400px, 100%);
 }
 
-
 .browser {
   border-radius: 8px;
   display: flex;
@@ -43,7 +42,7 @@
 }
 
 .browser::before {
-  content: "\2022 \2022 \2022";
+  content: '\2022 \2022 \2022';
   display: flex;
   align-items: center;
   padding: 0 10px 3px;

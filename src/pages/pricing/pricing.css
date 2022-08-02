@@ -1,5 +1,5 @@
 .pricing__background-wrapper::before {
-  content: "";
+  content: '';
   display: block;
   height: 440px;
   width: 100%;
@@ -13,7 +13,7 @@
 }
 
 .pricing__background-wrapper::after {
-  content: "";
+  content: '';
   display: block;
   height: 650px;
   width: 1700px;
@@ -28,7 +28,7 @@
   background: rgba(0, 0, 0, 0.05);
 }
 
-html[data-theme="dark"] .pricing__background-wrapper::after {
+html[data-theme='dark'] .pricing__background-wrapper::after {
   background: rgba(0, 0, 0, 0.2);
 }
 
@@ -54,18 +54,17 @@ html[data-theme="dark"] .pricing__background-wrapper::after {
   flex-wrap: wrap;
   justify-content: center;
   align-items: center;
-  grid-template-areas: "free basic premium enterprise";
+  grid-template-areas: 'free basic premium enterprise';
   gap: 24px;
   padding: var(--ifm-spacing-horizontal);
   grid-template-columns: 1fr 1fr 1fr 1fr;
-
 }
 
 @media screen and (max-width: 1200px) {
   .pricing__options-wrapper-cloud {
     grid-template-areas:
-      "basic premium"
-      "free  enterprise";
+      'basic premium'
+      'free  enterprise';
     grid-template-columns: 1fr 1fr;
   }
 }
@@ -73,10 +72,10 @@ html[data-theme="dark"] .pricing__background-wrapper::after {
 @media screen and (max-width: 650px) {
   .pricing__options-wrapper-cloud {
     grid-template-areas:
-      "free"
-      "basic"
-      "premium"
-      "enterprise";
+      'free'
+      'basic'
+      'premium'
+      'enterprise';
     grid-template-columns: 1fr;
     justify-items: center;
   }
@@ -87,7 +86,7 @@ html[data-theme="dark"] .pricing__background-wrapper::after {
   flex-wrap: wrap;
   justify-content: center;
   align-items: center;
-  grid-template-areas: "no-support support";
+  grid-template-areas: 'no-support support';
   gap: 24px;
   padding: var(--ifm-spacing-horizontal);
 }
@@ -95,8 +94,8 @@ html[data-theme="dark"] .pricing__background-wrapper::after {
 @media screen and (max-width: 650px) {
   .pricing__options-wrapper-self-hosted {
     grid-template-areas:
-      "no-support"
-      "support";
+      'no-support'
+      'support';
   }
 }
 
@@ -130,7 +129,7 @@ html[data-theme="dark"] .pricing__background-wrapper::after {
   padding-bottom: 16px !important;
 }
 
-html[data-theme="dark"] .pricing__option--highlighted > div {
+html[data-theme='dark'] .pricing__option--highlighted > div {
   box-shadow: 0px 0px 15px var(--ifm-color-emphasis-800) !important;
 }
 
@@ -211,8 +210,8 @@ html[data-theme="dark"] .pricing__option--highlighted > div {
   margin-top: 8px;
 }
 
-html[data-theme="dark"] .pricing__option-button,
-html[data-theme="dark"] .pricing__option-button:hover {
+html[data-theme='dark'] .pricing__option-button,
+html[data-theme='dark'] .pricing__option-button:hover {
   background: var(--ifm-color-primary);
   color: #000000;
 }
@@ -413,5 +412,5 @@ html[data-theme="dark"] .pricing__option-button:hover {
 }
 
 .pricing__features-table-description {
-  color: var(--ifm-color-emphasis-700)
+  color: var(--ifm-color-emphasis-700);
 }

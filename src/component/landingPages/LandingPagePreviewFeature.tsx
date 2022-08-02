@@ -1,6 +1,6 @@
-import clsx from "clsx";
-import React, { FC } from "react";
-import "./LandingPagePreviewFeature.css";
+import clsx from 'clsx';
+import React, { FC } from 'react';
+import './LandingPagePreviewFeature.css';
 
 export const LandingPagePreviewFeature: FC<{
   videoSrc: string;
@@ -10,9 +10,9 @@ export const LandingPagePreviewFeature: FC<{
     <div className="integration__preview-feature-text">{children}</div>
     <div
       className={clsx(
-        "browser",
-        "integration__preview-feature-video",
-        bigger && "integration__preview-feature-video--bigger"
+        'browser',
+        'integration__preview-feature-video',
+        bigger && 'integration__preview-feature-video--bigger'
       )}
     >
       <video loop autoPlay muted playsInline>

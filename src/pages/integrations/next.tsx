@@ -1,31 +1,31 @@
-import React from "react";
-import ThemedImage from "@theme/ThemedImage";
-import {LandingPage} from "../../component/landingPages/LandingPage";
-import {LandingPageHeadline} from "../../component/landingPages/LandingPageHeadline";
-import {LandingPageDescription} from "../../component/landingPages/LandingPageDescription";
-import {LandingPageInstallationStep} from "../../component/landingPages/LandingPageInstallationStep";
-import {LandingPageInstallation} from "../../component/landingPages/LandingPageInstallation";
-import {LandingPageInstallationCode} from "../../component/landingPages/LandingPageInstallationCode";
-import {CoolButton} from "../../component/buttons/CoolButton";
-import {CoolButtonText} from "../../component/buttons/CoolButtonText";
-import Link from "@docusaurus/Link";
-import {CoolButtonImage} from "../../component/buttons/CoolButtonImage";
-import {baseBadges} from "../../component/landingPages/js/baseBadges";
-import {ExampleAppLinkDescriptionParagraph} from "../../component/landingPages/common/ExampleAppLinkDescriptionParagraph";
-import {InstallationStepCreateProjectInTolgeePlatform} from "../../component/landingPages/common/InstallationStepCreateProjectInTolgeePlatform";
-import {ReactDocsCoolButton} from "../../component/landingPages/js/ReactDocsCoolButton";
-import {ReactBaseParagraph} from "../../component/landingPages/ReactBaseParagraph";
-import {ReactInstallationStepUseTComponent} from "../../component/landingPages/js/TeactInstallationStepUseTComponent";
-import NextLogo from "../../../static/img/technologies/logo-next.svg";
-import {Features} from "../../component/home/Features";
+import React from 'react';
+import ThemedImage from '@theme/ThemedImage';
+import { LandingPage } from '../../component/landingPages/LandingPage';
+import { LandingPageHeadline } from '../../component/landingPages/LandingPageHeadline';
+import { LandingPageDescription } from '../../component/landingPages/LandingPageDescription';
+import { LandingPageInstallationStep } from '../../component/landingPages/LandingPageInstallationStep';
+import { LandingPageInstallation } from '../../component/landingPages/LandingPageInstallation';
+import { LandingPageInstallationCode } from '../../component/landingPages/LandingPageInstallationCode';
+import { CoolButton } from '../../component/buttons/CoolButton';
+import { CoolButtonText } from '../../component/buttons/CoolButtonText';
+import Link from '@docusaurus/Link';
+import { CoolButtonImage } from '../../component/buttons/CoolButtonImage';
+import { baseBadges } from '../../component/landingPages/js/baseBadges';
+import { ExampleAppLinkDescriptionParagraph } from '../../component/landingPages/common/ExampleAppLinkDescriptionParagraph';
+import { InstallationStepCreateProjectInTolgeePlatform } from '../../component/landingPages/common/InstallationStepCreateProjectInTolgeePlatform';
+import { ReactDocsCoolButton } from '../../component/landingPages/js/ReactDocsCoolButton';
+import { ReactBaseParagraph } from '../../component/landingPages/ReactBaseParagraph';
+import { ReactInstallationStepUseTComponent } from '../../component/landingPages/js/TeactInstallationStepUseTComponent';
+import NextLogo from '../../../static/img/technologies/logo-next.svg';
+import { Features } from '../../component/home/Features';
 
-export default () => {
+export default function Next() {
   return (
-    <LandingPage title={"Tolgee for Next"}>
+    <LandingPage title={'Tolgee for Next'}>
       <LandingPageHeadline
         loveImage={{
           img: <NextLogo width={80} />,
-          name: "Next.js",
+          name: 'Next.js',
         }}
         badges={baseBadges}
       >
@@ -38,8 +38,8 @@ export default () => {
         </p>
         <ReactBaseParagraph />
         <ExampleAppLinkDescriptionParagraph
-          repoName={"next-example"}
-          technologyName={"Next"}
+          repoName={'next-example'}
+          technologyName={'Next'}
         />
       </LandingPageDescription>
 
@@ -64,7 +64,7 @@ export default () => {
         <LandingPageInstallationStep title="Explore the Docs and check out example app!">
           <p>Continue exploring...</p>
 
-          <div style={{ display: "flex", gap: "20px", flexWrap: "wrap" }}>
+          <div style={{ display: 'flex', gap: '20px', flexWrap: 'wrap' }}>
             <ReactDocsCoolButton />
             <CoolButton
               component={Link}
@@ -81,8 +81,8 @@ export default () => {
               <CoolButtonImage>
                 <ThemedImage
                   sources={{
-                    light: "/img/github.svg",
-                    dark: "/img/githubLight.svg",
+                    light: '/img/github.svg',
+                    dark: '/img/githubLight.svg',
                   }}
                   alt="GitHub"
                 />
@@ -91,10 +91,10 @@ export default () => {
           </div>
         </LandingPageInstallationStep>
       </LandingPageInstallation>
-      <Features/>
+      <Features />
     </LandingPage>
   );
-};
+}
 
 const nextConfigCode = `/** @type {import('next').NextConfig} */
 module.exports = {

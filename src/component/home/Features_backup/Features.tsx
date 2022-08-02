@@ -1,13 +1,13 @@
-import React from "react";
-import Link from "@docusaurus/Link";
-import useBaseUrl from "@docusaurus/useBaseUrl";
-import "./Features.css";
-import LogoAngular from "../../../../static/img/technologies/logo-angular.svg";
-import LogoGatsby from "../../../../static/img/technologies/logo-gatsby.svg";
-import LogoNext from "../../../../static/img/technologies/logo-next.svg";
-import LogoReact from "../../../../static/img/technologies/logo-react.svg";
-import LogoVue from "../../../../static/img/technologies/logo-vue.svg";
-import LogoSvelte from "../../../../static/img/technologies/logo-svelte.svg";
+import React from 'react';
+import Link from '@docusaurus/Link';
+import useBaseUrl from '@docusaurus/useBaseUrl';
+import './Features.css';
+import LogoAngular from '../../../../static/img/technologies/logo-angular.svg';
+import LogoGatsby from '../../../../static/img/technologies/logo-gatsby.svg';
+import LogoNext from '../../../../static/img/technologies/logo-next.svg';
+import LogoReact from '../../../../static/img/technologies/logo-react.svg';
+import LogoVue from '../../../../static/img/technologies/logo-vue.svg';
+import LogoSvelte from '../../../../static/img/technologies/logo-svelte.svg';
 
 export const Features = () => {
   return (
@@ -29,7 +29,7 @@ export const Features = () => {
             </div>
             <div className="feature__technologies">
               <Link to="integrations/angular">
-                <LogoAngular  />
+                <LogoAngular />
               </Link>
               <Link to="integrations/svelte">
                 <LogoSvelte className="technology__smaller" />
@@ -49,7 +49,7 @@ export const Features = () => {
             </div>
           </div>
           <div className="feature__image">
-            <img src="/img/home/AllInOneImage.svg" alt="All in one"/>
+            <img src="/img/home/AllInOneImage.svg" alt="All in one" />
           </div>
         </div>
       </div>
@@ -74,7 +74,10 @@ export const Features = () => {
             </div>
           </div>
           <div className="feature__image">
-            <img src="/img/home/In-context-editing.svg" alt="In context-editing"/>
+            <img
+              src="/img/home/In-context-editing.svg"
+              alt="In context-editing"
+            />
           </div>
         </div>
       </div>
@@ -95,7 +98,7 @@ export const Features = () => {
             </div>
           </div>
           <div className="feature__image">
-            <img src="/img/home/screenshots.svg" alt="Take screenshots"/>
+            <img src="/img/home/screenshots.svg" alt="Take screenshots" />
           </div>
         </div>
       </div>
@@ -116,7 +119,10 @@ export const Features = () => {
             </div>
           </div>
           <div className="feature__image">
-            <img src="/img/home/Integration-in-one-minute.svg" alt="Integrate fast"/>
+            <img
+              src="/img/home/Integration-in-one-minute.svg"
+              alt="Integrate fast"
+            />
           </div>
         </div>
       </div>
@@ -125,13 +131,13 @@ export const Features = () => {
           <div className="feature__content">
             <div className="feature__header">It is Open-Source!</div>
             <div className="feature__text">
-              Yes, Tolgee is free to use, and it's very simple to deploy it
+              Yes, Tolgee is free to use, and it&apos;s very simple to deploy it
               locally or on your private infrastructure.
             </div>
             <div className="feature__text">
               <Link
                 to={useBaseUrl(
-                  "docs/platform/self_hosting/running_with_docker"
+                  'docs/platform/self_hosting/running_with_docker'
                 )}
               >
                 Learn how to deploy it!
@@ -139,7 +145,7 @@ export const Features = () => {
             </div>
           </div>
           <div className="feature__image">
-            <img src="/img/home/mouse-opensource.svg" alt="Integrate fast"/>
+            <img src="/img/home/mouse-opensource.svg" alt="Integrate fast" />
           </div>
         </div>
       </div>
