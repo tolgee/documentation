@@ -15,6 +15,7 @@ module.exports = {
         "primary-light": "var(--ifm-color-primary-light)",
         "primary-lighter": "var(--ifm-color-primary-lighter)",
         "primary-lightest": "var(--ifm-color-primary-lightest)",
+        "surface": "var(--ifm-background-surface-color)",
       },
       screens: {
         desktop: "997px"

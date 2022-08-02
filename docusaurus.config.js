@@ -18,48 +18,12 @@ module.exports = {
       },
       items: [
         {
-          type: "dropdown",
+          to: "integrations",
           activeBasePath: "integrations",
           label: "Integrations",
           position: "right",
-          items: [
-            {
-              to: "integrations/react",
-              activeBasePath: "integrations/react",
-              label: "React",
-            },
-            {
-              to: "integrations/angular",
-              activeBasePath: "integrations/angular",
-              label: "Angular",
-            },
-            {
-              to: "integrations/vue",
-              activeBasePath: "integrations/vue",
-              label: "Vue",
-            },
-            {
-              to: "integrations/svelte",
-              activeBasePath: "integrations/svelte",
-              label: "Svelte",
-            },
-            {
-              to: "integrations/next",
-              activeBasePath: "integrations/next",
-              label: "Next.js",
-            },
-            {
-              to: "integrations/gatsby",
-              activeBasePath: "integrations/gatsby",
-              label: "Gatsby",
-            },
-            {
-              to: "docs/integrations",
-              activeBasePath: "docs/integrations",
-              label: "more...",
-            },
-          ],
         },
+
         {
           to: "docs/",
           activeBasePath: "docs",
