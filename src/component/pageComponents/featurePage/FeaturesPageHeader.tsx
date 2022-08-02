@@ -5,7 +5,7 @@ import Link from "@docusaurus/Link";
 import {useRouteMatch} from "react-router-dom";
 import clsx from "clsx";
 
-const sections = [
+export const sections = [
   {name: 'Dev tools', slug: 'dev-tools'},
   {name: 'Translation Assistance', slug: 'translation-assistance'},
   {

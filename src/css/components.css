@@ -26,6 +26,11 @@
         bg-[color:var(--ifm-color-primary)] font-[500];
     }
 
+
+    .button--outlined {
+        @apply button--primary-reverse bg-transparent border-primary border-solid text-primary hover:text-primary hover:bg-transparent;
+    }
+
     .button--primary:hover {
         background: var(--ifm-color-primary-light);
         color: var(--ifm-color-emphasis-0);
@@ -61,7 +66,7 @@
     }
 
     .button--primary-reverse:hover::before {
-        opacity: 0.2;
+        opacity: 0.12;
     }
 
     .button--primary-reverse:hover {
@@ -92,7 +97,7 @@
     .page-with-decoration .navbar:before {
         transition: background-color 0.3s;
         opacity: 0.88;
-        backdrop-filter: blur(4px);
+        backdrop-filter: saturate(180%) blur(4px);
         content: '';
         position: absolute;
         width: 100%;
