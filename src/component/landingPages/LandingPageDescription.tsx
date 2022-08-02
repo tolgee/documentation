@@ -1,6 +1,6 @@
-import CodeBlock from "@theme/CodeBlock";
-import React, { FC } from "react";
-import "./LandingPageDescription.css";
+import CodeBlock from '@theme/CodeBlock';
+import React, { FC } from 'react';
+import './LandingPageDescription.css';
 
 export const LandingPageDescription: FC<{
   installationCommand: string;

@@ -1,5 +1,5 @@
-import React, { FC } from "react";
-import "./LandingPageInstallationStep.css";
+import React, { FC } from 'react';
+import './LandingPageInstallationStep.css';
 
 export const LandingPageInstallationStep: FC<{
   title: string;

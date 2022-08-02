@@ -1,26 +1,26 @@
-import React from "react";
-import ThemedImage from "@theme/ThemedImage";
-import {LandingPage} from "../../component/landingPages/LandingPage";
-import {LandingPageHeadline} from "../../component/landingPages/LandingPageHeadline";
-import {LandingPageDescription} from "../../component/landingPages/LandingPageDescription";
-import {LandingPageInstallationStep} from "../../component/landingPages/LandingPageInstallationStep";
-import {LandingPageInstallation} from "../../component/landingPages/LandingPageInstallation";
-import {LandingPageInstallationCode} from "../../component/landingPages/LandingPageInstallationCode";
-import {CoolButton} from "../../component/buttons/CoolButton";
-import {CoolButtonText} from "../../component/buttons/CoolButtonText";
-import Link from "@docusaurus/Link";
-import {CoolButtonImage} from "../../component/buttons/CoolButtonImage";
-import ReactLogo from "../../../static/img/technologies/logo-react.svg";
-import {baseBadges} from "../../component/landingPages/js/baseBadges";
-import {Features} from "../../component/home/Features";
+import React from 'react';
+import ThemedImage from '@theme/ThemedImage';
+import { LandingPage } from '../../component/landingPages/LandingPage';
+import { LandingPageHeadline } from '../../component/landingPages/LandingPageHeadline';
+import { LandingPageDescription } from '../../component/landingPages/LandingPageDescription';
+import { LandingPageInstallationStep } from '../../component/landingPages/LandingPageInstallationStep';
+import { LandingPageInstallation } from '../../component/landingPages/LandingPageInstallation';
+import { LandingPageInstallationCode } from '../../component/landingPages/LandingPageInstallationCode';
+import { CoolButton } from '../../component/buttons/CoolButton';
+import { CoolButtonText } from '../../component/buttons/CoolButtonText';
+import Link from '@docusaurus/Link';
+import { CoolButtonImage } from '../../component/buttons/CoolButtonImage';
+import ReactLogo from '../../../static/img/technologies/logo-react.svg';
+import { baseBadges } from '../../component/landingPages/js/baseBadges';
+import { Features } from '../../component/home/Features';
 
-export default () => {
+export default function ReactIntegration() {
   return (
-    <LandingPage title={"Tolgee for React"}>
+    <LandingPage title={'Tolgee for React'}>
       <LandingPageHeadline
         loveImage={{
           img: <ReactLogo width={80} />,
-          name: "React",
+          name: 'React',
         }}
         badges={baseBadges}
       >
@@ -33,7 +33,7 @@ export default () => {
           Tolgee i18n features.
         </p>
         <p>
-          To see React with Tolgee in action, check{" "}
+          To see React with Tolgee in action, check{' '}
           <a href="https://github.com/tolgee/react-example">this example app</a>
           .
         </p>
@@ -43,10 +43,10 @@ export default () => {
         <LandingPageInstallationStep title="1. Create project in Tolgee platform">
           <p>
             Go to <a href="https://app.tolgee.io">Tolgee Cloud app</a> or access
-            your{" "}
+            your{' '}
             <a href="/docs/platform/self_hosting/running_with_docker">
               self-hosted instance
-            </a>{" "}
+            </a>{' '}
             and create a project. Then obtain your API key.
           </p>
         </LandingPageInstallationStep>
@@ -70,7 +70,7 @@ export default () => {
         <LandingPageInstallationStep title="Explore the Docs and check out example app!">
           <p>Continue exploring...</p>
 
-          <div style={{ display: "flex", gap: "20px", flexWrap: "wrap" }}>
+          <div style={{ display: 'flex', gap: '20px', flexWrap: 'wrap' }}>
             <CoolButton
               component={Link}
               to="/docs/web/using_with_react/installation"
@@ -86,8 +86,8 @@ export default () => {
               <CoolButtonImage>
                 <ThemedImage
                   sources={{
-                    light: "/img/github.svg",
-                    dark: "/img/githubLight.svg",
+                    light: '/img/github.svg',
+                    dark: '/img/githubLight.svg',
                   }}
                   alt="GitHub"
                 />
@@ -96,10 +96,10 @@ export default () => {
           </div>
         </LandingPageInstallationStep>
       </LandingPageInstallation>
-      <Features/>
+      <Features />
     </LandingPage>
   );
-};
+}
 
 const reactProviderCode = `import { TolgeeProvider } from "@tolgee/react";
 export const Wrapper = () => {

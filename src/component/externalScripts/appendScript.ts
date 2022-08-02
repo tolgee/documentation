@@ -1,5 +1,5 @@
-export const appendScript = (url: string, defer: boolean = true) => {
-  const script = document.createElement("script");
+export const appendScript = (url: string, defer = true) => {
+  const script = document.createElement('script');
   script.src = url;
   script.defer = defer;
   script.async = true;

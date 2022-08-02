@@ -15,5 +15,5 @@ export const getChatwootScript = (chatwootToken: string, darkMode: boolean) => {
             baseUrl: BASE_URL
           })
         }
-      })(document,"script");`
-}
+      })(document,"script");`;
+};

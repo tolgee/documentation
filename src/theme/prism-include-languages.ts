@@ -1,6 +1,6 @@
-import ExecutionEnvironment from "@docusaurus/ExecutionEnvironment";
-import siteConfig from "@generated/docusaurus.config";
-import type * as PrismNamespace from "prismjs";
+import ExecutionEnvironment from '@docusaurus/ExecutionEnvironment';
+import siteConfig from '@generated/docusaurus.config';
+import type * as PrismNamespace from 'prismjs';
 
 /**
  * This is swizzled to add more languages to Prism for syntax highlighting
@@ -17,10 +17,10 @@ const prismIncludeLanguages = (PrismObject: typeof PrismNamespace): void => {
     // @ts-ignore
     window.Prism = PrismObject;
 
-    require("prism-svelte");
+    require('prism-svelte');
 
     additionalLanguages.forEach((lang) => {
-      require(`prismjs/components/prism-${lang}`); // eslint-disable-line
+      require(`prismjs/components/prism-${lang}`);
     });
 
     delete (window as Window & { Prism?: typeof PrismNamespace }).Prism;

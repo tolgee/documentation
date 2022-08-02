@@ -1,10 +1,10 @@
-import React from "react";
-import { RoboMouse } from "../images/RoboMouse";
-import DecoratedLayout from "../../theme/DecoratedLayout";
-import { PageHeader } from "../pageComponents/header/PageHeader";
-import { PageHeaderSubtitle } from "../pageComponents/header/PageHeaderSubtitle";
-import { PageHeaderTitle } from "../pageComponents/header/PageHeaderTitle";
-import { Features } from "../home/Features";
+import React from 'react';
+import { RoboMouse } from '../images/RoboMouse';
+import DecoratedLayout from '../../theme/DecoratedLayout';
+import { PageHeader } from '../pageComponents/header/PageHeader';
+import { PageHeaderSubtitle } from '../pageComponents/header/PageHeaderSubtitle';
+import { PageHeaderTitle } from '../pageComponents/header/PageHeaderTitle';
+import { Features } from '../home/Features';
 
 export const PricingBase: React.FC = ({ children }) => {
   return (

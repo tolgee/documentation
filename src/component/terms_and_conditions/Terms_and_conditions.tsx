@@ -1,22 +1,23 @@
-import * as React from "react";
-import './termsAndConditions.css'
+/* eslint-disable */
+import * as React from 'react';
+import './termsAndConditions.css';
 
 export const TermsAndConditions = () => (
   <div>
     <div data-custom-class="body">
-      <div style={{ textAlign: "left", lineHeight: "1.5" }}>
+      <div style={{ textAlign: 'left', lineHeight: '1.5' }}>
         <div
           className="MsoNormal"
           data-custom-class="title"
-          style={{ textAlign: "left", lineHeight: "1.5" }}
+          style={{ textAlign: 'left', lineHeight: '1.5' }}
         >
           <a />
           <strong>
             <span
               style={{
-                lineHeight: "150%",
-                fontFamily: "Arial",
-                fontSize: "26px",
+                lineHeight: '150%',
+                fontFamily: 'Arial',
+                fontSize: '26px',
               }}
             >
               <span className="block-component" />
@@ -27,35 +28,35 @@ export const TermsAndConditions = () => (
         </div>
         <div
           className="MsoNormal"
-          style={{ textAlign: "center", lineHeight: "1.5" }}
+          style={{ textAlign: 'center', lineHeight: '1.5' }}
         >
           <a />
         </div>
         <div
           className="MsoNormal"
           data-custom-class="subtitle"
-          style={{ textAlign: "left", lineHeight: "1.5" }}
+          style={{ textAlign: 'left', lineHeight: '1.5' }}
         >
           <br />
         </div>
         <div
           className="MsoNormal"
           data-custom-class="subtitle"
-          style={{ textAlign: "left", lineHeight: "1.5" }}
+          style={{ textAlign: 'left', lineHeight: '1.5' }}
         >
           <span
             style={{
-              fontSize: "11.0pt",
-              lineHeight: "150%",
-              fontFamily: "Arial",
-              color: "#A6A6A6",
+              fontSize: '11.0pt',
+              lineHeight: '150%',
+              fontFamily: 'Arial',
+              color: '#A6A6A6',
             }}
           >
             <span
               style={{
-                color: "rgb(127, 127, 127)",
-                fontSize: "15px",
-                textAlign: "justify",
+                color: 'rgb(127, 127, 127)',
+                fontSize: '15px',
+                textAlign: 'justify',
               }}
             >
               <strong>Last updated</strong>
@@ -63,19 +64,19 @@ export const TermsAndConditions = () => (
             <strong>
               <span
                 style={{
-                  color: "rgb(127,127,127)",
-                  fontSize: "14.6667px",
-                  textAlign: "justify",
+                  color: 'rgb(127,127,127)',
+                  fontSize: '14.6667px',
+                  textAlign: 'justify',
                 }}
               >
-                {" "}
+                {' '}
               </span>
             </strong>
             <span
               style={{
-                color: "rgb(127, 127, 127)",
-                fontSize: "15px",
-                textAlign: "justify",
+                color: 'rgb(127, 127, 127)',
+                fontSize: '15px',
+                textAlign: 'justify',
               }}
             >
               <span
@@ -89,28 +90,28 @@ export const TermsAndConditions = () => (
           </span>
         </div>
       </div>
-      <div style={{ textAlign: "left", lineHeight: "1.5" }}>
+      <div style={{ textAlign: 'left', lineHeight: '1.5' }}>
         <br />
       </div>
-      <div style={{ textAlign: "left", lineHeight: "1.5" }}>
+      <div style={{ textAlign: 'left', lineHeight: '1.5' }}>
         <br />
       </div>
-      <div style={{ textAlign: "left", lineHeight: "1.5" }}>
+      <div style={{ textAlign: 'left', lineHeight: '1.5' }}>
         <br />
       </div>
-      <div style={{ textAlign: "left", lineHeight: "1.5" }}>
+      <div style={{ textAlign: 'left', lineHeight: '1.5' }}>
         <div
           className="MsoNormal"
           data-custom-class="heading_1"
-          style={{ lineHeight: "1.5" }}
+          style={{ lineHeight: '1.5' }}
         >
           <a />
           <strong>
             <span
               style={{
-                lineHeight: "115%",
-                fontFamily: "Arial",
-                fontSize: "19px",
+                lineHeight: '115%',
+                fontFamily: 'Arial',
+                fontSize: '19px',
               }}
             >
               AGREEMENT TO TERMS
@@ -118,26 +119,26 @@ export const TermsAndConditions = () => (
           </strong>
         </div>
       </div>
-      <div style={{ textAlign: "left", lineHeight: 1 }}>
+      <div style={{ textAlign: 'left', lineHeight: 1 }}>
         <br />
       </div>
-      <div style={{ textAlign: "left", lineHeight: "1.5" }}>
+      <div style={{ textAlign: 'left', lineHeight: '1.5' }}>
         <div
           className="MsoNormal"
           data-custom-class="body_text"
-          style={{ lineHeight: "1.5" }}
+          style={{ lineHeight: '1.5' }}
         >
           <span
             style={{
-              fontSize: "15px",
-              lineHeight: "115%",
-              fontFamily: "Arial",
-              color: "rgb(89, 89, 89)",
+              fontSize: '15px',
+              lineHeight: '115%',
+              fontFamily: 'Arial',
+              color: 'rgb(89, 89, 89)',
             }}
           >
             These Terms of Use constitute a legally binding agreement made
             between you, whether personally or on behalf of an entity (“you”)
-            and{" "}
+            and{' '}
             <span
               className="block-container question question-in-editor"
               data-id="9d459c4e-c548-e5cb-7729-a118548965d2"
@@ -148,20 +149,20 @@ export const TermsAndConditions = () => (
           </span>
           <span
             style={{
-              fontSize: "11.0pt",
-              lineHeight: "115%",
-              fontFamily: "Arial",
-              color: "#595959",
+              fontSize: '11.0pt',
+              lineHeight: '115%',
+              fontFamily: 'Arial',
+              color: '#595959',
             }}
           >
-            <span className="block-component" />{" "}
+            <span className="block-component" />{' '}
           </span>
           <span
             style={{
-              fontSize: "15px",
-              lineHeight: "115%",
-              fontFamily: "Arial",
-              color: "rgb(89, 89, 89)",
+              fontSize: '15px',
+              lineHeight: '115%',
+              fontFamily: 'Arial',
+              color: 'rgb(89, 89, 89)',
             }}
           >
             ("
@@ -169,7 +170,7 @@ export const TermsAndConditions = () => (
             <strong>Company</strong>
             <span className="statement-end-if-in-editor" />
             ", “<strong>we</strong>”, “<strong>us</strong>”, or “
-            <strong>our</strong>”), concerning your access to and use of the{" "}
+            <strong>our</strong>”), concerning your access to and use of the{' '}
             <span
               className="block-container question question-in-editor"
               data-id="fdf30452-99b8-c68b-5cdf-34af764cd1fd"
@@ -182,32 +183,32 @@ export const TermsAndConditions = () => (
               >
                 https://tolgee.io
               </a>
-            </span>{" "}
+            </span>{' '}
             website as well as any other media form, media channel, mobile
             website or mobile application related, linked, or otherwise
             connected thereto (collectively, the “Site”).
             <span
               style={{
-                fontSize: "11.0pt",
-                lineHeight: "115%",
+                fontSize: '11.0pt',
+                lineHeight: '115%',
 
-                color: "#595959",
+                color: '#595959',
               }}
             >
               <span
                 style={{
-                  fontSize: "11.0pt",
-                  lineHeight: "115%",
+                  fontSize: '11.0pt',
+                  lineHeight: '115%',
 
-                  color: "#595959",
+                  color: '#595959',
                 }}
               >
                 <span
                   style={{
-                    fontSize: "11.0pt",
-                    lineHeight: "115%",
+                    fontSize: '11.0pt',
+                    lineHeight: '115%',
 
-                    color: "#595959",
+                    color: '#595959',
                   }}
                 >
                   <span className="question">
@@ -215,49 +216,49 @@ export const TermsAndConditions = () => (
                   </span>
                   <span
                     style={{
-                      fontSize: "11.0pt",
-                      lineHeight: "115%",
+                      fontSize: '11.0pt',
+                      lineHeight: '115%',
 
-                      color: "#595959",
+                      color: '#595959',
                     }}
                   >
                     <span className="block-component" />
-                  </span>{" "}
+                  </span>{' '}
                   We are registered in
                   <span className="block-component" />
-                  <span className="block-component" />{" "}
+                  <span className="block-component" />{' '}
                   <span
                     style={{
-                      fontSize: "11.0pt",
-                      lineHeight: "115%",
+                      fontSize: '11.0pt',
+                      lineHeight: '115%',
 
-                      color: "#595959",
+                      color: '#595959',
                     }}
                   >
                     <span
                       style={{
-                        fontSize: "11.0pt",
-                        lineHeight: "115%",
+                        fontSize: '11.0pt',
+                        lineHeight: '115%',
 
-                        color: "#595959",
+                        color: '#595959',
                       }}
                     >
                       <span className="question">Czechia</span>
                       <span className="statement-end-if-in-editor">
                         <span
                           style={{
-                            fontSize: "11.0pt",
-                            lineHeight: "115%",
+                            fontSize: '11.0pt',
+                            lineHeight: '115%',
 
-                            color: "#595959",
+                            color: '#595959',
                           }}
                         >
                           <span
                             style={{
-                              fontSize: "11.0pt",
-                              lineHeight: "115%",
+                              fontSize: '11.0pt',
+                              lineHeight: '115%',
 
-                              color: "#595959",
+                              color: '#595959',
                             }}
                           >
                             <span className="statement-end-if-in-editor" />
@@ -265,8 +266,8 @@ export const TermsAndConditions = () => (
                         </span>
                       </span>
                     </span>
-                  </span>{" "}
-                  and have our registered office at{" "}
+                  </span>{' '}
+                  and have our registered office at{' '}
                   <span className="question">
                     Letovická 22, 621 00 Brno-Řečkovice a Mokrá Hora, Czechia
                   </span>
@@ -276,15 +277,15 @@ export const TermsAndConditions = () => (
               , <span className="question">Brno</span>
             </span>
           </span>
-          <span style={{ fontSize: "15px" }}>
+          <span style={{ fontSize: '15px' }}>
             <span data-custom-class="body_text">
-              <span style={{ fontSize: "15px" }}>
+              <span style={{ fontSize: '15px' }}>
                 <span data-custom-class="body_text">
-                  <span style={{ color: "rgb(89, 89, 89)" }}>
-                    <span className="block-component" />,{" "}
+                  <span style={{ color: 'rgb(89, 89, 89)' }}>
+                    <span className="block-component" />,{' '}
                     <span className="question">Jihomoravský kraj</span>
                     <span className="statement-end-if-in-editor" />
-                    <span className="block-component" />{" "}
+                    <span className="block-component" />{' '}
                     <span className="question">621 00</span>
                     <span className="statement-end-if-in-editor" />
                   </span>
@@ -294,18 +295,18 @@ export const TermsAndConditions = () => (
           </span>
           <span
             style={{
-              fontSize: "11.0pt",
-              lineHeight: "115%",
+              fontSize: '11.0pt',
+              lineHeight: '115%',
 
-              color: "#595959",
+              color: '#595959',
             }}
           >
             <span
               style={{
-                fontSize: "11.0pt",
-                lineHeight: "115%",
+                fontSize: '11.0pt',
+                lineHeight: '115%',
 
-                color: "#595959",
+                color: '#595959',
               }}
             >
               <span className="statement-end-if-in-editor">.</span>
@@ -336,27 +337,27 @@ export const TermsAndConditions = () => (
           </span>
         </div>
       </div>
-      <div style={{ textAlign: "left", lineHeight: 1 }}>
+      <div style={{ textAlign: 'left', lineHeight: 1 }}>
         <br />
       </div>
-      <div style={{ textAlign: "left", lineHeight: "1.5" }}>
+      <div style={{ textAlign: 'left', lineHeight: '1.5' }}>
         <div
           className="MsoNormal"
           data-custom-class="body_text"
-          style={{ lineHeight: "1.5" }}
+          style={{ lineHeight: '1.5' }}
         >
-          <span style={{ fontSize: "15px" }}>
+          <span style={{ fontSize: '15px' }}>
             <span
               style={{
-                lineHeight: "115%",
-                fontFamily: "Arial",
-                color: "rgb(89, 89, 89)",
+                lineHeight: '115%',
+                fontFamily: 'Arial',
+                color: 'rgb(89, 89, 89)',
               }}
             >
               Supplemental terms and conditions or documents that may be posted
               on the Site from time to time are hereby expressly incorporated
               herein by reference. We reserve the right, in our sole discretion,
-              to make changes or modifications to these Terms of Use{" "}
+              to make changes or modifications to these Terms of Use{' '}
               <span className="block-component" />
               from time to time
               <span className="else-block" />. We will alert you about any
@@ -372,21 +373,21 @@ export const TermsAndConditions = () => (
           </span>
         </div>
       </div>
-      <div style={{ textAlign: "left", lineHeight: 1 }}>
+      <div style={{ textAlign: 'left', lineHeight: 1 }}>
         <br />
       </div>
-      <div style={{ textAlign: "left", lineHeight: "1.5" }}>
+      <div style={{ textAlign: 'left', lineHeight: '1.5' }}>
         <div
           className="MsoNormal"
           data-custom-class="body_text"
-          style={{ lineHeight: "1.5" }}
+          style={{ lineHeight: '1.5' }}
         >
           <span
             style={{
-              fontSize: "15px",
-              lineHeight: "115%",
-              fontFamily: "Arial",
-              color: "rgb(89, 89, 89)",
+              fontSize: '15px',
+              lineHeight: '115%',
+              fontFamily: 'Arial',
+              color: 'rgb(89, 89, 89)',
             }}
           >
             The information provided on the Site is not intended for
@@ -400,26 +401,26 @@ export const TermsAndConditions = () => (
           </span>
           <span
             style={{
-              fontSize: "11.0pt",
-              lineHeight: "115%",
-              fontFamily: "Arial",
-              color: "#595959",
+              fontSize: '11.0pt',
+              lineHeight: '115%',
+              fontFamily: 'Arial',
+              color: '#595959',
             }}
           >
-            {" "}
+            {' '}
           </span>
         </div>
         <div
           className="MsoNormal"
           data-custom-class="body_text"
-          style={{ lineHeight: "1.5" }}
+          style={{ lineHeight: '1.5' }}
         >
           <span
             style={{
-              fontSize: "11.0pt",
-              lineHeight: "115%",
-              fontFamily: "Arial",
-              color: "#595959",
+              fontSize: '11.0pt',
+              lineHeight: '115%',
+              fontFamily: 'Arial',
+              color: '#595959',
             }}
           >
             <span className="block-component" />
@@ -436,14 +437,14 @@ export const TermsAndConditions = () => (
         <div
           className="MsoNormal"
           data-custom-class="body_text"
-          style={{ lineHeight: "1.5" }}
+          style={{ lineHeight: '1.5' }}
         >
           <span
             style={{
-              fontSize: "11.0pt",
-              lineHeight: "115%",
-              fontFamily: "Arial",
-              color: "#595959",
+              fontSize: '11.0pt',
+              lineHeight: '115%',
+              fontFamily: 'Arial',
+              color: '#595959',
             }}
           >
             The Site is not tailored to comply with industry-specific
@@ -466,7 +467,7 @@ export const TermsAndConditions = () => (
         <div
           className="MsoNormal"
           data-custom-class="body_text"
-          style={{ lineHeight: "1.5" }}
+          style={{ lineHeight: '1.5' }}
         >
           <span
             className="block-container if"
@@ -474,7 +475,7 @@ export const TermsAndConditions = () => (
             id="a2595956-7028-dbe5-123e-d3d3a93ed076"
           >
             <span data-type="conditional-block">
-              <span style={{ fontSize: "15px" }}>
+              <span style={{ fontSize: '15px' }}>
                 <span
                   className="block-component"
                   data-record-question-key="user_o18_option"
@@ -489,8 +490,8 @@ export const TermsAndConditions = () => (
                     <span data-type="body">
                       <span
                         style={{
-                          color: "rgb(89, 89, 89)",
-                          fontSize: "15px",
+                          color: 'rgb(89, 89, 89)',
+                          fontSize: '15px',
                         }}
                       >
                         The Site is intended for users who are at least 13 years
@@ -503,16 +504,16 @@ export const TermsAndConditions = () => (
                       </span>
                       <span
                         style={{
-                          color: "rgb(89, 89, 89)",
-                          fontSize: "14.6667px",
+                          color: 'rgb(89, 89, 89)',
+                          fontSize: '14.6667px',
                         }}
                       >
-                        {" "}
+                        {' '}
                       </span>
                       <span
                         style={{
-                          color: "rgb(89, 89, 89)",
-                          fontSize: "15px",
+                          color: 'rgb(89, 89, 89)',
+                          fontSize: '15px',
                         }}
                       >
                         prior to you using the Site.
@@ -524,7 +525,7 @@ export const TermsAndConditions = () => (
             </span>
           </span>
           <span data-type="conditional-block">
-            <span style={{ fontSize: "15px" }}>
+            <span style={{ fontSize: '15px' }}>
               <span
                 className="block-component"
                 data-record-question-key="user_o18_option"
@@ -534,25 +535,25 @@ export const TermsAndConditions = () => (
           </span>
         </div>
       </div>
-      <div style={{ textAlign: "left", lineHeight: "1.5" }}>
+      <div style={{ textAlign: 'left', lineHeight: '1.5' }}>
         <br />
       </div>
-      <div style={{ textAlign: "left", lineHeight: "1.5" }}>
-        <div className="MsoNormal" style={{ lineHeight: "1.5" }}>
+      <div style={{ textAlign: 'left', lineHeight: '1.5' }}>
+        <div className="MsoNormal" style={{ lineHeight: '1.5' }}>
           <br />
         </div>
         <div
           className="MsoNormal"
           data-custom-class="heading_1"
-          style={{ lineHeight: "1.5" }}
+          style={{ lineHeight: '1.5' }}
         >
           <a />
           <strong>
             <span
               style={{
-                lineHeight: "115%",
-                fontFamily: "Arial",
-                fontSize: "19px",
+                lineHeight: '115%',
+                fontFamily: 'Arial',
+                fontSize: '19px',
               }}
             >
               INTELLECTUAL PROPERTY RIGHTS
@@ -560,21 +561,21 @@ export const TermsAndConditions = () => (
           </strong>
         </div>
       </div>
-      <div style={{ textAlign: "left", lineHeight: 1 }}>
+      <div style={{ textAlign: 'left', lineHeight: 1 }}>
         <br />
       </div>
-      <div style={{ textAlign: "left", lineHeight: "1.5" }}>
+      <div style={{ textAlign: 'left', lineHeight: '1.5' }}>
         <div
           className="MsoNormal"
           data-custom-class="body_text"
-          style={{ lineHeight: "1.5" }}
+          style={{ lineHeight: '1.5' }}
         >
           <span
             style={{
-              fontSize: "15px",
-              lineHeight: "115%",
-              fontFamily: "Arial",
-              color: "rgb(89, 89, 89)",
+              fontSize: '15px',
+              lineHeight: '115%',
+              fontFamily: 'Arial',
+              color: 'rgb(89, 89, 89)',
             }}
           >
             Unless otherwise indicated, the Site is our proprietary property and
@@ -596,21 +597,21 @@ export const TermsAndConditions = () => (
           </span>
         </div>
       </div>
-      <div style={{ textAlign: "left", lineHeight: 1 }}>
+      <div style={{ textAlign: 'left', lineHeight: 1 }}>
         <br />
       </div>
-      <div style={{ textAlign: "left", lineHeight: "1.5" }}>
+      <div style={{ textAlign: 'left', lineHeight: '1.5' }}>
         <div
           className="MsoNormal"
           data-custom-class="body_text"
-          style={{ lineHeight: "1.5" }}
+          style={{ lineHeight: '1.5' }}
         >
           <span
             style={{
-              fontSize: "15px",
-              lineHeight: "115%",
-              fontFamily: "Arial",
-              color: "rgb(89, 89, 89)",
+              fontSize: '15px',
+              lineHeight: '115%',
+              fontFamily: 'Arial',
+              color: 'rgb(89, 89, 89)',
             }}
           >
             Provided that you are eligible to use the Site, you are granted a
@@ -622,25 +623,25 @@ export const TermsAndConditions = () => (
           </span>
         </div>
       </div>
-      <div style={{ textAlign: "left", lineHeight: "1.5" }}>
+      <div style={{ textAlign: 'left', lineHeight: '1.5' }}>
         <br />
       </div>
-      <div style={{ textAlign: "left", lineHeight: "1.5" }}>
-        <div className="MsoNormal" style={{ lineHeight: "1.5" }}>
+      <div style={{ textAlign: 'left', lineHeight: '1.5' }}>
+        <div className="MsoNormal" style={{ lineHeight: '1.5' }}>
           <br />
         </div>
         <div
           className="MsoNormal"
           data-custom-class="heading_1"
-          style={{ lineHeight: "1.5" }}
+          style={{ lineHeight: '1.5' }}
         >
           <a />
           <strong>
             <span
               style={{
-                lineHeight: "115%",
-                fontFamily: "Arial",
-                fontSize: "19px",
+                lineHeight: '115%',
+                fontFamily: 'Arial',
+                fontSize: '19px',
               }}
             >
               USER REPRESENTATIONS
@@ -648,21 +649,21 @@ export const TermsAndConditions = () => (
           </strong>
         </div>
       </div>
-      <div style={{ textAlign: "left", lineHeight: 1 }}>
+      <div style={{ textAlign: 'left', lineHeight: 1 }}>
         <br />
       </div>
-      <div style={{ textAlign: "left", lineHeight: "1.5" }}>
+      <div style={{ textAlign: 'left', lineHeight: '1.5' }}>
         <div
           className="MsoNormal"
           data-custom-class="body_text"
-          style={{ lineHeight: "1.5" }}
+          style={{ lineHeight: '1.5' }}
         >
           <span
             style={{
-              fontSize: "15px",
-              lineHeight: "115%",
-              fontFamily: "Arial",
-              color: "rgb(89, 89, 89)",
+              fontSize: '15px',
+              lineHeight: '115%',
+              fontFamily: 'Arial',
+              color: 'rgb(89, 89, 89)',
             }}
           >
             By using the Site, you represent and warrant that:
@@ -678,47 +679,47 @@ export const TermsAndConditions = () => (
                 data-record-question-key="user_account_option"
                 data-type="statement"
               >
-                <span style={{ fontSize: "15px" }} />
+                <span style={{ fontSize: '15px' }} />
               </span>
               <span data-type="body">
-                <span style={{ color: "rgb(89, 89, 89)", fontSize: "11pt" }}>
-                  {" "}
+                <span style={{ color: 'rgb(89, 89, 89)', fontSize: '11pt' }}>
+                  {' '}
                   (
                 </span>
-                <span style={{ color: "rgb(89, 89, 89)", fontSize: "15px" }}>
+                <span style={{ color: 'rgb(89, 89, 89)', fontSize: '15px' }}>
                   1)
                 </span>
-                <span style={{ color: "rgb(89, 89, 89)", fontSize: "11pt" }}>
-                  {" "}
+                <span style={{ color: 'rgb(89, 89, 89)', fontSize: '11pt' }}>
+                  {' '}
                 </span>
-                <span style={{ color: "rgb(89, 89, 89)", fontSize: "15px" }}>
+                <span style={{ color: 'rgb(89, 89, 89)', fontSize: '15px' }}>
                   all registration information you submit will be true,
                   accurate, current, and complete; (
                 </span>
-                <span style={{ fontSize: "15px" }}>
-                  <span style={{ color: "rgb(89, 89, 89)" }}>2</span>
+                <span style={{ fontSize: '15px' }}>
+                  <span style={{ color: 'rgb(89, 89, 89)' }}>2</span>
                 </span>
-                <span style={{ color: "rgb(89, 89, 89)", fontSize: "15px" }}>
+                <span style={{ color: 'rgb(89, 89, 89)', fontSize: '15px' }}>
                   ) you will maintain the accuracy of such information and
                   promptly update such registration information
                 </span>
-                <span style={{ color: "rgb(89, 89, 89)", fontSize: "11pt" }}>
-                  {" "}
+                <span style={{ color: 'rgb(89, 89, 89)', fontSize: '11pt' }}>
+                  {' '}
                 </span>
-                <span style={{ color: "rgb(89, 89, 89)", fontSize: "15px" }}>
+                <span style={{ color: 'rgb(89, 89, 89)', fontSize: '15px' }}>
                   as necessary;
                 </span>
               </span>
             </span>
             <span className="statement-end-if-in-editor" data-type="close">
-              <span style={{ fontSize: "15px" }} />
-            </span>{" "}
+              <span style={{ fontSize: '15px' }} />
+            </span>{' '}
           </span>
-          <span style={{ color: "rgb(89, 89, 89)", fontSize: "15px" }}>(</span>
-          <span style={{ fontSize: "15px" }}>
-            <span style={{ color: "rgb(89, 89, 89)" }}>3</span>
+          <span style={{ color: 'rgb(89, 89, 89)', fontSize: '15px' }}>(</span>
+          <span style={{ fontSize: '15px' }}>
+            <span style={{ color: 'rgb(89, 89, 89)' }}>3</span>
           </span>
-          <span style={{ color: "rgb(89, 89, 89)", fontSize: "15px" }}>
+          <span style={{ color: 'rgb(89, 89, 89)', fontSize: '15px' }}>
             ) you have the legal capacity and you agree to comply with these
             Terms of Use; <span className="block-component" />
           </span>
@@ -729,29 +730,29 @@ export const TermsAndConditions = () => (
           >
             <span data-type="conditional-block">
               <span data-type="body">
-                <span style={{ fontSize: "15px" }}>
-                  <span style={{ color: "rgb(89, 89, 89)" }}>(4</span>
+                <span style={{ fontSize: '15px' }}>
+                  <span style={{ color: 'rgb(89, 89, 89)' }}>(4</span>
                 </span>
-                <span style={{ color: "rgb(89, 89, 89)", fontSize: "15px" }}>
+                <span style={{ color: 'rgb(89, 89, 89)', fontSize: '15px' }}>
                   )
                 </span>
-                <span style={{ color: "rgb(89, 89, 89)", fontSize: "11pt" }}>
-                  {" "}
+                <span style={{ color: 'rgb(89, 89, 89)', fontSize: '11pt' }}>
+                  {' '}
                 </span>
-                <span style={{ color: "rgb(89, 89, 89)", fontSize: "15px" }}>
-                  you are not under the age of 13;{" "}
+                <span style={{ color: 'rgb(89, 89, 89)', fontSize: '15px' }}>
+                  you are not under the age of 13;{' '}
                 </span>
               </span>
             </span>
             <span className="statement-end-if-in-editor" data-type="close">
-              <span style={{ fontSize: "15px" }} />
+              <span style={{ fontSize: '15px' }} />
             </span>
           </span>
-          <span style={{ color: "rgb(89, 89, 89)", fontSize: "15px" }}>(</span>
-          <span style={{ fontSize: "15px" }}>
-            <span style={{ color: "rgb(89, 89, 89)" }}>5</span>
+          <span style={{ color: 'rgb(89, 89, 89)', fontSize: '15px' }}>(</span>
+          <span style={{ fontSize: '15px' }}>
+            <span style={{ color: 'rgb(89, 89, 89)' }}>5</span>
           </span>
-          <span style={{ color: "rgb(89, 89, 89)", fontSize: "15px" }}>
+          <span style={{ color: 'rgb(89, 89, 89)', fontSize: '15px' }}>
             ) you are not a minor in the jurisdiction in which you reside
             <span
               className="block-container if"
@@ -796,71 +797,71 @@ export const TermsAndConditions = () => (
             </span>
             ;
           </span>
-          <span style={{ color: "rgb(89, 89, 89)", fontSize: "11pt" }}> </span>
-          <span style={{ color: "rgb(89, 89, 89)", fontSize: "15px" }}>(</span>
-          <span style={{ fontSize: "15px" }}>
-            <span style={{ color: "rgb(89, 89, 89)" }}>6</span>
+          <span style={{ color: 'rgb(89, 89, 89)', fontSize: '11pt' }}> </span>
+          <span style={{ color: 'rgb(89, 89, 89)', fontSize: '15px' }}>(</span>
+          <span style={{ fontSize: '15px' }}>
+            <span style={{ color: 'rgb(89, 89, 89)' }}>6</span>
           </span>
-          <span style={{ color: "rgb(89, 89, 89)", fontSize: "15px" }}>
+          <span style={{ color: 'rgb(89, 89, 89)', fontSize: '15px' }}>
             ) you will not access the Site through automated or non-human means,
             whether through a bot, script or otherwise;
           </span>
-          <span style={{ color: "rgb(89, 89, 89)", fontSize: "11pt" }}> </span>
-          <span style={{ color: "rgb(89, 89, 89)", fontSize: "15px" }}>(</span>
-          <span style={{ fontSize: "15px" }}>
-            <span style={{ color: "rgb(89, 89, 89)" }}>7</span>
+          <span style={{ color: 'rgb(89, 89, 89)', fontSize: '11pt' }}> </span>
+          <span style={{ color: 'rgb(89, 89, 89)', fontSize: '15px' }}>(</span>
+          <span style={{ fontSize: '15px' }}>
+            <span style={{ color: 'rgb(89, 89, 89)' }}>7</span>
           </span>
-          <span style={{ color: "rgb(89, 89, 89)", fontSize: "15px" }}>
+          <span style={{ color: 'rgb(89, 89, 89)', fontSize: '15px' }}>
             ) you will not use the Site for any illegal or unauthorized purpose;
             and (
           </span>
-          <span style={{ fontSize: "15px" }}>
-            <span style={{ color: "rgb(89, 89, 89)" }}>8</span>
+          <span style={{ fontSize: '15px' }}>
+            <span style={{ color: 'rgb(89, 89, 89)' }}>8</span>
           </span>
-          <span style={{ color: "rgb(89, 89, 89)", fontSize: "15px" }}>
+          <span style={{ color: 'rgb(89, 89, 89)', fontSize: '15px' }}>
             ) your use of the Site will not violate any applicable law or
             regulation.
           </span>
         </div>
       </div>
-      <div style={{ textAlign: "left", lineHeight: "1.5" }}>
+      <div style={{ textAlign: 'left', lineHeight: '1.5' }}>
         <br />
       </div>
-      <div style={{ textAlign: "left", lineHeight: "1.5" }}>
+      <div style={{ textAlign: 'left', lineHeight: '1.5' }}>
         <div
           className="MsoNormal"
           data-custom-class="body_text"
-          style={{ lineHeight: "1.5" }}
+          style={{ lineHeight: '1.5' }}
         >
           <span
             style={{
-              fontSize: "15px",
-              lineHeight: "115%",
-              fontFamily: "Arial",
-              color: "rgb(89, 89, 89)",
+              fontSize: '15px',
+              lineHeight: '115%',
+              fontFamily: 'Arial',
+              color: 'rgb(89, 89, 89)',
             }}
           >
             If you provide any information that is untrue, inaccurate, not
             current, or incomplete, we have the right to suspend or terminate
             your account and refuse any and all current or future use of the
-            Site (or any portion thereof).{" "}
+            Site (or any portion thereof).{' '}
           </span>
         </div>
         <div
           className="MsoNormal"
-          style={{ textAlign: "justify", lineHeight: "1.5" }}
+          style={{ textAlign: 'justify', lineHeight: '1.5' }}
         >
           <br />
         </div>
         <div
           className="MsoNormal"
-          style={{ textAlign: "justify", lineHeight: "1.5" }}
+          style={{ textAlign: 'justify', lineHeight: '1.5' }}
         >
           <br />
         </div>
         <div
           className="MsoNormal"
-          style={{ textAlign: "justify", lineHeight: 1 }}
+          style={{ textAlign: 'justify', lineHeight: 1 }}
         >
           <span
             className="block-container if"
@@ -872,19 +873,19 @@ export const TermsAndConditions = () => (
                 className="block-component"
                 data-record-question-key="user_account_option"
                 data-type="statement"
-              />{" "}
+              />{' '}
               <span data-type="body">
                 <div
                   className="MsoNormal"
                   data-custom-class="heading_1"
-                  style={{ lineHeight: "1.5", textAlign: "left" }}
+                  style={{ lineHeight: '1.5', textAlign: 'left' }}
                 >
                   <strong>
                     <span
                       style={{
-                        lineHeight: "115%",
-                        fontFamily: "Arial",
-                        fontSize: "19px",
+                        lineHeight: '115%',
+                        fontFamily: 'Arial',
+                        fontSize: '19px',
                       }}
                     >
                       USER REGISTRATION
@@ -897,13 +898,13 @@ export const TermsAndConditions = () => (
         </div>
         <div
           className="MsoNormal"
-          style={{ textAlign: "justify", lineHeight: 1 }}
+          style={{ textAlign: 'justify', lineHeight: 1 }}
         >
           <br />
         </div>
         <div
           className="MsoNormal"
-          style={{ textAlign: "justify", lineHeight: 1 }}
+          style={{ textAlign: 'justify', lineHeight: 1 }}
         >
           <span className="block-container if" data-type="if">
             <span data-type="conditional-block">
@@ -911,14 +912,14 @@ export const TermsAndConditions = () => (
                 <div
                   className="MsoNormal"
                   data-custom-class="body_text"
-                  style={{ textAlign: "left", lineHeight: "1.5" }}
+                  style={{ textAlign: 'left', lineHeight: '1.5' }}
                 >
                   <span
                     style={{
-                      fontSize: "15px",
-                      lineHeight: "115%",
-                      fontFamily: "Arial",
-                      color: "rgb(89, 89, 89)",
+                      fontSize: '15px',
+                      lineHeight: '115%',
+                      fontFamily: 'Arial',
+                      color: 'rgb(89, 89, 89)',
                     }}
                   >
                     You may be required to register with the Site. You agree to
@@ -935,19 +936,19 @@ export const TermsAndConditions = () => (
         </div>
         <div
           className="MsoNormal"
-          style={{ textAlign: "justify", lineHeight: "1.5" }}
+          style={{ textAlign: 'justify', lineHeight: '1.5' }}
         >
           <br />
         </div>
         <div
           className="MsoNormal"
-          style={{ textAlign: "justify", lineHeight: "1.5" }}
+          style={{ textAlign: 'justify', lineHeight: '1.5' }}
         >
           <br />
         </div>
         <div
           className="MsoNormal"
-          style={{ textAlign: "justify", lineHeight: "1.5" }}
+          style={{ textAlign: 'justify', lineHeight: '1.5' }}
         >
           <span className="block-container if" data-type="if">
             <span className="statement-end-if-in-editor" data-type="close" />
@@ -956,15 +957,15 @@ export const TermsAndConditions = () => (
         <div
           className="MsoNormal"
           data-custom-class="heading_1"
-          style={{ lineHeight: "1.5" }}
+          style={{ lineHeight: '1.5' }}
         >
           <a />
           <strong>
             <span
               style={{
-                lineHeight: "115%",
-                fontFamily: "Arial",
-                fontSize: "19px",
+                lineHeight: '115%',
+                fontFamily: 'Arial',
+                fontSize: '19px',
               }}
             >
               FEES AND PAYMENT
@@ -974,10 +975,10 @@ export const TermsAndConditions = () => (
         <div className="MsoNormal" style={{ lineHeight: 1 }}>
           <span
             style={{
-              fontSize: "11.0pt",
-              lineHeight: "115%",
-              fontFamily: "Arial",
-              color: "#595959",
+              fontSize: '11.0pt',
+              lineHeight: '115%',
+              fontFamily: 'Arial',
+              color: '#595959',
             }}
           >
             <br />
@@ -986,21 +987,21 @@ export const TermsAndConditions = () => (
         <div
           className="MsoNormal"
           data-custom-class="body_text"
-          style={{ lineHeight: "1.5" }}
+          style={{ lineHeight: '1.5' }}
         >
-          <span style={{ color: "rgb(89, 89, 89)", fontSize: "15px" }}>
+          <span style={{ color: 'rgb(89, 89, 89)', fontSize: '15px' }}>
             We accept the following forms of payment:
           </span>
         </div>
         <div
           className="MsoNormal"
-          style={{ textAlign: "justify", lineHeight: 1 }}
+          style={{ textAlign: 'justify', lineHeight: 1 }}
         >
-          <div className="MsoNormal" style={{ lineHeight: "17.25px" }}>
+          <div className="MsoNormal" style={{ lineHeight: '17.25px' }}>
             <div
               className="MsoNormal"
               data-custom-class="body_text"
-              style={{ lineHeight: 1, textAlign: "left" }}
+              style={{ lineHeight: 1, textAlign: 'left' }}
             >
               <br />
             </div>
@@ -1008,17 +1009,17 @@ export const TermsAndConditions = () => (
               className="MsoNormal"
               data-custom-class="body_text"
               style={{
-                marginLeft: "46.9pt",
-                textIndent: "-18.55pt",
-                lineHeight: "1.5",
-                textAlign: "left",
+                marginLeft: '46.9pt',
+                textIndent: '-18.55pt',
+                lineHeight: '1.5',
+                textAlign: 'left',
               }}
             >
               <span
                 style={{
-                  fontSize: "15px",
-                  lineHeight: "16.8667px",
-                  color: "rgb(89, 89, 89)",
+                  fontSize: '15px',
+                  lineHeight: '16.8667px',
+                  color: 'rgb(89, 89, 89)',
                 }}
               >
                 <span
@@ -1041,8 +1042,8 @@ export const TermsAndConditions = () => (
                 >
                   <span data-type="conditional-block">
                     <span data-type="body">
-                      <span style={{ textIndent: "-24.7333px" }}>- Visa</span>
-                    </span>{" "}
+                      <span style={{ textIndent: '-24.7333px' }}>- Visa</span>
+                    </span>{' '}
                   </span>
                 </span>
               </span>
@@ -1051,17 +1052,17 @@ export const TermsAndConditions = () => (
               className="MsoNormal"
               data-custom-class="body_text"
               style={{
-                marginLeft: "46.9pt",
-                textIndent: "-18.55pt",
-                lineHeight: "1.5",
-                textAlign: "left",
+                marginLeft: '46.9pt',
+                textIndent: '-18.55pt',
+                lineHeight: '1.5',
+                textAlign: 'left',
               }}
             >
               <span
                 style={{
-                  fontSize: "15px",
-                  lineHeight: "16.8667px",
-                  color: "rgb(89, 89, 89)",
+                  fontSize: '15px',
+                  lineHeight: '16.8667px',
+                  color: 'rgb(89, 89, 89)',
                 }}
               >
                 <span className="block-container forloop" data-type="forloop">
@@ -1074,10 +1075,10 @@ export const TermsAndConditions = () => (
                 >
                   <span data-type="conditional-block">
                     <span data-type="body">
-                      <span style={{ textIndent: "-24.7333px" }}>
+                      <span style={{ textIndent: '-24.7333px' }}>
                         - Mastercard
                       </span>
-                    </span>{" "}
+                    </span>{' '}
                   </span>
                 </span>
               </span>
@@ -1086,17 +1087,17 @@ export const TermsAndConditions = () => (
               className="MsoNormal"
               data-custom-class="body_text"
               style={{
-                marginLeft: "46.9pt",
-                textIndent: "-18.55pt",
-                lineHeight: "1.5",
-                textAlign: "left",
+                marginLeft: '46.9pt',
+                textIndent: '-18.55pt',
+                lineHeight: '1.5',
+                textAlign: 'left',
               }}
             >
               <span
                 style={{
-                  fontSize: "15px",
-                  lineHeight: "16.8667px",
-                  color: "rgb(89, 89, 89)",
+                  fontSize: '15px',
+                  lineHeight: '16.8667px',
+                  color: 'rgb(89, 89, 89)',
                 }}
               >
                 <span className="block-container forloop" data-type="forloop">
@@ -1107,33 +1108,33 @@ export const TermsAndConditions = () => (
           </div>
           <span
             style={{
-              fontSize: "11.0pt",
-              lineHeight: "115%",
-              fontFamily: "Arial",
-              color: "#595959",
+              fontSize: '11.0pt',
+              lineHeight: '115%',
+              fontFamily: 'Arial',
+              color: '#595959',
             }}
           >
             <div
               className="MsoNormal"
-              style={{ lineHeight: 1, textAlign: "left" }}
+              style={{ lineHeight: 1, textAlign: 'left' }}
             >
               <br />
             </div>
           </span>
           <span
             style={{
-              fontSize: "15px",
-              lineHeight: "115%",
-              fontFamily: "Arial",
-              color: "rgb(89, 89, 89)",
+              fontSize: '15px',
+              lineHeight: '115%',
+              fontFamily: 'Arial',
+              color: 'rgb(89, 89, 89)',
             }}
           >
             <div
               className="MsoNormal"
               data-custom-class="body_text"
-              style={{ lineHeight: "1.5", textAlign: "left" }}
+              style={{ lineHeight: '1.5', textAlign: 'left' }}
             >
-              <span style={{ lineHeight: "115%", color: "rgb(89, 89, 89)" }}>
+              <span style={{ lineHeight: '115%', color: 'rgb(89, 89, 89)' }}>
                 You may be required to purchase or pay a fee to access some of
                 our services. You agree to provide current, complete, and
                 accurate purchase and account information for all purchases made
@@ -1150,34 +1151,34 @@ export const TermsAndConditions = () => (
           </span>
           <span
             style={{
-              fontSize: "11.0pt",
-              lineHeight: "115%",
-              fontFamily: "Arial",
-              color: "#595959",
+              fontSize: '11.0pt',
+              lineHeight: '115%',
+              fontFamily: 'Arial',
+              color: '#595959',
             }}
           >
             <div
               className="MsoNormal"
-              style={{ lineHeight: 1, textAlign: "left" }}
+              style={{ lineHeight: 1, textAlign: 'left' }}
             >
               <br />
             </div>
             <div
               className="MsoNormal"
               data-custom-class="body_text"
-              style={{ lineHeight: "1.5", textAlign: "left" }}
+              style={{ lineHeight: '1.5', textAlign: 'left' }}
             >
               <span
                 style={{
-                  fontSize: "15px",
-                  lineHeight: "115%",
-                  color: "rgb(89, 89, 89)",
+                  fontSize: '15px',
+                  lineHeight: '115%',
+                  color: 'rgb(89, 89, 89)',
                 }}
               >
                 You agree to pay all charges or fees at the prices then in
                 effect for your purchases, and you authorize us to charge your
                 chosen payment provider for any such amounts upon making your
-                purchase.{" "}
+                purchase.{' '}
                 <span
                   className="block-container if"
                   data-type="if"
@@ -1211,7 +1212,7 @@ export const TermsAndConditions = () => (
                       consent to our charging your payment method on a recurring
                       basis without requiring your prior approval for each
                       recurring charge, until you notify us of your
-                      cancellation.{" "}
+                      cancellation.{' '}
                     </span>
                   </span>
                 </span>
@@ -1231,18 +1232,18 @@ export const TermsAndConditions = () => (
           </span>
           <span
             style={{
-              fontSize: "15px",
-              lineHeight: "115%",
-              fontFamily: "Arial",
-              color: "rgb(89, 89, 89)",
+              fontSize: '15px',
+              lineHeight: '115%',
+              fontFamily: 'Arial',
+              color: 'rgb(89, 89, 89)',
             }}
           >
             <div
               className="MsoNormal"
               data-custom-class="body_text"
-              style={{ lineHeight: "1.5", textAlign: "left" }}
+              style={{ lineHeight: '1.5', textAlign: 'left' }}
             >
-              <span style={{ lineHeight: "115%", color: "rgb(89, 89, 89)" }}>
+              <span style={{ lineHeight: '115%', color: 'rgb(89, 89, 89)' }}>
                 We reserve the right to correct any errors or mistakes in
                 pricing, even if we have already requested or received payment.
                 We also reserve the right to refuse any order placed through the
@@ -1253,23 +1254,23 @@ export const TermsAndConditions = () => (
         </div>
         <div
           className="MsoNormal"
-          style={{ textAlign: "justify", lineHeight: "1.5" }}
+          style={{ textAlign: 'justify', lineHeight: '1.5' }}
         >
           <br />
         </div>
         <div
           className="MsoNormal"
-          style={{ textAlign: "justify", lineHeight: "1.5" }}
+          style={{ textAlign: 'justify', lineHeight: '1.5' }}
         >
           <br />
         </div>
         <div
           className="MsoNormal"
-          style={{ textAlign: "justify", lineHeight: 1 }}
+          style={{ textAlign: 'justify', lineHeight: 1 }}
         >
           <div
             className="MsoNormal"
-            style={{ lineHeight: "1.5", textAlign: "left" }}
+            style={{ lineHeight: '1.5', textAlign: 'left' }}
           >
             <a />
           </div>
@@ -1288,15 +1289,15 @@ export const TermsAndConditions = () => (
             <div
               className="MsoNormal"
               data-custom-class="heading_1"
-              style={{ textAlign: "left", lineHeight: "1.5" }}
+              style={{ textAlign: 'left', lineHeight: '1.5' }}
             >
               <a />
               <strong>
                 <span
                   style={{
-                    lineHeight: "115%",
-                    fontFamily: "Arial",
-                    fontSize: "19px",
+                    lineHeight: '115%',
+                    fontFamily: 'Arial',
+                    fontSize: '19px',
                   }}
                 >
                   CANCELLATION
@@ -1307,24 +1308,24 @@ export const TermsAndConditions = () => (
         </div>
         <div
           className="MsoNormal"
-          style={{ textAlign: "justify", lineHeight: 1 }}
+          style={{ textAlign: 'justify', lineHeight: 1 }}
         >
           <br />
         </div>
         <div
           className="MsoNormal"
-          style={{ textAlign: "justify", lineHeight: "1.5" }}
+          style={{ textAlign: 'justify', lineHeight: '1.5' }}
         >
           <div
             className="MsoNormal"
             data-custom-class="body_text"
-            style={{ lineHeight: "1.5", textAlign: "left" }}
+            style={{ lineHeight: '1.5', textAlign: 'left' }}
           >
             <span
               style={{
-                fontSize: "15px",
-                lineHeight: "115%",
-                color: "rgb(89, 89, 89)",
+                fontSize: '15px',
+                lineHeight: '115%',
+                color: 'rgb(89, 89, 89)',
               }}
             >
               <span
@@ -1344,18 +1345,18 @@ export const TermsAndConditions = () => (
             </span>
             <span
               style={{
-                fontSize: "11.0pt",
-                lineHeight: "115%",
-                color: "#595959",
+                fontSize: '11.0pt',
+                lineHeight: '115%',
+                color: '#595959',
               }}
             >
-              {" "}
+              {' '}
             </span>
             <span
               style={{
-                fontSize: "15px",
-                lineHeight: "115%",
-                color: "rgb(89, 89, 89)",
+                fontSize: '15px',
+                lineHeight: '115%',
+                color: 'rgb(89, 89, 89)',
               }}
             >
               <span
@@ -1383,9 +1384,9 @@ export const TermsAndConditions = () => (
             </span>
             <span
               style={{
-                fontSize: "11.0pt",
-                lineHeight: "115%",
-                color: "#595959",
+                fontSize: '11.0pt',
+                lineHeight: '115%',
+                color: '#595959',
               }}
             >
               <span
@@ -1400,9 +1401,9 @@ export const TermsAndConditions = () => (
             </span>
             <span
               style={{
-                fontSize: "15px",
-                lineHeight: "115%",
-                color: "rgb(89, 89, 89)",
+                fontSize: '15px',
+                lineHeight: '115%',
+                color: 'rgb(89, 89, 89)',
               }}
             >
               <span
@@ -1432,38 +1433,38 @@ export const TermsAndConditions = () => (
             </span>
             <span
               style={{
-                fontSize: "11.0pt",
-                lineHeight: "115%",
-                color: "#595959",
+                fontSize: '11.0pt',
+                lineHeight: '115%',
+                color: '#595959',
               }}
             >
-              {" "}
+              {' '}
             </span>
           </div>
         </div>
         <div
           className="MsoNormal"
-          style={{ textAlign: "justify", lineHeight: 1 }}
+          style={{ textAlign: 'justify', lineHeight: 1 }}
         >
           <br />
         </div>
         <div
           className="MsoNormal"
-          style={{ textAlign: "justify", lineHeight: "1.5" }}
+          style={{ textAlign: 'justify', lineHeight: '1.5' }}
         >
           <div
             className="MsoNormal"
             data-custom-class="body_text"
-            style={{ lineHeight: "1.5", textAlign: "left" }}
+            style={{ lineHeight: '1.5', textAlign: 'left' }}
           >
             <span
               style={{
-                fontSize: "15px",
-                lineHeight: "115%",
-                color: "rgb(89, 89, 89)",
+                fontSize: '15px',
+                lineHeight: '115%',
+                color: 'rgb(89, 89, 89)',
               }}
             >
-              If you are unsatisfied with our services, please email us at{" "}
+              If you are unsatisfied with our services, please email us at{' '}
               <span
                 className="block-container question question-in-editor"
                 data-id="7c40698b-5cc8-bb58-245d-2fbd1b57dfba"
@@ -1475,18 +1476,18 @@ export const TermsAndConditions = () => (
             </span>
             <span
               style={{
-                fontSize: "11.0pt",
-                lineHeight: "115%",
-                color: "#595959",
+                fontSize: '11.0pt',
+                lineHeight: '115%',
+                color: '#595959',
               }}
             >
-              {" "}
+              {' '}
             </span>
             <span
               style={{
-                fontSize: "15px",
-                lineHeight: "115%",
-                color: "rgb(89, 89, 89)",
+                fontSize: '15px',
+                lineHeight: '115%',
+                color: 'rgb(89, 89, 89)',
               }}
             >
               <span
@@ -1499,30 +1500,30 @@ export const TermsAndConditions = () => (
             </span>
             <span
               style={{
-                fontSize: "11.0pt",
-                lineHeight: "115%",
-                color: "#595959",
+                fontSize: '11.0pt',
+                lineHeight: '115%',
+                color: '#595959',
               }}
             >
               <span
                 style={{
-                  fontSize: "11.0pt",
-                  lineHeight: "115%",
-                  color: "#595959",
+                  fontSize: '11.0pt',
+                  lineHeight: '115%',
+                  color: '#595959',
                 }}
               >
                 <span
                   style={{
-                    fontSize: "15px",
-                    lineHeight: "115%",
-                    color: "rgb(89, 89, 89)",
+                    fontSize: '15px',
+                    lineHeight: '115%',
+                    color: 'rgb(89, 89, 89)',
                   }}
                 >
                   <span
                     style={{
-                      fontSize: "15px",
-                      lineHeight: "115%",
-                      color: "rgb(89, 89, 89)",
+                      fontSize: '15px',
+                      lineHeight: '115%',
+                      color: 'rgb(89, 89, 89)',
                     }}
                   >
                     <span className="statement-end-if-in-editor" />
@@ -1532,10 +1533,10 @@ export const TermsAndConditions = () => (
               .
             </span>
           </div>
-          <div className="MsoNormal" style={{ lineHeight: "1.5" }}>
+          <div className="MsoNormal" style={{ lineHeight: '1.5' }}>
             <br />
           </div>
-          <div className="MsoNormal" style={{ lineHeight: "1.5" }}>
+          <div className="MsoNormal" style={{ lineHeight: '1.5' }}>
             <br />
           </div>
           <div className="MsoNormal" style={{ lineHeight: 1 }}>
@@ -1549,19 +1550,19 @@ export const TermsAndConditions = () => (
                   className="block-component"
                   data-record-question-key="software_option"
                   data-type="statement"
-                />{" "}
+                />{' '}
                 <span data-type="body">
                   <div
                     className="MsoNormal"
                     data-custom-class="heading_1"
-                    style={{ textAlign: "left", lineHeight: "1.5" }}
+                    style={{ textAlign: 'left', lineHeight: '1.5' }}
                   >
                     <strong>
                       <span
                         style={{
-                          lineHeight: "115%",
-                          fontFamily: "Arial",
-                          fontSize: "19px",
+                          lineHeight: '115%',
+                          fontFamily: 'Arial',
+                          fontSize: '19px',
                         }}
                       >
                         SOFTWARE
@@ -1582,13 +1583,13 @@ export const TermsAndConditions = () => (
                   <div
                     className="MsoNormal"
                     data-custom-class="body_text"
-                    style={{ lineHeight: "1.5", textAlign: "left" }}
+                    style={{ lineHeight: '1.5', textAlign: 'left' }}
                   >
                     <span
                       style={{
-                        fontSize: "15px",
-                        lineHeight: "115%",
-                        color: "rgb(89, 89, 89)",
+                        fontSize: '15px',
+                        lineHeight: '115%',
+                        color: 'rgb(89, 89, 89)',
                       }}
                     >
                       We may include software for use in connection with our
@@ -1613,13 +1614,13 @@ export const TermsAndConditions = () => (
               </span>
             </span>
           </div>
-          <div className="MsoNormal" style={{ lineHeight: "1.5" }}>
+          <div className="MsoNormal" style={{ lineHeight: '1.5' }}>
             <br />
           </div>
-          <div className="MsoNormal" style={{ lineHeight: "1.5" }}>
+          <div className="MsoNormal" style={{ lineHeight: '1.5' }}>
             <br />
           </div>
-          <div className="MsoNormal" style={{ lineHeight: "1.5" }}>
+          <div className="MsoNormal" style={{ lineHeight: '1.5' }}>
             <span className="block-container if" data-type="if">
               <span className="statement-end-if-in-editor" data-type="close" />
             </span>
@@ -1627,15 +1628,15 @@ export const TermsAndConditions = () => (
           <div
             className="MsoNormal"
             data-custom-class="heading_1"
-            style={{ lineHeight: "1.5", textAlign: "left" }}
+            style={{ lineHeight: '1.5', textAlign: 'left' }}
           >
             <a />
             <strong>
               <span
                 style={{
-                  lineHeight: "115%",
-                  fontFamily: "Arial",
-                  fontSize: "19px",
+                  lineHeight: '115%',
+                  fontFamily: 'Arial',
+                  fontSize: '19px',
                 }}
               >
                 PROHIBITED ACTIVITIES
@@ -1643,13 +1644,13 @@ export const TermsAndConditions = () => (
             </strong>
             <span
               style={{
-                fontSize: "11.0pt",
-                lineHeight: "115%",
-                fontFamily: "Arial",
-                color: "#595959",
+                fontSize: '11.0pt',
+                lineHeight: '115%',
+                fontFamily: 'Arial',
+                color: '#595959',
               }}
             >
-              {" "}
+              {' '}
             </span>
           </div>
         </div>
@@ -1659,30 +1660,30 @@ export const TermsAndConditions = () => (
         <div
           className="MsoNormal"
           data-custom-class="body_text"
-          style={{ lineHeight: "1.5" }}
+          style={{ lineHeight: '1.5' }}
         >
           <span
             style={{
-              fontSize: "15px",
-              lineHeight: "115%",
-              fontFamily: "Arial",
-              color: "rgb(89, 89, 89)",
+              fontSize: '15px',
+              lineHeight: '115%',
+              fontFamily: 'Arial',
+              color: 'rgb(89, 89, 89)',
             }}
           >
             You may not access or use the Site for any purpose other than that
             for which we make the Site available. The Site may not be used in
             connection with any commercial endeavors except those that are
-            specifically endorsed or approved by us.{" "}
+            specifically endorsed or approved by us.{' '}
           </span>
-          <span style={{ fontSize: "15px" }}>
+          <span style={{ fontSize: '15px' }}>
             <span
               style={{
-                lineHeight: "115%",
-                fontFamily: "Arial",
-                color: "rgb(89, 89, 89)",
+                lineHeight: '115%',
+                fontFamily: 'Arial',
+                color: 'rgb(89, 89, 89)',
               }}
             >
-              {" "}
+              {' '}
             </span>
           </span>
         </div>
@@ -1691,18 +1692,18 @@ export const TermsAndConditions = () => (
         </div>
         <div
           className="MsoNormal"
-          style={{ textAlign: "justify", lineHeight: "115%" }}
+          style={{ textAlign: 'justify', lineHeight: '115%' }}
         >
           <div
             className="MsoNormal"
             data-custom-class="body_text"
-            style={{ lineHeight: "1.5", textAlign: "left" }}
+            style={{ lineHeight: '1.5', textAlign: 'left' }}
           >
             <span
               style={{
-                fontSize: "15px",
-                lineHeight: "16.8667px",
-                color: "rgb(89, 89, 89)",
+                fontSize: '15px',
+                lineHeight: '16.8667px',
+                color: 'rgb(89, 89, 89)',
               }}
             >
               As a user of the Site, you agree not to:
@@ -1711,7 +1712,7 @@ export const TermsAndConditions = () => (
           <div
             className="MsoNormal"
             data-custom-class="body_text"
-            style={{ lineHeight: 1, marginLeft: "20px", textAlign: "left" }}
+            style={{ lineHeight: 1, marginLeft: '20px', textAlign: 'left' }}
           >
             <br />
           </div>
@@ -1719,80 +1720,80 @@ export const TermsAndConditions = () => (
             className="MsoNormal"
             data-custom-class="body_text"
             style={{
-              lineHeight: "1.5",
-              marginLeft: "20px",
-              textAlign: "left",
+              lineHeight: '1.5',
+              marginLeft: '20px',
+              textAlign: 'left',
             }}
           >
             <span
               style={{
-                fontSize: "11pt",
-                lineHeight: "16.8667px",
-                color: "rgb(89, 89, 89)",
+                fontSize: '11pt',
+                lineHeight: '16.8667px',
+                color: 'rgb(89, 89, 89)',
               }}
             >
               <span
                 style={{
-                  fontFamily: "sans-serif",
-                  fontSize: "15px",
-                  fontStyle: "normal",
-                  fontVariantLigatures: "normal",
-                  fontVariantCaps: "normal",
+                  fontFamily: 'sans-serif',
+                  fontSize: '15px',
+                  fontStyle: 'normal',
+                  fontVariantLigatures: 'normal',
+                  fontVariantCaps: 'normal',
                   fontWeight: 400,
-                  letterSpacing: "normal",
+                  letterSpacing: 'normal',
                   orphans: 2,
-                  textAlign: "justify",
-                  textIndent: "-29.4px",
-                  textTransform: "none",
-                  whiteSpace: "normal",
+                  textAlign: 'justify',
+                  textIndent: '-29.4px',
+                  textTransform: 'none',
+                  whiteSpace: 'normal',
                   widows: 2,
-                  wordSpacing: "0px",
-                  WebkitTextStrokeWidth: "0px",
-                  backgroundColor: "rgb(255, 255, 255)",
-                  textDecorationStyle: "initial",
-                  textDecorationColor: "initial",
-                  color: "rgb(89, 89, 89)",
+                  wordSpacing: '0px',
+                  WebkitTextStrokeWidth: '0px',
+                  backgroundColor: 'rgb(255, 255, 255)',
+                  textDecorationStyle: 'initial',
+                  textDecorationColor: 'initial',
+                  color: 'rgb(89, 89, 89)',
                 }}
               >
                 <span
                   style={{
-                    lineHeight: "16.8667px",
-                    color: "rgb(89, 89, 89)",
+                    lineHeight: '16.8667px',
+                    color: 'rgb(89, 89, 89)',
                   }}
                 >
                   <span
                     style={{
-                      fontFamily: "sans-serif",
-                      fontStyle: "normal",
-                      fontVariantLigatures: "normal",
-                      fontVariantCaps: "normal",
+                      fontFamily: 'sans-serif',
+                      fontStyle: 'normal',
+                      fontVariantLigatures: 'normal',
+                      fontVariantCaps: 'normal',
                       fontWeight: 400,
-                      letterSpacing: "normal",
+                      letterSpacing: 'normal',
                       orphans: 2,
-                      textAlign: "justify",
-                      textIndent: "-22.05pt",
-                      textTransform: "none",
-                      whiteSpace: "normal",
+                      textAlign: 'justify',
+                      textIndent: '-22.05pt',
+                      textTransform: 'none',
+                      whiteSpace: 'normal',
                       widows: 2,
-                      wordSpacing: "0px",
-                      WebkitTextStrokeWidth: "0px",
-                      backgroundColor: "rgb(255, 255, 255)",
-                      textDecorationStyle: "initial",
-                      textDecorationColor: "initial",
-                      color: "rgb(89, 89, 89)",
+                      wordSpacing: '0px',
+                      WebkitTextStrokeWidth: '0px',
+                      backgroundColor: 'rgb(255, 255, 255)',
+                      textDecorationStyle: 'initial',
+                      textDecorationColor: 'initial',
+                      color: 'rgb(89, 89, 89)',
                     }}
                   >
                     <span
                       className="block-container forloop"
                       data-type="forloop"
                       id="19beb913-5a5e-2b51-51f9-8600a8eb26c3"
-                      style={{ display: "inline" }}
+                      style={{ display: 'inline' }}
                     >
                       <span
                         data-type="conditional-block"
-                        style={{ display: "inline" }}
+                        style={{ display: 'inline' }}
                       >
-                        <span data-type="body" style={{ display: "inline" }}>
+                        <span data-type="body" style={{ display: 'inline' }}>
                           1
                         </span>
                       </span>
@@ -1800,27 +1801,27 @@ export const TermsAndConditions = () => (
                   </span>
                   <span
                     style={{
-                      fontFamily: "sans-serif",
-                      fontStyle: "normal",
-                      fontVariantLigatures: "normal",
-                      fontVariantCaps: "normal",
+                      fontFamily: 'sans-serif',
+                      fontStyle: 'normal',
+                      fontVariantLigatures: 'normal',
+                      fontVariantCaps: 'normal',
                       fontWeight: 400,
-                      letterSpacing: "normal",
+                      letterSpacing: 'normal',
                       orphans: 2,
-                      textAlign: "justify",
-                      textIndent: "-29.4px",
-                      textTransform: "none",
-                      whiteSpace: "normal",
+                      textAlign: 'justify',
+                      textIndent: '-29.4px',
+                      textTransform: 'none',
+                      whiteSpace: 'normal',
                       widows: 2,
-                      wordSpacing: "0px",
-                      WebkitTextStrokeWidth: "0px",
-                      backgroundColor: "rgb(255, 255, 255)",
-                      textDecorationStyle: "initial",
-                      textDecorationColor: "initial",
-                      color: "rgb(89, 89, 89)",
+                      wordSpacing: '0px',
+                      WebkitTextStrokeWidth: '0px',
+                      backgroundColor: 'rgb(255, 255, 255)',
+                      textDecorationStyle: 'initial',
+                      textDecorationColor: 'initial',
+                      color: 'rgb(89, 89, 89)',
                     }}
                   >
-                    .{" "}
+                    .{' '}
                   </span>
                 </span>
                 Systematically retrieve data or other content from the Site to
@@ -1834,79 +1835,79 @@ export const TermsAndConditions = () => (
             className="MsoNormal"
             data-custom-class="body_text"
             style={{
-              lineHeight: "1.5",
-              marginLeft: "20px",
-              textAlign: "left",
+              lineHeight: '1.5',
+              marginLeft: '20px',
+              textAlign: 'left',
             }}
           >
-            <span style={{ fontSize: "15px" }}>
+            <span style={{ fontSize: '15px' }}>
               <span
                 style={{
-                  lineHeight: "16.8667px",
-                  color: "rgb(89, 89, 89)",
+                  lineHeight: '16.8667px',
+                  color: 'rgb(89, 89, 89)',
                 }}
               >
                 <span
                   style={{
-                    fontFamily: "sans-serif",
-                    fontStyle: "normal",
-                    fontVariantLigatures: "normal",
-                    fontVariantCaps: "normal",
+                    fontFamily: 'sans-serif',
+                    fontStyle: 'normal',
+                    fontVariantLigatures: 'normal',
+                    fontVariantCaps: 'normal',
                     fontWeight: 400,
-                    letterSpacing: "normal",
+                    letterSpacing: 'normal',
                     orphans: 2,
-                    textAlign: "justify",
-                    textIndent: "-29.4px",
-                    textTransform: "none",
-                    whiteSpace: "normal",
+                    textAlign: 'justify',
+                    textIndent: '-29.4px',
+                    textTransform: 'none',
+                    whiteSpace: 'normal',
                     widows: 2,
-                    wordSpacing: "0px",
-                    WebkitTextStrokeWidth: "0px",
-                    backgroundColor: "rgb(255, 255, 255)",
-                    textDecorationStyle: "initial",
-                    textDecorationColor: "initial",
-                    color: "rgb(89, 89, 89)",
+                    wordSpacing: '0px',
+                    WebkitTextStrokeWidth: '0px',
+                    backgroundColor: 'rgb(255, 255, 255)',
+                    textDecorationStyle: 'initial',
+                    textDecorationColor: 'initial',
+                    color: 'rgb(89, 89, 89)',
                   }}
                 >
                   <span
                     style={{
-                      lineHeight: "16.8667px",
-                      color: "rgb(89, 89, 89)",
+                      lineHeight: '16.8667px',
+                      color: 'rgb(89, 89, 89)',
                     }}
                   >
                     <span
                       style={{
-                        fontFamily: "sans-serif",
-                        fontStyle: "normal",
-                        fontVariantLigatures: "normal",
-                        fontVariantCaps: "normal",
+                        fontFamily: 'sans-serif',
+                        fontStyle: 'normal',
+                        fontVariantLigatures: 'normal',
+                        fontVariantCaps: 'normal',
                         fontWeight: 400,
-                        letterSpacing: "normal",
+                        letterSpacing: 'normal',
                         orphans: 2,
-                        textAlign: "justify",
-                        textIndent: "-22.05pt",
-                        textTransform: "none",
-                        whiteSpace: "normal",
+                        textAlign: 'justify',
+                        textIndent: '-22.05pt',
+                        textTransform: 'none',
+                        whiteSpace: 'normal',
                         widows: 2,
-                        wordSpacing: "0px",
-                        WebkitTextStrokeWidth: "0px",
-                        backgroundColor: "rgb(255, 255, 255)",
-                        textDecorationStyle: "initial",
-                        textDecorationColor: "initial",
-                        color: "rgb(89, 89, 89)",
+                        wordSpacing: '0px',
+                        WebkitTextStrokeWidth: '0px',
+                        backgroundColor: 'rgb(255, 255, 255)',
+                        textDecorationStyle: 'initial',
+                        textDecorationColor: 'initial',
+                        color: 'rgb(89, 89, 89)',
                       }}
                     >
                       <span
                         className="block-container forloop"
                         data-type="forloop"
                         id="19beb913-5a5e-2b51-51f9-8600a8eb26c3"
-                        style={{ display: "inline" }}
+                        style={{ display: 'inline' }}
                       >
                         <span
                           data-type="conditional-block"
-                          style={{ display: "inline" }}
+                          style={{ display: 'inline' }}
                         >
-                          <span data-type="body" style={{ display: "inline" }}>
+                          <span data-type="body" style={{ display: 'inline' }}>
                             2
                           </span>
                         </span>
@@ -1914,24 +1915,24 @@ export const TermsAndConditions = () => (
                     </span>
                     <span
                       style={{
-                        fontFamily: "sans-serif",
-                        fontStyle: "normal",
-                        fontVariantLigatures: "normal",
-                        fontVariantCaps: "normal",
+                        fontFamily: 'sans-serif',
+                        fontStyle: 'normal',
+                        fontVariantLigatures: 'normal',
+                        fontVariantCaps: 'normal',
                         fontWeight: 400,
-                        letterSpacing: "normal",
+                        letterSpacing: 'normal',
                         orphans: 2,
-                        textAlign: "justify",
-                        textIndent: "-29.4px",
-                        textTransform: "none",
-                        whiteSpace: "normal",
+                        textAlign: 'justify',
+                        textIndent: '-29.4px',
+                        textTransform: 'none',
+                        whiteSpace: 'normal',
                         widows: 2,
-                        wordSpacing: "0px",
-                        WebkitTextStrokeWidth: "0px",
-                        backgroundColor: "rgb(255, 255, 255)",
-                        textDecorationStyle: "initial",
-                        textDecorationColor: "initial",
-                        color: "rgb(89, 89, 89)",
+                        wordSpacing: '0px',
+                        WebkitTextStrokeWidth: '0px',
+                        backgroundColor: 'rgb(255, 255, 255)',
+                        textDecorationStyle: 'initial',
+                        textDecorationColor: 'initial',
+                        color: 'rgb(89, 89, 89)',
                       }}
                     >
                       . Trick, defraud, or mislead us and other users,
@@ -1947,79 +1948,79 @@ export const TermsAndConditions = () => (
             className="MsoNormal"
             data-custom-class="body_text"
             style={{
-              lineHeight: "1.5",
-              marginLeft: "20px",
-              textAlign: "left",
+              lineHeight: '1.5',
+              marginLeft: '20px',
+              textAlign: 'left',
             }}
           >
-            <span style={{ fontSize: "15px" }}>
+            <span style={{ fontSize: '15px' }}>
               <span
                 style={{
-                  lineHeight: "16.8667px",
-                  color: "rgb(89, 89, 89)",
+                  lineHeight: '16.8667px',
+                  color: 'rgb(89, 89, 89)',
                 }}
               >
                 <span
                   style={{
-                    fontFamily: "sans-serif",
-                    fontStyle: "normal",
-                    fontVariantLigatures: "normal",
-                    fontVariantCaps: "normal",
+                    fontFamily: 'sans-serif',
+                    fontStyle: 'normal',
+                    fontVariantLigatures: 'normal',
+                    fontVariantCaps: 'normal',
                     fontWeight: 400,
-                    letterSpacing: "normal",
+                    letterSpacing: 'normal',
                     orphans: 2,
-                    textAlign: "justify",
-                    textIndent: "-29.4px",
-                    textTransform: "none",
-                    whiteSpace: "normal",
+                    textAlign: 'justify',
+                    textIndent: '-29.4px',
+                    textTransform: 'none',
+                    whiteSpace: 'normal',
                     widows: 2,
-                    wordSpacing: "0px",
-                    WebkitTextStrokeWidth: "0px",
-                    backgroundColor: "rgb(255, 255, 255)",
-                    textDecorationStyle: "initial",
-                    textDecorationColor: "initial",
-                    color: "rgb(89, 89, 89)",
+                    wordSpacing: '0px',
+                    WebkitTextStrokeWidth: '0px',
+                    backgroundColor: 'rgb(255, 255, 255)',
+                    textDecorationStyle: 'initial',
+                    textDecorationColor: 'initial',
+                    color: 'rgb(89, 89, 89)',
                   }}
                 >
                   <span
                     style={{
-                      lineHeight: "16.8667px",
-                      color: "rgb(89, 89, 89)",
+                      lineHeight: '16.8667px',
+                      color: 'rgb(89, 89, 89)',
                     }}
                   >
                     <span
                       style={{
-                        fontFamily: "sans-serif",
-                        fontStyle: "normal",
-                        fontVariantLigatures: "normal",
-                        fontVariantCaps: "normal",
+                        fontFamily: 'sans-serif',
+                        fontStyle: 'normal',
+                        fontVariantLigatures: 'normal',
+                        fontVariantCaps: 'normal',
                         fontWeight: 400,
-                        letterSpacing: "normal",
+                        letterSpacing: 'normal',
                         orphans: 2,
-                        textAlign: "justify",
-                        textIndent: "-22.05pt",
-                        textTransform: "none",
-                        whiteSpace: "normal",
+                        textAlign: 'justify',
+                        textIndent: '-22.05pt',
+                        textTransform: 'none',
+                        whiteSpace: 'normal',
                         widows: 2,
-                        wordSpacing: "0px",
-                        WebkitTextStrokeWidth: "0px",
-                        backgroundColor: "rgb(255, 255, 255)",
-                        textDecorationStyle: "initial",
-                        textDecorationColor: "initial",
-                        color: "rgb(89, 89, 89)",
+                        wordSpacing: '0px',
+                        WebkitTextStrokeWidth: '0px',
+                        backgroundColor: 'rgb(255, 255, 255)',
+                        textDecorationStyle: 'initial',
+                        textDecorationColor: 'initial',
+                        color: 'rgb(89, 89, 89)',
                       }}
                     >
                       <span
                         className="block-container forloop"
                         data-type="forloop"
                         id="19beb913-5a5e-2b51-51f9-8600a8eb26c3"
-                        style={{ display: "inline" }}
+                        style={{ display: 'inline' }}
                       >
                         <span
                           data-type="conditional-block"
-                          style={{ display: "inline" }}
+                          style={{ display: 'inline' }}
                         >
-                          <span data-type="body" style={{ display: "inline" }}>
+                          <span data-type="body" style={{ display: 'inline' }}>
                             3
                           </span>
                         </span>
@@ -2027,24 +2028,24 @@ export const TermsAndConditions = () => (
                     </span>
                     <span
                       style={{
-                        fontFamily: "sans-serif",
-                        fontStyle: "normal",
-                        fontVariantLigatures: "normal",
-                        fontVariantCaps: "normal",
+                        fontFamily: 'sans-serif',
+                        fontStyle: 'normal',
+                        fontVariantLigatures: 'normal',
+                        fontVariantCaps: 'normal',
                         fontWeight: 400,
-                        letterSpacing: "normal",
+                        letterSpacing: 'normal',
                         orphans: 2,
-                        textAlign: "justify",
-                        textIndent: "-29.4px",
-                        textTransform: "none",
-                        whiteSpace: "normal",
+                        textAlign: 'justify',
+                        textIndent: '-29.4px',
+                        textTransform: 'none',
+                        whiteSpace: 'normal',
                         widows: 2,
-                        wordSpacing: "0px",
-                        WebkitTextStrokeWidth: "0px",
-                        backgroundColor: "rgb(255, 255, 255)",
-                        textDecorationStyle: "initial",
-                        textDecorationColor: "initial",
-                        color: "rgb(89, 89, 89)",
+                        wordSpacing: '0px',
+                        WebkitTextStrokeWidth: '0px',
+                        backgroundColor: 'rgb(255, 255, 255)',
+                        textDecorationStyle: 'initial',
+                        textDecorationColor: 'initial',
+                        color: 'rgb(89, 89, 89)',
                       }}
                     >
                       . Circumvent, disable, or otherwise interfere with
@@ -2062,79 +2063,79 @@ export const TermsAndConditions = () => (
             className="MsoNormal"
             data-custom-class="body_text"
             style={{
-              lineHeight: "1.5",
-              marginLeft: "20px",
-              textAlign: "left",
+              lineHeight: '1.5',
+              marginLeft: '20px',
+              textAlign: 'left',
             }}
           >
-            <span style={{ fontSize: "15px" }}>
+            <span style={{ fontSize: '15px' }}>
               <span
                 style={{
-                  lineHeight: "16.8667px",
-                  color: "rgb(89, 89, 89)",
+                  lineHeight: '16.8667px',
+                  color: 'rgb(89, 89, 89)',
                 }}
               >
                 <span
                   style={{
-                    fontFamily: "sans-serif",
-                    fontStyle: "normal",
-                    fontVariantLigatures: "normal",
-                    fontVariantCaps: "normal",
+                    fontFamily: 'sans-serif',
+                    fontStyle: 'normal',
+                    fontVariantLigatures: 'normal',
+                    fontVariantCaps: 'normal',
                     fontWeight: 400,
-                    letterSpacing: "normal",
+                    letterSpacing: 'normal',
                     orphans: 2,
-                    textAlign: "justify",
-                    textIndent: "-29.4px",
-                    textTransform: "none",
-                    whiteSpace: "normal",
+                    textAlign: 'justify',
+                    textIndent: '-29.4px',
+                    textTransform: 'none',
+                    whiteSpace: 'normal',
                     widows: 2,
-                    wordSpacing: "0px",
-                    WebkitTextStrokeWidth: "0px",
-                    backgroundColor: "rgb(255, 255, 255)",
-                    textDecorationStyle: "initial",
-                    textDecorationColor: "initial",
-                    color: "rgb(89, 89, 89)",
+                    wordSpacing: '0px',
+                    WebkitTextStrokeWidth: '0px',
+                    backgroundColor: 'rgb(255, 255, 255)',
+                    textDecorationStyle: 'initial',
+                    textDecorationColor: 'initial',
+                    color: 'rgb(89, 89, 89)',
                   }}
                 >
                   <span
                     style={{
-                      lineHeight: "16.8667px",
-                      color: "rgb(89, 89, 89)",
+                      lineHeight: '16.8667px',
+                      color: 'rgb(89, 89, 89)',
                     }}
                   >
                     <span
                       style={{
-                        fontFamily: "sans-serif",
-                        fontStyle: "normal",
-                        fontVariantLigatures: "normal",
-                        fontVariantCaps: "normal",
+                        fontFamily: 'sans-serif',
+                        fontStyle: 'normal',
+                        fontVariantLigatures: 'normal',
+                        fontVariantCaps: 'normal',
                         fontWeight: 400,
-                        letterSpacing: "normal",
+                        letterSpacing: 'normal',
                         orphans: 2,
-                        textAlign: "justify",
-                        textIndent: "-22.05pt",
-                        textTransform: "none",
-                        whiteSpace: "normal",
+                        textAlign: 'justify',
+                        textIndent: '-22.05pt',
+                        textTransform: 'none',
+                        whiteSpace: 'normal',
                         widows: 2,
-                        wordSpacing: "0px",
-                        WebkitTextStrokeWidth: "0px",
-                        backgroundColor: "rgb(255, 255, 255)",
-                        textDecorationStyle: "initial",
-                        textDecorationColor: "initial",
-                        color: "rgb(89, 89, 89)",
+                        wordSpacing: '0px',
+                        WebkitTextStrokeWidth: '0px',
+                        backgroundColor: 'rgb(255, 255, 255)',
+                        textDecorationStyle: 'initial',
+                        textDecorationColor: 'initial',
+                        color: 'rgb(89, 89, 89)',
                       }}
                     >
                       <span
                         className="block-container forloop"
                         data-type="forloop"
                         id="19beb913-5a5e-2b51-51f9-8600a8eb26c3"
-                        style={{ display: "inline" }}
+                        style={{ display: 'inline' }}
                       >
                         <span
                           data-type="conditional-block"
-                          style={{ display: "inline" }}
+                          style={{ display: 'inline' }}
                         >
-                          <span data-type="body" style={{ display: "inline" }}>
+                          <span data-type="body" style={{ display: 'inline' }}>
                             4
                           </span>
                         </span>
@@ -2142,24 +2143,24 @@ export const TermsAndConditions = () => (
                     </span>
                     <span
                       style={{
-                        fontFamily: "sans-serif",
-                        fontStyle: "normal",
-                        fontVariantLigatures: "normal",
-                        fontVariantCaps: "normal",
+                        fontFamily: 'sans-serif',
+                        fontStyle: 'normal',
+                        fontVariantLigatures: 'normal',
+                        fontVariantCaps: 'normal',
                         fontWeight: 400,
-                        letterSpacing: "normal",
+                        letterSpacing: 'normal',
                         orphans: 2,
-                        textAlign: "justify",
-                        textIndent: "-29.4px",
-                        textTransform: "none",
-                        whiteSpace: "normal",
+                        textAlign: 'justify',
+                        textIndent: '-29.4px',
+                        textTransform: 'none',
+                        whiteSpace: 'normal',
                         widows: 2,
-                        wordSpacing: "0px",
-                        WebkitTextStrokeWidth: "0px",
-                        backgroundColor: "rgb(255, 255, 255)",
-                        textDecorationStyle: "initial",
-                        textDecorationColor: "initial",
-                        color: "rgb(89, 89, 89)",
+                        wordSpacing: '0px',
+                        WebkitTextStrokeWidth: '0px',
+                        backgroundColor: 'rgb(255, 255, 255)',
+                        textDecorationStyle: 'initial',
+                        textDecorationColor: 'initial',
+                        color: 'rgb(89, 89, 89)',
                       }}
                     >
                       . Disparage, tarnish, or otherwise harm, in our opinion,
@@ -2174,79 +2175,79 @@ export const TermsAndConditions = () => (
             className="MsoNormal"
             data-custom-class="body_text"
             style={{
-              lineHeight: "1.5",
-              marginLeft: "20px",
-              textAlign: "left",
+              lineHeight: '1.5',
+              marginLeft: '20px',
+              textAlign: 'left',
             }}
           >
-            <span style={{ fontSize: "15px" }}>
+            <span style={{ fontSize: '15px' }}>
               <span
                 style={{
-                  lineHeight: "16.8667px",
-                  color: "rgb(89, 89, 89)",
+                  lineHeight: '16.8667px',
+                  color: 'rgb(89, 89, 89)',
                 }}
               >
                 <span
                   style={{
-                    fontFamily: "sans-serif",
-                    fontStyle: "normal",
-                    fontVariantLigatures: "normal",
-                    fontVariantCaps: "normal",
+                    fontFamily: 'sans-serif',
+                    fontStyle: 'normal',
+                    fontVariantLigatures: 'normal',
+                    fontVariantCaps: 'normal',
                     fontWeight: 400,
-                    letterSpacing: "normal",
+                    letterSpacing: 'normal',
                     orphans: 2,
-                    textAlign: "justify",
-                    textIndent: "-29.4px",
-                    textTransform: "none",
-                    whiteSpace: "normal",
+                    textAlign: 'justify',
+                    textIndent: '-29.4px',
+                    textTransform: 'none',
+                    whiteSpace: 'normal',
                     widows: 2,
-                    wordSpacing: "0px",
-                    WebkitTextStrokeWidth: "0px",
-                    backgroundColor: "rgb(255, 255, 255)",
-                    textDecorationStyle: "initial",
-                    textDecorationColor: "initial",
-                    color: "rgb(89, 89, 89)",
+                    wordSpacing: '0px',
+                    WebkitTextStrokeWidth: '0px',
+                    backgroundColor: 'rgb(255, 255, 255)',
+                    textDecorationStyle: 'initial',
+                    textDecorationColor: 'initial',
+                    color: 'rgb(89, 89, 89)',
                   }}
                 >
                   <span
                     style={{
-                      lineHeight: "16.8667px",
-                      color: "rgb(89, 89, 89)",
+                      lineHeight: '16.8667px',
+                      color: 'rgb(89, 89, 89)',
                     }}
                   >
                     <span
                       style={{
-                        fontFamily: "sans-serif",
-                        fontStyle: "normal",
-                        fontVariantLigatures: "normal",
-                        fontVariantCaps: "normal",
+                        fontFamily: 'sans-serif',
+                        fontStyle: 'normal',
+                        fontVariantLigatures: 'normal',
+                        fontVariantCaps: 'normal',
                         fontWeight: 400,
-                        letterSpacing: "normal",
+                        letterSpacing: 'normal',
                         orphans: 2,
-                        textAlign: "justify",
-                        textIndent: "-22.05pt",
-                        textTransform: "none",
-                        whiteSpace: "normal",
+                        textAlign: 'justify',
+                        textIndent: '-22.05pt',
+                        textTransform: 'none',
+                        whiteSpace: 'normal',
                         widows: 2,
-                        wordSpacing: "0px",
-                        WebkitTextStrokeWidth: "0px",
-                        backgroundColor: "rgb(255, 255, 255)",
-                        textDecorationStyle: "initial",
-                        textDecorationColor: "initial",
-                        color: "rgb(89, 89, 89)",
+                        wordSpacing: '0px',
+                        WebkitTextStrokeWidth: '0px',
+                        backgroundColor: 'rgb(255, 255, 255)',
+                        textDecorationStyle: 'initial',
+                        textDecorationColor: 'initial',
+                        color: 'rgb(89, 89, 89)',
                       }}
                     >
                       <span
                         className="block-container forloop"
                         data-type="forloop"
                         id="19beb913-5a5e-2b51-51f9-8600a8eb26c3"
-                        style={{ display: "inline" }}
+                        style={{ display: 'inline' }}
                       >
                         <span
                           data-type="conditional-block"
-                          style={{ display: "inline" }}
+                          style={{ display: 'inline' }}
                         >
-                          <span data-type="body" style={{ display: "inline" }}>
+                          <span data-type="body" style={{ display: 'inline' }}>
                             5
                           </span>
                         </span>
@@ -2254,24 +2255,24 @@ export const TermsAndConditions = () => (
                     </span>
                     <span
                       style={{
-                        fontFamily: "sans-serif",
-                        fontStyle: "normal",
-                        fontVariantLigatures: "normal",
-                        fontVariantCaps: "normal",
+                        fontFamily: 'sans-serif',
+                        fontStyle: 'normal',
+                        fontVariantLigatures: 'normal',
+                        fontVariantCaps: 'normal',
                         fontWeight: 400,
-                        letterSpacing: "normal",
+                        letterSpacing: 'normal',
                         orphans: 2,
-                        textAlign: "justify",
-                        textIndent: "-29.4px",
-                        textTransform: "none",
-                        whiteSpace: "normal",
+                        textAlign: 'justify',
+                        textIndent: '-29.4px',
+                        textTransform: 'none',
+                        whiteSpace: 'normal',
                         widows: 2,
-                        wordSpacing: "0px",
-                        WebkitTextStrokeWidth: "0px",
-                        backgroundColor: "rgb(255, 255, 255)",
-                        textDecorationStyle: "initial",
-                        textDecorationColor: "initial",
-                        color: "rgb(89, 89, 89)",
+                        wordSpacing: '0px',
+                        WebkitTextStrokeWidth: '0px',
+                        backgroundColor: 'rgb(255, 255, 255)',
+                        textDecorationStyle: 'initial',
+                        textDecorationColor: 'initial',
+                        color: 'rgb(89, 89, 89)',
                       }}
                     >
                       . Use any information obtained from the Site in order to
@@ -2286,79 +2287,79 @@ export const TermsAndConditions = () => (
             className="MsoNormal"
             data-custom-class="body_text"
             style={{
-              lineHeight: "1.5",
-              marginLeft: "20px",
-              textAlign: "left",
+              lineHeight: '1.5',
+              marginLeft: '20px',
+              textAlign: 'left',
             }}
           >
-            <span style={{ fontSize: "15px" }}>
+            <span style={{ fontSize: '15px' }}>
               <span
                 style={{
-                  lineHeight: "16.8667px",
-                  color: "rgb(89, 89, 89)",
+                  lineHeight: '16.8667px',
+                  color: 'rgb(89, 89, 89)',
                 }}
               >
                 <span
                   style={{
-                    fontFamily: "sans-serif",
-                    fontStyle: "normal",
-                    fontVariantLigatures: "normal",
-                    fontVariantCaps: "normal",
+                    fontFamily: 'sans-serif',
+                    fontStyle: 'normal',
+                    fontVariantLigatures: 'normal',
+                    fontVariantCaps: 'normal',
                     fontWeight: 400,
-                    letterSpacing: "normal",
+                    letterSpacing: 'normal',
                     orphans: 2,
-                    textAlign: "justify",
-                    textIndent: "-29.4px",
-                    textTransform: "none",
-                    whiteSpace: "normal",
+                    textAlign: 'justify',
+                    textIndent: '-29.4px',
+                    textTransform: 'none',
+                    whiteSpace: 'normal',
                     widows: 2,
-                    wordSpacing: "0px",
-                    WebkitTextStrokeWidth: "0px",
-                    backgroundColor: "rgb(255, 255, 255)",
-                    textDecorationStyle: "initial",
-                    textDecorationColor: "initial",
-                    color: "rgb(89, 89, 89)",
+                    wordSpacing: '0px',
+                    WebkitTextStrokeWidth: '0px',
+                    backgroundColor: 'rgb(255, 255, 255)',
+                    textDecorationStyle: 'initial',
+                    textDecorationColor: 'initial',
+                    color: 'rgb(89, 89, 89)',
                   }}
                 >
                   <span
                     style={{
-                      lineHeight: "16.8667px",
-                      color: "rgb(89, 89, 89)",
+                      lineHeight: '16.8667px',
+                      color: 'rgb(89, 89, 89)',
                     }}
                   >
                     <span
                       style={{
-                        fontFamily: "sans-serif",
-                        fontStyle: "normal",
-                        fontVariantLigatures: "normal",
-                        fontVariantCaps: "normal",
+                        fontFamily: 'sans-serif',
+                        fontStyle: 'normal',
+                        fontVariantLigatures: 'normal',
+                        fontVariantCaps: 'normal',
                         fontWeight: 400,
-                        letterSpacing: "normal",
+                        letterSpacing: 'normal',
                         orphans: 2,
-                        textAlign: "justify",
-                        textIndent: "-22.05pt",
-                        textTransform: "none",
-                        whiteSpace: "normal",
+                        textAlign: 'justify',
+                        textIndent: '-22.05pt',
+                        textTransform: 'none',
+                        whiteSpace: 'normal',
                         widows: 2,
-                        wordSpacing: "0px",
-                        WebkitTextStrokeWidth: "0px",
-                        backgroundColor: "rgb(255, 255, 255)",
-                        textDecorationStyle: "initial",
-                        textDecorationColor: "initial",
-                        color: "rgb(89, 89, 89)",
+                        wordSpacing: '0px',
+                        WebkitTextStrokeWidth: '0px',
+                        backgroundColor: 'rgb(255, 255, 255)',
+                        textDecorationStyle: 'initial',
+                        textDecorationColor: 'initial',
+                        color: 'rgb(89, 89, 89)',
                       }}
                     >
                       <span
                         className="block-container forloop"
                         data-type="forloop"
                         id="19beb913-5a5e-2b51-51f9-8600a8eb26c3"
-                        style={{ display: "inline" }}
+                        style={{ display: 'inline' }}
                       >
                         <span
                           data-type="conditional-block"
-                          style={{ display: "inline" }}
+                          style={{ display: 'inline' }}
                         >
-                          <span data-type="body" style={{ display: "inline" }}>
+                          <span data-type="body" style={{ display: 'inline' }}>
                             6
                           </span>
                         </span>
@@ -2366,24 +2367,24 @@ export const TermsAndConditions = () => (
                     </span>
                     <span
                       style={{
-                        fontFamily: "sans-serif",
-                        fontStyle: "normal",
-                        fontVariantLigatures: "normal",
-                        fontVariantCaps: "normal",
+                        fontFamily: 'sans-serif',
+                        fontStyle: 'normal',
+                        fontVariantLigatures: 'normal',
+                        fontVariantCaps: 'normal',
                         fontWeight: 400,
-                        letterSpacing: "normal",
+                        letterSpacing: 'normal',
                         orphans: 2,
-                        textAlign: "justify",
-                        textIndent: "-29.4px",
-                        textTransform: "none",
-                        whiteSpace: "normal",
+                        textAlign: 'justify',
+                        textIndent: '-29.4px',
+                        textTransform: 'none',
+                        whiteSpace: 'normal',
                         widows: 2,
-                        wordSpacing: "0px",
-                        WebkitTextStrokeWidth: "0px",
-                        backgroundColor: "rgb(255, 255, 255)",
-                        textDecorationStyle: "initial",
-                        textDecorationColor: "initial",
-                        color: "rgb(89, 89, 89)",
+                        wordSpacing: '0px',
+                        WebkitTextStrokeWidth: '0px',
+                        backgroundColor: 'rgb(255, 255, 255)',
+                        textDecorationStyle: 'initial',
+                        textDecorationColor: 'initial',
+                        color: 'rgb(89, 89, 89)',
                       }}
                     >
                       . Make improper use of our support services or submit
@@ -2398,79 +2399,79 @@ export const TermsAndConditions = () => (
             className="MsoNormal"
             data-custom-class="body_text"
             style={{
-              lineHeight: "1.5",
-              marginLeft: "20px",
-              textAlign: "left",
+              lineHeight: '1.5',
+              marginLeft: '20px',
+              textAlign: 'left',
             }}
           >
-            <span style={{ fontSize: "15px" }}>
+            <span style={{ fontSize: '15px' }}>
               <span
                 style={{
-                  lineHeight: "16.8667px",
-                  color: "rgb(89, 89, 89)",
+                  lineHeight: '16.8667px',
+                  color: 'rgb(89, 89, 89)',
                 }}
               >
                 <span
                   style={{
-                    fontFamily: "sans-serif",
-                    fontStyle: "normal",
-                    fontVariantLigatures: "normal",
-                    fontVariantCaps: "normal",
+                    fontFamily: 'sans-serif',
+                    fontStyle: 'normal',
+                    fontVariantLigatures: 'normal',
+                    fontVariantCaps: 'normal',
                     fontWeight: 400,
-                    letterSpacing: "normal",
+                    letterSpacing: 'normal',
                     orphans: 2,
-                    textAlign: "justify",
-                    textIndent: "-29.4px",
-                    textTransform: "none",
-                    whiteSpace: "normal",
+                    textAlign: 'justify',
+                    textIndent: '-29.4px',
+                    textTransform: 'none',
+                    whiteSpace: 'normal',
                     widows: 2,
-                    wordSpacing: "0px",
-                    WebkitTextStrokeWidth: "0px",
-                    backgroundColor: "rgb(255, 255, 255)",
-                    textDecorationStyle: "initial",
-                    textDecorationColor: "initial",
-                    color: "rgb(89, 89, 89)",
+                    wordSpacing: '0px',
+                    WebkitTextStrokeWidth: '0px',
+                    backgroundColor: 'rgb(255, 255, 255)',
+                    textDecorationStyle: 'initial',
+                    textDecorationColor: 'initial',
+                    color: 'rgb(89, 89, 89)',
                   }}
                 >
                   <span
                     style={{
-                      lineHeight: "16.8667px",
-                      color: "rgb(89, 89, 89)",
+                      lineHeight: '16.8667px',
+                      color: 'rgb(89, 89, 89)',
                     }}
                   >
                     <span
                       style={{
-                        fontFamily: "sans-serif",
-                        fontStyle: "normal",
-                        fontVariantLigatures: "normal",
-                        fontVariantCaps: "normal",
+                        fontFamily: 'sans-serif',
+                        fontStyle: 'normal',
+                        fontVariantLigatures: 'normal',
+                        fontVariantCaps: 'normal',
                         fontWeight: 400,
-                        letterSpacing: "normal",
+                        letterSpacing: 'normal',
                         orphans: 2,
-                        textAlign: "justify",
-                        textIndent: "-22.05pt",
-                        textTransform: "none",
-                        whiteSpace: "normal",
+                        textAlign: 'justify',
+                        textIndent: '-22.05pt',
+                        textTransform: 'none',
+                        whiteSpace: 'normal',
                         widows: 2,
-                        wordSpacing: "0px",
-                        WebkitTextStrokeWidth: "0px",
-                        backgroundColor: "rgb(255, 255, 255)",
-                        textDecorationStyle: "initial",
-                        textDecorationColor: "initial",
-                        color: "rgb(89, 89, 89)",
+                        wordSpacing: '0px',
+                        WebkitTextStrokeWidth: '0px',
+                        backgroundColor: 'rgb(255, 255, 255)',
+                        textDecorationStyle: 'initial',
+                        textDecorationColor: 'initial',
+                        color: 'rgb(89, 89, 89)',
                       }}
                     >
                       <span
                         className="block-container forloop"
                         data-type="forloop"
                         id="19beb913-5a5e-2b51-51f9-8600a8eb26c3"
-                        style={{ display: "inline" }}
+                        style={{ display: 'inline' }}
                       >
                         <span
                           data-type="conditional-block"
-                          style={{ display: "inline" }}
+                          style={{ display: 'inline' }}
                         >
-                          <span data-type="body" style={{ display: "inline" }}>
+                          <span data-type="body" style={{ display: 'inline' }}>
                             7
                           </span>
                         </span>
@@ -2478,24 +2479,24 @@ export const TermsAndConditions = () => (
                     </span>
                     <span
                       style={{
-                        fontFamily: "sans-serif",
-                        fontStyle: "normal",
-                        fontVariantLigatures: "normal",
-                        fontVariantCaps: "normal",
+                        fontFamily: 'sans-serif',
+                        fontStyle: 'normal',
+                        fontVariantLigatures: 'normal',
+                        fontVariantCaps: 'normal',
                         fontWeight: 400,
-                        letterSpacing: "normal",
+                        letterSpacing: 'normal',
                         orphans: 2,
-                        textAlign: "justify",
-                        textIndent: "-29.4px",
-                        textTransform: "none",
-                        whiteSpace: "normal",
+                        textAlign: 'justify',
+                        textIndent: '-29.4px',
+                        textTransform: 'none',
+                        whiteSpace: 'normal',
                         widows: 2,
-                        wordSpacing: "0px",
-                        WebkitTextStrokeWidth: "0px",
-                        backgroundColor: "rgb(255, 255, 255)",
-                        textDecorationStyle: "initial",
-                        textDecorationColor: "initial",
-                        color: "rgb(89, 89, 89)",
+                        wordSpacing: '0px',
+                        WebkitTextStrokeWidth: '0px',
+                        backgroundColor: 'rgb(255, 255, 255)',
+                        textDecorationStyle: 'initial',
+                        textDecorationColor: 'initial',
+                        color: 'rgb(89, 89, 89)',
                       }}
                     >
                       . Use the Site in a manner inconsistent with any
@@ -2510,79 +2511,79 @@ export const TermsAndConditions = () => (
             className="MsoNormal"
             data-custom-class="body_text"
             style={{
-              lineHeight: "1.5",
-              marginLeft: "20px",
-              textAlign: "left",
+              lineHeight: '1.5',
+              marginLeft: '20px',
+              textAlign: 'left',
             }}
           >
-            <span style={{ fontSize: "15px" }}>
+            <span style={{ fontSize: '15px' }}>
               <span
                 style={{
-                  lineHeight: "16.8667px",
-                  color: "rgb(89, 89, 89)",
+                  lineHeight: '16.8667px',
+                  color: 'rgb(89, 89, 89)',
                 }}
               >
                 <span
                   style={{
-                    fontFamily: "sans-serif",
-                    fontStyle: "normal",
-                    fontVariantLigatures: "normal",
-                    fontVariantCaps: "normal",
+                    fontFamily: 'sans-serif',
+                    fontStyle: 'normal',
+                    fontVariantLigatures: 'normal',
+                    fontVariantCaps: 'normal',
                     fontWeight: 400,
-                    letterSpacing: "normal",
+                    letterSpacing: 'normal',
                     orphans: 2,
-                    textAlign: "justify",
-                    textIndent: "-29.4px",
-                    textTransform: "none",
-                    whiteSpace: "normal",
+                    textAlign: 'justify',
+                    textIndent: '-29.4px',
+                    textTransform: 'none',
+                    whiteSpace: 'normal',
                     widows: 2,
-                    wordSpacing: "0px",
-                    WebkitTextStrokeWidth: "0px",
-                    backgroundColor: "rgb(255, 255, 255)",
-                    textDecorationStyle: "initial",
-                    textDecorationColor: "initial",
-                    color: "rgb(89, 89, 89)",
+                    wordSpacing: '0px',
+                    WebkitTextStrokeWidth: '0px',
+                    backgroundColor: 'rgb(255, 255, 255)',
+                    textDecorationStyle: 'initial',
+                    textDecorationColor: 'initial',
+                    color: 'rgb(89, 89, 89)',
                   }}
                 >
                   <span
                     style={{
-                      lineHeight: "16.8667px",
-                      color: "rgb(89, 89, 89)",
+                      lineHeight: '16.8667px',
+                      color: 'rgb(89, 89, 89)',
                     }}
                   >
                     <span
                       style={{
-                        fontFamily: "sans-serif",
-                        fontStyle: "normal",
-                        fontVariantLigatures: "normal",
-                        fontVariantCaps: "normal",
+                        fontFamily: 'sans-serif',
+                        fontStyle: 'normal',
+                        fontVariantLigatures: 'normal',
+                        fontVariantCaps: 'normal',
                         fontWeight: 400,
-                        letterSpacing: "normal",
+                        letterSpacing: 'normal',
                         orphans: 2,
-                        textAlign: "justify",
-                        textIndent: "-22.05pt",
-                        textTransform: "none",
-                        whiteSpace: "normal",
+                        textAlign: 'justify',
+                        textIndent: '-22.05pt',
+                        textTransform: 'none',
+                        whiteSpace: 'normal',
                         widows: 2,
-                        wordSpacing: "0px",
-                        WebkitTextStrokeWidth: "0px",
-                        backgroundColor: "rgb(255, 255, 255)",
-                        textDecorationStyle: "initial",
-                        textDecorationColor: "initial",
-                        color: "rgb(89, 89, 89)",
+                        wordSpacing: '0px',
+                        WebkitTextStrokeWidth: '0px',
+                        backgroundColor: 'rgb(255, 255, 255)',
+                        textDecorationStyle: 'initial',
+                        textDecorationColor: 'initial',
+                        color: 'rgb(89, 89, 89)',
                       }}
                     >
                       <span
                         className="block-container forloop"
                         data-type="forloop"
                         id="19beb913-5a5e-2b51-51f9-8600a8eb26c3"
-                        style={{ display: "inline" }}
+                        style={{ display: 'inline' }}
                       >
                         <span
                           data-type="conditional-block"
-                          style={{ display: "inline" }}
+                          style={{ display: 'inline' }}
                         >
-                          <span data-type="body" style={{ display: "inline" }}>
+                          <span data-type="body" style={{ display: 'inline' }}>
                             8
                           </span>
                         </span>
@@ -2590,24 +2591,24 @@ export const TermsAndConditions = () => (
                     </span>
                     <span
                       style={{
-                        fontFamily: "sans-serif",
-                        fontStyle: "normal",
-                        fontVariantLigatures: "normal",
-                        fontVariantCaps: "normal",
+                        fontFamily: 'sans-serif',
+                        fontStyle: 'normal',
+                        fontVariantLigatures: 'normal',
+                        fontVariantCaps: 'normal',
                         fontWeight: 400,
-                        letterSpacing: "normal",
+                        letterSpacing: 'normal',
                         orphans: 2,
-                        textAlign: "justify",
-                        textIndent: "-29.4px",
-                        textTransform: "none",
-                        whiteSpace: "normal",
+                        textAlign: 'justify',
+                        textIndent: '-29.4px',
+                        textTransform: 'none',
+                        whiteSpace: 'normal',
                         widows: 2,
-                        wordSpacing: "0px",
-                        WebkitTextStrokeWidth: "0px",
-                        backgroundColor: "rgb(255, 255, 255)",
-                        textDecorationStyle: "initial",
-                        textDecorationColor: "initial",
-                        color: "rgb(89, 89, 89)",
+                        wordSpacing: '0px',
+                        WebkitTextStrokeWidth: '0px',
+                        backgroundColor: 'rgb(255, 255, 255)',
+                        textDecorationStyle: 'initial',
+                        textDecorationColor: 'initial',
+                        color: 'rgb(89, 89, 89)',
                       }}
                     >
                       . Engage in unauthorized framing of or linking to the
@@ -2622,79 +2623,79 @@ export const TermsAndConditions = () => (
             className="MsoNormal"
             data-custom-class="body_text"
             style={{
-              lineHeight: "1.5",
-              marginLeft: "20px",
-              textAlign: "left",
+              lineHeight: '1.5',
+              marginLeft: '20px',
+              textAlign: 'left',
             }}
           >
-            <span style={{ fontSize: "15px" }}>
+            <span style={{ fontSize: '15px' }}>
               <span
                 style={{
-                  lineHeight: "16.8667px",
-                  color: "rgb(89, 89, 89)",
+                  lineHeight: '16.8667px',
+                  color: 'rgb(89, 89, 89)',
                 }}
               >
                 <span
                   style={{
-                    fontFamily: "sans-serif",
-                    fontStyle: "normal",
-                    fontVariantLigatures: "normal",
-                    fontVariantCaps: "normal",
+                    fontFamily: 'sans-serif',
+                    fontStyle: 'normal',
+                    fontVariantLigatures: 'normal',
+                    fontVariantCaps: 'normal',
                     fontWeight: 400,
-                    letterSpacing: "normal",
+                    letterSpacing: 'normal',
                     orphans: 2,
-                    textAlign: "justify",
-                    textIndent: "-29.4px",
-                    textTransform: "none",
-                    whiteSpace: "normal",
+                    textAlign: 'justify',
+                    textIndent: '-29.4px',
+                    textTransform: 'none',
+                    whiteSpace: 'normal',
                     widows: 2,
-                    wordSpacing: "0px",
-                    WebkitTextStrokeWidth: "0px",
-                    backgroundColor: "rgb(255, 255, 255)",
-                    textDecorationStyle: "initial",
-                    textDecorationColor: "initial",
-                    color: "rgb(89, 89, 89)",
+                    wordSpacing: '0px',
+                    WebkitTextStrokeWidth: '0px',
+                    backgroundColor: 'rgb(255, 255, 255)',
+                    textDecorationStyle: 'initial',
+                    textDecorationColor: 'initial',
+                    color: 'rgb(89, 89, 89)',
                   }}
                 >
                   <span
                     style={{
-                      lineHeight: "16.8667px",
-                      color: "rgb(89, 89, 89)",
+                      lineHeight: '16.8667px',
+                      color: 'rgb(89, 89, 89)',
                     }}
                   >
                     <span
                       style={{
-                        fontFamily: "sans-serif",
-                        fontStyle: "normal",
-                        fontVariantLigatures: "normal",
-                        fontVariantCaps: "normal",
+                        fontFamily: 'sans-serif',
+                        fontStyle: 'normal',
+                        fontVariantLigatures: 'normal',
+                        fontVariantCaps: 'normal',
                         fontWeight: 400,
-                        letterSpacing: "normal",
+                        letterSpacing: 'normal',
                         orphans: 2,
-                        textAlign: "justify",
-                        textIndent: "-22.05pt",
-                        textTransform: "none",
-                        whiteSpace: "normal",
+                        textAlign: 'justify',
+                        textIndent: '-22.05pt',
+                        textTransform: 'none',
+                        whiteSpace: 'normal',
                         widows: 2,
-                        wordSpacing: "0px",
-                        WebkitTextStrokeWidth: "0px",
-                        backgroundColor: "rgb(255, 255, 255)",
-                        textDecorationStyle: "initial",
-                        textDecorationColor: "initial",
-                        color: "rgb(89, 89, 89)",
+                        wordSpacing: '0px',
+                        WebkitTextStrokeWidth: '0px',
+                        backgroundColor: 'rgb(255, 255, 255)',
+                        textDecorationStyle: 'initial',
+                        textDecorationColor: 'initial',
+                        color: 'rgb(89, 89, 89)',
                       }}
                     >
                       <span
                         className="block-container forloop"
                         data-type="forloop"
                         id="19beb913-5a5e-2b51-51f9-8600a8eb26c3"
-                        style={{ display: "inline" }}
+                        style={{ display: 'inline' }}
                       >
                         <span
                           data-type="conditional-block"
-                          style={{ display: "inline" }}
+                          style={{ display: 'inline' }}
                         >
-                          <span data-type="body" style={{ display: "inline" }}>
+                          <span data-type="body" style={{ display: 'inline' }}>
                             9
                           </span>
                         </span>
@@ -2702,24 +2703,24 @@ export const TermsAndConditions = () => (
                     </span>
                     <span
                       style={{
-                        fontFamily: "sans-serif",
-                        fontStyle: "normal",
-                        fontVariantLigatures: "normal",
-                        fontVariantCaps: "normal",
+                        fontFamily: 'sans-serif',
+                        fontStyle: 'normal',
+                        fontVariantLigatures: 'normal',
+                        fontVariantCaps: 'normal',
                         fontWeight: 400,
-                        letterSpacing: "normal",
+                        letterSpacing: 'normal',
                         orphans: 2,
-                        textAlign: "justify",
-                        textIndent: "-29.4px",
-                        textTransform: "none",
-                        whiteSpace: "normal",
+                        textAlign: 'justify',
+                        textIndent: '-29.4px',
+                        textTransform: 'none',
+                        whiteSpace: 'normal',
                         widows: 2,
-                        wordSpacing: "0px",
-                        WebkitTextStrokeWidth: "0px",
-                        backgroundColor: "rgb(255, 255, 255)",
-                        textDecorationStyle: "initial",
-                        textDecorationColor: "initial",
-                        color: "rgb(89, 89, 89)",
+                        wordSpacing: '0px',
+                        WebkitTextStrokeWidth: '0px',
+                        backgroundColor: 'rgb(255, 255, 255)',
+                        textDecorationStyle: 'initial',
+                        textDecorationColor: 'initial',
+                        color: 'rgb(89, 89, 89)',
                       }}
                     >
                       . Upload or transmit (or attempt to upload or to transmit)
@@ -2740,79 +2741,79 @@ export const TermsAndConditions = () => (
             className="MsoNormal"
             data-custom-class="body_text"
             style={{
-              lineHeight: "1.5",
-              marginLeft: "20px",
-              textAlign: "left",
+              lineHeight: '1.5',
+              marginLeft: '20px',
+              textAlign: 'left',
             }}
           >
-            <span style={{ fontSize: "15px" }}>
+            <span style={{ fontSize: '15px' }}>
               <span
                 style={{
-                  lineHeight: "16.8667px",
-                  color: "rgb(89, 89, 89)",
+                  lineHeight: '16.8667px',
+                  color: 'rgb(89, 89, 89)',
                 }}
               >
                 <span
                   style={{
-                    fontFamily: "sans-serif",
-                    fontStyle: "normal",
-                    fontVariantLigatures: "normal",
-                    fontVariantCaps: "normal",
+                    fontFamily: 'sans-serif',
+                    fontStyle: 'normal',
+                    fontVariantLigatures: 'normal',
+                    fontVariantCaps: 'normal',
                     fontWeight: 400,
-                    letterSpacing: "normal",
+                    letterSpacing: 'normal',
                     orphans: 2,
-                    textAlign: "justify",
-                    textIndent: "-29.4px",
-                    textTransform: "none",
-                    whiteSpace: "normal",
+                    textAlign: 'justify',
+                    textIndent: '-29.4px',
+                    textTransform: 'none',
+                    whiteSpace: 'normal',
                     widows: 2,
-                    wordSpacing: "0px",
-                    WebkitTextStrokeWidth: "0px",
-                    backgroundColor: "rgb(255, 255, 255)",
-                    textDecorationStyle: "initial",
-                    textDecorationColor: "initial",
-                    color: "rgb(89, 89, 89)",
+                    wordSpacing: '0px',
+                    WebkitTextStrokeWidth: '0px',
+                    backgroundColor: 'rgb(255, 255, 255)',
+                    textDecorationStyle: 'initial',
+                    textDecorationColor: 'initial',
+                    color: 'rgb(89, 89, 89)',
                   }}
                 >
                   <span
                     style={{
-                      lineHeight: "16.8667px",
-                      color: "rgb(89, 89, 89)",
+                      lineHeight: '16.8667px',
+                      color: 'rgb(89, 89, 89)',
                     }}
                   >
                     <span
                       style={{
-                        fontFamily: "sans-serif",
-                        fontStyle: "normal",
-                        fontVariantLigatures: "normal",
-                        fontVariantCaps: "normal",
+                        fontFamily: 'sans-serif',
+                        fontStyle: 'normal',
+                        fontVariantLigatures: 'normal',
+                        fontVariantCaps: 'normal',
                         fontWeight: 400,
-                        letterSpacing: "normal",
+                        letterSpacing: 'normal',
                         orphans: 2,
-                        textAlign: "justify",
-                        textIndent: "-22.05pt",
-                        textTransform: "none",
-                        whiteSpace: "normal",
+                        textAlign: 'justify',
+                        textIndent: '-22.05pt',
+                        textTransform: 'none',
+                        whiteSpace: 'normal',
                         widows: 2,
-                        wordSpacing: "0px",
-                        WebkitTextStrokeWidth: "0px",
-                        backgroundColor: "rgb(255, 255, 255)",
-                        textDecorationStyle: "initial",
-                        textDecorationColor: "initial",
-                        color: "rgb(89, 89, 89)",
+                        wordSpacing: '0px',
+                        WebkitTextStrokeWidth: '0px',
+                        backgroundColor: 'rgb(255, 255, 255)',
+                        textDecorationStyle: 'initial',
+                        textDecorationColor: 'initial',
+                        color: 'rgb(89, 89, 89)',
                       }}
                     >
                       <span
                         className="block-container forloop"
                         data-type="forloop"
                         id="19beb913-5a5e-2b51-51f9-8600a8eb26c3"
-                        style={{ display: "inline" }}
+                        style={{ display: 'inline' }}
                       >
                         <span
                           data-type="conditional-block"
-                          style={{ display: "inline" }}
+                          style={{ display: 'inline' }}
                         >
-                          <span data-type="body" style={{ display: "inline" }}>
+                          <span data-type="body" style={{ display: 'inline' }}>
                             10
                           </span>
                         </span>
@@ -2820,24 +2821,24 @@ export const TermsAndConditions = () => (
                     </span>
                     <span
                       style={{
-                        fontFamily: "sans-serif",
-                        fontStyle: "normal",
-                        fontVariantLigatures: "normal",
-                        fontVariantCaps: "normal",
+                        fontFamily: 'sans-serif',
+                        fontStyle: 'normal',
+                        fontVariantLigatures: 'normal',
+                        fontVariantCaps: 'normal',
                         fontWeight: 400,
-                        letterSpacing: "normal",
+                        letterSpacing: 'normal',
                         orphans: 2,
-                        textAlign: "justify",
-                        textIndent: "-29.4px",
-                        textTransform: "none",
-                        whiteSpace: "normal",
+                        textAlign: 'justify',
+                        textIndent: '-29.4px',
+                        textTransform: 'none',
+                        whiteSpace: 'normal',
                         widows: 2,
-                        wordSpacing: "0px",
-                        WebkitTextStrokeWidth: "0px",
-                        backgroundColor: "rgb(255, 255, 255)",
-                        textDecorationStyle: "initial",
-                        textDecorationColor: "initial",
-                        color: "rgb(89, 89, 89)",
+                        wordSpacing: '0px',
+                        WebkitTextStrokeWidth: '0px',
+                        backgroundColor: 'rgb(255, 255, 255)',
+                        textDecorationStyle: 'initial',
+                        textDecorationColor: 'initial',
+                        color: 'rgb(89, 89, 89)',
                       }}
                     >
                       . Engage in any automated use of the system, such as using
@@ -2854,79 +2855,79 @@ export const TermsAndConditions = () => (
             className="MsoNormal"
             data-custom-class="body_text"
             style={{
-              lineHeight: "1.5",
-              marginLeft: "20px",
-              textAlign: "left",
+              lineHeight: '1.5',
+              marginLeft: '20px',
+              textAlign: 'left',
             }}
           >
-            <span style={{ fontSize: "15px" }}>
+            <span style={{ fontSize: '15px' }}>
               <span
                 style={{
-                  lineHeight: "16.8667px",
-                  color: "rgb(89, 89, 89)",
+                  lineHeight: '16.8667px',
+                  color: 'rgb(89, 89, 89)',
                 }}
               >
                 <span
                   style={{
-                    fontFamily: "sans-serif",
-                    fontStyle: "normal",
-                    fontVariantLigatures: "normal",
-                    fontVariantCaps: "normal",
+                    fontFamily: 'sans-serif',
+                    fontStyle: 'normal',
+                    fontVariantLigatures: 'normal',
+                    fontVariantCaps: 'normal',
                     fontWeight: 400,
-                    letterSpacing: "normal",
+                    letterSpacing: 'normal',
                     orphans: 2,
-                    textAlign: "justify",
-                    textIndent: "-29.4px",
-                    textTransform: "none",
-                    whiteSpace: "normal",
+                    textAlign: 'justify',
+                    textIndent: '-29.4px',
+                    textTransform: 'none',
+                    whiteSpace: 'normal',
                     widows: 2,
-                    wordSpacing: "0px",
-                    WebkitTextStrokeWidth: "0px",
-                    backgroundColor: "rgb(255, 255, 255)",
-                    textDecorationStyle: "initial",
-                    textDecorationColor: "initial",
-                    color: "rgb(89, 89, 89)",
+                    wordSpacing: '0px',
+                    WebkitTextStrokeWidth: '0px',
+                    backgroundColor: 'rgb(255, 255, 255)',
+                    textDecorationStyle: 'initial',
+                    textDecorationColor: 'initial',
+                    color: 'rgb(89, 89, 89)',
                   }}
                 >
                   <span
                     style={{
-                      lineHeight: "16.8667px",
-                      color: "rgb(89, 89, 89)",
+                      lineHeight: '16.8667px',
+                      color: 'rgb(89, 89, 89)',
                     }}
                   >
                     <span
                       style={{
-                        fontFamily: "sans-serif",
-                        fontStyle: "normal",
-                        fontVariantLigatures: "normal",
-                        fontVariantCaps: "normal",
+                        fontFamily: 'sans-serif',
+                        fontStyle: 'normal',
+                        fontVariantLigatures: 'normal',
+                        fontVariantCaps: 'normal',
                         fontWeight: 400,
-                        letterSpacing: "normal",
+                        letterSpacing: 'normal',
                         orphans: 2,
-                        textAlign: "justify",
-                        textIndent: "-22.05pt",
-                        textTransform: "none",
-                        whiteSpace: "normal",
+                        textAlign: 'justify',
+                        textIndent: '-22.05pt',
+                        textTransform: 'none',
+                        whiteSpace: 'normal',
                         widows: 2,
-                        wordSpacing: "0px",
-                        WebkitTextStrokeWidth: "0px",
-                        backgroundColor: "rgb(255, 255, 255)",
-                        textDecorationStyle: "initial",
-                        textDecorationColor: "initial",
-                        color: "rgb(89, 89, 89)",
+                        wordSpacing: '0px',
+                        WebkitTextStrokeWidth: '0px',
+                        backgroundColor: 'rgb(255, 255, 255)',
+                        textDecorationStyle: 'initial',
+                        textDecorationColor: 'initial',
+                        color: 'rgb(89, 89, 89)',
                       }}
                     >
                       <span
                         className="block-container forloop"
                         data-type="forloop"
                         id="19beb913-5a5e-2b51-51f9-8600a8eb26c3"
-                        style={{ display: "inline" }}
+                        style={{ display: 'inline' }}
                       >
                         <span
                           data-type="conditional-block"
-                          style={{ display: "inline" }}
+                          style={{ display: 'inline' }}
                         >
-                          <span data-type="body" style={{ display: "inline" }}>
+                          <span data-type="body" style={{ display: 'inline' }}>
                             11
                           </span>
                         </span>
@@ -2934,24 +2935,24 @@ export const TermsAndConditions = () => (
                     </span>
                     <span
                       style={{
-                        fontFamily: "sans-serif",
-                        fontStyle: "normal",
-                        fontVariantLigatures: "normal",
-                        fontVariantCaps: "normal",
+                        fontFamily: 'sans-serif',
+                        fontStyle: 'normal',
+                        fontVariantLigatures: 'normal',
+                        fontVariantCaps: 'normal',
                         fontWeight: 400,
-                        letterSpacing: "normal",
+                        letterSpacing: 'normal',
                         orphans: 2,
-                        textAlign: "justify",
-                        textIndent: "-29.4px",
-                        textTransform: "none",
-                        whiteSpace: "normal",
+                        textAlign: 'justify',
+                        textIndent: '-29.4px',
+                        textTransform: 'none',
+                        whiteSpace: 'normal',
                         widows: 2,
-                        wordSpacing: "0px",
-                        WebkitTextStrokeWidth: "0px",
-                        backgroundColor: "rgb(255, 255, 255)",
-                        textDecorationStyle: "initial",
-                        textDecorationColor: "initial",
-                        color: "rgb(89, 89, 89)",
+                        wordSpacing: '0px',
+                        WebkitTextStrokeWidth: '0px',
+                        backgroundColor: 'rgb(255, 255, 255)',
+                        textDecorationStyle: 'initial',
+                        textDecorationColor: 'initial',
+                        color: 'rgb(89, 89, 89)',
                       }}
                     >
                       . Delete the copyright or other proprietary rights notice
@@ -2966,79 +2967,79 @@ export const TermsAndConditions = () => (
             className="MsoNormal"
             data-custom-class="body_text"
             style={{
-              lineHeight: "1.5",
-              marginLeft: "20px",
-              textAlign: "left",
+              lineHeight: '1.5',
+              marginLeft: '20px',
+              textAlign: 'left',
             }}
           >
-            <span style={{ fontSize: "15px" }}>
+            <span style={{ fontSize: '15px' }}>
               <span
                 style={{
-                  lineHeight: "16.8667px",
-                  color: "rgb(89, 89, 89)",
+                  lineHeight: '16.8667px',
+                  color: 'rgb(89, 89, 89)',
                 }}
               >
                 <span
                   style={{
-                    fontFamily: "sans-serif",
-                    fontStyle: "normal",
-                    fontVariantLigatures: "normal",
-                    fontVariantCaps: "normal",
+                    fontFamily: 'sans-serif',
+                    fontStyle: 'normal',
+                    fontVariantLigatures: 'normal',
+                    fontVariantCaps: 'normal',
                     fontWeight: 400,
-                    letterSpacing: "normal",
+                    letterSpacing: 'normal',
                     orphans: 2,
-                    textAlign: "justify",
-                    textIndent: "-29.4px",
-                    textTransform: "none",
-                    whiteSpace: "normal",
+                    textAlign: 'justify',
+                    textIndent: '-29.4px',
+                    textTransform: 'none',
+                    whiteSpace: 'normal',
                     widows: 2,
-                    wordSpacing: "0px",
-                    WebkitTextStrokeWidth: "0px",
-                    backgroundColor: "rgb(255, 255, 255)",
-                    textDecorationStyle: "initial",
-                    textDecorationColor: "initial",
-                    color: "rgb(89, 89, 89)",
+                    wordSpacing: '0px',
+                    WebkitTextStrokeWidth: '0px',
+                    backgroundColor: 'rgb(255, 255, 255)',
+                    textDecorationStyle: 'initial',
+                    textDecorationColor: 'initial',
+                    color: 'rgb(89, 89, 89)',
                   }}
                 >
                   <span
                     style={{
-                      lineHeight: "16.8667px",
-                      color: "rgb(89, 89, 89)",
+                      lineHeight: '16.8667px',
+                      color: 'rgb(89, 89, 89)',
                     }}
                   >
                     <span
                       style={{
-                        fontFamily: "sans-serif",
-                        fontStyle: "normal",
-                        fontVariantLigatures: "normal",
-                        fontVariantCaps: "normal",
+                        fontFamily: 'sans-serif',
+                        fontStyle: 'normal',
+                        fontVariantLigatures: 'normal',
+                        fontVariantCaps: 'normal',
                         fontWeight: 400,
-                        letterSpacing: "normal",
+                        letterSpacing: 'normal',
                         orphans: 2,
-                        textAlign: "justify",
-                        textIndent: "-22.05pt",
-                        textTransform: "none",
-                        whiteSpace: "normal",
+                        textAlign: 'justify',
+                        textIndent: '-22.05pt',
+                        textTransform: 'none',
+                        whiteSpace: 'normal',
                         widows: 2,
-                        wordSpacing: "0px",
-                        WebkitTextStrokeWidth: "0px",
-                        backgroundColor: "rgb(255, 255, 255)",
-                        textDecorationStyle: "initial",
-                        textDecorationColor: "initial",
-                        color: "rgb(89, 89, 89)",
+                        wordSpacing: '0px',
+                        WebkitTextStrokeWidth: '0px',
+                        backgroundColor: 'rgb(255, 255, 255)',
+                        textDecorationStyle: 'initial',
+                        textDecorationColor: 'initial',
+                        color: 'rgb(89, 89, 89)',
                       }}
                     >
                       <span
                         className="block-container forloop"
                         data-type="forloop"
                         id="19beb913-5a5e-2b51-51f9-8600a8eb26c3"
-                        style={{ display: "inline" }}
+                        style={{ display: 'inline' }}
                       >
                         <span
                           data-type="conditional-block"
-                          style={{ display: "inline" }}
+                          style={{ display: 'inline' }}
                         >
-                          <span data-type="body" style={{ display: "inline" }}>
+                          <span data-type="body" style={{ display: 'inline' }}>
                             12
                           </span>
                         </span>
@@ -3046,24 +3047,24 @@ export const TermsAndConditions = () => (
                     </span>
                     <span
                       style={{
-                        fontFamily: "sans-serif",
-                        fontStyle: "normal",
-                        fontVariantLigatures: "normal",
-                        fontVariantCaps: "normal",
+                        fontFamily: 'sans-serif',
+                        fontStyle: 'normal',
+                        fontVariantLigatures: 'normal',
+                        fontVariantCaps: 'normal',
                         fontWeight: 400,
-                        letterSpacing: "normal",
+                        letterSpacing: 'normal',
                         orphans: 2,
-                        textAlign: "justify",
-                        textIndent: "-29.4px",
-                        textTransform: "none",
-                        whiteSpace: "normal",
+                        textAlign: 'justify',
+                        textIndent: '-29.4px',
+                        textTransform: 'none',
+                        whiteSpace: 'normal',
                         widows: 2,
-                        wordSpacing: "0px",
-                        WebkitTextStrokeWidth: "0px",
-                        backgroundColor: "rgb(255, 255, 255)",
-                        textDecorationStyle: "initial",
-                        textDecorationColor: "initial",
-                        color: "rgb(89, 89, 89)",
+                        wordSpacing: '0px',
+                        WebkitTextStrokeWidth: '0px',
+                        backgroundColor: 'rgb(255, 255, 255)',
+                        textDecorationStyle: 'initial',
+                        textDecorationColor: 'initial',
+                        color: 'rgb(89, 89, 89)',
                       }}
                     >
                       . Attempt to impersonate another user or person or use the
@@ -3078,79 +3079,79 @@ export const TermsAndConditions = () => (
             className="MsoNormal"
             data-custom-class="body_text"
             style={{
-              lineHeight: "1.5",
-              marginLeft: "20px",
-              textAlign: "left",
+              lineHeight: '1.5',
+              marginLeft: '20px',
+              textAlign: 'left',
             }}
           >
-            <span style={{ fontSize: "15px" }}>
+            <span style={{ fontSize: '15px' }}>
               <span
                 style={{
-                  lineHeight: "16.8667px",
-                  color: "rgb(89, 89, 89)",
+                  lineHeight: '16.8667px',
+                  color: 'rgb(89, 89, 89)',
                 }}
               >
                 <span
                   style={{
-                    fontFamily: "sans-serif",
-                    fontStyle: "normal",
-                    fontVariantLigatures: "normal",
-                    fontVariantCaps: "normal",
+                    fontFamily: 'sans-serif',
+                    fontStyle: 'normal',
+                    fontVariantLigatures: 'normal',
+                    fontVariantCaps: 'normal',
                     fontWeight: 400,
-                    letterSpacing: "normal",
+                    letterSpacing: 'normal',
                     orphans: 2,
-                    textAlign: "justify",
-                    textIndent: "-29.4px",
-                    textTransform: "none",
-                    whiteSpace: "normal",
+                    textAlign: 'justify',
+                    textIndent: '-29.4px',
+                    textTransform: 'none',
+                    whiteSpace: 'normal',
                     widows: 2,
-                    wordSpacing: "0px",
-                    WebkitTextStrokeWidth: "0px",
-                    backgroundColor: "rgb(255, 255, 255)",
-                    textDecorationStyle: "initial",
-                    textDecorationColor: "initial",
-                    color: "rgb(89, 89, 89)",
+                    wordSpacing: '0px',
+                    WebkitTextStrokeWidth: '0px',
+                    backgroundColor: 'rgb(255, 255, 255)',
+                    textDecorationStyle: 'initial',
+                    textDecorationColor: 'initial',
+                    color: 'rgb(89, 89, 89)',
                   }}
                 >
                   <span
                     style={{
-                      lineHeight: "16.8667px",
-                      color: "rgb(89, 89, 89)",
+                      lineHeight: '16.8667px',
+                      color: 'rgb(89, 89, 89)',
                     }}
                   >
                     <span
                       style={{
-                        fontFamily: "sans-serif",
-                        fontStyle: "normal",
-                        fontVariantLigatures: "normal",
-                        fontVariantCaps: "normal",
+                        fontFamily: 'sans-serif',
+                        fontStyle: 'normal',
+                        fontVariantLigatures: 'normal',
+                        fontVariantCaps: 'normal',
                         fontWeight: 400,
-                        letterSpacing: "normal",
+                        letterSpacing: 'normal',
                         orphans: 2,
-                        textAlign: "justify",
-                        textIndent: "-22.05pt",
-                        textTransform: "none",
-                        whiteSpace: "normal",
+                        textAlign: 'justify',
+                        textIndent: '-22.05pt',
+                        textTransform: 'none',
+                        whiteSpace: 'normal',
                         widows: 2,
-                        wordSpacing: "0px",
-                        WebkitTextStrokeWidth: "0px",
-                        backgroundColor: "rgb(255, 255, 255)",
-                        textDecorationStyle: "initial",
-                        textDecorationColor: "initial",
-                        color: "rgb(89, 89, 89)",
+                        wordSpacing: '0px',
+                        WebkitTextStrokeWidth: '0px',
+                        backgroundColor: 'rgb(255, 255, 255)',
+                        textDecorationStyle: 'initial',
+                        textDecorationColor: 'initial',
+                        color: 'rgb(89, 89, 89)',
                       }}
                     >
                       <span
                         className="block-container forloop"
                         data-type="forloop"
                         id="19beb913-5a5e-2b51-51f9-8600a8eb26c3"
-                        style={{ display: "inline" }}
+                        style={{ display: 'inline' }}
                       >
                         <span
                           data-type="conditional-block"
-                          style={{ display: "inline" }}
+                          style={{ display: 'inline' }}
                         >
-                          <span data-type="body" style={{ display: "inline" }}>
+                          <span data-type="body" style={{ display: 'inline' }}>
                             13
                           </span>
                         </span>
@@ -3158,24 +3159,24 @@ export const TermsAndConditions = () => (
                     </span>
                     <span
                       style={{
-                        fontFamily: "sans-serif",
-                        fontStyle: "normal",
-                        fontVariantLigatures: "normal",
-                        fontVariantCaps: "normal",
+                        fontFamily: 'sans-serif',
+                        fontStyle: 'normal',
+                        fontVariantLigatures: 'normal',
+                        fontVariantCaps: 'normal',
                         fontWeight: 400,
-                        letterSpacing: "normal",
+                        letterSpacing: 'normal',
                         orphans: 2,
-                        textAlign: "justify",
-                        textIndent: "-29.4px",
-                        textTransform: "none",
-                        whiteSpace: "normal",
+                        textAlign: 'justify',
+                        textIndent: '-29.4px',
+                        textTransform: 'none',
+                        whiteSpace: 'normal',
                         widows: 2,
-                        wordSpacing: "0px",
-                        WebkitTextStrokeWidth: "0px",
-                        backgroundColor: "rgb(255, 255, 255)",
-                        textDecorationStyle: "initial",
-                        textDecorationColor: "initial",
-                        color: "rgb(89, 89, 89)",
+                        wordSpacing: '0px',
+                        WebkitTextStrokeWidth: '0px',
+                        backgroundColor: 'rgb(255, 255, 255)',
+                        textDecorationStyle: 'initial',
+                        textDecorationColor: 'initial',
+                        color: 'rgb(89, 89, 89)',
                       }}
                     >
                       . Upload or transmit (or attempt to upload or to transmit)
@@ -3195,79 +3196,79 @@ export const TermsAndConditions = () => (
             className="MsoNormal"
             data-custom-class="body_text"
             style={{
-              lineHeight: "1.5",
-              marginLeft: "20px",
-              textAlign: "left",
+              lineHeight: '1.5',
+              marginLeft: '20px',
+              textAlign: 'left',
             }}
           >
-            <span style={{ fontSize: "15px" }}>
+            <span style={{ fontSize: '15px' }}>
               <span
                 style={{
-                  lineHeight: "16.8667px",
-                  color: "rgb(89, 89, 89)",
+                  lineHeight: '16.8667px',
+                  color: 'rgb(89, 89, 89)',
                 }}
               >
                 <span
                   style={{
-                    fontFamily: "sans-serif",
-                    fontStyle: "normal",
-                    fontVariantLigatures: "normal",
-                    fontVariantCaps: "normal",
+                    fontFamily: 'sans-serif',
+                    fontStyle: 'normal',
+                    fontVariantLigatures: 'normal',
+                    fontVariantCaps: 'normal',
                     fontWeight: 400,
-                    letterSpacing: "normal",
+                    letterSpacing: 'normal',
                     orphans: 2,
-                    textAlign: "justify",
-                    textIndent: "-29.4px",
-                    textTransform: "none",
-                    whiteSpace: "normal",
+                    textAlign: 'justify',
+                    textIndent: '-29.4px',
+                    textTransform: 'none',
+                    whiteSpace: 'normal',
                     widows: 2,
-                    wordSpacing: "0px",
-                    WebkitTextStrokeWidth: "0px",
-                    backgroundColor: "rgb(255, 255, 255)",
-                    textDecorationStyle: "initial",
-                    textDecorationColor: "initial",
-                    color: "rgb(89, 89, 89)",
+                    wordSpacing: '0px',
+                    WebkitTextStrokeWidth: '0px',
+                    backgroundColor: 'rgb(255, 255, 255)',
+                    textDecorationStyle: 'initial',
+                    textDecorationColor: 'initial',
+                    color: 'rgb(89, 89, 89)',
                   }}
                 >
                   <span
                     style={{
-                      lineHeight: "16.8667px",
-                      color: "rgb(89, 89, 89)",
+                      lineHeight: '16.8667px',
+                      color: 'rgb(89, 89, 89)',
                     }}
                   >
                     <span
                       style={{
-                        fontFamily: "sans-serif",
-                        fontStyle: "normal",
-                        fontVariantLigatures: "normal",
-                        fontVariantCaps: "normal",
+                        fontFamily: 'sans-serif',
+                        fontStyle: 'normal',
+                        fontVariantLigatures: 'normal',
+                        fontVariantCaps: 'normal',
                         fontWeight: 400,
-                        letterSpacing: "normal",
+                        letterSpacing: 'normal',
                         orphans: 2,
-                        textAlign: "justify",
-                        textIndent: "-22.05pt",
-                        textTransform: "none",
-                        whiteSpace: "normal",
+                        textAlign: 'justify',
+                        textIndent: '-22.05pt',
+                        textTransform: 'none',
+                        whiteSpace: 'normal',
                         widows: 2,
-                        wordSpacing: "0px",
-                        WebkitTextStrokeWidth: "0px",
-                        backgroundColor: "rgb(255, 255, 255)",
-                        textDecorationStyle: "initial",
-                        textDecorationColor: "initial",
-                        color: "rgb(89, 89, 89)",
+                        wordSpacing: '0px',
+                        WebkitTextStrokeWidth: '0px',
+                        backgroundColor: 'rgb(255, 255, 255)',
+                        textDecorationStyle: 'initial',
+                        textDecorationColor: 'initial',
+                        color: 'rgb(89, 89, 89)',
                       }}
                     >
                       <span
                         className="block-container forloop"
                         data-type="forloop"
                         id="19beb913-5a5e-2b51-51f9-8600a8eb26c3"
-                        style={{ display: "inline" }}
+                        style={{ display: 'inline' }}
                       >
                         <span
                           data-type="conditional-block"
-                          style={{ display: "inline" }}
+                          style={{ display: 'inline' }}
                         >
-                          <span data-type="body" style={{ display: "inline" }}>
+                          <span data-type="body" style={{ display: 'inline' }}>
                             14
                           </span>
                         </span>
@@ -3275,24 +3276,24 @@ export const TermsAndConditions = () => (
                     </span>
                     <span
                       style={{
-                        fontFamily: "sans-serif",
-                        fontStyle: "normal",
-                        fontVariantLigatures: "normal",
-                        fontVariantCaps: "normal",
+                        fontFamily: 'sans-serif',
+                        fontStyle: 'normal',
+                        fontVariantLigatures: 'normal',
+                        fontVariantCaps: 'normal',
                         fontWeight: 400,
-                        letterSpacing: "normal",
+                        letterSpacing: 'normal',
                         orphans: 2,
-                        textAlign: "justify",
-                        textIndent: "-29.4px",
-                        textTransform: "none",
-                        whiteSpace: "normal",
+                        textAlign: 'justify',
+                        textIndent: '-29.4px',
+                        textTransform: 'none',
+                        whiteSpace: 'normal',
                         widows: 2,
-                        wordSpacing: "0px",
-                        WebkitTextStrokeWidth: "0px",
-                        backgroundColor: "rgb(255, 255, 255)",
-                        textDecorationStyle: "initial",
-                        textDecorationColor: "initial",
-                        color: "rgb(89, 89, 89)",
+                        wordSpacing: '0px',
+                        WebkitTextStrokeWidth: '0px',
+                        backgroundColor: 'rgb(255, 255, 255)',
+                        textDecorationStyle: 'initial',
+                        textDecorationColor: 'initial',
+                        color: 'rgb(89, 89, 89)',
                       }}
                     >
                       . Interfere with, disrupt, or create an undue burden on
@@ -3308,79 +3309,79 @@ export const TermsAndConditions = () => (
             className="MsoNormal"
             data-custom-class="body_text"
             style={{
-              lineHeight: "1.5",
-              marginLeft: "20px",
-              textAlign: "left",
+              lineHeight: '1.5',
+              marginLeft: '20px',
+              textAlign: 'left',
             }}
           >
-            <span style={{ fontSize: "15px" }}>
+            <span style={{ fontSize: '15px' }}>
               <span
                 style={{
-                  lineHeight: "16.8667px",
-                  color: "rgb(89, 89, 89)",
+                  lineHeight: '16.8667px',
+                  color: 'rgb(89, 89, 89)',
                 }}
               >
                 <span
                   style={{
-                    fontFamily: "sans-serif",
-                    fontStyle: "normal",
-                    fontVariantLigatures: "normal",
-                    fontVariantCaps: "normal",
+                    fontFamily: 'sans-serif',
+                    fontStyle: 'normal',
+                    fontVariantLigatures: 'normal',
+                    fontVariantCaps: 'normal',
                     fontWeight: 400,
-                    letterSpacing: "normal",
+                    letterSpacing: 'normal',
                     orphans: 2,
-                    textAlign: "justify",
-                    textIndent: "-29.4px",
-                    textTransform: "none",
-                    whiteSpace: "normal",
+                    textAlign: 'justify',
+                    textIndent: '-29.4px',
+                    textTransform: 'none',
+                    whiteSpace: 'normal',
                     widows: 2,
-                    wordSpacing: "0px",
-                    WebkitTextStrokeWidth: "0px",
-                    backgroundColor: "rgb(255, 255, 255)",
-                    textDecorationStyle: "initial",
-                    textDecorationColor: "initial",
-                    color: "rgb(89, 89, 89)",
+                    wordSpacing: '0px',
+                    WebkitTextStrokeWidth: '0px',
+                    backgroundColor: 'rgb(255, 255, 255)',
+                    textDecorationStyle: 'initial',
+                    textDecorationColor: 'initial',
+                    color: 'rgb(89, 89, 89)',
                   }}
                 >
                   <span
                     style={{
-                      lineHeight: "16.8667px",
-                      color: "rgb(89, 89, 89)",
+                      lineHeight: '16.8667px',
+                      color: 'rgb(89, 89, 89)',
                     }}
                   >
                     <span
                       style={{
-                        fontFamily: "sans-serif",
-                        fontStyle: "normal",
-                        fontVariantLigatures: "normal",
-                        fontVariantCaps: "normal",
+                        fontFamily: 'sans-serif',
+                        fontStyle: 'normal',
+                        fontVariantLigatures: 'normal',
+                        fontVariantCaps: 'normal',
                         fontWeight: 400,
-                        letterSpacing: "normal",
+                        letterSpacing: 'normal',
                         orphans: 2,
-                        textAlign: "justify",
-                        textIndent: "-22.05pt",
-                        textTransform: "none",
-                        whiteSpace: "normal",
+                        textAlign: 'justify',
+                        textIndent: '-22.05pt',
+                        textTransform: 'none',
+                        whiteSpace: 'normal',
                         widows: 2,
-                        wordSpacing: "0px",
-                        WebkitTextStrokeWidth: "0px",
-                        backgroundColor: "rgb(255, 255, 255)",
-                        textDecorationStyle: "initial",
-                        textDecorationColor: "initial",
-                        color: "rgb(89, 89, 89)",
+                        wordSpacing: '0px',
+                        WebkitTextStrokeWidth: '0px',
+                        backgroundColor: 'rgb(255, 255, 255)',
+                        textDecorationStyle: 'initial',
+                        textDecorationColor: 'initial',
+                        color: 'rgb(89, 89, 89)',
                       }}
                     >
                       <span
                         className="block-container forloop"
                         data-type="forloop"
                         id="19beb913-5a5e-2b51-51f9-8600a8eb26c3"
-                        style={{ display: "inline" }}
+                        style={{ display: 'inline' }}
                       >
                         <span
                           data-type="conditional-block"
-                          style={{ display: "inline" }}
+                          style={{ display: 'inline' }}
                         >
-                          <span data-type="body" style={{ display: "inline" }}>
+                          <span data-type="body" style={{ display: 'inline' }}>
                             15
                           </span>
                         </span>
@@ -3388,24 +3389,24 @@ export const TermsAndConditions = () => (
                     </span>
                     <span
                       style={{
-                        fontFamily: "sans-serif",
-                        fontStyle: "normal",
-                        fontVariantLigatures: "normal",
-                        fontVariantCaps: "normal",
+                        fontFamily: 'sans-serif',
+                        fontStyle: 'normal',
+                        fontVariantLigatures: 'normal',
+                        fontVariantCaps: 'normal',
                         fontWeight: 400,
-                        letterSpacing: "normal",
+                        letterSpacing: 'normal',
                         orphans: 2,
-                        textAlign: "justify",
-                        textIndent: "-29.4px",
-                        textTransform: "none",
-                        whiteSpace: "normal",
+                        textAlign: 'justify',
+                        textIndent: '-29.4px',
+                        textTransform: 'none',
+                        whiteSpace: 'normal',
                         widows: 2,
-                        wordSpacing: "0px",
-                        WebkitTextStrokeWidth: "0px",
-                        backgroundColor: "rgb(255, 255, 255)",
-                        textDecorationStyle: "initial",
-                        textDecorationColor: "initial",
-                        color: "rgb(89, 89, 89)",
+                        wordSpacing: '0px',
+                        WebkitTextStrokeWidth: '0px',
+                        backgroundColor: 'rgb(255, 255, 255)',
+                        textDecorationStyle: 'initial',
+                        textDecorationColor: 'initial',
+                        color: 'rgb(89, 89, 89)',
                       }}
                     >
                       . Harass, annoy, intimidate, or threaten any of our
@@ -3421,79 +3422,79 @@ export const TermsAndConditions = () => (
             className="MsoNormal"
             data-custom-class="body_text"
             style={{
-              lineHeight: "1.5",
-              marginLeft: "20px",
-              textAlign: "left",
+              lineHeight: '1.5',
+              marginLeft: '20px',
+              textAlign: 'left',
             }}
           >
-            <span style={{ fontSize: "15px" }}>
+            <span style={{ fontSize: '15px' }}>
               <span
                 style={{
-                  lineHeight: "16.8667px",
-                  color: "rgb(89, 89, 89)",
+                  lineHeight: '16.8667px',
+                  color: 'rgb(89, 89, 89)',
                 }}
               >
                 <span
                   style={{
-                    fontFamily: "sans-serif",
-                    fontStyle: "normal",
-                    fontVariantLigatures: "normal",
-                    fontVariantCaps: "normal",
+                    fontFamily: 'sans-serif',
+                    fontStyle: 'normal',
+                    fontVariantLigatures: 'normal',
+                    fontVariantCaps: 'normal',
                     fontWeight: 400,
-                    letterSpacing: "normal",
+                    letterSpacing: 'normal',
                     orphans: 2,
-                    textAlign: "justify",
-                    textIndent: "-29.4px",
-                    textTransform: "none",
-                    whiteSpace: "normal",
+                    textAlign: 'justify',
+                    textIndent: '-29.4px',
+                    textTransform: 'none',
+                    whiteSpace: 'normal',
                     widows: 2,
-                    wordSpacing: "0px",
-                    WebkitTextStrokeWidth: "0px",
-                    backgroundColor: "rgb(255, 255, 255)",
-                    textDecorationStyle: "initial",
-                    textDecorationColor: "initial",
-                    color: "rgb(89, 89, 89)",
+                    wordSpacing: '0px',
+                    WebkitTextStrokeWidth: '0px',
+                    backgroundColor: 'rgb(255, 255, 255)',
+                    textDecorationStyle: 'initial',
+                    textDecorationColor: 'initial',
+                    color: 'rgb(89, 89, 89)',
                   }}
                 >
                   <span
                     style={{
-                      lineHeight: "16.8667px",
-                      color: "rgb(89, 89, 89)",
+                      lineHeight: '16.8667px',
+                      color: 'rgb(89, 89, 89)',
                     }}
                   >
                     <span
                       style={{
-                        fontFamily: "sans-serif",
-                        fontStyle: "normal",
-                        fontVariantLigatures: "normal",
-                        fontVariantCaps: "normal",
+                        fontFamily: 'sans-serif',
+                        fontStyle: 'normal',
+                        fontVariantLigatures: 'normal',
+                        fontVariantCaps: 'normal',
                         fontWeight: 400,
-                        letterSpacing: "normal",
+                        letterSpacing: 'normal',
                         orphans: 2,
-                        textAlign: "justify",
-                        textIndent: "-22.05pt",
-                        textTransform: "none",
-                        whiteSpace: "normal",
+                        textAlign: 'justify',
+                        textIndent: '-22.05pt',
+                        textTransform: 'none',
+                        whiteSpace: 'normal',
                         widows: 2,
-                        wordSpacing: "0px",
-                        WebkitTextStrokeWidth: "0px",
-                        backgroundColor: "rgb(255, 255, 255)",
-                        textDecorationStyle: "initial",
-                        textDecorationColor: "initial",
-                        color: "rgb(89, 89, 89)",
+                        wordSpacing: '0px',
+                        WebkitTextStrokeWidth: '0px',
+                        backgroundColor: 'rgb(255, 255, 255)',
+                        textDecorationStyle: 'initial',
+                        textDecorationColor: 'initial',
+                        color: 'rgb(89, 89, 89)',
                       }}
                     >
                       <span
                         className="block-container forloop"
                         data-type="forloop"
                         id="19beb913-5a5e-2b51-51f9-8600a8eb26c3"
-                        style={{ display: "inline" }}
+                        style={{ display: 'inline' }}
                       >
                         <span
                           data-type="conditional-block"
-                          style={{ display: "inline" }}
+                          style={{ display: 'inline' }}
                         >
-                          <span data-type="body" style={{ display: "inline" }}>
+                          <span data-type="body" style={{ display: 'inline' }}>
                             16
                           </span>
                         </span>
@@ -3501,24 +3502,24 @@ export const TermsAndConditions = () => (
                     </span>
                     <span
                       style={{
-                        fontFamily: "sans-serif",
-                        fontStyle: "normal",
-                        fontVariantLigatures: "normal",
-                        fontVariantCaps: "normal",
+                        fontFamily: 'sans-serif',
+                        fontStyle: 'normal',
+                        fontVariantLigatures: 'normal',
+                        fontVariantCaps: 'normal',
                         fontWeight: 400,
-                        letterSpacing: "normal",
+                        letterSpacing: 'normal',
                         orphans: 2,
-                        textAlign: "justify",
-                        textIndent: "-29.4px",
-                        textTransform: "none",
-                        whiteSpace: "normal",
+                        textAlign: 'justify',
+                        textIndent: '-29.4px',
+                        textTransform: 'none',
+                        whiteSpace: 'normal',
                         widows: 2,
-                        wordSpacing: "0px",
-                        WebkitTextStrokeWidth: "0px",
-                        backgroundColor: "rgb(255, 255, 255)",
-                        textDecorationStyle: "initial",
-                        textDecorationColor: "initial",
-                        color: "rgb(89, 89, 89)",
+                        wordSpacing: '0px',
+                        WebkitTextStrokeWidth: '0px',
+                        backgroundColor: 'rgb(255, 255, 255)',
+                        textDecorationStyle: 'initial',
+                        textDecorationColor: 'initial',
+                        color: 'rgb(89, 89, 89)',
                       }}
                     >
                       . Attempt to bypass any measures of the Site designed to
@@ -3534,79 +3535,79 @@ export const TermsAndConditions = () => (
             className="MsoNormal"
             data-custom-class="body_text"
             style={{
-              lineHeight: "1.5",
-              marginLeft: "20px",
-              textAlign: "left",
+              lineHeight: '1.5',
+              marginLeft: '20px',
+              textAlign: 'left',
             }}
           >
-            <span style={{ fontSize: "15px" }}>
+            <span style={{ fontSize: '15px' }}>
               <span
                 style={{
-                  lineHeight: "16.8667px",
-                  color: "rgb(89, 89, 89)",
+                  lineHeight: '16.8667px',
+                  color: 'rgb(89, 89, 89)',
                 }}
               >
                 <span
                   style={{
-                    fontFamily: "sans-serif",
-                    fontStyle: "normal",
-                    fontVariantLigatures: "normal",
-                    fontVariantCaps: "normal",
+                    fontFamily: 'sans-serif',
+                    fontStyle: 'normal',
+                    fontVariantLigatures: 'normal',
+                    fontVariantCaps: 'normal',
                     fontWeight: 400,
-                    letterSpacing: "normal",
+                    letterSpacing: 'normal',
                     orphans: 2,
-                    textAlign: "justify",
-                    textIndent: "-29.4px",
-                    textTransform: "none",
-                    whiteSpace: "normal",
+                    textAlign: 'justify',
+                    textIndent: '-29.4px',
+                    textTransform: 'none',
+                    whiteSpace: 'normal',
                     widows: 2,
-                    wordSpacing: "0px",
-                    WebkitTextStrokeWidth: "0px",
-                    backgroundColor: "rgb(255, 255, 255)",
-                    textDecorationStyle: "initial",
-                    textDecorationColor: "initial",
-                    color: "rgb(89, 89, 89)",
+                    wordSpacing: '0px',
+                    WebkitTextStrokeWidth: '0px',
+                    backgroundColor: 'rgb(255, 255, 255)',
+                    textDecorationStyle: 'initial',
+                    textDecorationColor: 'initial',
+                    color: 'rgb(89, 89, 89)',
                   }}
                 >
                   <span
                     style={{
-                      lineHeight: "16.8667px",
-                      color: "rgb(89, 89, 89)",
+                      lineHeight: '16.8667px',
+                      color: 'rgb(89, 89, 89)',
                     }}
                   >
                     <span
                       style={{
-                        fontFamily: "sans-serif",
-                        fontStyle: "normal",
-                        fontVariantLigatures: "normal",
-                        fontVariantCaps: "normal",
+                        fontFamily: 'sans-serif',
+                        fontStyle: 'normal',
+                        fontVariantLigatures: 'normal',
+                        fontVariantCaps: 'normal',
                         fontWeight: 400,
-                        letterSpacing: "normal",
+                        letterSpacing: 'normal',
                         orphans: 2,
-                        textAlign: "justify",
-                        textIndent: "-22.05pt",
-                        textTransform: "none",
-                        whiteSpace: "normal",
+                        textAlign: 'justify',
+                        textIndent: '-22.05pt',
+                        textTransform: 'none',
+                        whiteSpace: 'normal',
                         widows: 2,
-                        wordSpacing: "0px",
-                        WebkitTextStrokeWidth: "0px",
-                        backgroundColor: "rgb(255, 255, 255)",
-                        textDecorationStyle: "initial",
-                        textDecorationColor: "initial",
-                        color: "rgb(89, 89, 89)",
+                        wordSpacing: '0px',
+                        WebkitTextStrokeWidth: '0px',
+                        backgroundColor: 'rgb(255, 255, 255)',
+                        textDecorationStyle: 'initial',
+                        textDecorationColor: 'initial',
+                        color: 'rgb(89, 89, 89)',
                       }}
                     >
                       <span
                         className="block-container forloop"
                         data-type="forloop"
                         id="19beb913-5a5e-2b51-51f9-8600a8eb26c3"
-                        style={{ display: "inline" }}
+                        style={{ display: 'inline' }}
                       >
                         <span
                           data-type="conditional-block"
-                          style={{ display: "inline" }}
+                          style={{ display: 'inline' }}
                         >
-                          <span data-type="body" style={{ display: "inline" }}>
+                          <span data-type="body" style={{ display: 'inline' }}>
                             17
                           </span>
                         </span>
@@ -3614,24 +3615,24 @@ export const TermsAndConditions = () => (
                     </span>
                     <span
                       style={{
-                        fontFamily: "sans-serif",
-                        fontStyle: "normal",
-                        fontVariantLigatures: "normal",
-                        fontVariantCaps: "normal",
+                        fontFamily: 'sans-serif',
+                        fontStyle: 'normal',
+                        fontVariantLigatures: 'normal',
+                        fontVariantCaps: 'normal',
                         fontWeight: 400,
-                        letterSpacing: "normal",
+                        letterSpacing: 'normal',
                         orphans: 2,
-                        textAlign: "justify",
-                        textIndent: "-29.4px",
-                        textTransform: "none",
-                        whiteSpace: "normal",
+                        textAlign: 'justify',
+                        textIndent: '-29.4px',
+                        textTransform: 'none',
+                        whiteSpace: 'normal',
                         widows: 2,
-                        wordSpacing: "0px",
-                        WebkitTextStrokeWidth: "0px",
-                        backgroundColor: "rgb(255, 255, 255)",
-                        textDecorationStyle: "initial",
-                        textDecorationColor: "initial",
-                        color: "rgb(89, 89, 89)",
+                        wordSpacing: '0px',
+                        WebkitTextStrokeWidth: '0px',
+                        backgroundColor: 'rgb(255, 255, 255)',
+                        textDecorationStyle: 'initial',
+                        textDecorationColor: 'initial',
+                        color: 'rgb(89, 89, 89)',
                       }}
                     >
                       . Copy or adapt the Site’s software, including but not
@@ -3646,79 +3647,79 @@ export const TermsAndConditions = () => (
             className="MsoNormal"
             data-custom-class="body_text"
             style={{
-              lineHeight: "1.5",
-              marginLeft: "20px",
-              textAlign: "left",
+              lineHeight: '1.5',
+              marginLeft: '20px',
+              textAlign: 'left',
             }}
           >
-            <span style={{ fontSize: "15px" }}>
+            <span style={{ fontSize: '15px' }}>
               <span
                 style={{
-                  lineHeight: "16.8667px",
-                  color: "rgb(89, 89, 89)",
+                  lineHeight: '16.8667px',
+                  color: 'rgb(89, 89, 89)',
                 }}
               >
                 <span
                   style={{
-                    fontFamily: "sans-serif",
-                    fontStyle: "normal",
-                    fontVariantLigatures: "normal",
-                    fontVariantCaps: "normal",
+                    fontFamily: 'sans-serif',
+                    fontStyle: 'normal',
+                    fontVariantLigatures: 'normal',
+                    fontVariantCaps: 'normal',
                     fontWeight: 400,
-                    letterSpacing: "normal",
+                    letterSpacing: 'normal',
                     orphans: 2,
-                    textAlign: "justify",
-                    textIndent: "-29.4px",
-                    textTransform: "none",
-                    whiteSpace: "normal",
+                    textAlign: 'justify',
+                    textIndent: '-29.4px',
+                    textTransform: 'none',
+                    whiteSpace: 'normal',
                     widows: 2,
-                    wordSpacing: "0px",
-                    WebkitTextStrokeWidth: "0px",
-                    backgroundColor: "rgb(255, 255, 255)",
-                    textDecorationStyle: "initial",
-                    textDecorationColor: "initial",
-                    color: "rgb(89, 89, 89)",
+                    wordSpacing: '0px',
+                    WebkitTextStrokeWidth: '0px',
+                    backgroundColor: 'rgb(255, 255, 255)',
+                    textDecorationStyle: 'initial',
+                    textDecorationColor: 'initial',
+                    color: 'rgb(89, 89, 89)',
                   }}
                 >
                   <span
                     style={{
-                      lineHeight: "16.8667px",
-                      color: "rgb(89, 89, 89)",
+                      lineHeight: '16.8667px',
+                      color: 'rgb(89, 89, 89)',
                     }}
                   >
                     <span
                       style={{
-                        fontFamily: "sans-serif",
-                        fontStyle: "normal",
-                        fontVariantLigatures: "normal",
-                        fontVariantCaps: "normal",
+                        fontFamily: 'sans-serif',
+                        fontStyle: 'normal',
+                        fontVariantLigatures: 'normal',
+                        fontVariantCaps: 'normal',
                         fontWeight: 400,
-                        letterSpacing: "normal",
+                        letterSpacing: 'normal',
                         orphans: 2,
-                        textAlign: "justify",
-                        textIndent: "-22.05pt",
-                        textTransform: "none",
-                        whiteSpace: "normal",
+                        textAlign: 'justify',
+                        textIndent: '-22.05pt',
+                        textTransform: 'none',
+                        whiteSpace: 'normal',
                         widows: 2,
-                        wordSpacing: "0px",
-                        WebkitTextStrokeWidth: "0px",
-                        backgroundColor: "rgb(255, 255, 255)",
-                        textDecorationStyle: "initial",
-                        textDecorationColor: "initial",
-                        color: "rgb(89, 89, 89)",
+                        wordSpacing: '0px',
+                        WebkitTextStrokeWidth: '0px',
+                        backgroundColor: 'rgb(255, 255, 255)',
+                        textDecorationStyle: 'initial',
+                        textDecorationColor: 'initial',
+                        color: 'rgb(89, 89, 89)',
                       }}
                     >
                       <span
                         className="block-container forloop"
                         data-type="forloop"
                         id="19beb913-5a5e-2b51-51f9-8600a8eb26c3"
-                        style={{ display: "inline" }}
+                        style={{ display: 'inline' }}
                       >
                         <span
                           data-type="conditional-block"
-                          style={{ display: "inline" }}
+                          style={{ display: 'inline' }}
                         >
-                          <span data-type="body" style={{ display: "inline" }}>
+                          <span data-type="body" style={{ display: 'inline' }}>
                             18
                           </span>
                         </span>
@@ -3726,24 +3727,24 @@ export const TermsAndConditions = () => (
                     </span>
                     <span
                       style={{
-                        fontFamily: "sans-serif",
-                        fontStyle: "normal",
-                        fontVariantLigatures: "normal",
-                        fontVariantCaps: "normal",
+                        fontFamily: 'sans-serif',
+                        fontStyle: 'normal',
+                        fontVariantLigatures: 'normal',
+                        fontVariantCaps: 'normal',
                         fontWeight: 400,
-                        letterSpacing: "normal",
+                        letterSpacing: 'normal',
                         orphans: 2,
-                        textAlign: "justify",
-                        textIndent: "-29.4px",
-                        textTransform: "none",
-                        whiteSpace: "normal",
+                        textAlign: 'justify',
+                        textIndent: '-29.4px',
+                        textTransform: 'none',
+                        whiteSpace: 'normal',
                         widows: 2,
-                        wordSpacing: "0px",
-                        WebkitTextStrokeWidth: "0px",
-                        backgroundColor: "rgb(255, 255, 255)",
-                        textDecorationStyle: "initial",
-                        textDecorationColor: "initial",
-                        color: "rgb(89, 89, 89)",
+                        wordSpacing: '0px',
+                        WebkitTextStrokeWidth: '0px',
+                        backgroundColor: 'rgb(255, 255, 255)',
+                        textDecorationStyle: 'initial',
+                        textDecorationColor: 'initial',
+                        color: 'rgb(89, 89, 89)',
                       }}
                     >
                       . Except as permitted by applicable law, decipher,
@@ -3760,79 +3761,79 @@ export const TermsAndConditions = () => (
             className="MsoNormal"
             data-custom-class="body_text"
             style={{
-              lineHeight: "1.5",
-              marginLeft: "20px",
-              textAlign: "left",
+              lineHeight: '1.5',
+              marginLeft: '20px',
+              textAlign: 'left',
             }}
           >
-            <span style={{ fontSize: "15px" }}>
+            <span style={{ fontSize: '15px' }}>
               <span
                 style={{
-                  lineHeight: "16.8667px",
-                  color: "rgb(89, 89, 89)",
+                  lineHeight: '16.8667px',
+                  color: 'rgb(89, 89, 89)',
                 }}
               >
                 <span
                   style={{
-                    fontFamily: "sans-serif",
-                    fontStyle: "normal",
-                    fontVariantLigatures: "normal",
-                    fontVariantCaps: "normal",
+                    fontFamily: 'sans-serif',
+                    fontStyle: 'normal',
+                    fontVariantLigatures: 'normal',
+                    fontVariantCaps: 'normal',
                     fontWeight: 400,
-                    letterSpacing: "normal",
+                    letterSpacing: 'normal',
                     orphans: 2,
-                    textAlign: "justify",
-                    textIndent: "-29.4px",
-                    textTransform: "none",
-                    whiteSpace: "normal",
+                    textAlign: 'justify',
+                    textIndent: '-29.4px',
+                    textTransform: 'none',
+                    whiteSpace: 'normal',
                     widows: 2,
-                    wordSpacing: "0px",
-                    WebkitTextStrokeWidth: "0px",
-                    backgroundColor: "rgb(255, 255, 255)",
-                    textDecorationStyle: "initial",
-                    textDecorationColor: "initial",
-                    color: "rgb(89, 89, 89)",
+                    wordSpacing: '0px',
+                    WebkitTextStrokeWidth: '0px',
+                    backgroundColor: 'rgb(255, 255, 255)',
+                    textDecorationStyle: 'initial',
+                    textDecorationColor: 'initial',
+                    color: 'rgb(89, 89, 89)',
                   }}
                 >
                   <span
                     style={{
-                      lineHeight: "16.8667px",
-                      color: "rgb(89, 89, 89)",
+                      lineHeight: '16.8667px',
+                      color: 'rgb(89, 89, 89)',
                     }}
                   >
                     <span
                       style={{
-                        fontFamily: "sans-serif",
-                        fontStyle: "normal",
-                        fontVariantLigatures: "normal",
-                        fontVariantCaps: "normal",
+                        fontFamily: 'sans-serif',
+                        fontStyle: 'normal',
+                        fontVariantLigatures: 'normal',
+                        fontVariantCaps: 'normal',
                         fontWeight: 400,
-                        letterSpacing: "normal",
+                        letterSpacing: 'normal',
                         orphans: 2,
-                        textAlign: "justify",
-                        textIndent: "-22.05pt",
-                        textTransform: "none",
-                        whiteSpace: "normal",
+                        textAlign: 'justify',
+                        textIndent: '-22.05pt',
+                        textTransform: 'none',
+                        whiteSpace: 'normal',
                         widows: 2,
-                        wordSpacing: "0px",
-                        WebkitTextStrokeWidth: "0px",
-                        backgroundColor: "rgb(255, 255, 255)",
-                        textDecorationStyle: "initial",
-                        textDecorationColor: "initial",
-                        color: "rgb(89, 89, 89)",
+                        wordSpacing: '0px',
+                        WebkitTextStrokeWidth: '0px',
+                        backgroundColor: 'rgb(255, 255, 255)',
+                        textDecorationStyle: 'initial',
+                        textDecorationColor: 'initial',
+                        color: 'rgb(89, 89, 89)',
                       }}
                     >
                       <span
                         className="block-container forloop"
                         data-type="forloop"
                         id="19beb913-5a5e-2b51-51f9-8600a8eb26c3"
-                        style={{ display: "inline" }}
+                        style={{ display: 'inline' }}
                       >
                         <span
                           data-type="conditional-block"
-                          style={{ display: "inline" }}
+                          style={{ display: 'inline' }}
                         >
-                          <span data-type="body" style={{ display: "inline" }}>
+                          <span data-type="body" style={{ display: 'inline' }}>
                             19
                           </span>
                         </span>
@@ -3840,24 +3841,24 @@ export const TermsAndConditions = () => (
                     </span>
                     <span
                       style={{
-                        fontFamily: "sans-serif",
-                        fontStyle: "normal",
-                        fontVariantLigatures: "normal",
-                        fontVariantCaps: "normal",
+                        fontFamily: 'sans-serif',
+                        fontStyle: 'normal',
+                        fontVariantLigatures: 'normal',
+                        fontVariantCaps: 'normal',
                         fontWeight: 400,
-                        letterSpacing: "normal",
+                        letterSpacing: 'normal',
                         orphans: 2,
-                        textAlign: "justify",
-                        textIndent: "-29.4px",
-                        textTransform: "none",
-                        whiteSpace: "normal",
+                        textAlign: 'justify',
+                        textIndent: '-29.4px',
+                        textTransform: 'none',
+                        whiteSpace: 'normal',
                         widows: 2,
-                        wordSpacing: "0px",
-                        WebkitTextStrokeWidth: "0px",
-                        backgroundColor: "rgb(255, 255, 255)",
-                        textDecorationStyle: "initial",
-                        textDecorationColor: "initial",
-                        color: "rgb(89, 89, 89)",
+                        wordSpacing: '0px',
+                        WebkitTextStrokeWidth: '0px',
+                        backgroundColor: 'rgb(255, 255, 255)',
+                        textDecorationStyle: 'initial',
+                        textDecorationColor: 'initial',
+                        color: 'rgb(89, 89, 89)',
                       }}
                     >
                       . Except as may be the result of standard search engine or
@@ -3876,79 +3877,79 @@ export const TermsAndConditions = () => (
             className="MsoNormal"
             data-custom-class="body_text"
             style={{
-              lineHeight: "1.5",
-              marginLeft: "20px",
-              textAlign: "left",
+              lineHeight: '1.5',
+              marginLeft: '20px',
+              textAlign: 'left',
             }}
           >
-            <span style={{ fontSize: "15px" }}>
+            <span style={{ fontSize: '15px' }}>
               <span
                 style={{
-                  lineHeight: "16.8667px",
-                  color: "rgb(89, 89, 89)",
+                  lineHeight: '16.8667px',
+                  color: 'rgb(89, 89, 89)',
                 }}
               >
                 <span
                   style={{
-                    fontFamily: "sans-serif",
-                    fontStyle: "normal",
-                    fontVariantLigatures: "normal",
-                    fontVariantCaps: "normal",
+                    fontFamily: 'sans-serif',
+                    fontStyle: 'normal',
+                    fontVariantLigatures: 'normal',
+                    fontVariantCaps: 'normal',
                     fontWeight: 400,
-                    letterSpacing: "normal",
+                    letterSpacing: 'normal',
                     orphans: 2,
-                    textAlign: "justify",
-                    textIndent: "-29.4px",
-                    textTransform: "none",
-                    whiteSpace: "normal",
+                    textAlign: 'justify',
+                    textIndent: '-29.4px',
+                    textTransform: 'none',
+                    whiteSpace: 'normal',
                     widows: 2,
-                    wordSpacing: "0px",
-                    WebkitTextStrokeWidth: "0px",
-                    backgroundColor: "rgb(255, 255, 255)",
-                    textDecorationStyle: "initial",
-                    textDecorationColor: "initial",
-                    color: "rgb(89, 89, 89)",
+                    wordSpacing: '0px',
+                    WebkitTextStrokeWidth: '0px',
+                    backgroundColor: 'rgb(255, 255, 255)',
+                    textDecorationStyle: 'initial',
+                    textDecorationColor: 'initial',
+                    color: 'rgb(89, 89, 89)',
                   }}
                 >
                   <span
                     style={{
-                      lineHeight: "16.8667px",
-                      color: "rgb(89, 89, 89)",
+                      lineHeight: '16.8667px',
+                      color: 'rgb(89, 89, 89)',
                     }}
                   >
                     <span
                       style={{
-                        fontFamily: "sans-serif",
-                        fontStyle: "normal",
-                        fontVariantLigatures: "normal",
-                        fontVariantCaps: "normal",
+                        fontFamily: 'sans-serif',
+                        fontStyle: 'normal',
+                        fontVariantLigatures: 'normal',
+                        fontVariantCaps: 'normal',
                         fontWeight: 400,
-                        letterSpacing: "normal",
+                        letterSpacing: 'normal',
                         orphans: 2,
-                        textAlign: "justify",
-                        textIndent: "-22.05pt",
-                        textTransform: "none",
-                        whiteSpace: "normal",
+                        textAlign: 'justify',
+                        textIndent: '-22.05pt',
+                        textTransform: 'none',
+                        whiteSpace: 'normal',
                         widows: 2,
-                        wordSpacing: "0px",
-                        WebkitTextStrokeWidth: "0px",
-                        backgroundColor: "rgb(255, 255, 255)",
-                        textDecorationStyle: "initial",
-                        textDecorationColor: "initial",
-                        color: "rgb(89, 89, 89)",
+                        wordSpacing: '0px',
+                        WebkitTextStrokeWidth: '0px',
+                        backgroundColor: 'rgb(255, 255, 255)',
+                        textDecorationStyle: 'initial',
+                        textDecorationColor: 'initial',
+                        color: 'rgb(89, 89, 89)',
                       }}
                     >
                       <span
                         className="block-container forloop"
                         data-type="forloop"
                         id="19beb913-5a5e-2b51-51f9-8600a8eb26c3"
-                        style={{ display: "inline" }}
+                        style={{ display: 'inline' }}
                       >
                         <span
                           data-type="conditional-block"
-                          style={{ display: "inline" }}
+                          style={{ display: 'inline' }}
                         >
-                          <span data-type="body" style={{ display: "inline" }}>
+                          <span data-type="body" style={{ display: 'inline' }}>
                             20
                           </span>
                         </span>
@@ -3956,24 +3957,24 @@ export const TermsAndConditions = () => (
                     </span>
                     <span
                       style={{
-                        fontFamily: "sans-serif",
-                        fontStyle: "normal",
-                        fontVariantLigatures: "normal",
-                        fontVariantCaps: "normal",
+                        fontFamily: 'sans-serif',
+                        fontStyle: 'normal',
+                        fontVariantLigatures: 'normal',
+                        fontVariantCaps: 'normal',
                         fontWeight: 400,
-                        letterSpacing: "normal",
+                        letterSpacing: 'normal',
                         orphans: 2,
-                        textAlign: "justify",
-                        textIndent: "-29.4px",
-                        textTransform: "none",
-                        whiteSpace: "normal",
+                        textAlign: 'justify',
+                        textIndent: '-29.4px',
+                        textTransform: 'none',
+                        whiteSpace: 'normal',
                         widows: 2,
-                        wordSpacing: "0px",
-                        WebkitTextStrokeWidth: "0px",
-                        backgroundColor: "rgb(255, 255, 255)",
-                        textDecorationStyle: "initial",
-                        textDecorationColor: "initial",
-                        color: "rgb(89, 89, 89)",
+                        wordSpacing: '0px',
+                        WebkitTextStrokeWidth: '0px',
+                        backgroundColor: 'rgb(255, 255, 255)',
+                        textDecorationStyle: 'initial',
+                        textDecorationColor: 'initial',
+                        color: 'rgb(89, 89, 89)',
                       }}
                     >
                       . Use a buying agent or purchasing agent to make purchases
@@ -3988,79 +3989,79 @@ export const TermsAndConditions = () => (
             className="MsoNormal"
             data-custom-class="body_text"
             style={{
-              lineHeight: "1.5",
-              marginLeft: "20px",
-              textAlign: "left",
+              lineHeight: '1.5',
+              marginLeft: '20px',
+              textAlign: 'left',
             }}
           >
-            <span style={{ fontSize: "15px" }}>
+            <span style={{ fontSize: '15px' }}>
               <span
                 style={{
-                  lineHeight: "16.8667px",
-                  color: "rgb(89, 89, 89)",
+                  lineHeight: '16.8667px',
+                  color: 'rgb(89, 89, 89)',
                 }}
               >
                 <span
                   style={{
-                    fontFamily: "sans-serif",
-                    fontStyle: "normal",
-                    fontVariantLigatures: "normal",
-                    fontVariantCaps: "normal",
+                    fontFamily: 'sans-serif',
+                    fontStyle: 'normal',
+                    fontVariantLigatures: 'normal',
+                    fontVariantCaps: 'normal',
                     fontWeight: 400,
-                    letterSpacing: "normal",
+                    letterSpacing: 'normal',
                     orphans: 2,
-                    textAlign: "justify",
-                    textIndent: "-29.4px",
-                    textTransform: "none",
-                    whiteSpace: "normal",
+                    textAlign: 'justify',
+                    textIndent: '-29.4px',
+                    textTransform: 'none',
+                    whiteSpace: 'normal',
                     widows: 2,
-                    wordSpacing: "0px",
-                    WebkitTextStrokeWidth: "0px",
-                    backgroundColor: "rgb(255, 255, 255)",
-                    textDecorationStyle: "initial",
-                    textDecorationColor: "initial",
-                    color: "rgb(89, 89, 89)",
+                    wordSpacing: '0px',
+                    WebkitTextStrokeWidth: '0px',
+                    backgroundColor: 'rgb(255, 255, 255)',
+                    textDecorationStyle: 'initial',
+                    textDecorationColor: 'initial',
+                    color: 'rgb(89, 89, 89)',
                   }}
                 >
                   <span
                     style={{
-                      lineHeight: "16.8667px",
-                      color: "rgb(89, 89, 89)",
+                      lineHeight: '16.8667px',
+                      color: 'rgb(89, 89, 89)',
                     }}
                   >
                     <span
                       style={{
-                        fontFamily: "sans-serif",
-                        fontStyle: "normal",
-                        fontVariantLigatures: "normal",
-                        fontVariantCaps: "normal",
+                        fontFamily: 'sans-serif',
+                        fontStyle: 'normal',
+                        fontVariantLigatures: 'normal',
+                        fontVariantCaps: 'normal',
                         fontWeight: 400,
-                        letterSpacing: "normal",
+                        letterSpacing: 'normal',
                         orphans: 2,
-                        textAlign: "justify",
-                        textIndent: "-22.05pt",
-                        textTransform: "none",
-                        whiteSpace: "normal",
+                        textAlign: 'justify',
+                        textIndent: '-22.05pt',
+                        textTransform: 'none',
+                        whiteSpace: 'normal',
                         widows: 2,
-                        wordSpacing: "0px",
-                        WebkitTextStrokeWidth: "0px",
-                        backgroundColor: "rgb(255, 255, 255)",
-                        textDecorationStyle: "initial",
-                        textDecorationColor: "initial",
-                        color: "rgb(89, 89, 89)",
+                        wordSpacing: '0px',
+                        WebkitTextStrokeWidth: '0px',
+                        backgroundColor: 'rgb(255, 255, 255)',
+                        textDecorationStyle: 'initial',
+                        textDecorationColor: 'initial',
+                        color: 'rgb(89, 89, 89)',
                       }}
                     >
                       <span
                         className="block-container forloop"
                         data-type="forloop"
                         id="19beb913-5a5e-2b51-51f9-8600a8eb26c3"
-                        style={{ display: "inline" }}
+                        style={{ display: 'inline' }}
                       >
                         <span
                           data-type="conditional-block"
-                          style={{ display: "inline" }}
+                          style={{ display: 'inline' }}
                         >
-                          <span data-type="body" style={{ display: "inline" }}>
+                          <span data-type="body" style={{ display: 'inline' }}>
                             21
                           </span>
                         </span>
@@ -4068,24 +4069,24 @@ export const TermsAndConditions = () => (
                     </span>
                     <span
                       style={{
-                        fontFamily: "sans-serif",
-                        fontStyle: "normal",
-                        fontVariantLigatures: "normal",
-                        fontVariantCaps: "normal",
+                        fontFamily: 'sans-serif',
+                        fontStyle: 'normal',
+                        fontVariantLigatures: 'normal',
+                        fontVariantCaps: 'normal',
                         fontWeight: 400,
-                        letterSpacing: "normal",
+                        letterSpacing: 'normal',
                         orphans: 2,
-                        textAlign: "justify",
-                        textIndent: "-29.4px",
-                        textTransform: "none",
-                        whiteSpace: "normal",
+                        textAlign: 'justify',
+                        textIndent: '-29.4px',
+                        textTransform: 'none',
+                        whiteSpace: 'normal',
                         widows: 2,
-                        wordSpacing: "0px",
-                        WebkitTextStrokeWidth: "0px",
-                        backgroundColor: "rgb(255, 255, 255)",
-                        textDecorationStyle: "initial",
-                        textDecorationColor: "initial",
-                        color: "rgb(89, 89, 89)",
+                        wordSpacing: '0px',
+                        WebkitTextStrokeWidth: '0px',
+                        backgroundColor: 'rgb(255, 255, 255)',
+                        textDecorationStyle: 'initial',
+                        textDecorationColor: 'initial',
+                        color: 'rgb(89, 89, 89)',
                       }}
                     >
                       . Make any unauthorized use of the Site, including
@@ -4103,79 +4104,79 @@ export const TermsAndConditions = () => (
             className="MsoNormal"
             data-custom-class="body_text"
             style={{
-              lineHeight: "1.5",
-              marginLeft: "20px",
-              textAlign: "left",
+              lineHeight: '1.5',
+              marginLeft: '20px',
+              textAlign: 'left',
             }}
           >
-            <span style={{ fontSize: "15px" }}>
+            <span style={{ fontSize: '15px' }}>
               <span
                 style={{
-                  lineHeight: "16.8667px",
-                  color: "rgb(89, 89, 89)",
+                  lineHeight: '16.8667px',
+                  color: 'rgb(89, 89, 89)',
                 }}
               >
                 <span
                   style={{
-                    fontFamily: "sans-serif",
-                    fontStyle: "normal",
-                    fontVariantLigatures: "normal",
-                    fontVariantCaps: "normal",
+                    fontFamily: 'sans-serif',
+                    fontStyle: 'normal',
+                    fontVariantLigatures: 'normal',
+                    fontVariantCaps: 'normal',
                     fontWeight: 400,
-                    letterSpacing: "normal",
+                    letterSpacing: 'normal',
                     orphans: 2,
-                    textAlign: "justify",
-                    textIndent: "-29.4px",
-                    textTransform: "none",
-                    whiteSpace: "normal",
+                    textAlign: 'justify',
+                    textIndent: '-29.4px',
+                    textTransform: 'none',
+                    whiteSpace: 'normal',
                     widows: 2,
-                    wordSpacing: "0px",
-                    WebkitTextStrokeWidth: "0px",
-                    backgroundColor: "rgb(255, 255, 255)",
-                    textDecorationStyle: "initial",
-                    textDecorationColor: "initial",
-                    color: "rgb(89, 89, 89)",
+                    wordSpacing: '0px',
+                    WebkitTextStrokeWidth: '0px',
+                    backgroundColor: 'rgb(255, 255, 255)',
+                    textDecorationStyle: 'initial',
+                    textDecorationColor: 'initial',
+                    color: 'rgb(89, 89, 89)',
                   }}
                 >
                   <span
                     style={{
-                      lineHeight: "16.8667px",
-                      color: "rgb(89, 89, 89)",
+                      lineHeight: '16.8667px',
+                      color: 'rgb(89, 89, 89)',
                     }}
                   >
                     <span
                       style={{
-                        fontFamily: "sans-serif",
-                        fontStyle: "normal",
-                        fontVariantLigatures: "normal",
-                        fontVariantCaps: "normal",
+                        fontFamily: 'sans-serif',
+                        fontStyle: 'normal',
+                        fontVariantLigatures: 'normal',
+                        fontVariantCaps: 'normal',
                         fontWeight: 400,
-                        letterSpacing: "normal",
+                        letterSpacing: 'normal',
                         orphans: 2,
-                        textAlign: "justify",
-                        textIndent: "-22.05pt",
-                        textTransform: "none",
-                        whiteSpace: "normal",
+                        textAlign: 'justify',
+                        textIndent: '-22.05pt',
+                        textTransform: 'none',
+                        whiteSpace: 'normal',
                         widows: 2,
-                        wordSpacing: "0px",
-                        WebkitTextStrokeWidth: "0px",
-                        backgroundColor: "rgb(255, 255, 255)",
-                        textDecorationStyle: "initial",
-                        textDecorationColor: "initial",
-                        color: "rgb(89, 89, 89)",
+                        wordSpacing: '0px',
+                        WebkitTextStrokeWidth: '0px',
+                        backgroundColor: 'rgb(255, 255, 255)',
+                        textDecorationStyle: 'initial',
+                        textDecorationColor: 'initial',
+                        color: 'rgb(89, 89, 89)',
                       }}
                     >
                       <span
                         className="block-container forloop"
                         data-type="forloop"
                         id="19beb913-5a5e-2b51-51f9-8600a8eb26c3"
-                        style={{ display: "inline" }}
+                        style={{ display: 'inline' }}
                       >
                         <span
                           data-type="conditional-block"
-                          style={{ display: "inline" }}
+                          style={{ display: 'inline' }}
                         >
-                          <span data-type="body" style={{ display: "inline" }}>
+                          <span data-type="body" style={{ display: 'inline' }}>
                             22
                           </span>
                         </span>
@@ -4183,24 +4184,24 @@ export const TermsAndConditions = () => (
                     </span>
                     <span
                       style={{
-                        fontFamily: "sans-serif",
-                        fontStyle: "normal",
-                        fontVariantLigatures: "normal",
-                        fontVariantCaps: "normal",
+                        fontFamily: 'sans-serif',
+                        fontStyle: 'normal',
+                        fontVariantLigatures: 'normal',
+                        fontVariantCaps: 'normal',
                         fontWeight: 400,
-                        letterSpacing: "normal",
+                        letterSpacing: 'normal',
                         orphans: 2,
-                        textAlign: "justify",
-                        textIndent: "-29.4px",
-                        textTransform: "none",
-                        whiteSpace: "normal",
+                        textAlign: 'justify',
+                        textIndent: '-29.4px',
+                        textTransform: 'none',
+                        whiteSpace: 'normal',
                         widows: 2,
-                        wordSpacing: "0px",
-                        WebkitTextStrokeWidth: "0px",
-                        backgroundColor: "rgb(255, 255, 255)",
-                        textDecorationStyle: "initial",
-                        textDecorationColor: "initial",
-                        color: "rgb(89, 89, 89)",
+                        wordSpacing: '0px',
+                        WebkitTextStrokeWidth: '0px',
+                        backgroundColor: 'rgb(255, 255, 255)',
+                        textDecorationStyle: 'initial',
+                        textDecorationColor: 'initial',
+                        color: 'rgb(89, 89, 89)',
                       }}
                     >
                       . Use the Site as part of any effort to compete with us or
@@ -4216,16 +4217,16 @@ export const TermsAndConditions = () => (
             className="MsoNormal"
             data-custom-class="body_text"
             style={{
-              lineHeight: "1.5",
-              marginLeft: "20px",
-              textAlign: "left",
+              lineHeight: '1.5',
+              marginLeft: '20px',
+              textAlign: 'left',
             }}
           >
             <span
               style={{
-                fontSize: "15px",
-                lineHeight: "16.8667px",
-                color: "rgb(89, 89, 89)",
+                fontSize: '15px',
+                lineHeight: '16.8667px',
+                color: 'rgb(89, 89, 89)',
               }}
             >
               <span className="forloop-component" />
@@ -4234,54 +4235,54 @@ export const TermsAndConditions = () => (
                 data-type="forloop"
                 id="19beb913-5a5e-2b51-51f9-8600a8eb26c3"
                 style={{
-                  display: "inline",
-                  color: "rgb(89, 89, 89)",
-                  fontFamily: "sans-serif",
-                  fontSize: "15px",
-                  fontStyle: "normal",
-                  fontVariantLigatures: "normal",
-                  fontVariantCaps: "normal",
+                  display: 'inline',
+                  color: 'rgb(89, 89, 89)',
+                  fontFamily: 'sans-serif',
+                  fontSize: '15px',
+                  fontStyle: 'normal',
+                  fontVariantLigatures: 'normal',
+                  fontVariantCaps: 'normal',
                   fontWeight: 400,
-                  letterSpacing: "normal",
+                  letterSpacing: 'normal',
                   orphans: 2,
-                  textAlign: "justify",
-                  textIndent: "0px",
-                  textTransform: "none",
-                  whiteSpace: "normal",
+                  textAlign: 'justify',
+                  textIndent: '0px',
+                  textTransform: 'none',
+                  whiteSpace: 'normal',
                   widows: 2,
-                  wordSpacing: "0px",
-                  WebkitTextStrokeWidth: "0px",
-                  backgroundColor: "rgb(255, 255, 255)",
-                  textDecorationStyle: "initial",
-                  textDecorationColor: "initial",
+                  wordSpacing: '0px',
+                  WebkitTextStrokeWidth: '0px',
+                  backgroundColor: 'rgb(255, 255, 255)',
+                  textDecorationStyle: 'initial',
+                  textDecorationColor: 'initial',
                 }}
               >
                 <span
                   data-type="conditional-block"
-                  style={{ display: "inline" }}
+                  style={{ display: 'inline' }}
                 >
-                  <span data-type="body" style={{ display: "inline" }}>
+                  <span data-type="body" style={{ display: 'inline' }}>
                     <span
                       style={{
-                        fontFamily: "sans-serif",
-                        fontStyle: "normal",
-                        fontVariantLigatures: "normal",
-                        fontVariantCaps: "normal",
+                        fontFamily: 'sans-serif',
+                        fontStyle: 'normal',
+                        fontVariantLigatures: 'normal',
+                        fontVariantCaps: 'normal',
                         fontWeight: 400,
-                        letterSpacing: "normal",
+                        letterSpacing: 'normal',
                         orphans: 2,
-                        textAlign: "justify",
-                        textIndent: "-22.05pt",
-                        textTransform: "none",
-                        whiteSpace: "normal",
+                        textAlign: 'justify',
+                        textIndent: '-22.05pt',
+                        textTransform: 'none',
+                        whiteSpace: 'normal',
                         widows: 2,
-                        wordSpacing: "0px",
-                        WebkitTextStrokeWidth: "0px",
-                        backgroundColor: "rgb(255, 255, 255)",
-                        textDecorationStyle: "initial",
-                        textDecorationColor: "initial",
-                        color: "rgb(89, 89, 89)",
-                        fontSize: "14.6667px",
+                        wordSpacing: '0px',
+                        WebkitTextStrokeWidth: '0px',
+                        backgroundColor: 'rgb(255, 255, 255)',
+                        textDecorationStyle: 'initial',
+                        textDecorationColor: 'initial',
+                        color: 'rgb(89, 89, 89)',
+                        fontSize: '14.6667px',
                       }}
                     >
                       23
@@ -4291,29 +4292,29 @@ export const TermsAndConditions = () => (
               </span>
               <span
                 style={{
-                  color: "rgb(89, 89, 89)",
-                  fontFamily: "sans-serif",
-                  fontStyle: "normal",
-                  fontVariantLigatures: "normal",
-                  fontVariantCaps: "normal",
+                  color: 'rgb(89, 89, 89)',
+                  fontFamily: 'sans-serif',
+                  fontStyle: 'normal',
+                  fontVariantLigatures: 'normal',
+                  fontVariantCaps: 'normal',
                   fontWeight: 400,
-                  letterSpacing: "normal",
+                  letterSpacing: 'normal',
                   orphans: 2,
-                  textAlign: "justify",
-                  textTransform: "none",
-                  whiteSpace: "normal",
+                  textAlign: 'justify',
+                  textTransform: 'none',
+                  whiteSpace: 'normal',
                   widows: 2,
-                  wordSpacing: "0px",
-                  WebkitTextStrokeWidth: "0px",
-                  textDecorationStyle: "initial",
-                  textDecorationColor: "initial",
-                  textIndent: "-29.4px",
-                  backgroundColor: "rgb(255, 255, 255)",
-                  fontSize: "14.6667px",
+                  wordSpacing: '0px',
+                  WebkitTextStrokeWidth: '0px',
+                  textDecorationStyle: 'initial',
+                  textDecorationColor: 'initial',
+                  textIndent: '-29.4px',
+                  backgroundColor: 'rgb(255, 255, 255)',
+                  fontSize: '14.6667px',
                 }}
               >
-                .{" "}
-              </span>{" "}
+                .{' '}
+              </span>{' '}
               <span className="question">
                 Use the Site to advertise or offer to sell goods and services.
               </span>
@@ -4323,16 +4324,16 @@ export const TermsAndConditions = () => (
             className="MsoNormal"
             data-custom-class="body_text"
             style={{
-              lineHeight: "1.5",
-              marginLeft: "20px",
-              textAlign: "left",
+              lineHeight: '1.5',
+              marginLeft: '20px',
+              textAlign: 'left',
             }}
           >
             <span
               style={{
-                fontSize: "15px",
-                lineHeight: "16.8667px",
-                color: "rgb(89, 89, 89)",
+                fontSize: '15px',
+                lineHeight: '16.8667px',
+                color: 'rgb(89, 89, 89)',
               }}
             >
               <span className="forloop-component" />
@@ -4341,54 +4342,54 @@ export const TermsAndConditions = () => (
                 data-type="forloop"
                 id="19beb913-5a5e-2b51-51f9-8600a8eb26c3"
                 style={{
-                  display: "inline",
-                  color: "rgb(89, 89, 89)",
-                  fontFamily: "sans-serif",
-                  fontSize: "15px",
-                  fontStyle: "normal",
-                  fontVariantLigatures: "normal",
-                  fontVariantCaps: "normal",
+                  display: 'inline',
+                  color: 'rgb(89, 89, 89)',
+                  fontFamily: 'sans-serif',
+                  fontSize: '15px',
+                  fontStyle: 'normal',
+                  fontVariantLigatures: 'normal',
+                  fontVariantCaps: 'normal',
                   fontWeight: 400,
-                  letterSpacing: "normal",
+                  letterSpacing: 'normal',
                   orphans: 2,
-                  textAlign: "justify",
-                  textIndent: "0px",
-                  textTransform: "none",
-                  whiteSpace: "normal",
+                  textAlign: 'justify',
+                  textIndent: '0px',
+                  textTransform: 'none',
+                  whiteSpace: 'normal',
                   widows: 2,
-                  wordSpacing: "0px",
-                  WebkitTextStrokeWidth: "0px",
-                  backgroundColor: "rgb(255, 255, 255)",
-                  textDecorationStyle: "initial",
-                  textDecorationColor: "initial",
+                  wordSpacing: '0px',
+                  WebkitTextStrokeWidth: '0px',
+                  backgroundColor: 'rgb(255, 255, 255)',
+                  textDecorationStyle: 'initial',
+                  textDecorationColor: 'initial',
                 }}
               >
                 <span
                   data-type="conditional-block"
-                  style={{ display: "inline" }}
+                  style={{ display: 'inline' }}
                 >
-                  <span data-type="body" style={{ display: "inline" }}>
+                  <span data-type="body" style={{ display: 'inline' }}>
                     <span
                       style={{
-                        fontFamily: "sans-serif",
-                        fontStyle: "normal",
-                        fontVariantLigatures: "normal",
-                        fontVariantCaps: "normal",
+                        fontFamily: 'sans-serif',
+                        fontStyle: 'normal',
+                        fontVariantLigatures: 'normal',
+                        fontVariantCaps: 'normal',
                         fontWeight: 400,
-                        letterSpacing: "normal",
+                        letterSpacing: 'normal',
                         orphans: 2,
-                        textAlign: "justify",
-                        textIndent: "-22.05pt",
-                        textTransform: "none",
-                        whiteSpace: "normal",
+                        textAlign: 'justify',
+                        textIndent: '-22.05pt',
+                        textTransform: 'none',
+                        whiteSpace: 'normal',
                         widows: 2,
-                        wordSpacing: "0px",
-                        WebkitTextStrokeWidth: "0px",
-                        backgroundColor: "rgb(255, 255, 255)",
-                        textDecorationStyle: "initial",
-                        textDecorationColor: "initial",
-                        color: "rgb(89, 89, 89)",
-                        fontSize: "14.6667px",
+                        wordSpacing: '0px',
+                        WebkitTextStrokeWidth: '0px',
+                        backgroundColor: 'rgb(255, 255, 255)',
+                        textDecorationStyle: 'initial',
+                        textDecorationColor: 'initial',
+                        color: 'rgb(89, 89, 89)',
+                        fontSize: '14.6667px',
                       }}
                     >
                       24
@@ -4398,29 +4399,29 @@ export const TermsAndConditions = () => (
               </span>
               <span
                 style={{
-                  color: "rgb(89, 89, 89)",
-                  fontFamily: "sans-serif",
-                  fontStyle: "normal",
-                  fontVariantLigatures: "normal",
-                  fontVariantCaps: "normal",
+                  color: 'rgb(89, 89, 89)',
+                  fontFamily: 'sans-serif',
+                  fontStyle: 'normal',
+                  fontVariantLigatures: 'normal',
+                  fontVariantCaps: 'normal',
                   fontWeight: 400,
-                  letterSpacing: "normal",
+                  letterSpacing: 'normal',
                   orphans: 2,
-                  textAlign: "justify",
-                  textTransform: "none",
-                  whiteSpace: "normal",
+                  textAlign: 'justify',
+                  textTransform: 'none',
+                  whiteSpace: 'normal',
                   widows: 2,
-                  wordSpacing: "0px",
-                  WebkitTextStrokeWidth: "0px",
-                  textDecorationStyle: "initial",
-                  textDecorationColor: "initial",
-                  textIndent: "-29.4px",
-                  backgroundColor: "rgb(255, 255, 255)",
-                  fontSize: "14.6667px",
+                  wordSpacing: '0px',
+                  WebkitTextStrokeWidth: '0px',
+                  textDecorationStyle: 'initial',
+                  textDecorationColor: 'initial',
+                  textIndent: '-29.4px',
+                  backgroundColor: 'rgb(255, 255, 255)',
+                  fontSize: '14.6667px',
                 }}
               >
-                .{" "}
-              </span>{" "}
+                .{' '}
+              </span>{' '}
               <span className="question">
                 Sell or otherwise transfer your profile.
               </span>
@@ -4430,47 +4431,47 @@ export const TermsAndConditions = () => (
             className="MsoNormal"
             data-custom-class="body_text"
             style={{
-              lineHeight: "1.5",
-              marginLeft: "20px",
-              textAlign: "left",
+              lineHeight: '1.5',
+              marginLeft: '20px',
+              textAlign: 'left',
             }}
           >
             <span
               style={{
-                fontSize: "15px",
-                lineHeight: "16.8667px",
-                color: "rgb(89, 89, 89)",
+                fontSize: '15px',
+                lineHeight: '16.8667px',
+                color: 'rgb(89, 89, 89)',
               }}
             >
               <span className="forloop-component" />
             </span>
           </div>
         </div>
-        <div className="MsoNormal" style={{ lineHeight: "1.5" }}>
+        <div className="MsoNormal" style={{ lineHeight: '1.5' }}>
           <a />
         </div>
       </div>
-      <div style={{ textAlign: "left", lineHeight: "1.5" }}>
+      <div style={{ textAlign: 'left', lineHeight: '1.5' }}>
         <br />
       </div>
-      <div style={{ textAlign: "left", lineHeight: "1.5" }}>
+      <div style={{ textAlign: 'left', lineHeight: '1.5' }}>
         <br />
       </div>
-      <div style={{ textAlign: "left", lineHeight: 1 }}>
+      <div style={{ textAlign: 'left', lineHeight: 1 }}>
         <span className="block-container if" data-type="if">
           <span data-type="conditional-block">
             <span data-type="body">
               <div
                 className="MsoNormal"
                 data-custom-class="heading_1"
-                style={{ lineHeight: "1.5" }}
+                style={{ lineHeight: '1.5' }}
               >
                 <strong>
                   <span
                     style={{
-                      lineHeight: "115%",
-                      fontFamily: "Arial",
-                      fontSize: "19px",
+                      lineHeight: '115%',
+                      fontFamily: 'Arial',
+                      fontSize: '19px',
                     }}
                   >
                     USER GENERATED CONTRIBUTIONS
@@ -4481,27 +4482,27 @@ export const TermsAndConditions = () => (
           </span>
         </span>
       </div>
-      <div style={{ textAlign: "left", lineHeight: 1 }}>
+      <div style={{ textAlign: 'left', lineHeight: 1 }}>
         <br />
       </div>
-      <div style={{ textAlign: "left", lineHeight: 1 }}>
+      <div style={{ textAlign: 'left', lineHeight: 1 }}>
         <span className="block-container if" data-type="if">
           <span data-type="conditional-block">
             <span data-type="body">
               <div
                 className="MsoNormal"
-                style={{ textAlign: "justify", lineHeight: "115%" }}
+                style={{ textAlign: 'justify', lineHeight: '115%' }}
               >
                 <div
                   className="MsoNormal"
                   data-custom-class="body_text"
-                  style={{ lineHeight: "1.5", textAlign: "left" }}
+                  style={{ lineHeight: '1.5', textAlign: 'left' }}
                 >
                   <span
                     style={{
-                      fontSize: "15px",
-                      lineHeight: "16.8667px",
-                      color: "rgb(89, 89, 89)",
+                      fontSize: '15px',
+                      lineHeight: '16.8667px',
+                      color: 'rgb(89, 89, 89)',
                     }}
                   >
                     <span
@@ -4515,7 +4516,7 @@ export const TermsAndConditions = () => (
                           data-record-question-key="user_post_content_option"
                           data-type="statement"
                         >
-                          <span style={{ fontSize: "15px" }} />
+                          <span style={{ fontSize: '15px' }} />
                         </span>
                       </span>
                     </span>
@@ -4541,11 +4542,11 @@ export const TermsAndConditions = () => (
                   data-custom-class="body_text"
                   style={{
                     lineHeight: 1,
-                    marginLeft: "20px",
-                    textAlign: "left",
+                    marginLeft: '20px',
+                    textAlign: 'left',
                   }}
                 >
-                  <span style={{ fontSize: "14px", color: "rgb(89, 89, 89)" }}>
+                  <span style={{ fontSize: '14px', color: 'rgb(89, 89, 89)' }}>
                     <br />
                   </span>
                 </div>
@@ -4553,13 +4554,13 @@ export const TermsAndConditions = () => (
                   className="MsoNormal"
                   data-custom-class="body_text"
                   style={{
-                    lineHeight: "1.5",
-                    marginLeft: "20px",
-                    textAlign: "left",
+                    lineHeight: '1.5',
+                    marginLeft: '20px',
+                    textAlign: 'left',
                   }}
                 >
-                  <span style={{ color: "rgb(89, 89, 89)" }}>
-                    <span style={{ fontSize: "14px" }}>
+                  <span style={{ color: 'rgb(89, 89, 89)' }}>
+                    <span style={{ fontSize: '14px' }}>
                       1. The creation, distribution, transmission, public
                       display, or performance, and the accessing, downloading,
                       or copying of your Contributions do not and will not
@@ -4625,8 +4626,8 @@ export const TermsAndConditions = () => (
                   data-custom-class="body_text"
                   style={{
                     lineHeight: 1,
-                    marginLeft: "20px",
-                    textAlign: "left",
+                    marginLeft: '20px',
+                    textAlign: 'left',
                   }}
                 >
                   <br />
@@ -4634,13 +4635,13 @@ export const TermsAndConditions = () => (
                 <div
                   className="MsoNormal"
                   data-custom-class="body_text"
-                  style={{ lineHeight: "1.5", textAlign: "left" }}
+                  style={{ lineHeight: '1.5', textAlign: 'left' }}
                 >
                   <span
                     style={{
-                      fontSize: "15px",
-                      lineHeight: "16.8667px",
-                      color: "rgb(89, 89, 89)",
+                      fontSize: '15px',
+                      lineHeight: '16.8667px',
+                      color: 'rgb(89, 89, 89)',
                     }}
                   >
                     Any use of the Site in violation of the foregoing violates
@@ -4653,27 +4654,27 @@ export const TermsAndConditions = () => (
           </span>
         </span>
       </div>
-      <div style={{ textAlign: "left", lineHeight: "1.5" }}>
+      <div style={{ textAlign: 'left', lineHeight: '1.5' }}>
         <br />
       </div>
-      <div style={{ textAlign: "left", lineHeight: "1.5" }}>
+      <div style={{ textAlign: 'left', lineHeight: '1.5' }}>
         <br />
       </div>
-      <div style={{ textAlign: "left", lineHeight: 1 }}>
+      <div style={{ textAlign: 'left', lineHeight: 1 }}>
         <span className="block-container if" data-type="if">
           <span data-type="conditional-block">
             <span data-type="body">
               <div
                 className="MsoNormal"
                 data-custom-class="heading_1"
-                style={{ lineHeight: "1.5" }}
+                style={{ lineHeight: '1.5' }}
               >
                 <strong>
                   <span
                     style={{
-                      lineHeight: "115%",
-                      fontFamily: "Arial",
-                      fontSize: "19px",
+                      lineHeight: '115%',
+                      fontFamily: 'Arial',
+                      fontSize: '19px',
                     }}
                   >
                     CONTRIBUTION LICENSE
@@ -4684,24 +4685,24 @@ export const TermsAndConditions = () => (
           </span>
         </span>
       </div>
-      <div style={{ textAlign: "left", lineHeight: 1 }}>
+      <div style={{ textAlign: 'left', lineHeight: 1 }}>
         <br />
       </div>
-      <div style={{ textAlign: "left", lineHeight: 1 }}>
+      <div style={{ textAlign: 'left', lineHeight: 1 }}>
         <span className="block-container if" data-type="if">
           <span data-type="conditional-block">
             <span data-type="body">
               <div
                 className="MsoNormal"
                 data-custom-class="body_text"
-                style={{ lineHeight: "1.5" }}
+                style={{ lineHeight: '1.5' }}
               >
                 <span
                   style={{
-                    fontSize: "15px",
-                    lineHeight: "115%",
-                    fontFamily: "Arial",
-                    color: "rgb(89, 89, 89)",
+                    fontSize: '15px',
+                    lineHeight: '115%',
+                    fontFamily: 'Arial',
+                    color: 'rgb(89, 89, 89)',
                   }}
                 >
                   <span
@@ -4776,31 +4777,31 @@ export const TermsAndConditions = () => (
                   derivative works of, or incorporate into other works, such
                   Contributions, and grant and authorize sublicenses of the
                   foregoing. The use and distribution may occur in any media
-                  formats and through any media channels.{" "}
+                  formats and through any media channels.{' '}
                 </span>
               </div>
             </span>
           </span>
         </span>
       </div>
-      <div style={{ textAlign: "left", lineHeight: 1 }}>
+      <div style={{ textAlign: 'left', lineHeight: 1 }}>
         <br />
       </div>
-      <div style={{ textAlign: "left", lineHeight: 1 }}>
+      <div style={{ textAlign: 'left', lineHeight: 1 }}>
         <span className="block-container if" data-type="if">
           <span data-type="conditional-block">
             <span data-type="body">
               <div
                 className="MsoNormal"
                 data-custom-class="body_text"
-                style={{ lineHeight: "1.5" }}
+                style={{ lineHeight: '1.5' }}
               >
-                <span style={{ fontSize: "15px" }}>
+                <span style={{ fontSize: '15px' }}>
                   <span
                     style={{
-                      lineHeight: "115%",
-                      fontFamily: "Arial",
-                      color: "rgb(89, 89, 89)",
+                      lineHeight: '115%',
+                      fontFamily: 'Arial',
+                      color: 'rgb(89, 89, 89)',
                     }}
                   >
                     This license will apply to any form, media, or technology
@@ -4810,7 +4811,7 @@ export const TermsAndConditions = () => (
                     logos, and personal and commercial images you provide. You
                     waive all moral rights in your Contributions, and you
                     warrant that moral rights have not otherwise been asserted
-                    in your Contributions.{" "}
+                    in your Contributions.{' '}
                   </span>
                 </span>
               </div>
@@ -4818,24 +4819,24 @@ export const TermsAndConditions = () => (
           </span>
         </span>
       </div>
-      <div style={{ textAlign: "left", lineHeight: 1 }}>
+      <div style={{ textAlign: 'left', lineHeight: 1 }}>
         <br />
       </div>
-      <div style={{ textAlign: "left", lineHeight: 1 }}>
+      <div style={{ textAlign: 'left', lineHeight: 1 }}>
         <span className="block-container if" data-type="if">
           <span data-type="conditional-block">
             <span data-type="body">
               <div
                 className="MsoNormal"
                 data-custom-class="body_text"
-                style={{ lineHeight: "1.5" }}
+                style={{ lineHeight: '1.5' }}
               >
-                <span style={{ fontSize: "15px" }}>
+                <span style={{ fontSize: '15px' }}>
                   <span
                     style={{
-                      lineHeight: "115%",
-                      fontFamily: "Arial",
-                      color: "rgb(89, 89, 89)",
+                      lineHeight: '115%',
+                      fontFamily: 'Arial',
+                      color: 'rgb(89, 89, 89)',
                     }}
                   >
                     We do not assert any ownership over your Contributions. You
@@ -4847,7 +4848,7 @@ export const TermsAndConditions = () => (
                     responsible for your Contributions to the Site and you
                     expressly agree to exonerate us from any and all
                     responsibility and to refrain from any legal action against
-                    us regarding your Contributions.{" "}
+                    us regarding your Contributions.{' '}
                   </span>
                 </span>
               </div>
@@ -4855,24 +4856,24 @@ export const TermsAndConditions = () => (
           </span>
         </span>
       </div>
-      <div style={{ textAlign: "left", lineHeight: 1 }}>
+      <div style={{ textAlign: 'left', lineHeight: 1 }}>
         <br />
       </div>
-      <div style={{ textAlign: "left", lineHeight: 1 }}>
+      <div style={{ textAlign: 'left', lineHeight: 1 }}>
         <span className="block-container if" data-type="if">
           <span data-type="conditional-block">
             <span data-type="body">
               <div
                 className="MsoNormal"
                 data-custom-class="body_text"
-                style={{ lineHeight: "1.5" }}
+                style={{ lineHeight: '1.5' }}
               >
                 <span
                   style={{
-                    fontSize: "15px",
-                    lineHeight: "115%",
-                    fontFamily: "Arial",
-                    color: "rgb(89, 89, 89)",
+                    fontSize: '15px',
+                    lineHeight: '115%',
+                    fontFamily: 'Arial',
+                    color: 'rgb(89, 89, 89)',
                   }}
                 >
                   We have the right, in our sole and absolute discretion, (1) to
@@ -4888,13 +4889,13 @@ export const TermsAndConditions = () => (
           </span>
         </span>
       </div>
-      <div style={{ textAlign: "left", lineHeight: "1.5" }}>
+      <div style={{ textAlign: 'left', lineHeight: '1.5' }}>
         <br />
       </div>
-      <div style={{ textAlign: "left", lineHeight: "1.5" }}>
+      <div style={{ textAlign: 'left', lineHeight: '1.5' }}>
         <br />
       </div>
-      <div style={{ textAlign: "left", lineHeight: "1.5" }}>
+      <div style={{ textAlign: 'left', lineHeight: '1.5' }}>
         <span className="else-block" />
         <span
           className="block-container if"
@@ -4930,19 +4931,19 @@ export const TermsAndConditions = () => (
                   className="block-component"
                   data-record-question-key="socialnetwork_link_option"
                   data-type="statement"
-                />{" "}
+                />{' '}
                 <span data-type="body">
                   <div
                     className="MsoNormal"
                     data-custom-class="heading_1"
-                    style={{ lineHeight: "1.5" }}
+                    style={{ lineHeight: '1.5' }}
                   >
                     <strong>
                       <span
                         style={{
-                          lineHeight: "115%",
-                          fontFamily: "Arial",
-                          fontSize: "19px",
+                          lineHeight: '115%',
+                          fontFamily: 'Arial',
+                          fontSize: '19px',
                         }}
                       >
                         SOCIAL MEDIA
@@ -4955,24 +4956,24 @@ export const TermsAndConditions = () => (
           </span>
         </span>
       </div>
-      <div style={{ textAlign: "left", lineHeight: 1 }}>
+      <div style={{ textAlign: 'left', lineHeight: 1 }}>
         <br />
       </div>
-      <div style={{ textAlign: "left", lineHeight: 1 }}>
+      <div style={{ textAlign: 'left', lineHeight: 1 }}>
         <span className="block-container if" data-type="if">
           <span data-type="conditional-block">
             <span data-type="body">
               <div
                 className="MsoNormal"
                 data-custom-class="body_text"
-                style={{ lineHeight: "1.5" }}
+                style={{ lineHeight: '1.5' }}
               >
                 <span
                   style={{
-                    fontSize: "15px",
-                    lineHeight: "115%",
-                    fontFamily: "Arial",
-                    color: "rgb(89, 89, 89)",
+                    fontSize: '15px',
+                    lineHeight: '115%',
+                    fontFamily: 'Arial',
+                    color: 'rgb(89, 89, 89)',
                   }}
                 >
                   As part of the functionality of the Site, you may link your
@@ -5034,30 +5035,30 @@ export const TermsAndConditions = () => (
           </span>
         </span>
       </div>
-      <div style={{ textAlign: "left", lineHeight: "1.5" }}>
+      <div style={{ textAlign: 'left', lineHeight: '1.5' }}>
         <br />
       </div>
-      <div style={{ textAlign: "left", lineHeight: "1.5" }}>
+      <div style={{ textAlign: 'left', lineHeight: '1.5' }}>
         <br />
       </div>
-      <div style={{ textAlign: "left", lineHeight: "1.5" }}>
+      <div style={{ textAlign: 'left', lineHeight: '1.5' }}>
         <span className="block-container if" data-type="if">
           <span className="statement-end-if-in-editor" data-type="close">
-            <span style={{ fontSize: "15px" }} />
+            <span style={{ fontSize: '15px' }} />
           </span>
         </span>
         <div
           className="MsoNormal"
           data-custom-class="heading_1"
-          style={{ lineHeight: "1.5" }}
+          style={{ lineHeight: '1.5' }}
         >
           <a />
           <strong>
             <span
               style={{
-                lineHeight: "115%",
-                fontFamily: "Arial",
-                fontSize: "19px",
+                lineHeight: '115%',
+                fontFamily: 'Arial',
+                fontSize: '19px',
               }}
             >
               SUBMISSIONS
@@ -5065,21 +5066,21 @@ export const TermsAndConditions = () => (
           </strong>
         </div>
       </div>
-      <div style={{ textAlign: "left", lineHeight: 1 }}>
+      <div style={{ textAlign: 'left', lineHeight: 1 }}>
         <br />
       </div>
-      <div style={{ textAlign: "left", lineHeight: "1.5" }}>
+      <div style={{ textAlign: 'left', lineHeight: '1.5' }}>
         <div
           className="MsoNormal"
           data-custom-class="body_text"
-          style={{ lineHeight: "1.5" }}
+          style={{ lineHeight: '1.5' }}
         >
           <span
             style={{
-              fontSize: "15px",
-              lineHeight: "115%",
-              fontFamily: "Arial",
-              color: "rgb(89, 89, 89)",
+              fontSize: '15px',
+              lineHeight: '115%',
+              fontFamily: 'Arial',
+              color: 'rgb(89, 89, 89)',
             }}
           >
             You acknowledge and agree that any questions, comments, suggestions,
@@ -5097,10 +5098,10 @@ export const TermsAndConditions = () => (
             proprietary right in your Submissions.
           </span>
         </div>
-        <div className="MsoNormal" style={{ lineHeight: "1.5" }}>
+        <div className="MsoNormal" style={{ lineHeight: '1.5' }}>
           <br />
         </div>
-        <div className="MsoNormal" style={{ lineHeight: "1.5" }}>
+        <div className="MsoNormal" style={{ lineHeight: '1.5' }}>
           <br />
         </div>
         <div className="MsoNormal" style={{ lineHeight: 1 }}>
@@ -5114,19 +5115,19 @@ export const TermsAndConditions = () => (
                 className="block-component"
                 data-record-question-key="3rd_party_option"
                 data-type="statement"
-              />{" "}
+              />{' '}
               <span data-type="body">
                 <div
                   className="MsoNormal"
                   data-custom-class="heading_1"
-                  style={{ textAlign: "left", lineHeight: "1.5" }}
+                  style={{ textAlign: 'left', lineHeight: '1.5' }}
                 >
                   <strong>
                     <span
                       style={{
-                        lineHeight: "115%",
-                        fontFamily: "Arial",
-                        fontSize: "19px",
+                        lineHeight: '115%',
+                        fontFamily: 'Arial',
+                        fontSize: '19px',
                       }}
                     >
                       THIRD-PARTY WEBSITES AND CONTENT
@@ -5147,14 +5148,14 @@ export const TermsAndConditions = () => (
                 <div
                   className="MsoNormal"
                   data-custom-class="body_text"
-                  style={{ textAlign: "left", lineHeight: "1.5" }}
+                  style={{ textAlign: 'left', lineHeight: '1.5' }}
                 >
                   <span
                     style={{
-                      fontSize: "15px",
-                      lineHeight: "115%",
-                      fontFamily: "Arial",
-                      color: "rgb(89, 89, 89)",
+                      fontSize: '15px',
+                      lineHeight: '115%',
+                      fontFamily: 'Arial',
+                      color: 'rgb(89, 89, 89)',
                     }}
                   >
                     The Site may contain (or you may be sent via the Site) links
@@ -5200,16 +5201,16 @@ export const TermsAndConditions = () => (
             </span>
           </span>
         </div>
-        <div className="MsoNormal" style={{ lineHeight: "1.5" }}>
+        <div className="MsoNormal" style={{ lineHeight: '1.5' }}>
           <br />
         </div>
-        <div className="MsoNormal" style={{ lineHeight: "1.5" }}>
+        <div className="MsoNormal" style={{ lineHeight: '1.5' }}>
           <br />
         </div>
         <div className="MsoNormal" style={{ lineHeight: 1 }}>
           <span className="block-container if" data-type="if">
             <span className="statement-end-if-in-editor" data-type="close">
-              <span style={{ fontSize: "15px" }} />
+              <span style={{ fontSize: '15px' }} />
             </span>
           </span>
           <span
@@ -5230,19 +5231,19 @@ export const TermsAndConditions = () => (
         </div>
         <div
           className="MsoNormal"
-          style={{ textAlign: "justify", lineHeight: "115%" }}
+          style={{ textAlign: 'justify', lineHeight: '115%' }}
         >
           <div
             className="MsoNormal"
             data-custom-class="heading_1"
-            style={{ textAlign: "left", lineHeight: "1.5" }}
+            style={{ textAlign: 'left', lineHeight: '1.5' }}
           >
             <strong>
               <span
                 style={{
-                  lineHeight: "115%",
-                  fontFamily: "Arial",
-                  fontSize: "19px",
+                  lineHeight: '115%',
+                  fontFamily: 'Arial',
+                  fontSize: '19px',
                 }}
               >
                 U.S. GOVERNMENT RIGHTS
@@ -5252,32 +5253,32 @@ export const TermsAndConditions = () => (
         </div>
         <div
           className="MsoNormal"
-          style={{ textAlign: "justify", lineHeight: 1 }}
+          style={{ textAlign: 'justify', lineHeight: 1 }}
         >
           <br />
         </div>
         <div
           className="MsoNormal"
-          style={{ textAlign: "justify", lineHeight: "115%" }}
+          style={{ textAlign: 'justify', lineHeight: '115%' }}
         >
           <div
             className="MsoNormal"
             data-custom-class="body_text"
-            style={{ lineHeight: "1.5", textAlign: "left" }}
+            style={{ lineHeight: '1.5', textAlign: 'left' }}
           >
             <span
               style={{
-                fontSize: "15px",
-                lineHeight: "115%",
-                fontFamily: "Arial",
-                color: "rgb(89, 89, 89)",
-                backgroundImage: "initial",
-                backgroundPosition: "initial",
-                backgroundSize: "initial",
-                backgroundRepeat: "initial",
-                backgroundAttachment: "initial",
-                backgroundOrigin: "initial",
-                backgroundClip: "initial",
+                fontSize: '15px',
+                lineHeight: '115%',
+                fontFamily: 'Arial',
+                color: 'rgb(89, 89, 89)',
+                backgroundImage: 'initial',
+                backgroundPosition: 'initial',
+                backgroundSize: 'initial',
+                backgroundRepeat: 'initial',
+                backgroundAttachment: 'initial',
+                backgroundOrigin: 'initial',
+                backgroundClip: 'initial',
               }}
             >
               Our services are “commercial items” as defined in Federal
@@ -5291,19 +5292,19 @@ export const TermsAndConditions = () => (
               accordance with Defense Federal Acquisition Regulation (“DFARS”)
               227.7202
             </span>
-            <span style={{ fontSize: "15px" }}>
+            <span style={{ fontSize: '15px' }}>
               <span
                 style={{
-                  lineHeight: "115%",
-                  fontFamily: "Arial",
-                  color: "rgb(89, 89, 89)",
-                  backgroundImage: "initial",
-                  backgroundPosition: "initial",
-                  backgroundSize: "initial",
-                  backgroundRepeat: "initial",
-                  backgroundAttachment: "initial",
-                  backgroundOrigin: "initial",
-                  backgroundClip: "initial",
+                  lineHeight: '115%',
+                  fontFamily: 'Arial',
+                  color: 'rgb(89, 89, 89)',
+                  backgroundImage: 'initial',
+                  backgroundPosition: 'initial',
+                  backgroundSize: 'initial',
+                  backgroundRepeat: 'initial',
+                  backgroundAttachment: 'initial',
+                  backgroundOrigin: 'initial',
+                  backgroundClip: 'initial',
                 }}
               >
                 ‑3. In addition, DFARS 252.227‑
@@ -5311,17 +5312,17 @@ export const TermsAndConditions = () => (
             </span>
             <span
               style={{
-                fontSize: "15px",
-                lineHeight: "115%",
-                fontFamily: "Arial",
-                color: "rgb(89, 89, 89)",
-                backgroundImage: "initial",
-                backgroundPosition: "initial",
-                backgroundSize: "initial",
-                backgroundRepeat: "initial",
-                backgroundAttachment: "initial",
-                backgroundOrigin: "initial",
-                backgroundClip: "initial",
+                fontSize: '15px',
+                lineHeight: '115%',
+                fontFamily: 'Arial',
+                color: 'rgb(89, 89, 89)',
+                backgroundImage: 'initial',
+                backgroundPosition: 'initial',
+                backgroundSize: 'initial',
+                backgroundRepeat: 'initial',
+                backgroundAttachment: 'initial',
+                backgroundOrigin: 'initial',
+                backgroundClip: 'initial',
               }}
             >
               7015 applies to technical data acquired by the DOD. This U.S.
@@ -5333,25 +5334,25 @@ export const TermsAndConditions = () => (
           </div>
           <div
             className="MsoNormal"
-            style={{ lineHeight: "1.5", textAlign: "left" }}
+            style={{ lineHeight: '1.5', textAlign: 'left' }}
           >
             <br />
           </div>
           <div
             className="MsoNormal"
-            style={{ lineHeight: "1.5", textAlign: "left" }}
+            style={{ lineHeight: '1.5', textAlign: 'left' }}
           >
             <br />
           </div>
           <div
             className="MsoNormal"
-            style={{ lineHeight: "1.5", textAlign: "left" }}
+            style={{ lineHeight: '1.5', textAlign: 'left' }}
           >
             <span
               style={{
-                fontSize: "11.0pt",
-                lineHeight: "115%",
-                color: "#595959",
+                fontSize: '11.0pt',
+                lineHeight: '115%',
+                color: '#595959',
               }}
             >
               <span
@@ -5360,7 +5361,7 @@ export const TermsAndConditions = () => (
                 id="14038561-dad7-be9d-370f-f8aa487b2570"
               >
                 <span className="statement-end-if-in-editor" data-type="close">
-                  <span style={{ fontSize: "15px" }} />
+                  <span style={{ fontSize: '15px' }} />
                 </span>
               </span>
             </span>
@@ -5369,15 +5370,15 @@ export const TermsAndConditions = () => (
         <div
           className="MsoNormal"
           data-custom-class="heading_1"
-          style={{ lineHeight: "1.5" }}
+          style={{ lineHeight: '1.5' }}
         >
           <a />
           <strong>
             <span
               style={{
-                lineHeight: "115%",
-                fontFamily: "Arial",
-                fontSize: "19px",
+                lineHeight: '115%',
+                fontFamily: 'Arial',
+                fontSize: '19px',
               }}
             >
               SITE MANAGEMENT
@@ -5385,21 +5386,21 @@ export const TermsAndConditions = () => (
           </strong>
         </div>
       </div>
-      <div style={{ textAlign: "left", lineHeight: 1 }}>
+      <div style={{ textAlign: 'left', lineHeight: 1 }}>
         <br />
       </div>
-      <div style={{ textAlign: "left", lineHeight: "1.5" }}>
+      <div style={{ textAlign: 'left', lineHeight: '1.5' }}>
         <div
           className="MsoNormal"
           data-custom-class="body_text"
-          style={{ lineHeight: "1.5" }}
+          style={{ lineHeight: '1.5' }}
         >
           <span
             style={{
-              fontSize: "15px",
-              lineHeight: "115%",
-              fontFamily: "Arial",
-              color: "rgb(89, 89, 89)",
+              fontSize: '15px',
+              lineHeight: '115%',
+              fontFamily: 'Arial',
+              color: 'rgb(89, 89, 89)',
             }}
           >
             We reserve the right, but not the obligation, to: (1) monitor the
@@ -5418,17 +5419,17 @@ export const TermsAndConditions = () => (
             the Site.
           </span>
         </div>
-        <div className="MsoNormal" style={{ lineHeight: "1.5" }}>
+        <div className="MsoNormal" style={{ lineHeight: '1.5' }}>
           <a />
         </div>
       </div>
-      <div style={{ textAlign: "left", lineHeight: "1.5" }}>
+      <div style={{ textAlign: 'left', lineHeight: '1.5' }}>
         <br />
       </div>
-      <div style={{ textAlign: "left", lineHeight: "1.5" }}>
+      <div style={{ textAlign: 'left', lineHeight: '1.5' }}>
         <br />
       </div>
-      <div style={{ textAlign: "left", lineHeight: 1 }}>
+      <div style={{ textAlign: 'left', lineHeight: 1 }}>
         <span className="block-container if" data-type="if">
           <span data-type="conditional-block">
             <span
@@ -5446,32 +5447,32 @@ export const TermsAndConditions = () => (
                   className="block-component"
                   data-record-question-key="privacy_policy_followup"
                   data-type="statement"
-                  style={{ fontSize: "14.6667px" }}
-                />{" "}
+                  style={{ fontSize: '14.6667px' }}
+                />{' '}
                 <span data-type="body">
                   <div
                     className="MsoNormal"
-                    style={{ textAlign: "justify", lineHeight: "17.25px" }}
+                    style={{ textAlign: 'justify', lineHeight: '17.25px' }}
                   >
                     <div
                       className="MsoNormal"
                       data-custom-class="heading_1"
-                      style={{ textAlign: "left", lineHeight: "1.5" }}
+                      style={{ textAlign: 'left', lineHeight: '1.5' }}
                     >
                       <strong>
                         <span
                           style={{
-                            lineHeight: "115%",
-                            fontFamily: "Arial",
-                            color: "black",
-                            backgroundImage: "initial",
-                            backgroundPosition: "initial",
-                            backgroundSize: "initial",
-                            backgroundRepeat: "initial",
-                            backgroundAttachment: "initial",
-                            backgroundOrigin: "initial",
-                            backgroundClip: "initial",
-                            fontSize: "19px",
+                            lineHeight: '115%',
+                            fontFamily: 'Arial',
+                            color: 'black',
+                            backgroundImage: 'initial',
+                            backgroundPosition: 'initial',
+                            backgroundSize: 'initial',
+                            backgroundRepeat: 'initial',
+                            backgroundAttachment: 'initial',
+                            backgroundOrigin: 'initial',
+                            backgroundClip: 'initial',
+                            fontSize: '19px',
                           }}
                         >
                           PRIVACY POLICY
@@ -5485,10 +5486,10 @@ export const TermsAndConditions = () => (
           </span>
         </span>
       </div>
-      <div style={{ textAlign: "left", lineHeight: 1 }}>
+      <div style={{ textAlign: 'left', lineHeight: 1 }}>
         <br />
       </div>
-      <div style={{ textAlign: "left", lineHeight: 1 }}>
+      <div style={{ textAlign: 'left', lineHeight: 1 }}>
         <span className="block-container if" data-type="if">
           <span className="block-container if" data-type="if">
             <span data-type="conditional-block">
@@ -5496,38 +5497,38 @@ export const TermsAndConditions = () => (
                 <div
                   className="MsoNormal"
                   style={{
-                    fontSize: "14.6667px",
-                    textAlign: "justify",
-                    lineHeight: "17.25px",
+                    fontSize: '14.6667px',
+                    textAlign: 'justify',
+                    lineHeight: '17.25px',
                   }}
                 >
                   <div
                     className="MsoNormal"
                     data-custom-class="body_text"
                     style={{
-                      color: "rgb(10, 54, 90)",
-                      fontSize: "15px",
-                      lineHeight: "1.5",
-                      textAlign: "left",
+                      color: 'rgb(10, 54, 90)',
+                      fontSize: '15px',
+                      lineHeight: '1.5',
+                      textAlign: 'left',
                     }}
                   >
                     <span
                       style={{
-                        fontSize: "15px",
-                        lineHeight: "16.8667px",
-                        color: "rgb(89, 89, 89)",
+                        fontSize: '15px',
+                        lineHeight: '16.8667px',
+                        color: 'rgb(89, 89, 89)',
                       }}
                     >
                       We care about data privacy and security. By using the
                       Site, you agree to be bound by our Privacy Policy posted
                       on the Site, which is incorporated into these Terms of
-                      Use. Please be advised the Site is hosted in{" "}
+                      Use. Please be advised the Site is hosted in{' '}
                       <span
                         style={{
-                          fontSize: "15px",
-                          lineHeight: "115%",
-                          fontFamily: "Arial",
-                          color: "rgb(89, 89, 89)",
+                          fontSize: '15px',
+                          lineHeight: '115%',
+                          fontFamily: 'Arial',
+                          color: 'rgb(89, 89, 89)',
                         }}
                       >
                         <span className="block-component" />
@@ -5537,13 +5538,13 @@ export const TermsAndConditions = () => (
                       . If you access the Site from any other region of the
                       world with laws or other requirements governing personal
                       data collection, use, or disclosure that differ from
-                      applicable laws in{" "}
+                      applicable laws in{' '}
                       <span
                         style={{
-                          fontSize: "15px",
-                          lineHeight: "115%",
-                          fontFamily: "Arial",
-                          color: "rgb(89, 89, 89)",
+                          fontSize: '15px',
+                          lineHeight: '115%',
+                          fontFamily: 'Arial',
+                          color: 'rgb(89, 89, 89)',
                         }}
                       >
                         <span className="block-component" />
@@ -5551,13 +5552,13 @@ export const TermsAndConditions = () => (
                         <span className="statement-end-if-in-editor" />
                       </span>
                       , then through your continued use of the Site, you are
-                      transferring your data to{" "}
+                      transferring your data to{' '}
                       <span
                         style={{
-                          fontSize: "15px",
-                          lineHeight: "115%",
-                          fontFamily: "Arial",
-                          color: "rgb(89, 89, 89)",
+                          fontSize: '15px',
+                          lineHeight: '115%',
+                          fontFamily: 'Arial',
+                          color: 'rgb(89, 89, 89)',
                         }}
                       >
                         <span className="block-component" />
@@ -5565,13 +5566,13 @@ export const TermsAndConditions = () => (
                         <span className="statement-end-if-in-editor" />
                       </span>
                       , and you agree to have your data transferred to and
-                      processed in{" "}
+                      processed in{' '}
                       <span
                         style={{
-                          fontSize: "15px",
-                          lineHeight: "115%",
-                          fontFamily: "Arial",
-                          color: "rgb(89, 89, 89)",
+                          fontSize: '15px',
+                          lineHeight: '115%',
+                          fontFamily: 'Arial',
+                          color: 'rgb(89, 89, 89)',
                         }}
                       >
                         <span className="block-component" />
@@ -5604,9 +5605,9 @@ export const TermsAndConditions = () => (
                     </span>
                     <span
                       style={{
-                        fontSize: "11pt",
-                        lineHeight: "16.8667px",
-                        color: "rgb(89, 89, 89)",
+                        fontSize: '11pt',
+                        lineHeight: '16.8667px',
+                        color: 'rgb(89, 89, 89)',
                       }}
                     >
                       <span
@@ -5621,9 +5622,9 @@ export const TermsAndConditions = () => (
                     </span>
                     <span
                       style={{
-                        fontSize: "15px",
-                        lineHeight: "16.8667px",
-                        color: "rgb(89, 89, 89)",
+                        fontSize: '15px',
+                        lineHeight: '16.8667px',
+                        color: 'rgb(89, 89, 89)',
                       }}
                     >
                       <span
@@ -5656,9 +5657,9 @@ export const TermsAndConditions = () => (
                         >
                           <span
                             style={{
-                              fontSize: "15px",
-                              lineHeight: "16.8667px",
-                              color: "rgb(89, 89, 89)",
+                              fontSize: '15px',
+                              lineHeight: '16.8667px',
+                              color: 'rgb(89, 89, 89)',
                             }}
                           >
                             <span className="statement-end-if-in-editor" />
@@ -5670,10 +5671,10 @@ export const TermsAndConditions = () => (
                   <div
                     className="MsoNormal"
                     style={{
-                      color: "rgb(10, 54, 90)",
-                      fontSize: "15px",
-                      lineHeight: "1.5",
-                      textAlign: "left",
+                      color: 'rgb(10, 54, 90)',
+                      fontSize: '15px',
+                      lineHeight: '1.5',
+                      textAlign: 'left',
                     }}
                   >
                     <br />
@@ -5681,10 +5682,10 @@ export const TermsAndConditions = () => (
                   <div
                     className="MsoNormal"
                     style={{
-                      color: "rgb(10, 54, 90)",
-                      fontSize: "15px",
-                      lineHeight: "1.5",
-                      textAlign: "left",
+                      color: 'rgb(10, 54, 90)',
+                      fontSize: '15px',
+                      lineHeight: '1.5',
+                      textAlign: 'left',
                     }}
                   >
                     <br />
@@ -5695,9 +5696,9 @@ export const TermsAndConditions = () => (
             <span
               className="statement-end-if-in-editor"
               data-type="close"
-              style={{ fontSize: "14.6667px" }}
+              style={{ fontSize: '14.6667px' }}
             >
-              <span style={{ fontSize: "15px" }}>
+              <span style={{ fontSize: '15px' }}>
                 <span className="block-component" />
               </span>
             </span>
@@ -5714,7 +5715,7 @@ export const TermsAndConditions = () => (
                 data-type="statement"
               />
               <span className="statement-end-if-in-editor" data-type="close">
-                <span style={{ fontSize: "15px" }}>
+                <span style={{ fontSize: '15px' }}>
                   <span className="block-component" />
                   <span className="block-component" />
                 </span>
@@ -5724,19 +5725,19 @@ export const TermsAndConditions = () => (
           </span>
         </span>
       </div>
-      <div style={{ textAlign: "left", lineHeight: "1.5" }}>
+      <div style={{ textAlign: 'left', lineHeight: '1.5' }}>
         <div
           className="MsoNormal"
           data-custom-class="heading_1"
-          style={{ lineHeight: "1.5" }}
+          style={{ lineHeight: '1.5' }}
         >
           <a />
           <strong>
             <span
               style={{
-                lineHeight: "115%",
-                fontFamily: "Arial",
-                fontSize: "19px",
+                lineHeight: '115%',
+                fontFamily: 'Arial',
+                fontSize: '19px',
               }}
             >
               TERM AND TERMINATION
@@ -5744,21 +5745,21 @@ export const TermsAndConditions = () => (
           </strong>
         </div>
       </div>
-      <div style={{ textAlign: "left", lineHeight: 1 }}>
+      <div style={{ textAlign: 'left', lineHeight: 1 }}>
         <br />
       </div>
-      <div style={{ textAlign: "left", lineHeight: "1.5" }}>
+      <div style={{ textAlign: 'left', lineHeight: '1.5' }}>
         <div
           className="MsoNormal"
           data-custom-class="body_text"
-          style={{ lineHeight: "1.5" }}
+          style={{ lineHeight: '1.5' }}
         >
           <span
             style={{
-              fontSize: "15px",
-              lineHeight: "115%",
-              fontFamily: "Arial",
-              color: "rgb(89, 89, 89)",
+              fontSize: '15px',
+              lineHeight: '115%',
+              fontFamily: 'Arial',
+              color: 'rgb(89, 89, 89)',
             }}
           >
             These Terms of Use shall remain in full force and effect while you
@@ -5769,7 +5770,7 @@ export const TermsAndConditions = () => (
             NO REASON, INCLUDING WITHOUT LIMITATION FOR BREACH OF ANY
             REPRESENTATION, WARRANTY, OR COVENANT CONTAINED IN THESE TERMS OF
             USE OR OF ANY APPLICABLE LAW OR REGULATION. WE MAY TERMINATE YOUR
-            USE OR PARTICIPATION IN THE SITE OR DELETE{" "}
+            USE OR PARTICIPATION IN THE SITE OR DELETE{' '}
             <span
               className="block-container if"
               data-type="if"
@@ -5795,10 +5796,10 @@ export const TermsAndConditions = () => (
           </span>
           <span
             style={{
-              fontSize: "11.0pt",
-              lineHeight: "115%",
-              fontFamily: "Arial",
-              color: "#595959",
+              fontSize: '11.0pt',
+              lineHeight: '115%',
+              fontFamily: 'Arial',
+              color: '#595959',
             }}
           >
             <span
@@ -5813,10 +5814,10 @@ export const TermsAndConditions = () => (
           </span>
           <span
             style={{
-              fontSize: "15px",
-              lineHeight: "115%",
-              fontFamily: "Arial",
-              color: "rgb(89, 89, 89)",
+              fontSize: '15px',
+              lineHeight: '115%',
+              fontFamily: 'Arial',
+              color: 'rgb(89, 89, 89)',
             }}
           >
             <span
@@ -5836,25 +5837,25 @@ export const TermsAndConditions = () => (
               <span className="statement-end-if-in-editor" data-type="close" />
             </span>
             ANY CONTENT OR INFORMATION THAT YOU POSTED AT ANY TIME, WITHOUT
-            WARNING, IN OUR SOLE DISCRETION.{" "}
+            WARNING, IN OUR SOLE DISCRETION.{' '}
           </span>
         </div>
       </div>
-      <div style={{ textAlign: "left", lineHeight: 1 }}>
+      <div style={{ textAlign: 'left', lineHeight: 1 }}>
         <br />
       </div>
-      <div style={{ textAlign: "left", lineHeight: "1.5" }}>
+      <div style={{ textAlign: 'left', lineHeight: '1.5' }}>
         <div
           className="MsoNormal"
           data-custom-class="body_text"
-          style={{ lineHeight: "1.5" }}
+          style={{ lineHeight: '1.5' }}
         >
-          <span style={{ fontSize: "15px" }}>
+          <span style={{ fontSize: '15px' }}>
             <span
               style={{
-                lineHeight: "115%",
-                fontFamily: "Arial",
-                color: "rgb(89, 89, 89)",
+                lineHeight: '115%',
+                fontFamily: 'Arial',
+                color: 'rgb(89, 89, 89)',
               }}
             >
               If we terminate or suspend your account for any reason, you are
@@ -5868,43 +5869,43 @@ export const TermsAndConditions = () => (
           </span>
         </div>
       </div>
-      <div style={{ textAlign: "left", lineHeight: "1.5" }}>
+      <div style={{ textAlign: 'left', lineHeight: '1.5' }}>
         <br />
       </div>
-      <div style={{ textAlign: "left", lineHeight: "1.5" }}>
-        <div className="MsoNormal" style={{ lineHeight: "1.5" }}>
+      <div style={{ textAlign: 'left', lineHeight: '1.5' }}>
+        <div className="MsoNormal" style={{ lineHeight: '1.5' }}>
           <br />
         </div>
         <div
           className="MsoNormal"
           data-custom-class="heading_1"
-          style={{ lineHeight: "1.5" }}
+          style={{ lineHeight: '1.5' }}
         >
           <a />
           <strong>
-            <span style={{ lineHeight: "115%", fontFamily: "Arial" }}>
-              <span style={{ fontSize: "19px" }}>
+            <span style={{ lineHeight: '115%', fontFamily: 'Arial' }}>
+              <span style={{ fontSize: '19px' }}>
                 MODIFICATIONS AND INTERRUPTIONS
               </span>
             </span>
           </strong>
         </div>
       </div>
-      <div style={{ textAlign: "left", lineHeight: 1 }}>
+      <div style={{ textAlign: 'left', lineHeight: 1 }}>
         <br />
       </div>
-      <div style={{ textAlign: "left", lineHeight: "1.5" }}>
+      <div style={{ textAlign: 'left', lineHeight: '1.5' }}>
         <div
           className="MsoNormal"
           data-custom-class="body_text"
-          style={{ lineHeight: "1.5" }}
+          style={{ lineHeight: '1.5' }}
         >
           <span
             style={{
-              fontSize: "15px",
-              lineHeight: "115%",
-              fontFamily: "Arial",
-              color: "rgb(89, 89, 89)",
+              fontSize: '15px',
+              lineHeight: '115%',
+              fontFamily: 'Arial',
+              color: 'rgb(89, 89, 89)',
             }}
           >
             We reserve the right to change, modify, or remove the contents of
@@ -5917,21 +5918,21 @@ export const TermsAndConditions = () => (
           </span>
         </div>
       </div>
-      <div style={{ textAlign: "left", lineHeight: 1 }}>
+      <div style={{ textAlign: 'left', lineHeight: 1 }}>
         <br />
       </div>
-      <div style={{ textAlign: "left", lineHeight: "1.5" }}>
+      <div style={{ textAlign: 'left', lineHeight: '1.5' }}>
         <div
           className="MsoNormal"
           data-custom-class="body_text"
-          style={{ lineHeight: "1.5" }}
+          style={{ lineHeight: '1.5' }}
         >
           <span
             style={{
-              fontSize: "15px",
-              lineHeight: "115%",
-              fontFamily: "Arial",
-              color: "rgb(89, 89, 89)",
+              fontSize: '15px',
+              lineHeight: '115%',
+              fontFamily: 'Arial',
+              color: 'rgb(89, 89, 89)',
             }}
           >
             We cannot guarantee the Site will be available at all times. We may
@@ -5949,35 +5950,35 @@ export const TermsAndConditions = () => (
           </span>
         </div>
       </div>
-      <div style={{ textAlign: "left", lineHeight: "1.5" }}>
+      <div style={{ textAlign: 'left', lineHeight: '1.5' }}>
         <br />
       </div>
-      <div style={{ textAlign: "left", lineHeight: "1.5" }}>
-        <div className="MsoNormal" style={{ lineHeight: "1.5" }}>
+      <div style={{ textAlign: 'left', lineHeight: '1.5' }}>
+        <div className="MsoNormal" style={{ lineHeight: '1.5' }}>
           <br />
         </div>
         <div
           className="MsoNormal"
           data-custom-class="heading_1"
-          style={{ lineHeight: "1.5" }}
+          style={{ lineHeight: '1.5' }}
         >
           <a />
           <strong>
-            <span style={{ lineHeight: "115%", fontFamily: "Arial" }}>
-              <span style={{ fontSize: "19px" }}>GOVERNING LAW</span>
+            <span style={{ lineHeight: '115%', fontFamily: 'Arial' }}>
+              <span style={{ fontSize: '19px' }}>GOVERNING LAW</span>
             </span>
           </strong>
         </div>
         <div className="MsoNormal" style={{ lineHeight: 1 }}>
           <br />
         </div>
-        <div className="MsoNormal" style={{ lineHeight: "1.5" }}>
+        <div className="MsoNormal" style={{ lineHeight: '1.5' }}>
           <span
             style={{
-              fontSize: "11.0pt",
-              lineHeight: "115%",
-              fontFamily: "Arial",
-              color: "#595959",
+              fontSize: '11.0pt',
+              lineHeight: '115%',
+              fontFamily: 'Arial',
+              color: '#595959',
             }}
           >
             <span className="block-component" />
@@ -5986,9 +5987,9 @@ export const TermsAndConditions = () => (
         <div
           className="MsoNormal"
           data-custom-class="body_text"
-          style={{ lineHeight: "1.5" }}
+          style={{ lineHeight: '1.5' }}
         >
-          <span style={{ fontSize: "15px" }}>
+          <span style={{ fontSize: '15px' }}>
             These conditions are governed by and interpreted following the laws
             of <span className="block-component" />
             <span className="question">Czechia</span>
@@ -6001,8 +6002,8 @@ export const TermsAndConditions = () => (
             yourself both agree to submit to the non-exclusive jurisdiction of
             the courts of <span className="question">Brno</span>, which means
             that you may make a claim to defend your consumer protection rights
-            in regards to these Conditions of Use in{" "}
-            <span style={{ fontSize: "15px" }}>
+            in regards to these Conditions of Use in{' '}
+            <span style={{ fontSize: '15px' }}>
               <span className="block-component" />
               <span className="question">Czechia</span>
               <span className="statement-end-if-in-editor" />
@@ -6012,25 +6013,25 @@ export const TermsAndConditions = () => (
           </span>
         </div>
       </div>
-      <div style={{ textAlign: "left", lineHeight: "1.5" }}>
+      <div style={{ textAlign: 'left', lineHeight: '1.5' }}>
         <br />
       </div>
-      <div style={{ textAlign: "left", lineHeight: "1.5" }}>
-        <div className="MsoNormal" style={{ lineHeight: "1.5" }}>
+      <div style={{ textAlign: 'left', lineHeight: '1.5' }}>
+        <div className="MsoNormal" style={{ lineHeight: '1.5' }}>
           <br />
         </div>
         <div
           className="MsoNormal"
           data-custom-class="heading_1"
-          style={{ lineHeight: "1.5" }}
+          style={{ lineHeight: '1.5' }}
         >
           <a />
           <strong>
             <span
               style={{
-                lineHeight: "115%",
-                fontFamily: "Arial",
-                fontSize: "19px",
+                lineHeight: '115%',
+                fontFamily: 'Arial',
+                fontSize: '19px',
               }}
             >
               DISPUTE RESOLUTION
@@ -6040,7 +6041,7 @@ export const TermsAndConditions = () => (
         <div className="MsoNormal" style={{ lineHeight: 1 }}>
           <br />
         </div>
-        <div className="MsoNormal" style={{ lineHeight: "1.5" }}>
+        <div className="MsoNormal" style={{ lineHeight: '1.5' }}>
           <span className="block-container if" data-type="if">
             <span data-type="conditional-block">
               <span className="block-component" />
@@ -6048,25 +6049,25 @@ export const TermsAndConditions = () => (
           </span>
         </div>
       </div>
-      <div className="MsoNormal" style={{ lineHeight: "1.5" }}>
+      <div className="MsoNormal" style={{ lineHeight: '1.5' }}>
         <span className="block-container if" data-type="if">
           <span data-type="conditional-block">
             <span data-type="body">
-              <div className="MsoNormal" style={{ lineHeight: "1.5" }}>
+              <div className="MsoNormal" style={{ lineHeight: '1.5' }}>
                 <span className="block-component" />
               </div>
             </span>
           </span>
         </span>
       </div>
-      <div className="MsoNormal" style={{ lineHeight: "1.5" }}>
+      <div className="MsoNormal" style={{ lineHeight: '1.5' }}>
         <span className="block-container if" data-type="if">
           <span data-type="conditional-block">
             <span data-type="body">
               <div
                 className="MsoNormal"
                 data-custom-class="heading_2"
-                style={{ lineHeight: "1.5" }}
+                style={{ lineHeight: '1.5' }}
               >
                 <strong>Informal Negotiations</strong>
               </div>
@@ -6077,21 +6078,21 @@ export const TermsAndConditions = () => (
       <div className="MsoNormal" style={{ lineHeight: 1 }}>
         <br />
       </div>
-      <div className="MsoNormal" style={{ lineHeight: "1.5" }}>
+      <div className="MsoNormal" style={{ lineHeight: '1.5' }}>
         <span className="block-container if" data-type="if">
           <span data-type="conditional-block">
             <span data-type="body">
               <div
                 className="MsoNormal"
                 data-custom-class="body_text"
-                style={{ lineHeight: "1.5" }}
+                style={{ lineHeight: '1.5' }}
               >
-                <span style={{ fontSize: "15px" }}>To expedite r</span>
+                <span style={{ fontSize: '15px' }}>To expedite r</span>
                 <span
                   style={{
-                    fontSize: "15px",
-                    lineHeight: "16.8667px",
-                    color: "rgb(89, 89, 89)",
+                    fontSize: '15px',
+                    lineHeight: '16.8667px',
+                    color: 'rgb(89, 89, 89)',
                   }}
                 >
                   esolution and control the cost of any dispute, controversy, or
@@ -6100,14 +6101,14 @@ export const TermsAndConditions = () => (
                   (individually, a “Party” and collectively, the “Parties”), the
                   Parties agree to first attempt to negotiate any Dispute
                   (except those Disputes expressly provided below) informally
-                  for at least{" "}
+                  for at least{' '}
                   <span
                     className="block-container question question-in-editor"
                     data-id="33108d82-92fb-fbe9-6ef5-01cac7097351"
                     data-type="question"
                   >
                     thirty (30)
-                  </span>{" "}
+                  </span>{' '}
                   days before initiating arbitration. Such informal negotiations
                   commence upon written notice from one Party to the other
                   Party.
@@ -6117,7 +6118,7 @@ export const TermsAndConditions = () => (
           </span>
         </span>
       </div>
-      <div className="MsoNormal" style={{ lineHeight: "1.5" }}>
+      <div className="MsoNormal" style={{ lineHeight: '1.5' }}>
         <span className="block-container if" data-type="if">
           <span data-type="conditional-block">
             <span data-type="body">
@@ -6128,16 +6129,16 @@ export const TermsAndConditions = () => (
           </span>
         </span>
       </div>
-      <div className="MsoNormal" style={{ lineHeight: "1.5" }}>
+      <div className="MsoNormal" style={{ lineHeight: '1.5' }}>
         <span className="block-container if" data-type="if">
           <span data-type="conditional-block">
             <span data-type="body">
-              <div className="MsoNormal" style={{ lineHeight: "1.5" }}>
+              <div className="MsoNormal" style={{ lineHeight: '1.5' }}>
                 <span
                   style={{
-                    fontSize: "15px",
-                    lineHeight: "16.8667px",
-                    color: "rgb(89, 89, 89)",
+                    fontSize: '15px',
+                    lineHeight: '16.8667px',
+                    color: 'rgb(89, 89, 89)',
                   }}
                 >
                   <span className="statement-end-if-in-editor" />
@@ -6147,20 +6148,20 @@ export const TermsAndConditions = () => (
           </span>
         </span>
       </div>
-      <div className="MsoNormal" style={{ lineHeight: "1.5" }}>
+      <div className="MsoNormal" style={{ lineHeight: '1.5' }}>
         <span className="block-container if" data-type="if">
           <span data-type="conditional-block">
             <span data-type="body">
               <div
                 className="MsoNormal"
                 data-custom-class="heading_2"
-                style={{ lineHeight: "1.5" }}
+                style={{ lineHeight: '1.5' }}
               >
                 <span
                   style={{
-                    fontSize: "15px",
-                    lineHeight: "16.8667px",
-                    color: "rgb(89, 89, 89)",
+                    fontSize: '15px',
+                    lineHeight: '16.8667px',
+                    color: 'rgb(89, 89, 89)',
                   }}
                 >
                   <strong>Binding Arbitration</strong>
@@ -6176,37 +6177,37 @@ export const TermsAndConditions = () => (
       <div
         className="MsoNormal"
         data-custom-class="body_text"
-        style={{ lineHeight: "1.5" }}
+        style={{ lineHeight: '1.5' }}
       >
         <span className="block-component">
-          <span style={{ fontSize: "15px" }} />
+          <span style={{ fontSize: '15px' }} />
         </span>
       </div>
       <div
         className="MsoNormal"
         data-custom-class="body_text"
-        style={{ lineHeight: "1.5" }}
+        style={{ lineHeight: '1.5' }}
       >
-        <span style={{ fontSize: "15px" }}>
+        <span style={{ fontSize: '15px' }}>
           Any dispute arising from the relationships between the Parties to this
           contract shall be determined by one arbitrator who will be chosen in
           accordance with the Arbitration and Internal Rules of the European
           Court of Arbitration being part of the European Centre of Arbitration
           having its seat in Strasbourg, and which are in force at the time the
           application for arbitration is filed, and of which adoption of this
-          clause constitutes acceptance. The seat of arbitration shall be{" "}
+          clause constitutes acceptance. The seat of arbitration shall be{' '}
           <span className="block-component" />
-          <span className="question">Brno</span>,{" "}
+          <span className="question">Brno</span>,{' '}
           <span className="question">Czechia</span>
           <span className="else-block" />. The language of the proceedings shall
           be <span className="question">Czech</span>. Applicable rules of
-          substantive law shall be the law of{" "}
+          substantive law shall be the law of{' '}
           <span className="block-component" />
           <span className="question">Czechia</span>
           <span className="statement-end-if-in-editor" />.
         </span>
         <span className="else-block">
-          <span style={{ fontSize: "15px" }} />
+          <span style={{ fontSize: '15px' }} />
         </span>
       </div>
       <div className="MsoNormal" style={{ lineHeight: 1 }}>
@@ -6215,7 +6216,7 @@ export const TermsAndConditions = () => (
       <div
         className="MsoNormal"
         data-custom-class="heading_2"
-        style={{ lineHeight: "1.5" }}
+        style={{ lineHeight: '1.5' }}
       >
         <strong>Restrictions</strong>
       </div>
@@ -6225,9 +6226,9 @@ export const TermsAndConditions = () => (
       <div
         className="MsoNormal"
         data-custom-class="body_text"
-        style={{ lineHeight: "1.5" }}
+        style={{ lineHeight: '1.5' }}
       >
-        <span style={{ fontSize: "15px" }}>
+        <span style={{ fontSize: '15px' }}>
           The Parties agree that any arbitration shall be limited to the Dispute
           between the Parties individually. To the full extent permitted by law,
           (a) no arbitration shall be joined with any other proceeding; (b)
@@ -6244,10 +6245,10 @@ export const TermsAndConditions = () => (
       <div
         className="MsoNormal"
         data-custom-class="heading_2"
-        style={{ lineHeight: "1.5" }}
+        style={{ lineHeight: '1.5' }}
       >
         <span className="block-component">
-          <span style={{ fontSize: "15px" }}>
+          <span style={{ fontSize: '15px' }}>
             <strong />
           </span>
         </span>
@@ -6262,9 +6263,9 @@ export const TermsAndConditions = () => (
       <div
         className="MsoNormal"
         data-custom-class="body_text"
-        style={{ lineHeight: "1.5" }}
+        style={{ lineHeight: '1.5' }}
       >
-        <span style={{ fontSize: "15px" }}>
+        <span style={{ fontSize: '15px' }}>
           <span className="block-component" />
           The Parties agree that the following Disputes are not subject to the
           above provisions concerning informal negotiations and binding
@@ -6281,45 +6282,45 @@ export const TermsAndConditions = () => (
           that court.
           <span
             style={{
-              fontSize: "15px",
-              lineHeight: "115%",
-              color: "rgb(89, 89, 89)",
+              fontSize: '15px',
+              lineHeight: '115%',
+              color: 'rgb(89, 89, 89)',
             }}
           >
             <span className="statement-end-if-in-editor" />
           </span>
         </span>
       </div>
-      <div className="MsoNormal" style={{ lineHeight: "1.5" }}>
-        <span style={{ fontSize: "15px" }}>
+      <div className="MsoNormal" style={{ lineHeight: '1.5' }}>
+        <span style={{ fontSize: '15px' }}>
           <span
             style={{
-              fontSize: "15px",
-              lineHeight: "115%",
-              color: "rgb(89, 89, 89)",
+              fontSize: '15px',
+              lineHeight: '115%',
+              color: 'rgb(89, 89, 89)',
             }}
           >
             <span
               style={{
-                fontSize: "15px",
-                lineHeight: "115%",
-                color: "rgb(89, 89, 89)",
+                fontSize: '15px',
+                lineHeight: '115%',
+                color: 'rgb(89, 89, 89)',
               }}
             >
               <span className="statement-end-if-in-editor">
-                <span style={{ fontSize: "15px" }}>
+                <span style={{ fontSize: '15px' }}>
                   <span
                     style={{
-                      fontSize: "15px",
-                      lineHeight: "115%",
-                      color: "rgb(89, 89, 89)",
+                      fontSize: '15px',
+                      lineHeight: '115%',
+                      color: 'rgb(89, 89, 89)',
                     }}
                   >
                     <span
                       style={{
-                        fontSize: "15px",
-                        lineHeight: "115%",
-                        color: "rgb(89, 89, 89)",
+                        fontSize: '15px',
+                        lineHeight: '115%',
+                        color: 'rgb(89, 89, 89)',
                       }}
                     >
                       <span className="statement-end-if-in-editor" />
@@ -6331,19 +6332,19 @@ export const TermsAndConditions = () => (
           </span>
         </span>
       </div>
-      <div className="MsoNormal" style={{ lineHeight: "1.5" }}>
+      <div className="MsoNormal" style={{ lineHeight: '1.5' }}>
         <br />
       </div>
-      <div className="MsoNormal" style={{ lineHeight: "1.5" }}>
+      <div className="MsoNormal" style={{ lineHeight: '1.5' }}>
         <br />
       </div>
       <div
         className="MsoNormal"
         data-custom-class="heading_1"
-        style={{ lineHeight: "1.5" }}
+        style={{ lineHeight: '1.5' }}
       >
         <strong>
-          <span style={{ fontSize: "19px" }}>CORRECTIONS</span>
+          <span style={{ fontSize: '19px' }}>CORRECTIONS</span>
         </strong>
       </div>
       <div className="MsoNormal" style={{ lineHeight: 1 }}>
@@ -6352,9 +6353,9 @@ export const TermsAndConditions = () => (
       <div
         className="MsoNormal"
         data-custom-class="body_text"
-        style={{ lineHeight: "1.5" }}
+        style={{ lineHeight: '1.5' }}
       >
-        <span style={{ fontSize: "15px" }}>
+        <span style={{ fontSize: '15px' }}>
           There may be information on the Site that contains typographical
           errors, inaccuracies, or omissions, including descriptions, pricing,
           availability, and various other information. We reserve the right to
@@ -6362,19 +6363,19 @@ export const TermsAndConditions = () => (
           the information on the Site at any time, without prior notice.
         </span>
       </div>
-      <div className="MsoNormal" style={{ lineHeight: "1.5" }}>
+      <div className="MsoNormal" style={{ lineHeight: '1.5' }}>
         <br />
       </div>
-      <div className="MsoNormal" style={{ lineHeight: "1.5" }}>
+      <div className="MsoNormal" style={{ lineHeight: '1.5' }}>
         <br />
       </div>
       <div
         className="MsoNormal"
         data-custom-class="heading_1"
-        style={{ lineHeight: "1.5" }}
+        style={{ lineHeight: '1.5' }}
       >
         <strong>
-          <span style={{ fontSize: "19px" }}>DISCLAIMER</span>
+          <span style={{ fontSize: '19px' }}>DISCLAIMER</span>
         </strong>
       </div>
       <div className="MsoNormal" style={{ lineHeight: 1 }}>
@@ -6383,9 +6384,9 @@ export const TermsAndConditions = () => (
       <div
         className="MsoNormal"
         data-custom-class="body_text"
-        style={{ lineHeight: "1.5" }}
+        style={{ lineHeight: '1.5' }}
       >
-        <span style={{ fontSize: "15px" }}>
+        <span style={{ fontSize: '15px' }}>
           THE SITE IS PROVIDED ON AN AS-IS AND AS-AVAILABLE BASIS. YOU AGREE
           THAT YOUR USE OF THE SITE AND OUR SERVICES WILL BE AT YOUR SOLE RISK.
           TO THE FULLEST EXTENT PERMITTED BY LAW, WE DISCLAIM ALL WARRANTIES,
@@ -6417,19 +6418,19 @@ export const TermsAndConditions = () => (
           WHERE APPROPRIATE.
         </span>
       </div>
-      <div className="MsoNormal" style={{ lineHeight: "1.5" }}>
+      <div className="MsoNormal" style={{ lineHeight: '1.5' }}>
         <br />
       </div>
-      <div className="MsoNormal" style={{ lineHeight: "1.5" }}>
+      <div className="MsoNormal" style={{ lineHeight: '1.5' }}>
         <br />
       </div>
       <div
         className="MsoNormal"
         data-custom-class="heading_1"
-        style={{ lineHeight: "1.5" }}
+        style={{ lineHeight: '1.5' }}
       >
         <strong>
-          <span style={{ fontSize: "19px" }}>LIMITATIONS OF LIABILITY</span>
+          <span style={{ fontSize: '19px' }}>LIMITATIONS OF LIABILITY</span>
         </strong>
       </div>
       <div className="MsoNormal" style={{ lineHeight: 1 }}>
@@ -6438,16 +6439,16 @@ export const TermsAndConditions = () => (
       <div
         className="MsoNormal"
         data-custom-class="body_text"
-        style={{ lineHeight: "1.5" }}
+        style={{ lineHeight: '1.5' }}
       >
-        <span style={{ fontSize: "15px" }}>
-          IN{" "}
+        <span style={{ fontSize: '15px' }}>
+          IN{' '}
           <span
             style={{
-              fontSize: "15px",
-              lineHeight: "115%",
-              fontFamily: "Arial",
-              color: "rgb(89, 89, 89)",
+              fontSize: '15px',
+              lineHeight: '115%',
+              fontFamily: 'Arial',
+              color: 'rgb(89, 89, 89)',
             }}
           >
             NO EVENT WILL WE OR OUR DIRECTORS, EMPLOYEES, OR AGENTS BE LIABLE TO
@@ -6455,13 +6456,13 @@ export const TermsAndConditions = () => (
             EXEMPLARY, INCIDENTAL, SPECIAL, OR PUNITIVE DAMAGES, INCLUDING LOST
             PROFIT, LOST REVENUE, LOSS OF DATA, OR OTHER DAMAGES ARISING FROM
             YOUR USE OF THE SITE, EVEN IF WE HAVE BEEN ADVISED OF THE
-            POSSIBILITY OF SUCH DAMAGES.{" "}
+            POSSIBILITY OF SUCH DAMAGES.{' '}
             <span
               style={{
-                fontSize: "15px",
-                lineHeight: "115%",
-                fontFamily: "Arial",
-                color: "rgb(89, 89, 89)",
+                fontSize: '15px',
+                lineHeight: '115%',
+                fontFamily: 'Arial',
+                color: 'rgb(89, 89, 89)',
               }}
             >
               <span
@@ -6489,10 +6490,10 @@ export const TermsAndConditions = () => (
             </span>
             <span
               style={{
-                fontSize: "11.0pt",
-                lineHeight: "115%",
-                fontFamily: "Arial",
-                color: "#595959",
+                fontSize: '11.0pt',
+                lineHeight: '115%',
+                fontFamily: 'Arial',
+                color: '#595959',
               }}
             >
               <span
@@ -6507,10 +6508,10 @@ export const TermsAndConditions = () => (
             </span>
             <span
               style={{
-                fontSize: "15px",
-                lineHeight: "115%",
-                fontFamily: "Arial",
-                color: "rgb(89, 89, 89)",
+                fontSize: '15px',
+                lineHeight: '115%',
+                fontFamily: 'Arial',
+                color: 'rgb(89, 89, 89)',
               }}
             >
               <span
@@ -6522,13 +6523,13 @@ export const TermsAndConditions = () => (
                   <span data-type="body">
                     ANYTHING TO THE CONTRARY CONTAINED HEREIN, OUR LIABILITY TO
                     YOU FOR ANY CAUSE WHATSOEVER AND REGARDLESS OF THE FORM OF
-                    THE ACTION, WILL AT ALL TIMES BE LIMITED TO{" "}
+                    THE ACTION, WILL AT ALL TIMES BE LIMITED TO{' '}
                     <span
                       style={{
-                        fontSize: "15px",
-                        lineHeight: "115%",
-                        fontFamily: "Arial",
-                        color: "rgb(89, 89, 89)",
+                        fontSize: '15px',
+                        lineHeight: '115%',
+                        fontFamily: 'Arial',
+                        color: 'rgb(89, 89, 89)',
                       }}
                     >
                       <span
@@ -6586,10 +6587,10 @@ export const TermsAndConditions = () => (
                                 IF ANY, BY YOU TO US
                                 <span
                                   style={{
-                                    fontSize: "15px",
-                                    lineHeight: "115%",
-                                    fontFamily: "Arial",
-                                    color: "rgb(89, 89, 89)",
+                                    fontSize: '15px',
+                                    lineHeight: '115%',
+                                    fontFamily: 'Arial',
+                                    color: 'rgb(89, 89, 89)',
                                   }}
                                 >
                                   <span
@@ -6625,16 +6626,16 @@ export const TermsAndConditions = () => (
                                       </span>
                                     </span>
                                   </span>
-                                </span>{" "}
-                                DURING THE{" "}
+                                </span>{' '}
+                                DURING THE{' '}
                                 <span className="question">SIX (6)</span> MONTH
                                 PERIOD PRIOR TO ANY CAUSE OF ACTION ARISING
                                 <span
                                   style={{
-                                    fontSize: "15px",
-                                    lineHeight: "115%",
-                                    fontFamily: "Arial",
-                                    color: "rgb(89, 89, 89)",
+                                    fontSize: '15px',
+                                    lineHeight: '115%',
+                                    fontFamily: 'Arial',
+                                    color: 'rgb(89, 89, 89)',
                                   }}
                                 >
                                   <span
@@ -6691,13 +6692,13 @@ export const TermsAndConditions = () => (
                                     </span>
                                   </span>
                                 </span>
-                                .{" "}
+                                .{' '}
                                 <span
                                   style={{
-                                    fontSize: "15px",
-                                    lineHeight: "115%",
-                                    fontFamily: "Arial",
-                                    color: "rgb(89, 89, 89)",
+                                    fontSize: '15px',
+                                    lineHeight: '115%',
+                                    fontFamily: 'Arial',
+                                    color: 'rgb(89, 89, 89)',
                                   }}
                                 >
                                   <span
@@ -6742,19 +6743,19 @@ export const TermsAndConditions = () => (
           </span>
         </span>
       </div>
-      <div className="MsoNormal" style={{ lineHeight: "1.5" }}>
+      <div className="MsoNormal" style={{ lineHeight: '1.5' }}>
         <br />
       </div>
-      <div className="MsoNormal" style={{ lineHeight: "1.5" }}>
+      <div className="MsoNormal" style={{ lineHeight: '1.5' }}>
         <br />
       </div>
       <div
         className="MsoNormal"
         data-custom-class="heading_1"
-        style={{ lineHeight: "1.5" }}
+        style={{ lineHeight: '1.5' }}
       >
         <strong>
-          <span style={{ fontSize: "19px" }}>INDEMNIFICATION</span>
+          <span style={{ fontSize: '19px' }}>INDEMNIFICATION</span>
         </strong>
       </div>
       <div className="MsoNormal" style={{ lineHeight: 1 }}>
@@ -6763,20 +6764,20 @@ export const TermsAndConditions = () => (
       <div
         className="MsoNormal"
         data-custom-class="body_text"
-        style={{ lineHeight: "1.5" }}
+        style={{ lineHeight: '1.5' }}
       >
-        <span style={{ fontSize: "15px" }}>
+        <span style={{ fontSize: '15px' }}>
           You agree to defend, indemnify, and hold us harmless, including our
           subsidiaries, affiliates, and all of our respective officers, agents,
           partners, and employees, from and against any loss, damage, liability,
           claim, or demand, including reasonable attorneys’ fees and expenses,
-          made by any third party due to or arising out of:{" "}
+          made by any third party due to or arising out of:{' '}
           <span
             style={{
-              fontSize: "15px",
-              lineHeight: "115%",
-              fontFamily: "Arial",
-              color: "rgb(89, 89, 89)",
+              fontSize: '15px',
+              lineHeight: '115%',
+              fontFamily: 'Arial',
+              color: 'rgb(89, 89, 89)',
             }}
           >
             <span
@@ -6805,10 +6806,10 @@ export const TermsAndConditions = () => (
           </span>
           <span
             style={{
-              fontSize: "15px",
-              lineHeight: "115%",
-              fontFamily: "Arial",
-              color: "rgb(89, 89, 89)",
+              fontSize: '15px',
+              lineHeight: '115%',
+              fontFamily: 'Arial',
+              color: 'rgb(89, 89, 89)',
             }}
           >
             <span
@@ -6832,19 +6833,19 @@ export const TermsAndConditions = () => (
           is subject to this indemnification upon becoming aware of it.
         </span>
       </div>
-      <div className="MsoNormal" style={{ lineHeight: "1.5" }}>
+      <div className="MsoNormal" style={{ lineHeight: '1.5' }}>
         <br />
       </div>
-      <div className="MsoNormal" style={{ lineHeight: "1.5" }}>
+      <div className="MsoNormal" style={{ lineHeight: '1.5' }}>
         <br />
       </div>
       <div
         className="MsoNormal"
         data-custom-class="heading_1"
-        style={{ lineHeight: "1.5" }}
+        style={{ lineHeight: '1.5' }}
       >
         <strong>
-          <span style={{ fontSize: "19px" }}>USER DATA</span>
+          <span style={{ fontSize: '19px' }}>USER DATA</span>
         </strong>
       </div>
       <div className="MsoNormal" style={{ lineHeight: 1 }}>
@@ -6853,9 +6854,9 @@ export const TermsAndConditions = () => (
       <div
         className="MsoNormal"
         data-custom-class="body_text"
-        style={{ lineHeight: "1.5" }}
+        style={{ lineHeight: '1.5' }}
       >
-        <span style={{ fontSize: "15px" }}>
+        <span style={{ fontSize: '15px' }}>
           We will maintain certain data that you transmit to the Site for the
           purpose of managing the performance of the Site, as well as data
           relating to your use of the Site. Although we perform regular routine
@@ -6866,18 +6867,18 @@ export const TermsAndConditions = () => (
           against us arising from any such loss or corruption of such data.
         </span>
       </div>
-      <div className="MsoNormal" style={{ lineHeight: "1.5" }}>
+      <div className="MsoNormal" style={{ lineHeight: '1.5' }}>
         <br />
       </div>
-      <div className="MsoNormal" style={{ lineHeight: "1.5" }}>
+      <div className="MsoNormal" style={{ lineHeight: '1.5' }}>
         <br />
       </div>
       <div
         className="MsoNormal"
         data-custom-class="heading_1"
-        style={{ lineHeight: "1.5" }}
+        style={{ lineHeight: '1.5' }}
       >
-        <span style={{ fontSize: "19px" }}>
+        <span style={{ fontSize: '19px' }}>
           <strong>
             ELECTRONIC COMMUNICATIONS, TRANSACTIONS, AND SIGNATURES
           </strong>
@@ -6889,15 +6890,15 @@ export const TermsAndConditions = () => (
       <div
         className="MsoNormal"
         data-custom-class="body_text"
-        style={{ lineHeight: "1.5" }}
+        style={{ lineHeight: '1.5' }}
       >
-        <span style={{ fontSize: "15px" }}>
-          Visiting{" "}
+        <span style={{ fontSize: '15px' }}>
+          Visiting{' '}
           <span
             style={{
-              lineHeight: "115%",
-              fontFamily: "Arial",
-              color: "rgb(89, 89, 89)",
+              lineHeight: '115%',
+              fontFamily: 'Arial',
+              color: 'rgb(89, 89, 89)',
             }}
           >
             the Site, sending us emails, and completing online forms constitute
@@ -6917,21 +6918,21 @@ export const TermsAndConditions = () => (
           </span>
         </span>
       </div>
-      <div className="MsoNormal" style={{ lineHeight: "1.5" }}>
+      <div className="MsoNormal" style={{ lineHeight: '1.5' }}>
         <br />
       </div>
-      <div className="MsoNormal" style={{ lineHeight: "1.5" }}>
+      <div className="MsoNormal" style={{ lineHeight: '1.5' }}>
         <br />
       </div>
-      <div className="MsoNormal" style={{ lineHeight: "1.5" }}>
+      <div className="MsoNormal" style={{ lineHeight: '1.5' }}>
         <span className="block-component" />
       </div>
       <div
         className="MsoNormal"
         data-custom-class="heading_1"
-        style={{ lineHeight: "1.5" }}
+        style={{ lineHeight: '1.5' }}
       >
-        <span style={{ fontSize: "19px" }}>
+        <span style={{ fontSize: '19px' }}>
           <strong>CALIFORNIA USERS AND RESIDENTS</strong>
         </span>
       </div>
@@ -6941,9 +6942,9 @@ export const TermsAndConditions = () => (
       <div
         className="MsoNormal"
         data-custom-class="body_text"
-        style={{ lineHeight: "1.5" }}
+        style={{ lineHeight: '1.5' }}
       >
-        <span style={{ fontSize: "15px" }}>
+        <span style={{ fontSize: '15px' }}>
           If any complaint with us is not satisfactorily resolved, you can
           contact the Complaint Assistance Unit of the Division of Consumer
           Services of the California Department of Consumer Affairs in writing
@@ -6951,24 +6952,24 @@ export const TermsAndConditions = () => (
           or by telephone at (800) 952-5210 or (916) 445-1254.
         </span>
       </div>
-      <div className="MsoNormal" style={{ lineHeight: "1.5" }}>
+      <div className="MsoNormal" style={{ lineHeight: '1.5' }}>
         <br />
       </div>
-      <div className="MsoNormal" style={{ lineHeight: "1.5" }}>
+      <div className="MsoNormal" style={{ lineHeight: '1.5' }}>
         <br />
       </div>
-      <div className="MsoNormal" style={{ lineHeight: "1.5" }}>
-        <span style={{ fontSize: "15px" }}>
+      <div className="MsoNormal" style={{ lineHeight: '1.5' }}>
+        <span style={{ fontSize: '15px' }}>
           <span className="statement-end-if-in-editor" />
         </span>
       </div>
       <div
         className="MsoNormal"
         data-custom-class="heading_1"
-        style={{ lineHeight: "1.5" }}
+        style={{ lineHeight: '1.5' }}
       >
         <strong>
-          <span style={{ fontSize: "19px" }}>MISCELLANEOUS</span>
+          <span style={{ fontSize: '19px' }}>MISCELLANEOUS</span>
         </strong>
       </div>
       <div className="MsoNormal" style={{ lineHeight: 1 }}>
@@ -6977,9 +6978,9 @@ export const TermsAndConditions = () => (
       <div
         className="MsoNormal"
         data-custom-class="body_text"
-        style={{ lineHeight: "1.5" }}
+        style={{ lineHeight: '1.5' }}
       >
-        <span style={{ fontSize: "15px" }}>
+        <span style={{ fontSize: '15px' }}>
           These Terms of Use and any policies or operating rules posted by us on
           the Site or in respect to the Site constitute the entire agreement and
           understanding between you and us. Our failure to exercise or enforce
@@ -7003,37 +7004,37 @@ export const TermsAndConditions = () => (
           <span className="block-component" />
         </span>
       </div>
-      <div className="MsoNormal" style={{ lineHeight: "1.5" }}>
+      <div className="MsoNormal" style={{ lineHeight: '1.5' }}>
         <br />
       </div>
-      <div className="MsoNormal" style={{ lineHeight: "1.5" }}>
+      <div className="MsoNormal" style={{ lineHeight: '1.5' }}>
         <br />
       </div>
       <div
         className="MsoNormal"
         data-custom-class="heading_1"
-        style={{ lineHeight: "1.5" }}
+        style={{ lineHeight: '1.5' }}
       >
-        <span style={{ fontSize: "19px" }}>
+        <span style={{ fontSize: '19px' }}>
           <strong>CONTACT US</strong>
         </span>
       </div>
-      <div className="MsoNormal" style={{ lineHeight: "1.1" }}>
+      <div className="MsoNormal" style={{ lineHeight: '1.1' }}>
         <br />
       </div>
       <div
         className="MsoNormal"
         data-custom-class="body_text"
-        style={{ lineHeight: "1.5" }}
+        style={{ lineHeight: '1.5' }}
       >
-        <span style={{ fontSize: "15px" }}>
+        <span style={{ fontSize: '15px' }}>
           In o
           <span
             style={{
-              fontSize: "15px",
-              lineHeight: "115%",
-              fontFamily: "Arial",
-              color: "rgb(89, 89, 89)",
+              fontSize: '15px',
+              lineHeight: '115%',
+              fontFamily: 'Arial',
+              color: 'rgb(89, 89, 89)',
             }}
           >
             rder to resolve a complaint regarding the Site or to receive further
@@ -7047,15 +7048,15 @@ export const TermsAndConditions = () => (
       <div
         className="MsoNormal"
         data-custom-class="body_text"
-        style={{ lineHeight: "1.5" }}
+        style={{ lineHeight: '1.5' }}
       >
-        <span style={{ fontSize: "15px" }}>
+        <span style={{ fontSize: '15px' }}>
           <span
             style={{
-              fontSize: "15px",
-              lineHeight: "115%",
-              fontFamily: "Arial",
-              color: "rgb(89, 89, 89)",
+              fontSize: '15px',
+              lineHeight: '115%',
+              fontFamily: 'Arial',
+              color: 'rgb(89, 89, 89)',
             }}
           >
             <span className="question">
@@ -7067,25 +7068,25 @@ export const TermsAndConditions = () => (
       <div
         className="MsoNormal"
         data-custom-class="body_text"
-        style={{ lineHeight: "1.5" }}
+        style={{ lineHeight: '1.5' }}
       >
-        <span style={{ fontSize: "15px" }}>
+        <span style={{ fontSize: '15px' }}>
           <span
             style={{
-              fontSize: "15px",
-              lineHeight: "115%",
-              fontFamily: "Arial",
-              color: "rgb(89, 89, 89)",
+              fontSize: '15px',
+              lineHeight: '115%',
+              fontFamily: 'Arial',
+              color: 'rgb(89, 89, 89)',
             }}
           >
             <strong>
-              <span style={{ color: "rgb(89, 89, 89)" }}>
+              <span style={{ color: 'rgb(89, 89, 89)' }}>
                 <span className="question">
                   Letovická 22, 621 00 Brno-Řečkovice a Mokrá Hora, Czechia
                 </span>
                 <strong>
-                  <span style={{ color: "rgb(89, 89, 89)" }}>
-                    <span style={{ fontSize: "15px" }}>
+                  <span style={{ color: 'rgb(89, 89, 89)' }}>
+                    <span style={{ fontSize: '15px' }}>
                       <span className="block-component" />
                     </span>
                   </span>
@@ -7098,31 +7099,31 @@ export const TermsAndConditions = () => (
       <div
         className="MsoNormal"
         data-custom-class="body_text"
-        style={{ lineHeight: "1.5" }}
+        style={{ lineHeight: '1.5' }}
       >
         <strong>
-          <span style={{ color: "rgb(89, 89, 89)" }}>
-            <span style={{ fontSize: "15px" }}>
+          <span style={{ color: 'rgb(89, 89, 89)' }}>
+            <span style={{ fontSize: '15px' }}>
               <span className="question">Brno</span>
               <strong>
-                <span style={{ color: "rgb(89, 89, 89)" }}>
-                  <span style={{ fontSize: "15px" }}>
-                    <span className="block-component" />,{" "}
+                <span style={{ color: 'rgb(89, 89, 89)' }}>
+                  <span style={{ fontSize: '15px' }}>
+                    <span className="block-component" />,{' '}
                     <span className="question">Jihomoravský kraj</span>
                     <span className="statement-end-if-in-editor" />
                   </span>
                 </span>
               </strong>
-              <span style={{ fontSize: "15px" }}>
+              <span style={{ fontSize: '15px' }}>
                 <strong>
-                  <span style={{ color: "rgb(89, 89, 89)" }}>
-                    <span className="block-component" />{" "}
+                  <span style={{ color: 'rgb(89, 89, 89)' }}>
+                    <span className="block-component" />{' '}
                     <span className="question">621 00</span>
                     <span className="statement-end-if-in-editor" />
                   </span>
                 </strong>
                 <strong>
-                  <span style={{ color: "rgb(89, 89, 89)" }}>
+                  <span style={{ color: 'rgb(89, 89, 89)' }}>
                     <span className="block-component" />
                     <span className="block-component" />
                   </span>
@@ -7135,12 +7136,12 @@ export const TermsAndConditions = () => (
       <div
         className="MsoNormal"
         data-custom-class="body_text"
-        style={{ lineHeight: "1.5" }}
+        style={{ lineHeight: '1.5' }}
       >
         <strong>
           <span className="block-component">
             <strong>
-              <span style={{ fontSize: "15px" }} />
+              <span style={{ fontSize: '15px' }} />
             </strong>
           </span>
           <strong>
@@ -7148,7 +7149,7 @@ export const TermsAndConditions = () => (
           </strong>
           <span className="statement-end-if-in-editor">
             <strong>
-              <span style={{ fontSize: "15px" }}>
+              <span style={{ fontSize: '15px' }}>
                 <span className="statement-end-if-in-editor">
                   <strong />
                 </span>
@@ -7163,10 +7164,10 @@ export const TermsAndConditions = () => (
       <div
         className="MsoNormal"
         data-custom-class="body_text"
-        style={{ lineHeight: "1.5" }}
+        style={{ lineHeight: '1.5' }}
       >
         <strong>
-          <span style={{ fontSize: "15px" }}>
+          <span style={{ fontSize: '15px' }}>
             Phone: <span className="question">(+420)731259489</span>
           </span>
         </strong>
@@ -7174,10 +7175,10 @@ export const TermsAndConditions = () => (
       <div
         className="MsoNormal"
         data-custom-class="body_text"
-        style={{ lineHeight: "1.5" }}
+        style={{ lineHeight: '1.5' }}
       >
         <strong>
-          <span style={{ fontSize: "15px" }}>
+          <span style={{ fontSize: '15px' }}>
             <span className="block-component" />
           </span>
         </strong>
@@ -7185,11 +7186,11 @@ export const TermsAndConditions = () => (
       <div
         className="MsoNormal"
         data-custom-class="body_text"
-        style={{ lineHeight: "1.5" }}
+        style={{ lineHeight: '1.5' }}
       >
         <span className="question">
           <strong>
-            <span style={{ fontSize: "15px" }}>info@tolgee.io</span>
+            <span style={{ fontSize: '15px' }}>info@tolgee.io</span>
           </strong>
         </span>
       </div>
@@ -7197,7 +7198,7 @@ export const TermsAndConditions = () => (
     <style
       dangerouslySetInnerHTML={{
         __html:
-          "\n     ul {\n       list-style-type: square;\n     }\n     ul > li > ul {\n       list-style-type: circle;\n     }\n     ul > li > ul > li > ul {\n       list-style-type: square;\n     }\n     ol li {\n       font-family: Arial ;\n     }\n   ",
+          '\n     ul {\n       list-style-type: square;\n     }\n     ul > li > ul {\n       list-style-type: circle;\n     }\n     ul > li > ul > li > ul {\n       list-style-type: square;\n     }\n     ol li {\n       font-family: Arial ;\n     }\n   ',
       }}
     />
   </div>

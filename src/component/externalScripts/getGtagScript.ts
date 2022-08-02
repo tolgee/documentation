@@ -16,5 +16,5 @@ export const getGtagScript = (trackingId: string) => {
               window.onGtagLoaded();
             }
 
-            gtag('config', '${trackingId}');`
-}
+            gtag('config', '${trackingId}');`;
+};

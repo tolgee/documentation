@@ -1,10 +1,10 @@
-import React, {useEffect} from "react";
-import "./Social.css";
-import {appendScript} from "../../externalScripts/appendScript";
+import React, { useEffect } from 'react';
+import './Social.css';
+import { appendScript } from '../../externalScripts/appendScript';
 
 export const Social = () => {
   useEffect(() => {
-    const removeGithub = appendScript("https://buttons.github.io/buttons.js");
+    const removeGithub = appendScript('https://buttons.github.io/buttons.js');
 
     return () => {
       removeGithub();
@@ -40,6 +40,7 @@ export const Social = () => {
         <a
           href="https://github.com/tolgee/tolgee-platform/discussions"
           target="_blank"
+          rel="noreferrer"
         >
           <img
             src="https://img.shields.io/github/discussions/tolgee/tolgee-platform?style=for-the-badge"
@@ -49,6 +50,7 @@ export const Social = () => {
         <a
           href="https://join.slack.com/t/tolgeecommunity/shared_invite/zt-16l0sf7ae-6fmAl2Fb9wqFCV0uzSa7bw"
           target="_blank"
+          rel="noreferrer"
         >
           <img
             src="https://img.shields.io/badge/slack-Tolgee%20community-blue?style=for-the-badge"

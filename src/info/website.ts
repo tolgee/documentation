@@ -1,10 +1,9 @@
-import { WithContext, WebSite } from "schema-dts";
-import base from './organization'
-
+import { WithContext, WebSite } from 'schema-dts';
+import base from './organization';
 
 const website = {
-  "@context": "https://schema.org",
-  "@type": "WebSite",
+  '@context': 'https://schema.org',
+  '@type': 'WebSite',
   description: base.description,
   name: base.name,
   url: base.url,

@@ -1,5 +1,5 @@
-import React from "react";
-import { PricingFeatureRow } from "./PricingFeatureRow";
+import React from 'react';
+import { PricingFeatureRow } from './PricingFeatureRow';
 
 export const PricingFeatures = () => {
   return (

@@ -1,13 +1,12 @@
-import React from "react";
-import Layout from "../../theme/Layout";
-import "./openSource.css";
-import DecoratedLayout from "../../theme/DecoratedLayout";
-import {PageHeader} from "../../component/pageComponents/header/PageHeader";
-import {PageHeaderTitle} from "../../component/pageComponents/header/PageHeaderTitle";
-import {PageHeaderSubtitle} from "../../component/pageComponents/header/PageHeaderSubtitle";
-import {GradientText} from "../../component/GradientText";
+import React from 'react';
+import './openSource.css';
+import DecoratedLayout from '../../theme/DecoratedLayout';
+import { PageHeader } from '../../component/pageComponents/header/PageHeader';
+import { PageHeaderTitle } from '../../component/pageComponents/header/PageHeaderTitle';
+import { PageHeaderSubtitle } from '../../component/pageComponents/header/PageHeaderSubtitle';
+import { GradientText } from '../../component/GradientText';
 
-export default () => {
+export default function WhyOpensource() {
   return (
     <div>
       <DecoratedLayout title={`Why open-source?`}>
@@ -53,7 +52,9 @@ export default () => {
             clearing the way for them for easy localization of their projects.
           </p>
 
-          <h2><GradientText>So what are Tolgee’s revenue streams?</GradientText></h2>
+          <h2>
+            <GradientText>So what are Tolgee’s revenue streams?</GradientText>
+          </h2>
 
           <p>
             We’re planning multiple ways for how to cover the developing cost of
@@ -61,18 +62,19 @@ export default () => {
           </p>
 
           <p>
-            👨‍💻 <GradientText>Software as a Service</GradientText> &#x2011; Firstly, paying for the
-            cloud system hosted by Tolgee will save time for developers
-            maintaining the system and make the whole process more comfortable.
+            👨‍💻 <GradientText>Software as a Service</GradientText> &#x2011;
+            Firstly, paying for the cloud system hosted by Tolgee will save time
+            for developers maintaining the system and make the whole process
+            more comfortable.
           </p>
 
           <p>
-            🛒 <GradientText>Marketplace of translators</GradientText> &#x2011; We plan to create a
-            place where you can find IT&#x2011;experienced translators to
-            translate your projects fast.
+            🛒 <GradientText>Marketplace of translators</GradientText> &#x2011;
+            We plan to create a place where you can find IT&#x2011;experienced
+            translators to translate your projects fast.
           </p>
         </div>
       </DecoratedLayout>
     </div>
   );
-};
+}

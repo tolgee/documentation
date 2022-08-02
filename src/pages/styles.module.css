@@ -6,43 +6,43 @@
  */
 
 .heroBanner {
-    padding: 4rem 0;
-    text-align: center;
-    position: relative;
-    overflow: hidden;
+  padding: 4rem 0;
+  text-align: center;
+  position: relative;
+  overflow: hidden;
 }
 
 @media screen and (max-width: 966px) {
-    .heroBanner {
-        padding: 2rem;
-    }
+  .heroBanner {
+    padding: 2rem;
+  }
 }
 
 .buttons {
-    display: flex;
-    align-items: center;
+  display: flex;
+  align-items: center;
 }
 
 .features {
-    display: flex;
-    align-items: center;
-    padding: 2rem 0;
-    width: 100%;
+  display: flex;
+  align-items: center;
+  padding: 2rem 0;
+  width: 100%;
 }
 
 .featureImage {
-    height: 200px;
-    width: 200px;
+  height: 200px;
+  width: 200px;
 }
 
 .getStartedButton {
-    border: 1px solid;
+  border: 1px solid;
 }
 
 :global(.navbar__items) {
-    white-space: nowrap;
+  white-space: nowrap;
 }
 
 .header__title {
-    @apply text-6xl text-home-text font-[600] mb-0;
+  @apply text-6xl text-home-text font-[600] mb-0;
 }

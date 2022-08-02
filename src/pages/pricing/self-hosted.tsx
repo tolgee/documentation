@@ -1,10 +1,10 @@
-import React from "react";
-import "./pricing.css";
-import {PricingToggle} from "../../component/pricing/PricingToggle";
-import {PricingBase} from "../../component/pricing/PricingBase";
-import Link from "@docusaurus/Link";
+import React from 'react';
+import './pricing.css';
+import { PricingToggle } from '../../component/pricing/PricingToggle';
+import { PricingBase } from '../../component/pricing/PricingBase';
+import Link from '@docusaurus/Link';
 
-export default () => {
+export default function SelfHosted() {
   return (
     <PricingBase>
       <div className="pricing__toggle">
@@ -15,7 +15,7 @@ export default () => {
           <div>
             <h3 className="pricing__option--title">No support</h3>
             <p>
-              Since Tolgee is open-source, self hosting will be{" "}
+              Since Tolgee is open-source, self hosting will be{' '}
               <b>free forever</b>. However, you have to serve yourself.
             </p>
             <ul className="pricing__option-highlights" />
@@ -38,7 +38,7 @@ export default () => {
             </p>
             <ul className="pricing__option-highlights">
               <li>
-                Professional{" "}
+                Professional{' '}
                 <span className="pricing__option-value">setup</span>
               </li>
               <li>
@@ -46,7 +46,7 @@ export default () => {
                 team
               </li>
               <li>
-                Prioritized{" "}
+                Prioritized{' '}
                 <span className="pricing__option-value">feature requests</span>
               </li>
             </ul>
@@ -61,4 +61,4 @@ export default () => {
       </div>
     </PricingBase>
   );
-};
+}
