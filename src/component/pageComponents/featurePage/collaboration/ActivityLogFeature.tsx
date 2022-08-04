@@ -1,4 +1,6 @@
 import React from 'react';
+import ThemedImage from '@theme/ThemedImage';
+
 import { TwoColumnSection } from '../../twoColumnSection/TwoColumnSection';
 import {
   TextColumn,
@@ -14,7 +16,13 @@ export const ActivityLogFeature = () => {
       <FeatureHeader title="Activity log" id="activity-log" />
       <TwoColumnSection>
         <ImageColumn>
-          <img alt="Activity log" src="/img/features/activity-log-light.svg" />
+          <ThemedImage
+            alt="Activity log"
+            sources={{
+              light: '/img/features/activity-log-light.svg',
+              dark: '/img/features/activity-log-dark.svg',
+            }}
+          />
         </ImageColumn>
         <TextColumn>
           <TextColumnTitle>Watch the growth.</TextColumnTitle>

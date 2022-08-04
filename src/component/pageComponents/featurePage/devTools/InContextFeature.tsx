@@ -1,4 +1,6 @@
 import React from 'react';
+import ThemedImage from '@theme/ThemedImage';
+
 import { TwoColumnSection } from '../../twoColumnSection/TwoColumnSection';
 import {
   TextColumn,
@@ -15,9 +17,12 @@ export const InContextFeature = () => {
       <FeatureHeader title="In context translating" id="in-context" />
       <TwoColumnSection>
         <ImageColumn>
-          <img
+          <ThemedImage
             alt="In context ALT key"
-            src="/img/features/in-context1-ligth.svg"
+            sources={{
+              light: '/img/features/in-context1-light.svg',
+              dark: '/img/features/in-context1-dark.svg',
+            }}
           />
         </ImageColumn>
         <TextColumn>
@@ -35,9 +40,12 @@ export const InContextFeature = () => {
 
       <TwoColumnSection>
         <ImageColumn>
-          <img
+          <ThemedImage
             alt="In context dialog"
-            src="/img/features/in-context2-light.svg"
+            sources={{
+              light: '/img/features/in-context2-light.svg',
+              dark: '/img/features/in-context2-dark.svg',
+            }}
           />
         </ImageColumn>
         <TextColumn>

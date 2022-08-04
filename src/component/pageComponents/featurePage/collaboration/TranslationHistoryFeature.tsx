@@ -1,4 +1,6 @@
 import React from 'react';
+import ThemedImage from '@theme/ThemedImage';
+
 import { TwoColumnSection } from '../../twoColumnSection/TwoColumnSection';
 import {
   TextColumn,
@@ -14,9 +16,12 @@ export const TranslationHistoryFeature = () => {
       <FeatureHeader title="Translation history" id="translation-history" />
       <TwoColumnSection>
         <ImageColumn>
-          <img
+          <ThemedImage
             alt="Translation memory"
-            src="/img/features/translation-history-light.svg"
+            sources={{
+              light: '/img/features/translation-history-light.svg',
+              dark: '/img/features/translation-history-dark.svg',
+            }}
           />
         </ImageColumn>
         <TextColumn>

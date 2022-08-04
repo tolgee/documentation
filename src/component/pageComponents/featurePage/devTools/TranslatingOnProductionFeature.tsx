@@ -1,4 +1,6 @@
 import React from 'react';
+import ThemedImage from '@theme/ThemedImage';
+
 import { TwoColumnSection } from '../../twoColumnSection/TwoColumnSection';
 import {
   TextColumn,
@@ -26,9 +28,12 @@ export const TranslatingOnProductionFeature = () => {
           </TextColumnText>
         </TextColumn>
         <ImageColumn>
-          <img
+          <ThemedImage
             alt="In context dialog"
-            src="/img/features/in-context-on-production.svg"
+            sources={{
+              light: '/img/features/in-context-on-production-light.svg',
+              dark: '/img/features/in-context-on-production-dark.svg',
+            }}
           />
         </ImageColumn>
       </TwoColumnSection>

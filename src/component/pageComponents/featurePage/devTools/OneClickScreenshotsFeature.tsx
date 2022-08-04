@@ -1,4 +1,6 @@
 import React from 'react';
+import ThemedImage from '@theme/ThemedImage';
+
 import { TwoColumnSection } from '../../twoColumnSection/TwoColumnSection';
 import {
   TextColumn,
@@ -14,9 +16,12 @@ export const OneClickScreenshotsFeature = () => {
       <FeatureHeader title="One click screenshots" id="one-click-screenshots" />
       <TwoColumnSection>
         <ImageColumn>
-          <img
+          <ThemedImage
             alt="One-click screenshots"
-            src="/img/features/one-click-screenshots1-light.svg"
+            sources={{
+              light: '/img/features/one-click-screenshots1-light.svg',
+              dark: '/img/features/one-click-screenshots1-dark.svg',
+            }}
           />
         </ImageColumn>{' '}
         <TextColumn>
@@ -30,9 +35,12 @@ export const OneClickScreenshotsFeature = () => {
       </TwoColumnSection>
       <TwoColumnSection>
         <ImageColumn>
-          <img
+          <ThemedImage
             alt="One-click screenshots"
-            src="/img/features/one-click-screenshots2-light.svg"
+            sources={{
+              light: '/img/features/one-click-screenshots2-light.svg',
+              dark: '/img/features/one-click-screenshots2-dark.svg',
+            }}
           />
         </ImageColumn>
         <TextColumn>
