@@ -1,4 +1,6 @@
 import React from 'react';
+import ThemedImage from '@theme/ThemedImage';
+
 import { TwoColumnSection } from '../../twoColumnSection/TwoColumnSection';
 import {
   TextColumn,
@@ -22,9 +24,12 @@ export const CommentsFeature = () => {
           </TextColumnText>
         </TextColumn>
         <ImageColumn>
-          <img
+          <ThemedImage
             alt="Translation memory"
-            src="/img/features/translation-comments-light.svg"
+            sources={{
+              light: '/img/features/translation-comments-light.svg',
+              dark: '/img/features/translation-comments-dark.svg',
+            }}
           />
         </ImageColumn>
       </TwoColumnSection>
