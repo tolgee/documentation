@@ -16,9 +16,7 @@ import {
   TextColumnTitle,
 } from '../component/pageComponents/twoColumnSection/TextColumn';
 import { GradientText } from '../component/GradientText';
-import HeroLight from '../component/home/HeroLight.svg';
-import HeroDark from '../component/home/HeroDark.svg';
-import { ColorMode } from '../component/ColorMode';
+import { ParallaxImage } from '../component/home/ParallaxImage';
 
 function Home() {
   useEffect(() => {
@@ -71,10 +69,7 @@ function Home() {
           <section className="my-[100px] flex items-center md:max-w-[1500px] mx-auto">
             <div className="flex gap-12 sm:m-12 m-8 flex-col lg:flex-row">
               <ImageColumn>
-                <ColorMode
-                  light={<HeroLight className="hero-svg" />}
-                  dark={<HeroDark className="hero-svg" />}
-                />
+                <ParallaxImage />
               </ImageColumn>
               <TextColumn className="min-w-[300px] lg:items-end md:items-center md:text-center lg:text-left">
                 <TextColumnTitle>Revolution is here</TextColumnTitle>

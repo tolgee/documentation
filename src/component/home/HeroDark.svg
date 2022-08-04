@@ -154,41 +154,44 @@
     <rect x="204" y="342" width="122.49" height="8" rx="4" fill="#107911" />
     <rect x="204" y="267" width="204.983" height="8" rx="4" fill="#A1850A" />
     <rect x="204" y="267" width="161.653" height="8" rx="4" fill="#107911" />
-    <path d="M250.798 128.246C250.798 128.246 172.425 145.814 159.249 252.638C146.072 359.462 220.034 398.538 220.034 398.538" stroke="#687384" stroke-width="4" stroke-linecap="round" stroke-dasharray="8 8" />
-    <path d="M292 392C292 392 276.295 415.745 239.002 408.012" stroke="#687384" stroke-width="4" stroke-linecap="round" stroke-dasharray="8 8" />
-    <path d="M270.704 126.338C270.704 126.338 303 126.338 314.995 150.001" stroke="#687384" stroke-width="4" stroke-linecap="round" stroke-dasharray="8 8" />
-    <path d="M121 170.642C121 170.642 128.73 150.176 160.757 146.018" stroke="#687384" stroke-width="4" stroke-linecap="round" />
-    <path d="M219.124 222.74C219.124 222.74 215.345 244.288 184.656 254.344" stroke="#687384" stroke-width="4" stroke-linecap="round" />
-    <g filter="url(#filter4_d_744_2332)">
-      <mask id="mask5_744_2332" style="mask-type:alpha" maskUnits="userSpaceOnUse" x="126" y="278" width="72" height="72">
-        <circle cx="162.125" cy="314.124" r="35.3189" transform="rotate(1.32157 162.125 314.124)" fill="#D9D9D9" />
-      </mask>
-      <g mask="url(#mask5_744_2332)">
-        <rect x="113.705" y="277.679" width="97.5001" height="89.5409" transform="rotate(1.32157 113.705 277.679)" fill="url(#pattern2)" />
+    <g class="hero-svg__parallax" data-parallax-x="0.1" data-parallax-y="0.1">
+      <path d="M270.704 126.338C270.704 126.338 303 126.338 314.995 150.001" stroke="#687384" stroke-width="4" stroke-linecap="round" stroke-dasharray="8 8" />
+      <path d="M219.124 222.74C219.124 222.74 215.345 244.288 184.656 254.344" stroke="#687384" stroke-width="4" stroke-linecap="round" />
+      <path d="M121 170.642C121 170.642 128.73 150.176 160.757 146.018" stroke="#687384" stroke-width="4" stroke-linecap="round" />
+      <path d="M292 392C292 392 276.295 415.745 239.002 408.012" stroke="#687384" stroke-width="4" stroke-linecap="round" stroke-dasharray="8 8" />
+      <path d="M250.798 128.246C250.798 128.246 172.425 145.814 159.249 252.638C146.072 359.462 220.034 398.538 220.034 398.538" stroke="#687384" stroke-width="4" stroke-linecap="round" stroke-dasharray="8 8" />
+
+      <g filter="url(#filter4_d_744_2332)">
+        <mask id="mask5_744_2332" style="mask-type:alpha" maskUnits="userSpaceOnUse" x="126" y="278" width="72" height="72">
+          <circle cx="162.125" cy="314.124" r="35.3189" transform="rotate(1.32157 162.125 314.124)" fill="#D9D9D9" />
+        </mask>
+        <g mask="url(#mask5_744_2332)">
+          <rect x="113.705" y="277.679" width="97.5001" height="89.5409" transform="rotate(1.32157 113.705 277.679)" fill="url(#pattern2)" />
+        </g>
       </g>
-    </g>
-    <g filter="url(#filter5_d_744_2332)">
-      <mask id="mask6_744_2332" style="mask-type:alpha" maskUnits="userSpaceOnUse" x="206" y="99" width="59" height="59">
-        <circle cx="235.708" cy="128.708" r="29.0457" transform="rotate(1.32157 235.708 128.708)" fill="#D9D9D9" />
-      </mask>
-      <g mask="url(#mask6_744_2332)">
-        <rect x="165.956" y="48.1227" width="153.001" height="139.91" transform="rotate(1.32157 165.956 48.1227)" fill="url(#pattern3)" />
+      <g filter="url(#filter5_d_744_2332)">
+        <mask id="mask6_744_2332" style="mask-type:alpha" maskUnits="userSpaceOnUse" x="206" y="99" width="59" height="59">
+          <circle cx="235.708" cy="128.708" r="29.0457" transform="rotate(1.32157 235.708 128.708)" fill="#D9D9D9" />
+        </mask>
+        <g mask="url(#mask6_744_2332)">
+          <rect x="165.956" y="48.1227" width="153.001" height="139.91" transform="rotate(1.32157 165.956 48.1227)" fill="url(#pattern3)" />
+        </g>
       </g>
-    </g>
-    <g filter="url(#filter6_d_744_2332)">
-      <mask id="mask7_744_2332" style="mask-type:alpha" maskUnits="userSpaceOnUse" x="198" y="370" width="48" height="48">
-        <circle cx="222.09" cy="394.089" r="23.5525" transform="rotate(1.32157 222.09 394.089)" fill="#D9D9D9" />
-      </mask>
-      <g mask="url(#mask7_744_2332)">
-        <rect x="163.468" y="359.315" width="97.5275" height="89.566" transform="rotate(1.32157 163.468 359.315)" fill="url(#pattern4)" />
+      <g filter="url(#filter6_d_744_2332)">
+        <mask id="mask7_744_2332" style="mask-type:alpha" maskUnits="userSpaceOnUse" x="198" y="370" width="48" height="48">
+          <circle cx="222.09" cy="394.089" r="23.5525" transform="rotate(1.32157 222.09 394.089)" fill="#D9D9D9" />
+        </mask>
+        <g mask="url(#mask7_744_2332)">
+          <rect x="163.468" y="359.315" width="97.5275" height="89.566" transform="rotate(1.32157 163.468 359.315)" fill="url(#pattern4)" />
+        </g>
       </g>
-    </g>
-    <g filter="url(#filter7_d_744_2332)">
-      <mask id="mask8_744_2332" style="mask-type:alpha" maskUnits="userSpaceOnUse" x="122" y="156" width="91" height="91">
-        <circle cx="167.465" cy="201.464" r="44.9286" transform="rotate(1.32157 167.465 201.464)" fill="#D9D9D9" stroke="black" />
-      </mask>
-      <g mask="url(#mask8_744_2332)">
-        <rect x="60.897" y="154.065" width="234.461" height="215.266" transform="rotate(1.32157 60.897 154.065)" fill="url(#pattern5)" stroke="black" />
+      <g filter="url(#filter7_d_744_2332)">
+        <mask id="mask8_744_2332" style="mask-type:alpha" maskUnits="userSpaceOnUse" x="122" y="156" width="91" height="91">
+          <circle cx="167.465" cy="201.464" r="44.9286" transform="rotate(1.32157 167.465 201.464)" fill="#D9D9D9" stroke="black" />
+        </mask>
+        <g mask="url(#mask8_744_2332)">
+          <rect x="60.897" y="154.065" width="234.461" height="215.266" transform="rotate(1.32157 60.897 154.065)" fill="url(#pattern5)" stroke="black" />
+        </g>
       </g>
     </g>
   </g>
