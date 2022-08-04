@@ -40,6 +40,7 @@
   --references-bg: #eeeef0;
   --footer-background-gradient-start: #ffffff;
   --footer-background-gradient-stop: #ebedf0;
+  --ifm-navbar-background-color-transparent: #f8f9facc;
 }
 
 html[data-theme='dark'] {
@@ -68,6 +69,7 @@ html[data-theme='dark'] {
   --references-bg: #253852;
   --footer-background-gradient-start: var(--ifm-background-color);
   --footer-background-gradient-stop: var(--overlay-background);
+  --ifm-navbar-background-color-transparent: #1f2d40cc;
 }
 
 *[itemprop='headline'] {
@@ -157,4 +159,15 @@ h6 {
 .hero-svg {
   width: 100%;
   overflow: visible;
+}
+
+.navbar {
+  padding: 0px;
+}
+
+.navbar__inner {
+  padding: var(--ifm-navbar-padding-vertical)
+    var(--ifm-navbar-padding-horizontal);
+  background-color: var(--ifm-navbar-background-color);
+  height: var(--ifm-navbar-height);
 }

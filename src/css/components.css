@@ -81,35 +81,31 @@
     width: 100%;
     background-color: transparent;
   }
+  
+  .page-with-decoration .navbar__inner {
+    background-color: transparent;
+  }
 
   .page-with-decoration--not-scrolled .navbar {
-    background-color: transparent;
     box-shadow: none;
   }
 
-  .page-with-decoration .navbar .navbar__inner {
-    z-index: 10;
+  .page-with-decoration--not-scrolled .navbar__inner {
+    background-color: transparent;
   }
 
-  .page-with-decoration .navbar:before {
+  .page-with-decoration .navbar__inner {
     background-color: transparent;
     transition: background-color 0.3s;
   }
 
-  .page-with-decoration .navbar:before {
+  .page-with-decoration .navbar__inner {
     transition: background-color 0.3s;
-    opacity: 0.88;
-    backdrop-filter: saturate(180%) blur(4px);
-    content: '';
-    position: absolute;
-    width: 100%;
-    height: 100%;
-    top: 0;
-    left: 0;
   }
-
-  .page-with-decoration--scrolled .navbar:before {
-    background-color: var(--ifm-navbar-background-color);
+  
+  .page-with-decoration--scrolled .navbar__inner {
+    backdrop-filter: saturate(180%) blur(8px);
+    background-color: var(--ifm-navbar-background-color-transparent);
   }
 
   .page-with-decoration {
