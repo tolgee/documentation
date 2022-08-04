@@ -1,5 +1,6 @@
 import React, { useEffect } from 'react';
 import Head from '@docusaurus/Head';
+
 import baseSchema from '../info/organization';
 import DecoratedLayout from '../theme/DecoratedLayout';
 import { Features } from '../component/home/Features';
@@ -16,6 +17,8 @@ import {
 } from '../component/pageComponents/twoColumnSection/TextColumn';
 import { GradientText } from '../component/GradientText';
 import HeroLight from '../component/home/HeroLight.svg';
+import HeroDark from '../component/home/HeroDark.svg';
+import { ColorMode } from '../component/ColorMode';
 
 function Home() {
   useEffect(() => {
@@ -68,7 +71,10 @@ function Home() {
           <section className="my-[100px] flex items-center md:max-w-[1500px] mx-auto">
             <div className="flex gap-12 sm:m-12 m-8 flex-col lg:flex-row">
               <ImageColumn>
-                <HeroLight className="hero-svg" />
+                <ColorMode
+                  light={<HeroLight className="hero-svg" />}
+                  dark={<HeroDark className="hero-svg" />}
+                />
               </ImageColumn>
               <TextColumn className="min-w-[300px] lg:items-end md:items-center md:text-center lg:text-left">
                 <TextColumnTitle>Revolution is here</TextColumnTitle>
