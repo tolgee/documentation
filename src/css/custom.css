@@ -163,11 +163,14 @@ h6 {
 
 .navbar {
   padding: 0px;
+  background-color: transparent;
 }
 
 .navbar__inner {
   padding: var(--ifm-navbar-padding-vertical)
     var(--ifm-navbar-padding-horizontal);
-  background-color: var(--ifm-navbar-background-color);
+  backdrop-filter: saturate(180%) blur(8px);
+  background-color: var(--ifm-navbar-background-color-transparent);
   height: var(--ifm-navbar-height);
+  transition: background-color 0.3s;
 }

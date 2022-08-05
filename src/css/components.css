@@ -79,11 +79,6 @@
   .page-with-decoration .navbar {
     position: fixed;
     width: 100%;
-    background-color: transparent;
-  }
-  
-  .page-with-decoration .navbar__inner {
-    background-color: transparent;
   }
 
   .page-with-decoration--not-scrolled .navbar {
@@ -92,20 +87,7 @@
 
   .page-with-decoration--not-scrolled .navbar__inner {
     background-color: transparent;
-  }
-
-  .page-with-decoration .navbar__inner {
-    background-color: transparent;
-    transition: background-color 0.3s;
-  }
-
-  .page-with-decoration .navbar__inner {
-    transition: background-color 0.3s;
-  }
-  
-  .page-with-decoration--scrolled .navbar__inner {
-    backdrop-filter: saturate(180%) blur(8px);
-    background-color: var(--ifm-navbar-background-color-transparent);
+    backdrop-filter: none;
   }
 
   .page-with-decoration {
