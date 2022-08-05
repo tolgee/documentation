@@ -15,10 +15,9 @@
     "eslint": "eslint --ext .ts --ext .tsx --max-warnings 0 --report-unused-disable-directives ."
   },
   "dependencies": {
-    "@docusaurus/core": "2.0.0-beta.21",
-    "@docusaurus/mdx-loader": "2.0.0-beta.21",
-    "@docusaurus/module-type-aliases": "2.0.0-beta.21",
-    "@docusaurus/preset-classic": "2.0.0-beta.21",
+    "@docusaurus/core": "^2.0.1",
+    "@docusaurus/mdx-loader": "^2.0.1",
+    "@docusaurus/preset-classic": "^2.0.1",
     "@emotion/react": "11.9.3",
     "@emotion/styled": "11.9.3",
     "@mdx-js/react": "^1.6.21",
@@ -66,8 +65,8 @@
     ]
   },
   "devDependencies": {
-    "@docusaurus/module-type-aliases": "2.0.0-beta.21",
-    "@docusaurus/plugin-client-redirects": "^2.0.0-beta.21",
+    "@docusaurus/module-type-aliases": "^2.0.1",
+    "@docusaurus/plugin-client-redirects": "^2.0.1",
     "@tsconfig/docusaurus": "^1.0.4",
     "@types/node": "18.6.3",
     "@typescript-eslint/eslint-plugin": "5.32.0",
