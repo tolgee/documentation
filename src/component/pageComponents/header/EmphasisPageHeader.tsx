@@ -17,7 +17,7 @@ export const EmphasisPageHeader = (props: {
   return (
     <PageHeader>
       <div className="flex md:ml-[-300px] ml-[-120px]">
-        <RoboMouse className="w-44 w-[151px]" />
+        <RoboMouse className="w-[151px]" />
         <ThemedImage
           alt="Swing arrow"
           className="w-48 ml-3"
