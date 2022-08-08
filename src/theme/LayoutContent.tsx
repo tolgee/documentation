@@ -1,15 +1,15 @@
 import React, { useEffect, useMemo } from 'react';
 
-import { useColorMode } from '@docusaurus/theme-common';
 import Head from '@docusaurus/Head';
 import useDocusaurusContext from '@docusaurus/useDocusaurusContext';
 import { getChatwootScript } from '../component/externalScripts/getChatwootScript';
 import { getGtagScript } from '../component/externalScripts/getGtagScript';
 import websiteSchema from '../info/website';
 import { createTheme, ThemeProvider as MuiThemeProvider } from '@mui/material';
+import { useDarkMode } from '../utils';
 
 export const LayoutContent = ({ children }) => {
-  const isDarkTheme = useColorMode().colorMode === 'dark';
+  const isDarkTheme = useDarkMode();
   const { siteConfig } = useDocusaurusContext();
 
   const trackingId = siteConfig.customFields.googleTrackingId;
