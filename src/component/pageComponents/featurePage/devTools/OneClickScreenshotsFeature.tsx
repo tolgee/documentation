@@ -13,8 +13,12 @@ import { FeatureHeader } from '../FeatureHeader';
 export const OneClickScreenshotsFeature = () => {
   return (
     <>
-      <FeatureHeader title="One click screenshots" id="one-click-screenshots" />
-      <TwoColumnSection>
+      <FeatureHeader
+        gridArea="one-click-screenshots-heading"
+        title="One click screenshots"
+        id="one-click-screenshots"
+      />
+      <TwoColumnSection gridArea="one-click-screenshots-1">
         <ImageColumn>
           <ThemedImage
             alt="One-click screenshots"
@@ -33,7 +37,7 @@ export const OneClickScreenshotsFeature = () => {
           </TextColumnText>
         </TextColumn>
       </TwoColumnSection>
-      <TwoColumnSection>
+      <TwoColumnSection gridArea="one-click-screenshots-2">
         <ImageColumn>
           <ThemedImage
             alt="One-click screenshots"
