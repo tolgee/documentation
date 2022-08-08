@@ -3,7 +3,6 @@ import { RoboMouse } from '../images/RoboMouse';
 import DecoratedLayout from '../../theme/DecoratedLayout';
 import { PageHeader } from '../pageComponents/header/PageHeader';
 import { PageHeaderSubtitle } from '../pageComponents/header/PageHeaderSubtitle';
-import { PageHeaderTitle } from '../pageComponents/header/PageHeaderTitle';
 import { Features } from '../home/Features';
 
 export const PricingBase: React.FC = ({ children }) => {
@@ -12,8 +11,6 @@ export const PricingBase: React.FC = ({ children }) => {
       <DecoratedLayout title={`Pricing`}>
         <PageHeader className="mb-[160px]">
           <PageHeaderSubtitle>Pricing (Preview)</PageHeaderSubtitle>
-          <PageHeaderTitle active>We shut up.</PageHeaderTitle>
-          <PageHeaderTitle>And take your money.</PageHeaderTitle>
         </PageHeader>
 
         <div className="flex flex-col justify-center items-center">

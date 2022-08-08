@@ -34,6 +34,7 @@
   --dark-home-text: #e0e4ea;
   --navbar-link-text-color: #303846;
   --home-text: var(--light-home-text);
+  --text-secondary: #4e4d4d;
   --home-features-gradient-1: #ebedf0;
   --home-features-gradient-2: #ebedf0;
   --home-features-gradient-3: #ffffff;
@@ -63,6 +64,7 @@ html[data-theme='dark'] {
   --emphasis-gradient-end: var(--ifm-color-primary-dark);
   --navbar-link-text-color: var(--dark-home-text);
   --home-text: var(--dark-home-text);
+  --text-secondary: #cccbcb;
   --home-features-gradient-1: var(--gradient-start-color);
   --home-features-gradient-2: var(--gradient-start-color);
   --home-features-gradient-3: #253852;
@@ -173,4 +175,29 @@ h6 {
   background-color: var(--ifm-navbar-background-color-transparent);
   height: var(--ifm-navbar-height);
   transition: background-color 0.3s;
+}
+
+.navbar__brand:hover {
+  color: inherit;
+}
+
+.navbar .dropdown__menu {
+  display: grid;
+  grid-auto-flow: column;
+  gap: 16px;
+}
+
+.navbar .dropdown__menu-title {
+  font-size: 0.73rem;
+  text-transform: uppercase;
+  padding: 6px 8px;
+  color: var(--text-secondary);
+}
+
+.navbar .navbar__link::after {
+  border-width: 0px 0px 2px 2px;
+  border-color: currentColor;
+  width: 5px;
+  height: 5px;
+  transform: rotate(-45deg) translate(50%, -50%);
 }
