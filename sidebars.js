@@ -15,6 +15,7 @@ module.exports = {
             "platform/managing_api_keys",
             "platform/exporting_translations",
             "platform/translation_tools",
+            "platform/activity_events",
           ],
         },
         {

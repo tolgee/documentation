@@ -1,0 +1,120 @@
+---
+id: activity_events
+title: Activity events
+sidebar_label: Activity events
+slug: /platform/activity_events
+---
+
+Tolgee lets you listen for events programatically, either via a WebSocket or via Webhooks. When an event occurs on a
+project, you'll be notified through the method of your choice allowing you to do things like triggering CI builds,
+synchronizing with realtime changes, or anything you can come up with.
+
+## Event object format
+```json
+{
+  "eventId": "<unique id>",
+  "eventType": "event_type",
+  "actor": { ... },
+  "data": { ... }
+}
+```
+
+<!-- todo: detail this part and document all the events that are dispatched -->
+
+## WebSocket
+<!-- todo: see if this applies with Spring stuff and rewrite if necessary -->
+
+WebSockets allow you to receive a coninuous flow of live events. The WS server is available at `/api/v2/websocket`.
+
+Upon connecting, you will need to authenticate with an API key. The events you'll be entitled to depend on the scopes
+of the API key (e.g. if you don't have `screenshots.view`, you will not receive events related to screenshots).
+
+Once authenticated, you'll receive information about the project you're receiving events for, the list of scopes,
+and you'll start receiving events. If the API key is invalid, or the authentication times out, the connection will
+be terminated.
+
+### Payloads
+```json
+{ "type": "AUTH", "apiKey": "xxxxxxxxx" }
+{ "type": "HELLO", "project": { ... }, "scopes": [ ... ] }
+{ "type": "DISPATCH", "event": { ... } }
+```
+
+<!-- todo: detail this part -->
+
+## Webhooks
+Webhooks are another way to receive live events from Tolgee. The main advantage of webhooks is that you don't need an
+active connection to the server to receive them, allowing you to passively receive events and react to them.
+
+### Creating a webhook
+<!-- todo -->
+
+### Receiving events
+Once the webhook is configured on Tolgee, events will start being sent to it. Tolgee will send `POST` requests to the
+webhook whenever an event occurs. The body payload will be the plain [event object](#event-object-format).
+
+:::info
+Events may be sent more than once via this transport. You can use the `eventId` property to make sure you don't process
+the same event twice.
+:::
+
+To notify that you handled the payload successfully, make sure to reply with a 2xx HTTP status code, or Tolgee will
+consider the delivery failed and you may receive it again as Tolgee will [retry the delivery](#retry-policy).
+
+:::tip
+Testing webhooks is tricky, as the Tolgee server cannot connect to your `localhost`. You can use tools like
+[ngrok](https://ngrok.com/) to securely expose `localhost` to the Internet and use a temporary `xxx.ngrok.io` URL to
+test your receiver. ngrok is available free of charge for all major operating systems.
+:::
+
+### Retry policy
+When a payload fails to be delivered to your specified endpoint, Tolgee will wait for a bit and retry the delivery. A
+delivery failure is when your server didn't respond in time to the request (timeout), or that the server replied with a
+server error response (5xx HTTP status code). Requests rejected with a 4xx status code will be considered failed
+deliveries but won't be retried.
+
+Tolee will retry with the following intervals, before considering the failure permanent and stop attempting redeliveries:
+  - 5 minutes
+  - 30 minutes
+  - 1 hour
+  - 2 hours
+  - 4 hours
+
+:::info
+Event redeliveries keep the same `eventId`.
+:::
+
+For events that permanently failed delivery, you can manually trigger a redelivery via the webapp.
+
+### Webhooks signature
+For security reasons, it's important to verify that the payloads you receive are coming from Tolgee. When creating your
+webhook, Tolgee generates a secret key that can be used to verify precisely this.
+
+When sending out a payload, Tolgee will sign the payload using an HMAC-SHA256 signature. The digest in hex format is
+sent via the `X-Tolgee-Signature` header. You can ensure on your side that the signature does match to validate that
+the payload is from Tolgee.
+
+:::info
+If the secret key leaks, you can generate a new key on the Tolgee dashboard.
+:::
+
+#### Example signature verification
+Here is an example implementation in JavaScript of how the signature verificaton would work:
+```js
+import { createHmac, timingSafeEqual } from 'node:crypto'
+
+/**
+ * @param {string} payload Raw body payload.
+ * @param {string} signature Signature in hexadecimal format.
+ * @return {boolean} `true` if the signature matches, `false` otherwise.
+ */
+export function validateSignature (payload, signature) {
+  const sig = createHmac('sha256').update(payload).digest()
+  return timingSafeEqual(sig, Buffer.from(signature, 'hex'))
+}
+```
+
+:::warning
+Make sure to use a secure equality comparaison! `==` and `===` are **insecure** as they do not perform a "constant time"
+comparaison: an attacker could perform a timing attack to figure out the expected signature.
+:::
