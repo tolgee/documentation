@@ -1,5 +1,7 @@
-import { RoboMouse } from '../../images/RoboMouse';
 import React, { ReactNode } from 'react';
+import ThemedImage from '@theme/ThemedImage';
+
+import { RoboMouse } from '../../images/RoboMouse';
 import { PageHeader } from './PageHeader';
 import { PageHeaderTitle } from './PageHeaderTitle';
 import { IWantItButton } from './IWantItButton';
@@ -16,10 +18,13 @@ export const EmphasisPageHeader = (props: {
     <PageHeader>
       <div className="flex md:ml-[-300px] ml-[-120px]">
         <RoboMouse className="w-44 w-[151px]" />
-        <img
+        <ThemedImage
           alt="Swing arrow"
           className="w-48 ml-3"
-          src="/img/swingArrow.svg"
+          sources={{
+            light: '/img/swingArrow.svg',
+            dark: '/img/swingArrowDark.svg',
+          }}
         />
       </div>
       <PageHeaderTitle className="mt-3">{props.title}</PageHeaderTitle>
