@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React from 'react';
 import Head from '@docusaurus/Head';
 
 import baseSchema from '../info/organization';
@@ -19,38 +19,6 @@ import { GradientText } from '../component/GradientText';
 import { ParallaxImage } from '../component/home/ParallaxImage';
 
 function Home() {
-  useEffect(() => {
-    let initialPageX: number;
-    let initialPageY: number;
-
-    document.addEventListener('mousemove', parallax);
-
-    function parallax(event) {
-      if (
-        typeof initialPageY === 'undefined' ||
-        typeof initialPageX === 'undefined'
-      ) {
-        initialPageX = event.pageX;
-        initialPageY = event.pageY;
-      }
-
-      this.querySelectorAll('.hero-svg__parallax').forEach((shift) => {
-        const positionX = shift.getAttribute('data-parallax-x');
-        const positionY = shift.getAttribute('data-parallax-y');
-
-        const moveX = event.pageX - initialPageX;
-        const moveY = event.pageY - initialPageY;
-
-        const x = (moveX * positionX) / 90;
-        const y = (moveY * positionY) / 90;
-
-        shift.style.transform = `translateX(${x}px) translateY(${y}px)`;
-      });
-    }
-
-    return () => document.removeEventListener('mousemove', parallax);
-  }, []);
-
   return (
     <div className="home__container">
       <Head>
@@ -71,7 +39,7 @@ function Home() {
               <ImageColumn>
                 <ParallaxImage />
               </ImageColumn>
-              <TextColumn className="min-w-[300px] lg:items-end md:items-center md:text-center lg:text-left">
+              <TextColumn className="min-w-[300px] lg:items-end md:items-center md:text-center lg:text-left lg:mt-[60px]">
                 <TextColumnTitle>Revolution is here</TextColumnTitle>
                 <TextColumnText>
                   Speed up your translation process by{' '}

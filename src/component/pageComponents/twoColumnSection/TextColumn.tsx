@@ -12,13 +12,18 @@ export const TextColumnText: FC = (props) => (
   <p className="text-[16px] md:text-[19px]">{props.children}</p>
 );
 
-export const TextColumn: FC<{ className?: string }> = (props) => (
+export const TextColumn: FC<{ className?: string }> = ({
+  className,
+  children,
+  ...other
+}) => (
   <div
     className={clsx(
       'flex justify-center md:items-end items-center flex-col text-center md:text-left',
-      props.className
+      className
     )}
+    {...other}
   >
-    <div className="max-w-[475px]">{props.children}</div>
+    <div className="max-w-[475px]">{children}</div>
   </div>
 );
