@@ -161,6 +161,7 @@ h6 {
 .hero-svg {
   width: 100%;
   overflow: visible;
+  height: unset;
 }
 
 .navbar {
