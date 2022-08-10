@@ -2,11 +2,4 @@
   @apply md:max-w-[1200px];
   margin: 0px auto;
   display: grid;
-  grid-template-areas:
-    'in-context-heading'
-    'in-context-1'
-    'in-context-2'
-    'one-click-screenshots-heading'
-    'one-click-screenshots-1'
-    'one-click-screenshots-2';
 }

@@ -4,12 +4,12 @@ import { GradientText } from '../../GradientText';
 export const FeatureHeader = (props: {
   title: string;
   id: string;
-  gridArea?: string;
+  gridRow?: string;
 }) => {
   return (
     <header
       className="header mt-[120px] flex flex-col items-center justify-center mx-4"
-      style={{ gridArea: props.gridArea }}
+      style={{ gridRow: props.gridRow, gridColumn: 1 }}
     >
       <h2 className="header__title--active mt-3" id={props.id}>
         <GradientText>{props.title}</GradientText>

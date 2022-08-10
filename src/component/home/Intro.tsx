@@ -11,7 +11,7 @@ import {
 import { ParallaxImage } from './ParallaxImage';
 
 const DELAY = 0.1;
-const OPACITY_AHEAD = 0.3;
+const OPACITY_AHEAD = 0.13;
 
 const sinStep = (x: number) => {
   return x > 0 ? (x < 1 ? (Math.sin((x - 0.5) * Math.PI) + 1) / 2 : 1) : 0;
@@ -35,8 +35,8 @@ const AheadParallax = ({ progress }) => {
       svgParts.forEach((layer: SVGPathElement) => {
         const time = Number(layer.getAttribute('data-parallax-timing'));
 
-        const scale = sinStep((progress - DELAY - time) * 2);
-        const opacity = sinStep((progress - DELAY - OPACITY_AHEAD - time) * 15);
+        const scale = sinStep((progress - DELAY - time) * 5);
+        const opacity = sinStep((progress - DELAY - OPACITY_AHEAD - time) * 30);
 
         layer.style.transform = `scale(${1 / scale})`;
         layer.style.opacity = `${opacity}`;
@@ -53,15 +53,19 @@ const DURATION = 500;
 
 export const Intro = () => {
   const [viewPortHeight, setViewPortHeight] = useState(0);
+
+  useEffect(() => {
+    const handler = () => setViewPortHeight(window.innerHeight);
+    handler();
+    window.addEventListener('resize', handler);
+    return () => window.removeEventListener('resize', handler);
+  }, []);
+
   const theme = useTheme();
 
   const isSmall = useMediaQuery(theme.breakpoints.down('sm'));
 
   const enabled = !isSmall;
-
-  useEffect(() => {
-    setViewPortHeight(globalThis.window.innerHeight);
-  }, []);
 
   return (
     <div
@@ -71,17 +75,21 @@ export const Intro = () => {
       }}
     >
       <Controller>
-        <Scene duration={DURATION} enabled={enabled}>
+        <Scene
+          duration={viewPortHeight + DURATION}
+          enabled={enabled}
+          offset={-viewPortHeight * 0.5}
+        >
           {(progress) => (
             <div>
-              <AheadParallax progress={progress} />
+              <AheadParallax progress={enabled ? progress : 1} />
             </div>
           )}
         </Scene>
         <Scene
           pin
           duration={DURATION}
-          offset={viewPortHeight / 3}
+          offset={viewPortHeight / 8 + 150}
           enabled={enabled}
         >
           <section className="flex justify-center w-[100vw] ">

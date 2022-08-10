@@ -14,11 +14,11 @@ export const OneClickScreenshotsFeature = () => {
   return (
     <>
       <FeatureHeader
-        gridArea="one-click-screenshots-heading"
+        gridRow="4"
         title="One click screenshots"
         id="one-click-screenshots"
       />
-      <TwoColumnSection gridArea="one-click-screenshots-1">
+      <TwoColumnSection gridRow="5">
         <ImageColumn>
           <ThemedImage
             alt="One-click screenshots"
@@ -37,7 +37,7 @@ export const OneClickScreenshotsFeature = () => {
           </TextColumnText>
         </TextColumn>
       </TwoColumnSection>
-      <TwoColumnSection gridArea="one-click-screenshots-2">
+      <TwoColumnSection gridRow="6">
         <ImageColumn>
           <ThemedImage
             alt="One-click screenshots"
