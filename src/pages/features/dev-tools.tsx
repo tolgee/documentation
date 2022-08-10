@@ -17,18 +17,18 @@ export default function DevTools() {
 
         <ConnectingArrow
           className="hidden md:flex"
-          gridRowStart="in-context-1"
-          gridRowEnd="in-context-2"
+          gridRowStart="2"
+          gridRowEnd="4"
         />
         <ConnectingArrow
           className="hidden md:flex"
-          gridRowStart="in-context-2"
-          gridRowEnd="one-click-screenshots-1"
+          gridRowStart="3"
+          gridRowEnd="6"
         />
         <ConnectingArrow
           className="hidden md:flex"
-          gridRowStart="one-click-screenshots-1"
-          gridRowEnd="one-click-screenshots-2"
+          gridRowStart="5"
+          gridRowEnd="7"
         />
       </div>
       <div>

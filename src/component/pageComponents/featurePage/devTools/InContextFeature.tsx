@@ -15,11 +15,11 @@ export const InContextFeature = () => {
   return (
     <>
       <FeatureHeader
-        gridArea="in-context-heading"
+        gridRow="1"
         title="In context translating"
         id="in-context"
       />
-      <TwoColumnSection gridArea="in-context-1">
+      <TwoColumnSection gridRow="2">
         <ImageColumn>
           <ThemedImage
             alt="In context ALT key"
@@ -42,7 +42,7 @@ export const InContextFeature = () => {
         </TextColumn>
       </TwoColumnSection>
 
-      <TwoColumnSection gridArea="in-context-2">
+      <TwoColumnSection gridRow="3">
         <ImageColumn>
           <ThemedImage
             alt="In context dialog"
