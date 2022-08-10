@@ -15,7 +15,7 @@ export const EmphasisPageHeader = (props: {
   title3?: string;
 }) => {
   return (
-    <PageHeader>
+    <PageHeader className="min-h-[100vh]">
       <div className="flex md:ml-[-300px] ml-[-120px]">
         <RoboMouse className="w-[151px]" />
         <ThemedImage

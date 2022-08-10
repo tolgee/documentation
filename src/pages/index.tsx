@@ -9,14 +9,7 @@ import { References } from '../component/home/References';
 import { Pricing } from '../component/home/Pricing';
 import { NotConvincedYet } from '../component/home/NotConvincedYet';
 import { EmphasisPageHeader } from '../component/pageComponents/header/EmphasisPageHeader';
-import { ImageColumn } from '../component/pageComponents/twoColumnSection/ImageColumn';
-import {
-  TextColumn,
-  TextColumnText,
-  TextColumnTitle,
-} from '../component/pageComponents/twoColumnSection/TextColumn';
-import { GradientText } from '../component/GradientText';
-import { ParallaxImage } from '../component/home/ParallaxImage';
+import { Intro } from '../component/home/Intro';
 
 function Home() {
   return (
@@ -34,26 +27,7 @@ function Home() {
             title="Smart platform."
             title3="Painless localization."
           />
-          <section className="my-[100px] flex items-center md:max-w-[1500px] mx-auto">
-            <div className="flex gap-12 sm:m-12 m-8 flex-col lg:flex-row">
-              <ImageColumn>
-                <ParallaxImage />
-              </ImageColumn>
-              <TextColumn className="min-w-[300px] lg:items-end md:items-center md:text-center lg:text-left lg:mt-[60px]">
-                <TextColumnTitle>Revolution is here</TextColumnTitle>
-                <TextColumnText>
-                  Speed up your translation process by{' '}
-                  <span>
-                    <GradientText>90%</GradientText>
-                  </span>{' '}
-                  using Tolgee. It has{' '}
-                  <GradientText>revolutionary</GradientText> integrations. Setup
-                  Tolgee in seconds. Let <GradientText>anyone</GradientText>{' '}
-                  translate your App with in-context localization feature.
-                </TextColumnText>
-              </TextColumn>
-            </div>
-          </section>
+          <Intro />
           <Features />
           <Technologies />
           <References />
