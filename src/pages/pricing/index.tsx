@@ -58,7 +58,7 @@ export default () => {
             action={
               <Link
                 className="pricing__option-button pricing__option-button--grey"
-                to="mailto:info@tolgee.io"
+                to="https://app.tolgee.io/billing"
               >
                 Coming soon
               </Link>
@@ -78,7 +78,7 @@ export default () => {
             action={
               <Link
                 className="pricing__option-button pricing__option-button--grey"
-                to="mailto:info@tolgee.io"
+                to="https://app.tolgee.io/billing"
               >
                 Coming soon
               </Link>
