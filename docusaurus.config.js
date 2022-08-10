@@ -72,7 +72,7 @@ module.exports = {
             },
             {
               to: 'api',
-              label: 'REST Api docs',
+              label: 'REST API docs',
             },
           ],
         },
