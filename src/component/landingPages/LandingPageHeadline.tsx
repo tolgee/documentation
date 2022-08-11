@@ -3,8 +3,6 @@ import { CSSProperties } from 'styled-components';
 import './LandingPageHeadline.css';
 import { PageHeader } from '../pageComponents/header/PageHeader';
 import { PageHeaderTitle } from '../pageComponents/header/PageHeaderTitle';
-import { IWantItButton } from '../pageComponents/header/IWantItButton';
-import { OpenSourceTransparentText } from '../pageComponents/header/OpenSourceTransparentText';
 
 export const LandingPageHeadline: FC<{
   badges: {
@@ -31,8 +29,6 @@ export const LandingPageHeadline: FC<{
           </a>
         ))}
       </div>
-      <IWantItButton className="mt-[115px]" />
-      <OpenSourceTransparentText />
     </PageHeader>
   </div>
 );

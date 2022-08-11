@@ -87,7 +87,7 @@
         </g>
     </g>
 
-    <g class="hero-parallax" data-parallax-timing="0.3">
+    <g class="hero-parallax" data-parallax-timing="0.2">
         <g>
             <g filter="url(#a)">
                 <path fill="#fff" d="M461 274a6 6 0 0 1 6-6h526a6 6 0 0 1 6 6v165a6 6 0 0 1-6 6H467a6 6 0 0 1-6-6V274Z" />
@@ -158,7 +158,7 @@
             </g>
         </g>
     </g>
-    <g class="hero-parallax" data-parallax-timing="0.4">
+    <g class="hero-parallax" data-parallax-timing="0.3">
         <g filter="url(#l)">
             <rect width="423" height="227" x="10" y="157" fill="#fff" rx="10" />
         </g>
@@ -222,7 +222,7 @@
         <rect width="161.653" height="8" x="204" y="267" fill="#13A325" rx="4" />
 
     </g>
-    <g class="hero-parallax" data-parallax-timing="0.43">
+    <g class="hero-parallax" data-parallax-timing="0.33">
         <path stroke="#D6D8D7" stroke-dasharray="8 8" stroke-linecap="round" stroke-width="4" d="M250.798 128.246s-78.373 17.568-91.549 124.392c-13.177 106.824 60.785 145.9 60.785 145.9M292 392s-15.705 23.745-52.998 16.012m31.702-281.674s32.296 0 44.291 23.663" />
         <path stroke="#D6D8D7" stroke-linecap="round" stroke-width="4" d="M121.001 170.642s7.73-20.466 39.756-24.624m58.367 76.722s-3.778 21.548-34.468 31.604" />
         <g filter="url(#r)">

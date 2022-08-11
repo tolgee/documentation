@@ -11,13 +11,8 @@ import Link from '@docusaurus/Link';
 import { CoolButtonImage } from '../../component/buttons/CoolButtonImage';
 import AngularLogo from '../../../static/img/technologies/logo-angular.svg';
 import { baseBadges } from '../../component/landingPages/js/baseBadges';
-import { TwoColumnSection } from '../../component/pageComponents/twoColumnSection/TwoColumnSection';
-import {
-  TextColumn,
-  TextColumnText,
-} from '../../component/pageComponents/twoColumnSection/TextColumn';
-import CodeBlock from '@theme/CodeBlock';
 import { Features } from '../../component/home/Features';
+import { LandingPageDescription } from '../../component/landingPages/LandingPageDescription';
 
 export default function Angular() {
   return (
@@ -31,18 +26,18 @@ export default function Angular() {
       >
         Tolgee for Angular
       </LandingPageHeadline>
-      <TwoColumnSection className="md:h-[500px]">
-        <TextColumn>
-          <TextColumnText>
-            Tolgee for Angular provides simple API to create multi-lingual
-            Angular application. With Tolgee i18n library for Angular you can
-            enjoy all Tolgee i18n features.
-          </TextColumnText>
-        </TextColumn>
-        <TextColumn>
-          <CodeBlock>npm i @tolgee/ngx @tolgee/ui</CodeBlock>
-        </TextColumn>
-      </TwoColumnSection>
+      <LandingPageDescription installationCommand="npm i @tolgee/ngx">
+        <p>
+          Tolgee for Angular provides simple API to create multi-lingual Angular
+          application. With Tolgee i18n library for Angular you can enjoy all
+          Tolgee i18n features.
+        </p>
+        <p>
+          To see Angular with Tolgee in action, check{' '}
+          <a href="https://github.com/tolgee/ngx-example">this example app</a>.
+        </p>
+      </LandingPageDescription>
+
       <LandingPageInstallation>
         <LandingPageInstallationStep title="1. Create project in Tolgee platform">
           <p>

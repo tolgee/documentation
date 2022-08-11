@@ -1,5 +1,4 @@
 import React from 'react';
-import { GradientText } from '../../GradientText';
 
 export const FeatureHeader = (props: {
   title: string;
@@ -8,11 +7,17 @@ export const FeatureHeader = (props: {
 }) => {
   return (
     <header
-      className="header mt-[120px] flex flex-col items-center justify-center mx-4"
-      style={{ gridRow: props.gridRow, gridColumn: 1 }}
+      className="header mt-[50px] sm:mt-[120px] flex flex-col items-center justify-center mx-4"
+      style={{
+        gridRow: props.gridRow,
+        gridColumn: 1,
+      }}
     >
-      <h2 className="header__title--active mt-3" id={props.id}>
-        <GradientText>{props.title}</GradientText>
+      <h2
+        className="header__title--active mt-3 text-[18px] sm:text-[22px] font-bold"
+        id={props.id}
+      >
+        {props.title}
       </h2>
     </header>
   );
