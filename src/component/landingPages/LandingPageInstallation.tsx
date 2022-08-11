@@ -3,7 +3,7 @@ import { GradientText } from '../GradientText';
 
 export const LandingPageInstallation: FC = ({ children }) => (
   <>
-    <div className="container">
+    <div className="container integration">
       <section className="installation-guide">
         <h2 className="installation-guide__headline">
           <GradientText>Get started!</GradientText>

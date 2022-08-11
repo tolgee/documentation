@@ -202,3 +202,7 @@ h6 {
   height: 5px;
   transform: rotate(-45deg) translate(50%, -50%);
 }
+
+.row .footer__col {
+  @apply mx-1;
+}

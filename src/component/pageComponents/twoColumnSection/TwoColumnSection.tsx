@@ -12,7 +12,7 @@ export const TwoColumnSection: FC<{
     )}
     style={{ gridRow, gridColumn: 1 }}
   >
-    <div className="grid md:grid-cols-2 gap-12 sm:m-12 m-8 w-full">
+    <div className="grid md:grid-cols-2 gap-12 m-2 sm:m-8 w-full">
       {children}
     </div>
   </section>

@@ -59,7 +59,7 @@
   </g>
 
 
-  <g class="hero-parallax" data-parallax-timing="0.3">
+  <g class="hero-parallax" data-parallax-timing="0.2">
     <g filter="url(#filter1_d_744_2332)">
       <path d="M461 274C461 270.686 463.686 268 467 268H993C996.314 268 999 270.686 999 274V439C999 442.314 996.314 445 993 445H730H467C463.686 445 461 442.314 461 439V274Z" fill="#37455B" />
       <path d="M461 272.587C461 269.825 463.239 267.587 466 267.587H994C996.761 267.587 999 269.825 999 272.587V299.587C999 302.348 996.761 304.587 994 304.587H466C463.239 304.587 461 302.348 461 299.587V272.587Z" fill="#24344B" />
@@ -109,7 +109,7 @@
   </g>
 
 
-  <g class="hero-parallax" data-parallax-timing="0.4">
+  <g class="hero-parallax" data-parallax-timing="0.3">
 
     <g filter="url(#filter3_d_744_2332)">
       <rect x="10" y="157" width="423" height="227" rx="10" fill="#37455B" />
@@ -160,7 +160,7 @@
     <rect x="204" y="267" width="161.653" height="8" rx="4" fill="#107911" />
   </g>
 
-  <g class="hero-parallax" data-parallax-timing="0.43">
+  <g class="hero-parallax" data-parallax-timing="0.33">
     <path d="M270.704 126.338C270.704 126.338 303 126.338 314.995 150.001" stroke="#687384" stroke-width="4" stroke-linecap="round" stroke-dasharray="8 8" />
     <path d="M219.124 222.74C219.124 222.74 215.345 244.288 184.656 254.344" stroke="#687384" stroke-width="4" stroke-linecap="round" />
     <path d="M121 170.642C121 170.642 128.73 150.176 160.757 146.018" stroke="#687384" stroke-width="4" stroke-linecap="round" />

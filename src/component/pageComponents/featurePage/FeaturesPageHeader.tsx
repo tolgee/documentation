@@ -28,7 +28,7 @@ export const FeaturesPageHeader = (props: {
       {props.title2 && (
         <PageHeaderTitle className="mt-2">{props.title2}</PageHeaderTitle>
       )}
-      <div className="flex gap-2 sm:gap-8 sm:text-xl mt-12">
+      <div className="flex gap-3 sm:gap-8 sm:text-xl mt-12 flex-wrap">
         {sections.map((section) => {
           const link = `/features/${section.slug}`;
           const isActive = path.path == link;
