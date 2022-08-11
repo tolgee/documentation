@@ -1,6 +1,6 @@
 import Link from '@docusaurus/Link';
-import Tooltip from 'react-simple-tooltip';
 import React from 'react';
+import { Tooltip } from '@mui/material';
 
 type Props = {
   name: string;
@@ -18,13 +18,12 @@ type Props = {
 const Translations = () => {
   return (
     <Tooltip
-      content={
-        <div className="pricing__tooltip">
-          Amount of translations you can store in <br />
-          projects in your organization.
+      title={
+        <div>
+          Amount of translations you can store in projects in your organization.
           <br />
-          Current amount of translations is calculated <br />
-          as sum of keys multiplied by languages for every project.
+          Current amount of translations is calculated as sum of keys multiplied
+          by languages for every project.
         </div>
       }
     >
@@ -35,11 +34,7 @@ const Translations = () => {
 
 const Credits = () => {
   return (
-    <Tooltip
-      content={
-        <div className="pricing__tooltip">Credits for machine translation</div>
-      }
-    >
+    <Tooltip title="Credits for machine translation">
       <span className="pricing__with-hint">MT credits</span>
     </Tooltip>
   );
