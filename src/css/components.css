@@ -3,8 +3,14 @@
 
 @layer components {
   .header__title {
-    @apply md:text-6xl text-5xl text-home-text font-[600] mb-0;
-    line-height: 66px;
+    @apply text-3xl
+      sm:text-5xl
+      md:text-6xl
+      text-home-text
+      font-[600]
+      mb-0
+      leading-[1.35em]
+      md:leading-[1.3em];
   }
 
   .text-gradient {
@@ -19,11 +25,16 @@
     text-fill-color: transparent;
   }
 
+  .button--base {
+    @apply py-[8px] px-[18px]
+        sm:py-[15px] sm:px-[40px]
+        text-[14px]
+        sm:text-[18px];
+  }
+
   .button--primary {
-    @apply text-[color:var(--ifm-color-emphasis-0)]
+    @apply button--base text-[color:var(--ifm-color-emphasis-0)]
         border-[color:var(--ifm-color-primary)] border-[1px]
-        py-[15px] px-[40px]
-        text-[18px]
         rounded-[16px]
         decoration-0
         transition-all duration-300
@@ -31,7 +42,14 @@
   }
 
   .button--outlined {
-    @apply button--primary-reverse bg-transparent border-primary border-solid text-primary hover:text-primary hover:bg-transparent;
+    @apply button--base
+        button--primary-reverse
+        bg-transparent
+        border-primary
+        border-solid
+        text-primary
+        hover:text-primary
+        hover:bg-transparent;
   }
 
   .button--primary:hover {
@@ -41,11 +59,10 @@
   }
 
   .button--primary-reverse {
-    @apply text-primary
+    @apply button--base
+        text-primary
         border-none
-        py-[15px] px-[40px]
         bg-white
-        text-[18px]
         rounded-[16px]
         decoration-0
         border-none

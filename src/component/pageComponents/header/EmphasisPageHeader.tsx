@@ -15,12 +15,12 @@ export const EmphasisPageHeader = (props: {
   title3?: string;
 }) => {
   return (
-    <PageHeader className="min-h-[100vh]">
+    <PageHeader className="sm:min-h-[100vh]">
       <div className="flex md:ml-[-300px] ml-[-120px]">
-        <RoboMouse className="w-[151px]" />
+        <RoboMouse className="w-[100px] md:w-[151px]" />
         <ThemedImage
           alt="Swing arrow"
-          className="w-48 ml-3"
+          className="w-28 md:w-48 ml-3"
           sources={{
             light: '/img/swingArrow.svg',
             dark: '/img/swingArrowDark.svg',
@@ -28,10 +28,8 @@ export const EmphasisPageHeader = (props: {
         />
       </div>
       <PageHeaderTitle className="mt-3">{props.title}</PageHeaderTitle>
-      <PageHeaderTitle className="mt-2">{props.title2}</PageHeaderTitle>
-      <PageHeaderTitle className="mt-3" active>
-        {props.title3}
-      </PageHeaderTitle>
+      <PageHeaderTitle>{props.title2}</PageHeaderTitle>
+      <PageHeaderTitle active>{props.title3}</PageHeaderTitle>
       <div className="flex mt-[80px] mb-[80px] gap-4">
         <IWantItButton className="flex justify-center items-center">
           Get started
