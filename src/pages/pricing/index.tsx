@@ -60,7 +60,7 @@ export default () => {
                 className="pricing__option-button pricing__option-button--grey"
                 to="https://app.tolgee.io/billing"
               >
-                Coming soon
+                Subscribe
               </Link>
             }
           />
@@ -80,7 +80,7 @@ export default () => {
                 className="pricing__option-button pricing__option-button--grey"
                 to="https://app.tolgee.io/billing"
               >
-                Coming soon
+                Subscribe
               </Link>
             }
           />
