@@ -1,6 +1,6 @@
 import React, { FC } from 'react';
 import { FeatureData } from '../home/Features';
-import { sections } from './featurePage/FeaturesPageHeader';
+import { sections } from './featurePage/sections/Sections';
 
 export const Feature: FC<{ feature: FeatureData }> = (props) => {
   const section = sections.find(

@@ -3,7 +3,7 @@ import Head from '@docusaurus/Head';
 import baseSchema from '../../../info/organization';
 import DecoratedLayout from '../../../theme/DecoratedLayout';
 import { FeaturesPageHeader } from './FeaturesPageHeader';
-import { MoreFeatures } from './MoreFeatures';
+import { MoreSections } from './MoreSections';
 
 export const BaseFeaturePage: FC<{ title: string; title2: string }> = (
   props
@@ -18,7 +18,7 @@ export const BaseFeaturePage: FC<{ title: string; title2: string }> = (
     >
       <FeaturesPageHeader title={props.title} title2={props.title2} />
       <div className="mb-36">{props.children}</div>
-      <MoreFeatures />
+      <MoreSections />
     </DecoratedLayout>
   </div>
 );
