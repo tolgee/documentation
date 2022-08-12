@@ -14,6 +14,6 @@ export const MoreSections: FC = () => (
   "
   >
     <h2 className="mt-12 mb-0">Read more ...</h2>
-    <Sections />
+    <Sections withImg={true} />
   </section>
 );

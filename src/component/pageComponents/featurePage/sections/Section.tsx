@@ -4,10 +4,13 @@ import React, { FC } from 'react';
 
 import { SectionData } from './Sections';
 
-export const Section: FC<{ isActive: boolean; section: SectionData }> = ({
-  isActive,
-  section,
-}) => {
+type Props = {
+  isActive: boolean;
+  section: SectionData;
+  withImg: boolean;
+};
+
+export const Section: FC<Props> = ({ isActive, section, withImg }) => {
   return (
     <Link
       className={clsx(
@@ -17,9 +20,11 @@ export const Section: FC<{ isActive: boolean; section: SectionData }> = ({
       key={section.slug}
       to={`/features/${section.slug}`}
     >
-      <div className="flex items-center mt-auto basis-[94px] w-[110px]">
-        {section.image}
-      </div>
+      {withImg && (
+        <div className="flex items-center mt-auto basis-[94px] w-[110px]">
+          {section.image}
+        </div>
+      )}
       <span
         className={clsx(
           'border-0',
