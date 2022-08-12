@@ -27,14 +27,14 @@ export const sections = [
 ] as SectionData[];
 
 type Props = {
-  withImg: boolean;
+  withImg?: boolean;
 };
 
 export const Sections: React.FC<Props> = ({ withImg }) => {
   const path = useRouteMatch();
 
   return (
-    <div className="flex gap-2 sm:gap-8 sm:text-xl flex-wrap justify-center">
+    <div className="flex gap-1 sm:gap-8 sm:text-xl flex-wrap justify-center">
       {sections.map((section) => {
         const link = `/features/${section.slug}`;
         const isActive = path.path == link;

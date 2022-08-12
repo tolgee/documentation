@@ -4,8 +4,8 @@
 @layer components {
   .header__title {
     @apply text-3xl
-      sm:text-5xl
-      md:text-6xl
+      sm:text-[3rem]
+      md:text-[3.75rem]
       text-home-text
       font-[600]
       mb-0
