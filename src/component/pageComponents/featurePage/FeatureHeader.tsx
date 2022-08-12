@@ -14,7 +14,7 @@ export const FeatureHeader = (props: {
       }}
     >
       <h2
-        className="header__title--active mt-3 text-[18px] sm:text-[22px] font-bold"
+        className="header__title header__title--active mt-3 text-[18px] sm:text-[22px] font-bold"
         id={props.id}
       >
         {props.title}

@@ -5,9 +5,9 @@ import { RoboMouse } from '../../images/RoboMouse';
 import { PageHeader } from './PageHeader';
 import { PageHeaderTitle } from './PageHeaderTitle';
 import { IWantItButton } from './IWantItButton';
-import { OpenSourceTransparentText } from './OpenSourceTransparentText';
 import Link from '@docusaurus/Link';
 import GitHubIcon from '../../../../static/img/github.svg';
+import { Sections } from '../featurePage/sections/Sections';
 
 export const EmphasisPageHeader = (props: {
   title: ReactNode;
@@ -15,7 +15,7 @@ export const EmphasisPageHeader = (props: {
   title3?: string;
 }) => {
   return (
-    <PageHeader className="sm:min-h-[100vh]">
+    <PageHeader className="sm:min-h-[100vh] pt-40" noPadding>
       <div className="flex md:ml-[-300px] ml-[-120px]">
         <RoboMouse className="w-[100px] md:w-[151px]" />
         <ThemedImage
@@ -30,6 +30,7 @@ export const EmphasisPageHeader = (props: {
       <PageHeaderTitle className="mt-3">{props.title}</PageHeaderTitle>
       <PageHeaderTitle>{props.title2}</PageHeaderTitle>
       <PageHeaderTitle active>{props.title3}</PageHeaderTitle>
+      <Sections withImg={true} />
       <div className="flex mt-[80px] mb-[80px] gap-4">
         <IWantItButton className="flex justify-center items-center">
           Get started
@@ -42,7 +43,6 @@ export const EmphasisPageHeader = (props: {
           <GitHubIcon className="ml-2" />
         </Link>
       </div>
-      <OpenSourceTransparentText />
     </PageHeader>
   );
 };

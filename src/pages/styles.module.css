@@ -42,7 +42,3 @@
 :global(.navbar__items) {
   white-space: nowrap;
 }
-
-.header__title {
-  @apply text-6xl text-home-text font-[600] mb-0;
-}
