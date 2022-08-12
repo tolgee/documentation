@@ -19,7 +19,7 @@ export const InContextFeature = () => {
         title="In context translating"
         id="in-context"
       />
-      <TwoColumnSection gridRow="2">
+      <TwoColumnSection gridRow="2" className="with-arrow">
         <ImageColumn>
           <ThemedImage
             alt="In context ALT key"
@@ -42,7 +42,7 @@ export const InContextFeature = () => {
         </TextColumn>
       </TwoColumnSection>
 
-      <TwoColumnSection gridRow="3">
+      <TwoColumnSection gridRow="3" className="with-arrow">
         <ImageColumn>
           <ThemedImage
             alt="In context dialog"

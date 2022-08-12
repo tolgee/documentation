@@ -15,7 +15,7 @@ export const ConnectingArrow: React.FC<Props> = ({
   return (
     <div
       className={clsx([
-        'flex items-center ml-[-60px] relative pointer-events-none',
+        'flex items-center ml-[10px] relative pointer-events-none',
         className,
       ])}
       style={{
