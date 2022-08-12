@@ -253,5 +253,5 @@
 
   border-radius: 8px;
   padding: var(--ifm-navbar-item-padding-vertical)
-    var(--ifm-navbar-item-padding-horizontal);
+    var(--ifm-navbar-item-padding-horizontal) !important;
 }

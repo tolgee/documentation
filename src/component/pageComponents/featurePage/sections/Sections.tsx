@@ -26,7 +26,11 @@ export const sections = [
   },
 ] as SectionData[];
 
-export const Sections = () => {
+type Props = {
+  withImg: boolean;
+};
+
+export const Sections: React.FC<Props> = ({ withImg }) => {
   const path = useRouteMatch();
 
   return (
@@ -35,7 +39,12 @@ export const Sections = () => {
         const link = `/features/${section.slug}`;
         const isActive = path.path == link;
         return (
-          <Section key={section.slug} section={section} isActive={isActive} />
+          <Section
+            key={section.slug}
+            section={section}
+            isActive={isActive}
+            withImg={withImg}
+          />
         );
       })}
     </div>

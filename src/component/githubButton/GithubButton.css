@@ -1,0 +1,35 @@
+.github-btn {
+  @apply flex 
+    items-center
+    border
+    border-solid
+    border-emphasis-400
+    rounded
+    text-sm;
+}
+
+.github-btn--container {
+  @apply flex
+    items-center
+    gap-1
+    px-2
+    font-bold
+    text-home-text
+    hover:no-underline
+    hover:text-emphasis-1000;
+}
+
+.github-btn--count {
+  @apply border-0
+    border-l
+    border-solid
+    border-emphasis-400 
+    px-2
+    text-home-text
+    hover:no-underline
+    hover:text-emphasis-1000;
+}
+
+.github-btn--logo {
+  width: 19px !important;
+}
