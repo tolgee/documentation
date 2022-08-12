@@ -27,6 +27,8 @@ module.exports = {
         'emphasis-800': 'var(--ifm-color-emphasis-800)',
         'emphasis-900': 'var(--ifm-color-emphasis-900)',
         'emphasis-1000': 'var(--ifm-color-emphasis-1000)',
+        'references-bg': 'var(--references-bg)',
+        'background-surface-color': 'var(--ifm-background-surface-color)',
       },
       screens: {
         desktop: '997px',

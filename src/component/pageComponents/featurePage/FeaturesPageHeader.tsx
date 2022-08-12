@@ -3,6 +3,7 @@ import React from 'react';
 import { Sections } from './sections/Sections';
 import { PageHeaderTitle } from '../header/PageHeaderTitle';
 import { PageHeader } from '../header/PageHeader';
+import { PageHeaderSubtitle } from '../header/PageHeaderSubtitle';
 
 export const FeaturesPageHeader = (props: {
   title: string;
@@ -10,9 +11,9 @@ export const FeaturesPageHeader = (props: {
 }) => {
   return (
     <PageHeader>
-      <PageHeaderTitle className="mt-3 text-2xl">{props.title}</PageHeaderTitle>
+      <PageHeaderSubtitle className="mt-3">{props.title}</PageHeaderSubtitle>
       {props.title2 && (
-        <PageHeaderTitle className="mt-2" active>
+        <PageHeaderTitle className="mt-0" active>
           {props.title2}
         </PageHeaderTitle>
       )}

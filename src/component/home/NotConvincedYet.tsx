@@ -3,7 +3,7 @@ import Link from '@docusaurus/Link';
 
 export const NotConvincedYet = () => {
   return (
-    <section className="flex flex-col items-center font-[300] my-32 mx-4">
+    <section className="flex flex-col items-center font-[300] my-32 mx-6">
       <div className="max-w-[500px] flex flex-col items-center">
         <h2>Not convinced yet?</h2>
         <p className="text-[20px] text-center mb-0">
