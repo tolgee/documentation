@@ -11,7 +11,7 @@ import { ConnectingArrow } from '../../component/pageComponents/featurePage/Conn
 export default function DevTools() {
   return (
     <BaseFeaturePage title="Dev tools" title2="Do it faster.">
-      <div className="dev-tools__grid md:pl-20">
+      <div className="dev-tools__grid">
         <InContextFeature />
         <OneClickScreenshotsFeature />
 

@@ -18,7 +18,7 @@ export const OneClickScreenshotsFeature = () => {
         title="One click screenshots"
         id="one-click-screenshots"
       />
-      <TwoColumnSection gridRow="5">
+      <TwoColumnSection gridRow="5" className="with-arrow">
         <ImageColumn>
           <ThemedImage
             alt="One-click screenshots"
@@ -37,7 +37,7 @@ export const OneClickScreenshotsFeature = () => {
           </TextColumnText>
         </TextColumn>
       </TwoColumnSection>
-      <TwoColumnSection gridRow="6">
+      <TwoColumnSection gridRow="6" className="with-arrow">
         <ImageColumn>
           <ThemedImage
             alt="One-click screenshots"

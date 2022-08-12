@@ -3,3 +3,7 @@
   margin: 0px auto;
   display: grid;
 }
+
+.dev-tools__grid .with-arrow {
+  @apply md:pl-20 box-border;
+}
