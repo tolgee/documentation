@@ -23,7 +23,7 @@ export const GithubButton = () => {
   }, []);
 
   return stars !== undefined ? (
-    <Link className="github-btn">
+    <div className="github-btn">
       <Link
         className="github-btn--container"
         target="_blank"
@@ -41,6 +41,6 @@ export const GithubButton = () => {
       >
         <span>{stars.toLocaleString('en')}</span>
       </Link>
-    </Link>
+    </div>
   ) : null;
 };
