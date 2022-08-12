@@ -1,5 +1,5 @@
 import { useMediaQuery, useTheme } from '@mui/material';
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import { Controller, Scene } from 'react-scrollmagic';
 import { GradientText } from '../GradientText';
 import { ImageColumn } from '../pageComponents/twoColumnSection/ImageColumn';
@@ -9,47 +9,78 @@ import {
   TextColumnTitle,
 } from '../pageComponents/twoColumnSection/TextColumn';
 import { ParallaxImage } from './ParallaxImage';
+import './Intro.css';
 
-const DELAY = 0.1;
-const OPACITY_AHEAD = 0.13;
+const useAnimationController = () => {
+  const state = useRef<Record<number, boolean | undefined>>({});
+  const elements = useRef<Record<number, HTMLElement>>({});
 
-const sinStep = (x: number) => {
-  return x > 0 ? (x < 1 ? (Math.sin((x - 0.5) * Math.PI) + 1) / 2 : 1) : 0;
+  return (
+    element: HTMLElement,
+    condition: boolean,
+    id: number,
+    animate: string,
+    justShow?: string
+  ) => {
+    if (!elements.current[id] || elements.current[id] !== element) {
+      state.current[id] = undefined;
+      elements.current[id] = element;
+    }
+
+    if (condition) {
+      if (state.current[id] === false) {
+        if (!element.classList.contains(animate)) {
+          element.classList.add(animate);
+        }
+      } else if (state.current[id] === undefined) {
+        if (justShow && !element.classList.contains(justShow)) {
+          element.classList.add(justShow);
+        }
+      }
+      state.current[id] = true;
+    }
+    if (!condition) {
+      if (state.current[id] !== undefined) {
+        element.classList.remove(animate, justShow);
+      }
+      state.current[id] = false;
+    }
+  };
 };
 
 const AheadParallax = ({ progress }) => {
+  const controlIn = useAnimationController();
+  const controlOut = useAnimationController();
   useEffect(() => {
-    const element = document;
-
-    element.addEventListener('scroll', parallax, { passive: true });
-
     const svgParts = Array.from(
-      document.querySelectorAll('.hero-parallax')
-    ) as SVGGElement[];
+      document.querySelectorAll('.intro__element')
+    ) as HTMLElement[];
 
     svgParts.forEach((layer) => {
       layer.style.transformOrigin = 'center center';
     });
 
     function parallax() {
-      svgParts.forEach((layer: SVGPathElement) => {
-        const time = Number(layer.getAttribute('data-parallax-timing'));
+      svgParts.forEach((layer: HTMLElement) => {
+        const time = Number(layer.getAttribute('data-parallax-timing')) + 0.2;
 
-        const scale = sinStep((progress - DELAY - time) * 5);
-        const opacity = sinStep((progress - DELAY - OPACITY_AHEAD - time) * 30);
+        controlIn(
+          layer,
+          progress > time,
+          time,
+          'intro__element--fly-in',
+          'intro__element--final'
+        );
 
-        layer.style.transform = `scale(${1 / scale})`;
-        layer.style.opacity = `${opacity}`;
+        controlOut(layer, progress < time, time, 'intro__element--fly-out');
       });
     }
     parallax();
-
-    return () => element.removeEventListener('scroll', parallax);
   });
-  return null;
+  return <div />;
 };
 
-const DURATION = 500;
+const DURATION = 700;
 
 export const Intro = () => {
   const [viewPortHeight, setViewPortHeight] = useState(0);
@@ -76,7 +107,7 @@ export const Intro = () => {
     >
       <Controller>
         <Scene
-          duration={viewPortHeight + DURATION}
+          duration={viewPortHeight * 0.7 + DURATION}
           enabled={enabled}
           offset={-viewPortHeight * 0.5}
         >
@@ -92,7 +123,7 @@ export const Intro = () => {
           offset={viewPortHeight / 8 + 150}
           enabled={enabled}
         >
-          <section className="flex justify-center w-[100vw] ">
+          <section className="flex justify-center w-[100vw]">
             {Boolean(viewPortHeight) && (
               <div className="flex gap-12 sm:m-12 m-8 flex-col lg:flex-row md:max-w-[1500px] flex-grow">
                 <ImageColumn>

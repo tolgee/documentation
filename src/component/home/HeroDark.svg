@@ -3,7 +3,7 @@
   <path d="M461 274C461 270.686 463.686 268 467 268H993C996.314 268 999 270.686 999 274V439C999 442.314 996.314 445 993 445H730H467C463.686 445 461 442.314 461 439V274Z" fill="#151d2a" />
   <rect x="10" y="157" width="423" height="227" rx="10" fill="#151d2a" />
 
-  <g class="hero-parallax" data-parallax-timing="0.0">
+  <g class="intro__element" data-parallax-timing="0.0">
     <g filter="url(#filter0_d_744_2332)">
       <rect x="462" y="98" width="537" height="150" rx="6" fill="#37455B" />
     </g>
@@ -36,7 +36,7 @@
     <path d="M461 103C461 100.239 463.239 98 466 98V248C463.239 248 461 245.761 461 243V103Z" fill="#A1850A" />
   </g>
 
-  <g class="hero-parallax" data-parallax-timing="0.05">
+  <g class="intro__element" data-parallax-timing="0.05">
     <g filter="url(#filter2_d_744_2332)">
       <path d="M757 16C757 12.6863 759.686 10 763 10H914C917.314 10 920 12.6863 920 16V84.6236C920 87.9374 917.314 90.6237 914 90.6237H763C759.686 90.6237 757 87.9374 757 84.6237V16Z" fill="#37455B" />
       <path d="M835.803 83.2734C836.831 82.2504 838.444 82.1099 839.634 82.9397L845.241 86.8495C846.759 87.9084 846.966 90.0766 845.674 91.4031L831.927 105.522L830.325 90.2993C830.23 89.3961 830.549 88.4986 831.193 87.8582L835.803 83.2734Z" fill="#37455B" />
@@ -59,7 +59,7 @@
   </g>
 
 
-  <g class="hero-parallax" data-parallax-timing="0.2">
+  <g class="intro__element" data-parallax-timing="0.2">
     <g filter="url(#filter1_d_744_2332)">
       <path d="M461 274C461 270.686 463.686 268 467 268H993C996.314 268 999 270.686 999 274V439C999 442.314 996.314 445 993 445H730H467C463.686 445 461 442.314 461 439V274Z" fill="#37455B" />
       <path d="M461 272.587C461 269.825 463.239 267.587 466 267.587H994C996.761 267.587 999 269.825 999 272.587V299.587C999 302.348 996.761 304.587 994 304.587H466C463.239 304.587 461 302.348 461 299.587V272.587Z" fill="#24344B" />
@@ -109,7 +109,7 @@
   </g>
 
 
-  <g class="hero-parallax" data-parallax-timing="0.3">
+  <g class="intro__element" data-parallax-timing="0.3">
 
     <g filter="url(#filter3_d_744_2332)">
       <rect x="10" y="157" width="423" height="227" rx="10" fill="#37455B" />
@@ -160,7 +160,7 @@
     <rect x="204" y="267" width="161.653" height="8" rx="4" fill="#107911" />
   </g>
 
-  <g class="hero-parallax" data-parallax-timing="0.33">
+  <g class="intro__element" data-parallax-timing="0.33">
     <path d="M270.704 126.338C270.704 126.338 303 126.338 314.995 150.001" stroke="#687384" stroke-width="4" stroke-linecap="round" stroke-dasharray="8 8" />
     <path d="M219.124 222.74C219.124 222.74 215.345 244.288 184.656 254.344" stroke="#687384" stroke-width="4" stroke-linecap="round" />
     <path d="M121 170.642C121 170.642 128.73 150.176 160.757 146.018" stroke="#687384" stroke-width="4" stroke-linecap="round" />

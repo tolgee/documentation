@@ -1,0 +1,39 @@
+@keyframes intro__element--fly-in {
+  from {
+    opacity: 0;
+    transform: scale(2);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+@keyframes intro__element--fly-out {
+  from {
+    opacity: 1;
+    transform: scale(1);
+  }
+  to {
+    opacity: 0;
+    transform: scale(1.5);
+  }
+}
+
+.intro__element {
+  opacity: 0;
+}
+
+.intro__element--fly-in {
+  opacity: 1;
+  animation: intro__element--fly-in 0.2s ease-in-out;
+}
+
+.intro__element--fly-out {
+  animation: intro__element--fly-out 0.1s ease-in-out;
+}
+
+.intro__element--final {
+  opacity: 1;
+  animation: none;
+}
