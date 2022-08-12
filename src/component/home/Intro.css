@@ -1,7 +1,10 @@
 @keyframes intro__element--fly-in {
   from {
     opacity: 0;
-    transform: scale(2);
+    transform: scale(1.7) rotate(5deg) skew(5deg);
+  }
+  90% {
+    transform: scale(0.99);
   }
   to {
     opacity: 1;
@@ -16,7 +19,7 @@
   }
   to {
     opacity: 0;
-    transform: scale(1.5);
+    transform: scale(1.4) rotate(2deg) skew(2deg);
   }
 }
 
@@ -26,11 +29,11 @@
 
 .intro__element--fly-in {
   opacity: 1;
-  animation: intro__element--fly-in 0.2s ease-in-out;
+  animation: intro__element--fly-in 0.3s ease-in-out;
 }
 
 .intro__element--fly-out {
-  animation: intro__element--fly-out 0.1s ease-in-out;
+  animation: intro__element--fly-out 0.15s ease-in-out;
 }
 
 .intro__element--final {
