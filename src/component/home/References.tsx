@@ -72,7 +72,7 @@ export const References = () => {
   };
 
   return (
-    <section className="bg-[color:var(--references-bg)] flex flex items-center overflow-hidden relative items-center references-section">
+    <section className="bg-[color:var(--references-bg)] flex overflow-hidden relative items-center references-section">
       <button
         className="references__nav references__nav--left"
         aria-label="previous"

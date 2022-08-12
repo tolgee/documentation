@@ -9,8 +9,8 @@
       text-home-text
       font-[600]
       mb-0
-      leading-[1.35em]
-      md:leading-[1.3em];
+      leading-[1.25em]
+      md:leading-[1.2em];
   }
 
   .text-gradient {
@@ -65,7 +65,6 @@
         bg-white
         rounded-[16px]
         decoration-0
-        border-none
         font-[500];
     position: relative;
     overflow: hidden;

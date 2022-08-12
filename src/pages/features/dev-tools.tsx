@@ -4,14 +4,13 @@ import { OneClickScreenshotsFeature } from '../../component/pageComponents/featu
 import { TranslatingOnProductionFeature } from '../../component/pageComponents/featurePage/devTools/TranslatingOnProductionFeature';
 import { TrueIntegrationsFeature } from '../../component/pageComponents/featurePage/devTools/TrueIntegrationsFeature';
 import { BaseFeaturePage } from '../../component/pageComponents/featurePage/BaseFeaturePage';
-import './dev-tools.css';
 import { ConnectingArrow } from '../../component/pageComponents/featurePage/ConnectingArrow';
 
 // noinspection JSUnusedGlobalSymbols
 export default function DevTools() {
   return (
     <BaseFeaturePage title="Dev tools" title2="Do it faster.">
-      <div className="dev-tools__grid">
+      <div className="md:max-w-[1200px] my-0 mx-auto grid">
         <InContextFeature />
         <OneClickScreenshotsFeature />
 
