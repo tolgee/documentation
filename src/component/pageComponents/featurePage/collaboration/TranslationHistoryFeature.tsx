@@ -27,8 +27,9 @@ export const TranslationHistoryFeature = () => {
         <TextColumn>
           <TextColumnTitle>See the changes.</TextColumnTitle>
           <TextColumnText>
-            See the changes of specific translation of specific key in specific
-            language. Something is wrong? Blame the guilty!
+            See the changes to specific translations of a specific key in a
+            specific language. Something is wrong? You know where to point the
+            finger!
           </TextColumnText>
         </TextColumn>
       </TwoColumnSection>

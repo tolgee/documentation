@@ -80,7 +80,7 @@ export const References = () => {
       />
       <div className="py-20 md:mx-12 references flex flex-col flex-grow items-center relative z-10 overflow-hidden">
         <h2 className="mb-20 text-gradient text-3xl text-center relative z-30">
-          Happy users all around the world.
+          Satisfied users all around the world.
         </h2>
         <div className="w-full">
           <div

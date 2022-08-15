@@ -65,15 +65,15 @@ export const MachineTranslationFeature = () => {
           <TextColumnTitle>Select your service.</TextColumnTitle>
           <TextColumnText>
             We support <GradientText>DeepL</GradientText>,{' '}
-            <GradientText>Google Translate</GradientText> or{' '}
+            <GradientText>Google Translate</GradientText>, and{' '}
             <GradientText>AWS Translate</GradientText>. Select which services
             you want to use in the settings section.
           </TextColumnText>
           <TextColumnTitle>Machines work for you.</TextColumnTitle>
           <TextColumnText>
-            Machine translation features makes whole localization process{' '}
-            <GradientText>extremely faster</GradientText>. Translators can just
-            use translation suggestions provided by third party machine
+            The machine translation features make the whole localization process{' '}
+            <GradientText>significantly faster</GradientText>. Translators can
+            just use translation suggestions provided by third-party machine
             translation services.
           </TextColumnText>
         </TextColumn>
@@ -81,11 +81,9 @@ export const MachineTranslationFeature = () => {
       <SingleColumnSection className="mt-24">
         <TextColumnTitle>Pay as you go.</TextColumnTitle>
         <TextColumnText>
-          There are some machine translation credits included in each{' '}
-          <Link to="/pricing">subscription plan</Link>. If it&apos;s not enough,
-          you can buy Extra Machine Translation credits in the Billing section.
-          These credits not reset every month, so you can use them as long as
-          you want.
+          Each <Link to="/pricing">subscription plan</Link> includes preloaded
+          translation credits. If you need more, you can buy Extra Machine
+          Translation credits in the Billing section.
         </TextColumnText>
 
         <MtCreditsSlider />

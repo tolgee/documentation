@@ -130,20 +130,19 @@ export const Intro = () => {
                   <ParallaxImage />
                 </ImageColumn>
                 <TextColumn
-                  className="md:min-w-[300px] lg:items-end md:items-center
+                  className="md:min-w-[360px] lg:items-end md:items-center
                              md:text-center lg:text-left lg:mt-[60px]"
                 >
-                  <TextColumnTitle>Revolution is here</TextColumnTitle>
+                  <TextColumnTitle>The revolution is here</TextColumnTitle>
                   <TextColumnText>
                     Speed up your translation process by{' '}
                     <span>
                       <GradientText>90%</GradientText>
-                    </span>{' '}
-                    using Tolgee. It has{' '}
-                    <GradientText>revolutionary</GradientText> integrations.
-                    Setup Tolgee in seconds. Let{' '}
-                    <GradientText>anyone</GradientText> translate your App with
-                    in-context localization feature.
+                    </span>
+                    . Set up in seconds with{' '}
+                    <GradientText>revolutionary</GradientText> integrations. Let{' '}
+                    your colleagues easily translate your App with the{' '}
+                    <GradientText>in-context</GradientText> translating feature.
                   </TextColumnText>
                 </TextColumn>
               </div>

@@ -21,10 +21,10 @@ export const TranslatingOnProductionFeature = () => {
         <TextColumn>
           <TextColumnTitle>Delegate it.</TextColumnTitle>
           <TextColumnText>
-            In-context translating also works in production environment of your
-            deployed App. Using Tolgee Tools Chrome plugin you can simply
-            provide your API key and start translating. This enables anybody
-            without developer knowledge to translate your App.
+            In-context translating also works in the production environment of
+            your deployed app. Using the Tolgee Tools Chrome plugin, you can
+            simply provide your API key and start translating. This enables
+            anybody without developer knowledge to translate your app.
           </TextColumnText>
         </TextColumn>
         <ImageColumn>

@@ -12,9 +12,9 @@ export function TolgeeIsRealTexts() {
     <>
       <TextColumnTitle>Tolgee is real</TextColumnTitle>
       <TextColumnText>
-        Tolgee is not just other localization platform offering integrations
-        which are just syncing you local data with the backend. Tolgee is really
-        integrated into your App via SDKs.
+        Tolgee is not just another localization platform offering integrations
+        that just sync your local data with the backend. Tolgee is truly
+        integrated into your app via SDKs.
       </TextColumnText>
     </>
   );

@@ -32,12 +32,12 @@ export const InContextFeature = () => {
         <TextColumn>
           <TextColumnTitle>No more time wasted.</TextColumnTitle>
           <TextColumnText>
-            Add translations in the code, translate them directly in the App
-            with Tolgee i18n tool. Clicking an element with while holding{' '}
-            <GradientText>ALT / Option key</GradientText> opens a dialog, where
-            you can simply modify your strings. No need to edit large
+            Add translations in the code, and translate them directly in the app
+            with the Tolgee i18n tool. Clicking an element while holding the{' '}
+            <GradientText>ALT/option</GradientText> key opens a dialog where you
+            can simply modify your strings. No need to edit large
             .json/.po/.whatever file. In-context translating works great also in
-            production environment.
+            the production environment.
           </TextColumnText>
         </TextColumn>
       </TwoColumnSection>
@@ -55,10 +55,10 @@ export const InContextFeature = () => {
         <TextColumn>
           <TextColumnTitle>No more mistakes.</TextColumnTitle>
           <TextColumnText>
-            Translating in the context is the best way how to avoid mistakes
+            Translating in the context is the best way to avoid mistakes
             translators make because of missing context. Imagine you&apos;ve got
-            just words, strings, phrases without knowing how they related,
-            what&apos;s their order or where are they placed in the App.
+            just words, strings, and phrases without knowing how they relate,
+            what order they should be in, or where are they located in the app.
           </TextColumnText>
         </TextColumn>
       </TwoColumnSection>

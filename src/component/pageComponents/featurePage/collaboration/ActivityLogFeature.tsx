@@ -25,10 +25,10 @@ export const ActivityLogFeature = () => {
           />
         </ImageColumn>
         <TextColumn>
-          <TextColumnTitle>Watch the growth.</TextColumnTitle>
+          <TextColumnTitle>Watch growth happen.</TextColumnTitle>
           <TextColumnText>
-            See who modified, reviewed or commented the phrases in your project.
-            Clearly.
+            See who modified, reviewed or commented on the phrases in your
+            project. Clearly.
           </TextColumnText>
         </TextColumn>
       </TwoColumnSection>
