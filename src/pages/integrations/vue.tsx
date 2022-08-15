@@ -1,5 +1,4 @@
 import React from 'react';
-import ThemedImage from '@theme/ThemedImage';
 import { LandingPage } from '../../component/landingPages/LandingPage';
 import { LandingPageHeadline } from '../../component/landingPages/LandingPageHeadline';
 import { LandingPageDescription } from '../../component/landingPages/LandingPageDescription';
@@ -7,13 +6,17 @@ import { LandingPageInstallationStep } from '../../component/landingPages/Landin
 import { LandingPageInstallation } from '../../component/landingPages/LandingPageInstallation';
 import { LandingPageInstallationCode } from '../../component/landingPages/LandingPageInstallationCode';
 import { AlertInfo } from '../../component/AlertInfo';
-import { CoolButton } from '../../component/buttons/CoolButton';
-import { CoolButtonText } from '../../component/buttons/CoolButtonText';
-import Link from '@docusaurus/Link';
-import { CoolButtonImage } from '../../component/buttons/CoolButtonImage';
 import VueLogo from '../../../static/img/technologies/logo-vue.svg';
-import { baseBadges } from '../../component/landingPages/js/baseBadges';
 import { Features } from '../../component/home/Features';
+import { LandingPageActions } from '../../component/landingPages/LandingPageActions';
+
+const DocsLinks = ({ primary }: { primary?: boolean }) => (
+  <LandingPageActions
+    docs={{ link: '/docs/web/using_with_vue/installation' }}
+    githubRepo="vue-example"
+    primary={primary}
+  />
+);
 
 export default function Vue() {
   return (
@@ -23,9 +26,9 @@ export default function Vue() {
           img: <VueLogo width={80} />,
           name: 'Vue',
         }}
-        badges={baseBadges}
+        title="Tolgee for Vue"
       >
-        Tolgee for Vue
+        <DocsLinks />
       </LandingPageHeadline>
       <LandingPageDescription installationCommand="npm i @tolgee/vue">
         <p>
@@ -71,28 +74,7 @@ export default function Vue() {
         <LandingPageInstallationStep title="Explore the Docs and check out example app!">
           <p>Continue exploring...</p>
           <div style={{ display: 'flex', gap: '20px', flexWrap: 'wrap' }}>
-            <CoolButton
-              component={Link}
-              to="/docs/web/using_with_vue/installation"
-            >
-              <CoolButtonText>Tolgee for Vue Docs</CoolButtonText>
-              <CoolButtonImage>📖</CoolButtonImage>
-            </CoolButton>
-            <CoolButton
-              component={Link}
-              to="https://github.com/tolgee/vue-example"
-            >
-              <CoolButtonText>Tolgee + Vue Example App</CoolButtonText>
-              <CoolButtonImage>
-                <ThemedImage
-                  sources={{
-                    light: '/img/github.svg',
-                    dark: '/img/githubLight.svg',
-                  }}
-                  alt="GitHub"
-                />
-              </CoolButtonImage>
-            </CoolButton>
+            <DocsLinks primary />
           </div>
         </LandingPageInstallationStep>
       </LandingPageInstallation>

@@ -5,29 +5,21 @@ import { PageHeader } from '../pageComponents/header/PageHeader';
 import { PageHeaderTitle } from '../pageComponents/header/PageHeaderTitle';
 
 export const LandingPageHeadline: FC<{
-  badges: {
-    name: string;
-    imgSrc: string;
-    aHref: string;
-  }[];
   loveImage: {
     name: string;
     img: React.ReactNode;
   };
+  title: string;
   style?: CSSProperties;
-}> = ({ loveImage, badges, children, style }) => (
+}> = ({ loveImage, children, title, style }) => (
   <div>
     <PageHeader className="mb-[180px]">
       {loveImage.img}
       <PageHeaderTitle active className="mb-2">
-        {children}
+        {title}
       </PageHeaderTitle>
-      <div className="integration__badges">
-        {badges.map((badge, key) => (
-          <a key={key} href={badge.aHref} target="_blank" rel="noreferrer">
-            <img src={badge.imgSrc} alt={badge.name} />
-          </a>
-        ))}
+      <div className="flex flex-wrap justify-center gap-4 m-2 mt-10">
+        {children}
       </div>
     </PageHeader>
   </div>

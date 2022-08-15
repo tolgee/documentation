@@ -1,18 +1,21 @@
 import React from 'react';
-import ThemedImage from '@theme/ThemedImage';
 import { LandingPage } from '../../component/landingPages/LandingPage';
 import { LandingPageHeadline } from '../../component/landingPages/LandingPageHeadline';
 import { LandingPageDescription } from '../../component/landingPages/LandingPageDescription';
 import { LandingPageInstallationStep } from '../../component/landingPages/LandingPageInstallationStep';
 import { LandingPageInstallation } from '../../component/landingPages/LandingPageInstallation';
 import { LandingPageInstallationCode } from '../../component/landingPages/LandingPageInstallationCode';
-import { CoolButton } from '../../component/buttons/CoolButton';
-import { CoolButtonText } from '../../component/buttons/CoolButtonText';
-import Link from '@docusaurus/Link';
-import { CoolButtonImage } from '../../component/buttons/CoolButtonImage';
 import SvelteLogo from '../../../static/img/technologies/logo-svelte.svg';
-import { baseBadges } from '../../component/landingPages/js/baseBadges';
 import { Features } from '../../component/home/Features';
+import { LandingPageActions } from '../../component/landingPages/LandingPageActions';
+
+const DocsLinks = ({ primary }: { primary?: boolean }) => (
+  <LandingPageActions
+    docs={{ link: '/docs/web/using_with_svelte/installation' }}
+    githubRepo="svelte-example"
+    primary={primary}
+  />
+);
 
 export default function Svelte() {
   return (
@@ -22,9 +25,9 @@ export default function Svelte() {
           img: <SvelteLogo width={65} />,
           name: 'Svelte',
         }}
-        badges={baseBadges}
+        title="Tolgee for Svelte"
       >
-        Tolgee for Svelte
+        <DocsLinks />
       </LandingPageHeadline>
       <LandingPageDescription installationCommand="npm i @tolgee/svelte">
         <p>
@@ -73,28 +76,7 @@ export default function Svelte() {
           <p>Continue exploring...</p>
 
           <div style={{ display: 'flex', gap: '20px', flexWrap: 'wrap' }}>
-            <CoolButton
-              component={Link}
-              to="/docs/web/using_with_svelte/installation"
-            >
-              <CoolButtonText>Tolgee for Svelte Docs</CoolButtonText>
-              <CoolButtonImage>📖</CoolButtonImage>
-            </CoolButton>
-            <CoolButton
-              component={Link}
-              to="https://github.com/tolgee/svelte-example"
-            >
-              <CoolButtonText>Tolgee + Svelte Example App</CoolButtonText>
-              <CoolButtonImage>
-                <ThemedImage
-                  sources={{
-                    light: '/img/github.svg',
-                    dark: '/img/githubLight.svg',
-                  }}
-                  alt="GitHub"
-                />
-              </CoolButtonImage>
-            </CoolButton>
+            <DocsLinks primary />
           </div>
         </LandingPageInstallationStep>
       </LandingPageInstallation>

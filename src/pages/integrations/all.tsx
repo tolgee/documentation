@@ -84,7 +84,7 @@ const IntegrationTile: FC<{ integration: typeof integrations[number] }> = ({
       </div>
       <div className="flex flex-col">
         {Object.entries(integration.links).map(([label, link]) => (
-          <div key={link}>
+          <div key={link} className="grid justify-start">
             <Link
               to={link}
               onMouseOver={() => {
@@ -102,6 +102,7 @@ const IntegrationTile: FC<{ integration: typeof integrations[number] }> = ({
                         before:content-[''] before:absolute before:w-0 before:h-full
                         before:border-0 before:border-b-2 before:border-b-primary before:border-solid
                         before:top-[1px] [&.main]:group-hover:before:w-full hover:before:w-full before:transition-all before:duration-200
+                        leading-none pt-[8px]
                         `,
                 link == mainLink && !hoveredOtherLink && 'main'
               )}
