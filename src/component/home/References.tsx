@@ -1,52 +1,49 @@
 import React, { useState } from 'react';
 
 type Reference = {
-  author: {
-    name: string;
-    position: string;
-    avatarUrl: string;
-  };
+  logo: string;
   quote: string;
+  link: string | undefined;
 };
 
-const references = [
+const references: Reference[] = [
   {
-    author: {
-      name: 'John Doe 1',
-      position: 'Founder at Startup',
-      avatarUrl: 'john-cash.png',
-    },
+    logo: '/logos/phonexia.png',
+    link: 'https://www.phonexia.com/product/orbis/',
     quote:
-      "Oh mama. Tolgee is the best tool I've ever tried. It saves my life. It's so fast and reliable. It makes me cry. Thanks a lot guys for this.",
+      'We enjoy the ease of translating and correcting text from the front-end of the solution, as well as the automatic translation. We also appreciate the self-hosting option. Great job Tolgee!',
   },
   {
-    author: {
-      name: 'John Doe 2',
-      position: 'Founder at Startup',
-      avatarUrl: 'john-cash.png',
-    },
+    logo: '/logos/flowerchecker.png',
+    link: 'https://web.plant.id/',
     quote:
-      "Oh mama. Tolgee is the best tool I've ever tried. It saves my life. It's so fast and reliable. It makes me cry. Thanks a lot guys for this.",
+      'In FlowerChecker, we use Tolgee not only to translate our website but also to provide information in our plant identification API in multiple languages. We especially like the tags feature, which helps us link related content.',
   },
   {
-    author: {
-      name: 'John Doe 3',
-      position: 'Founder at Startup',
-      avatarUrl: 'john-cash.png',
-    },
+    logo: '/logos/ictio.svg',
+    link: undefined,
     quote:
-      "Oh mama. Tolgee is the best tool I've ever tried. It saves my life. It's so fast and reliable. It makes me cry. Thanks a lot guys for this.",
+      'Tolgee fit perfectly for us, any change can be made in a moment, from anywhere and then we just request our new JSONs directly from their API. No more needless searching, no more wasted time.',
   },
   {
-    author: {
-      name: 'John Doe 4',
-      position: 'Founder at Startup',
-      avatarUrl: 'john-cash.png',
-    },
+    logo: '/logos/elevenclock.png',
+    link: 'https://github.com/martinet101/ElevenClock/',
     quote:
-      "Oh mama. Tolgee is the best tool I've ever tried. It saves my life. It's so fast and reliable. It makes me cry. Thanks a lot guys for this.",
+      'I have been now using Tolgee for some time and it’s been great. I am now able to collaborate with people around the world to be able to translate ElevenClock to more than 30 languages. Also, Tolgee’s API integrations allowed us to automate retrieving new translations from the platform.',
   },
-] as Reference[];
+  {
+    logo: '/logos/fluentsearch.png',
+    link: 'https://fluentsearch.net/',
+    quote:
+      'Localizing Fluent Search using Tolgee couldn’t have been smoother, with over 1800 keys that update every week I needed something easy to use and modern from both the developer and translator standpoints.',
+  },
+  {
+    logo: '/logos/aviyel.png',
+    link: 'https://aviyel.com/',
+    quote:
+      'Tolgee is a very powerful tool for localization of your project. What I like about it is the ability to change the translation text seamlessly without changing a single file manually.',
+  },
+];
 
 export const References = () => {
   const [currentItemIndex, setCurrentItemIndex] = useState(0);
@@ -67,7 +64,7 @@ export const References = () => {
 
   const onPrevious = () => {
     setCurrentItemIndex((current) => {
-      return current > 1 ? current - 1 : references.length - 1;
+      return current > 0 ? current - 1 : references.length - 1;
     });
   };
 
@@ -79,7 +76,7 @@ export const References = () => {
         onClick={onPrevious}
       />
       <div className="py-20 md:mx-12 references flex flex-col flex-grow items-center relative z-10 overflow-hidden">
-        <h2 className="mb-20 text-gradient text-3xl text-center relative z-30">
+        <h2 className="mb-12 text-gradient text-3xl text-center relative z-30">
           Satisfied users all around the world.
         </h2>
         <div className="w-full">
@@ -98,29 +95,32 @@ export const References = () => {
                   style={{ width: `${100 / references.length}%` }}
                 >
                   <div className="max-w-[800px]">
-                    <div className="grid grid-cols-5 gap-12 auto-rows-max">
-                      <>
-                        <div className="references__avatar-wrapper">
-                          <div className="references__avatar">
-                            <img
-                              className="rounded-[50%] z-20 relative"
-                              src={`/img/references-avatars/${reference.author.avatarUrl}`}
-                            />
-                          </div>
+                    <div className="grid">
+                      <div className="references__avatar-wrapper">
+                        <div>
+                          <img
+                            src={reference.logo}
+                            className="max-h-24 max-w-xs"
+                          />
                         </div>
+                      </div>
 
-                        <div className="text-[20px] col-span-5 md:col-span-3 flex items-center text-center md:text-left z-30">
-                          {reference.quote}
-                        </div>
-                        <div className="col-span-3 flex flex-col justify-center z-30">
-                          <div className="text-[23px] md:text-[28px] text-primary">
-                            {reference.author.name}
-                          </div>
-                          <div className="text-[16px] md:text-[20px] text-primary-light">
-                            {reference.author.position}
-                          </div>
-                        </div>
-                      </>
+                      <div className="text-[20px] flex items-center text-center md:text-left z-30">
+                        {reference.quote}
+                      </div>
+
+                      <div className="flex justify-center mt-6">
+                        {reference.link && (
+                          <a
+                            href={reference.link}
+                            target="_blank"
+                            rel="noreferrer noopener"
+                            className="text-lg"
+                          >
+                            Visit web
+                          </a>
+                        )}
+                      </div>
                     </div>
                   </div>
                 </div>

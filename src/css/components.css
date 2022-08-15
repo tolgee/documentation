@@ -168,21 +168,7 @@
   }
 
   .references__avatar-wrapper {
-    @apply row-start-2 md:row-span-2 col-span-2 flex flex-col justify-center w-full;
-  }
-
-  .references__avatar {
-    @apply aspect-square relative flex;
-    transform: rotate(-45deg);
-  }
-
-  .references__avatar > img {
-    transform: rotate(45deg);
-  }
-
-  .references__avatar:before {
-    @apply md:content-[''] absolute bg-white/30 dark:bg-black/10 w-[1000%]
-        h-full rounded-full z-10;
+    @apply flex justify-center w-full mt-1 mb-4;
   }
 
   .references-section:hover .references__nav {
