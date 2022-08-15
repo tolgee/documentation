@@ -19,8 +19,9 @@ export const CommentsFeature = () => {
         <TextColumn>
           <TextColumnTitle>Say what you think.</TextColumnTitle>
           <TextColumnText>
-            Something odd? Tell others what you would change. You can comment{' '}
-            <GradientText>every translation</GradientText> in Tolgee platform.
+            Something look off? Tell others what you would change. You can
+            comment <GradientText>every translation</GradientText> on Tolgee
+            platform.
           </TextColumnText>
         </TextColumn>
         <ImageColumn>

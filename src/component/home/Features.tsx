@@ -19,28 +19,28 @@ export type FeatureData = {
 export const features = [
   {
     title: 'In-context translating',
-    text: 'Translate the strings directly in the App you develop. Even on production.',
+    text: 'Translate the strings directly in the app you develop. Even in production.',
     image: <InContextImg />,
     section: 'dev-tools',
     id: 'in-context',
   },
   {
     title: 'Translation memory',
-    text: 'Don’t translate the same string twice. Translation memory reuses strings you already translated.',
+    text: 'Don’t translate the same string twice. Translation memory reuses strings you’ve already translated.',
     image: <TranslationMemoryImg />,
     section: 'translation-assistance',
     id: 'translation-memory',
   },
   {
     title: 'Machine translations',
-    text: 'Let the machines work for you. We support DeepL, Google Translate and AWS translate.',
+    text: 'Let the machines work for you. We support DeepL, Google Translate, and AWS translate.',
     image: <MachineTranslationsImg />,
     section: 'translation-assistance',
     id: 'machine-translations',
   },
   {
     title: 'Auto translation',
-    text: 'When you need your translations delivered yesterday. Texts are translated automatically right after you add them.',
+    text: 'For when you need your translations delivered yesterday, texts are translated automatically right after you add them.',
     image: <AutoTranslationImg />,
     section: 'translation-assistance',
     id: 'auto-translation',

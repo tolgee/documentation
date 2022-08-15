@@ -27,13 +27,13 @@ export const TranslationMemoryFeature = () => {
         <TextColumn>
           <TextColumnTitle>We remember.</TextColumnTitle>
           <TextColumnText>
-            Tolgee is automatically suggesting from translations you already
-            used in the project. So you can translate similar phrases similar
-            way.
+            Tolgee automatically makes suggestions from translations you already
+            used in the project so you can translate similar phrases in a
+            similar way.
           </TextColumnText>
           <TextColumnText>
-            Translation memory suggestions also show the similarity percentage
-            and the key and the original text of the translated string.
+            Translation memory suggestions also show the similarity percentage,
+            the key, and the original text of the translated string.
           </TextColumnText>
         </TextColumn>
       </TwoColumnSection>

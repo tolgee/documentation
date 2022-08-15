@@ -54,6 +54,7 @@
 
   .button--small {
     padding: 4px 16px !important;
+    border-width: 2px !important;
   }
 
   .button--primary:hover {

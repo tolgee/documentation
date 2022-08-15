@@ -27,13 +27,13 @@ export const AutoTranslationFeature = () => {
         <TextColumn>
           <TextColumnTitle>Just translated.</TextColumnTitle>
           <TextColumnText>
-            When enabled. Tolgee automatically translates new keys using
+            When enabled, Tolgee automatically translates new keys using
             translation memory or machine translation services. Your strings are
             translated immediately, right after creation.
           </TextColumnText>
           <TextColumnTitle>Choose your weapon.</TextColumnTitle>
           <TextColumnText>
-            Select if you would like to use translation memory or/and which
+            Select if you would like to use translation memory and/or which
             machine translation service you would like to use to automatically
             translate new keys.
           </TextColumnText>

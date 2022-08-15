@@ -29,11 +29,12 @@ export const OneClickScreenshotsFeature = () => {
           />
         </ImageColumn>{' '}
         <TextColumn>
-          <TextColumnTitle>Twice.</TextColumnTitle>
+          <TextColumnTitle>Once.</TextColumnTitle>
           <TextColumnText>
-            That&apos;s how many times you have to click to provide screenshot
-            from your application with highlighted phrase to translate. Just AlT
-            + Click a string and hit camera button. Boom! Screenshot generated.
+            That&apos;s how many times you have to click to take a screenshot
+            from your application with highlighted phrases to translate. Just
+            ALT + click a string and hit the camera button. Boom! Screenshot
+            generated.
           </TextColumnText>
         </TextColumn>
       </TwoColumnSection>
@@ -51,9 +52,9 @@ export const OneClickScreenshotsFeature = () => {
           <TextColumnTitle>Highlighted.</TextColumnTitle>
           <TextColumnText>
             Screenshots provide context to your translators. Translating
-            software without context is always generating a lot of translation
-            errors. Don&apos;t wait till your customers tell you what&apos;s
-            wrong. Provide perfect results right away.
+            software without context always generates a lot of errors.
+            Don&apos;t wait for your customers to tell you what&apos;s wrong.
+            Provide perfect results right away.
           </TextColumnText>
         </TextColumn>
       </TwoColumnSection>
