@@ -10,8 +10,8 @@ import { InstallationStepCreateProjectInTolgeePlatform } from '../../component/l
 import { ReactBaseParagraph } from '../../component/landingPages/ReactBaseParagraph';
 import { ReactInstallationStepUseTComponent } from '../../component/landingPages/js/TeactInstallationStepUseTComponent';
 import GatsbyLogo from '../../../static/img/technologies/logo-gatsby.svg';
-import { Features } from '../../component/home/Features';
 import { LandingPageActions } from '../../component/landingPages/LandingPageActions';
+import { MoreIntegrations } from '../../component/landingPages/LandingPageMoreIntegrations';
 
 const DocsLinks = ({ primary }: { primary?: boolean }) => (
   <LandingPageActions
@@ -77,7 +77,7 @@ export default function Gatsby() {
           </div>
         </LandingPageInstallationStep>
       </LandingPageInstallation>
-      <Features />
+      <MoreIntegrations />
     </LandingPage>
   );
 }

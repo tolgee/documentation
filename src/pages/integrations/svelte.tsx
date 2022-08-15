@@ -6,8 +6,8 @@ import { LandingPageInstallationStep } from '../../component/landingPages/Landin
 import { LandingPageInstallation } from '../../component/landingPages/LandingPageInstallation';
 import { LandingPageInstallationCode } from '../../component/landingPages/LandingPageInstallationCode';
 import SvelteLogo from '../../../static/img/technologies/logo-svelte.svg';
-import { Features } from '../../component/home/Features';
 import { LandingPageActions } from '../../component/landingPages/LandingPageActions';
+import { MoreIntegrations } from '../../component/landingPages/LandingPageMoreIntegrations';
 
 const DocsLinks = ({ primary }: { primary?: boolean }) => (
   <LandingPageActions
@@ -80,7 +80,7 @@ export default function Svelte() {
           </div>
         </LandingPageInstallationStep>
       </LandingPageInstallation>
-      <Features />
+      <MoreIntegrations />
     </LandingPage>
   );
 }

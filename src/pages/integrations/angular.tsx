@@ -5,9 +5,9 @@ import { LandingPageInstallationStep } from '../../component/landingPages/Landin
 import { LandingPageInstallation } from '../../component/landingPages/LandingPageInstallation';
 import { LandingPageInstallationCode } from '../../component/landingPages/LandingPageInstallationCode';
 import AngularLogo from '../../../static/img/technologies/logo-angular.svg';
-import { Features } from '../../component/home/Features';
 import { LandingPageDescription } from '../../component/landingPages/LandingPageDescription';
 import { LandingPageActions } from '../../component/landingPages/LandingPageActions';
+import { MoreIntegrations } from '../../component/landingPages/LandingPageMoreIntegrations';
 
 const DocsLinks = ({ primary }: { primary?: boolean }) => (
   <LandingPageActions
@@ -77,7 +77,7 @@ export default function Angular() {
           </div>
         </LandingPageInstallationStep>
       </LandingPageInstallation>
-      <Features />
+      <MoreIntegrations />
     </LandingPage>
   );
 }

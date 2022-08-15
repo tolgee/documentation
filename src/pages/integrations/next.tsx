@@ -10,8 +10,8 @@ import { InstallationStepCreateProjectInTolgeePlatform } from '../../component/l
 import { ReactBaseParagraph } from '../../component/landingPages/ReactBaseParagraph';
 import { ReactInstallationStepUseTComponent } from '../../component/landingPages/js/TeactInstallationStepUseTComponent';
 import NextLogo from '../../../static/img/technologies/logo-next.svg';
-import { Features } from '../../component/home/Features';
 import { LandingPageActions } from '../../component/landingPages/LandingPageActions';
+import { MoreIntegrations } from '../../component/landingPages/LandingPageMoreIntegrations';
 
 const DocsLinks = ({ primary }: { primary?: boolean }) => (
   <LandingPageActions
@@ -78,7 +78,7 @@ export default function Next() {
           </div>
         </LandingPageInstallationStep>
       </LandingPageInstallation>
-      <Features />
+      <MoreIntegrations />
     </LandingPage>
   );
 }

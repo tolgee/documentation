@@ -6,8 +6,8 @@ import { LandingPageInstallationStep } from '../../component/landingPages/Landin
 import { LandingPageInstallation } from '../../component/landingPages/LandingPageInstallation';
 import { LandingPageInstallationCode } from '../../component/landingPages/LandingPageInstallationCode';
 import ReactLogo from '../../../static/img/technologies/logo-react.svg';
-import { Features } from '../../component/home/Features';
 import { LandingPageActions } from '../../component/landingPages/LandingPageActions';
+import { MoreIntegrations } from '../../component/landingPages/LandingPageMoreIntegrations';
 
 const DocsLinks = ({ primary }: { primary?: boolean }) => (
   <LandingPageActions
@@ -78,7 +78,7 @@ export default function ReactIntegration() {
           </div>
         </LandingPageInstallationStep>
       </LandingPageInstallation>
-      <Features />
+      <MoreIntegrations />
     </LandingPage>
   );
 }

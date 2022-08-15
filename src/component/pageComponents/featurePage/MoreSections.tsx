@@ -7,10 +7,10 @@ export const MoreSections: FC = () => (
       flex
       flex-col
       items-center
-      pb-12
+      pb-16
     "
   >
-    <h2 className="mt-12 mb-0">Read more</h2>
+    <h2 className="mt-12 mb-4">Read more</h2>
     <Sections withImg={true} />
   </section>
 );

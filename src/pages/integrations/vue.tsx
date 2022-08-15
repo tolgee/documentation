@@ -7,8 +7,8 @@ import { LandingPageInstallation } from '../../component/landingPages/LandingPag
 import { LandingPageInstallationCode } from '../../component/landingPages/LandingPageInstallationCode';
 import { AlertInfo } from '../../component/AlertInfo';
 import VueLogo from '../../../static/img/technologies/logo-vue.svg';
-import { Features } from '../../component/home/Features';
 import { LandingPageActions } from '../../component/landingPages/LandingPageActions';
+import { MoreIntegrations } from '../../component/landingPages/LandingPageMoreIntegrations';
 
 const DocsLinks = ({ primary }: { primary?: boolean }) => (
   <LandingPageActions
@@ -78,8 +78,7 @@ export default function Vue() {
           </div>
         </LandingPageInstallationStep>
       </LandingPageInstallation>
-
-      <Features />
+      <MoreIntegrations />
     </LandingPage>
   );
 }
