@@ -1,18 +1,21 @@
 import React from 'react';
-import ThemedImage from '@theme/ThemedImage';
 import { LandingPage } from '../../component/landingPages/LandingPage';
 import { LandingPageHeadline } from '../../component/landingPages/LandingPageHeadline';
 import { LandingPageDescription } from '../../component/landingPages/LandingPageDescription';
 import { LandingPageInstallationStep } from '../../component/landingPages/LandingPageInstallationStep';
 import { LandingPageInstallation } from '../../component/landingPages/LandingPageInstallation';
 import { LandingPageInstallationCode } from '../../component/landingPages/LandingPageInstallationCode';
-import { CoolButton } from '../../component/buttons/CoolButton';
-import { CoolButtonText } from '../../component/buttons/CoolButtonText';
-import Link from '@docusaurus/Link';
-import { CoolButtonImage } from '../../component/buttons/CoolButtonImage';
 import ReactLogo from '../../../static/img/technologies/logo-react.svg';
-import { baseBadges } from '../../component/landingPages/js/baseBadges';
 import { Features } from '../../component/home/Features';
+import { LandingPageActions } from '../../component/landingPages/LandingPageActions';
+
+const DocsLinks = ({ primary }: { primary?: boolean }) => (
+  <LandingPageActions
+    docs={{ link: '/docs/web/using_with_react/installation' }}
+    githubRepo="react-example"
+    primary={primary}
+  />
+);
 
 export default function ReactIntegration() {
   return (
@@ -22,9 +25,9 @@ export default function ReactIntegration() {
           img: <ReactLogo width={80} />,
           name: 'React',
         }}
-        badges={baseBadges}
+        title="Tolgee for React"
       >
-        Tolgee for React
+        <DocsLinks />
       </LandingPageHeadline>
       <LandingPageDescription installationCommand="npm i @tolgee/react">
         <p>
@@ -71,28 +74,7 @@ export default function ReactIntegration() {
           <p>Continue exploring...</p>
 
           <div style={{ display: 'flex', gap: '20px', flexWrap: 'wrap' }}>
-            <CoolButton
-              component={Link}
-              to="/docs/web/using_with_react/installation"
-            >
-              <CoolButtonText>Tolgee for React Docs</CoolButtonText>
-              <CoolButtonImage>📖</CoolButtonImage>
-            </CoolButton>
-            <CoolButton
-              component={Link}
-              to="https://github.com/tolgee/react-example"
-            >
-              <CoolButtonText>Tolgee + React Example App</CoolButtonText>
-              <CoolButtonImage>
-                <ThemedImage
-                  sources={{
-                    light: '/img/github.svg',
-                    dark: '/img/githubLight.svg',
-                  }}
-                  alt="GitHub"
-                />
-              </CoolButtonImage>
-            </CoolButton>
+            <DocsLinks primary />
           </div>
         </LandingPageInstallationStep>
       </LandingPageInstallation>

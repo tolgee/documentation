@@ -1,18 +1,21 @@
 import React from 'react';
-import ThemedImage from '@theme/ThemedImage';
 import { LandingPage } from '../../component/landingPages/LandingPage';
 import { LandingPageHeadline } from '../../component/landingPages/LandingPageHeadline';
 import { LandingPageInstallationStep } from '../../component/landingPages/LandingPageInstallationStep';
 import { LandingPageInstallation } from '../../component/landingPages/LandingPageInstallation';
 import { LandingPageInstallationCode } from '../../component/landingPages/LandingPageInstallationCode';
-import { CoolButton } from '../../component/buttons/CoolButton';
-import { CoolButtonText } from '../../component/buttons/CoolButtonText';
-import Link from '@docusaurus/Link';
-import { CoolButtonImage } from '../../component/buttons/CoolButtonImage';
 import AngularLogo from '../../../static/img/technologies/logo-angular.svg';
-import { baseBadges } from '../../component/landingPages/js/baseBadges';
 import { Features } from '../../component/home/Features';
 import { LandingPageDescription } from '../../component/landingPages/LandingPageDescription';
+import { LandingPageActions } from '../../component/landingPages/LandingPageActions';
+
+const DocsLinks = ({ primary }: { primary?: boolean }) => (
+  <LandingPageActions
+    docs={{ link: '/docs/web/using_with_angular/installation' }}
+    githubRepo="ngx-example"
+    primary={primary}
+  />
+);
 
 export default function Angular() {
   return (
@@ -22,9 +25,9 @@ export default function Angular() {
           img: <AngularLogo width={80} />,
           name: 'Angular',
         }}
-        badges={baseBadges}
+        title="Tolgee for Angular"
       >
-        Tolgee for Angular
+        <DocsLinks />
       </LandingPageHeadline>
       <LandingPageDescription installationCommand="npm i @tolgee/ngx">
         <p>
@@ -70,28 +73,7 @@ export default function Angular() {
           <p>Continue exploring...</p>
 
           <div style={{ display: 'flex', gap: '20px', flexWrap: 'wrap' }}>
-            <CoolButton
-              component={Link}
-              to="/docs/web/using_with_angular/installation"
-            >
-              <CoolButtonText>Tolgee for Angular Docs</CoolButtonText>
-              <CoolButtonImage>📖</CoolButtonImage>
-            </CoolButton>
-            <CoolButton
-              component={Link}
-              to="https://github.com/tolgee/ngx-example"
-            >
-              <CoolButtonText>Tolgee + Angular Example App</CoolButtonText>
-              <CoolButtonImage>
-                <ThemedImage
-                  sources={{
-                    light: '/img/github.svg',
-                    dark: '/img/githubLight.svg',
-                  }}
-                  alt="GitHub"
-                />
-              </CoolButtonImage>
-            </CoolButton>
+            <DocsLinks primary />
           </div>
         </LandingPageInstallationStep>
       </LandingPageInstallation>

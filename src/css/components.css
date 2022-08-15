@@ -52,6 +52,10 @@
         hover:bg-transparent;
   }
 
+  .button--small {
+    padding: 4px 16px !important;
+  }
+
   .button--primary:hover {
     background: var(--ifm-color-primary-light);
     color: var(--ifm-color-emphasis-0);

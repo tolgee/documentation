@@ -1,23 +1,32 @@
 import React from 'react';
-import ThemedImage from '@theme/ThemedImage';
 import { LandingPage } from '../../component/landingPages/LandingPage';
 import { LandingPageHeadline } from '../../component/landingPages/LandingPageHeadline';
 import { LandingPageDescription } from '../../component/landingPages/LandingPageDescription';
 import { LandingPageInstallationStep } from '../../component/landingPages/LandingPageInstallationStep';
 import { LandingPageInstallation } from '../../component/landingPages/LandingPageInstallation';
 import { LandingPageInstallationCode } from '../../component/landingPages/LandingPageInstallationCode';
-import { CoolButton } from '../../component/buttons/CoolButton';
-import { CoolButtonText } from '../../component/buttons/CoolButtonText';
-import Link from '@docusaurus/Link';
-import { CoolButtonImage } from '../../component/buttons/CoolButtonImage';
-import { baseBadges } from '../../component/landingPages/js/baseBadges';
 import { ExampleAppLinkDescriptionParagraph } from '../../component/landingPages/common/ExampleAppLinkDescriptionParagraph';
 import { InstallationStepCreateProjectInTolgeePlatform } from '../../component/landingPages/common/InstallationStepCreateProjectInTolgeePlatform';
-import { ReactDocsCoolButton } from '../../component/landingPages/js/ReactDocsCoolButton';
 import { ReactBaseParagraph } from '../../component/landingPages/ReactBaseParagraph';
 import { ReactInstallationStepUseTComponent } from '../../component/landingPages/js/TeactInstallationStepUseTComponent';
 import NextLogo from '../../../static/img/technologies/logo-next.svg';
 import { Features } from '../../component/home/Features';
+import { LandingPageActions } from '../../component/landingPages/LandingPageActions';
+
+const DocsLinks = ({ primary }: { primary?: boolean }) => (
+  <LandingPageActions
+    docs={{
+      label: 'Next Docs',
+      link: '/docs/web/using_with_react/ssr/using_with_next',
+    }}
+    githubRepo="next-example"
+    additionalDocs={{
+      label: 'React Docs',
+      link: '/docs/web/using_with_react/installation',
+    }}
+    primary={primary}
+  />
+);
 
 export default function Next() {
   return (
@@ -27,9 +36,9 @@ export default function Next() {
           img: <NextLogo width={80} />,
           name: 'Next.js',
         }}
-        badges={baseBadges}
+        title="Tolgee for Next"
       >
-        Tolgee for Next
+        <DocsLinks />
       </LandingPageHeadline>
       <LandingPageDescription installationCommand="npm i @tolgee/react">
         <p>
@@ -65,29 +74,7 @@ export default function Next() {
           <p>Continue exploring...</p>
 
           <div style={{ display: 'flex', gap: '20px', flexWrap: 'wrap' }}>
-            <ReactDocsCoolButton />
-            <CoolButton
-              component={Link}
-              to="/docs/web/using_with_react/ssr/using_with_next"
-            >
-              <CoolButtonText>Tolgee for Next Docs</CoolButtonText>
-              <CoolButtonImage>📖</CoolButtonImage>
-            </CoolButton>
-            <CoolButton
-              component={Link}
-              to="https://github.com/tolgee/next-example"
-            >
-              <CoolButtonText>Tolgee + Next Example App</CoolButtonText>
-              <CoolButtonImage>
-                <ThemedImage
-                  sources={{
-                    light: '/img/github.svg',
-                    dark: '/img/githubLight.svg',
-                  }}
-                  alt="GitHub"
-                />
-              </CoolButtonImage>
-            </CoolButton>
+            <DocsLinks primary />
           </div>
         </LandingPageInstallationStep>
       </LandingPageInstallation>
