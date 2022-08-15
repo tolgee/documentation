@@ -18,16 +18,39 @@ module.exports = {
       },
       items: [
         {
-          to: 'docs/',
-          activeBasePath: 'docs',
-          label: 'Docs',
+          type: 'dropdown',
+          label: 'Product',
           position: 'right',
-        },
-        {
-          to: 'pricing',
-          activeBasePath: 'pricing',
-          label: 'Pricing',
-          position: 'right',
+          items: [
+            {
+              type: 'html',
+              value: '#Features',
+            },
+            {
+              to: 'features/dev-tools',
+              label: 'Dev tools',
+            },
+            {
+              to: 'features/translation-assistance',
+              label: 'Translation assistance',
+            },
+            {
+              to: 'features/collaboration',
+              label: 'Collaboration',
+            },
+            {
+              type: 'html',
+              value: '#About us',
+            },
+            {
+              to: 'roadmap',
+              label: 'Roadmap',
+            },
+            {
+              to: 'opensource',
+              label: 'Why Open-source?',
+            },
+          ],
         },
         {
           type: 'dropdown',
@@ -77,43 +100,22 @@ module.exports = {
           ],
         },
         {
-          type: 'dropdown',
-          label: 'Product',
+          to: 'docs/',
+          activeBasePath: 'docs',
+          label: 'Docs',
           position: 'right',
-          items: [
-            {
-              type: 'html',
-              value: '#Features',
-            },
-            {
-              to: 'features/dev-tools',
-              label: 'Dev tools',
-            },
-            {
-              to: 'features/translation-assistance',
-              label: 'Translation assistance',
-            },
-            {
-              to: 'features/collaboration',
-              label: 'Collaboration',
-            },
-            {
-              type: 'html',
-              value: '#About us',
-            },
-            {
-              to: 'roadmap',
-              label: 'Roadmap',
-            },
-            {
-              to: 'opensource',
-              label: 'Why Open-source?',
-            },
-            {
-              to: 'blog',
-              label: 'Blog',
-            },
-          ],
+        },
+        {
+          to: 'pricing',
+          activeBasePath: 'pricing',
+          label: 'Pricing',
+          position: 'right',
+        },
+        {
+          to: 'blog',
+          activeBasePath: 'blog',
+          label: 'Blog',
+          position: 'right',
         },
         {
           to: 'https://app.tolgee.io',

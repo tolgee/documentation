@@ -223,7 +223,7 @@
 }
 
 .login-button {
-  @apply ml-[10px] desktop:ml-[6px];
+  @apply ml-[10px] desktop:ml-[20px];
   border: 1px solid var(--ifm-link-color);
   color: var(--ifm-link-color);
   border-radius: 8px;

@@ -22,22 +22,22 @@ export const TechnologyIcons: FC<{ className?: string }> = ({ className }) => (
       className
     )}
   >
-    <TechnologyLink to="integrations/react">
+    <TechnologyLink to="/integrations/react">
       <LogoReact />
     </TechnologyLink>
-    <TechnologyLink to="integrations/angular">
+    <TechnologyLink to="/integrations/angular">
       <LogoAngular />
     </TechnologyLink>
-    <TechnologyLink to="integrations/next">
+    <TechnologyLink to="/integrations/next">
       <LogoNext />
     </TechnologyLink>
-    <TechnologyLink to="integrations/vue">
+    <TechnologyLink to="/integrations/vue">
       <LogoVue />
     </TechnologyLink>
-    <TechnologyLink to="integrations/svelte">
+    <TechnologyLink to="/integrations/svelte">
       <LogoSvelte />
     </TechnologyLink>
-    <TechnologyLink to="integrations/gatsby">
+    <TechnologyLink to="/integrations/gatsby">
       <LogoGatsby />
     </TechnologyLink>
   </div>
