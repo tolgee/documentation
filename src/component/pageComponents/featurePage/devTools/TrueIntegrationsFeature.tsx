@@ -6,6 +6,7 @@ import {
 import { FeatureHeader } from '../FeatureHeader';
 import { SingleColumnSection } from '../../twoColumnSection/SingleColumnSection';
 import { TechnologyIcons } from '../../../TechnologyIcons';
+import { TRUE_INTEGRATIONS } from '../hashLinks';
 
 export function TolgeeIsRealTexts() {
   return (
@@ -23,7 +24,7 @@ export function TolgeeIsRealTexts() {
 export const TrueIntegrationsFeature = () => {
   return (
     <>
-      <FeatureHeader title="True integrations" id="true-integrations" />
+      <FeatureHeader title="True integrations" id={TRUE_INTEGRATIONS} />
       <SingleColumnSection>
         <TolgeeIsRealTexts />
         <TechnologyIcons className="justify-center" />

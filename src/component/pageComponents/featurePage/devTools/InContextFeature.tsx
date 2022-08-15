@@ -10,6 +10,7 @@ import {
 import { ImageColumn } from '../../twoColumnSection/ImageColumn';
 import { GradientText } from '../../../GradientText';
 import { FeatureHeader } from '../FeatureHeader';
+import { IN_CONTEXT } from '../hashLinks';
 
 export const InContextFeature = () => {
   return (
@@ -17,7 +18,7 @@ export const InContextFeature = () => {
       <FeatureHeader
         gridRow="1"
         title="In context translating"
-        id="in-context"
+        id={IN_CONTEXT}
       />
       <TwoColumnSection gridRow="2" className="md:pl-20">
         <ImageColumn>

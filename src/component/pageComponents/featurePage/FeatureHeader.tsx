@@ -14,7 +14,7 @@ export const FeatureHeader = (props: {
       }}
     >
       <h2
-        className="text-2xl text-home-text mb-0 mt-3 text-[18px] sm:text-[22px] font-bold"
+        className="text-2xl text-home-text mb-0 mt-3 text-[18px] sm:text-[22px] font-bold scroll-mt-24"
         id={props.id}
       >
         {props.title}

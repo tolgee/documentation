@@ -9,13 +9,14 @@ import {
 } from '../../twoColumnSection/TextColumn';
 import { ImageColumn } from '../../twoColumnSection/ImageColumn';
 import { FeatureHeader } from '../FeatureHeader';
+import { TRANSLATING_ON_PRODUCTION } from '../hashLinks';
 
 export const TranslatingOnProductionFeature = () => {
   return (
     <>
       <FeatureHeader
         title="Translating on production"
-        id="translating-on-production"
+        id={TRANSLATING_ON_PRODUCTION}
       />
       <TwoColumnSection>
         <TextColumn>

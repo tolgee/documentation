@@ -1,0 +1,10 @@
+export const IN_CONTEXT = 'in-context';
+export const TRANSLATION_MEMORY = 'translation-memory';
+export const MACHINE_TRANSLATION = 'machine-translation';
+export const AUTO_TRANSLATION = 'auto-translation';
+export const ACTIVITY_LOG = 'activity-log';
+export const ONE_CLICK_SCREENSHOTS = 'one-click-screenshots';
+export const COMMENTS = 'comments';
+export const TRANSLATION_HISTORY = 'translation-history';
+export const TRANSLATING_ON_PRODUCTION = 'translating-on-production';
+export const TRUE_INTEGRATIONS = 'true-integrations';

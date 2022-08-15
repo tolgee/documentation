@@ -9,6 +9,7 @@ import {
 } from '../../twoColumnSection/TextColumn';
 import { ImageColumn } from '../../twoColumnSection/ImageColumn';
 import { FeatureHeader } from '../FeatureHeader';
+import { ONE_CLICK_SCREENSHOTS } from '../hashLinks';
 
 export const OneClickScreenshotsFeature = () => {
   return (
@@ -16,7 +17,7 @@ export const OneClickScreenshotsFeature = () => {
       <FeatureHeader
         gridRow="4"
         title="One click screenshots"
-        id="one-click-screenshots"
+        id={ONE_CLICK_SCREENSHOTS}
       />
       <TwoColumnSection gridRow="5" className="md:pl-20">
         <ImageColumn>

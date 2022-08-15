@@ -9,11 +9,12 @@ import {
 } from '../../twoColumnSection/TextColumn';
 import { ImageColumn } from '../../twoColumnSection/ImageColumn';
 import { FeatureHeader } from '../FeatureHeader';
+import { ACTIVITY_LOG } from '../hashLinks';
 
 export const ActivityLogFeature = () => {
   return (
     <>
-      <FeatureHeader title="Activity log" id="activity-log" />
+      <FeatureHeader title="Activity log" id={ACTIVITY_LOG} />
       <TwoColumnSection>
         <ImageColumn>
           <ThemedImage

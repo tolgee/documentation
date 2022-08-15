@@ -9,11 +9,12 @@ import {
 } from '../../twoColumnSection/TextColumn';
 import { ImageColumn } from '../../twoColumnSection/ImageColumn';
 import { FeatureHeader } from '../FeatureHeader';
+import { TRANSLATION_MEMORY } from '../hashLinks';
 
 export const TranslationMemoryFeature = () => {
   return (
     <>
-      <FeatureHeader title="Translation memory" id="translation-memory" />
+      <FeatureHeader title="Translation memory" id={TRANSLATION_MEMORY} />
       <TwoColumnSection className="mb-36">
         <ImageColumn>
           <ThemedImage

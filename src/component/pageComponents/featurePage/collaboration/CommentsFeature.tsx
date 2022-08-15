@@ -10,11 +10,12 @@ import {
 import { ImageColumn } from '../../twoColumnSection/ImageColumn';
 import { GradientText } from '../../../GradientText';
 import { FeatureHeader } from '../FeatureHeader';
+import { COMMENTS } from '../hashLinks';
 
 export const CommentsFeature = () => {
   return (
     <>
-      <FeatureHeader title="Comment on translations" id="comments" />
+      <FeatureHeader title="Comment on translations" id={COMMENTS} />
       <TwoColumnSection>
         <TextColumn>
           <TextColumnTitle>Say what you think.</TextColumnTitle>
