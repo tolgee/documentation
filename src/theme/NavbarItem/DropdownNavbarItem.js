@@ -83,7 +83,7 @@ function DropdownNavbarItemDesktop({
       <div className="dropdown__menu">
         {itemGroups.map((group, i) => {
           return (
-            <div className="dropdown__menu-group" key={i}>
+            <ul className="dropdown__menu-group" key={i}>
               {group.title && (
                 <div className="dropdown__menu-title">{group.title}</div>
               )}
@@ -112,7 +112,7 @@ function DropdownNavbarItemDesktop({
                   key={i}
                 />
               ))}
-            </div>
+            </ul>
           );
         })}
       </div>
