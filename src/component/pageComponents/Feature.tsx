@@ -1,3 +1,4 @@
+import Link from '@docusaurus/Link';
 import React, { FC } from 'react';
 import { FeatureData } from '../home/Features';
 import { sections } from './featurePage/sections/Sections';
@@ -8,7 +9,7 @@ export const Feature: FC<{ feature: FeatureData }> = (props) => {
   ).name;
 
   return (
-    <a
+    <Link
       href={`/features/${props.feature.section}#${props.feature.id}`}
       className="group flex flex-col rounded-[10px] dark:bg-black/20 bg-white/30 p-8 text-home-text hover:text-home-text hover:no-underline hover:bg-white/60 dark:hover:bg-black/30 transition-all duration-200"
     >
@@ -24,13 +25,12 @@ export const Feature: FC<{ feature: FeatureData }> = (props) => {
             className="relative hover:no-underline
                         before:content-[''] before:absolute before:w-0 before:h-full
                         before:border-0 before:border-b-2 before:border-b-primary before:border-solid
-                        before:top-[1px] group-hover:before:w-full hover:before:w-full before:transition-all before:duration-200
-      "
+                        before:top-[1px] group-hover:before:w-full hover:before:w-full before:transition-all before:duration-200"
           >
             Read more
           </span>
         </div>
       </>
-    </a>
+    </Link>
   );
 };

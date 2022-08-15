@@ -9,11 +9,12 @@ import {
 } from '../../twoColumnSection/TextColumn';
 import { ImageColumn } from '../../twoColumnSection/ImageColumn';
 import { FeatureHeader } from '../FeatureHeader';
+import { AUTO_TRANSLATION } from '../hashLinks';
 
 export const AutoTranslationFeature = () => {
   return (
     <>
-      <FeatureHeader title="Auto translation" id="auto-translatiom" />
+      <FeatureHeader title="Auto translation" id={AUTO_TRANSLATION} />
       <TwoColumnSection>
         <ImageColumn>
           <ThemedImage

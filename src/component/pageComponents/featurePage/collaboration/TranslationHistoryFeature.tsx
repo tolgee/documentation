@@ -9,11 +9,12 @@ import {
 } from '../../twoColumnSection/TextColumn';
 import { ImageColumn } from '../../twoColumnSection/ImageColumn';
 import { FeatureHeader } from '../FeatureHeader';
+import { TRANSLATION_HISTORY } from '../hashLinks';
 
 export const TranslationHistoryFeature = () => {
   return (
     <>
-      <FeatureHeader title="Translation history" id="translation-history" />
+      <FeatureHeader title="Translation history" id={TRANSLATION_HISTORY} />
       <TwoColumnSection>
         <ImageColumn>
           <ThemedImage

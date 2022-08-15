@@ -14,6 +14,7 @@ import Link from '@docusaurus/Link';
 import { SingleColumnSection } from '../../twoColumnSection/SingleColumnSection';
 import { Slider } from '@mui/material';
 import { possiblePrices } from './creditsUtil';
+import { MACHINE_TRANSLATION } from '../hashLinks';
 
 function MtCreditsSlider() {
   const [sliderValue, setSliderValue] = useState(1 as number);
@@ -50,7 +51,7 @@ function MtCreditsSlider() {
 export const MachineTranslationFeature = () => {
   return (
     <>
-      <FeatureHeader title="Machine translation" id="machine-translation" />
+      <FeatureHeader title="Machine translation" id={MACHINE_TRANSLATION} />
       <TwoColumnSection>
         <ImageColumn>
           <ThemedImage
