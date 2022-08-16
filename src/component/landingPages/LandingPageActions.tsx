@@ -17,6 +17,7 @@ type Props = {
     label: string;
     link: string;
   };
+  exampleApp?: string;
 };
 
 export const LandingPageActions: React.FC<Props> = ({
@@ -24,6 +25,7 @@ export const LandingPageActions: React.FC<Props> = ({
   githubRepo,
   primary,
   additionalDocs,
+  exampleApp: exampleApp,
 }) => {
   return (
     <>
@@ -46,13 +48,22 @@ export const LandingPageActions: React.FC<Props> = ({
       {githubRepo && (
         <CoolButton
           component={Link}
-          to={`https://github.com/tolgee/${githubRepo}`}
+          to={`https://github.com/tolgee/tolgee-js/tree/main/packages/${githubRepo}`}
           primary={primary}
         >
-          <CoolButtonText>Example App</CoolButtonText>
+          <CoolButtonText>GitHub Repository</CoolButtonText>
           <CoolButtonImage>
             <GitHub />
           </CoolButtonImage>
+        </CoolButton>
+      )}
+      {exampleApp && (
+        <CoolButton
+          component={Link}
+          to={`https://github.com/tolgee/${exampleApp}`}
+          primary={primary}
+        >
+          <CoolButtonText>Example App</CoolButtonText>
         </CoolButton>
       )}
     </>
