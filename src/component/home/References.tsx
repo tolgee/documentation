@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { ReferenceItem } from '../reference/ReferenceItem';
 
 type Reference = {
   logo: string;
@@ -21,7 +22,7 @@ const references: Reference[] = [
   },
   {
     logo: '/logos/ictio.svg',
-    link: undefined,
+    link: 'https://ictio.org',
     quote:
       'Tolgee fit perfectly for us, any change can be made in a moment, from anywhere and then we just request our new JSONs directly from their API. No more needless searching, no more wasted time.',
   },
@@ -85,7 +86,7 @@ export const References = () => {
             style={{ width: `${references.length * 100}%` }}
           >
             <div
-              className={`relative flex transition-all duration-[2s]`}
+              className={`relative flex transition-all duration-[1s]`}
               style={{ left: `${left}%` }}
             >
               {references.map((reference, idx) => (
@@ -127,6 +128,17 @@ export const References = () => {
               ))}
             </div>
           </div>
+        </div>
+        <div className="decoration" />
+        <div className="hidden xl:flex gap-6 mt-10 items-center">
+          {references.map((reference, i) => (
+            <ReferenceItem
+              key={i}
+              logo={reference.logo}
+              onClick={() => setCurrentItemIndex(i)}
+              selected={i === currentItemIndex}
+            />
+          ))}
         </div>
       </div>
       <button

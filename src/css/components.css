@@ -161,10 +161,18 @@
     filter: grayscale(0);
   }
 
-  .references:before {
-    @apply content-[''] absolute w-[100%] h-[50%] rounded-full bg-white/10 dark:bg-black/5 top-[50%] left-[50%] hidden xl:block;
-    transform-origin: top left;
-    transform: rotate(-40deg);
+  .references .decoration {
+    width: 280px;
+    height: 280px;
+    position: absolute;
+    top: 30%;
+    left: 50%;
+    transform-origin: center center;
+    transform: translate(-58%, -50%) rotate(-40deg);
+  }
+
+  .references .decoration:before {
+    @apply content-[''] absolute w-[900px] h-[100%] rounded-full bg-white/10 dark:bg-black/5 hidden xl:block;
   }
 
   .references__avatar-wrapper {
