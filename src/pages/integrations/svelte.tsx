@@ -12,7 +12,8 @@ import { MoreIntegrations } from '../../component/landingPages/LandingPageMoreIn
 const DocsLinks = ({ primary }: { primary?: boolean }) => (
   <LandingPageActions
     docs={{ link: '/docs/web/using_with_svelte/installation' }}
-    githubRepo="svelte-example"
+    exampleApp="svelte-example"
+    githubRepo="svelte"
     primary={primary}
   />
 );

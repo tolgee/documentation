@@ -12,7 +12,8 @@ import { MoreIntegrations } from '../../component/landingPages/LandingPageMoreIn
 const DocsLinks = ({ primary }: { primary?: boolean }) => (
   <LandingPageActions
     docs={{ link: '/docs/web/using_with_angular/installation' }}
-    githubRepo="ngx-example"
+    githubRepo="ngx"
+    exampleApp="ngx-example"
     primary={primary}
   />
 );
