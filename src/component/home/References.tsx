@@ -98,15 +98,13 @@ export const References = () => {
                   <div className="max-w-[800px]">
                     <div className="grid">
                       <div className="references__avatar-wrapper">
-                        <div>
-                          <img
-                            src={reference.logo}
-                            className="max-h-24 max-w-xs"
-                          />
-                        </div>
+                        <img
+                          src={reference.logo}
+                          className="references__avatar--image"
+                        />
                       </div>
 
-                      <div className="text-[20px] flex items-center text-center md:text-left z-30">
+                      <div className="text-[16px] sm:text-[20px] flex items-center text-center md:text-left z-30">
                         {reference.quote}
                       </div>
 
