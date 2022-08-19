@@ -3,7 +3,7 @@ name: Build
 on:
   push:
     branches:
-      - "!production"
+      - '!production'
   pull_request:
 
 jobs:
@@ -14,7 +14,7 @@ jobs:
       - name: Build
         uses: actions/setup-node@v1
         with:
-          node-version: '14.x'
+          node-version: '16.x'
       - run: npm install
       - run: touch .env
       - run: npm run build
