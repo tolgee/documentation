@@ -38,12 +38,6 @@ const references: Reference[] = [
     quote:
       'Localizing Fluent Search using Tolgee couldn’t have been smoother, with over 1800 keys that update every week I needed something easy to use and modern from both the developer and translator standpoints.',
   },
-  {
-    logo: '/logos/aviyel.png',
-    link: 'https://aviyel.com/',
-    quote:
-      'Tolgee is a very powerful tool for localization of your project. What I like about it is the ability to change the translation text seamlessly without changing a single file manually.',
-  },
 ];
 
 export const References = () => {
