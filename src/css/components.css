@@ -179,6 +179,11 @@
     @apply flex justify-center w-full mt-1 mb-4;
   }
 
+  .references__avatar--image {
+    @apply max-h-24;
+    max-width: min(90%, 320px);
+  }
+
   .references-section:hover .references__nav {
     @apply opacity-100;
   }
