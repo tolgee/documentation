@@ -10,7 +10,7 @@ const fs = require('fs');
 
 const svgPath = process.argv[2];
 const targetWith = process.argv[3];
-const output = process.argv[4];
+const output = process.argv[4] || svgPath;
 
 const convert = (base64str: string) =>
   new Promise((resolve, reject) => {
