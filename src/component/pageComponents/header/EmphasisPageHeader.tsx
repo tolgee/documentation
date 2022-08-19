@@ -15,7 +15,7 @@ export const EmphasisPageHeader = (props: {
   title3?: string;
 }) => {
   return (
-    <PageHeader className="sm:min-h-[100vh] pt-40" noPadding>
+    <PageHeader className="sm:min-h-[100vh] pt-[60px]" noPadding>
       <div className="flex md:ml-[-300px] ml-[-120px]">
         <RoboMouse className="w-[100px] md:w-[151px]" />
         <ThemedImage
@@ -29,9 +29,11 @@ export const EmphasisPageHeader = (props: {
       </div>
       <PageHeaderTitle className="mt-3">{props.title}</PageHeaderTitle>
       <PageHeaderTitle>{props.title2}</PageHeaderTitle>
-      <PageHeaderTitle active>{props.title3}</PageHeaderTitle>
+      <PageHeaderTitle className="mb-6" active>
+        {props.title3}
+      </PageHeaderTitle>
       <Sections withImg={true} />
-      <div className="flex mt-[80px] mb-[80px] gap-4">
+      <div className="flex mt-16 mb-[80px] gap-4">
         <IWantItButton className="flex justify-center items-center">
           Get started
         </IWantItButton>
