@@ -11,8 +11,24 @@ export const NotConvincedYet = () => {
         </p>
         <p className="text-[20px] text-center">
           Just reach out to us at{' '}
-          <a href="mailto:info@tolgee.io">info@tolgee.io</a> or continue reading
-          the <Link to="/docs">docs</Link>.
+          <a href="mailto:info@tolgee.io">info@tolgee.io</a>, check our
+          community{' '}
+          <a
+            href="https://join.slack.com/t/tolgeecommunity/shared_invite/zt-195isb5u8-_RcSRgVJfvgsPpOBIok~IQ"
+            target="_blank"
+            rel="noreferrer noopener"
+          >
+            slack
+          </a>
+          ,{' '}
+          <a
+            href="https://github.com/tolgee/tolgee-platform/discussions"
+            target="_blank"
+            rel="noreferrer noopener"
+          >
+            github discussions
+          </a>{' '}
+          or <Link href="/docs/">docs</Link>.
         </p>
       </div>
     </section>
