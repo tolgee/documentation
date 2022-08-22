@@ -11,6 +11,8 @@ import {
 import { ParallaxImage } from './ParallaxImage';
 import './Intro.css';
 
+const isSafari = /^((?!chrome|android).)*safari/i.test(navigator?.userAgent);
+
 const useAnimationController = () => {
   const state = useRef<Record<number, boolean | undefined>>({});
   const elements = useRef<Record<number, HTMLElement>>({});
@@ -96,13 +98,13 @@ export const Intro = () => {
 
   const isSmall = useMediaQuery(theme.breakpoints.down('sm'));
 
-  const enabled = !isSmall;
+  const enabled = !isSmall && !isSafari;
 
   return (
     <div
       style={{
-        marginTop: enabled ? '10vh' : '5rem',
-        marginBottom: enabled ? '10vh' : -DURATION,
+        marginTop: enabled ? '10vh' : 50,
+        marginBottom: enabled ? '10vh' : -DURATION + 150,
       }}
     >
       <Controller>
