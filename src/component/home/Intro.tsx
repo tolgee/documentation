@@ -11,8 +11,6 @@ import {
 import { ParallaxImage } from './ParallaxImage';
 import './Intro.css';
 
-const isSafari = /^((?!chrome|android).)*safari/i.test(navigator?.userAgent);
-
 const useAnimationController = () => {
   const state = useRef<Record<number, boolean | undefined>>({});
   const elements = useRef<Record<number, HTMLElement>>({});
@@ -94,28 +92,33 @@ export const Intro = () => {
     return () => window.removeEventListener('resize', handler);
   }, []);
 
+  const [isEnabled, setIsEnabled] = useState(true);
   const theme = useTheme();
-
   const isSmall = useMediaQuery(theme.breakpoints.down('sm'));
 
-  const enabled = !isSmall && !isSafari;
+  useEffect(() => {
+    const isSafari = /^((?!chrome|android).)*safari/i.test(
+      navigator?.userAgent
+    );
+    setIsEnabled(!isSmall && !isSafari);
+  }, [isSmall]);
 
-  return (
+  return isEnabled !== undefined ? (
     <div
       style={{
-        marginTop: enabled ? '10vh' : 50,
-        marginBottom: enabled ? '10vh' : -DURATION + 150,
+        marginTop: isEnabled ? '10vh' : 50,
+        marginBottom: isEnabled ? '10vh' : -DURATION + 150,
       }}
     >
       <Controller>
         <Scene
           duration={viewPortHeight * 0.7 + DURATION}
-          enabled={enabled}
+          enabled={isEnabled}
           offset={-viewPortHeight * 0.5}
         >
           {(progress) => (
             <div>
-              <AheadParallax progress={enabled ? progress : 1} />
+              <AheadParallax progress={isEnabled ? progress : 1} />
             </div>
           )}
         </Scene>
@@ -123,7 +126,7 @@ export const Intro = () => {
           pin
           duration={DURATION}
           offset={viewPortHeight / 8 + 150}
-          enabled={enabled}
+          enabled={isEnabled}
         >
           <section className="flex justify-center w-[100vw]">
             {Boolean(viewPortHeight) && (
@@ -153,5 +156,5 @@ export const Intro = () => {
         </Scene>
       </Controller>
     </div>
-  );
+  ) : null;
 };

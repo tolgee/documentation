@@ -163,6 +163,8 @@ html[data-theme='dark'] .pricing__option--highlighted > div {
   margin-bottom: 8px;
   cursor: pointer;
   text-decoration: underline;
+  color: var(--home-text);
+  font-size: 13px;
 }
 
 .pricing__option-price {

@@ -2,7 +2,6 @@ import React from 'react';
 import Head from '@docusaurus/Head';
 import baseSchema from '../../info/organization';
 import DecoratedLayout from '../../theme/DecoratedLayout';
-import { GradientText } from '../../component/GradientText';
 import { PageHeader } from '../../component/pageComponents/header/PageHeader';
 import { PageHeaderTitle } from '../../component/pageComponents/header/PageHeaderTitle';
 import { PageHeaderSubtitle } from '../../component/pageComponents/header/PageHeaderSubtitle';
@@ -22,10 +21,8 @@ export default function Integrations() {
         description={baseSchema.description}
       >
         <PageHeader className="mb-[180px]">
-          <PageHeaderSubtitle>
-            <GradientText>Integrations</GradientText>
-          </PageHeaderSubtitle>
-          <PageHeaderTitle>Setup in seconds.</PageHeaderTitle>
+          <PageHeaderSubtitle>Integrations</PageHeaderSubtitle>
+          <PageHeaderTitle active>Setup in seconds.</PageHeaderTitle>
         </PageHeader>
         <div className="md:max-w-[1000px] mx-auto sm:max-w-[650px] max-w-[400px]">
           <div className="grid md:grid-cols-3 sm:grid-cols-2 mx-5 gap-5">

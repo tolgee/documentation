@@ -26,6 +26,7 @@ const Translations = () => {
           by languages for every project.
         </div>
       }
+      disableInteractive
     >
       <span className="pricing__with-hint">translations</span>
     </Tooltip>
@@ -34,7 +35,10 @@ const Translations = () => {
 
 const Credits = () => {
   return (
-    <Tooltip title="Credits for machine translation">
+    <Tooltip
+      title="Credits for machine translation. One credit ⋍ 1 translated character."
+      disableInteractive
+    >
       <span className="pricing__with-hint">MT credits</span>
     </Tooltip>
   );
