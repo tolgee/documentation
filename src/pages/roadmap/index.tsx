@@ -66,6 +66,10 @@ well.`,
 this. With the Tolgee Translator Marketplace, there will be nothing easier 
 than finding the ideal translator for your app.`,
       },
+      {
+        name: 'Namespaces/Scoping in Tolgee JS integrations',
+        description: `To support localization data split by namespaces or multi-level scopes.`,
+      },
     ],
   },
   '2022/Q2': {
@@ -94,10 +98,7 @@ than finding the ideal translator for your app.`,
         description: `To generate some profit from providing this great localization tool, we need to
 enable our users to pay for our services. To do so, we have to implement backend services and UI to bill for our services.
 If you are self-hosting Tolgee, don't worry. Tolgee stays free for you.`,
-      },
-      {
-        name: 'Namespaces/Scoping in Tolgee JS integrations',
-        description: `To support localization data split by namespaces or multi-level scopes.`,
+        done: true,
       },
     ],
   },
