@@ -11,7 +11,7 @@ const organization = {
     postalCode: '621 00',
     streetAddress: 'Purkyňova 649/127',
   },
-  slogan: 'All in One localization for your project.',
+  slogan: 'Painless localization',
   description:
     'Localization tool which makes the localization process simple. Easy to integrate to React, Angular and other applications.',
   name: 'Tolgee',
