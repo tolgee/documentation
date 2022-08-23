@@ -252,8 +252,9 @@
 }
 
 .get-started-button {
-  @apply button--primary text-[16px] font-bold ml-[10px] desktop:mx-[10px] mt-[10px] desktop:mt-0;
+  @apply button--primary font-bold ml-[10px] desktop:mx-[10px] mt-[10px] desktop:mt-0;
 
+  font-size: 16px !important;
   border-radius: 8px;
   border: 1px solid var(--ifm-link-color);
   padding: var(--ifm-navbar-item-padding-vertical)
