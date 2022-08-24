@@ -25,12 +25,17 @@ export const Pricing = () => {
           </ul>
         </div>
         <div className="md:col-span-3">
-          <a
-            href="https://app.tolgee.io/sign_up"
-            className="button--primary mb-12"
-          >
-            Sign up for free
-          </a>
+          <div className="inline-grid">
+            <a
+              href="https://app.tolgee.io/sign_up"
+              className="button--primary block"
+            >
+              Sign up for free
+            </a>
+            <div className="mt-2 mb-[-1rem] text-xs sm:text-base text-center">
+              No credit card required
+            </div>
+          </div>
         </div>
       </div>
       <Link to="/pricing" className="md:mb-10 underline font-[400] text-[18px]">
