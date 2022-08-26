@@ -23,8 +23,8 @@ function Home() {
       >
         <div className="text-home-text">
           <EmphasisPageHeader
-            title2="Fast integration."
             title="Smart platform."
+            title2="Fast integration."
             title3="Painless localization."
           />
           <Intro />

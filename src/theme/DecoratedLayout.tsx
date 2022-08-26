@@ -30,6 +30,7 @@ export default function DecoratedLayout(props) {
         wrapperClassName="page-with-decoration--content"
         wholePageWrapperClassName={clsx('page-with-decoration', scrolledClass)}
       >
+        <div className="page-decoration" />
         <div className="page-with-decoration--content-inner">
           {props.children}
         </div>

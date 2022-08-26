@@ -113,7 +113,6 @@
 
   .page-with-decoration {
     position: relative;
-    overflow: hidden;
   }
 
   .page-with-decoration--content::before {
@@ -136,7 +135,16 @@
     position: relative;
   }
 
-  .page-with-decoration::after {
+  .page-with-decoration .page-decoration {
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    right: 0px;
+    bottom: 0px;
+    overflow: hidden;
+  }
+
+  .page-with-decoration .page-decoration::after {
     content: '';
     display: block;
     height: 650px;
@@ -251,7 +259,7 @@
   opacity: 0.05;
 }
 
-.get-started-button {
+.sign-up-button {
   @apply button--primary font-bold ml-[10px] desktop:mx-[10px] mt-[10px] desktop:mt-0;
 
   font-size: 16px !important;

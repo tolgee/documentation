@@ -125,9 +125,9 @@ module.exports = {
         },
         {
           to: 'https://app.tolgee.io/sign_up',
-          label: 'Start for free',
+          label: 'Sign up',
           position: 'right',
-          className: 'get-started-button',
+          className: 'sign-up-button',
         },
       ],
     },
