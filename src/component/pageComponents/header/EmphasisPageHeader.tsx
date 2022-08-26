@@ -8,14 +8,25 @@ import { IWantItButton } from './IWantItButton';
 import Link from '@docusaurus/Link';
 import GitHubIcon from '../../../../static/img/github.svg';
 import { Sections } from '../featurePage/sections/Sections';
+import { useMediaQuery, useTheme } from '@mui/material';
+import clsx from 'clsx';
 
 export const EmphasisPageHeader = (props: {
   title: ReactNode;
   title2?: string;
   title3?: string;
 }) => {
+  const theme = useTheme();
+  const isLarge = !useMediaQuery(theme.breakpoints.down('sm'));
+
   return (
-    <PageHeader className="sm:min-h-[100vh] pt-[120px] sm:pb-[60px]" noPadding>
+    <PageHeader
+      className={clsx(
+        'pt-[120px] sm:mb-[0px] sm:pb-[60px]',
+        isLarge && 'min-h-[100vh]'
+      )}
+      noPadding
+    >
       <div className="flex md:ml-[-300px] ml-[-120px]">
         <RoboMouse className="w-[100px] md:w-[151px]" />
         <ThemedImage
@@ -29,13 +40,13 @@ export const EmphasisPageHeader = (props: {
       </div>
       <PageHeaderTitle className="mt-3">{props.title}</PageHeaderTitle>
       <PageHeaderTitle>{props.title2}</PageHeaderTitle>
-      <PageHeaderTitle className="mb-6" active>
+      <PageHeaderTitle active className="mb-6">
         {props.title3}
       </PageHeaderTitle>
       <Sections withImg={true} />
       <div className="flex mt-16 mb-[80px] gap-4">
         <IWantItButton className="flex justify-center items-center">
-          Get started
+          Sign up for free
         </IWantItButton>
         <Link
           href="https://github.com/tolgee"

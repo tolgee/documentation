@@ -17,7 +17,7 @@ export const CommentsFeature = () => {
     <>
       <FeatureHeader title="Comment on translations" id={COMMENTS} />
       <TwoColumnSection>
-        <TextColumn>
+        <TextColumn className="row-start-2 col-start-1 md:row-start-1">
           <TextColumnTitle>Say what you think.</TextColumnTitle>
           <TextColumnText>
             Something look off? Tell others what you would change. You can
@@ -25,7 +25,7 @@ export const CommentsFeature = () => {
             platform.
           </TextColumnText>
         </TextColumn>
-        <ImageColumn>
+        <ImageColumn className="row-start-1 col-start-1 md:col-start-2">
           <ThemedImage
             alt="Translation memory"
             sources={{

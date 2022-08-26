@@ -84,6 +84,7 @@ const DURATION = 700;
 
 export const Intro = () => {
   const [viewPortHeight, setViewPortHeight] = useState(0);
+  const theme = useTheme();
 
   useEffect(() => {
     const handler = () => setViewPortHeight(window.innerHeight);
@@ -92,41 +93,38 @@ export const Intro = () => {
     return () => window.removeEventListener('resize', handler);
   }, []);
 
-  const [isEnabled, setIsEnabled] = useState(true);
-  const theme = useTheme();
-  const isSmall = useMediaQuery(theme.breakpoints.down('sm'));
+  const isLarge = !useMediaQuery(theme.breakpoints.down('sm'));
 
-  useEffect(() => {
-    const isSafari = /^((?!chrome|android).)*safari/i.test(
-      navigator?.userAgent
-    );
-    setIsEnabled(!isSmall && !isSafari);
-  }, [isSmall]);
-
-  return isEnabled !== undefined ? (
-    <div
-      style={{
-        marginTop: isEnabled ? '10vh' : 50,
-        marginBottom: isEnabled ? '10vh' : -DURATION + 150,
-      }}
-    >
-      <Controller>
-        <Scene
-          duration={viewPortHeight * 0.7 + DURATION}
-          enabled={isEnabled}
-          offset={-viewPortHeight * 0.5}
-        >
-          {(progress) => (
-            <div>
-              <AheadParallax progress={isEnabled ? progress : 1} />
-            </div>
-          )}
-        </Scene>
-        <Scene
-          pin
-          duration={DURATION}
-          offset={viewPortHeight / 8 + 150}
-          enabled={isEnabled}
+  return (
+    <>
+      <div>
+        <Controller>
+          <Scene
+            duration={viewPortHeight * 0.7 + DURATION}
+            offset={-viewPortHeight * 0.5}
+            enabled={isLarge}
+          >
+            {(progress) => (
+              <div>
+                <AheadParallax progress={isLarge ? progress : 1} />
+              </div>
+            )}
+          </Scene>
+        </Controller>
+      </div>
+      <div
+        style={{
+          position: 'relative',
+          top: isLarge ? 300 : undefined,
+          marginBottom: isLarge ? 150 : 100,
+        }}
+      >
+        <div
+          style={{
+            top: isLarge ? '50vh' : undefined,
+            position: isLarge ? 'sticky' : undefined,
+            transform: isLarge ? 'translateY(-50%)' : undefined,
+          }}
         >
           <section className="flex justify-center w-[100vw]">
             {Boolean(viewPortHeight) && (
@@ -153,8 +151,9 @@ export const Intro = () => {
               </div>
             )}
           </section>
-        </Scene>
-      </Controller>
-    </div>
-  ) : null;
+        </div>
+        {isLarge && <div style={{ height: DURATION }} />}
+      </div>
+    </>
+  );
 };
