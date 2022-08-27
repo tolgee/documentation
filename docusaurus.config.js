@@ -306,12 +306,16 @@ module.exports = {
             to: '/docs/web/using_with_react/preparing_for_production',
           },
           {
-            from: '/server_and_web_app/self_hosting/configuration',
+            from: '/docs/server_and_web_app/self_hosting/configuration',
             to: '/docs/platform/self_hosting/configuration',
           },
           {
             from: '/tolgee-for-svelte',
             to: '/integrations/svelte',
+          },
+          {
+            from: '/docs/platform/managing_api_keys',
+            to: '/docs/platform/api-keys-and-pat-tokens',
           },
         ],
       },
