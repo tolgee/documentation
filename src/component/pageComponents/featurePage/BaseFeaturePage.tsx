@@ -12,10 +12,7 @@ export const BaseFeaturePage: FC<{ title: string; title2: string }> = (
     <Head>
       <script type="application/ld+json">{JSON.stringify(baseSchema)}</script>
     </Head>
-    <DecoratedLayout
-      title={'Collaboration'}
-      description={baseSchema.description}
-    >
+    <DecoratedLayout title={props.title} description={baseSchema.description}>
       <FeaturesPageHeader title={props.title} title2={props.title2} />
       <div className="mb-36">{props.children}</div>
       <MoreSections />
