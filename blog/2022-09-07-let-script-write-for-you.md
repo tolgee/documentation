@@ -35,9 +35,9 @@ since React state is not updated. To trigger the onChange event listener you hav
 other stuff you can read
 about [here](https://stackoverflow.com/questions/30683628/react-js-setting-value-of-input/52486921#52486921).
 
+## The script
+
 The script (I call it typescript 😄):
-
-
 ```js
 (() => {
   const strs = ["This is text...", "This is another text."];
