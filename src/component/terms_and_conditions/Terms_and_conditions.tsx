@@ -84,7 +84,7 @@ export const TermsAndConditions = () => (
                 data-id="0d5ae8ae-7749-9afb-1fed-6556cb563dc0"
                 data-type="question"
               >
-                <strong>September 21, 2021</strong>
+                <strong>September 7, 2022</strong>
               </span>
             </span>
           </span>
@@ -185,7 +185,7 @@ export const TermsAndConditions = () => (
               </a>
             </span>{' '}
             website as well as any other media form, media channel, mobile
-            website or mobile application related, linked, or otherwise
+            website or web application related, linked, or otherwise
             connected thereto (collectively, the “Site”).
             <span
               style={{
@@ -494,7 +494,7 @@ export const TermsAndConditions = () => (
                           fontSize: '15px',
                         }}
                       >
-                        The Site is intended for users who are at least 13 years
+                        The Site is intended for users who are at least 18 years
                         of age. All users who are minors in the jurisdiction in
                         which they reside (generally under the age of 18) must
                         have the permission of, and be directly supervised by,
@@ -927,7 +927,12 @@ export const TermsAndConditions = () => (
                     all use of your account and password. We reserve the right
                     to remove, reclaim, or change a username you select if we
                     determine, in our sole discretion, that such username is
-                    inappropriate, obscene, or otherwise objectionable.
+                    inappropriate, obscene, or otherwise objectionable. We are 
+                    not responsible for any losses due to stolen or hacked passwords.
+                    If you sign up on behalf of a company or other entity, you 
+                    represent and warrant that you have the authority to accept 
+                    these Terms on their behalf. One person or legal entity may 
+                    not maintain more than one free account. 
                   </span>
                 </div>
               </span>
@@ -986,15 +991,6 @@ export const TermsAndConditions = () => (
         </div>
         <div
           className="MsoNormal"
-          data-custom-class="body_text"
-          style={{ lineHeight: '1.5' }}
-        >
-          <span style={{ color: 'rgb(89, 89, 89)', fontSize: '15px' }}>
-            We accept the following forms of payment:
-          </span>
-        </div>
-        <div
-          className="MsoNormal"
           style={{ textAlign: 'justify', lineHeight: 1 }}
         >
           <div className="MsoNormal" style={{ lineHeight: '17.25px' }}>
@@ -1040,11 +1036,7 @@ export const TermsAndConditions = () => (
                   data-type="forloop"
                   id="a6e21b8e-b955-c546-15dd-bb6eda2fe88a"
                 >
-                  <span data-type="conditional-block">
-                    <span data-type="body">
-                      <span style={{ textIndent: '-24.7333px' }}>- Visa</span>
-                    </span>{' '}
-                  </span>
+            
                 </span>
               </span>
             </div>
@@ -1073,13 +1065,7 @@ export const TermsAndConditions = () => (
                   data-type="forloop"
                   id="a6e21b8e-b955-c546-15dd-bb6eda2fe88a"
                 >
-                  <span data-type="conditional-block">
-                    <span data-type="body">
-                      <span style={{ textIndent: '-24.7333px' }}>
-                        - Mastercard
-                      </span>
-                    </span>{' '}
-                  </span>
+                
                 </span>
               </span>
             </div>
@@ -1142,9 +1128,14 @@ export const TermsAndConditions = () => (
                 payment information, including email address, payment method,
                 and payment card expiration date, so that we can complete your
                 transactions and contact you as needed. We bill you through an
-                online billing account for purchases made via the Site. Sales
-                tax will be added to the price of purchases as deemed required
-                by us. We may change prices at any time. All payments shall be
+                online billing account for purchases made via Stripe. Free 
+                accounts are not required to provide a credit card details. 
+                The service is billed in advance on a monthly or on a yearly 
+                basis. Downgrading your service may cause the loss of content, 
+                features, or capacity of your account. We may change prices 
+                at any time. We may change prices at any time. We reserve 
+                the right to introduce different pricing structure for 
+                existing users. All payments shall be
                 in <span className="question">Euros</span>.
               </span>
             </div>
@@ -1247,7 +1238,7 @@ export const TermsAndConditions = () => (
                 We reserve the right to correct any errors or mistakes in
                 pricing, even if we have already requested or received payment.
                 We also reserve the right to refuse any order placed through the
-                Site.
+                Site. We do not offer any type of refunds.
               </span>
             </div>
           </span>
