@@ -184,7 +184,7 @@
   }
 
   .references__avatar-wrapper {
-    @apply flex justify-center w-full mt-1 mb-4;
+    @apply flex justify-center align-middle w-full mt-1 mb-4 min-h-[70px];
   }
 
   .references__avatar--image {

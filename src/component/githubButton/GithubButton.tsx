@@ -4,8 +4,10 @@ import Link from '@docusaurus/Link';
 
 import './GithubButton.css';
 
+let cachedData: number | undefined;
+
 export const GithubButton = () => {
-  const [stars, setStars] = useState<number | undefined>(undefined);
+  const [stars, setStars] = useState<number | undefined>(cachedData);
 
   useEffect(() => {
     let unmounted = false;
@@ -15,6 +17,7 @@ export const GithubButton = () => {
       .then((response) => {
         if (!unmounted) {
           setStars(response.watchers_count);
+          cachedData = response.watchers_count;
         }
       });
     return () => {
