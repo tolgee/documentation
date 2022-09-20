@@ -1,15 +1,16 @@
 ---
 slug: what-do-open-source-and-raspberry-cupcakes-have-in-common
 title: What do open-source and raspberry cupcakes have in common?
+description: Raspberry cupcake metaphor - Why is open-source software good? How can an open-source project can be profitable and make money? 
 authors: [mchalupnikova]
 tags: [open-source, co-founder life, startup lessons]
 ---
 
-![Raspberry cupcake](/img/blog/raspberry-cupcake.jpg)
+![Raspberry cupcake](/img/blog/small_raspberry_cupcake.jpg)
 <!--truncate-->
 *Photo by Tobias Marks on Unsplash*
 
-As an open-source startup co-founder I often got one question from people around me, who are not really into IT:
+As a co-founder of open-source localization tool I often got one question from people around me, who are not really into IT:
 
 Why is open-source software good? How can an open-source project can be even profitable and make money? Because if the product is for free for everyone you can’t surely expect to make a good business out of it, can you? 
 
@@ -40,4 +41,4 @@ They are just happy to pay you to bake for them your perfect raspberry cupcakes!
 Someone could raise an objection that even with the recipe not everybody can make the 100% same perfect cupcakes as you do. Because there are not many Michelin star chef out there, right? … Well, you can teach others and show them all the little tricks on the cupcake baking lesson. And after that lesson you can also make money by giving pieces of advice online to another people willing to make their baking efforts successful. 
 
 
-You can say that there are surely lot of aspects that haven’t been said in this metaphor. And also plenty other ways how to make open-source financially profitable. But not enough time to do that today, it’s raspberry-cupcake-baking time! Let’s dive in deeper to open-source next time. 
+You can say that there are surely lot of aspects that haven’t been said in this metaphor. And also plenty other ways how to make open-source financially profitable. But not enough time to do that today, it’s raspberry-cupcake-baking time! Let’s dive in deeper to [open-source](https://tolgee.io/opensource) next time. 
