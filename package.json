@@ -23,7 +23,7 @@
     "@mdx-js/react": "^1.6.21",
     "@mui/icons-material": "^5.8.4",
     "@mui/material": "5.9.2",
-    "@tsconfig/docusaurus": "^1.0.2",
+    "@tsconfig/docusaurus": "^1.0.6",
     "@types/imagemagick": "0.0.31",
     "@types/react": "^17.0.45",
     "@types/react-helmet": "^6.1.0",
@@ -69,7 +69,7 @@
   "devDependencies": {
     "@docusaurus/module-type-aliases": "^2.0.1",
     "@docusaurus/plugin-client-redirects": "^2.0.1",
-    "@tsconfig/docusaurus": "^1.0.4",
+    "@tsconfig/docusaurus": "^1.0.6",
     "@types/node": "18.6.3",
     "@types/react-github-button": "^0.1.1",
     "@types/scrollmagic": "^2.0.2",
