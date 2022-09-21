@@ -1,6 +1,7 @@
 ---
 slug: tolgee-support-only-postgres-since-v2 
 title: Why Tolgee supports only PostgreSQL since v2
+description: Tolgee localization tool is dropping H2 database and supports only PostgreSQL since version 2. 
 authors: [jcizmar]
 tags: [tolgee, database, postgres, h2, server]
 image: '/img/blog/postgres.png'

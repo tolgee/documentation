@@ -3,6 +3,8 @@ slug: moving-project-from-youtrack-to-github
 
 title: Moving project from YouTrack to GitHub
 
+description: Tolgee project was moved from YouTrack to GitHub since it is more transparent for developers and contributors.
+
 authors: [jcizmar]
 
 image: "/img/blog/movingFromYoutrack.png"

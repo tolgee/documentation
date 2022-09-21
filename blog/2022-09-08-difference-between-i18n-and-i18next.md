@@ -7,7 +7,7 @@ authors: [jcizmar]
 
 image: "/img/blog/i18n-i18next-difference.jpg"
 
-description: "This article explains what is the difference between i18n and i18next"
+description: "This article explains what is the difference between i18n (abbreviation for internationalization) and i18next (JavaScript framework enabling internationalization)."
 
 tags: [localization, internationalization, basics]
 ---
@@ -26,7 +26,7 @@ The better question would be "What does i18n stands for". i18n is the abbreviati
 
 It's the process of designing the software application so that it can be adapted to various languages and regions.
 What does it mean? It means that when you are using some i18n/localization library or if you have your application
-prepared to be translated to different languages, you are doing internationalization. Yay! 🎉
+prepared to be translated to different languages, you are doing [internationalization](/blog/localization-basics-S01E01). Yay! 🎉
 
 ## What is i18next?
 
@@ -40,13 +40,13 @@ world. `i18next` is a JS framework/set of libraries.
 
 ## i18next is not a standard
 
-Although i18next is currently used by many developers, it's not a standard. It has a nice catchy name and
+Although [i18next](/blog/super-fast-react-localization-i18n-with-i18next-and-tolgee) is currently used by many developers, it's not a standard. It has a nice catchy name and
 if you google i18n, you can get the i18next website as a first result, but there are plenty of other libraries for
 JavaScript you can use. Here are some of them:
 
 - [FormatJS](https://formatjs.io/)
   - [react-intl (a react i18n library from FormatJS family)](https://formatjs.io/docs/react-intl/)
-- [Tolgee JS (Our integrations)](https://tolgee.io/integrations/all)
+- [Tolgee JS (Our integrations)](/integrations/all)
 - [Typesafe-i18n](https://github.com/ivanhofer/typesafe-i18n)
 
 i18next is not the only solution out there. Different solutions suit different needs.

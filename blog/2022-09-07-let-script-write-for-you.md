@@ -7,13 +7,13 @@ authors: [jcizmar]
 
 image: "/img/blog/typing-script/image.jpg"
 
-description: "A simple script you can use when you need to record a video where you type something in the browser."
+description: Describing a simple script that types the string instead of me when I hit a specific shortcut. 
 
 tags: [fixtures, coding, fun]
 ---
 
 I was working on cool gifs for Tolgee's [new readme](https://github.com/tolgee/tolgee-platform/blob/main/README.md),
-where we show how simply you can modify a localization string in your App. But when I need to type something into input,
+where we show how simply you can [modify a localization string](/blog/in-context-production) in your App. But when I need to type something into input,
 I always make like 5 mistakes and my typing is not very nice to look at. So I created a script that types the string
 instead of me when I hit a specific shortcut. Now I use this to record videos, where I have to fill in some input, and I
 don't want to record it like 1000 times because I was typing inconsistently.

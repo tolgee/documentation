@@ -1,6 +1,7 @@
 ---
 slug: tolgee-for-svelte-released
 title: Tolgee for Svelte released
+description: Tolgee integration for Svelte framework was released. With Tolgee i18n library for Svelte you can enjoy all Tolgee i18n features.
 authors: [jcizmar]
 tags: [svelte, i18n, tolgee, javascript, SDK, integration]
 ---

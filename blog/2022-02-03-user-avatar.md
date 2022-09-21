@@ -3,6 +3,8 @@ slug: manage-user-avatar
 
 title: All you need to know to deal with user avatars 👤 in React
 
+description: Learn how to generate user avatar, select avatar from file and crop selected avatar using libraries.
+
 authors: [jcizmar]
 
 image: "/img/blog/avatar/ogImage.png"

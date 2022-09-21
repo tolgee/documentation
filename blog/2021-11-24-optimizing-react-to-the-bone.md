@@ -1,5 +1,6 @@
 ---
 title: Faster! Optimizing React app to the bone
+description: How to optimize React app and make it faster. How to identify slow components and optimize infinite scrolling in your application. 
 authors: [sgranat]
 tags: [react.js, javascript, typescript, opensource]
 image: '/img/blog/optimizations/thumbnail.png'
@@ -8,7 +9,7 @@ image: '/img/blog/optimizations/thumbnail.png'
 ![Thumbnail](/img/blog/optimizations/thumbnail.png)
 
 
-In Tolgee platform, we manage translations. So our most important view is a list of translations, every row contains key and related translations in different languages. As this view serves multiple purposes, we have quite a lot of requirements and fulfilling all of them required quite a bit of optimizations, which I'd like to share with you today.
+In Tolgee localization platform, we manage translations. So our most important view is a list of translations, every row contains key and related translations in different languages. As this view serves multiple purposes, we have quite a lot of requirements and fulfilling all of them required quite a bit of optimizations, which I'd like to share with you today.
 
 <!--truncate-->
 

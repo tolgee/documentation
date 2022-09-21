@@ -8,7 +8,7 @@ authors: [mchalupnikova]
 
 image: "/img/blog/t9n_l10n_i18n_localization_internationalization.png"
 
-description: "Localization basics S01E01: what are t9n, l10n, i18n, g11n? Learn about translation, software localization, internationalization and globalization"  
+description: Explaining numeronoms related to localization - t9n, l10n, i18n, g11n. Difference between translation, localization, internationalization and globalization.  
 
 
 tags: [i18n, l10n, t9n, g11n, translation, localization, internationalization, globalization]
@@ -32,7 +32,7 @@ Translation is simply the process of converting text from one language (source l
 ## What is l10n?
 Localization refers to the adaptation of a product, app, or content to meet the language, cultural and other requirements of a specific target market (a "locale") to be available to your target audience. 
 
-The process of software localization can take **three different forms**:
+The process of [software localization](/blog/why-you-should-prepare-your-project-for-localization-right-now) can take **three different forms**:
 
 * **Waterfall Localization** - Quick time-to-market in your source language because localization begins after all the features had been implemented and the product is released.
 
@@ -66,7 +66,7 @@ Globalization is the process of adapting and selling software products to an int
 
 **About Tolgee**
 
-Tolgee is attempting to transform the software localization process with a novel technique that intends to reduce time and effort for everyone involved in the process, including developers and translators.
+I18n open-source tool and localization platform Tolgee is attempting to transform the software localization process with a [novel technique](/features/dev-tools) that intends to reduce time and effort for everyone involved in the process, including developers and translators.
 
 
 

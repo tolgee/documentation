@@ -2,6 +2,7 @@
 slug: why-you-should-prepare-your-project-for-localization-right-now
 
 title: 🌎 Why you should prepare your project for localization (i18n) right now
+description: Three main reasons why it is good to prepare you app for localization (i18n) in advance and integrate localization as soon as possible.
 
 authors: [jcizmar]
 
@@ -12,7 +13,7 @@ We always recommend preparing projects for localization as soon as possible. A l
 with, say that they are in early stage of development of their app and localization 🌎 is something they don't need
 right now.
 
-Setting localization aside is not a good idea, and I am going to tell you why.
+Setting [localization](/blog/localization-basics-S01E01) aside is not a good idea, and I am going to tell you why.
 
 <!--truncate-->
 
@@ -87,7 +88,7 @@ So you will provide file like this.
 }
 ```
 
-But the translator don't have any context information about the texts. Where is it on the page? What's the purpose of the
+But the translator don't have any [context](/features/dev-tools) information about the texts. Where is it on the page? What's the purpose of the
 button? What is the gender of the objects? Is this noun or verb?
 
 ## How can you do better?
@@ -96,10 +97,10 @@ Simple. Just integrate localization as soon as possible. From the beginning prep
 Tolgee founder I would recommend you to use out solution 😁, but you can use any other library suitable for your
 framework or language.
 
-- React: `react-intl`, `react-i18next` or [`@tolgee/react`](https://tolgee.io/integrations/react)
-- Vue: `vue-i18next`, `vue-intl` or [`@tolgee/vue`](https://tolgee.io/integrations/vue)
-- Angular: `@angular/localize` (native), `angular-i18next`, [`@tolgee/angular`](https://tolgee.io/integrations/angular)
-- Svelte: `svelte-i18n`, [`@tolgee/svelte`](https://tolgee.io/integrations/svelte)
+- React: `react-intl`, `react-i18next` or [`@tolgee/react`](/integrations/react)
+- Vue: `vue-i18next`, `vue-intl` or [`@tolgee/vue`](/integrations/vue)
+- Angular: `@angular/localize` (native), `angular-i18next`, [`@tolgee/angular`](/integrations/angular)
+- Svelte: `svelte-i18n`, [`@tolgee/svelte`](/integrations/svelte)
 
 While using those tools, try to also store context of the keys in form of comments or screenshots, which you can provide
 to translators in the future.
@@ -110,7 +111,7 @@ Preparing your app to be localized is always good idea and with Tolgee you can d
 only task is to wrap the string with T component come up with a nice translation key. Then you can just go to your app
 and translate your string with `ALT + Click`. You can also automatically generate a screenshot from your App to provide
 the context to your future translators. If you would like to learn more about it,
-check [our documentation 📚](https://tolgee.io/docs) or choose an integration library above and follow the tutorials. 📖 
+check [our documentation 📚](/docs) or choose an integration library above and follow the tutorials. 📖 
 
 ## TL; DR
 
@@ -121,5 +122,5 @@ check [our documentation 📚](https://tolgee.io/docs) or choose an integration 
 
 If you like what we do, please star our GitHub projects. 🙏
 
-- [Tolgee Server](https://github.com/tolgee/server) ⭐
+- [Tolgee Platform](https://github.com/tolgee/server) ⭐
 - [Tolgee JS](https://github.com/tolgee/tolgee-js) ⭐

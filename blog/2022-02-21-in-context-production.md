@@ -1,6 +1,7 @@
 ---
 slug: in-context-production
 title: In-context translating on production
+description: How works in-context feature on production page with Tolgee Chrome extension. How to edit any translation on website while changes are sent to Tolgee platform.
 authors: [sgranat]
 image: "/img/blog/in-context-production/in-context-cursor.png"
 tags: [i18n, chrome, integration]
@@ -8,7 +9,7 @@ tags: [i18n, chrome, integration]
 
 ![Image](/img/blog/in-context-production/in-context-cursor.png)
 
-Tolgee in-context feature is now available on any production page which is using our integration library!
+Tolgee [in-context](https://tolgee.io/features/dev-tools) feature is now available on any production page which is using our integration library!
 In-context translating brings following advantages:
 
  - Translations editing directly on your page
@@ -23,7 +24,7 @@ In this article, I will show you how it works and how to set it up.
 
  1. Your web page which is using Tolgee (at least version 3.3.0)
  2. Chrome browser
- 3. Access to Tolgee platform (or the API key)
+ 3. Access to [Tolgee platform](https://app.tolgee.io/) (or the API key)
 
 ## Get Tolgee Chrome extension
 

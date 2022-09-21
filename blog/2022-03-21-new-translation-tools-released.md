@@ -3,11 +3,11 @@ slug: new-translation-tools-released
 
 title: New Translation Tools Released
 
+description: Tolgee helps to translate your projects more effectively with Machine Translation suggestions, Translation Memory suggestions or Auto Translation of new keys.
+
 authors: [jcizmar]
 
 image: "/img/blog/translation-tools/cover.png"
-
-description: Machine Translation, Translation Memory, and Auto Translation released!
 
 tags: [i18n, l10n, translation, tools]
 ---
@@ -22,14 +22,14 @@ describe, how these features work and how to use them.
 
 ## Machine translation 🤖
 
-With the machine translation feature, you don't have to translate every string manually. Tolgee suggests the
+With the [machine translation](/features/translation-assistance) feature, you don't have to translate every string manually. Tolgee suggests the
 translations from third-party services, so you can just click and edit/save them.
 
 ![Machine translating](/img/blog/translation-tools/machine-translating.png)
 
 Currently, we support AWS translate and Google Translate, but we will add more in the future.
 
-In the Tolgee cloud, both services are enabled and every user has 10 000 credits per month to spend. One credit
+In the Tolgee cloud, both services are enabled and every user has [10 000 credits per month](https://tolgee.io/pricing) to spend. One credit
 currently equals one source string character sent to a single service. So when you have both AWS and Google services
 enabled, and you open an edition of 10 characters translation, it will cost you 20 credits. However, if you run out of
 credits, just contact us, and we will add some more.

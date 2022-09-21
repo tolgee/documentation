@@ -1,6 +1,7 @@
 ---
 slug: turborepo-overhyped
 title: Is Turborepo overhyped?
+description: What is Turborepo and why do we need it? Turoberpo is quite minimalistic and simple to use solution how to speed up pipeline in monorepo. 
 authors: [sgranat]
 image: "/img/blog/turborepo.png"
 tags: [react, javascript, typescript, integration]

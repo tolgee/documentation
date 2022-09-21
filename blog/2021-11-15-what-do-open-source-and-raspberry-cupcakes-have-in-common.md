@@ -41,4 +41,4 @@ They are just happy to pay you to bake for them your perfect raspberry cupcakes!
 Someone could raise an objection that even with the recipe not everybody can make the 100% same perfect cupcakes as you do. Because there are not many Michelin star chef out there, right? … Well, you can teach others and show them all the little tricks on the cupcake baking lesson. And after that lesson you can also make money by giving pieces of advice online to another people willing to make their baking efforts successful. 
 
 
-You can say that there are surely lot of aspects that haven’t been said in this metaphor. And also plenty other ways how to make open-source financially profitable. But not enough time to do that today, it’s raspberry-cupcake-baking time! Let’s dive in deeper to [open-source](https://tolgee.io/opensource) next time. 
+You can say that there are surely lot of aspects that haven’t been said in this metaphor. And also plenty other ways how to make open-source financially profitable. But not enough time to do that today, it’s raspberry-cupcake-baking time! Let’s dive in deeper to [open-source](/opensource) next time. 
