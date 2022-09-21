@@ -1,6 +1,7 @@
 ---
 slug: taking-localization-to-i18next-level
 title: Taking localization to i18next level
+description: Easy integration of i18next library with Tolgee localization tool without wasting time of developers while keeping in-context localization feature working.
 authors: [sgranat]
 tags: [tolgee, i18next, i18n]
 image: "/img/blog/puzzle.png"
@@ -85,8 +86,9 @@ TLDR: Tolgee acts as a translations source, using i18next for formatting and lan
 We have example applications for [React](https://github.com/tolgee/react-i18next-example) and [Vue](https://github.com/tolgee/vue-i18next-example) and play around with them. If you connect them with Tolgee platform, you can see in-context localization in action. 
 
 
-![In-context example](/img/blog/i18next/in-context.png)
+![In-context example](/img/blog/i18next/incontext.jpg)
 
 Read more in our [documentation](/docs/web/using_with_i18next/installation).
+Learn also how to integrate i18next and Tolgee into your project and how easy and fast you can translate your React.js app using these tools [here](/blog/super-fast-react-localization-i18n-with-i18next-and-tolgee).
 
 Thats it! :)

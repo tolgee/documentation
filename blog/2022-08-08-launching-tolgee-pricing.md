@@ -3,12 +3,11 @@ slug: launching-tolgee-pricing
 
 title: "Launching Tolgee pricing 🚀"  
 
+description: Tolgee is launching the first pricing for the cloud version of the localization tool while keeping free and the self-hosted version.
 
 authors: [mchalupnikova]
 
 image: "/img/blog/free_plan.png"
-
-description: "Launching first pricing for the cloud version of Tolgee."  
 
 tags: [open-source, pricing, self-hosted, i18n]
 ---
@@ -18,7 +17,7 @@ After a period of development and getting user feedback from our users, Tolgee i
 ## Why? 
 During the past year and a half, we launched many new features to make web app localization finally simple. We were lucky to get enough user feedback from our early users (thank you again!) to build a great free and open-source i18n platform. 
 
-We’re fans of free and open-source software but we also believe in the financially sustainable open-source business models. We have been transparent about it from the beginning with Tolgee pricing [preview](https://tolgee.io/pricing) on our website. To be able to continue the project, to deliver many new features and to offer finally easy and open-source localization tool, we need to start with the Software as a Service business model for the could version of Tolgee. 
+We’re fans of free and open-source software but we also believe in the financially sustainable open-source business models. We have been transparent about it from the beginning with Tolgee pricing [preview](/pricing) on our website. To be able to continue the project, to deliver many new features and to offer finally easy and open-source localization tool, we need to start with the Software as a Service business model for the could version of Tolgee. 
 
 With an open‑source business model, we hope we can bring high value to companies and to individuals and have a well‑running company at the same time. We believe, that In an ideal world, companies could create great localized products without being restricted to a single vendor.
 

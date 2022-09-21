@@ -3,6 +3,8 @@ slug: super-fast-react-localization-i18n-with-i18next-and-tolgee
 
 title: Super fast React Localization 🌍 (i18n) with i18next and Tolgee 🐁
 
+description: How to speed up your translation process and integrate i18next library and Tolgee open-source tool into your React.js project.
+
 authors: [jcizmar]
 
 image: "/img/blog/2022-01-20-super-fast-react-localizaton-with-i18next-and-tolgee/cover.jpg"
@@ -16,7 +18,7 @@ countries, you have to translate your App to their languages. 🇬🇧 🇨🇳 
 In this article, I am going to show you, how to integrate i18next and Tolgee into your project and how easy and fast you
 can translate a React app using these tools.
 
-> Tolgee has also its native integrations. Which are a bit easier to set up, so if you're not used to i18next, maybe it
+> Tolgee has also its [native integrations](/docs/integrations). Which are a bit easier to set up, so if you're not used to i18next, maybe it
 > would be easier for you to [start with those](/docs/web/using_with_react/installation).
 
 <!--truncate-->
@@ -33,10 +35,10 @@ i18next [here](https://www.i18next.com/).
 Tolgee is an open-source tool combining localization platform and integrations to provide a simple way to translate the web
 applications for both developers and translators. 👨‍💻👩🏻‍💻🧖🏼👩🏻‍💻🧖🏼
 
-Tolgee Localization Platform is a place, where you can manage all your localization strings in the simple UI. It's made
+Tolgee open-source Localization Platform is a place, where you can manage all your localization strings in the simple UI. It's made
 to simplify the localization process as much as possible. With Tolgee you can translate the localization strings
-directly in the application you develop without editing localization data files. You can also automatically generate
-screenshots from your app, which can be used in the future by translators of your project.
+directly in the application you develop without editing localization data files. You can also [automatically generate
+screenshots](https://tolgee.io/features/dev-tools) from your app, which can be used in the future by translators of your project.
 
 So let's dive in to the hacking!
 
@@ -53,7 +55,7 @@ terminal and command it to execute...
 npx create-react-app@5.0.0 i18next-tolgee-demo --template typescript && cd i18next-tolgee-demo
 ```
 
-Then install packages necessary for the localization (i18n).
+Then install packages necessary for the localization ([i18n](https://tolgee.io/blog/localization-basics-S01E01)).
 
 ```
 npm install react-i18next i18next-icu i18next @tolgee/i18next @tolgee/ui
@@ -84,10 +86,10 @@ We don't need the default CRA content.
 
 ## Setting up a Tolgee project
 
-To get started, we are going to need a new project in Tolgee Platform.
+To get started, we are going to need a new project in Tolgee localization Platform.
 
 1. Login to [Tolgee Platform](https://app.tolgee.io) or use your
-   self-hosted [Tolgee instance](https://tolgee.io/docs/platform/self_hosting/running_with_docker).
+   self-hosted [Tolgee instance](/docs/platform/self_hosting/running_with_docker).
 
 2. Create a new project by clicking **`Add` button in the top right**. And fill the project name.
 
@@ -137,8 +139,8 @@ withTolgee(i18n, {
 ```
 
 This sets Tolgee as translation provider for i18next and enables
-[ICU message formatter](https://tolgee.io/docs/icu_message_format). Change
-`supportedLngs` to language tags you created while creating project in Tolgee platform.
+[ICU message formatter](/docs/icu_message_format). Change
+`supportedLngs` to language tags you created while creating project in Tolgee localization platform.
 
 Then wrap your `<App/>` component with `Suspens` component.
 
@@ -196,18 +198,18 @@ the properties are accessible in the browser by printing them to console using `
 In the quick translation dialog, try to change the value to something else like "Hello universe!" and hit save. See? The
 text was changed in the DOM as well.
 
-String saved or edited in the translation dialog is stored in the platform, so you can edit there as well.
+String saved or edited in the translation dialog is stored in the localization platform, so you can edit there as well.
 
 ![Platform](/img/blog/2022-01-20-super-fast-react-localizaton-with-i18next-and-tolgee/tolgee-platform.png)
 
 You can also edit more languages in the quick translation dialog. Also, you can take screenshots, which can be later
-used by translators, translating your strings in Tolgee platform.
+used by translators, translating your strings in Tolgee localization platform.
 
 ![In context dialog2](/img/blog/2022-01-20-super-fast-react-localizaton-with-i18next-and-tolgee/in-context-dialog-2.png)
 
 ## Your mama can translate like this 👵
 
-Translating using this dialog or Tolgee platform is very simple so anybody from your team or even your mama can
+Translating using this dialog or Tolgee localization platform is very simple so anybody from your team or even your mama can
 translate your app like this. So when you would like to save some time, you can just provide access to the platform
 or/and to the app in development mode and let anybody translate it.
 
@@ -250,16 +252,16 @@ And use it in the `App` component...
 
 Great! Now you are able to switch the language!
 
-![Language switching](/img/blog/2022-01-20-super-fast-react-localizaton-with-i18next-and-tolgee/lng-switch.gif)
+![Language switching](/img/blog/2022-01-20-super-fast-react-localizaton-with-i18next-and-tolgee/lngswitch.gif)
 
 ## Preparing for production
 
 In production mode you **don't want to leak you API key**. You want your translations to be part of the production
 build. There are multiple options to obtain your exported localization files.
 
-### Option 1: Using Tolgee Platform
+### Option 1: Using Tolgee Localization Platform
 
-1. Open your project in the Tolgee Platform
+1. Open your project in the Tolgee localization Platform
 2. Click on "Export" item in the side menu
 3. Hit "Export as zip of .json files" button
 4. Download of exported data starts immediately
@@ -295,7 +297,7 @@ src
 ```
 
 Now, lets provide the data to Tolgee. There are multiple ways, how to do
-so [described in docs](https://tolgee.io/docs/web/using_with_i18next/preparing_for_production). But I am going to
+so [described in docs](/docs/web/using_with_i18next/preparing_for_production). But I am going to
 provide them as imported static objects, which is good option, since the App is small and there are not many
 translations yet.
 
@@ -342,4 +344,4 @@ Congrats! 🎉 Now you are able to speed up your localization process!
     - [github.com/tolgee/server](https://github.com/tolgee/server) ⭐
     - [github.com/tolgee/js](https://github.com/tolgee/js) ⭐
 - To read more about i18next Tolgee integration,
-  visit [Tolgee docs](https://tolgee.io/docs/web/using_with_i18next/installation)
+  visit [Tolgee docs](/docs/web/using_with_i18next/installation)

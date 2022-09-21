@@ -1,5 +1,6 @@
 ---
 title: Same logic in 4 major FE frameworks, how do they compare?
+description: Real world comparison between 4 major front-end frameworks - React, Angular, Svelte and Vue. Example on Tolgee’s integration libraries. 
 authors: [sgranat, jcizmar]
 tags: [react.js, angular, vue.js, svelte, SDK, i18n]
 ---

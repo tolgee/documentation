@@ -7,7 +7,7 @@ authors: [jcizmar]
 
 image: "/img/blog/new-api-keys-and-pats.jpg"
 
-description: "We have modified the API key format and added Personal Access Token"
+description: Changing format of API keys in Tolgee. Adding Personal Access Tokens (PATs) which can access all the resources the user has access to.
 
 tags: [authentication, authorization, api-keys, security]
 ---

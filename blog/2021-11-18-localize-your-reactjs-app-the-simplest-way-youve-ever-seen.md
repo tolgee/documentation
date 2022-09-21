@@ -1,11 +1,12 @@
 ---
 slug: localize-your-reactjs-app-the-simplest-way-you've-ever-seen
 title: Localize your React.js App the simplest way you've ever seen
+description: How to translate your React.js app easily to multiple languages with open-source tool Tolgee. Save developer’s time and remove repetitive tasks. 
 authors: [jcizmar]
 tags: [react.js, i18n, webdev, javascript, SDK, tutorial]
 ---
 
-Translating an App to multiple languages (localization) is tricky part of many applications. Tolgee is simplifying the localization process and saves developer's time 👨‍💻👩🏻‍💻 by removing repetitive tasks 🔁 ❌. Saving time? That's what I want. Show me!
+Translating an App to multiple languages ([localization](/blog/localization-basics-S01E01)) is tricky part of many applications. Tolgee is simplifying the localization process and saves developer's time 👨‍💻👩🏻‍💻 by removing repetitive tasks 🔁 ❌. Saving time? That's what I want. Show me!
 
 <!--truncate-->
 
@@ -32,7 +33,7 @@ To get started, you can simply follow the integration guides provided in the pla
 
     ![Add button](https://dev-to-uploads.s3.amazonaws.com/uploads/articles/3993x5vuqmrfqbvz6lov.png)
  
-    Optionally, you can add multiple languages to translate your app into.
+    Optionally, you can add multiple languages to translate your React app into.
 
 3. Select `Integrate` from side menu, choose **React** and generate an API key with **all scopes checked**.
 
@@ -40,8 +41,8 @@ To get started, you can simply follow the integration guides provided in the pla
 
 4. Success! 🎉 Now you just have to follow the integration guide.
 
-## Let's integrate it into CRA App 
-1. Generate brand new CRA App and open it your favorite editor
+## Let's integrate it into React.js App 
+1. Generate brand new React App and open it your favorite editor
    
         npx create-react-app tolgee-hello-world
 
@@ -104,18 +105,19 @@ To get started, you can simply follow the integration guides provided in the pla
 
 You can find the resulting code in [this GitHub repo](https://github.com/JanCizmar/tolgee-react-hello-world), **but you have to add your `.env.development.local` file.**
 
-Now you are able to translate your Applications with Tolgee. To learn more about Tolgee or to find out how to translate more complicated cases, [visit our docs](https://tolgee.io).
+Now you are able to translate your React.js applications with Tolgee. To learn more about Tolgee or to find out how to translate more complicated cases, [visit our docs](https://tolgee.io) or integrations to other [frameworks](https://tolgee.io/integrations/all).
 
 # TL;DR
 
 Tolgee is open-source tool simplifying the process of web based application. It has this features:
  
-  - It's open-source
-  - You can translate in the context of your App
+  - It's open-source and free i18n tool
+  - You can translate in the [context](https://www.tolgee.io/blog/in-context-production) of your React.js app
   - You can generate screenshots automatically
+  - Localization platform included
   - You should use it and save time!
 
  🙏🙏🙏 If you like what we do, please star our GitHub projects. 🙏🙏🙏
- - [Tolgee Server](https://github.com/tolgee/server) ⭐
+ - [Tolgee Platform](https://github.com/tolgee/server) ⭐
  - [Tolgee JS](https://github.com/tolgee/tolgee-js) ⭐
  

@@ -3,6 +3,8 @@ slug: updating-road-map
 
 title: Updating Roadmap
 
+description: Updating Tolgee tool product roadmap from Q1/2022 to Q4/2022. Moving full feature roadmap to GitHub roadmap page.
+
 authors: [jcizmar]
 
 image: "/img/blog/roadMap.jpeg"
