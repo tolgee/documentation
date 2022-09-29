@@ -7,7 +7,7 @@ import { PageHeaderSubtitle } from '../../component/pageComponents/header/PageHe
 
 type Item = {
   name: string;
-  description: string[] | string;
+  description: React.ReactNode;
   done?: boolean;
   inProgressLink?: string;
 };
@@ -18,14 +18,209 @@ type PeriodData = {
 };
 
 const roadmapData = {
-  '2022/Q3-Q4': {
+  '2022/Q4': {
+    future: false,
+    active: true,
+    items: [
+      {
+        name: 'CLI',
+        description: (
+          <p>
+            Command Line Interface will help users with extracting localization
+            data from the Tolgee platform, analyzing code, looking for new keys,
+            and extracting data in specific formats. Everything mentioned is
+            customizable and flexible!
+          </p>
+        ),
+      },
+      {
+        name: 'Permission enhancements',
+        description: (
+          <p>
+            Currently, the permissions are level oriented. You can have MANAGE
+            permission, which enables you to do everything in the project, or
+            EDIT which enables you to manage keys, translations, or screenshots.
+            But what if you want to enable a specific user to only add
+            screenshots? With enhanced permissions users will be able to set
+            granular permissions for each scope like uploading screenshots,
+            adding a key, modifying translations, you name it.
+          </p>
+        ),
+      },
+      {
+        name: 'New Core of Tolgee JS',
+        description: (
+          <p>
+            The new @tolgee/core package will provide refactored core of all js
+            integrations and cleaner API with enhanced customization reduced
+            bundle size and new features.
+          </p>
+        ),
+      },
+      {
+        name: 'Community translations',
+        description: (
+          <p>
+            Tolgee is currently used by many open source projects, but Tolgee
+            doesn&apos;t support a safe way of community translating. It can
+            limit translation permissions to specific users, but the user can
+            then modify all the strings in the language. We need to provide a
+            better way, where the community members would be able to only
+            propose changes, which have to be approved and merged by somebody
+            who is permitted to.
+          </p>
+        ),
+      },
+      {
+        name: 'Webhooks',
+        description: (
+          <p>
+            With webhooks, developers would be able to create their custom
+            automation when project data change without periodically calling the
+            REST API. They will be notified by specific events automatically!
+          </p>
+        ),
+      },
+      {
+        name: 'Batch operations',
+        description: (
+          <p>
+            Select as many keys as you want and then tag them, find and replace
+            in them, auto-translate, or change their state.
+          </p>
+        ),
+      },
+      {
+        name: 'Namespaces in Tolgee JS integrations',
+        description: (
+          <p>
+            Enable localization data export to be split to multiple files not
+            only by the language but also by their namespace.
+          </p>
+        ),
+      },
+    ],
+  },
+  '2023/Q1-Q2': {
+    active: false,
+    future: true,
+    items: [
+      {
+        name: 'All format support',
+        description: (
+          <p>
+            Tolgee currently works fine with ICU message format and you can
+            import data in .po format. However, there are many more formats we
+            want to support. In this task, we would like to create a universal
+            solution for format support, so we will be able to support any
+            format in the future.
+          </p>
+        ),
+      },
+      {
+        name: 'Visual editor',
+        description: (
+          <>
+            <p>
+              The current editor helps you with ICU syntax but doesn&apos;t help
+              you with placeholders or HTML tags. For many, this is not an issue
+              but it&apos;s problematic for example in the Arabic language,
+              where it&apos;s hard to mix HTML and Arabic characters.
+            </p>
+            <p>
+              By visual editor, we mean a nice environment, where tags and
+              parameter placeholders are represented visually, so translators
+              don&apos;t have to worry about them. The plurals are also visually
+              represented, so users can edit them without understanding the
+              message formatting language.
+            </p>
+          </>
+        ),
+      },
+      {
+        name: 'Translator Marketplace',
+        description: (
+          <p>
+            Looking for a translator to access foreign markets? Tolgee will help
+            you with this. With the Tolgee Translator Marketplace, there will be
+            nothing easier than finding the ideal professional translator for
+            your app.
+          </p>
+        ),
+      },
+      {
+        name: 'Branching',
+        description: (
+          <p>
+            Sometimes you need to maintain multiple versions of your software,
+            so you’ll need to have multiple versions of your localization data
+            stored in Tolgee as well.
+          </p>
+        ),
+      },
+      {
+        name: 'Git integrations',
+        description: (
+          <>
+            <p>
+              There are times when it would be great if localization data were
+              synced with your Git repository. Or maybe you would like to create
+              pull requests automatically when translations are changed...
+            </p>
+            <p>
+              To do this, integrations to <b>GitHub, GitLab</b>, or just support
+              for Git itself will be helpful.
+            </p>
+          </>
+        ),
+      },
+      {
+        name: 'Backups and data export',
+        description: (
+          <p>
+            For our subscribers, we would like to provide an automated backups
+            feature, which will enable users to restore their project data to a
+            specific state when something goes wrong. Users will be also able to
+            export all project data including metadata and screenshots and
+            import them later.
+          </p>
+        ),
+      },
+      {
+        name: 'Notifications',
+        description: (
+          <p>
+            When something changes in your project, users will be notified, if
+            enabled. So you can get your strings translated asap.
+          </p>
+        ),
+      },
+      {
+        name: 'CDN',
+        description: (
+          <p>
+            Tolgee will automatically upload the exported localization data
+            after every change, so your translations will be always up to date.
+            You will be also able to configure your S3-compatible bucket, so the
+            data stay with you.
+          </p>
+        ),
+      },
+    ],
+  },
+  '2023/Q3-Q4': {
+    active: false,
     future: true,
     items: [
       {
         name: 'Glossaries',
-        description: `To translate the same terms the same way every time, you need to store the
-terminology to reuse it in the future. Glossaries are the feature that enables
-you to do that.`,
+        description: (
+          <p>
+            To translate the same terms the same way every time, you need to
+            store the terminology to reuse it in the future. Glossaries are the
+            feature that enables you to do that.
+          </p>
+        ),
       },
       {
         name: 'Design tools integrations',
@@ -34,70 +229,55 @@ would also like to provide translators with simplicity by enabling them to
 translate texts directly in tools like <b>Figma, XD, or Miro</b>.`,
       },
       {
-        name: 'Support for mobile apps',
-        description: `Tolgee works great with Web apps, and we would like to provide the same 
-comfort to mobile developers.`,
+        name: 'In-context support for mobile apps',
+        description: (
+          <p>
+            The in-context translating works great with web apps, and we would
+            like to provide the same comfort to mobile developers.
+          </p>
+        ),
       },
       {
         name: 'QA Checks',
-        description: `Even translators make mistakes, but some of these mistakes can be detected, 
-and translators can be notified. No more mistakes like missing tags, missing 
-parameters, or missing punctuation marks.`,
-      },
-      {
-        name: 'Git integrations',
-        description: [
-          `There are times when it would be great if localization data were synced with 
-your Git repository. Or maybe you would like to create pull requests 
-automatically when translations are changed...`,
-          `To do this, integrations to <b>GitHub, GitLab</b>, or just support for Git itself will be 
-helpful.`,
-        ],
-      },
-      {
-        name: 'Branching',
-        description: `Sometimes you need to maintain multiple versions of your software, so you’ll 
-need to have multiple versions of your localization data stored in Tolgee as 
-well.`,
-      },
-      {
-        name: 'Translator Marketplace',
-        description: `Looking for a translator to access foreign markets? Tolgee will help you with 
-this. With the Tolgee Translator Marketplace, there will be nothing easier 
-than finding the ideal translator for your app.`,
-      },
-      {
-        name: 'Namespaces/Scoping in Tolgee JS integrations',
-        description: `To support localization data split by namespaces or multi-level scopes.`,
+        description: (
+          <p>
+            Even translators make mistakes, but some of these mistakes can be
+            detected, and translators can be notified. No more mistakes like
+            missing tags, missing parameters, or missing punctuation marks.
+          </p>
+        ),
       },
     ],
   },
-  '2022/Q2': {
-    active: true,
+  '2021/Q3-Q4': {
     items: [
       {
-        name: 'Project Dashboard',
-        description: `To see detailed statistics for the project and for each language.`,
-        inProgressLink: 'https://github.com/tolgee/server/issues/915',
+        name: 'V1 Release',
+        description: `After a year and a half of development, we’ve decided to finally release the 
+first official and stable version of Tolgee. Tolgee is now tested and stable, so 
+it's time to celebrate. 🎉🎉🎉`,
         done: true,
       },
       {
-        name: 'Translation history',
-        description: `Enable users to see, how translation was edited in the past.`,
-        inProgressLink: 'https://github.com/tolgee/server/issues/1001',
+        name: 'Start to promote Tolgee',
+        description: `Until now, we have been working hard to come up with a product that will 
+satisfy most of the needs of our users. Since Tolgee is now production-ready, 
+and we are going to promote it hard!`,
         done: true,
       },
       {
-        name: 'Translation permissions limited by language',
-        description: `Add option specifying a particular language an user can translate to.`,
-        inProgressLink: 'https://github.com/tolgee/server/pull/991',
+        name: 'Clean and improve UI',
+        description: `Before we released Tolgee V1, we wanted to clean up the UI since we wanted 
+        our users to have a great user experience.`,
         done: true,
       },
       {
-        name: 'Billing on Tolgee Cloud',
-        description: `To generate some profit from providing this great localization tool, we need to
-enable our users to pay for our services. To do so, we have to implement backend services and UI to bill for our services.
-If you are self-hosting Tolgee, don't worry. Tolgee stays free for you.`,
+        name: 'Automatic screenshot generation',
+        description: `Context is the most important thing for translators to do their job correctly. 
+We wanted to enable software developers to provide the context to translators
+without wasting their time. With Tolgee JS SDK and Tolgee Chrome plugin, 
+developers are able to generate screenshots automatically while creating the 
+key in the in-context translation UI.`,
         done: true,
       },
     ],
@@ -133,35 +313,33 @@ translating your new keys automatically when enabled.`,
       },
     ],
   },
-  '2021/Q3-Q4': {
+  '2022/Q2-Q3': {
+    active: false,
+    future: false,
     items: [
       {
-        name: 'V1 Release',
-        description: `After a year and a half of development, we’ve decided to finally release the 
-first official and stable version of Tolgee. Tolgee is now tested and stable, so 
-it's time to celebrate. 🎉🎉🎉`,
+        name: 'Project Dashboard',
+        description: `To see detailed statistics for the project and for each language.`,
+        inProgressLink: 'https://github.com/tolgee/server/issues/915',
         done: true,
       },
       {
-        name: 'Start to promote Tolgee',
-        description: `Until now, we have been working hard to come up with a product that will 
-satisfy most of the needs of our users. Since Tolgee is now production-ready, 
-and we are going to promote it hard!`,
+        name: 'Translation history',
+        description: `Enable users to see, how translation was edited in the past.`,
+        inProgressLink: 'https://github.com/tolgee/server/issues/1001',
         done: true,
       },
       {
-        name: 'Clean and improve UI',
-        description: `Before we released Tolgee V1, we wanted to clean up the UI since we wanted 
-        our users to have a great user experience.`,
+        name: 'Translation permissions limited by language',
+        description: `Add an option specifying a particular language a user can translate to.`,
+        inProgressLink: 'https://github.com/tolgee/server/pull/991',
         done: true,
       },
       {
-        name: 'Automatic screenshot generation',
-        description: `Context is the most important thing for translators to do their job correctly. 
-We wanted to enable software developers to provide the context to translators
-without wasting their time. With Tolgee JS SDK and Tolgee Chrome plugin, 
-developers are able to generate screenshots automatically while creating the 
-key in the in-context translation UI.`,
+        name: 'Billing on Tolgee Cloud',
+        description: `To generate some profit from providing this great localization tool, we need to
+enable our users to pay for our services. To do so, we have to implement backend services and UI to bill for our services.
+If you are self-hosting Tolgee, don't worry. Tolgee stays free for you.`,
         done: true,
       },
     ],
@@ -224,15 +402,17 @@ export default function Roadmap() {
                               link={item.inProgressLink}
                             />
                           </h3>
-                          {(typeof item.description === 'string'
-                            ? [item.description]
-                            : item.description
-                          ).map((d, i) => (
-                            <p
-                              key={i}
-                              dangerouslySetInnerHTML={{ __html: d }}
-                            />
-                          ))}
+                          {item.description &&
+                            (Array.isArray(item.description)
+                              ? item.description
+                              : [item.description]
+                            ).map((d, i) =>
+                              typeof d === 'string' ? (
+                                <p dangerouslySetInnerHTML={{ __html: d }} />
+                              ) : (
+                                <React.Fragment key={i}>{d}</React.Fragment>
+                              )
+                            )}
                         </div>
                       ))}
                     </div>
