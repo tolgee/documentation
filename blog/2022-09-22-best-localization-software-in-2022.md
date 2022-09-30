@@ -5,7 +5,7 @@ title: "Best Localization Software in 2022"
 
 authors: [bkhokhani]
 
-image: "/img/blog/i18n-i18next-difference.jpg"
+image: "/img/blog/screen.png"
 
 description: "In this article, we will learn about the best software for localization in 2022 available for quickly, accurately, and scalably localizing website content."
 
