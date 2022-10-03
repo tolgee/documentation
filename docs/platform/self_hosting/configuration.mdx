@@ -105,12 +105,16 @@ a set period of time to prevent unauthorized access to images. (default: `false`
 ### secured-image-timestamp-max-age
 Expiration time of a generated image access token in seconds (default: `600000` ≈ a week)
 
-### user-can-create-projects
+### <s>user-can-create-projects</s>
+(removed in 2.33.0)
+
 Whether regular users are allowed to create projects. When disabled, only administrators can create projects
 (default: `true`)
 
 ### user-can-create-organizations
-Whether regular users are allowed to create organizations. When disabled, only administrators can create organizations
+Whether regular users are allowed to create organizations. When `false`, only administrators can create organizations.
+By default, when the user has no organization, one is created for them, this doesn't apply
+when `user-can-create-organizations = false`. In that case, the user without organization has no permissions on the server.
 (default: `true`)
 
 ## GitHub authentication
@@ -160,7 +164,7 @@ URL to Google /userinfo API endpoint. This usually does not need to be changed.
 ## OAuth2 authentication
 Prefix: `tolgee.authentication.oauth2`
 
-OAuth 2.0 is the industry-standard protocol for authorization. 
+OAuth 2.0 is the industry-standard protocol for authorization.
 This enables the integration of a wide range of authorization providers into tolgee, such as Auth0, KeyCloak, Okta and others.
 
 ### client-id
@@ -172,11 +176,11 @@ OAuth2 Client secret (default: `null`)
 ### scopes
 Oauth2 scopes (as list) (default: `null`)
 
-Tolgee absolutely requires rights to view the email and user information (also known as openid data). 
+Tolgee absolutely requires rights to view the email and user information (also known as openid data).
 In most cases the scopes `openid email profile` is used for this. (But can also be different depending on the provider)
 
 ### authorization-url
-URL to OAuth2 authorize API endpoint. This endpoint will exposed to the frontend. 
+URL to OAuth2 authorize API endpoint. This endpoint will exposed to the frontend.
 (default: `null`)
 
 ### token-url
@@ -184,7 +188,7 @@ URL to OAuth2 token API endpoint.
 (default: `null`)
 
 ### user-url
-URL to OAuth2 userinfo API endpoint. 
+URL to OAuth2 userinfo API endpoint.
 (default: `null`)
 
 ## LDAP authentication
