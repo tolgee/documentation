@@ -4,17 +4,17 @@ title: What is Tolgee
 sidebar_label: What is Tolgee
 slug: /
 ---
-Localization used to be just so ineffective. The whole management process of creating, managing and fixing localization strings
-is sometimes very complicated and involves developers much more than it is actually needed.
+Localization used to be just so ineffective. The whole management process of creating, managing, and fixing localization strings
+is sometimes very complicated and involves developers much more than is actually needed.
 
-We in Tolgee try to reshape the process of software localization with different approach, which aims to save time and
-effort of everyone who is getting involved such as developers and translators.
+Tolgee aims to reshape the process of software localization with a different approach, which saves time and
+the effort of everyone who is involved such as developers, translators, and others.
 
 ## Easy workflow
-With Tolgee, developers are not involved in localization process after the process of development itself. They develop
-the app, integrate Tolgee integration libraries and deploy an instance, where translators can change the localization
-texts in the context of web application. Texts are then synchronized with Tolgee server (REST API) and there is no need
-for developers to be part of the localization process.
+With Tolgee, developers are not involved in the localization process after the process of development itself. They develop
+the app and integrate Tolgee integration libraries. That's it. Translators can change the localization
+texts in the Tolgee Platform or in the context of the product. Texts are then synchronized with Tolgee Platform and there
+is no need for developers to be part of the localization process anymore.
 
 1. Develop your app
 2. Integrate Tolgee
@@ -23,9 +23,9 @@ for developers to be part of the localization process.
 ## Features
 ### Simple localization texts management
 With Tolgee, you can manage localization texts in simple UI. UI is like a joke. When you have to explain it,
-it isn't good. Following this philosophy we are trying to keep out UI as clean and simple as we can.
+it isn't good. Following this philosophy, we are keeping our UI as clean and simple as we can.
 
-<video loop autoPlay muted style={{ maxWidth: "100%", margin: "0 auto" }}>
+<video loop autoPlay muted style={{maxWidth: "100%", margin: "0 auto"}}>
   <source src="/platform.mov"></source>
 </video>
 
@@ -33,29 +33,28 @@ it isn't good. Following this philosophy we are trying to keep out UI as clean a
 ### Ready for different environments
 You can [deploy Tolgee on your local machine](/docs/platform/self_hosting/running_with_docker#running-it-locally)
 and use it for your local localization management, you can
-[deploy it on your cloud infrastructure](/docs/platform/self_hosting/running_with_docker#running-with-compose) with production
-ready database (PostgreSQL), or you can use the server and web app [deployed by us](https://app.tolgee.io).
+[deploy it on your cloud infrastructure](/docs/platform/self_hosting/running_with_docker#running-with-compose),
+or you can use [Tolgee Cloud](https://app.tolgee.io).
 
 ### In-context localization for web
-With Tolgee integrated in your web application, you can use our in-context localization feature, so
+With Tolgee integrated into your web application, you can use our in-context localization feature, so
 you can just click & translate the text. This feature can actually save a lot of time for communication between
-translators and developers. In most of the cases translators can change the texts directly in the app and see how it
+translators and developers. In most cases, translators can change the texts directly in the app and see what it
 looks like, so any issues such as typos or broken layout can be solved immediately.
 
-<video loop autoPlay muted style={{ maxWidth: "100%", margin: "0 auto" }}>
+<video loop autoPlay muted style={{maxWidth: "100%", margin: "0 auto"}}>
   <source src="/in-context.mov"></source>
 </video>
 
 ## Tolgee architecture
-Tolgee consists of Server (REST-API), web application and integration libraries.
+Tolgee consists of Tolgee Platform and integration libraries (SDKs).
 
-Server is REST API based backend service. It is where you store and organize your localization strings. Basically, it
-provides a business logic layer between web application and integration libraries. Web application is delivered and deployed
-with the server, so it's deployment is very easy.
+The platform is where the strings are stored and where users can manage them all in one place.
 
 Integration libraries are using data provided by REST API directly, so texts changed in the web application are propagated
-into applications you currently develop.
+into applications, you currently develop.
 
-## Are you missing some features?
-We are constantly improving Tolgee and we would be happy for any type of
-contribution such as feedback or pull requests. If you have something on mind, contact us on [info@tolgee.io](mailto:info@tolgee.io).
+## Get started
+To get started, Sign up for the [Tolgee Cloud](https://app.tolgee.io) or learn how to
+[self-host](/docs/platform/self_hosting/running_with_docker#running-with-compose) Tolgee,
+or read [integration docs](https://tolgee.io/integrations/all).
