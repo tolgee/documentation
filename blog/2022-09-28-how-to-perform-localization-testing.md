@@ -11,6 +11,8 @@ description: "Learn about localization testing, why it’s important for your ap
 
 tags: [localization, localization testing, localization software]
 ---
+Localization testing is a software or web application testing procedure designed to ensure the performance of the application and evaluate its different aspects. The behavior of software is tested for specific languages, regions, and cultures. The goal of doing localization testing is to test the linguistic and cultural aspects of specific modules. Localization testing mainly focuses on the content and UI elements of a website.
+
 <!--truncate-->
 ## Introduction
 
