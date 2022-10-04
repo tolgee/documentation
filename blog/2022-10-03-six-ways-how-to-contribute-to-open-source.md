@@ -64,7 +64,7 @@ To move forward with any open-source project, feedback from real users is very n
 **Contributing to Tolgee tip:** suggest new features, share your feedback in our [Slack Tolgee community](https://join.slack.com/t/tolgeecommunity/shared_invite/zt-195isb5u8-_RcSRgVJfvgsPpOBIok~IQ) or on [Github Discussions](https://github.com/tolgee/tolgee-platform/discussions)
 
 ## Final thoughts
-Of course, there are definitely more options on how to contribute to open-source out there. If your motivation is whatsoever from the willingness to learn something new, improve your existing skills or just support your favorite open-source project, you have multiple options on how to do it. But the important thing is that everyone willing to contribute to open-source can actually bring their skills to the community to support it. 
+Of course, there are definitely more options on how to contribute to open-source out there. Whatever your motivation is, from the willingness to learn something new, improve your existing skills or just support your favorite open-source project, you have multiple options on how to do it. But the important thing is that everyone willing to contribute to open-source can actually bring their skills to the community to support it. 
 
 So enjoy Hactoberfest and don’t forget that even the smallest of contributions is still more than none. 
 
