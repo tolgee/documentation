@@ -5,7 +5,7 @@ title: "6 Ways how to contribute to Open-source (and to Tolgee)"
 
 authors: [mchalupnikova]
 
-image: "/img/blog/hacktoberfest/join-us"
+image: "/img/blog/hacktoberfest/join-us.png"
 
 description: "Learn about six different ways how to contribute to open-source projects during Hacktoberfest. Explore how to contribute to Tolgee project."
 
