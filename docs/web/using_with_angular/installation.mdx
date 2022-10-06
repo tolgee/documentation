@@ -63,11 +63,8 @@ yarn add @tolgee/ui
 
 Then import [`NgxTolgeeModule`](/docs/web/using_with_angular/api#ngxtolgeemodule) in your module file `app.module.ts`:
 ```typescript
-import {NgxTolgeeModule} from "@tolgee/ngx";
-import {UI} from "@tolgee/ui";
 import {NgModule} from '@angular/core';
 import { environment } from '../environments/environment';
-
 
 @NgModule({
   declarations: [
@@ -78,7 +75,7 @@ import { environment } from '../environments/environment';
     NgxTolgeeModule.forRoot({
       apiUrl: environment.tolgeeApiUrl,
       apiKey: environment.tolgeeApiKey,
-      ui: environment.tolgeeApiKey ? UI : undefined
+      ui: environment.tolgeeApiKey ? require("@tolgee/ui") : undefined
     }),
 ...,
 ],
