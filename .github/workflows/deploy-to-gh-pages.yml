@@ -21,6 +21,9 @@ jobs:
         cache: 'npm'
     - run: npm ci
     - run: npm run build
+      env: 
+       DOCUSAURUS_GOOGLE_TRACKING_ID: GTM-54T92ZH
+       DOCUSAURUS_CHATWOOT_TOKEN: FiiSF58K3GH9QNfAErYQv4AJ
     - name: Deploy to GitHub Pages
       if: success()
       uses: crazy-max/ghaction-github-pages@v3
