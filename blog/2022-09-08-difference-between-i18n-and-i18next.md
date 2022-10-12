@@ -7,7 +7,7 @@ authors: [jcizmar]
 
 image: "/img/blog/i18n-i18next-difference.jpg"
 
-description: "This article explains what is the difference between i18n (abbreviation for internationalization) and i18next (JavaScript framework enabling internationalization)."
+description: "This article explains what is the difference between i18n (abbr. internationalization) and i18next (JavaScript framework enabling internationalization)."
 
 tags: [localization, internationalization, basics]
 ---

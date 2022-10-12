@@ -3,7 +3,7 @@ slug: optimizing-spring-boot-tests
 
 title: Optimizing Spring Boot tests
 
-description: How did I optimized our Spring Boot tests to run a bit faster using bean lazy loading. 
+description: How did I optimized our Spring Boot tests to run a bit faster using bean lazy loading. First, Move from TestNG to JUnit.
 
 authors: [jcizmar]
 
