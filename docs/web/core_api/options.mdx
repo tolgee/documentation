@@ -1,0 +1,112 @@
+---
+id: options
+title: Core Options
+sidebar_label: Options
+slug: /web/core-api/options
+---
+
+Initial configuration object of tolgee.
+
+### `options.language`
+
+Initial language, you need to specify this, unless there is LanguageDetector plugin present.
+
+```ts
+language: string;
+```
+
+### `options.defaultLanguage`
+
+Used when LanguageDetector plugin fails.
+
+```ts
+defaultLanguage: string;
+```
+
+### `options.fallbackLanguage`
+
+Language which is used when no translation is available for current one.
+
+```ts
+fallbackLanguage: FallbackLanguageOption;
+```
+
+### `options.apiUrl`
+
+Tolgee instance url (e.g. https://app.tolgee.io)
+
+```ts
+apiUrl: string;
+```
+
+### `options.apiKey`
+
+Project API key (PAK) or Personal Access Token (PAT)
+
+```ts
+apiKey: string;
+```
+
+### `options.projectId`
+
+Project id is necessary if you are using PAT
+
+```ts
+projectId: number | string;
+```
+
+### `options.availableLanguages`
+
+Languages which can be used for language detection
+and also limits which values can be stored. Is derrived from `staticData` keys if not provided.
+
+```ts
+availableLanguages: string[];
+```
+
+### `options.ns`
+
+Namespaces which should be always fetched
+
+```ts
+ns: string[];
+```
+
+### `options.fallbackNs`
+
+Namespaces to be used to find translation when no explicit namespace set.
+
+```ts
+fallbackNs: FallbackNs;
+```
+
+### `options.defaultNs`
+
+Default namespace when no namespace defined (default: '')
+
+```ts
+defaultNs: string;
+```
+
+### `options.staticData`
+
+These data go directly to cache or you can specify async
+function which will be used to get the data. Use `:` to add namespace:
+
+```ts
+staticData: TolgeeStaticData;
+```
+
+Example:
+
+```ts
+{
+  'locale': {
+    'key': 'translation'
+  },
+  // or
+  'locale': () => fetchTranslations(),
+  // or
+  'locale:namespace': ...
+}
+```

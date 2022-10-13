@@ -23,6 +23,7 @@
     "@mdx-js/react": "^1.6.21",
     "@mui/icons-material": "^5.8.4",
     "@mui/material": "5.9.2",
+    "@stackblitz/sdk": "^1.8.0",
     "@tsconfig/docusaurus": "^1.0.2",
     "@types/imagemagick": "0.0.31",
     "@types/react": "^17.0.45",

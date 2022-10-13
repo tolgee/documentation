@@ -1,0 +1,30 @@
+---
+id: understanding_tolgee_for_web
+title: Understanding Tolgee for Web
+sidebar_label: Understanding Tolgee
+slug: /web/understanding_tolgee_for_web
+---
+
+import { StackBlitz } from '../../src/component/StackBlitz';
+
+Check our minimal example.
+
+<StackBlitz slug="tolgee-minimal-example" />
+
+If you preview this example you can hold `Alt` key and click the translation, to open tolgee in-context popup.
+You can provide your own Tolgee Project API key and in-context will work like a charm.
+
+Notice that we are simply setting `textContent` of div element - no extra wrapping and Tolgee is able to recognize where
+the translation is, you can read more about this feature [here](./wrapping).
+
+## The rest is the same as regular i18n library
+
+We've looked at popular i18n libraries and implemented one even better.
+We offer all the usual features. Read more [here](./core)
+
+<StackBlitz slug="tolgee-languages" height={400} />
+
+## Integrations
+
+Tolgee integrations are thin wrappers for popular frameworks/libraries. You can take advantage of close integration
+with Tolgee platform everywhere.

@@ -29,12 +29,16 @@ module.exports = {
       ],
     },
     {
-      label: 'Tolgee for Web',
+      label: 'Tolgee SDK',
       collapsed: false,
       type: 'category',
       items: [
         {
           id: 'web/understanding_tolgee_for_web',
+          type: 'doc',
+        },
+        {
+          id: 'web/packages',
           type: 'doc',
         },
         {
@@ -52,6 +56,32 @@ module.exports = {
         {
           id: 'web/automated_screenshot_generation',
           type: 'doc',
+        },
+        {
+          label: 'Core API',
+          type: 'category',
+          items: [
+            {
+              id: 'web/core_api/tolgee',
+              type: 'doc',
+            },
+            {
+              id: 'web/core_api/options',
+              type: 'doc',
+            },
+            {
+              id: 'web/core_api/events',
+              type: 'doc',
+            },
+            {
+              id: 'web/core_api/plugin',
+              type: 'doc',
+            },
+            {
+              id: 'web/core_api/observer_options',
+              type: 'doc',
+            },
+          ],
         },
         {
           label: 'Integrations',
