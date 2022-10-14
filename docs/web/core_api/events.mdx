@@ -7,7 +7,7 @@ slug: /web/core-api/events
 
 Tolgee events which can be listened through `tolgee.on` method.
 
-### `event.language`
+### language
 
 Emitted on language change.
 
@@ -15,7 +15,7 @@ Emitted on language change.
 tolgee.on('language', handler: ListenerHandler<string>)
 ```
 
-### `event.pendingLanguage`
+### pendingLanguage
 
 Emitted on language change. Before languages are loaded (when tolgee is running).
 
@@ -23,7 +23,7 @@ Emitted on language change. Before languages are loaded (when tolgee is running)
 tolgee.on('pendingLanguage', handler: ListenerHandler<string>)
 ```
 
-### `event.key`
+### key
 
 Emitted on single key change.
 
@@ -31,7 +31,7 @@ Emitted on single key change.
 tolgee.on('key', handler: ListenerHandler<string>)
 ```
 
-### `event.loading`
+### loading
 
 Emitted on loading change. Changes when tolgee is loading some data for the first time.
 
@@ -39,7 +39,7 @@ Emitted on loading change. Changes when tolgee is loading some data for the firs
 tolgee.on('loading', handler: ListenerHandler<boolean>)
 ```
 
-### `event.fetching`
+### fetching
 
 Emitted on fetching change. Changes when tolgee is fetching any data.
 
@@ -47,7 +47,7 @@ Emitted on fetching change. Changes when tolgee is fetching any data.
 tolgee.on('loading', handler: ListenerHandler<boolean>)
 ```
 
-### `event.initialLoad`
+### initialLoad
 
 Emitted when `run` method finishes.
 
@@ -55,7 +55,7 @@ Emitted when `run` method finishes.
 tolgee.on('initialLoad', handler: ListenerHandler<void>)
 ```
 
-### `event.running`
+### running
 
 Emitted when internal `running` state changes.
 
@@ -63,7 +63,7 @@ Emitted when internal `running` state changes.
 tolgee.on('initialLoad', handler: ListenerHandler<boolean>)
 ```
 
-### `event.cache`
+### cache
 
 Emitted when cache changes.
 
@@ -71,7 +71,7 @@ Emitted when cache changes.
 tolgee.on('cache', handler: ListenerHandler<CacheDescriptorWithKey>)
 ```
 
-### `event.keyUpdate`
+### keyUpdate
 
 Emitted when any key needs (or might need) to be re-rendered. Similar to `tolgee.onKeyUpdate`,
 except we intercept all events, not just selection.

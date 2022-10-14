@@ -34,7 +34,7 @@ module.exports = {
       type: 'category',
       items: [
         {
-          id: 'web/understanding_tolgee_for_web',
+          id: 'web/introduction',
           type: 'doc',
         },
         {
@@ -43,10 +43,6 @@ module.exports = {
         },
         {
           id: 'web/wrapping',
-          type: 'doc',
-        },
-        {
-          id: 'web/configuration',
           type: 'doc',
         },
         {
@@ -71,6 +67,10 @@ module.exports = {
             },
             {
               id: 'web/core_api/events',
+              type: 'doc',
+            },
+            {
+              id: 'web/core_api/format_simple',
               type: 'doc',
             },
             {

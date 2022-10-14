@@ -8,10 +8,10 @@ description: "Learn about two ways of wrapping in Tolgee: text wrapping and invi
 
 ## Invisible wrapping
 
-Tolgee offers unique technology for in-context translating, it combines comfort of simple i18n libraries with
+Tolgee offers unique technology for in-context translating, it combines simplicity of regular i18n libraries with
 comfort of in-context translating directly in your app.
 
-How it works? Let's take our basic example:
+How it works? Let's take basic example:
 
 ```ts
 import { Tolgee, DevTools } from '@tolgee/web';
@@ -19,16 +19,15 @@ import { Tolgee, DevTools } from '@tolgee/web';
 const tolgee = Tolgee().use(DevTools()).init({
   language: 'en',
   apiUrl: 'https://app.tolgee.io',
-  // replace with your Tolgee Project api key to connect to Tolgee
-  apiKey: '**********',
+  apiKey: '<your project API key>',
 });
 
 const myElement = document.createElement('div');
 document.body.appendChild(myElement);
 
-myElement.textContent = tolgee.t('test', 'Alt click me');
+myElement.textContent = tolgee.t('test');
 tolgee.on('keyUpdate', () => {
-  myElement.textContent = tolgee.t('test', 'Alt click me');
+  myElement.textContent = tolgee.t('test');
 });
 
 tolgee.run();
@@ -37,24 +36,25 @@ tolgee.run();
 Let's focus on the main part, where we insert the translation into the dom:
 
 ```ts
-myElement.textContent = tolgee.t('test', 'Alt click me');
+myElement.textContent = tolgee.t('test');
 ```
 
-Let's try to evaluate the secret by console.logging the result of `t` function:
+Let's try to discover the secret by console.logging individual characters of [`t`](./core-api/tolgee#t) function result:
 
 ```ts
-console.log(tolgee.t('test'));
-// ["t", "e", "s", "t", "", "", "", "", "", "", "", "", ""]
+console.log(Array.from(tolgee.t('test')));
+// [... translation value ... , "", "", "", "", "", "", "", "", ""]
 ```
 
-What are these empty characters? They are not actually empty, only invisible
+What are these empty characters at the end? They are not actually empty, only invisible
 ([read more](/blog/2021/12/17/invisible-characters-for-better-localization)).
 Tolgee passes a secret information into each translation, which is then detectable in the dom.
-We use MutationObserver to check all dom changes and search for these secret characters, to find the exact locations
-of translations. This method is very reliable and brings basically no extra effort on the developer side.
+We use [`MutationObserver`](https://developer.mozilla.org/en-US/docs/Web/API/MutationObserver)
+to check all dom changes and search for these secret characters, to find the exact locations
+of translations. This method is very reliable and brings basically no overhead on developer side.
 
 We call this mechanism wrapping. You can check the information, which is included with the translation by
-calling `tolgee.unwrap` method, which will give you out the information about the translation.
+calling [`tolgee.unwrap`](./core-api/tolgee#unwrap) method, which will give you the information about the translation.
 
 ## Why this solution?
 

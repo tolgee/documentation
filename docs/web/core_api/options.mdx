@@ -7,7 +7,7 @@ slug: /web/core-api/options
 
 Initial configuration object of tolgee.
 
-### `options.language`
+### language
 
 Initial language, you need to specify this, unless there is LanguageDetector plugin present.
 
@@ -15,7 +15,7 @@ Initial language, you need to specify this, unless there is LanguageDetector plu
 language: string;
 ```
 
-### `options.defaultLanguage`
+### defaultLanguage
 
 Used when LanguageDetector plugin fails.
 
@@ -23,7 +23,7 @@ Used when LanguageDetector plugin fails.
 defaultLanguage: string;
 ```
 
-### `options.fallbackLanguage`
+### fallbackLanguage
 
 Language which is used when no translation is available for current one.
 
@@ -31,7 +31,7 @@ Language which is used when no translation is available for current one.
 fallbackLanguage: FallbackLanguageOption;
 ```
 
-### `options.apiUrl`
+### apiUrl
 
 Tolgee instance url (e.g. https://app.tolgee.io)
 
@@ -39,7 +39,7 @@ Tolgee instance url (e.g. https://app.tolgee.io)
 apiUrl: string;
 ```
 
-### `options.apiKey`
+### apiKey
 
 Project API key (PAK) or Personal Access Token (PAT)
 
@@ -47,7 +47,7 @@ Project API key (PAK) or Personal Access Token (PAT)
 apiKey: string;
 ```
 
-### `options.projectId`
+### projectId
 
 Project id is necessary if you are using PAT
 
@@ -55,7 +55,7 @@ Project id is necessary if you are using PAT
 projectId: number | string;
 ```
 
-### `options.availableLanguages`
+### availableLanguages
 
 Languages which can be used for language detection
 and also limits which values can be stored. Is derrived from `staticData` keys if not provided.
@@ -64,7 +64,7 @@ and also limits which values can be stored. Is derrived from `staticData` keys i
 availableLanguages: string[];
 ```
 
-### `options.ns`
+### ns
 
 Namespaces which should be always fetched
 
@@ -72,7 +72,7 @@ Namespaces which should be always fetched
 ns: string[];
 ```
 
-### `options.fallbackNs`
+### fallbackNs
 
 Namespaces to be used to find translation when no explicit namespace set.
 
@@ -80,7 +80,7 @@ Namespaces to be used to find translation when no explicit namespace set.
 fallbackNs: FallbackNs;
 ```
 
-### `options.defaultNs`
+### defaultNs
 
 Default namespace when no namespace defined (default: '')
 
@@ -88,7 +88,7 @@ Default namespace when no namespace defined (default: '')
 defaultNs: string;
 ```
 
-### `options.staticData`
+### staticData
 
 These data go directly to cache or you can specify async
 function which will be used to get the data. Use `:` to add namespace:

@@ -291,7 +291,11 @@ module.exports = {
           },
           {
             from: '/docs/web_app',
-            to: '/docs/web/understanding_tolgee_for_web',
+            to: '/docs/web/introduction',
+          },
+          {
+            from: '/docs/web/understanding_tolgee_for_web',
+            to: '/docs/web/introduction',
           },
           {
             from: '/docs/web_app/creating_repository',

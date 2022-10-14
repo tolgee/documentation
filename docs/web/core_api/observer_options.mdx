@@ -5,10 +5,10 @@ sidebar_label: Observer options
 slug: /web/core-api/observer-options
 ---
 
-Tolgee Observer options, which can be passed to `tolgee.setObserverOptions` method.
+Tolgee Observer options, which can be passed to [`setObserverOptions`](./tolgee#setobserveroptions) method.
 These are passed to `ObserverPlugin` if present.
 
-### `options.targetElement`
+### targetElement
 
 Element where wrapped strings are expected in development mode.
 
@@ -18,7 +18,7 @@ targetElement: HTMLElement;
 
 Default: `document.body`
 
-### `options.tagAttributes`
+### tagAttributes
 
 Tolgee is able to watch also for wrapped localization strings in attributes of DOM elements.
 These attributes must be specified in these configuration properties.
@@ -38,7 +38,7 @@ tagAttributes: {
 }
 ```
 
-### `options.highlightKeys`
+### highlightKeys
 
 By default, in development mode, when you move mouse over an element containing translated text and key ALT is down, this element is highlighted by changing its background color. To modify the key use highlightKeys property.
 
@@ -56,7 +56,7 @@ highlightKeys: [ModifierKey.Shift, ModifierKey.Alt];
 
 Default: `[ModifierKey.Alt]`
 
-### `options.highlightColor`
+### highlightColor
 
 Highlighter border color.
 
@@ -73,7 +73,7 @@ display: "inline-block",
 verticalAlign: "middle"
 }}></div>
 
-### `options.highlightWidth`
+### highlightWidth
 
 Border width of highlighter.
 
@@ -83,7 +83,7 @@ highlightWidth: number;
 
 Default: `5px`
 
-### `options.restrictedElements`
+### restrictedElements
 
 Array of elements in which you don't want Tolgee to replace wrapped strings.
 
@@ -93,7 +93,7 @@ restrictedElements: string[];
 
 Default: `['script', 'style']`
 
-### `options.inputPrefix` and `inputSuffix`
+### inputPrefix and inputSuffix
 
 Only for `TextObserver`
 
@@ -117,7 +117,7 @@ These strings are unique enough to not clash with any other strings in your DOM,
 inputPrefix: string;
 ```
 
-### `options.passToParent`
+### passToParent
 
 There are elements which can contain wrapped string to be translated, but user is not able to click on them. For example
 an option of `select` HTML element cannot be used for capturing click even with `ALT` down. For these reasons you can

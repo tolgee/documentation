@@ -1,30 +1,109 @@
 ---
-id: understanding_tolgee_for_web
-title: Understanding Tolgee for Web
-sidebar_label: Understanding Tolgee
-slug: /web/understanding_tolgee_for_web
+id: introduction
+title: Introduction
+sidebar_label: Introduction
+slug: /web/introduction
 ---
 
-import { StackBlitz } from '../../src/component/StackBlitz';
+Tolgee SDK provides functionality of i18n library and helps you with formatting, interpolation etc.
+It also serves as a bridge to Tolgee Platform for [in-context translating](/features/dev-tools#in-context).
 
-Check our minimal example.
+Basic initialization:
 
-<StackBlitz slug="tolgee-minimal-example" />
+```ts
+import { Tolgee } from '@tolgee/web';
 
-If you preview this example you can hold `Alt` key and click the translation, to open tolgee in-context popup.
-You can provide your own Tolgee Project API key and in-context will work like a charm.
+const tolgee = Tolgee({
+  language: 'en',
+  staticData: {
+    en: {
+      test: 'Hello world!',
+    },
+    es: {
+      test: '¡Hola Mundo!',
+    },
+  },
+});
+tolgee.run();
 
-Notice that we are simply setting `textContent` of div element - no extra wrapping and Tolgee is able to recognize where
-the translation is, you can read more about this feature [here](./wrapping).
+console.log(tolgee.t('test'));
+// Hello world!
+```
 
-## The rest is the same as regular i18n library
+We can also switch languages:
 
-We've looked at popular i18n libraries and implemented one even better.
-We offer all the usual features. Read more [here](./core)
+```ts
+tolgee.changeLanguage('es');
 
-<StackBlitz slug="tolgee-languages" height={400} />
+console.log(tolgee.t('test'));
+// ¡Hola Mundo!
+```
 
-## Integrations
+> Read more about [`staticData`](./core-api/options#staticdata).
 
-Tolgee integrations are thin wrappers for popular frameworks/libraries. You can take advantage of close integration
-with Tolgee platform everywhere.
+## Using plugins
+
+Tolgee is highly extensible and we offer variety of plugins directly included in SDK.
+Plugins can add support for:
+
+- Formatting
+- Backends (fetching translations)
+- Language detectors
+- Language storage
+- In context translating
+- [... and more](./core-api/plugin-api)
+
+This is how you can add `FormatSimple` plugin:
+
+```ts
+import { FormatSimple } from '@tolgee/web';
+
+const tolgee = Tolgee()
+  .use(FormatSimple())
+  .init({
+    ...
+  });
+```
+
+> The [`init`](./core-api/tolgee#init) method is equivalent to regular initialization,
+> but is more elegant when using plugins.
+
+## Using in-context translating
+
+To enbale in-context translating, we need to use `DevTools` plugin and specify Tolgee credentials.
+
+```ts
+import { Tolgee, DevTools } from '@tolgee/web';
+
+const tolgee = Tolgee()
+  .use(DevTools())
+  .init({
+    language: 'en',
+    staticData: {
+      ...
+    },
+    apiUrl: 'https://app.tolgee.io',
+    apiKey: '<your project API key>',
+  });
+```
+
+> Api key can be [obtained in Tolgee Platform](../platform/api-keys-and-pat-tokens).
+
+If we want to try in-context, we need to insert the translation to the dom.
+
+```ts
+tolgee.run();
+
+myHtmlElement.textContent = tolgee.t('test');
+tolgee.on('keyUpdate', () => {
+  myHtmlElement.textContent = tolgee.t('test');
+});
+```
+
+For in-context translating is important, that translation can change any time, so we need to
+listen for these changes and update html.
+
+This exmple might look a bit ugly, but that's only because it's in vanilla js. If you use any of our
+framework integrations, you'll see, it's much more elegant.
+
+> How does Tolgee know where are the translations on the page? Check [Wrapping and Observing](./wrapping)
