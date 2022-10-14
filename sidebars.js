@@ -54,31 +54,39 @@ module.exports = {
           type: 'doc',
         },
         {
-          label: 'Core API',
+          label: 'Core package',
           type: 'category',
           items: [
             {
-              id: 'web/core_api/tolgee',
+              id: 'web/core_package/about',
               type: 'doc',
             },
             {
-              id: 'web/core_api/options',
+              id: 'web/core_package/tolgee',
               type: 'doc',
             },
             {
-              id: 'web/core_api/events',
+              id: 'web/core_package/options',
               type: 'doc',
             },
             {
-              id: 'web/core_api/format_simple',
+              id: 'web/core_package/format_simple',
               type: 'doc',
             },
             {
-              id: 'web/core_api/plugin',
+              id: 'web/core_package/other_tools',
               type: 'doc',
             },
             {
-              id: 'web/core_api/observer_options',
+              id: 'web/core_package/events',
+              type: 'doc',
+            },
+            {
+              id: 'web/core_package/plugin',
+              type: 'doc',
+            },
+            {
+              id: 'web/core_package/observer_options',
               type: 'doc',
             },
           ],

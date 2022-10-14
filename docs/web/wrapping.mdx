@@ -39,7 +39,7 @@ Let's focus on the main part, where we insert the translation into the dom:
 myElement.textContent = tolgee.t('test');
 ```
 
-Let's try to discover the secret by console.logging individual characters of [`t`](./core-api/tolgee#t) function result:
+Let's try to discover the secret by console.logging individual characters of [`t`](./core-package/tolgee#t) function result:
 
 ```ts
 console.log(Array.from(tolgee.t('test')));
@@ -54,7 +54,7 @@ to check all dom changes and search for these secret characters, to find the exa
 of translations. This method is very reliable and brings basically no overhead on developer side.
 
 We call this mechanism wrapping. You can check the information, which is included with the translation by
-calling [`tolgee.unwrap`](./core-api/tolgee#unwrap) method, which will give you the information about the translation.
+calling [`tolgee.unwrap`](./core-package/tolgee#unwrap) method, which will give you the information about the translation.
 
 ## Why this solution?
 

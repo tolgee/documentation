@@ -2,7 +2,7 @@
 id: plugin
 title: Plugin
 sidebar_label: Plugin
-slug: /web/core-api/plugin-api
+slug: /web/core-package/plugin-api
 ---
 
 ## TolgeePlugin interface
@@ -16,7 +16,7 @@ function (tolgee: TolgeeInstance, tools: PluginTools): TolgeeInstance
 
 ## PluginTools
 
-Tools to manipulate different plugin interfaces.
+Tools to manipulate different middleware interfaces.
 
 ### Formatter
 
@@ -68,7 +68,7 @@ function Observer(props: ObserverProps) {
 };
 ```
 
-Plugin which enables in-context translating. Check [Observer props](./observer-options).
+Middleware which enables in-context translating. Check [Observer options](./observer-options).
 
 ### UI
 
@@ -101,7 +101,7 @@ interface BackendInterface {
 }
 ```
 
-`Backend` is used when `Tolgee` needs to fetch record (identified by language and namespace).
+`Backend` middleware is used when `Tolgee` needs to fetch record (identified by language and namespace).
 `Backend` can be skipped if `getRecord` returns `undefined`, in that case next backend is used.
 
 `DevBackend` is used when in dev mode and only difference in interface is that `getRecord` will also
@@ -156,4 +156,4 @@ tools.overrideCredentials(credentials: {
 }): void;
 ```
 
-Method which allows plugins to override user set credentials to tolgee platform.
+Method which overrides user credentials to tolgee platform.
