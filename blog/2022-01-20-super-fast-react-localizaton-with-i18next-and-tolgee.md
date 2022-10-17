@@ -38,7 +38,12 @@ applications for both developers and translators. 👨‍💻👩🏻‍💻🧖
 Tolgee open-source Localization Platform is a place, where you can manage all your localization strings in the simple UI. It's made
 to simplify the localization process as much as possible. With Tolgee you can translate the localization strings
 directly in the application you develop without editing localization data files. You can also [automatically generate
-screenshots](https://tolgee.io/features/dev-tools) from your app, which can be used in the future by translators of your project.
+screenshots](https://tolgee.io/features/dev-tools) from your app, which can be used in the future by translators of your
+project.
+
+You can also let anybody localize your app using in-context translating features, so you can translate the strings
+directly in the product you are working on. And not only you. Anybody who has access to the project in the Tolgee
+localization platform can translate the App product directly in it just by ALT + Clicking the key.
 
 So let's dive in to the hacking!
 
@@ -336,6 +341,11 @@ API.
 Congrats! 🎉 Now you are able to speed up your localization process!
 
 ## TL;DR
+
+In this article, you've learned how to use Tolgee open-source self-hosted platform with i18next. Tolgee helps developers
+to enhance their localization process using its i18n integration libraries having great features like
+in-context localization, automated localization screenshot generation, and others. Tolgee also enables anybody
+permitted to translate the App product directly in it just with ALT + Clicking the strings. It's super easy.
 
 - Tolgee is an open-source tool, simplifying localization process and removing unnecessary tasks
 - It enables you or your colleagues to modify translated string in the context of developed web application
