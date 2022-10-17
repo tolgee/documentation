@@ -31,7 +31,7 @@ you delete them.
 To learn more about,
 visit [Project API keys and Pats documentation section](/docs/platform/api-keys-and-pat-tokens).
 
-# Why we did do it?
+## Why we did do it?
 
 ## Project API keys can authorize operations only in one project
 

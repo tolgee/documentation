@@ -1,13 +1,13 @@
 ---
-slug: let-this-script-type-instead-of-you-when-you-record-your-browser
+slug: let-this-script-type-instead-of-you
 
-title: "Let this script type instead of you when you record a video of your browser ⌨"
+title: "Let this script type instead of you when you record a video"
 
 authors: [jcizmar]
 
 image: "/img/blog/typing-script/image.jpg"
 
-description: Describing a simple script that types the string instead of me when I hit a specific shortcut. 
+description: Describing a simple script that types the string instead of me when I hit a specific shortcut. Now I use this to record videos, when I have to fill in an input
 
 tags: [fixtures, coding, fun]
 ---

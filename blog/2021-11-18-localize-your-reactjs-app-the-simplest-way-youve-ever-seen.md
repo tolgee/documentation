@@ -107,7 +107,7 @@ You can find the resulting code in [this GitHub repo](https://github.com/JanCizm
 
 Now you are able to translate your React.js applications with Tolgee. To learn more about Tolgee or to find out how to translate more complicated cases, [visit our docs](https://tolgee.io) or integrations to other [frameworks](https://tolgee.io/integrations/all).
 
-# TL;DR
+## TL;DR
 
 Tolgee is open-source tool simplifying the process of web based application. It has this features:
  
