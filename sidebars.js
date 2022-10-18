@@ -92,6 +92,28 @@ module.exports = {
           ],
         },
         {
+          label: 'Web package',
+          type: 'category',
+          items: [
+            {
+              id: 'web/web_package/about',
+              type: 'doc',
+            },
+            {
+              id: 'web/web_package/plugins',
+              type: 'doc',
+            },
+            {
+              id: 'web/web_package/bundled_plugins',
+              type: 'doc',
+            },
+            {
+              id: 'web/web_package/other_tools',
+              type: 'doc',
+            },
+          ],
+        },
+        {
           label: 'Integrations',
           collapsed: false,
           type: 'category',
