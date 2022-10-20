@@ -62,11 +62,11 @@ This method works, but it has even more disadvantages than classes as it doesn't
 
 ## Closure objects
 
-I've come across a [lecture from David Crockford](https://youtu.be/XFTOG895C7c?t=2803), where he recommends using closure instead of class.
+I've come across a [lecture from Douglas Crockford](https://youtu.be/XFTOG895C7c?t=2803), where he recommends using closure instead of class.
 
 > By far, the worst new feature in es6 is class. This one was strongly recommended by all the Java guys who have to write in JavaScript now and who don't want to learn a new language. This gives them the illusion of writing in a language that they think they already know.
 >
-> -- <cite>David Crockford</cite>
+> -- <cite>Douglas Crockford</cite>
 
 If you look at it, it kind of reminds the definition of a React component.
 
