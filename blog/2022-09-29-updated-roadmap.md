@@ -5,7 +5,7 @@ title: "Updated roadmap. CLI, Community translations, and more."
 
 authors: [jcizmar]
 
-image: "/img/blog/roadmap2.jpg"
+image: "/img/blog/road.png"
 
 description: "CLI, Enhanced permissions, new Tolgee core, Community translations, webhooks, batch operations - the
 tasks we are working on now and in the next few months"
@@ -16,7 +16,7 @@ tags: [roadmap, product]
 Yes, we updated our roadmap again. In the next few months, we are going to work on CLI, enhanced permissions, new Tolgee
 core, community translations, webhooks, and batch operations.
 
-![Road](/img/blog/roadmap2.jpg)
+![Road](/img/blog/road.png)
 
 <!--truncate-->
 

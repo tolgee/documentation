@@ -1,7 +1,7 @@
 ---
-slug: localization-basics-S01E01
+slug: localization-basics
 
-title: "Localization basics S01E01: What are t9n, l10n, i18n, g11n? New secret language?"  
+title: "Localization basics: What are t9n, l10n, i18n, g11n?"  
 
 
 authors: [mchalupnikova]

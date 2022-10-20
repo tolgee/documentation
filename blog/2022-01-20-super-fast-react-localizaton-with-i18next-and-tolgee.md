@@ -1,7 +1,7 @@
 ---
 slug: super-fast-react-localization-i18n-with-i18next-and-tolgee
 
-title: Super fast React Localization 🌍 (i18n) with i18next and Tolgee 🐁
+title: Super fast React Localization (i18n) with i18next and Tolgee
 
 description: How to speed up your translation process and integrate i18next library and Tolgee open-source tool into your React.js project.
 
