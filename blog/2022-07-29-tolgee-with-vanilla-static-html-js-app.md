@@ -1,5 +1,5 @@
 ---
-slug: integrate-tolgee-with-vanilla-static-html-js-application
+slug: how-to-integrate-tolgee-with-vanilla-static-html-js-application
 
 title: "Integrate Tolgee with vanilla static HTML/JS application"
 

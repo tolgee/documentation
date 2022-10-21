@@ -1,5 +1,5 @@
 ---
-slug: localization-basics
+slug: localization-basics-S01E01
 
 title: "Localization basics: What are t9n, l10n, i18n, g11n?"  
 
