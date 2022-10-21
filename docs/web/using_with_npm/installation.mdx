@@ -3,13 +3,14 @@ id: installation
 title: Installation
 sidebar_label: Installation
 slug: /web/using_with_npm/installation
-description: "Learn how to install Tolgee using npm: npm install @tolgee/core and npm install @tolgee/ui (to install UI bundle for in-context translating)."
+description: 'Learn how to install Tolgee using npm: npm install @tolgee/core and npm install @tolgee/ui (to install UI bundle for in-context translating).'
 ---
 
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
 To install Tolgee run:
+
 <Tabs
     defaultValue="npm"
     values={[
@@ -59,18 +60,14 @@ yarn add @tolgee/ui
 </Tabs>
 
 After installing packages you can use it like this:
-:::info
-Inicialization has changed in [version 3](/docs/changelog/tolgee_js_version_3)
-:::
-```javascript
-import {Tolgee, IcuFormatter} from "@tolgee/core";
-import {UI} from "@tolgee/ui";
 
-const tg = Tolgee.use(IcuFormatter).init({
-    apiKey: "your_api_key",
-    apiUrl: "https://app.tolgee.io",
-    ui: UI
-})
+```js
+import { Tolgee, DevTools } from '@tolgee/web';
+
+const tg = Tolgee().use(DevTools()).init({
+  apiKey: 'your_api_key',
+  apiUrl: 'https://app.tolgee.io',
+});
 
 tg.run();
 ```

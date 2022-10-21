@@ -4,6 +4,7 @@ title: Preparing for production (React)
 sidebar_label: Preparing for production
 slug: /web/using_with_react/preparing_for_production
 ---
+
 In production mode you should never use localization data from Tolgee REST API and you should never leak your API key.
 You should use data exported from Tolgee platform.
 To get exported localization files, see [exporting translations](platform/exporting_translations.mdx).
@@ -17,48 +18,44 @@ To provide your localization data using dynamic import you will need to add prov
 TolgeeProvider's configuration property.
 
 ```jsx
-<TolgeeProvider
-  staticData={{
+const tolgee = Tolgee({
+  ...
+  staticData: {
     en: () => import('./i18n/en.json'),
     de: () => import('./i18n/de.json'),
-  }}
-  ...
->
-  ...
-</TolgeePrivider>
+  }
+})
 ```
 
 Using this approach data will be fetched just when it's needed, so you will save some network traffic.
 
 ## Using imported object
+
 ```jsx
 import * as localeEn from 'i18n/en.json';
 import * as localeDe from 'i18n/de.json';
 
 ...
 
-<TolgeeProvider
-  staticData={{
+const tolgee = Tolgee({
+  ...
+  staticData: {
     en: localeEn,
     de: localeDe,
-  }}
-  ...
->
-  ...
-</TolgeePrivider>
+  }
+})
 ```
 
-Using this approach, all localization data are bundled with your application, so it will be downloaded with your application code.
-This approach could be very useful for SSR, when you need your localization data imported to be rendered by your SSR engine.
+Using this approach, all localization data are bundled with your application, so it will be downloaded with your application code. This approach could be very useful for SSR, when you need your localization data imported to be rendered by your SSR engine.
 
-## Providing data using filesUrlPrefix option
+## Providing data using backend plugin
+
 ```jsx
-<TolgeeProvider
-  filesUrlPrefix="i18n/"
-  ...
->
-  ...
-</TolgeePrivider>
+import { BackendFetch } from '@tolgee/react';
+
+const tolgee = Tolgee()
+  .use(BackendFetch({ prefix: 'i18n/' }))
+  .init({...})
 ```
-This option tells Tolgee, that localization data (en.json, de.json) can be found on `https://<your url>/i18n`,
-so it will be fetched with every page load.
+
+[`BackendFetch`](../web-package/plugins#backendfetch) will fetch translation files (en.json, de.json) from `https://<your url>/i18n`, so you don't have to list all the files explicitly.
