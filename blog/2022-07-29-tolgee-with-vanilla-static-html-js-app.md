@@ -1,7 +1,7 @@
 ---
-slug: how-to-integrate-tolgee-with-vanilla-static-html-js-application
+slug: integrate-tolgee-with-vanilla-static-html-js-application
 
-title: "How to integrate Tolgee with vanilla static HTML/JS application?"
+title: "Integrate Tolgee with vanilla static HTML/JS application"
 
 authors: [pmarattha]
 

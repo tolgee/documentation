@@ -8,6 +8,7 @@ import { LandingPageInstallationCode } from '../../component/landingPages/Landin
 import ReactLogo from '../../../static/img/technologies/logo-react.svg';
 import { LandingPageActions } from '../../component/landingPages/LandingPageActions';
 import { MoreIntegrations } from '../../component/landingPages/LandingPageMoreIntegrations';
+import Head from '@docusaurus/Head';
 
 const DocsLinks = ({ primary }: { primary?: boolean }) => (
   <LandingPageActions
@@ -21,6 +22,9 @@ const DocsLinks = ({ primary }: { primary?: boolean }) => (
 export default function ReactIntegration() {
   return (
     <LandingPage title={'Tolgee for React'}>
+      <Head>
+        <meta name="description" content="Learn how to install Tolgee React integration library. With Tolgee i18n library for React you can enjoy all Tolgee i18n features." />
+      </Head>
       <LandingPageHeadline
         loveImage={{
           img: <ReactLogo width={80} />,

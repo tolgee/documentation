@@ -9,6 +9,7 @@ import { AlertInfo } from '../../component/AlertInfo';
 import VueLogo from '../../../static/img/technologies/logo-vue.svg';
 import { LandingPageActions } from '../../component/landingPages/LandingPageActions';
 import { MoreIntegrations } from '../../component/landingPages/LandingPageMoreIntegrations';
+import Head from '@docusaurus/Head';
 
 const DocsLinks = ({ primary }: { primary?: boolean }) => (
   <LandingPageActions
@@ -22,6 +23,9 @@ const DocsLinks = ({ primary }: { primary?: boolean }) => (
 export default function Vue() {
   return (
     <LandingPage title={'Tolgee for Vue'}>
+       <Head>
+        <meta name="description" content="Learn how to install Tolgee Vue integration library. With Tolgee i18n library for Vue you can enjoy all Tolgee i18n features." />
+      </Head>
       <LandingPageHeadline
         loveImage={{
           img: <VueLogo width={80} />,

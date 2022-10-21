@@ -1,7 +1,7 @@
 ---
 slug: why-you-should-prepare-your-project-for-localization-right-now
 
-title: 🌎 Why you should prepare your project for localization (i18n) right now
+title: Why you should prepare your project for localization (i18n) right now
 description: Three main reasons why it is good to prepare you app for localization (i18n) in advance and integrate localization as soon as possible.
 
 authors: [jcizmar]
