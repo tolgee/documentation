@@ -1,17 +1,19 @@
 ---
 slug: how-to-integrate-tolgee-with-vanilla-static-html-js-application
 
-title: "How to integrate Tolgee with vanilla static HTML/JS application?"
+title: 'How to integrate Tolgee with vanilla static HTML/JS application?'
 
 authors: [pmarattha]
 
-image: "/img/blog/vanilla-html-js/19.webp"
+image: '/img/blog/vanilla-html-js/19.webp'
 
-description: "Learn how to integrate open-source localization Tolgee with vanilla static app quickly and seamlessly. Follow the steps in this tutorial."
+description: 'Learn how to integrate open-source localization Tolgee with vanilla static app quickly and seamlessly. Follow the steps in this tutorial.'
 
 tags: [open-source, localization, tutorial]
 ---
+
 Localization is the process of translating the content from one language to another. Localizing your application or website helps you to reach out to the new audience and increase its user base by making your product available in different languages. You can localize the entire application or just some parts of it.
+
 <!--truncate-->
 
 Making a multilingual website may appear to be a bit challenging, but Tolgee makes it really easy—in fact, you can make one in under a few seconds! And best of all, it doesn't depend on any particular libraries and framework. Tolgee is a complete package that provides users with everything they need to localize their websites and mobile applications. It can be used to translate entire websites or just individual pages, or users can even choose between several different languages. So you can use it with Vanilla HTML/JavaScript, Angular, React, VueJS, Svelte, PHP, Dart, or any other framework that you want. In this article, we'll see how to implement it in a vanilla HTML and JavaScript project.
@@ -56,7 +58,7 @@ Making a multilingual website may appear to be a bit challenging, but Tolgee mak
 
 10. Once you have specified the scopes and saved it, your API key dashboard will look something like this
 
-**Note: These API keys will be deleted later, but remember that  you should not share these with anyone.**
+**Note: These API keys will be deleted later, but remember that you should not share these with anyone.**
 
 ![api key dashboard](/img/blog/vanilla-html-js/10.webp)
 
@@ -109,20 +111,20 @@ In this step, you will create a vanilla HTML/JS application that can be integrat
 git clone https://github.com/tolgee/window-example
 ```
 
-**Note:** If you want to use another Single Page Application framework, then you will need to follow the steps outlined in their [respective documentation](/docs/web/using_with_npm/installation).
+**Note:** If you want to use another Single Page Application framework, then you will need to follow the steps outlined in their [respective documentation](/docs/web/installation).
 
 Let's start coding our project. To do this, go to one empty directory and then create an empty file and name it `index.html`. Inside that particular file, paste the following code:
 
 ```html
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
+  <head>
+    <meta charset="UTF-8" />
     <title>Hello world</title>
-</head>
-<body>
+  </head>
+  <body>
     <h1>Hello world!</h1>
-</body>
+  </body>
 </html>
 ```
 
@@ -165,13 +167,13 @@ tg.run();
 
 The code above shows how to initialize Tolgee with the provided configuration object. The configuration object allows you to set many parameters, but in this example, we stick with a few mentioned below:
 
-|apiUrl|The URL of the api where we are saving data.|
-|:------|:--------------------------------------------|
-|apiKey|Which you can obtain in the [app](https://app.tolgee.io) or in your self-hosted app by following this [documentation page](/docs/platform/api-keys-and-pat-tokens)|
-|inputPrefix|Character sequence that appears before each translation|
-|inputSuffix|Character sequence that appears after each translation|
-|watch|parameter that tells Tolgee whether or not to watch for changes in the DOM and update translations.|
-|UI|Tolgee's UI constructor, which renders and interacts with the translation modal window|
+| apiUrl      | The URL of the api where we are saving data.                                                                                                                       |
+| :---------- | :----------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| apiKey      | Which you can obtain in the [app](https://app.tolgee.io) or in your self-hosted app by following this [documentation page](/docs/platform/api-keys-and-pat-tokens) |
+| inputPrefix | Character sequence that appears before each translation                                                                                                            |
+| inputSuffix | Character sequence that appears after each translation                                                                                                             |
+| watch       | parameter that tells Tolgee whether or not to watch for changes in the DOM and update translations.                                                                |
+| UI          | Tolgee's UI constructor, which renders and interacts with the translation modal window                                                                             |
 
 ## Encasing text with `inputPrefix` and `inputSuffix`
 
@@ -179,8 +181,8 @@ Go back to your HTML document and change the text there to the localization plac
 
 ```html
 <body>
-    <h1>{{title_description}}</h1>
-		<p>{{long_description}}</p>
+  <h1>{{title_description}}</h1>
+  <p>{{long_description}}</p>
 </body>
 ```
 
@@ -193,15 +195,17 @@ After opening this document in a browser, you should be able to hold down the A
 While Tolgee loads localization files from REST API or directly from the local files, if there are untranslated texts within the source code—such as `{{title_description}}` and `{{long_description}}` —the user will see them as it is rather than their translated equivalents. In order to avoid this behavior, we can add an overlay that displays when the translations are loading, and remove it once they've finished. To accomplish this, add an overlaying div to your page like this:
 
 ```html
-<div id="loading" style="height: 100vh; background-color: white;">Loading.....</div>
+<div id="loading" style="height: 100vh; background-color: white;">
+  Loading.....
+</div>
 ```
 
 This div will conceal all visible information, preventing the user from viewing any additional content. So, continue by pasting this code into the `script.js` file.
 
 ```js
 tg.run().then(() => {
-    document.getElementById("loading").style.display = "none";
-})
+  document.getElementById('loading').style.display = 'none';
+});
 ```
 
 Here is an example of what your final `index.html` file should look like.
@@ -209,18 +213,20 @@ Here is an example of what your final `index.html` file should look like.
 ```html
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
+  <head>
+    <meta charset="UTF-8" />
     <title>Hello world</title>
-</head>
-<body>
-    <div id="loading" style="height: 100vh; background-color: white;">Loading.....</div>
+  </head>
+  <body>
+    <div id="loading" style="height: 100vh; background-color: white;">
+      Loading.....
+    </div>
     <h1>{{title_description}}</h1>
     <p>{{long_description}}</p>
 
     <script src="https://unpkg.com/@tolgee/core/dist/tolgee.umd.js"></script>
     <script src="https://unpkg.com/@tolgee/ui/dist/tolgee-ui.umd.js"></script>
-</body>
+  </body>
 </html>
 ```
 
@@ -248,8 +254,8 @@ const tg = Tolgee.use(IcuFormatter).init({
 });
 
 tg.run().then(() => {
-    document.getElementById("loading").style.display = "none";
-})
+  document.getElementById('loading').style.display = 'none';
+});
 ```
 
 Tolgee will not work properly when the app is opened as a HTML file from the filesystem, make sure to use [Live Server VS code plugin](https://marketplace.visualstudio.com/items?itemName=ritwickdey.LiveServer).
@@ -261,13 +267,13 @@ Finally, we want our user to be able to select a language from a dropdown list a
 
 ```html
 <select id="languageSelect">
-        <option value="en">English</option>
-        <option value="es">Spanish</option>
-        <option value="hi">Hindi</option>
-        <option value="ne-NP">Nepali</option>
- </select>
-    <h1>{{title_description}}</h1>
-    <p>{{long_description}}</p>
+  <option value="en">English</option>
+  <option value="es">Spanish</option>
+  <option value="hi">Hindi</option>
+  <option value="ne-NP">Nepali</option>
+</select>
+<h1>{{title_description}}</h1>
+<p>{{long_description}}</p>
 ```
 
 When you've added the above code, your final `index.html` file should look like this:
@@ -275,17 +281,19 @@ When you've added the above code, your final `index.html` file should look like 
 ```html
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
+  <head>
+    <meta charset="UTF-8" />
     <title>Hello world</title>
-</head>
-<body>
-    <div id="loading" style="height: 100vh; background-color: white;">Loading.....</div>
+  </head>
+  <body>
+    <div id="loading" style="height: 100vh; background-color: white;">
+      Loading.....
+    </div>
     <select class="languageSelect">
-        <option value="en">English</option>
-        <option value="es">Spanish</option>
-        <option value="hi">Hindi</option>
-        <option value="ne-NP">Nepali</option>
+      <option value="en">English</option>
+      <option value="es">Spanish</option>
+      <option value="hi">Hindi</option>
+      <option value="ne-NP">Nepali</option>
     </select>
     <h1>{{title_description}}</h1>
     <p>{{long_description}}</p>
@@ -293,17 +301,17 @@ When you've added the above code, your final `index.html` file should look like 
     <script src="https://unpkg.com/@tolgee/core/dist/tolgee.umd.js"></script>
     <script src="https://unpkg.com/@tolgee/ui/dist/tolgee-ui.umd.js"></script>
     <script src="scripts.js"></script>
-</body>
+  </body>
 </html>
 ```
 
 Lastly, we want to translate our contents into the user's chosen language. To do that, add the following code to `scripts.js`:
 
 ```js
-let languageChange = document.querySelector(".languageSelect")
-languageChange.addEventListener("change", (e) => {
-    tg.lang = e.target.value
-})
+let languageChange = document.querySelector('.languageSelect');
+languageChange.addEventListener('change', (e) => {
+  tg.lang = e.target.value;
+});
 ```
 
 Therefore, your final `scripts.js` file should resemble something like this.
@@ -331,13 +339,13 @@ const tg = Tolgee.use(IcuFormatter).init({
 });
 
 tg.run().then(() => {
-    document.getElementById("loading").style.display = "none";
-})
+  document.getElementById('loading').style.display = 'none';
+});
 
-let languageChange = document.querySelector(".languageSelect")
-languageChange.addEventListener("change", (e) => {
-    tg.lang = e.target.value
-})
+let languageChange = document.querySelector('.languageSelect');
+languageChange.addEventListener('change', (e) => {
+  tg.lang = e.target.value;
+});
 ```
 
 ![language change](/img/blog/vanilla-html-js/24.webp)

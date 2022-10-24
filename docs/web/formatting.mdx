@@ -1,0 +1,35 @@
+---
+id: formatting
+title: Formatting
+description: 'Learn how to use in-context translating feature in Tolgee tool and how to enable in-context translating on production.'
+---
+
+By default, Tolgee doesn't format translations. Use formatters if you want to use variable parameters in your translations.
+
+## Simple formatter
+
+[`FormatSimple`](./api/core-package/format-simple) plugin if you just need to include variables in your translations. It is very minimalistic, only intended to interpolate your parameters and save your bundle size.
+
+```ts
+import { FormatSimple } from '@tolgee/web';
+...
+tolgee.use(FormatSimple());
+```
+
+## Icu formatter
+
+For advanced formatting functionality install `FormatIcu` plugin, which is shipped in separate package.
+
+```
+npm i @tolgee/format-icu
+```
+
+Use it like this:
+
+```ts
+import { FormatIcu } from '@tolgee/format-icu';
+
+tolgee.use(FormatIcu());
+```
+
+Read more about [ICU message format](../icu_message_format)

@@ -290,12 +290,16 @@ module.exports = {
             to: '/docs/platform/self_hosting/running_with_docker',
           },
           {
+            from: '/docs/web/introduction',
+            to: '/docs/web/about',
+          },
+          {
             from: '/docs/web_app',
-            to: '/docs/web/introduction',
+            to: '/docs/web/about',
           },
           {
             from: '/docs/web/understanding_tolgee_for_web',
-            to: '/docs/web/introduction',
+            to: '/docs/web/about',
           },
           {
             from: '/docs/web_app/creating_repository',
@@ -307,7 +311,11 @@ module.exports = {
           },
           {
             from: '/docs/web/using_with_react/react_preparing_for_production',
-            to: '/docs/web/using_with_react/preparing_for_production',
+            to: '/docs/web/react/preparing-for-production',
+          },
+          {
+            from: '/docs/web/using_with_react/preparing_for_production',
+            to: '/docs/web/react/preparing-for-production',
           },
           {
             from: '/docs/server_and_web_app/self_hosting/configuration',

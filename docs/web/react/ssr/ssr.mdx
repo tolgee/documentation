@@ -1,0 +1,78 @@
+---
+id: ssr
+title: SSR support
+sidebar_label: SSR support
+---
+
+To use Tolgee with your SSR framework such as Next or Gatsby, you can provide localization data imported as object
+using staticData property of TolgeeProvider component, this data will be loaded directly into cache and immediately
+available with first render for SSR. We also need to know user's locale already on the server and set it through Tolgee `language` option.
+
+```jsx
+import localeEn from 'i18n/en.json';
+import localeDe from 'i18n/de.json';
+
+...
+
+const App = () => {
+  // this needs to work on server
+  const locale = ?
+
+  const [tolgee] = useState(Tolgee({
+    language: locale,
+    staticData: {
+      en: localeEn,
+      de: localeDe,
+    }
+  }))
+
+  return (
+    <TolgeeProvider
+      tolgee={tolgee}
+      ...
+    >
+      ...
+    </TolgeeProvider>
+  )
+}
+```
+
+> Why do we use `useState` for Tolgee initialization? We need tolgee to be ready with the data before children are rendered, `useEffect` would be more appropriate here, but then it won't work on the server. So we need a way how to initialize `Tolgee` only once and immediately during the render.
+
+With this approach we include all translations directly in the bundle regardless user locale. For smaller projects this is not a big issue, however it might be significant for large applications with many translations and languages.
+
+For these cases we need to only provide statically the locale, that the user is currently using. We can also use async functions in `staticData` which will be used for fetching translations dynamically on client side (you can use this instead of having them in public folder).
+
+```jsx
+const App = () => {
+  // we need to get these on server, which we'll need to implement
+  // differently for each framework
+  const locale = ?
+  const localeTranslations = ?
+
+  const [tolgee] = useState(Tolgee({
+    language: locale,
+    staticData: {
+      en: () => import('i18n/en.json'),
+      de: () => import('i18n/de.json'),
+      [locale]: localeTranslations
+    }
+  }))
+
+  return (
+    <TolgeeProvider
+      tolgee={tolgee}
+      ...
+    >
+      ...
+    </TolgeePrivider>
+  )
+}
+```
+
+## Language changing
+
+When we use SSR, we have to specify language in a way that is detectable by both client and server. Easiest way is to
+include it directly in URL - both next.js and Gatsby have support for this.
+
+Then for language change we use the native way of the framework.
