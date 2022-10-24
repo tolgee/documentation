@@ -1,0 +1,130 @@
+---
+id: observer_options
+title: Observer options
+sidebar_label: Observer options
+slug: observer-options
+---
+
+Tolgee Observer options, which can be passed to [`setObserverOptions`](./tolgee#setobserveroptions) method.
+These are passed to `ObserverPlugin` if present.
+
+### targetElement
+
+Element where wrapped strings are expected in development mode.
+
+```ts
+targetElement: HTMLElement;
+```
+
+Default: `document.body`
+
+### tagAttributes
+
+Tolgee is able to watch also for wrapped localization strings in attributes of DOM elements.
+These attributes must be specified in these configuration properties.
+
+```ts
+tagAttributes: Record<string, string[]>;
+```
+
+Default:
+
+```ts
+tagAttributes: {
+    textarea: ['placeholder'],
+    input: ['value', 'placeholder'],
+    img: ['alt'],
+    '*': ['aria-label', 'title'],
+}
+```
+
+### highlightKeys
+
+By default, in development mode, when you move mouse over an element containing translated text and key ALT is down, this element is highlighted by changing its background color. To modify the key use highlightKeys property.
+
+```ts
+highlightKeys: ModifierKey[];
+```
+
+Example:
+
+```ts
+import { ModifierKey } from '../clients/js/packages/core/lib/index';
+
+highlightKeys: [ModifierKey.Shift, ModifierKey.Alt];
+```
+
+Default: `[ModifierKey.Alt]`
+
+### highlightColor
+
+Highlighter border color.
+
+```ts
+highlightColor: string;
+```
+
+Default: `rgb(255 0 0)`&nbsp;&nbsp;<div style={{
+border: "5px solid rgb(255 0 0)",
+borderRadius: "4px",
+width: "20px",
+height: "20px",
+display: "inline-block",
+verticalAlign: "middle"
+}}></div>
+
+### highlightWidth
+
+Border width of highlighter.
+
+```ts
+highlightWidth: number;
+```
+
+Default: `5px`
+
+### restrictedElements
+
+Array of elements in which you don't want Tolgee to replace wrapped strings.
+
+```ts
+restrictedElements: string[];
+```
+
+Default: `['script', 'style']`
+
+### inputPrefix and inputSuffix
+
+Only for `TextObserver`
+
+In development mode, strings to be translated are wrapped by `@tolgee/core` library at first and then parsed and replaced with
+translated value. This mechanism is called [wrapping](/docs/sdk/wrapping).
+
+`inputPrefix` is inserted before the encoded string and `inputSuffix` is inserted after the string. By those 2 strings
+Tolgee recognises strings, which are meant to be translated, so its good idea to make them unique enough not to collide
+with any other strings, which can appear in DOM.
+
+Example:
+
+```typescript
+inputPrefix = '%-%tolgee:';
+inputSuffix = '%-%';
+```
+
+These strings are unique enough to not clash with any other strings in your DOM, so it will not break your document.
+
+```ts
+inputPrefix: string;
+```
+
+### passToParent
+
+There are elements which can contain wrapped string to be translated, but user is not able to click on them. For example
+an option of `select` HTML element cannot be used for capturing click even with `ALT` down. For these reasons you can
+configure Tolgee to "pass" these strings to parent and listen for click events on the parent.
+
+```ts
+passToParent: (keyof HTMLElementTagNameMap)[] | ((node: Element) => boolean);
+```
+
+Default: `["option", "optgroup"]`

@@ -1,0 +1,111 @@
+---
+id: options
+title: Core Options
+sidebar_label: Options
+---
+
+Initial configuration object of tolgee.
+
+### language
+
+Initial language, you need to specify this, unless there is LanguageDetector plugin present.
+
+```ts
+language: string;
+```
+
+### defaultLanguage
+
+Used when LanguageDetector plugin fails.
+
+```ts
+defaultLanguage: string;
+```
+
+### fallbackLanguage
+
+Language which is used when no translation is available for current one.
+
+```ts
+fallbackLanguage: FallbackLanguageOption;
+```
+
+### apiUrl
+
+Tolgee instance url (e.g. https://app.tolgee.io)
+
+```ts
+apiUrl: string;
+```
+
+### apiKey
+
+Project API key (PAK) or Personal Access Token (PAT)
+
+```ts
+apiKey: string;
+```
+
+### projectId
+
+Project id is necessary if you are using PAT
+
+```ts
+projectId: number | string;
+```
+
+### availableLanguages
+
+Languages which can be used for language detection
+and also limits which values can be stored. Is derrived from `staticData` keys if not provided.
+
+```ts
+availableLanguages: string[];
+```
+
+### ns
+
+Namespaces which should be always fetched
+
+```ts
+ns: string[];
+```
+
+### fallbackNs
+
+Namespaces to search when translation is not found.
+
+```ts
+fallbackNs: FallbackNs;
+```
+
+### defaultNs
+
+Default namespace when no namespace defined (default: empty string)
+
+```ts
+defaultNs: string;
+```
+
+### staticData
+
+These data go directly to cache or you can specify async
+function which will be used to get the data. Use `:` to add namespace:
+
+```ts
+staticData: TolgeeStaticData;
+```
+
+Example:
+
+```ts
+{
+  'locale': {
+    'key': 'translation'
+  },
+  // or
+  'locale': () => fetchTranslations(),
+  // or
+  'locale:namespace': ...
+}
+```

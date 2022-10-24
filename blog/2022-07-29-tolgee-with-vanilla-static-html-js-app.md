@@ -111,7 +111,7 @@ In this step, you will create a vanilla HTML/JS application that can be integrat
 git clone https://github.com/tolgee/window-example
 ```
 
-**Note:** If you want to use another Single Page Application framework, then you will need to follow the steps outlined in their [respective documentation](/docs/web/installation).
+**Note:** If you want to use another Single Page Application framework, then you will need to follow the steps outlined in their [respective documentation](/docs/sdk/installation).
 
 Let's start coding our project. To do this, go to one empty directory and then create an empty file and name it `index.html`. Inside that particular file, paste the following code:
 

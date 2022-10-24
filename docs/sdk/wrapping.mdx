@@ -1,0 +1,49 @@
+---
+id: wrapping
+title: Wrapping and observing
+description: 'Learn about two ways of wrapping in Tolgee: text wrapping and invisible wrapping. You can configure this through wrapperMode.'
+---
+
+## Invisible wrapping
+
+Tolgee offers unique technology for in-context translating, it combines simplicity of regular i18n libraries with
+comfort of in-context translating directly in your app.
+
+How it works? Try to run tolgee in development mode:
+
+```ts
+import { Tolgee, DevTools } from '@tolgee/web';
+
+const tolgee = Tolgee().use(DevTools()).init({
+  language: 'en',
+  apiUrl: 'https://app.tolgee.io',
+  apiKey: '<your project API key>',
+});
+
+tolgee.run();
+
+console.log(Array.from(tolgee.t('test')));
+```
+
+You should see translation individual characters that were produced by [`t`](./api/core_package/tolgee#t) function.
+
+```ts
+// [... translation value ... , "", "", "", "", "", "", "", "", ""]
+```
+
+What are these empty characters at the end? They are not actually empty, only zero width, so they are not visible.
+
+Tolgee passes a secret information into each translation, which is then detectable in the dom.
+We use [`MutationObserver`](https://developer.mozilla.org/en-US/docs/sdk/API/MutationObserver)
+to check all dom changes and search for these secret characters, to find the exact locations
+of translations. This method is very reliable and brings basically no overhead on developer side. You can read more in this [blog post](/blog/2021/12/17/invisible-characters-for-better-localization).
+
+We call this mechanism wrapping. You can check the information, which is included with the translation by
+calling [`tolgee.unwrap`](./api/core_package/tolgee#unwrap) method, which will give you the information about the translation.
+
+## Why this solution?
+
+We wanted something which is almost invisible to the developer, but reliable and doesn't break your app.
+
+Because we actually return the translation that should be rendered only with some extra characters, you can
+use any custom formatter (even outside Tolgee) and modify the string. The secret information will stay intact as it's valid part of the string.

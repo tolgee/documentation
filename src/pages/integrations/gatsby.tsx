@@ -17,12 +17,12 @@ const DocsLinks = ({ primary }: { primary?: boolean }) => (
   <LandingPageActions
     docs={{
       label: 'Gatsby Docs',
-      link: '/docs/web/using_with_react/ssr/using_with_gatsby',
+      link: '/docs/sdk/react/ssr/gatsby',
     }}
     exampleApp="gatsby-example"
     additionalDocs={{
       label: 'React Docs',
-      link: '/docs/web/using_with_react/installation',
+      link: '/docs/sdk/react/installation',
     }}
     primary={primary}
   />

@@ -143,7 +143,7 @@ module.exports = {
             },
             {
               label: 'Get Started',
-              to: 'docs/web/get_started/hello_world',
+              to: 'docs/sdk/get_started/hello_world',
             },
             {
               label: 'Using Tolgee App',
@@ -155,7 +155,7 @@ module.exports = {
             },
             {
               label: 'Using with React',
-              to: 'docs/web/using_with_react/installation',
+              to: 'docs/sdk/react/installation',
             },
           ],
         },
@@ -282,6 +282,10 @@ module.exports = {
             to: '/docs/',
           },
           {
+            from: '/docs/sdk/get_started/hello_world',
+            to: '/docs/sdk/about',
+          },
+          {
             from: '/docs/changelog/version_3',
             to: '/docs/changelog/tolgee_js_version_3',
           },
@@ -290,16 +294,16 @@ module.exports = {
             to: '/docs/platform/self_hosting/running_with_docker',
           },
           {
-            from: '/docs/web/introduction',
-            to: '/docs/web/about',
+            from: '/docs/sdk/introduction',
+            to: '/docs/sdk/about',
           },
           {
             from: '/docs/web_app',
-            to: '/docs/web/about',
+            to: '/docs/sdk/about',
           },
           {
-            from: '/docs/web/understanding_tolgee_for_web',
-            to: '/docs/web/about',
+            from: '/docs/sdk/understanding_tolgee_for_web',
+            to: '/docs/sdk/about',
           },
           {
             from: '/docs/web_app/creating_repository',
@@ -310,12 +314,12 @@ module.exports = {
             to: '/docs/platform/integration',
           },
           {
-            from: '/docs/web/using_with_react/react_preparing_for_production',
-            to: '/docs/web/react/preparing-for-production',
+            from: '/docs/sdk/react/react_preparing_for_production',
+            to: '/docs/sdk/react/preparing-for-production',
           },
           {
-            from: '/docs/web/using_with_react/preparing_for_production',
-            to: '/docs/web/react/preparing-for-production',
+            from: '/docs/sdk/react/preparing_for_production',
+            to: '/docs/sdk/react/preparing-for-production',
           },
           {
             from: '/docs/server_and_web_app/self_hosting/configuration',

@@ -1,6 +1,6 @@
 ---
 title: Using invisible text for better localization
-description: How to use invisible zero-width unicode characters for better localization with Tolgee tool while supporting in-context translation feature at the same time. 
+description: How to use invisible zero-width unicode characters for better localization with Tolgee tool while supporting in-context translation feature at the same time.
 authors: [sgranat]
 tags: [SDK, i18n, i18next]
 image: '/img/blog/invisible-text/invisible_text.png'
@@ -19,11 +19,12 @@ At Tolgee we are offering localization SDKs, which enable you to insert your tra
 To make this work, our SDKs need to somehow mark where the translations are. We might just search the DOM for occurrences of translations in given language, however that won't cover more advanced cases, when we for example need to support variables in translations. Then the easiest way is to wrap each translation with `span` element and give it some special attribute, so then we can find it. Easy peasy, no? Well there is a catch ... what if user needs to translate texts where you can't use HTML (e.g. element attributes)? Or what if the extra `span` element is not acceptable?
 
 > #### Why is context important?
+>
 > When you translate the app, it's important that you see where exactly is the translation located as pure translation from one language to another can be incorrect in many cases. So we offer in-context translation directly in the App and we want this feature to work everywhere.
 
 ### Text based solution
 
-Our original solution was in these cases insert string with our special syntax instead of the translation itself. Then we would observe whole page with [MutationObserver](https://developer.mozilla.org/en-US/docs/Web/API/MutationObserver) and when we encounter this "encoded" text we find parent element and store the information about the translation and replace this message with our translation. As we found out this approach works quite well, mainly because observer is triggered before changes are rendered to the page, so this whole replacement is invisible to the user.
+Our original solution was in these cases insert string with our special syntax instead of the translation itself. Then we would observe whole page with [MutationObserver](https://developer.mozilla.org/en-US/docs/sdk/API/MutationObserver) and when we encounter this "encoded" text we find parent element and store the information about the translation and replace this message with our translation. As we found out this approach works quite well, mainly because observer is triggered before changes are rendered to the page, so this whole replacement is invisible to the user.
 
 However, we still run into problems sometimes. We usually want to run observer only on `body`, so if you update e.g. page title, so then you can see text which is completely broken. Also when you use it in cases, when you need to measure the width of an element right after you change it - this will cause you problems, because the element is containing different text, so the measurements will be different. We offer the user an option to turn wrapping off, but he needs to do that explicitly and then the in-context localization doesn't work. Not ideal.
 

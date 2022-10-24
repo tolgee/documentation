@@ -4,11 +4,10 @@ title: Taking localization to i18next level
 description: Easy integration of i18next library with Tolgee localization tool without wasting time of developers while keeping in-context localization feature working.
 authors: [sgranat]
 tags: [tolgee, i18next, i18n]
-image: "/img/blog/puzzle.png"
+image: '/img/blog/puzzle.png'
 ---
 
 ![Missing piece](/img/blog/puzzle.png)
-
 
 The i18next library is one of the most popular choices for formatting translations in React applications. We decided, that we want to improve the experience by offering an easy integration with Tolgee. Localization is now uniquely accessible as your translations can be managed through opensource platform, without wasting precious Dev time.
 
@@ -24,9 +23,9 @@ It's basically a way how to use custom elements in translations - it's really he
 
 ```jsx
 <p>
-  {t("key_1")}
-  <a href="...">{t("key_2")}</a>
-  {t("key_3")}
+  {t('key_1')}
+  <a href="...">{t('key_2')}</a>
+  {t('key_3')}
 </p>
 ```
 
@@ -83,12 +82,11 @@ TLDR: Tolgee acts as a translations source, using i18next for formatting and lan
 
 ### I want to try this!
 
-We have example applications for [React](https://github.com/tolgee/react-i18next-example) and [Vue](https://github.com/tolgee/vue-i18next-example) and play around with them. If you connect them with Tolgee platform, you can see in-context localization in action. 
-
+We have example applications for [React](https://github.com/tolgee/react-i18next-example) and [Vue](https://github.com/tolgee/vue-i18next-example) and play around with them. If you connect them with Tolgee platform, you can see in-context localization in action.
 
 ![In-context example](/img/blog/i18next/incontext.jpg)
 
-Read more in our [documentation](/docs/web/using_with_i18next/installation).
+Read more in our [documentation](/docs/sdk/i18next/installation).
 Learn also how to integrate i18next and Tolgee into your project and how easy and fast you can translate your React.js app using these tools [here](/blog/super-fast-react-localization-i18n-with-i18next-and-tolgee).
 
 Thats it! :)

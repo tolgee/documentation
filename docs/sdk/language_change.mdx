@@ -1,0 +1,23 @@
+---
+id: language_change
+title: Language change
+sidebar_label: Language change
+slug: /sdk/language-change
+description: 'Tolgee language_change with vanilla JS.'
+---
+
+To change language use [`changeLanguage`](./api/core_package/tolgee#changelanguage) method.
+
+```ts
+await tolgee.changeLanguage('es');
+```
+
+## Getting current language
+
+When tolgee is running, this will first change `pendingLanguage` property, loads required translation file(s) (when they are not already in the cache) and then changes `language` property.
+
+Use [`getLanguage`](./api/core_package/tolgee#getlanguage) or [`getPendingLanguage`](./api/core_package/tolgee#getpendinglanguage) methods to read current state.
+
+You can also listen to `language` and `pendingLanguage` [events](./api/core_package/events).
+
+> When tolgee is not running `changeLanguage` won't fetch translations, only changes internal state

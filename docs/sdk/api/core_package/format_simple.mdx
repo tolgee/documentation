@@ -1,0 +1,46 @@
+---
+id: format_simple
+title: FormatSimple
+sidebar_label: FormatSimple
+slug: format-simple
+---
+
+Super light formatter, which will enable you to pass variables into translations.
+It's a subset of Icu format.
+
+## Usage
+
+```ts
+import { FormatSimple } from '@tolgee/core';
+
+const tolgee = Tolgee()
+  .use(FormatSimple())
+  .init(...)
+```
+
+## Syntax
+
+Passing variable:
+
+```ts
+f('Martin is {age} years old.', { age: 10 });
+// Martin is 10 years old
+```
+
+You can also escape special characters by wrapping them into `'`, it works the same as in Icu standard and it only
+acts like escaping character when it's followed by escapable character ("{`). It doesn't have to be closed (then all
+rest of the translation is escaped).
+
+```ts
+f("This is escaped text: '{age}'");
+// This is escaped text: {age}
+
+f("This is also '{fine}");
+// This is also {fine}
+
+f("This will work 'as expected'");
+// This will work 'as expected'
+```
+
+That's it! We've tried to do this format as simple as possible so the parser doesn't bloat your bundle.
+If you need advanced features use [`@tolgee/format-icu`](/docs/icu-message-format) package.

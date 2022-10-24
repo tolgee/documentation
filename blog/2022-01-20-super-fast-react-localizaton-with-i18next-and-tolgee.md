@@ -7,7 +7,7 @@ description: How to speed up your translation process and integrate i18next libr
 
 authors: [jcizmar]
 
-image: "/img/blog/2022-01-20-super-fast-react-localizaton-with-i18next-and-tolgee/cover.jpg"
+image: '/img/blog/2022-01-20-super-fast-react-localizaton-with-i18next-and-tolgee/cover.jpg'
 
 tags: [react, i18n, i18next, javascript, typescript, integration]
 ---
@@ -19,7 +19,7 @@ In this article, I am going to show you, how to integrate i18next and Tolgee int
 can translate a React app using these tools.
 
 > Tolgee has also its [native integrations](/docs/integrations). Which are a bit easier to set up, so if you're not used to i18next, maybe it
-> would be easier for you to [start with those](/docs/web/using_with_react/installation).
+> would be easier for you to [start with those](/docs/sdk/react/installation).
 
 <!--truncate-->
 
@@ -77,9 +77,7 @@ import './App.css';
 function App() {
   return (
     <div className="App">
-      <h1>
-        Hello world!
-      </h1>
+      <h1>Hello world!</h1>
     </div>
   );
 }
@@ -123,10 +121,10 @@ REACT_APP_TOLGEE_API_KEY=<your_api_key>
 Then go to `index.tsx` and configure `i18n` object from `i18next` library.
 
 ```ts
-import {withTolgee} from '@tolgee/i18next';
-import i18n from "i18next";
+import { withTolgee } from '@tolgee/i18next';
+import i18n from 'i18next';
 import ICU from 'i18next-icu';
-import {initReactI18next} from "react-i18next";
+import { initReactI18next } from 'react-i18next';
 
 withTolgee(i18n, {
   apiUrl: process.env.REACT_APP_TOLGEE_API_URL,
@@ -139,19 +137,19 @@ withTolgee(i18n, {
   .use(initReactI18next)
   .init({
     supportedLngs: ['en', 'cs'],
-    fallbackLng: 'en'
+    fallbackLng: 'en',
   });
 ```
 
 This sets Tolgee as translation provider for i18next and enables
-[ICU message formatter](/docs/icu_message_format). Change
+[ICU message formatter](/docs/icu-message-format). Change
 `supportedLngs` to language tags you created while creating project in Tolgee localization platform.
 
 Then wrap your `<App/>` component with `Suspens` component.
 
 ```jsx
 <Suspense fallback={<div>Loading...</div>}>
-  <App/>
+  <App />
 </Suspense>
 ```
 
@@ -164,13 +162,11 @@ use the t function in the returned JSX.
 
 ```tsx
 function App() {
-  const {t} = useTranslation()
+  const { t } = useTranslation();
 
   return (
     <div className="App">
-      <h1>
-        {t('hello_world', 'Hello world!')}
-      </h1>
+      <h1>{t('hello_world', 'Hello world!')}</h1>
     </div>
   );
 }
@@ -226,10 +222,10 @@ To be able to switch the language, create following `LanguageSelector` component
 
 ```tsx
 import React from 'react';
-import {useTranslation} from 'react-i18next';
+import { useTranslation } from 'react-i18next';
 
 export const LangSelector: React.FC = () => {
-  const {i18n} = useTranslation();
+  const { i18n } = useTranslation();
 
   return (
     <select
@@ -247,11 +243,9 @@ export const LangSelector: React.FC = () => {
 And use it in the `App` component...
 
 ```tsx
-<div className="App" style={{padding: 40}}>
-  <LangSelector/>
-  <h1>
-    {t(`hello_world`)}
-  </h1>
+<div className="App" style={{ padding: 40 }}>
+  <LangSelector />
+  <h1>{t(`hello_world`)}</h1>
 </div>
 ```
 
@@ -302,15 +296,15 @@ src
 ```
 
 Now, lets provide the data to Tolgee. There are multiple ways, how to do
-so [described in docs](/docs/web/using_with_i18next/preparing_for_production). But I am going to
+so [described in docs](/docs/sdk/i18next/preparing-for-production). But I am going to
 provide them as imported static objects, which is good option, since the App is small and there are not many
 translations yet.
 
 Go to the `index.tsx` file and import the localization jsons:
 
 ```typescript
-import enLang from "./i18n/en.json"
-import csLang from "./i18n/cs.json"
+import enLang from './i18n/en.json';
+import csLang from './i18n/cs.json';
 ```
 
 And then provide them to Tolgee config.
@@ -324,14 +318,14 @@ withTolgee(i18n, {
     : undefined,
   staticData: {
     en: enLang,
-    cs: csLang
-  }
+    cs: csLang,
+  },
 })
   .use(ICU)
   .use(initReactI18next)
   .init({
     supportedLngs: ['en', 'cs'],
-    fallbackLng: 'en'
+    fallbackLng: 'en',
   });
 ```
 
@@ -351,7 +345,7 @@ permitted to translate the App product directly in it just with ALT + Clicking t
 - It enables you or your colleagues to modify translated string in the context of developed web application
 - Tolgee is also a localization platform, where you can manage all your translations
 - If you like our project, please star our projects on GitHub
-    - [github.com/tolgee/server](https://github.com/tolgee/server) ⭐
-    - [github.com/tolgee/js](https://github.com/tolgee/js) ⭐
+  - [github.com/tolgee/server](https://github.com/tolgee/server) ⭐
+  - [github.com/tolgee/js](https://github.com/tolgee/js) ⭐
 - To read more about i18next Tolgee integration,
-  visit [Tolgee docs](/docs/web/using_with_i18next/installation)
+  visit [Tolgee docs](/docs/sdk/i18next/installation)

@@ -5,7 +5,7 @@ import { CoolButtonImage } from '../../buttons/CoolButtonImage';
 import React from 'react';
 
 export const ReactDocsCoolButton = () => (
-  <CoolButton component={Link} to="/docs/web/using_with_react/installation">
+  <CoolButton component={Link} to="/docs/sdk/react/installation">
     <CoolButtonText>Tolgee for React Docs</CoolButtonText>
     <CoolButtonImage>📖</CoolButtonImage>
   </CoolButton>

@@ -11,7 +11,7 @@ import { MoreIntegrations } from '../../component/landingPages/LandingPageMoreIn
 
 const DocsLinks = ({ primary }: { primary?: boolean }) => (
   <LandingPageActions
-    docs={{ link: '/docs/web/using_with_react/installation' }}
+    docs={{ link: '/docs/sdk/react/installation' }}
     githubRepo="react"
     exampleApp="react-example"
     primary={primary}
