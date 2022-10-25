@@ -16,7 +16,7 @@ import { InstallationTabs } from '../../../installation_tabs.mdx';
 
 Init Tolgee with [`ReactPlugin`](./api#reactplugin) and wrap your application in [`TolgeeProvider`](./api#tolgeeprovider).
 
-```javascript
+```tsx
 import { Tolgee, ReactPlugin, TolgeeProvider } from "@tolgee/react";
 
 const tolgee = Tolgee()
@@ -30,10 +30,10 @@ const tolgee = Tolgee()
 ...
 
 <TolgeeProvider
-    tolgee={tolgee}
-    fallback={<>Loading...</>} //content to show when localization data is loading
+  tolgee={tolgee}
+  fallback="Loading..." // loading fallback
 >
-    <Your app components>
+  <your-app-components>
 </TolgeeProvider>
 ```
 

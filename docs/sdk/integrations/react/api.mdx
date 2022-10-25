@@ -74,25 +74,31 @@ import { T } from '@tolgee/react';
 
 ## Hook `useTranslate`
 
-Use this hook to get `t` function, which can be used for imperative translating. You can also pass namespace(s), which you want to use. If no namespace is specified, it uses [`defaultNs`](/docs/sdk/api/core_package/options#defaultns).
+Use this hook to get `t` function for translating. It also serves for loading namespaces.
 
-```tsx
-import { useTranslate } from '@tolgee/react';
-
-const Component = () => {
-  const { t, isLoading } = useTranslate('namespace');
-
-  return <div title={t('title_key')} />;
+```ts
+function useTranslate(ns?: string | string[]): {
+  t: TFnType;
+  isLoading: boolean;
 };
 ```
 
+### Parameter `ns`
+
+- `string` | `string[]` - namespace(s) which will be loaded
+
+### Property `isLoading`
+
+- `boolean` - is true if any of listed namespaces is not loaded yet
+
+Use this property if you manually disable `useSuspense`, to make sure you won't display translation keys.
+
 ### Function `t`
 
-Returns requested translation and also subscribes component to translation/language changes,
-so component will be re-rendered every time translation changes. Example:
+Returns requested translation and also subscribes component to translation/language changes, so component will be re-rendered every time translation changes. If you use namespaces, `t` function will automatically use first of the namespaces given to `useTranslate` function. You can override this by `ns` option.
 
 ```ts
-t('key', 'Default value');
+t('key', 'Default value', <options>);
 ```
 
 Read more about [`t` function](/docs/sdk/api/core_package/tolgee#t)

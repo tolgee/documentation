@@ -12,8 +12,10 @@ There are several ways how to translate a text using our React integration.
 First way is the [`<T>`](./api#t-component) component. You can use it like this:
 
 ```jsx
-import {T} from "@tolgee/react";
+import { T } from "@tolgee/react";
+
 ...
+
 <T keyName="translation_key" />
 ```
 
@@ -40,11 +42,13 @@ The default value will be rendered when no translation is provided in current no
 Other option how to translate is using of [`useTranslate`](./api#hook-usetranslate) hook. You can use it this way:
 
 ```js
-import {useTranslate} from "@tolgee/react";
-...
-const {t} = useTranslate();
-...
-t("key_to_translate")
+import { useTranslate } from '@tolgee/react';
+
+function Component() {
+  const { t } = useTranslate();
+
+  <div title={t('key_to_translate')}>...</div>;
+}
 ```
 
 Function [`t`](./api#function-t) also accepts parameters object as second parameter:
@@ -53,8 +57,17 @@ Function [`t`](./api#function-t) also accepts parameters object as second parame
 t('key_to_translate', { param: 'value' });
 ```
 
-For more complex codebase showing usage of Tolgee React integration check
-[React example application](https://github.com/tolgee/react-sampleapp).
+For more complex codebase showing usage of Tolgee React integration check [React example application](https://github.com/tolgee/react-sampleapp).
+
+### Using namespaces
+
+`useTranslate` hook can be also used for loading additional namespaces.
+
+```ts
+const { t, isLoading } = useTranslate('common');
+```
+
+This example will add `common` to [active namespaces](/docs/sdk/api/core_package/tolgee#addactivens). You can then also use `isLoading` property, which will tell you if your data are ready.
 
 ## Message format
 
