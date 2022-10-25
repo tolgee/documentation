@@ -31,8 +31,8 @@ Currently, we support AWS translate and Google Translate, but we will add more i
 
 In the Tolgee cloud, both services are enabled and every user has [10 000 credits per month](https://tolgee.io/pricing) to spend. One credit
 currently equals one source string character sent to a single service. So when you have both AWS and Google services
-enabled, and you open an edition of 10 characters translation, it will cost you 20 credits. However, if you run out of
-credits, just contact us, and we will add some more.
+enabled, and you open an edition of 10 characters translation, it will cost you 20 credits. If you run out of
+credits, you can buy Extra Machine Translation credits according to your needs in the app Billing section.
 
 In the language settings, you can enable or disable Machine Translation for specific languages and check how many
 credits you still have to spend.
