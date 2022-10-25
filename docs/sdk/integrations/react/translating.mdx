@@ -17,16 +17,13 @@ import {T} from "@tolgee/react";
 <T keyName="translation_key" />
 ```
 
-To pass values just assign params property.
+To pass variable parameters just assign params property.
 
 ```jsx
 <T keyName="text_with_params" params={{ param: 'value' }} />
 ```
 
-For translated text `This is {param} of the text` it will result in `This is value of the text`.
-
-This will prevent any possible problems with Tolgee wrapping technology, but you won't be able to use in-contexts
-translation feature for this particular occurrence.
+> Read more in [Formatting](/docs/sdk/formatting) section
 
 ### Providing default value
 
@@ -61,4 +58,4 @@ For more complex codebase showing usage of Tolgee React integration check
 
 ## Message format
 
-By default Tolgee is without any message formatter. You can use [`FormatSimple`](../api/core_package/format-simple) or [`FormatIcu`](../../icu-message-format)
+By default Tolgee is without any message formatter. You can use [`FormatSimple`](/docs/sdk/api/core_package/format-simple) or [`FormatIcu`](/docs/icu-message-format)

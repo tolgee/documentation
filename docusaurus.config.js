@@ -155,7 +155,7 @@ module.exports = {
             },
             {
               label: 'Using with React',
-              to: 'docs/sdk/react/installation',
+              to: 'docs/sdk/integrations/react/installation',
             },
           ],
         },
@@ -314,12 +314,12 @@ module.exports = {
             to: '/docs/platform/integration',
           },
           {
-            from: '/docs/sdk/react/react_preparing_for_production',
-            to: '/docs/sdk/react/preparing-for-production',
+            from: '/docs/sdk/integrations/react/react_preparing_for_production',
+            to: '/docs/sdk/integrations/react/installation',
           },
           {
-            from: '/docs/sdk/react/preparing_for_production',
-            to: '/docs/sdk/react/preparing-for-production',
+            from: '/docs/sdk/integrations/react/preparing_for_production',
+            to: '/docs/sdk/integrations/react/installation',
           },
           {
             from: '/docs/server_and_web_app/self_hosting/configuration',

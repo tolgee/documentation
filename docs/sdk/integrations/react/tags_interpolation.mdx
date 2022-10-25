@@ -4,7 +4,7 @@ title: Tags interpolation
 slug: tags-interpolation
 ---
 
-React integration supports tags interpolation, which can be used to use custom tags in translations and mapping them to React elements.
+With [`FormatIcu`](/docs/sdk/formatting#icu-formatter) React integration supports tags interpolation, which can be used to use custom tags in translations and mapping them to React elements.
 
 ### Example usage
 
@@ -26,10 +26,6 @@ will render
 
 ![Formatted text](/img/docs/text_formatted.png)
 
-### How it works?
-
-Tags in translation are mapped to react components supplied in `params` and `t` function returns ReactNode(s) instead of simple string. The part of the translation which is inside of the tag is passed as a children to the given tag.
-
 You can also pass a function which will return React component:
 
 ```tsx
@@ -43,5 +39,3 @@ const myFunction = (content) => <i title={content}>{content}</i>;
   defaultValue="This is <i>formatted</i>"
 />;
 ```
-
-You can also use nested tags.

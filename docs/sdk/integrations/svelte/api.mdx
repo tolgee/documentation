@@ -5,7 +5,7 @@ sidebar_label: API
 description: 'Tolgee for svelte API documentation. Tolgee Provider provides Tolgee instance. Use in root of your application.'
 ---
 
-## [`TolgeeProvider`](/docs/sdk/svelte/api#tolgeeprovider)
+## [`TolgeeProvider`](/docs/sdk/integrations/svelte/api#tolgeeprovider)
 
 Provides Tolgee instance. Use in root of your application.
 
@@ -26,7 +26,7 @@ Provides Tolgee instance. Use in root of your application.
 
 #### Prop `config`
 
-[`TolgeeConfig`](../configuration) object, which is passed to Tolgee instance.
+[`TolgeeConfig`](/docs/sdk/configuration) object, which is passed to Tolgee instance.
 
 #### Slot `loading-fallback`
 
@@ -73,13 +73,13 @@ const tolgeeConfig = {
 #### Prop `parameters?`
 
 `Record<string, string>` - variable parameters, which can be used in translation value
-(read more about [ICU message format](../../icu-message-format)).
+(read more about [ICU message format](/docs/sdk/../icu-message-format)).
 
 #### Prop `noWrap?`
 
 `Boolean` (default: `false`)
 
-- `false` - in development mode translation will be [wrapped](../wrapping)
+- `false` - in development mode translation will be [wrapped](/docs/sdk/wrapping)
 - `true` - use when wrapping in dev mode causes problems, in this case in-context translation won't work
 
 #### Prop `defaultValue?`
@@ -138,13 +138,13 @@ Example:
 #### Parameter `parameters?`
 
 `Record<string, string>` - variable parameters, which can be used in translation value
-(read more about [ICU message format](../../icu-message-format))
+(read more about [ICU message format](/docs/sdk/../icu-message-format))
 
 #### Parameter `noWrap?`
 
 `Boolean` (default: `false`)
 
-- `false` - in development mode translation will be [wrapped](../wrapping)
+- `false` - in development mode translation will be [wrapped](/docs/sdk/wrapping)
 - `true` - use when wrapping in dev mode causes problems, or you pass write it outside the DOM
   (for example `document.title`), in this case in-context translation won't work
 
@@ -155,7 +155,7 @@ If you don't provide this value, `key` will be rendered instead.
 
 ## Function `getLanguageStore`
 
-`Writable<string>` - Writeable store containing the current language. (see [Switching language](/docs/sdk/svelte/switching_language))
+`Writable<string>` - Writeable store containing the current language. (see [Switching language](/docs/sdk/integrations/svelte/switching-language))
 
 ```javascript
 <script>

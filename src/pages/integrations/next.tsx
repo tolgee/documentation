@@ -17,12 +17,12 @@ const DocsLinks = ({ primary }: { primary?: boolean }) => (
   <LandingPageActions
     docs={{
       label: 'Next Docs',
-      link: '/docs/sdk/react/ssr/next',
+      link: '/docs/sdk/integrations/react/ssr/next',
     }}
     exampleApp="next-example"
     additionalDocs={{
       label: 'React Docs',
-      link: '/docs/sdk/react/installation',
+      link: '/docs/sdk/integrations/react/installation',
     }}
     primary={primary}
   />

@@ -7,7 +7,7 @@ export const integrations = [
     logo: '/img/technologies/logo-react.svg',
     links: {
       'Landing Page': '/integrations/react',
-      Docs: '/docs/sdk/react/installation',
+      Docs: '/docs/sdk/integrations/react/installation',
       'GitHub Repository':
         'https://github.com/tolgee/tolgee-js/tree/main/packages/react',
       'Example App': 'https://github.com/tolgee/react-example',
@@ -18,7 +18,7 @@ export const integrations = [
     logo: '/img/technologies/logo-angular.svg',
     links: {
       'Landing Page': '/integrations/angular',
-      Docs: '/docs/sdk/angular/installation',
+      Docs: '/docs/sdk/integrations/angular/installation',
       'GitHub Repository':
         'https://github.com/tolgee/tolgee-js/tree/main/packages/ngx',
       'Example App': 'https://github.com/tolgee/ngx-example',
@@ -29,7 +29,7 @@ export const integrations = [
     logo: '/img/technologies/logo-vue.svg',
     links: {
       'Landing Page': '/integrations/vue',
-      Docs: '/docs/sdk/vue/installation',
+      Docs: '/docs/sdk/integrations/vue/installation',
       'GitHub Repository':
         'https://github.com/tolgee/tolgee-js/tree/main/packages/vue',
       'Example App': 'https://github.com/tolgee/vue-example',
@@ -40,7 +40,7 @@ export const integrations = [
     logo: '/img/technologies/logo-svelte.svg',
     links: {
       'Landing Page': '/integrations/svelte',
-      Docs: '/docs/sdk/svelte/installation',
+      Docs: '/docs/sdk/integrations/svelte/installation',
       'GitHub Repository':
         'https://github.com/tolgee/tolgee-js/tree/main/packages/svelte',
       'Example App': 'https://github.com/tolgee/svelte-example',
@@ -51,7 +51,7 @@ export const integrations = [
     logo: <NextLogo />,
     links: {
       'Landing Page': '/integrations/next',
-      Docs: '/docs/sdk/react/ssr/next',
+      Docs: '/docs/sdk/integrations/react/ssr/next',
       'Example App': 'https://github.com/tolgee/next-example',
     },
   },
@@ -60,7 +60,7 @@ export const integrations = [
     logo: '/img/technologies/logo-gatsby.svg',
     links: {
       'Landing Page': '/integrations/gatsby',
-      Docs: '/docs/sdk/react/ssr/gatsby',
+      Docs: '/docs/sdk/integrations/react/ssr/gatsby',
       'Example App': 'https://github.com/tolgee/gatsby-example',
     },
   },
@@ -68,7 +68,7 @@ export const integrations = [
     label: 'i18next',
     logo: '/img/technologies/logo-i18next.svg',
     links: {
-      Docs: '/docs/sdk/i18next/installation',
+      Docs: '/docs/sdk/integrations/i18next/installation',
       'GitHub Repository':
         'https://github.com/tolgee/tolgee-js/tree/main/packages/i18next',
       'Example React App': 'https://github.com/tolgee/react-i18next-example',
@@ -97,7 +97,7 @@ export const integrations = [
     experimental: true,
     logo: '/img/technologies/logo-php.svg',
     links: {
-      Docs: '/docs/sdk/php',
+      Docs: '/docs/sdk/integrations/php',
       'GitHub Repository': 'https://github.com/tolgee/php',
       'Example App': 'https://github.com/tolgee/php-example',
     },
@@ -107,7 +107,7 @@ export const integrations = [
     experimental: true,
     logo: '/img/technologies/logo-dart.svg',
     links: {
-      Docs: '/docs/sdk/dart',
+      Docs: '/docs/sdk/integrations/dart',
       'GitHub Repository': 'https://github.com/tolgee/dart',
       'Example App': 'https://github.com/tolgee/dart-example',
     },

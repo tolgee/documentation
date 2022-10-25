@@ -14,12 +14,12 @@ To get exported localization files, see [Exporting translations doc page](platfo
 :::
 
 In production, you should set the API key to `undefined` and provide exported translations.
-You have multiple options how to provide static i18n data to [`TolgeeProvider`](/docs/sdk/svelte/api#tolgeeprovider) component.
+You have multiple options how to provide static i18n data to [`TolgeeProvider`](/docs/sdk/integrations/svelte/api#tolgeeprovider) component.
 
 ## Providing data using dynamic import (recommended for projects without SSR)
 
 To provide your localization data using dynamic import, you will need to add providers for every supported language to
-[`TolgeeProvider's`](/docs/sdk/svelte/api#tolgeeprovider) config prop.
+[`TolgeeProvider's`](/docs/sdk/integrations/svelte/api#tolgeeprovider) config prop.
 
 ```svelte
 <script lang="ts">
@@ -47,7 +47,7 @@ To provide your localization data using dynamic import, you will need to add pro
 ## Providing data as imported object (recommended for projects with SSR)
 
 To provide your localization data using dynamic import, you will need to provide an object of translations for every
-supported language to [TolgeeProvider's](/docs/sdk/svelte/api#tolgeeprovider) config prop.
+supported language to [TolgeeProvider's](/docs/sdk/integrations/svelte/api#tolgeeprovider) config prop.
 
 ```svelte
 <script lang="ts">

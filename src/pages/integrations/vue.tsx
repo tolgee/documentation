@@ -12,7 +12,7 @@ import { MoreIntegrations } from '../../component/landingPages/LandingPageMoreIn
 
 const DocsLinks = ({ primary }: { primary?: boolean }) => (
   <LandingPageActions
-    docs={{ link: '/docs/sdk/vue/installation' }}
+    docs={{ link: '/docs/sdk/integrations/vue/installation' }}
     githubRepo="vue"
     exampleApp="vue-example"
     primary={primary}

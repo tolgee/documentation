@@ -29,17 +29,7 @@ const tolgee = Tolgee({
 });
 ```
 
-## Using `BackendFetch`
-
-[`BackendFetch`](./api/web_package/plugins#backendfetch) plugin allows you to fetch translations and namespaces from static files. Use it like this:
-
-```ts
-tolgee.use(BackendFetch(options?))
-```
-
-By default it searches translation files at `/i18n/{language}/{namespace}.json` or `/i18n/{language}.json` when namespace is empty.
-
-You can modify paths with [options](./api/web_package/plugins#optionsprefix).
+For more info check [Preparing for production](./preparing-for-production).
 
 ## Active namespaces
 

@@ -18,7 +18,7 @@ import { TolgeeProvider } from '@tolgee/vue';
 
 #### Prop `config`
 
-[`TolgeeConfiguration`](../configuration) object, which is passed to Tolgee instance.
+[`TolgeeConfiguration`](/docs/sdk/configuration) object, which is passed to Tolgee instance.
 
 #### Prop `loadingFallback?`
 
@@ -55,13 +55,13 @@ import { T } from '@tolgee/vue';
 #### Prop `parameters?`
 
 `Record<string, string>` - variable parameters, which can be used in translation value
-(read more about [ICU message format](../../icu-message-format)).
+(read more about [ICU message format](/docs/sdk/../icu-message-format)).
 
 #### Prop `noWrap?`
 
 `Boolean` (default: `false`)
 
-- `false` - in development mode translation will be [wrapped](../wrapping)
+- `false` - in development mode translation will be [wrapped](/docs/sdk/wrapping)
 - `true` - use when wrapping in dev mode causes problems, in this case in-context translation won't work
 
 #### Prop `defaultValue?`
@@ -167,13 +167,13 @@ function $t(options: {
 #### Parameter `parameters?`
 
 `Record<string, string>` - variable parameters, which can be used in translation value
-(read more about [ICU message format](../../icu-message-format)).
+(read more about [ICU message format](/docs/sdk/../icu-message-format)).
 
 #### Parameter `noWrap?`
 
 `Boolean` (default: `false`)
 
-- `false` - in development mode translation will be [wrapped](../wrapping)
+- `false` - in development mode translation will be [wrapped](/docs/sdk/wrapping)
 - `true` - use when wrapping in dev mode causes problems, or you pass write it outside the DOM
   (for example `document.title`), in this case in-context translation won't work
 
