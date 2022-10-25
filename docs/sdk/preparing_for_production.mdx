@@ -1,0 +1,87 @@
+---
+id: preparing_for_production
+title: Preparing for production
+sidebar_label: Preparing for production
+slug: preparing-for-production
+---
+
+In production mode you should never use localization data from Tolgee REST API and you should never leak your API key.
+You should use data exported from Tolgee platform.
+To get exported localization files, see [exporting translations](platform/exporting_translations.mdx).
+
+There are multiple options to provide static localization data for production builds.
+
+## Providing data using dynamic import
+
+To provide your localization data using dynamic import you will need to add providers for every supported language to [`staticData`](./api/core_package/options#staticdata).
+
+```jsx
+const tolgee = Tolgee({
+  ...
+  staticData: {
+    en: () => import('./i18n/en.json'),
+    de: () => import('./i18n/de.json'),
+
+    // or for namespaces
+    'de:common': () => import('./i18n/de/common.json'),
+  }
+})
+```
+
+Using this approach data will be fetched just when it's needed, so you will save some network traffic.
+
+## Using imported object
+
+```jsx
+import * as localeEn from 'i18n/en.json';
+import * as localeDe from 'i18n/de.json';
+
+import * as commonDe from 'i18n/de/common.json'
+
+...
+
+const tolgee = Tolgee({
+  ...
+  staticData: {
+    en: localeEn,
+    de: localeDe,
+
+    // or for namespaces
+    'de:common': commonDe,
+  }
+})
+```
+
+Using this approach, all localization data are bundled with your application, so don't use it if our translations files are large. This approach is also useful on SSR, when you need the translations to be available for initial render.
+
+## Providing data using backend plugin
+
+```jsx
+import { BackendFetch } from '@tolgee/react';
+
+tolgee.use(BackendFetch());
+```
+
+[`BackendFetch`](./api/web_package/plugins#backendfetch) will fetch translation files (en.json, de.json) from `https://<your url>/i18n`, so you don't have to list all the files explicitly.
+
+If you don't use namespaces place your translation into `/i18n` folder:
+
+```
+├── i18n
+│   ├── cs.json
+│   └── en.json
+├── index.html
+```
+
+If you use namespaces, it should look like this:
+
+```
+├── i18n
+│   ├── cs
+│   │   └── common.json
+│   └── en
+│       └── common.json
+├── index.html
+```
+
+> This is default behavior, it's possible to customize in [`BackendFetch`](./api/web_package/plugins#backendfetch) plugin.

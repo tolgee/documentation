@@ -42,6 +42,7 @@ module.exports = {
         'sdk/namespaces',
         'sdk/in_context',
         'sdk/wrapping',
+        'sdk/preparing_for_production',
         {
           label: 'Integrations',
           collapsed: false,
