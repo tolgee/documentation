@@ -21,7 +21,7 @@ export default function Integrations() {
         description={baseSchema.description}
       >
         <PageHeader className="mb-[180px]">
-          <PageHeaderSubtitle>Integrations</PageHeaderSubtitle>
+          <PageHeaderSubtitle h1>Integrations</PageHeaderSubtitle>
           <PageHeaderTitle active>Setup in seconds.</PageHeaderTitle>
         </PageHeader>
         <div className="md:max-w-[1000px] mx-auto sm:max-w-[650px] max-w-[400px]">

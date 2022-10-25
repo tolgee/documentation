@@ -11,7 +11,9 @@ export default function WhyOpensource() {
     <div>
       <DecoratedLayout title={`Why open-source?`}>
         <PageHeader className="mb-[180px]">
-          <PageHeaderTitle active>Opensource is our passion.</PageHeaderTitle>
+          <PageHeaderTitle active h1>
+            Opensource is our passion.
+          </PageHeaderTitle>
           <PageHeaderSubtitle>Why so?</PageHeaderSubtitle>
         </PageHeader>
 

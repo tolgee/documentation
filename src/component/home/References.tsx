@@ -2,49 +2,62 @@ import React, { useState } from 'react';
 import ThemedImage from '@theme/ThemedImage';
 
 import { ReferenceItem } from '../reference/ReferenceItem';
+import { OptimizedImage } from '../OptimizedImage';
 
 type Reference = {
+  name: string;
   logoLight: string;
   logoDark: string;
   quote: string;
   link: string | undefined;
+  webp: boolean;
 };
 
 const references: Reference[] = [
   {
+    name: 'Phonexia',
     logoLight: '/logos/phonexiaLight.png',
     logoDark: '/logos/phonexiaDark.png',
     link: 'https://www.phonexia.com/product/orbis/',
     quote:
       'We enjoy the ease of translating and correcting text from the front-end of the solution, as well as the automatic translation. We also appreciate the self-hosting option. Great job Tolgee!',
+    webp: true,
   },
   {
+    name: 'Flowerchecker',
     logoLight: '/logos/flowerchecker.png',
     logoDark: '/logos/flowerchecker.png',
     link: 'https://web.plant.id/',
     quote:
       'In FlowerChecker, we use Tolgee not only to translate our website but also to provide information in our plant identification API in multiple languages. We especially like the tags feature, which helps us link related content.',
+    webp: true,
   },
   {
+    name: 'Ictiobiometria',
     logoLight: '/logos/ictioLight.svg',
     logoDark: '/logos/ictioDark.svg',
     link: 'https://ictio.org',
     quote:
       'Tolgee fit perfectly for us, any change can be made in a moment, from anywhere and then we just request our new JSONs directly from their API. No more needless searching, no more wasted time.',
+    webp: false,
   },
   {
+    name: 'ElevenClock',
     logoLight: '/logos/elevenclockLight.png',
     logoDark: '/logos/elevenclockDark.png',
     link: 'https://github.com/martinet101/ElevenClock/',
     quote:
       'I have been now using Tolgee for some time and it’s been great. I am now able to collaborate with people around the world to be able to translate ElevenClock to more than 30 languages. Also, Tolgee’s API integrations allowed us to automate retrieving new translations from the platform.',
+    webp: true,
   },
   {
+    name: 'Fluent Search',
     logoLight: '/logos/fluentsearchLight.png',
     logoDark: '/logos/fluentsearchDark.png',
     link: 'https://fluentsearch.net/',
     quote:
       'Localizing Fluent Search using Tolgee couldn’t have been smoother, with over 1800 keys that update every week I needed something easy to use and modern from both the developer and translator standpoints.',
+    webp: true,
   },
 ];
 
@@ -100,12 +113,14 @@ export const References = () => {
                   <div className="max-w-[800px]">
                     <div className="grid">
                       <div className="references__avatar-wrapper">
-                        <ThemedImage
+                        <OptimizedImage
                           sources={{
                             light: reference.logoLight,
                             dark: reference.logoDark,
                           }}
                           className="references__avatar--image"
+                          alt={reference.name}
+                          webp={reference.webp}
                         />
                       </div>
 
@@ -141,6 +156,7 @@ export const References = () => {
               logoDark={reference.logoDark}
               onClick={() => setCurrentItemIndex(i)}
               selected={i === currentItemIndex}
+              webp={reference.webp}
             />
           ))}
         </div>

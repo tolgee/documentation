@@ -15,7 +15,7 @@ export const LandingPageHeadline: FC<{
   <div>
     <PageHeader className="mb-[180px]">
       {loveImage.img}
-      <PageHeaderTitle active className="mb-2">
+      <PageHeaderTitle h1 active className="mb-2">
         {title}
       </PageHeaderTitle>
       <div className="flex flex-wrap justify-center gap-4 m-2 mt-10">

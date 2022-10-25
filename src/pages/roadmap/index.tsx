@@ -372,7 +372,7 @@ export default function Roadmap() {
     <div>
       <DecoratedLayout title={`Roadmap`}>
         <PageHeader className="mb-[220px]">
-          <PageHeaderSubtitle>Roadmap</PageHeaderSubtitle>
+          <PageHeaderSubtitle h1>Roadmap</PageHeaderSubtitle>
           <PageHeaderTitle active>We are on it.</PageHeaderTitle>
         </PageHeader>
         <div className="container roadmap__container">

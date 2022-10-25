@@ -188,7 +188,8 @@
   }
 
   .references__avatar--image {
-    @apply max-h-24;
+    object-fit: contain;
+    max-height: 6rem;
     max-width: min(90%, 320px);
   }
 
