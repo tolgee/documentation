@@ -16,31 +16,9 @@ To get full image of working i18next integration, check our [Vue i18next Example
 
 For integration with Vue we use `@panter/vue-i18next` integration + we recommend also use ICU message formatter as that is supported on Tolgee platform natively:
 
-import Tabs from '@theme/Tabs';
-import TabItem from '@theme/TabItem';
+import { InstallationTabs } from '../../../installation_tabs.mdx';
 
-<Tabs
-    defaultValue="npm"
-    values={[
-        {label: 'npm', value: 'npm',},
-        {label: 'yarn', value: 'yarn'},
-    ]
-    }>
-<TabItem value="npm">
-
-```shell
-npm install @panter/vue-i18next i18next-icu
-```
-
-</TabItem>
-<TabItem value="yarn">
-
-```shell
-yarn add @panter/vue-i18next i18next-icu
-```
-
-</TabItem>
-</Tabs>
+<InstallationTabs lib="@panter/vue-i18next i18next-icu" />
 
 And then use following setup:
 

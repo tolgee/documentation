@@ -4,36 +4,17 @@ title: Installation
 description: 'Learn how to install Tolgee React integration library. To get full image of working React integration check our React example application.'
 ---
 
+:::info
 To get full image of working React integration check our [React example application](https://github.com/tolgee/react-example).
+:::
+
 To install Tolgee React integration library run:
 
-import Tabs from '@theme/Tabs';
-import TabItem from '@theme/TabItem';
+import { InstallationTabs } from '../../../installation_tabs.mdx';
 
-<Tabs
-    defaultValue="npm"
-    values={[
-        {label: 'npm', value: 'npm',},
-        {label: 'yarn', value: 'yarn'},
-    ]
-    }>
-<TabItem value="npm">
+<InstallationTabs lib="@tolgee/react" />
 
-```shell
-npm install @tolgee/react
-```
-
-</TabItem>
-<TabItem value="yarn">
-
-```shell
-yarn add @tolgee/react
-```
-
-</TabItem>
-</Tabs>
-
-First, you will need to wrap your application with [`TolgeeProvider`](./api#tolgeeprovider) component.
+Init Tolgee with [`ReactPlugin`](./api#reactplugin) and wrap your application in [`TolgeeProvider`](./api#tolgeeprovider).
 
 ```javascript
 import { Tolgee, ReactPlugin, TolgeeProvider } from "@tolgee/react";
@@ -56,7 +37,7 @@ const tolgee = Tolgee()
 </TolgeeProvider>
 ```
 
-> Check [Tolgee initialization](/docs/sdk/initialization) for more info.
+> Check [Initialization](/docs/sdk/initialization) for more info.
 
 If you bootstrapped your application with Create React App, your `.env.development.local` file should look like this:
 

@@ -12,31 +12,9 @@ To get full image of working i18next integration, check our [React i18next Examp
 
 For integration with React use standard React extension + we recommend also use ICU message formatter as that is supported on Tolgee platform natively:
 
-import Tabs from '@theme/Tabs';
-import TabItem from '@theme/TabItem';
+import { InstallationTabs } from '../../../installation_tabs.mdx';
 
-<Tabs
-    defaultValue="npm"
-    values={[
-        {label: 'npm', value: 'npm',},
-        {label: 'yarn', value: 'yarn'},
-    ]
-    }>
-<TabItem value="npm">
-
-```shell
-npm install react-i18next i18next-icu
-```
-
-</TabItem>
-<TabItem value="yarn">
-
-```shell
-yarn add react-i18next i18next-icu
-```
-
-</TabItem>
-</Tabs>
+<InstallationTabs lib="react-i18next i18next-icu" />
 
 And then use following setup:
 

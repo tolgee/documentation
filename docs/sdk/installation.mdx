@@ -12,31 +12,9 @@ We offer multiple ways how to install Tolgee.
 If you use Tolgee integration, install only integration package, `@tolgee/web` will be included automatically.
 :::
 
-import Tabs from '@theme/Tabs';
-import TabItem from '@theme/TabItem';
+import { InstallationTabs } from '../installation_tabs.mdx';
 
-<Tabs
-    defaultValue="npm"
-    values={[
-        {label: 'npm', value: 'npm',},
-        {label: 'yarn', value: 'yarn'},
-    ]
-    }>
-<TabItem value="npm">
-
-```shell
-npm install @tolgee/web
-```
-
-</TabItem>
-<TabItem value="yarn">
-
-```shell
-yarn add @tolgee/web
-```
-
-</TabItem>
-</Tabs>
+<InstallationTabs lib="@tolgee/web" />
 
 ```ts
 import { Tolgee } from '@tolgee/web';

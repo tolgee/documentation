@@ -4,6 +4,18 @@ title: API
 description: 'API documentation for React integration: TolgeeProvider, T-component and different hooks ( useCurrentLanguage, useSetLanguage, useTranslate).'
 ---
 
+## ReactPlugin
+
+This plugin adds [`DevTools`](/docs/sdk/api/web_package/bundled-plugins#devtools) plugin automatically and also makes tolgee globally awailable, so it can be used even without `TolgeeProvider`.
+
+```ts
+tolgee.use(TolgeeProvider(options?: ReactOptions))
+```
+
+### React plugin options
+
+- useSuspense: boolean - `TolgeeProvider` and `useTranslate` will use suspense pattern (default: true)
+
 ## TolgeeProvider
 
 Provides Tolgee context and takes care of running/stopping tolgee. Accepts [`Tolgee`](/docs/sdk/api/core_package/tolgee) instance.
@@ -11,16 +23,20 @@ Provides Tolgee context and takes care of running/stopping tolgee. Accepts [`Tol
 ```jsx
 import { TolgeeProvider } from '@tolgee/react';
 
-const tolgee = Tolgee(...)
-
 <TolgeeProvider tolgee={tolgee} fallback="Loading...">
   <App />
-</TolgeeProvider>
+</TolgeeProvider>;
 ```
+
+> You can use Tolgee without TolgeeProvider, but you'll have to run `tolgee.run` yourself and handle initial loading.
 
 #### Prop `fallback?`
 
 `React.Node` - it is rendered when Tolgee is loading translations instead of provided content.
+
+#### Prop `options?`
+
+[`ReactOptions`](#react-plugin-options) - overrides ReactPlugin options.
 
 ## T component
 

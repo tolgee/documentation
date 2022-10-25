@@ -7,31 +7,9 @@ description: 'Learn how to install Tolgee i18next integration library to use reg
 
 To install Tolgee i18next integration library run:
 
-import Tabs from '@theme/Tabs';
-import TabItem from '@theme/TabItem';
+import { InstallationTabs } from '../../../installation_tabs.mdx';
 
-<Tabs
-    defaultValue="npm"
-    values={[
-        {label: 'npm', value: 'npm',},
-        {label: 'yarn', value: 'yarn'},
-    ]
-    }>
-<TabItem value="npm">
-
-```shell
-npm install i18next @tolgee/i18next
-```
-
-</TabItem>
-<TabItem value="yarn">
-
-```shell
-yarn add i18next @tolgee/i18next
-```
-
-</TabItem>
-</Tabs>
+<InstallationTabs lib="@tolgee/i18next" />
 
 Then wrap your i18next instance [`withTolgee`](./api#function-withtolgeei18next-tolgeeconfig):
 

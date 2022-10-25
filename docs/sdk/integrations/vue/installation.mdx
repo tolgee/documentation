@@ -8,37 +8,11 @@ description: 'Learn how to install Tolgee Vue integration library and how to wra
 To get full image of working Vue integration, check our [Vue Example Application](https://github.com/tolgee/vue-example).
 :::
 
-:::info
-Tolgee for Vue currently supports only Vue v3.
-:::
-
 To install Tolgee Vue integration library run:
 
-import Tabs from '@theme/Tabs';
-import TabItem from '@theme/TabItem';
+import { InstallationTabs } from '../../../installation_tabs.mdx';
 
-<Tabs
-    defaultValue="npm"
-    values={[
-        {label: 'npm', value: 'npm',},
-        {label: 'yarn', value: 'yarn'},
-    ]
-    }>
-<TabItem value="npm">
-
-```shell
-npm install @tolgee/vue
-```
-
-</TabItem>
-<TabItem value="yarn">
-
-```shell
-yarn add @tolgee/vue
-```
-
-</TabItem>
-</Tabs>
+<InstallationTabs lib="@tolgee/react" />
 
 First, you will need to wrap your application with [`TolgeeProvider`](./api#tolgeeprovider) component.
 
