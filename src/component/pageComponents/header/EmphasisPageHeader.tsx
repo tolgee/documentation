@@ -40,7 +40,7 @@ export const EmphasisPageHeader = (props: {
       </div>
       <PageHeaderTitle className="mt-3">{props.title}</PageHeaderTitle>
       <PageHeaderTitle>{props.title2}</PageHeaderTitle>
-      <PageHeaderTitle active className="mb-6">
+      <PageHeaderTitle active h1 className="mb-6">
         {props.title3}
       </PageHeaderTitle>
       <Sections withImg={true} />

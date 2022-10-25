@@ -1,8 +1,8 @@
 import React from 'react';
 import { styled } from '@mui/material';
-import ThemedImage from '@theme/ThemedImage';
+import { OptimizedImage } from '../OptimizedImage';
 
-const StyledImg = styled(ThemedImage)`
+const StyledImg = styled(OptimizedImage)`
   max-width: 150px;
   max-height: 60px;
   object-fit: scale-down;
@@ -19,6 +19,7 @@ type Props = {
   logoDark: string;
   onClick: () => void;
   selected: boolean;
+  webp: boolean;
 };
 
 export const ReferenceItem: React.FC<Props> = ({
@@ -26,6 +27,7 @@ export const ReferenceItem: React.FC<Props> = ({
   logoDark,
   onClick,
   selected,
+  webp,
 }) => {
   return (
     <div onClick={onClick} className="cursor-pointer flex items-center">
@@ -33,6 +35,7 @@ export const ReferenceItem: React.FC<Props> = ({
         sources={{ light: logoLight, dark: logoDark }}
         style={{ opacity: selected ? 1 : undefined }}
         draggable="false"
+        webp={webp}
       />
     </div>
   );

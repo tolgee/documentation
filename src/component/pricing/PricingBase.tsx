@@ -11,7 +11,7 @@ export const PricingBase: React.FC = ({ children }) => {
     <div className="text-home-text">
       <DecoratedLayout title={`Pricing`}>
         <PageHeader className="mb-[100px]">
-          <PageHeaderTitle>Pricing</PageHeaderTitle>
+          <PageHeaderTitle h1>Pricing</PageHeaderTitle>
         </PageHeader>
 
         <div className="flex flex-col justify-center items-center pb-20">

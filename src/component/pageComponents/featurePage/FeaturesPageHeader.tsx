@@ -11,7 +11,9 @@ export const FeaturesPageHeader = (props: {
 }) => {
   return (
     <PageHeader>
-      <PageHeaderSubtitle className="mt-3">{props.title}</PageHeaderSubtitle>
+      <PageHeaderSubtitle h1 className="mt-3">
+        {props.title}
+      </PageHeaderSubtitle>
       {props.title2 && (
         <PageHeaderTitle className="mt-0" active>
           {props.title2}
