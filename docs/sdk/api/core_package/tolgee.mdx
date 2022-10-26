@@ -147,7 +147,7 @@ All the options:
 - `noWrap`: `boolean` - returns translation without wrapping (default: false)
 - `orEmpty`: `boolean` - return empty string instead of key if translation doesn't exist (default: false)
 - `params`: `Record<string, value>` object with parameters for the formatter
-- `ns`: `string` | `string[]` - namespace(s), if not provided default/fallback namespaces(s) are used
+- `ns`: `string` - namespace, if not provided default namespace is used
 
 > `t` function serves only for reading, not for loading new namespaces. Use [`addActiveNs`](#addactivens) for loading additional namespaces.
 
