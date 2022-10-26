@@ -6,7 +6,7 @@ description: 'API documentation for React integration: TolgeeProvider, T-compone
 
 ## ReactPlugin
 
-This plugin adds [`DevTools`](/docs/sdk/api/web_package/bundled-plugins#devtools) plugin automatically and also makes tolgee globally awailable, so it can be used even without `TolgeeProvider`.
+This plugin adds [`DevTools`](/docs/sdk/api/web_package/bundled-plugins#devtools) plugin automatically and also makes tolgee globally available, so it can be used even without `TolgeeProvider`.
 
 ```ts
 tolgee.use(TolgeeProvider(options?: ReactOptions))
@@ -70,7 +70,7 @@ import { T } from '@tolgee/react';
 
 #### Children `defaultValue?` | `keyName?`
 
-`String` - If `keyName` property is not defined, child is taken as `keyName`. I it is present child can be used as `defaultValue`.
+`String` - If `keyName` property is not defined, child is taken as `keyName`. If it is present child can be used as `defaultValue`.
 
 ## Hook `useTranslate`
 
@@ -82,6 +82,8 @@ function useTranslate(ns?: string | string[]): {
   isLoading: boolean;
 };
 ```
+
+This hook triggers suspense if specified namespace(s) are not yet available. Use it for loading namespaces for specific components/pages.
 
 ### Parameter `ns`
 

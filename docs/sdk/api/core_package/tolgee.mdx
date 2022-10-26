@@ -114,8 +114,7 @@ It internally stores list of namespaces/keys that you are interested in and call
 
 ### t
 
-Returns formatted translation based on current language. If `Observer` is present and tolgee is running, `wraps` the result to be
-identifiable in the DOM.
+Returns formatted translation based on current language. If `Observer` is present and tolgee is running, `wraps` the result to be identifiable in the DOM.
 
 ```ts
 tolgee.t(key: string, defaultValue?: string, options?: CombinedOptions): string
@@ -145,10 +144,12 @@ All the options:
 
 - `key`: `string` - translation key
 - `defaultValue`: `string` - value displayed when no translation is available
-- `ns`: `string` | `string[]` - namespace(s), if not provided default/fallback namespaces(s) are used
 - `noWrap`: `boolean` - returns translation without wrapping (default: false)
 - `orEmpty`: `boolean` - return empty string instead of key if translation doesn't exist (default: false)
 - `params`: `Record<string, value>` object with parameters for the formatter
+- `ns`: `string` | `string[]` - namespace(s), if not provided default/fallback namespaces(s) are used
+
+> `t` function serves only for reading, not for loading new namespaces. Use [`addActiveNs`](#addactivens) for loading additional namespaces.
 
 ### changeLanguage
 
@@ -183,14 +184,14 @@ tolgee.getPendingLanguage(): string | undefined
 
 ### addActiveNs
 
-Adds namespace(s) list of active namespaces. And if tolgee is `running`, loads required data.
+Adds namespace(s) list of active namespaces and if tolgee is `running`, loads required data. Active namespaces are also loaded automatically when language is changed.
 
 ```ts
 tolgee.addActiveNs(ns: FallbackNsTranslation, forget?: boolean): Promise<void>
 ```
 
 - `ns`: `string` | `string[]` - namespace(s)
-- `forget`: `boolean` - if true, tolgee only fetches the data, but won't remember namespaces as active
+- `forget`: `boolean` - if true, tolgee only fetches the data, but won't remember namespaces as active, so it won't get loaded automatically on language change
 
 ### removeActiveNs
 
