@@ -5,28 +5,22 @@ slug: switching-languages
 description: 'Learn how to switch languages in Vue integration. For language management, use useLanguage composition function'
 ---
 
-For language management, use [`useLanguage`](./api#uselanguage) composition function,
-which is reactive, so you can use it easily with `v-model`:
+For language management, use [`useTolgee`](./api#composable-usetolgee) composable function, with subscription to `language` event:
 
 ```html
 <template>
-  <select v-model="language" class="lang-selector">
-    <option value="en">🇬🇧 English</option>
-    <option value="de">🇩🇪 Deutsch</option>
+  <select :value="tolgee.getLanguage()" v-on:change="changeLanguage">
+    ...
   </select>
 </template>
 
-<script>
-  import { defineComponent } from 'vue';
-  import { useLanguage } from '@tolgee/vue';
+<script setup>
+  import { useTolgee } from '@tolgee/vue';
 
-  export default defineComponent({
-    setup() {
-      const language = useLanguage();
-      return { language };
-    },
-  });
+  const tolgee = useTolgee(['language']);
+
+  const changeLanguage = (e) => {
+    tolgee.value.changeLanguage(e.target.value);
+  };
 </script>
 ```
-
-Of course you can use it also to manually get or set language.

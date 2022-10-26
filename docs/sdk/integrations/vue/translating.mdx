@@ -7,58 +7,58 @@ description: 'Learn how to translate your Vue application with Tolgee localizati
 
 There are two ways how to translate with Tolgee.
 
+## Global `$t` frunction
+
+If you use [`VueTolgee`](./api#vuetolgee-plugin) plugin, you can use `$t` function in any component.
+
+```html
+<template>
+  <div>{{ $t('this_is_a_key') }}</div>
+</template>
+```
+
+## `useTranslate` composable
+
+Other option how to translate is using of [`useTranslate`](./api#composable-usetranslate) composable. You can use it this way:
+
+```html
+<template>
+  <div :title="t('key')">...</div>
+</template>
+
+<script setup>
+  import { useTranslate } from '@tolgee/vue';
+
+  const { t } = useTranslate();
+</script>
+```
+
+> Read more about [`tolgee.t`](/docs/sdk/api/core_package/tolgee#t)
+
+### Using namespaces
+
+[`useTranslate`](./api#composable-usetranslate) composable can be also used for loading additional namespaces.
+
+```ts
+const { t, isLoading } = useTranslate('common');
+```
+
+This example will add `common` to [active namespaces](/docs/sdk/api/core_package/tolgee#addactivens). You can then also use `isLoading` property, which will tell you if your data are ready.
+
 ## The [`T`](./api#t-component) component
+
+Another way is to use [`T`](./api#t-component) component
 
 ```html
 <template>
   <T keyName="translation_key" />
 </template>
 
-<script>
+<script setup>
   import { T } from '@tolgee/vue';
-
-  export default {
-    components: { T },
-  };
 </script>
 ```
 
-### Parameter interpolation
+## Message format
 
-To pass parameters, just add parameters property:
-
-```html
-<T keyName="translation_key" :parameters="{param: 'value'}" />
-```
-
-For translated text `This is {param} of the text` it will result in `This is value of the text` (read [ICU Message Format](/docs/icu-message-format)).
-
-### Providing default value
-
-```html
-<T keyName="translation_key" defaultValue="This is default value." />
-```
-
-The default value will be rendered when no translation is provided in current nor fallback language.
-
-## Imperative translation
-
-This solution is designed for cases where you can't use components (e.g. props).
-Use [useTranslate](./api#usetranslate-with-function-t), then you'll get access to the [`t`](./api#function-t) function,
-which has similar API as [`T`](./api#t-component) component, but you can use it anywhere.
-You can check all [`t`](./api#usetranslate-with-function-t) parameters in [API section](./api#usetranslate-with-function-t)
-
-```html
-<template>
-  <div :title="t('translation_key')">Hello</div>
-</template>
-
-<script>
-  export default {
-    setup() {
-      const t = useTranslate();
-      return { t };
-    },
-  };
-</script>
-```
+By default Tolgee is without any message formatter. You can use [`FormatSimple`](/docs/sdk/api/core_package/format-simple) or [`FormatIcu`](/docs/icu-message-format)

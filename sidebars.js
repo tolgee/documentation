@@ -86,7 +86,6 @@ module.exports = {
                 'sdk/integrations/vue/installation',
                 'sdk/integrations/vue/translating',
                 'sdk/integrations/vue/switching_languages',
-                'sdk/integrations/vue/preparing_for_production',
                 'sdk/integrations/vue/api',
               ],
             },

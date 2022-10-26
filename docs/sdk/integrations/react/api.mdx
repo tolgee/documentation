@@ -30,11 +30,11 @@ import { TolgeeProvider } from '@tolgee/react';
 
 > You can use Tolgee without TolgeeProvider, but you'll have to run `tolgee.run` yourself and handle initial loading.
 
-#### Prop `fallback?`
+### Prop `fallback?`
 
 `React.Node` - it is rendered when Tolgee is loading translations instead of provided content.
 
-#### Prop `options?`
+### Prop `options?`
 
 [`ReactOptions`](#react-plugin-options) - overrides ReactPlugin options.
 
@@ -48,27 +48,31 @@ import { T } from '@tolgee/react';
 </T>;
 ```
 
-#### Prop `keyName?`
+### Prop `keyName?`
 
 `String` - translation key.
 
-#### Prop `defaultValue?`
+### Prop `defaultValue?`
 
 `String` - default value if translation is not present.
 
-#### Prop `params?`
+### Prop `params?`
 
 `Record<string, string | number | ReactElement | (val) => ReactNode>` - variable parameters, which can be used in translation value
 (read more about [ICU message format](/docs/icu-message-format)).
 
-#### Prop `noWrap?`
+### Prop `ns?`
+
+`string` - translation namespace
+
+### Prop `noWrap?`
 
 `Boolean` (default: `false`)
 
 - `false` - in development mode translation will be [wrapped](/docs/sdk/wrapping)
 - `true` - use when wrapping in dev mode causes problems, in this case in-context translation won't work
 
-#### Children `defaultValue?` | `keyName?`
+### Children `defaultValue?` | `keyName?`
 
 `String` - If `keyName` property is not defined, child is taken as `keyName`. If it is present child can be used as `defaultValue`.
 

@@ -12,35 +12,41 @@ To install Tolgee Vue integration library run:
 
 import { InstallationTabs } from '../../../installation_tabs.mdx';
 
-<InstallationTabs lib="@tolgee/react" />
+<InstallationTabs lib="@tolgee/vue" />
 
-First, you will need to wrap your application with [`TolgeeProvider`](./api#tolgeeprovider) component.
+First initialize `Tolgee` and use `VueTolgee` plugin for Vue.
+
+```ts
+import { Tolgee, DevTools, VueTolgee } from '@tolgee/vue';
+
+const tolgee = Tolgee()
+  .use(DevTools())
+  .init({
+    language: 'en',
+    apiUrl: process.env.VUE_APP_TOLGEE_API_URL,
+    apiKey: process.env.VUE_APP_TOLGEE_API_KEY,
+  });
+
+...
+
+app.use(VueTolgee, { tolgee });
+```
+
+> Check [Initialization](/docs/sdk/initialization) for more info.
+
+`VueTolgee` plugin makes `$t` function globally available.
+
+Wrap your application with [`TolgeeProvider`](./api#tolgeeprovider) component. `TolgeeProvider` will start tolgee at correct moment and waits for initial data to be loaded. You can provide `fallback` slot, to show custom loader while translations are being loaded.
 
 ```html
 <template>
-  <TolgeeProvider :config="config">
-    <Children ... />
+  <TolgeeProvider>
     <template v-slot:fallback>
       <div>Loading...</div>
     </template>
+    <your-child-components>
   </TolgeeProvider>
 </template>
-
-<script>
-  import { TolgeeProvider } from '@tolgee/vue';
-
-  export default {
-    components: { TolgeeProvider },
-    data() {
-      return {
-        config: {
-          apiUrl: process.env.VUE_APP_TOLGEE_API_URL,
-          apiKey: process.env.VUE_APP_TOLGEE_API_KEY,
-        },
-      };
-    },
-  };
-</script>
 ```
 
 If you bootstrapped your application with vue-cli, your `.env.development.local` file should look like this:
@@ -52,9 +58,6 @@ VUE_APP_TOLGEE_API_KEY=<your_api_key>
 
 Otherwise, you can set the properties directly, or you can use plugins like [dotenv-webpack plugin](https://www.npmjs.com/package/dotenv-webpack).
 
-> _Obtaining Tolgee API key is described in [integration](/docs/sdk/../platform/integration) chapter._
+> Obtaining Tolgee API key is described in [Integration](/docs/platform/integration) chapter.
 
-## Other configuration properties
-
-Configuration properties for all web integrations are similar. They are described in [`options`](/docs/sdk/api/core_package/options)
-section.
+> To see how to use your local translations [Preparing for production](/docs/sdk/preparing-for-production).
