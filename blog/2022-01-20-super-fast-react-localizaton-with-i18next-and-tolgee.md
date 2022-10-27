@@ -296,7 +296,7 @@ src
 ```
 
 Now, lets provide the data to Tolgee. There are multiple ways, how to do
-so [described in docs](/docs/sdk/integrations/i18next/preparing-for-production). But I am going to
+so [described in docs](/docs/sdk/preparing-for-production). But I am going to
 provide them as imported static objects, which is good option, since the App is small and there are not many
 translations yet.
 
