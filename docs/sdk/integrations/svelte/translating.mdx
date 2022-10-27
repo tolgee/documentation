@@ -5,94 +5,48 @@ sidebar_label: Translating
 description: 'Learn about several ways how to translate a text using Tolgee Svelte integration: T-component and getTranslate method.'
 ---
 
-When you have Tolgee libraries installed and [`TolgeeProvider`](/docs/sdk/integrations/svelte/api#tolgeeprovider) is set
-up, you can start to translate your strings.
-There are several ways how to translate a text using Tolgee Svelte integration.
+There are two ways how to translate with Tolgee.
 
-## The T component
+## `getTranslate` method
 
-First and the recommended way is the `<T>` component. You can use it like this:
+Other option how to translate is using of [`getTranslate`](./api#gettranslate-function) function. You can use it this way:
 
 ```svelte
-<script lang="ts">
+<script>
+  import { getTranslate } from "@tolgee/svelte";
+
+  // t is store
+  const { t } = getTranslate();
+</script>
+
+<!-- use the translation function -->
+{$t('key', 'Default value')}
+```
+
+> Read more about [`tolgee.t`](/docs/sdk/api/core_package/tolgee#t)
+
+### Using namespaces
+
+[`getTranslate`](./gettranslate-function) function can be also used for loading additional namespaces.
+
+```ts
+const { t, isLoading } = getTranslate('common');
+```
+
+This example will add `common` to [active namespaces](/docs/sdk/api/core_package/tolgee#addactivens). You can then also use `isLoading` store, which will tell you if your data are ready.
+
+## The `T` component
+
+Another way is to use [`T` component](./api#t-component)
+
+```svelte
+<script>
   import { T } from "@tolgee/svelte";
 </script>
 
 <T keyName="this_is_a_key" />
 ```
 
-To provide parameters to you translation, use parameters prop.
-
-```svelte
-<T keyName="greeting" parameters={{name: "Josh"}} />
-```
-
-For translation `Hello {name}!` the rendered string will be `Hello Josh!`.
-
-Also, when you hold `Alt` key and move you mouse over the string, you should be able to click & translate the text
-in-context.
-
-We are using ICU message format. To read more about it, check
-[ICU Message Format](/docs/icu-message-format) documentation page.
-
-### Providing default value
-
-You can also provide `defaultValue` prop to the [`T`](/docs/sdk/integrations/svelte/api#t-component) component. This value will be used when no translation
-has been found in localization data.
-
-```svelte
-<T keyName="this_is_a_key" defaultValue="This is default." />
-```
-
-## `getTranslate` method
-
-If you cannot use `T` component for some reason, then you can also use
-[`getTranslate`](/docs/sdk/integrations/svelte/api#gettranslate-function) method returning store containing
-a translation function. The usage is very simple, look:
-
-```svelte
-<script lang="ts">
-  import { getTranslate } from "@tolgee/svelte";
-
-  const t = getTranslate(); // returns the translation function store
-</script>
-
-<!-- use the translation function -->
-{$t({key: 'greeting', parameters: {name: "Josh"}, defaultValue: 'Hello {name}!'})}
-```
-
-:::caution
-Don't use it with `context="module"`, it won't work, since the method is not called in component initialization.
-
-```
-<script context="module"> // ❌
-  import { getTranslate } from "@tolgee/svelte";
-
-  const t = getTranslate(); // <- This will throw an Error 🚨
-</script>
-```
-
-```
-<script> // ✅
-  import { getTranslate } from "@tolgee/svelte";
-
-  const t = getTranslate(); // <- This won't throw an Error 🎉
-</script>
-```
-
-:::
-
 ## Message format
 
-All Tolgee integrations follow ICU message format standard.
-
-`{dogsCount, plural, one {One dog is} other {# dogs are}} here.`
-
-To read more about it, check
-[ICU Message Format](/docs/icu-message-format) documentation page.
-
-All Tolgee JS integrations are using [MessageFormat class of formatJs library](https://formatjs.io/docs/intl-messageformat/).
-
-:::info
-To get full image of working Svelte integration, check our [Svelte Example Application](https://github.com/tolgee/svelte-example).
-:::
+By default Tolgee is without any message formatter. You can use [`FormatSimple`](/docs/sdk/api/core_package/format-simple) or [`FormatIcu`](/docs/icu-message-format)

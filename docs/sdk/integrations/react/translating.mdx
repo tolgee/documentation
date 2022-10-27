@@ -7,36 +7,6 @@ description: 'Learn about several ways how to translate a text using Tolgee Reac
 
 There are several ways how to translate a text using our React integration.
 
-## The [`T`](./api#t-component) component
-
-First way is the [`<T>`](./api#t-component) component. You can use it like this:
-
-```jsx
-import { T } from "@tolgee/react";
-
-...
-
-<T keyName="translation_key" />
-```
-
-To pass variable parameters just assign params property.
-
-```jsx
-<T keyName="text_with_params" params={{ param: 'value' }} />
-```
-
-> Read more in [Formatting](/docs/sdk/formatting) section
-
-### Providing default value
-
-When `keyName` property is provided, then children prop of [`T`](./api#t-component) component is considered as default value.
-
-```jsx
-<T keyName="translation_key">This is default value.</T>
-```
-
-The default value will be rendered when no translation is provided in current nor fallback language.
-
 ## `useTranslate` hook
 
 Other option how to translate is using of [`useTranslate`](./api#hook-usetranslate) hook. You can use it this way:
@@ -62,6 +32,18 @@ const { t, isLoading } = useTranslate('common');
 ```
 
 This example will add `common` to [active namespaces](/docs/sdk/api/core_package/tolgee#addactivens). You can then also use `isLoading` property, which will tell you if your data are ready.
+
+## The `T` component
+
+Another way is to use [`T` component](./api#t-component)
+
+```jsx
+import { T } from "@tolgee/react";
+
+...
+
+<T keyName="translation_key" />
+```
 
 ## Message format
 

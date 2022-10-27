@@ -96,7 +96,6 @@ module.exports = {
                 'sdk/integrations/svelte/installation',
                 'sdk/integrations/svelte/translating',
                 'sdk/integrations/svelte/switching_language',
-                'sdk/integrations/svelte/preparing_for_production',
                 'sdk/integrations/svelte/api',
               ],
             },

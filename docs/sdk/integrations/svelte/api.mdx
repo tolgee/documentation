@@ -5,161 +5,129 @@ sidebar_label: API
 description: 'Tolgee for svelte API documentation. Tolgee Provider provides Tolgee instance. Use in root of your application.'
 ---
 
-## [`TolgeeProvider`](/docs/sdk/integrations/svelte/api#tolgeeprovider)
+## SveltePlugin
 
-Provides Tolgee instance. Use in root of your application.
+This plugin adds [`DevTools`](/docs/sdk/api/web_package/bundled-plugins#devtools) plugin automatically and also makes tolgee globally available, so it can be used even without `TolgeeProvider`.
 
-```svelte
-<script>
-  import { TolgeeProvider } from "@tolgee/svelte";
+```ts
+tolgee.use(SveltePlugin());
+```
 
-  const tolgeeConfig = {
-   ...
-  }
-</script>
+## `TolgeeProvider`
 
-<TolgeeProvider config={tolgeeConfig}>
-  <div slot="loading-fallback">Loading...</div>
-  <slot />
+Provides Tolgee context. Use in root of your application.
+
+```jsx
+import { TolgeeProvider } from '@tolgee/vue';
+
+...
+
+<TolgeeProvider>
+  <App />
 </TolgeeProvider>
 ```
 
-#### Prop `config`
+### Prop `fallback?`
 
-[`TolgeeConfig`](/docs/sdk/configuration) object, which is passed to Tolgee instance.
+`string` - it is rendered when Tolgee is loading translations instead of provided content.
 
-#### Slot `loading-fallback`
+### Prop `tolgee?`
 
-Slot which is rendered, when translations are loading. It's not rendered, when translations are provided through
-staticData config property as object in production mode.
+Optionally provide tolgee instance. If you use `VueTolgee`, it's not necessary.
 
-Example when `loading-fallback` is **not** rendered:
+### Slot `fallback`
 
-```javascript
-import enLang from '../i18n/en.json'; // data is static
-const tolgeeConfig = {
-  // ...
-  staticData: {
-    en: enLang,
-  },
-};
-```
-
-Example when `loading-fallback` is rendered:
-
-```javascript
-const tolgeeConfig = {
-  ...
-  staticData: {
-    en: () => import("../i18n/en.json") // data is provided as function returning Promise of data
-  }
-};
-```
-
-## T component
+Alternative for `fallback`, use when you want to pass components:
 
 ```svelte
-<script>
-  import { T } from "@tolgee/svelte";
-</script>
-
-<T keyName="keyName" parameters="{{parameter: 'value'}}" />
+<TolgeeProvider>
+  <App />
+  <div slot="fallback">Loading...</div>
+</TolgeeProvider>
 ```
 
-#### Prop `keyName`
+## `T` component
+
+```svelte
+import { T } from '@tolgee/svelte';
+
+<T keyName="key" defaultValue="Default" />
+```
+
+### Prop `keyName`
 
 `String` - translation key.
 
-#### Prop `parameters?`
+### Prop `defaultValue?`
 
-`Record<string, string>` - variable parameters, which can be used in translation value
-(read more about [ICU message format](/docs/sdk/../icu-message-format)).
+`String` - You can pass default value, which will be rendered if there is no translation
+for this key (in selected language nor base language). If you won't provide this value, `keyName` will be rendered instead.
 
-#### Prop `noWrap?`
+### Prop `params?`
+
+`Record<string, string>` - variable params, which can be used in translation value
+(read more about [ICU message format](/docs/icu-message-format)).
+
+### Prop `ns?`
+
+`string` - translation namespace
+
+### Prop `noWrap?`
 
 `Boolean` (default: `false`)
 
 - `false` - in development mode translation will be [wrapped](/docs/sdk/wrapping)
 - `true` - use when wrapping in dev mode causes problems, in this case in-context translation won't work
 
-#### Prop `defaultValue?`
+## Function `getTranslate`
 
-`String` - You can pass default value, which will be rendered if there is no translation
-for this key (in selected language nor base language). If you won't provide this value, `keyName` will be rendered instead.
+Use it for loading namespaces for specific components/pages or to get `t` function for translating.
 
-## `getTranslate` function
-
-Returns store containing translating function
-
-```typescript
-function t(
-  key: string,
-  parameters: Record<string, string>,
-  noWrap?: boolean,
-  defaultValue?: string
-): string;
-
-// or with options object
-function t(options: {
-  key: string;
-  parameters?: Record<string, string>;
-  noWrap?: boolean;
-  defaultValue?: string;
-}): string;
+```ts
+function getTranslate(ns?: string | string[]): {
+  t: Readable<TFnType>;
+  isLoading: Readable<boolean>;
+};
 ```
 
-Example:
+### Parameter `ns`
+
+- `string` | `string[]` - namespace(s) which will be loaded
+
+### Property `isLoading` (Readable)
+
+- `boolean` - is true if any of listed namespaces is not loaded yet
+
+Use this property to make sure you won't display translation translations before they are loaded.
+
+### Function `t` (Readable)
+
+Returns requested translation and also subscribes component to translation/language changes, so component will be re-rendered every time translation changes. If you use namespaces, `t` function will automatically use first of the namespaces given to `useTranslate` function. You can override this by `ns` option.
+
+```ts
+$t('key', 'Default value', <options>)
+```
+
+> Check [`tolgee.t`](/docs/sdk/api/core_package/tolgee#t) function interface.
+
+## Function `getTolgee`
+
+Returns tolgee instance as `Readable`. Allows subscription to different [`events`](/docs/sdk/api/core_package/events). Most common usecase is for language switch.
 
 ```svelte
 <script>
-  import { getTranslate } from "@tolgee/svelte";
+  import { getTolgee } from '@tolgee/svelte';
 
-  const t = getTranslate();
+  // gets updated on language change
+  const tolgee1 = getTolgee(['language']);
 
-  t.subscribe((fn) =>
-    // translated value will be printed every time language or translation changes
-    console.log(fn({
-      key: "key",
-      defaultValue: "Defaaaault!",
-      noWrap: true,
-      parameters: { param: "value" }
-    }))
-  );
+  // gets updated when loading changes
+  const tolgee2 = getTolgee(['loading']);
+
+  // never gets updated
+  const tolgee3 = getTolgee();
 </script>
 
-<!--or in template `$` does the subscribe magic-->
-{$t({ key: 'key', defaultValue: 'Defaaaault!' })}
-```
-
-#### Parameter `key`
-
-`String` - translation key
-
-#### Parameter `parameters?`
-
-`Record<string, string>` - variable parameters, which can be used in translation value
-(read more about [ICU message format](/docs/sdk/../icu-message-format))
-
-#### Parameter `noWrap?`
-
-`Boolean` (default: `false`)
-
-- `false` - in development mode translation will be [wrapped](/docs/sdk/wrapping)
-- `true` - use when wrapping in dev mode causes problems, or you pass write it outside the DOM
-  (for example `document.title`), in this case in-context translation won't work
-
-#### Parameter `defaultValue?`
-
-`String` - It will be rendered if there is no translation for this key (in selected language nor base language).
-If you don't provide this value, `key` will be rendered instead.
-
-## Function `getLanguageStore`
-
-`Writable<string>` - Writeable store containing the current language. (see [Switching language](/docs/sdk/integrations/svelte/switching-language))
-
-```javascript
-<script>
-  import {getLanguageStore} from "@tolgee/svelte"; const languageStore =
-  getLanguageStore(); languageStore.subscribe((lang) => console.log(lang));
-</script>
+<div>Language: {$tolgee1.getLanguage()}</div>
+<div>Loading: {$tolgee2.isLoading()}</div>
 ```

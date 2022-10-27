@@ -15,25 +15,28 @@ import { InstallationTabs } from '../../../installation_tabs.mdx';
 
 <InstallationTabs lib="@tolgee/svelte" />
 
-First, you will need to wrap your application code with [`TolgeeProvider`](/docs/sdk/integrations/svelte/api#tolgeeprovider) component.
+Init Tolgee with [`SveltePlugin`](./api#svelteplugin) and wrap your application in [`TolgeeProvider`](./api#tolgeeprovider).
 
 ```svelte
-<script lang="ts">
-  import { TolgeeProvider } from "@tolgee/svelte";
-  import type { TolgeeConfig } from "@tolgee/core";
+<script>
+  import { TolgeeProvider, Tolgee } from '@tolgee/svelte';
 
-  const tolgeeConfig = {
-    preloadFallback: true,
-    apiUrl: import.meta.env.VITE_TOLGEE_API_URL, // or provide your API URL directly
-    apiKey: import.meta.env.VITE_TOLGEE_API_KEY, // or provide API_KEY directly
-  } as TolgeeConfig;
+  const tolgee = Tolgee()
+    .use(SveltePlugin())
+    .init({
+      apiUrl: import.meta.env.VITE_TOLGEE_API_URL,
+      apiKey: import.meta.env.VITE_TOLGEE_API_KEY,
+      language: 'en',
+    });
 </script>
 
-<TolgeeProvider config={tolgeeConfig}>
-  <div slot="loading-fallback">Loading...</div>
+<TolgeeProvider tolgee={tolgee}>
+  <div slot="fallback">Loading...</div>
   <slot />
 </TolgeeProvider>
 ```
+
+> Check [Initialization](/docs/sdk/initialization) for more info.
 
 If you bootstrapped your application with SvelteKit, your `.env.development.local` file should look like this:
 
@@ -47,7 +50,6 @@ Never leak your API key! You don't want visitors of your site to edit your trans
 .env files to store your API key. API key is then omitted for production build.
 :::
 
-## Other configuration properties
+> Obtaining Tolgee API key is described in [Integration](/docs/platform/integration) chapter.
 
-Configuration properties for all web integrations are similar. They are described in [configuration](/docs/sdk/configuration)
-section.
+> To see how to use your local translations [Preparing for production](/docs/sdk/preparing-for-production).

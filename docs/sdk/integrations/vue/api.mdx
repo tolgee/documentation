@@ -4,6 +4,14 @@ title: API
 description: 'Detail documentation to API in VueJS integration. TolgeeProvider Provides Tolgee context. Use in root of your application.'
 ---
 
+## VuePlugin
+
+This plugin adds [`DevTools`](/docs/sdk/api/web_package/bundled-plugins#devtools) plugin automatically and also makes tolgee globally available, so it can be used even without `TolgeeProvider`.
+
+```ts
+tolgee.use(VuePlugin());
+```
+
 ## `VueTolgee` plugin
 
 Vue plugin makes tolgee globally available in all vue components. That mean, that you can use global `$t` function in any vue component.
@@ -36,7 +44,7 @@ import { TolgeeProvider } from '@tolgee/vue';
 ...
 
 <TolgeeProvider>
-  <your-child-components>
+  <App />
 </TolgeeProvider>
 ```
 
