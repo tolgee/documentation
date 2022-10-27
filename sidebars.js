@@ -55,7 +55,7 @@ module.exports = {
                 'sdk/integrations/react/installation',
                 'sdk/integrations/react/translating',
                 'sdk/integrations/react/tags_interpolation',
-                'sdk/integrations/react/switching_languages',
+                'sdk/integrations/react/switching_language',
                 {
                   label: 'Server Side Rendering (SSR)',
                   type: 'category',
@@ -85,7 +85,7 @@ module.exports = {
               items: [
                 'sdk/integrations/vue/installation',
                 'sdk/integrations/vue/translating',
-                'sdk/integrations/vue/switching_languages',
+                'sdk/integrations/vue/switching_language',
                 'sdk/integrations/vue/api',
               ],
             },
