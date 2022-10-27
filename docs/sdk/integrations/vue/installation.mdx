@@ -14,13 +14,13 @@ import { InstallationTabs } from '../../../installation_tabs.mdx';
 
 <InstallationTabs lib="@tolgee/vue" />
 
-First initialize `Tolgee` and use `VueTolgee` plugin for Vue.
+First initialize `Tolgee` and use [`VueTolgee`](./api#vuetolgee-plugin) plugin for Vue.
 
 ```ts
-import { Tolgee, DevTools, VueTolgee } from '@tolgee/vue';
+import { Tolgee, VuePlugin, VueTolgee } from '@tolgee/vue';
 
 const tolgee = Tolgee()
-  .use(DevTools())
+  .use(VuePlugin())
   .init({
     language: 'en',
     apiUrl: process.env.VUE_APP_TOLGEE_API_URL,
@@ -34,7 +34,7 @@ app.use(VueTolgee, { tolgee });
 
 > Check [Initialization](/docs/sdk/initialization) for more info.
 
-`VueTolgee` plugin makes `$t` function globally available.
+[`VueTolgee`](./api#vuetolgee-plugin) plugin makes `$t` function globally available.
 
 Wrap your application with [`TolgeeProvider`](./api#tolgeeprovider) component. `TolgeeProvider` will start tolgee at correct moment and waits for initial data to be loaded. You can provide `fallback` slot, to show custom loader while translations are being loaded.
 
