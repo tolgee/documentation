@@ -106,7 +106,6 @@ module.exports = {
                 'sdk/integrations/i18next/installation',
                 'sdk/integrations/i18next/react',
                 'sdk/integrations/i18next/vue',
-                'sdk/integrations/i18next/preparing_for_production',
                 'sdk/integrations/i18next/api',
               ],
             },

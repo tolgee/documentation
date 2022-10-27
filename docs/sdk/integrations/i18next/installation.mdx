@@ -15,13 +15,16 @@ Then wrap your i18next instance [`withTolgee`](./api#function-withtolgeei18next-
 
 ```ts
 import i18n from 'i18next';
-import { withTolgee } from '@tolgee/i18next';
+import { withTolgee, Tolgee, I18nextPlugin } from '@tolgee/i18next';
 
-withTolgee(i18n, {
-  apiUrl: ...,
-  apiKey: ...,
-  ...
-})
+const tolgee = Tolgee()
+  .use(I18nextPlugin())
+  .init({
+    apiUrl: ...,
+    apiKey: ...,
+  });
+
+withTolgee(i18n, tolgee)
   .use(...)
   .init(...)
 

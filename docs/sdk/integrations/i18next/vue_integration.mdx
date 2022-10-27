@@ -30,10 +30,12 @@ import VueI18Next from '@panter/vue-i18next';
 
 Vue.use(VueI18Next);
 
-withTolgee(i18next, {
+const tolgee = Tolgee().use(I18nextPlugin()).init({
   apiUrl: process.env.VUE_APP_TOLGEE_API_URL,
   apiKey: process.env.VUE_APP_TOLGEE_API_KEY,
-})
+});
+
+withTolgee(i18next, tolgee)
   .use(ICU)
   .init({
     lng: 'en', // or use i18next language detector
