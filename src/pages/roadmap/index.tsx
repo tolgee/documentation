@@ -149,6 +149,17 @@ const roadmapData = {
         ),
       },
       {
+        name: 'Tolgee Translator (experimental)',
+        description: (
+          <p>
+            Tolgee's very own Translator, which uses open-source projects data
+            to provide the best possible results. For enterprise customers, it
+            will use their specific data to deliver results reflecting their
+            particular context and terminology.
+          </p>
+        ),
+      },
+      {
         name: 'Branching',
         description: (
           <p>
