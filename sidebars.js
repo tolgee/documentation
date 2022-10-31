@@ -120,16 +120,8 @@ module.exports = {
           ],
         },
         {
-          label: 'Text observer',
-          type: 'category',
-          items: [
-            'sdk/text_observer/hello_world',
-            'sdk/text_observer/preparing_for_production',
-            'sdk/text_observer/adding_loading_overlay',
-            'sdk/text_observer/translating_imperatively',
-            'sdk/text_observer/providing_default_value',
-            'sdk/text_observer/parameter_interpolation',
-          ],
+          id: 'sdk/text_observer',
+          type: 'doc',
         },
         {
           label: 'API',
