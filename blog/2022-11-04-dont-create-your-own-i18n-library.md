@@ -15,7 +15,7 @@ tags: [i18n, localization, programming, typescript]
 
 Sometime before, when we did a market analysis, we asked many companies how they solved localization in their project.
 We asked them what's their i18n tooling. Surprisingly a lot of companies
-maintain their custom solution. I've also set up [f5bot](https://f5bot.com/)) to e-mail me when the i18n keyword
+maintain their custom solution. I've also set up [f5bot](https://f5bot.com/) to e-mail me when the i18n keyword
 appears in posts or comments on Reddit. Again, a lot of people share their custom i18n libraries or solutions. In this
 article, I want to explain why I recommend against creating your custom solution and show what challenges
 you will face when you decide to do so.
@@ -212,7 +212,7 @@ To be fair, I also have to mention other i18n solutions in the JS world.
 
 FormatJs is a set of i18n tools used in JS projects. They maintain
 the [ICU Message Formater port for JS](https://formatjs.io/docs/intl-messageformat). Which we also use in Tolgee to
-format the messages. They have integrations into [React](https://formatjs.io/docs/react-intl)
+format the messages. They have integrations for [React](https://formatjs.io/docs/react-intl)
 and [Vue](https://formatjs.io/docs/vue-intl).
 
 ### i18next (JS, React)
