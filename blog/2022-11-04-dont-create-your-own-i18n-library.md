@@ -129,7 +129,7 @@ There are more plural forms in Czech, so the code would be like this.
 if (count === 1) {
   return 'Peter má jednoho psa.'
 } else if (count >= 2 && count <= 4) {
-  return 'Peter má ${count} psi.'
+  return 'Peter má ${count} psy.'
 } else {
   return 'Peter má ${count} psů.'
 }
