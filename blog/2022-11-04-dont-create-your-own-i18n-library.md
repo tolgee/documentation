@@ -8,12 +8,12 @@ authors: [jcizmar]
 image: "/img/blog/dont-custom-i18n.png"
 
 description: "Don't create you custom i18n solution. There is a lot of localization tooling. It's reinventing the
-wheel."
+wheel. Use existing libraries."
 
 tags: [i18n, localization, programming, typescript]
 ---
 
-Sometime before, when we did a market analysis, we asked many companies how they solved localization in their project.
+When we did a market analysis in Tolgee, we asked many companies how they solved localization in their project.
 We asked them what's their i18n tooling. Surprisingly a lot of companies
 maintain their custom solution. I've also set up [f5bot](https://f5bot.com/) to e-mail me when the i18n keyword
 appears in posts or comments on Reddit. Again, a lot of people share their custom i18n libraries or solutions. In this
@@ -32,7 +32,7 @@ probably face when implementing your custom solution.
 
 As a creator of a custom i18n solution, first of all, you would probably create some method that returns a
 translated string according to provided key. The header of such a function would probably be similar
-to the one below. I am going to use typescript for code examples. However, it would look similar to any other
+to the one below. I am going to use Typescript for code examples. However, it would look similar to any other
 programming language.
 
 ```typescript
@@ -62,7 +62,7 @@ OK, cool, that was simple. Now the complicated stuff comes.
 ## Parameter interpolation
 
 Sometimes we need to provide a parameter for our translation to be rendered. To do so, we have to define some syntax
-to tell which part of the translated sting is a placeholder. Let's make everything wrapped in curly brackets as a
+to tell which part of the translated string is a placeholder. Let's make everything wrapped in curly brackets as a
 parameter. So our data now look like this.
 
 ```typescript
@@ -103,7 +103,7 @@ This works perfectly when the param `count` is 0, 2, 3, ..., but when the count 
 
 ```
 Peter has 0 dogs.
-Peter has 1 dog. <-- Incorrect!
+Peter has 1 dogs. <-- Incorrect!
 Peter has 2 dogs.
 Peter has 3 dogs.
 ```
@@ -123,7 +123,7 @@ Haha! I don't need any i18n library, you may say. I am the king of my code, you 
 
 But sadly, English is not the only language in the world. There are other languages—for example, Czech - my native
 language.
-There are more plural forms in Czech, so the code would be like this.
+There are more plural forms in Czech, so the code would look like this.
 
 ```typescript
 if (count === 1) {
@@ -176,7 +176,7 @@ JS world, when we are requesting the strings from the browser. We prefer to send
 all the languages to the client, which probably would never need all the languages. So we must find an effective way
 to provide the language data only when required.
 
-Also, storing the data in JS format is not pretty flexible when letting external translators translate our
+Also, storing the data in JS format is not pretty flexible when letting external translators translate your
 app. They work with JSON, XLIFF, or other formats. So storing localization data as external resources makes much more
 sense. Of course, we can load such files manually in our custom solution, but the existing i18n libraries can help us
 with that.
@@ -199,8 +199,8 @@ recommended tools are. The answer is: It depends.
 
 For web-based projects, I recommend using Tolgee (surprisingly 😆). It handles everything I mentioned above
 but also provides a few excellent killer features. It's a combination of TMS (localization platform) and i18n library.
-Out of the box, it has an in-context editing feature, which enables you to modify the strings directly in your web app,
-even in production. This can save you a lot of time and stress. It also provides a unique way how you can get perfect
+Out of the box, it has an [in-context editing feature](/blog/in-context-production), which enables you to modify the strings directly in your web app,
+even in production. This can save you a lot of time and stress. It also provides a unique way how you can get perfect translation
 results. And it's open-source!
 
 To get started, you can choose your favorite technology [here](https://tolgee.io/integrations/all) and follow the
@@ -251,5 +251,4 @@ supported by popular TMS solutions. It makes it simple to get the localization d
 - Use ICU Message Format
 - There are many popular i18n solutions
 - Tolgee can save you a lot of time
-- When choosing your i18n solution, check how it interpolates parameters, what formats it supports and 
-
+- When choosing your i18n solution, check how it interpolates parameters, what formats it supports ICU message format
