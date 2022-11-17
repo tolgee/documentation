@@ -1,0 +1,32 @@
+---
+id: html_tags
+title: Strings with HTML Tags (Angular)
+sidebar_label: Strings with HTML Tags
+description: 'Learn how to render i18n strings with HTML tags in Angular'
+---
+
+To render a translation containing HTML tags using pipe, you must set the translated value via the `innerHTML` attribute of the wrapping component.
+
+Consider a translation `hello_peter` with the English value `Hello <b>Peter</b>!`
+
+This way, it renders the HTML tags.
+```html
+<div [innerHTML]="'hello_peter' | translate"></div>
+```
+
+For `t` component, the attribute `isHtml` does the trick.
+```html
+<div t key="hello_peter" [isHtml]="true"></div>
+```
+
+## Security
+If you use the `FormatICU` plugin for message formatting, you should be safe from XSS attacks. This is because the ICU message formatter
+sanitizes the HTML. So if your translation contains a string like this:
+```
+<b onmouseover=alert('XSS testing!')>Hello Peter!</b>
+```
+
+The ICU Formatter returns this sanitized string: `<b>Hello Peter!</b>`
+
+For `FormatSimple,` you have to sanitize your strings yourself. So if you are interpolating user input in your
+translation like `<b>Hello {name}!</b>`, always sanitize the HTML!

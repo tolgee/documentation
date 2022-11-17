@@ -29,7 +29,7 @@ module.exports = {
       ],
     },
     {
-      label: 'Tolgee SDK',
+      label: 'Tolgee JS SDK',
       collapsed: false,
       type: 'category',
       items: [
@@ -74,8 +74,9 @@ module.exports = {
               items: [
                 'sdk/integrations/angular/installation',
                 'sdk/integrations/angular/translating',
+                'sdk/integrations/angular/namespaces',
                 'sdk/integrations/angular/switching_language',
-                'sdk/integrations/angular/angular_preparing_for_production',
+                'sdk/integrations/angular/html_tags',
                 'sdk/integrations/angular/api',
               ],
             },

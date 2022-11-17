@@ -2,127 +2,125 @@
 id: api
 title: API (Angular)
 sidebar_label: API
-description: 'API documentation for using Tolgee tool with Angular: NgxTolgeeModule​, TranslateService, T-component and others.'
+description: 'API documentation for using Tolgee tool with Angular: NgxTolgeeModule, TranslateService, T-component, and others.'
 ---
+
+The package `@tolgee/ngx` exports these components and all of [`@tolgee/web`](/docs/sdk/api/web_package/about).
 
 ## NgxTolgeeModule
 
-The Tolgee Module. Use it to configure Tolgee for module.
+The Tolgee Module. Add it to imports. The module exports `TranslatePipe` and `TComponent`.
 
 Example usage:
 
 ```ts
 @NgModule({
-  declarations: [
+ imports: [
+    NgxTolgeeModule,
     ...
   ],
-  imports: [
-    ...
-    NgxTolgeeModule.forRoot({
-      staticData: {
-        en: () => import('../i18n/en.json'),
-        cs: () => import('../i18n/cs.json'),
-      },
-      preloadFallback: true,
-      apiUrl: environment.tolgeeApiUrl,
-      apiKey: environment.tolgeeApiKey,
-      ui: UI,
-    })
+  providers: [
+    {
+      provide: TOLGEE_INSTANCE,
+      ...
+    },
   ],
+  ...
 })
 ```
 
-### Method `forRoot`
+## TOLGEE_INSTANCE
+The injection token to provide [Tolgee instance](http://localhost:3000/docs/sdk/api/core_package/tolgee).
 
-Returns `ModuleWithProviders<NgxTolgeeModule>`. Enables passing configuration to the module.
-
-- parameter `options` - Tolgee configuration properties described in [`options`](/docs/sdk/api/core_package/options) section.
+```ts
+@NgModule({
+ imports: [
+    NgxTolgeeModule,
+    ...
+  ],
+  providers: [
+    {
+      provide: TOLGEE_INSTANCE,
+      useFactory: () => {
+        return Tolgee()
+          .use(LanguageDetector())
+          .use(FormatIcu())
+          .use(NgxPlugin())
+          .init({
+            staticData: {
+              en: () => import('../i18n/en.json'),
+              cs: () => import('../i18n/cs.json'),
+            },
+            apiUrl: environment.tolgeeApiUrl,
+            apiKey: environment.tolgeeApiKey,
+            fallbackLanguage: 'en',
+            defaultLanguage: 'en',
+          });
+      },
+    },
+  ],
+  ...
+})
+```
 
 ## TranslateService
 
 Contains methods to translate text used by other components.
 
-### method `get`
+### property `tolgee`
+The [Tolgee instance](http://localhost:3000/docs/sdk/api/core_package/tolgee).
 
-Returns `Observable` providing current translation value depending on current language. When language or translation
-is changed, new value is emitted. This method is wrapping the string in development mode.
+### method `translate`
 
-```ts
-this.subscription = this.translateService
-  .get('this_is_a_key_with_params', { key: 'value' }, 'Default value')
-  .subscribe((val) => (this.translated = val));
-```
-
-- returns observable emitting the translated value - `Observable<string>`
-- parameter `key` - The key to translate.
-- parameter `params` - Parameters to interpolate.
-- parameter `defaultValue` - Value to render, when no translation is provided.
-
-### method `getSafe`
-
-Returns Observable providing current translation value depending on current language. When language or translation
-is changed, new value is emitted. This method doesn't wrap the key, so in-context localization won't be supported.
+Returns `Observable` emitting current translation for specified parameters and current language. When the current value changes
+due to any event (e.g. language change), the new value is emitted.
 
 ```ts
 this.subscription = this.translateService
-  .getSafe('this_is_a_key_with_params', { key: 'value' }, 'Default value')
+  .translate('this_is_a_key_with_params', { key: 'value' }, 'Default value')
   .subscribe((val) => (this.translated = val));
 ```
 
-- returns observable emitting the translated value - `Observable<string>`
-- parameter `key` - The key to translate. `string`
-- parameter `params` - Parameters to interpolate. `Record<string, any>`
-- parameter `defaultValue` - Value to render, when no translation is provided. `string`
+This method accepts the same arguments as [`Tolgee.t`](/docs/sdk/api/core_package/tolgee#t).
+
+```ts
+translate(key: string, defaultValue?: string, options?: CombinedOptions): Observable<string>
+translate(key: string, options?: CombinedOptions): Observable<string>
+translate(props: TranslateProps): Observable<string>
+```
 
 ### method `instant`
 
-Returns the translated value synchronously. When language or translation
-is changed it emits new value. This method is wrapping the key in development mode.
+Returns `string` providing current translation value depending on the current language.
 
 ```ts
-const translated = this.translateService.instant(
-  'this_is_a_key_with_params',
-  { key: 'value' },
-  'Default value'
-);
+const translated = this.translateService
+  .instant('this_is_a_key_with_params', { key: 'value' }, 'Default value')
 ```
 
-- returns - the translated value `string`
-- parameter `key` - The key to translate. `string`
-- parameter `params` - Parameters to interpolate. `Record<string, any>`
-- parameter `defaultValue` - Value to render, when no translation is provided. `string`
-
-### method `instantSafe`
-
-Returns the translated value synchronously. When language or translation
-is changed it emits new value. This method doesn't wrap the key, so in-context localization won't be supported.
+This method accepts the same arguments as [`Tolgee.t`](/docs/sdk/api/core_package/tolgee#t).
 
 ```ts
-const translated = this.translateService.instantSafe(
-  'this_is_a_key_with_params',
-  { key: 'value' },
-  'Default value'
-);
+instant(key: string, defaultValue?: string, options?: CombinedOptions): string
+instant(key: string, options?: CombinedOptions): string
+instant(props: TranslateProps): string
 ```
 
-- returns - the translated value `string`
-- parameter `key` - The key to translate. `string`
-- parameter `params` - Parameters to interpolate. `Record<string, any>`
-- parameter `defaultValue` - Value to render, when no translation is provided. `string`
+### property `language`
 
-### method `getCurrentLang`
+Returns `string` containing current language.
 
-Returns current language
-
-```
-this.translateService.getCurrentLang() // "en"
+```ts
+this.translateService.language // "en"
 ```
 
-#### returns `string`
+### property `languageAsync`
 
-### method `setLang`
+Returns `Observable<string>` emitting current language. When language is changed and loaded, the new value is emitted.
 
-Sets current language
+### method `changeLanguage`
+
+Sets current language.
 
 ```ts
 this.translateService.setLang('en');
@@ -132,48 +130,33 @@ this.translateService.setLang('en');
 
 The language to be set.
 
+#### returns `Promise<void>` relved when language data is loaded
+
+### Method `on`
+Listens to Tolgee events.
+
+#### parameter `event`
+
+The event to listen to
+
+#### returns `Observable<?>` emitting when the event is triggered, providing [event-specific data](/docs/sdk/api/core_package/events).
+
+Read more in [Events API](/docs/sdk/api/core_package/events)
+
 ### method start
 
-Runs the `Tolgee.run` method from `@tolgee/core` library.
-
-### onLangChange
-
-`EventEmitter<never>` emitting every time language is changed.
-
-### onTranslationChange
-
-`EventEmmitter<TranslationData>` emitting when translation is changed.
-
-#### type `TranslationData`
-
-```ts
-{
-    key: string; // the key which was changed
-    translations: { // new translations for languages
-        [key: string]: string;
-    };
-}
-```
-
-e.g.
-
-```ts
-{
-    key: "i_am_a_key"
-    translations: {
-      "en": "English translation",
-      "de": "German translation"
-    };
-}
-```
+Runs the `Tolgee.run` method from the `@tolgee/core` library outside Angular's NgZone.
 
 ### TComponent
 
 Component with `t` attribute selector. Replaces the content of the element with the translated value.
 
 - Input `key` - Key to translate
+- Input `ns` - The namespace of the key
 - Input `params` - Object of parameters to interpolate
 - Input `default` - Default value
+- Input `isHtml` - Whether the input should be treated as HTML.
+- Input `noWrap` - Disable wrapping
 
 ```html
 <div
@@ -185,52 +168,17 @@ Component with `t` attribute selector. Replaces the content of the element with 
 
 ### `translate` pipe
 
-Translates a key with specific parameters or default value. The pipe is wrapping strings
-in development mode to enable in-context editing.
-
-Syntax:
-
-```
-key to translate | translate[:default value]
-// or
-key to translate | translate[:parameters]
-// or
-key to translate | translate[:defafault value][:parameters]
-```
+Translates a key with specific parameters or default value. The transform method of `translate` pipe accepts the
+same arguments as [`tolgee.t`](/docs/sdk/api/core_package/tolgee#t)
 
 Example usages:
 
-```angular2html
+```html
 {{ 'this_key_does_not_exist' | translate:'This is default'}}
 {{ 'this_is_a_key_with_params' | translate:{key: 'value', key2: 'value2'} }}
 {{ 'this_is_a_key_with_params' | translate:"Default value":{key: 'value', key2: 'value2'} }}
+{{ { key: 'this_is_a_key', defaultValue: 'Jeeey!' } | translate}}
 ```
 
-- Default value of type `string`
-- Parameters are `Record<string, any>`
-
-### `stranslate` pipe
-
-Translates a key with specific parameters or default value. It provides the same API as the [`translate`](#translate-pipe)
-pipe, but it doesn't wrap the key in development mode, so in-context editing is not available.
-
-Syntax:
-
-```
-key to stranslate | stranslate[:default value]
-// or
-key to stranslate | stranslate[:parameters]
-// or
-key to stranslate | stranslate[:defafault value][:parameters]
-```
-
-Example usages:
-
-```angular2html
-{{ 'this_key_does_not_exist' | stranslate:'This is default'}}
-{{ 'this_is_a_key_with_params' | stranslate:{key: 'value', key2: 'value2'} }}
-{{ 'this_is_a_key_with_params' | stranslate:"Default value":{key: 'value', key2: 'value2'} }}
-```
-
-- Default value of type `string`
-- Parameters are `Record<string, any>`
+## NamespaceResolver
+A resolver to load namespaces while loading lazy module. You need to set `data.tolgeeNamespace` property to set the namespace to load.

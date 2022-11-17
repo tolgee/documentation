@@ -3,7 +3,7 @@ id: switching_language
 title: Switching language (Angular)
 sidebar_label: Switching language
 slug: switching-language
-description: 'Learn how to switch languages in Angular integration. For language management, use TranslationService. Then in template use methods setLang and getCurrentLang'
+description: 'Learn how to switch languages in Angular integration. For language management, use TranslationService. Then in template, use methods setLang and getCurrentLang'
 ---
 
 For language management, use `TranslationService`.
@@ -21,12 +21,12 @@ export class AppComponent {
 }
 ```
 
-Then in template use methods `setLang` and `getCurrentLang`.
+Then in template use `changeLanguage` method and `languageAsync` property from `TranslateService`.
 
 ```html title="language.component.html"
 <select
-  [value]="translateService.getCurrentLang()"
-  (change)="translateService.setLang($event.target.value)"
+  [value]="translateService.languageAsync | async"
+  (change)="translateService.changeLanguage($event.target.value)"
 >
   <option value="en">🇬🇧 English</option>
   <option value="cs">🇨🇿 Česky</option>
