@@ -1,4 +1,8 @@
-module.exports = {
+// @ts-check
+
+const { docs } = require('./docs');
+/** @type {import('@docusaurus/types').Config} */
+const config = {
   title: 'Tolgee',
   tagline: 'Localization for everyone',
   url: 'https://tolgee.io',
@@ -100,10 +104,28 @@ module.exports = {
           ],
         },
         {
-          to: 'docs/',
-          activeBasePath: 'docs',
+          type: 'dropdown',
           label: 'Docs',
           position: 'right',
+          activeBasePath: 'docs',
+          items: [
+            {
+              label: 'About',
+              to: 'docs',
+            },
+            {
+              to: 'platform',
+              label: 'Platform',
+            },
+            {
+              to: 'js-sdk',
+              label: 'JavaScript SDK',
+            },
+            {
+              label: 'ICU Message Format',
+              to: 'docs/icu_message_format',
+            },
+          ],
         },
         {
           to: 'pricing',
@@ -143,19 +165,19 @@ module.exports = {
             },
             {
               label: 'Get Started',
-              to: 'docs/web/get_started/hello_world',
+              to: '/js-sdk/get_started/hello_world',
             },
             {
               label: 'Using Tolgee App',
-              to: 'docs/platform',
+              to: '/platform',
             },
             {
               label: 'Running server',
-              to: 'docs/platform/self_hosting/running_with_docker',
+              to: '/platform/self_hosting/running_with_docker',
             },
             {
               label: 'Using with React',
-              to: 'docs/web/using_with_react/installation',
+              to: 'js-sdk/using_with_react/installation',
             },
           ],
         },
@@ -287,37 +309,52 @@ module.exports = {
           },
           {
             from: '/docs/server_and_web_app/self_hosting/running_with_docker',
-            to: '/docs/platform/self_hosting/running_with_docker',
+            to: '/platform/self_hosting/running_with_docker',
           },
           {
             from: '/docs/web_app',
-            to: '/docs/web/understanding_tolgee_for_web',
+            to: '/js-sdk/',
           },
           {
             from: '/docs/web_app/creating_repository',
-            to: '/docs/platform/creating_project',
+            to: '/platform/creating_project',
           },
           {
             from: '/docs/web_app/obtaining_api_key',
-            to: '/docs/platform/integration',
+            to: '/platform/integration',
           },
           {
             from: '/docs/web/using_with_react/react_preparing_for_production',
-            to: '/docs/web/using_with_react/preparing_for_production',
+            to: '/js-sdk/using_with_react/preparing_for_production',
           },
           {
             from: '/docs/server_and_web_app/self_hosting/configuration',
-            to: '/docs/platform/self_hosting/configuration',
+            to: '/platform/self_hosting/configuration',
           },
           {
             from: '/tolgee-for-svelte',
             to: '/integrations/svelte',
           },
           {
-            from: '/docs/platform/managing_api_keys',
-            to: '/docs/platform/api-keys-and-pat-tokens',
+            from: '/platform/managing_api_keys',
+            to: '/platform/api-keys-and-pat-tokens',
+          },
+          {
+            from: '/docs/web/understanding_tolgee_for_web',
+            to: '/js-sdk/',
           },
         ],
+        createRedirects(existingPath) {
+          if (existingPath.indexOf('/docs/platform') === 0) {
+            // Redirect from /docs/team/X to /community/X and /docs/support/X to /community/X
+            return [existingPath.replace('/docs/platform', '/platform/2.x.x')];
+          }
+          if (existingPath.indexOf('/docs/web') === 0) {
+            // Redirect from /docs/team/X to /community/X and /docs/support/X to /community/X
+            return [existingPath.replace('/docs/web', '/js-sdk')];
+          }
+          return undefined;
+        },
       },
     ],
     async function tailwind() {
@@ -331,6 +368,7 @@ module.exports = {
         },
       };
     },
+    ...docs,
   ],
   stylesheets: ['/font.css'],
   customFields: {
@@ -351,3 +389,5 @@ module.exports = {
     },
   ],
 };
+
+module.exports = config;

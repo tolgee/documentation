@@ -109,7 +109,7 @@ In this step, you will create a vanilla HTML/JS application that can be integrat
 git clone https://github.com/tolgee/window-example
 ```
 
-**Note:** If you want to use another Single Page Application framework, then you will need to follow the steps outlined in their [respective documentation](/docs/web/using_with_npm/installation).
+**Note:** If you want to use another Single Page Application framework, then you will need to follow the steps outlined in their [respective documentation](/js-sdk/using_with_npm/installation).
 
 Let's start coding our project. To do this, go to one empty directory and then create an empty file and name it `index.html`. Inside that particular file, paste the following code:
 
@@ -167,7 +167,7 @@ The code above shows how to initialize Tolgee with the provided configuration ob
 
 |apiUrl|The URL of the api where we are saving data.|
 |:------|:--------------------------------------------|
-|apiKey|Which you can obtain in the [app](https://app.tolgee.io) or in your self-hosted app by following this [documentation page](/docs/platform/api-keys-and-pat-tokens)|
+|apiKey|Which you can obtain in the [app](https://app.tolgee.io) or in your self-hosted app by following this [documentation page](/platform/api-keys-and-pat-tokens)|
 |inputPrefix|Character sequence that appears before each translation|
 |inputSuffix|Character sequence that appears after each translation|
 |watch|parameter that tells Tolgee whether or not to watch for changes in the DOM and update translations.|

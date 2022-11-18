@@ -29,7 +29,7 @@ you delete them.
   a secret.
 
 To learn more about,
-visit [Project API keys and Pats documentation section](/docs/platform/api-keys-and-pat-tokens).
+visit [Project API keys and Pats documentation section](/platform/api-keys-and-pat-tokens).
 
 ## Why we did do it?
 

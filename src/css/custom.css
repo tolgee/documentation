@@ -194,7 +194,8 @@ h6 {
 
 .navbar .dropdown__menu-group {
   list-style-type: none;
-  padding-left: 0px;
+  padding-left: 0;
+  margin-bottom: 0;
 }
 
 .navbar .dropdown__menu-title {
