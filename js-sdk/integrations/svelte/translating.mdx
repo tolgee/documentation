@@ -1,0 +1,52 @@
+---
+id: translating
+title: Translating (Svelte)
+sidebar_label: Translating
+description: 'Learn about several ways how to translate a text using Tolgee Svelte integration: T-component and getTranslate method.'
+---
+
+There are two ways how to translate with Tolgee.
+
+## `getTranslate` method
+
+Other option how to translate is using of [`getTranslate`](./api#function-gettranslate) function. You can use it this way:
+
+```svelte
+<script>
+  import { getTranslate } from "@tolgee/svelte";
+
+  // t is store
+  const { t } = getTranslate();
+</script>
+
+<!-- use the translation function -->
+{$t('key', 'Default value')}
+```
+
+> Read more about [`tolgee.t`](/api/core_package/tolgee.mdx#t)
+
+### Using namespaces
+
+[`getTranslate`](./api#function-gettranslate) function can be also used for loading additional namespaces.
+
+```ts
+const { t, isLoading } = getTranslate('common');
+```
+
+This example will add `common` to [active namespaces](/api/core_package/tolgee.mdx#addactivens). You can then also use `isLoading` store, which will tell you if your data are ready.
+
+## The `T` component
+
+Another way is to use [`T` component](./api#t-component)
+
+```svelte
+<script>
+  import { T } from "@tolgee/svelte";
+</script>
+
+<T keyName="this_is_a_key" />
+```
+
+## Message format
+
+By default Tolgee is without any message formatter. You can use [`FormatSimple`](/api/core_package/format_simple.mdx) or [`FormatIcu`](/docs/icu_message_format)

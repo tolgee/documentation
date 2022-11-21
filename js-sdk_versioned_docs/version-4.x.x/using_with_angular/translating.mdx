@@ -11,7 +11,7 @@ To get full image of working Angular integration check our [Angular example appl
 To translate strings in Angular you can use pipe or translation methods.
 
 ## Using pipe
-To translate a string use [`translate`](/using_with_angular/api.mdx#translate-pipe) pipe.
+To translate a string use [`translate`](api#translate-pipe) pipe.
 
 ```html
 <h1>{{'hello_world' | translate}}</h1>
@@ -33,8 +33,8 @@ You can also provide default value.
 <h1>{{'hello' | translate:'Default!'}}</h1> // or without params
 ```
 
-## [Element with `t` attribute](/using_with_angular/api.mdx#tcomponent)
-You can also use [element with `t`](/using_with_angular/api.mdx#tcomponent) attribute. Angular will render Tolgee component with `t` attribute selector.
+## [Element with `t` attribute](api#tcomponent)
+You can also use [element with `t`](api#tcomponent) attribute. Angular will render Tolgee component with `t` attribute selector.
 ```html
 <h1 t key="providing_default_values"></h1>
 <p t key="Peter has n dogs" [params]="params"></p> // with params
@@ -46,8 +46,8 @@ Default value can be provided as well
 ```
 
 ## Using translate methods
-To translate texts in your component code use [`get`](/using_with_angular/api.mdx#method-get)
-or [`instant`](/using_with_angular/api.mdx#method-instant)  method.
+To translate texts in your component code use [`get`](api#method-get)
+or [`instant`](api#method-instant)  method.
 
 These methods are part of translateService, which can be injected by dependency injection:
 
@@ -81,16 +81,16 @@ this.translateService.get('hello_world').subscribe(r => this.helloWorld = r);
 ```
 
 If you are unable to use this asynchronous approach for some reason, you can use
-[`instant`](/using_with_angular/api.mdx#method-instant) method.
+[`instant`](api#method-instant) method.
 
 ```typescript
 this.helloWorld = this.translateService.instant('hello_world');
 ```
 
 :::warning
-Don't overuse [`instant`](/using_with_angular/api.mdx#method-instant) method. When it's possible
-always use [`get`](/using_with_angular/api.mdx#method-get) method. When the translations are not loaded,
-[`instant`](/using_with_angular/api.mdx#method-instant) method will not provide a valid result.
+Don't overuse [`instant`](api#method-instant) method. When it's possible
+always use [`get`](api#method-get) method. When the translations are not loaded,
+[`instant`](api#method-instant) method will not provide a valid result.
 Unfortunately this can happen just in **production** mode, so this
 could lead to very confusing bugs.
 :::
@@ -98,8 +98,8 @@ could lead to very confusing bugs.
 ## Parameter interpolation
 
 If you would like to provide parameters for interpolation, pass your params object as second parameter
-to [`get`](/using_with_angular/api.mdx#method-get) or
-[`instant`](/using_with_angular/api.mdx#method-instant) functions.
+to [`get`](api#method-get) or
+[`instant`](api#method-instant) functions.
 
 ```typescript
 this.translateService.get('hello', {name: "John Doe"}).subscribe(r => this.hello = r);
@@ -112,24 +112,24 @@ For example encoded strings like `%-%tolgee:something%-%` will be rendered in yo
 with incorrect width. To handle this, you can disable wrapping and let Tolgee to translate texts right away.
 
 To avoid wrapping of localization string in development mode use
-[`stranslate`](/using_with_angular/api.mdx#stranslate-pipe) pipe,
-[`getSafe`](/using_with_angular/api.mdx#method-getsafe) or
-[`instantSafe`](/using_with_angular/api.mdx#method-instantsafe) methods.
+[`stranslate`](api#stranslate-pipe) pipe,
+[`getSafe`](api#method-getsafe) or
+[`instantSafe`](api#method-instantsafe) methods.
 
 Doing this will disable in-context localization for this string.
 
 ## Changing language
 
-To change language, use [`setLang`](/using_with_angular/api.mdx#method-setlang) method of
-[`translateService`](/using_with_angular/api.mdx#translateservice).
+To change language, use [`setLang`](api#method-setlang) method of
+[`translateService`](api#translateservice).
 
 ```typescript
 this.translateService.setLang("en");
 ```
 
 ## Obtaining current language
-To obtain current language, use [`getCurrentLang`](/using_with_angular/api.mdx#method-getcurrentlang)
-method of [`translateService`](/using_with_angular/api.mdx#translateservice).
+To obtain current language, use [`getCurrentLang`](api#method-getcurrentlang)
+method of [`translateService`](api#translateservice).
 
 ```typescript
 this.translateService.getCurrentLang();
@@ -165,7 +165,7 @@ Consider a translation value:
 ```
 
 Notice that `h1` tags are wrapped with `'` characters. This tells ICU message formatter to ignore those tags.
-To get HTML you can use [`TranslateService.getSafe`](/using_with_angular/api.mdx#method-getsafe) method.
+To get HTML you can use [`TranslateService.getSafe`](api#method-getsafe) method.
 
 ```ts
 this.translateService

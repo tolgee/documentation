@@ -5,7 +5,7 @@ sidebar_label: Translating
 slug: /using_with_svelte/translating
 description: "Learn about several ways how to translate a text using Tolgee Svelte integration: T-component and getTranslate method."
 ---
-When you have Tolgee libraries installed and [`TolgeeProvider`](/using_with_svelte/api.mdx#tolgeeprovider) is set
+When you have Tolgee libraries installed and [`TolgeeProvider`](api#tolgeeprovider) is set
 up, you can start to translate your strings.
 There are several ways how to translate a text using Tolgee Svelte integration.
 
@@ -35,7 +35,7 @@ We are using ICU message format. To read more about it, check
 
 ### Providing default value
 
-You can also provide `defaultValue` prop to the [`T`](/using_with_svelte/api.mdx#t-component) component. This value will be used when no translation
+You can also provide `defaultValue` prop to the [`T`](api#t-component) component. This value will be used when no translation
 has been found in localization data.
 ```svelte
 <T keyName="this_is_a_key" defaultValue="This is default." />
@@ -43,7 +43,7 @@ has been found in localization data.
 
 ## `getTranslate` method
 If you cannot use `T` component for some reason, then you can also use
-[`getTranslate`](/using_with_svelte/api.mdx#gettranslate-function) method returning store containing
+[`getTranslate`](api#gettranslate-function) method returning store containing
 a translation function. The usage is very simple, look:
 
 ```svelte

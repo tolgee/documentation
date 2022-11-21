@@ -1,0 +1,97 @@
+---
+id: plugins
+title: Plugins
+sidebar_label: Plugins
+---
+
+## `BackendFetch`
+
+Plugin for fetching translations JSON files.
+
+```ts
+tolgee.use(BackendFetch(options?: BackendOptions));
+```
+
+Pass `BackendOptions` to customize the behavior:
+
+### `options.prefix`
+
+Pass string to change url prefix, use can use relative or absolute paths (Default: `/i18n`)
+
+### `options.getPath`
+
+Combines prefix, namespace and language and generates file path.
+
+```ts
+function ({ prefix, namespace, language }): string
+```
+
+Default returns `{prefix}/{language}/{namespace}.json` or `{prefix}/{language}.json` when namespace is empty.
+
+### `options.getData`
+
+Parses data from response, by default it returns `r.json()`.
+
+```ts
+function (r: Response): Promise<any>;
+```
+
+### `options.headers`
+
+Pass custom headers. Default: `{ Accept: 'application/json' }`
+
+## `LanguageStorage`
+
+Plugin for storing current language in `localStorage`. It rembembers the language if user changed it.
+
+```ts
+tolgee.use(LanguageStorage());
+```
+
+## `LanguageDetector`
+
+Plugin for language detection from users browser locale. It requires `staticData` or `availableLanguages` to be defined in tolgee options, as it matches the locale with it.
+
+```ts
+tolgee.use(LanguageDetector());
+```
+
+```ts
+tolgee.use(TextObserver());
+```
+
+## `BrowserExtensionPlugin`
+
+Plugin which connects Tolgee to [Tolgee Tools browser extension](https://chrome.google.com/webstore/detail/tolgee-tools/hacnbapajkkfohnonhbmegojnddagfnj). This plugin is automatically included in Tolgee, if you import it from `@tolgee/web`.
+
+## `InvisibleObserver`
+
+Plugin which wraps translations and observes the DOM, so it's able to locate translations on the page. Read more in [this article](/blog/2021/12/17/invisible-characters-for-better-localization).
+
+```ts
+tolgee.use(InvisibleObserver());
+```
+
+You can influence behavior of this plugin through [`tolgee.setObserverOptions`](../core_package/tolgee#setobserveroptions).
+
+## `ContextUi`
+
+Tolgee in-context modal, which allows you to edit translation in-context.
+
+```ts
+tolgee.use(ContextUi());
+```
+
+## `DevBackend`
+
+Plugin for communication with Tolgee platform, uses `apiUrl`, `apiKey` (+ `projectId`) from tolgee options.
+
+```ts
+tolgee.use(DevBackend());
+```
+
+## `TextObserver`
+
+Alternative observer to `InvisibleObserver`. The difference is that it doesn't use invisible characters, but encodes all the information into our custom syntax string. This observer actively updates translations on your page when you change language or any translation is updated, so you don't have to use `tolgee.onKeyUpdate`.
+
+You can influence behavior of this plugin through [`tolgee.setObserverOptions`](../core_package/tolgee#setobserveroptions).

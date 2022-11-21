@@ -1,0 +1,162 @@
+---
+id: api
+title: API (Vue)
+sidebar_label: API
+description: 'Detail documentation to API in VueJS integration. TolgeeProvider Provides Tolgee context. Use in root of your application.'
+---
+
+## `VuePlugin`
+
+This plugin adds [`DevTools`](/api/web_package/bundled_plugins.mdx#devtools) plugin automatically and also makes tolgee globally available, so it can be used even without `TolgeeProvider`.
+
+```ts
+tolgee.use(VuePlugin());
+```
+
+## `VueTolgee` plugin
+
+`VueTolgee` plugin attaches tolgee to Vue instance. That mean, that you can use global `$t` function in any vue component.
+
+```jsx
+import { VueTolgee } from '@tolgee/vue';
+
+...
+
+app.use(VueTolgee, { tolgee });
+
+...
+
+<div>
+ {{ $t('key', 'Default value') }}
+</div>
+```
+
+> Check [`tolgee.t`](/api/core_package/tolgee.mdx#t) function interface.
+
+It's also possible to use Tolgee without `VueTolgee`. Then you can use just `TolgeeProvider` and `useTranslate` for translating.
+
+## `TolgeeProvider`
+
+Provides Tolgee context. Use in root of your application.
+
+```jsx
+import { TolgeeProvider } from '@tolgee/vue';
+
+...
+
+<TolgeeProvider>
+  <App />
+</TolgeeProvider>
+```
+
+### Prop `fallback?`
+
+`String | JSX.Element` - it is rendered when Tolgee is loading translations instead of provided content.
+You can pass custom loading element when using Vue with JSX.
+
+### Prop `tolgee?`
+
+Optionally provide tolgee instance. If you use `VueTolgee`, it's not necessary.
+
+### Slot `fallback`
+
+Alternative for `fallback` use when you are using Vue with templates:
+
+```html
+<TolgeeProvider>
+  <App />
+  <template v-slot:fallback>
+    <div>Loading...</div>
+  </template>
+</TolgeeProvider>
+```
+
+## `T` component
+
+```js
+import { T } from '@tolgee/vue';
+```
+
+```html
+<T keyName="..." :params="{ param: '...' }" />
+```
+
+### Prop `keyName`
+
+`String` - translation key.
+
+### Prop `defaultValue?`
+
+`String` - You can pass default value, which will be rendered if there is no translation
+for this key (in selected language nor base language). If you won't provide this value, `keyName` will be rendered instead.
+
+### Prop `params?`
+
+`Record<string, string>` - variable params, which can be used in translation value
+(read more about [ICU message format](/docs/icu_message_format)).
+
+### Prop `ns?`
+
+`string` - translation namespace
+
+### Prop `noWrap?`
+
+`Boolean` (default: `false`)
+
+- `false` - in development mode translation will be [wrapped](/wrapping.mdx)
+- `true` - use when wrapping in dev mode causes problems, in this case in-context translation won't work
+
+## Composable `useTranslate`
+
+Use it for loading namespaces for specific components/pages or to get `t` function for translating.
+
+```ts
+function useTranslate(ns?: string | string[]): {
+  t: Ref<TFnType>;
+  isLoading: Ref<boolean>;
+};
+```
+
+### Parameter `ns`
+
+- `string` | `string[]` - namespace(s) which will be loaded
+
+### Property `isLoading` (Ref)
+
+- `boolean` - is true if any of listed namespaces is not loaded yet
+
+Use this property to make sure you won't display translation translations before they are loaded.
+
+### Function `t` (Ref)
+
+Returns requested translation and also subscribes component to translation/language changes, so component will be re-rendered every time translation changes. If you use namespaces, `t` function will automatically use first of the namespaces given to `useTranslate` function. You can override this by `ns` option.
+
+```ts
+t('key', 'Default value', <options>);
+```
+
+> Check [`tolgee.t`](/api/core_package/tolgee.mdx#t) function interface.
+
+## Composable `useTolgee`
+
+Returns tolgee instance as `Ref`. Allows subscription to different [`events`](/api/core_package/events.mdx), which will trigger re-render. Most common usecase is for language switch.
+
+```html
+<template>
+  <div>Language: {{tolgee1.getLanguage()}}</div>
+  <div>Loading: {{tolgee2.isLoading()}}</div>
+</template>
+
+<script setup>
+  import { useTolgee } from '@tolgee/vue';
+
+  // gets updated on language change
+  const tolgee1 = useTolgee(['language']);
+
+  // gets updated when loading changes
+  const tolgee2 = useTolgee(['loading']);
+
+  // never gets updated
+  const tolgee3 = useTolgee();
+</script>
+```

@@ -6,7 +6,7 @@ slug: /using_with_svelte/switching_language
 ---
 
 When developing multi-language app, you will need to provide a language switcher to your app. To switch the language,
-use [`getLanguageStore`](/using_with_svelte/api.mdx#function-getlanguagestore)
+use [`getLanguageStore`](api#function-getlanguagestore)
 method which returns writeable store containing current language tag.
 
 ```svelte
@@ -27,7 +27,7 @@ method which returns writeable store containing current language tag.
 By default, Tolgee tries to set the language according to user's system language. Sometimes you need to force it to
 use specific language. For example when you are working with SSR or your language is determined by a route.
 
-To do so, use [`forceLanguage` property](/configuration.mdx#forcelanguage) of [TolgeeProvider's](/using_with_svelte/api.mdx#tolgeeprovider) config prop.
+To do so, use [`forceLanguage` property](../configuration#forcelanguage) of [TolgeeProvider's](api#tolgeeprovider) config prop.
 
 ```svelte
 <script lang="ts">
@@ -45,5 +45,5 @@ To do so, use [`forceLanguage` property](/configuration.mdx#forcelanguage) of [T
 </TolgeeProvider>
 ```
 
-To read more about Tolgee configuration see [configuration doc page](/configuration.mdx).
+To read more about Tolgee configuration see [configuration doc page](../configuration).
 

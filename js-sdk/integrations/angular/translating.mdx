@@ -1,0 +1,121 @@
+---
+id: translating
+title: Translating (Angular)
+sidebar_label: Translating
+description: 'Learn how to translate with Angular. To translate strings in Angular, you can use pipe, t component, or translation methods.'
+---
+
+Check our [Angular example application](https://github.com/tolgee/ngx-example) to get a complete image of working Angular integration.
+
+You can use pipe, t component, or translation methods to translate strings in Angular.
+
+## Using pipe
+
+To translate a string using [`translate`](/integrations/angular/api.mdx#translate-pipe) pipe.
+
+```html
+<h1>{{'hello_world' | translate}}</h1>
+```
+
+To provide parameters for translation, pass them as the first parameter of the `translate` pipe.
+:::info
+To enable parameter interpolation, you need to use some [message formatter](http://localhost:3000/docs/sdk/formatting).
+:::
+
+```html
+<h1>{{'hello' | translate:{ name: 'John Doe' }}}</h1>
+```
+
+You can also provide a default value.
+
+```html
+<h1>{{'hello' | translate:{ name: 'John Doe' }:'Default!'}}</h1>
+// with params
+<h1>{{'hello' | translate:'Default!'}}</h1>
+// or without params
+```
+
+To disable wrapping, provide a `noWrap` option.
+```html
+<h1>{{ 'hello' | translate:{ noWrap: true } }}</h1>
+```
+
+## [Element with `t` attribute](/integrations/angular/api.mdx#tcomponent)
+
+You can also use [element with `t`](/integrations/angular/api.mdx#tcomponent) attribute. Angular will render Tolgee component with `t` attribute selector.
+
+```html
+<h1 t key="providing_default_values"></h1>
+```
+
+
+To provide parameters for translation, pass them via the params attribute.
+:::info
+To enable parameter interpolation, you need to use some [message formatter](http://localhost:3000/docs/sdk/formatting).
+:::
+```html
+<p t key="Peter has n dogs" [params]="{ name: 'John Doe' }"></p>
+```
+
+You can provide a default value using the `default` attribute
+
+```html
+<p t key="using_t_with_default" default="This is default"></p>
+```
+
+## Using translation methods
+
+To translate texts in your component code, use [`translate`](/integrations/angular/api.mdx#method-translate)
+or [`instant`](/integrations/angular/api.mdx#method-instant) method.
+
+These methods are part of `TranslateService` which can be injected using dependency injection:
+
+```typescript
+import { Component, OnInit } from '@angular/core';
+import { TranslateService } from '@tolgee/ngx';
+
+@Component({
+  selector: 'app-root',
+  templateUrl: './app.component.html',
+  styleUrls: ['./app.component.css'],
+})
+export class AppComponent implements OnInit {
+  constructor(private translateService: TranslateService) {}
+
+  helloWorld: string;
+
+  async ngOnInit(): Promise<void> {
+    this.translateService
+      .translate('hello_world')
+      .subscribe((r) => (this.helloWorld = r));
+  }
+}
+```
+
+`translate` method returns [**Observable**](https://rxjs-dev.firebaseapp.com/guide/observable) 
+as a result, the provided listener is called every time the translation changes due to language changes or other reasons.
+
+```typescript
+this.translateService
+  .get('hello_world')
+  .subscribe((r) => (this.helloWorld = r));
+```
+
+If you are unable to use this asynchronous approach for some reason, you can use
+[`instant`](/integrations/angular/api.mdx#method-instant) method.
+
+```typescript
+this.helloWorld = this.translateService.instant('hello_world');
+```
+
+Both instant and translate methods accept the same parameters as [`tolgee.t`](/api/core_package/tolgee.mdx#t).
+So you can use all its features.
+
+:::warning
+Don't overuse [`instant`](/integrations/angular/api.mdx#method-instant) method. When possible, use [`translate`](/integrations/angular/api.mdx#method-get) method.
+When the translations are not loaded, [`instant`](/integrations/angular/api.mdx#method-instant) method will not provide a valid result.
+:::
+
+## Message format
+By default, Tolgee is without any message formatter. You can use
+[`FormatSimple`](/api/core_package/format_simple.mdx) or [`FormatIcu`](/docs/icu_message_format)

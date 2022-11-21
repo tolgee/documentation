@@ -14,12 +14,12 @@ To get exported localization files, see [Exporting translations doc page](/platf
 :::
 
 In production, you should set the API key to `undefined` and provide exported translations.
-You have multiple options how to provide static i18n data to [`TolgeeProvider`](/using_with_vue/api.mdx#tolgeeprovider) component.
+You have multiple options how to provide static i18n data to [`TolgeeProvider`](api#tolgeeprovider) component.
 
 ## Providing data using dynamic import (recommended for projects without SSR)
 
 To provide your localization data using dynamic import, you will need to add providers for every supported language to
-[`TolgeeProvider's`](/using_with_vue/api.mdx#tolgeeprovider) config prop.
+[`TolgeeProvider's`](api#tolgeeprovider) config prop.
 
 ```html
 <template>
@@ -55,7 +55,7 @@ export default defineComponent({
 ## Providing data as imported object (recommended for projects with SSR)
 
 To provide your localization data using dynamic import, you will need to provide an object of translations for every
-supported language to [TolgeeProvider's](/using_with_vue/api.mdx#tolgeeprovider) config prop.
+supported language to [TolgeeProvider's](api#tolgeeprovider) config prop.
 
 ```js
 import enLang from "../i18n/en.json"
