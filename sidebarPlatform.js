@@ -10,6 +10,7 @@ module.exports = {
         'api-keys-and-pat-tokens',
         'exporting_translations',
         'translation_tools',
+        'namespaces',
       ],
     },
     {
