@@ -45,7 +45,7 @@ Tolgee is an open-source tool for software localization. Besides other things, i
 
 ## 1. Screenshots in Tolgee
 
-In some cases, screenshots may be the only available information about a particular piece of text, making them essential for accurate translation. In the Tolgee platform, you can manually upload up to 20 screenshots to every single translation key. The translator can then open it while translating and immediately see the context of the translated string. Unfortunately, at the moment, Tolgee doesn’t support importing screenshots in batch yet. However you can can use our [REST API](/api#tag/Screenshots/operation/uploadScreenshot) endpoint to upload a screenshot for a specific key.
+In some cases, screenshots may be the only available information about a particular piece of text, making them essential for accurate translation. In the Tolgee platform, you can manually upload up to 20 screenshots to every single translation key. The translator can then open it while translating and immediately see the context of the translated string. You can also use our [REST API](/api#tag/Screenshots/operation/uploadScreenshot) endpoint to upload a screenshot for a specific key.
 
 ![manual screenshots in tolgee](/img/blog/context-gamechanger/manual_screenshot.png)
 
