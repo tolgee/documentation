@@ -22,6 +22,10 @@ const config = {
       },
       items: [
         {
+          type: 'custom-tolgeeDocsVersionDropdown',
+          position: 'right',
+        },
+        {
           type: 'dropdown',
           label: 'Product',
           position: 'right',
@@ -110,20 +114,12 @@ const config = {
           activeBasePath: 'docs',
           items: [
             {
-              label: 'About',
-              to: 'docs',
-            },
-            {
               to: 'platform',
               label: 'Platform',
             },
             {
               to: 'js-sdk',
               label: 'JavaScript SDK',
-            },
-            {
-              label: 'ICU Message Format',
-              to: 'docs/icu_message_format',
             },
           ],
         },

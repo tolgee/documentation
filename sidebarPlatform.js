@@ -1,5 +1,6 @@
 module.exports = {
   someSidebar: [
+    'what_is_tolgee',
     'introduction',
     {
       label: 'Usage',
@@ -22,5 +23,6 @@ module.exports = {
         'self_hosting/configuration',
       ],
     },
+    'icu_message_format',
   ],
 };
