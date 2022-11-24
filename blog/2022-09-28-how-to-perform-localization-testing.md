@@ -76,7 +76,7 @@ These are some possible challenges in localizing the testing approach, but we ca
 
 There are many localization testing tools available today, but most are expensive, limited to a particular framework or language and/or require learning a new interface. Tolgee is an [open source](/opensource) application that can be used to manage the localization process; it is platform-agnostic and can handle screenshots, comment translations, tag keys, and automated screenshots generation for the web.
 
-Tolgee supports a variety of libraries and [frameworks](/integrations/all) to perform localization. You can find details in Tolgee's official [documentation](/docs/) with instructions for using each library or framework. The localization process takes more time and effort than it would, but using Tolgee can help you streamline the process and perform better localization testing at a lower cost.
+Tolgee supports a variety of libraries and [frameworks](/integrations/all) to perform localization. You can find details in Tolgee's official [documentation](/platform/) with instructions for using each library or framework. The localization process takes more time and effort than it would, but using Tolgee can help you streamline the process and perform better localization testing at a lower cost.
 
 ## How to perform localization testing in Tolgee?
 

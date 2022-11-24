@@ -144,7 +144,7 @@ withTolgee(i18n, {
 ```
 
 This sets Tolgee as translation provider for i18next and enables
-[ICU message formatter](/docs/icu_message_format). Change
+[ICU message formatter](/platform/icu_message_format). Change
 `supportedLngs` to language tags you created while creating project in Tolgee localization platform.
 
 Then wrap your `<App/>` component with `Suspens` component.

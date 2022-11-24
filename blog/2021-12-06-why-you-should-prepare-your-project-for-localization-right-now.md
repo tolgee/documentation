@@ -111,7 +111,7 @@ Preparing your app to be localized is always good idea and with Tolgee you can d
 only task is to wrap the string with T component come up with a nice translation key. Then you can just go to your app
 and translate your string with `ALT + Click`. You can also automatically generate a screenshot from your App to provide
 the context to your future translators. If you would like to learn more about it,
-check [our documentation 📚](/docs) or choose an integration library above and follow the tutorials. 📖 
+check [our documentation 📚](/platform) or choose an integration library above and follow the tutorials. 📖 
 
 ## TL; DR
 

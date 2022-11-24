@@ -144,7 +144,7 @@ added similar if statements in each occurrence, and everything works fine. Now y
 Arabic. Gotcha! Since all your plurals are defined in the code, you'll have a very tough time finding all the plurals in
 your code and adding Arabic forms.
 
-Luckily, there's an easier way how to handle plurals. [ICU Message Format 🙌](https://tolgee.io/docs/icu_message_format)!
+Luckily, there's an easier way how to handle plurals. [ICU Message Format 🙌](https://tolgee.io/platform/icu_message_format)!
 With ICU message format, you can define translations like this:
 
 ```

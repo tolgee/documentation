@@ -28,7 +28,7 @@ export const NotConvincedYet = () => {
           >
             github discussions
           </a>{' '}
-          or <Link href="/docs/">docs</Link>.
+          or <Link href="/platform/">docs</Link>.
         </p>
       </div>
     </section>
