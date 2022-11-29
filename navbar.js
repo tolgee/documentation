@@ -7,10 +7,6 @@ module.exports.navbar = {
   },
   items: [
     {
-      type: 'custom-tolgeeDocsVersionDropdown',
-      position: 'right',
-    },
-    {
       type: 'dropdown',
       label: 'Product',
       position: 'right',
