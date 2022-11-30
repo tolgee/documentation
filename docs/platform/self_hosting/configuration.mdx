@@ -470,6 +470,13 @@ While this is useful for tests, make sure to keep this **disabled** if you're im
 server, as trying this predictable key may be the first thing an attacker will attempt to gain unauthorized access!
 :::
 
+## Database
+Prefix: `tolgee.database`
+
+Additional configuration for Database connection outside of spring datasource.
+
+### type
+Database type if different than postgres. e.g. `COCKROACH`
 
 ## `.env` example
 Example .env file which you can start with:
