@@ -8,6 +8,7 @@ import {
 import {
   isSamePath,
   useLocalPathname,
+  //@ts-ignore
 } from '@docusaurus/theme-common/internal';
 import NavbarNavLink from '@theme/NavbarItem/NavbarNavLink';
 import NavbarItem from '@theme/NavbarItem';
@@ -25,14 +26,17 @@ function isItemActive(item, localPathname) {
   }
   return false;
 }
+
 function containsActiveItems(items, localPathname) {
   return items.some((item) => isItemActive(item, localPathname));
 }
+
 function DropdownNavbarItemDesktop({
   items,
   position,
   className,
   onClick,
+  dropdownLabel,
   ...props
 }) {
   const dropdownRef = useRef(null);
@@ -69,6 +73,12 @@ function DropdownNavbarItemDesktop({
         href={props.to ? undefined : '#'}
         className={clsx('navbar__link', className)}
         {...props}
+        label={
+          <div className="dropdown__label-wrapper">
+            <span className="dropdown__dropdown-label">{dropdownLabel}</span>
+            {props.children ?? props.label}{' '}
+          </div>
+        }
         onClick={props.to ? undefined : (e) => e.preventDefault()}
         onKeyDown={(e) => {
           if (e.key === 'Enter') {
@@ -76,10 +86,7 @@ function DropdownNavbarItemDesktop({
             setShowDropdown(!showDropdown);
           }
         }}
-      >
-        {props.children ?? props.label}
-      </NavbarNavLink>
-
+      ></NavbarNavLink>
       <div className="dropdown__menu">
         {itemGroups.map((group, i) => {
           return (
@@ -119,6 +126,7 @@ function DropdownNavbarItemDesktop({
     </div>
   );
 }
+
 function DropdownNavbarItemMobile({
   items,
   className,
@@ -182,7 +190,9 @@ function DropdownNavbarItemMobile({
     </li>
   );
 }
+
 export default function DropdownNavbarItem({ mobile = false, ...props }) {
   const Comp = mobile ? DropdownNavbarItemMobile : DropdownNavbarItemDesktop;
+  // @ts-ignore
   return <Comp {...props} />;
 }

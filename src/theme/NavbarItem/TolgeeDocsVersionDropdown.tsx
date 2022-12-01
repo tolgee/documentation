@@ -2,6 +2,7 @@ import DocsVersionDropdownNavbarItem from '@theme/NavbarItem/DocsVersionDropdown
 import {
   useActivePluginAndVersion,
   useVersions,
+  //@ts-ignore
 } from '@docusaurus/plugin-content-docs/client';
 import React from 'react';
 
@@ -19,6 +20,7 @@ export const TolgeeDocsVersionDropdown = (props) => {
       docsPluginId={activePluginId}
       dropdownItemsBefore={[]}
       dropdownItemsAfter={[]}
+      dropdownLabel="Select version"
       {...props}
     />
   );

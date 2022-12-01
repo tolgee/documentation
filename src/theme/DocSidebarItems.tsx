@@ -16,9 +16,6 @@ const DocSidebarItems: typeof DsDocSidebarItems = ({ items, ...props }) => {
             <SearchBar />
           </div>
           <div className="sidebar-version-dropdown">
-            <div className="sidebar-version-dropdown__version">
-              Select version
-            </div>
             <TolgeeDocsVersionDropdown />
           </div>
         </>

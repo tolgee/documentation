@@ -221,12 +221,37 @@ h6 {
     @apply py-2 flex justify-center flex-col;
 }
 
-.sidebar-version-dropdown__version {
-    @apply pl-3 text-sm text-gray-500;
+
+.navbar__item .navbar__link {
+    @apply flex justify-between items-center;
 }
 
-.sidebar-version-dropdown .navbar__item{
-    @apply py-0 mt-[-2px];
+.dropdown__dropdown-label {
+    @apply text-gray-500 text-[15px];
+}
+
+.sidebar-version-dropdown .dropdown__menu {
+    @apply w-full
+}
+
+.dropdown__label-wrapper {
+    @apply flex justify-between grow items-center;
+}
+
+.sidebar-version-dropdown .navbar__item {
+    @apply py-0 px-0 mt-[-2px];
+}
+
+.sidebar-version-dropdown .navbar__item .navbar__link {
+    display: flex;
+}
+
+.sidebar-version-dropdown .navbar__item {
+    @apply flex flex-col;
+}
+
+.sidebar-version-dropdown {
+    @apply border-0 border-b border-solid border-gray-100 mx-3 mb-4;
 }
 
 .sidebar-version-dropdown ul {
