@@ -1,0 +1,27 @@
+---
+id: tolgee_js_version_4
+title: Tolgee JS v4
+description: "Tolgee JS version 4 changelog: Switching to invisible wrapper mode by default, Removing wrapping span in T component​ and others."
+---
+
+### Switching to invisible wrapper mode by default in integrations
+
+All tolgee integrations now use `wrapperMode: invisible` as default.
+
+[Text wrapper mode](/wrapping.mdx) is still available, you can switch to it manually.
+
+### Removing wrapping `span` in T component
+
+As invisible wrapper mode removes issues with wrapping, we can remove it now. T component will act very similarly as t function.
+
+### Prop `defaultValue` in Vue and Svelte integrations
+
+Due to Vue and Svelte limitation to access children, which was causing issues, we decided to move it to props. It might be a bit less convenient, but the behavior should be more consistent.
+
+```jsx
+// before
+<T keyName="key_name">Default value</T>
+
+// after
+<T keyName="key_name" defaultValue="Default value" />
+```

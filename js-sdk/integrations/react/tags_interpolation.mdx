@@ -1,0 +1,42 @@
+---
+id: tags_interpolation
+title: Tags interpolation (React)
+sidebar_label: Tags interpolation
+slug: tags-interpolation
+---
+
+With [`FormatIcu`](/formatting.mdx#icu-formatter) React integration supports tags interpolation, which can be used to use custom tags in translations and mapping them to React elements.
+
+### Example usage
+
+```jsx
+const Component = () => {
+  return (
+    <div>
+      <T
+        keyName="translation_key"
+        params={{ i: <i /> }}
+        defaultValue="This is <i>formatted</i>"
+      />
+    </div>
+  );
+};
+```
+
+will render
+
+![Formatted text](/img/docs/text_formatted.png)
+
+You can also pass a function which will return React component:
+
+```tsx
+const myFunction = (content) => <i title={content}>{content}</i>;
+
+<T
+  keyName="translation_key"
+  params={{
+    i: myFunction,
+  }}
+  defaultValue="This is <i>formatted</i>"
+/>;
+```

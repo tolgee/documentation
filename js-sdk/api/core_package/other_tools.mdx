@@ -1,0 +1,38 @@
+---
+id: other_tools
+title: Other tools
+slug: other-tools
+---
+
+Other helper functions exported in `@tolgee/core`.
+
+### getTranslateParams
+
+Takes arguments of `t` function and returns them in standard object.
+Use this if you need to wrap `t` function and use it's arguments.
+
+Example:
+
+```ts
+function myT(...args) {
+  const props = getTranslateParams(...args);
+  console.log(props.key);
+  return tolgee.t(props);
+}
+```
+
+### getFallback
+
+Used for parameters that can be single value or array or empty. (e.g. `ns`).
+
+```ts
+getFallback(value: FallbackGeneral): string[] | undefined
+```
+
+### getFallbackArray
+
+Same as getFallback, but always returns array.
+
+```ts
+getFallbackArray(value: FallbackGeneral): string[]
+```

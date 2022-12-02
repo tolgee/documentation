@@ -21,7 +21,7 @@ Hacktoberfest is just around the corner and we are happy to participate this yea
 The knowledge base is extremely important for someone new to the project: both for onboarding new users and other contributors too. 
 You can improve the project’s documentation which is crucial for every single open-source project, enhance the product tutorials, Q&As, etc.
 
-**Contributing to Tolgee tip:** Anything incomprehensible in our [Docs](/docs/)? Just suggest a change directly, we are using Docosaurus and on each page, you can click on „Edit this page“ and then express yourself. 
+**Contributing to Tolgee tip:** Anything incomprehensible in our [Docs](/platform/)? Just suggest a change directly, we are using Docosaurus and on each page, you can click on „Edit this page“ and then express yourself. 
 
 ![Edit Tolgee docs](/img/blog/hacktoberfest/edit-docs.png)
 ## 2. Write

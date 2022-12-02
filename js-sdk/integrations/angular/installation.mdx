@@ -1,0 +1,86 @@
+---
+id: installation
+title: Installation (Angular)
+sidebar_label: Installation
+description: 'Learn how to install Tolgee Angular integration library.'
+---
+
+Check our [Angular example application](https://github.com/tolgee/ngx-example) to get a complete image of working Angular integration.
+
+
+To install Tolgee Angular integration library, run the following:
+
+import {InstallationTabs} from "../../../src/component/InstallationTabs";
+
+<InstallationTabs lib="@tolgee/ngx"/>
+
+Then import [`NgxTolgeeModule`](/integrations/angular/api.mdx#ngxtolgeemodule) in your module file
+(`app.module.ts` or other):
+
+```typescript
+...
+import {
+  NgxPlugin,
+  NgxTolgeeModule,
+  Tolgee,
+  TOLGEE_INSTANCE,
+  FormatSimple
+} from '@tolgee/ngx';
+...
+@NgModule({
+  declarations: [
+    ...
+  ],
+  imports: [
+    NgxTolgeeModule,
+    ...
+  ],
+  providers: [
+    {
+      provide: TOLGEE_INSTANCE,
+      useFactory: () => {
+        return Tolgee()
+          .use(NgxPlugin())
+          .use(FormatSimple())
+          .init({
+            apiUrl: environment.tolgeeApiUrl,
+            apiKey: environment.tolgeeApiKey,
+            language: 'en'
+          });
+      },
+    },
+  ],
+  bootstrap: [AppComponent],
+})
+export class AppModule {}
+```
+So you have to:
+1. Add `NgxTolgeeModule` to your import section
+2. Add Factory provider for `TOLGEE_INSTANCE` token returning your `Tolgee` instance.
+
+:::info
+This is a minimal configuration example. Tolgee can do much more. Read more in [initialization](/initialization.mdx),
+[options](/api/core_package/options.mdx), or [tolgee plugins](/api/web_package/plugins.mdx).
+:::
+
+In the example, we imported [`FormatSimple`](/formatting.mdx#simple-formatter), which handles simple parameter interpolation.
+If you need advanced formatting, consider using [`FormatICU`](/formatting.mdx#icu-formatter).
+If you don't want to format your messages, you don't have to use any formatter plugin.
+
+You can provide the API key and API URL directly, or you can use
+[angular application environments](https://angular.io/guide/build#configuring-application-environments).
+
+That's it. Now you can use Tolgee for translating your strings.
+
+## Other configuration properties
+
+Configuration properties for all web integrations are similar. They are described in [`options`](/api/core_package/options.mdx)
+section.
+
+## Preparing for production
+
+In production mode, you should never use localization data from Tolgee REST API and never leak your API key.
+You should use data exported from the Tolgee platform.
+To get exported localization files, see [exporting translations](/platform/exporting_translations).
+
+Then provide the data via Tolgee configuration options described in [Preparing for production](/preparing_for_production.mdx).

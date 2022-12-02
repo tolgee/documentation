@@ -1,0 +1,22 @@
+---
+id: bundled_plugins
+title: Bundled plugins
+sidebar_label: Bundled plugins
+slug: bundled-plugins
+---
+
+## `InContextTools`
+
+Contains [`InvisibleObserver`](./plugins#invisibleobserver), [`ContextUi`](./plugins#contextui) and [`DevBackend`](./plugins#devbackend) in one plugin, which you can use when you want to enable in-context capability anywhere. It only applies plugins if there they are not already applied. You can optionaly provide credentials to Tolgee platform, which will override anything that was set before.
+
+This plugin is automatically downloaded and applied by [`BrowserExtensionPlugin`](./plugins#browserextensionplugin), when you enable in-context translating.
+
+```ts
+tolgee.use(InContextTools(credentials?: DevCredentials));
+```
+
+Can be applied even when `Tolgee` is already running.
+
+## `DevTools`
+
+Same as `InContextTools`, except it only apply the plugin in dev mode (based on `process.env.NODE_ENV`), so it will be omitted in production (and won't extend your bundle size).

@@ -1,0 +1,40 @@
+---
+id: tolgee_js_version_3
+title: Tolgee JS v3
+description: "Tolgee JS version 3 changelog: New initialization​ and wrapperMode setting (new way how to wrap translations)."
+---
+
+### New initialization
+
+Icu formatter is now separated as a module and so by default Tolgee instance is without formatter. We now recommend use `Tolgee.init` instead of `new Tolgee`, which is now private. This doesn't affect majority of integrations, because Tolgee is initialized internally there, however in vanilla JS it's important.
+
+```ts
+// old way (now will give you typescript error)
+import { Tolgee } from '@tolgee/core'
+const tg = new Tolgee(...)
+
+// equivalent new way
+import { Tolgee, IcuFormatter } from '@tolgee/core'
+const tg = Tolgee.use(IcuFormatter).init(...)
+
+// new way without formatter
+const tg = Tolgee.init(...)
+```
+
+We've changed this so it's possible to use core without IcuFormatter and therefore decrease bundle size
+when we don't need it.
+
+### `wrapperMode` setting
+
+We now have a new way how to wrap translations (docs [here](/js-sdk/configuration#wrappermode))
+
+```ts
+Tolgee.init({
+  ...
+  wrapperMode: 'invisible' // 'text' is default
+})
+```
+
+It's intended for framework integrations for the future as it uses zero-width unicode characters to identify
+the translation - this way we want to reduce cases where wrapping causes problems and must be ommited.
+Also this can be used with 3rd pary libraries (e.g. i18next), to preserve in-context localization functionality.

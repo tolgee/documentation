@@ -1,0 +1,20 @@
+---
+id: exporting_translations
+title: Exporting translations
+sidebar_label: Exporting translations
+slug: /exporting_translations
+description: "Learn how to export and download your translations two ways: from Tolgee App and via command line (via REST API e.g. via curl utility)."
+---
+
+To export translations, go to the app, select project and then choose "Export" item from sidebar.
+Afterwards hit "EXPORT ZIP OF .JSON FILES" button. Download will start immediately.
+
+![img](/img/docs/platform/project_menu_export.png)
+
+## Exporting via command line
+
+You can also export translations via REST API e.g. via `curl` utility:
+
+```bash
+curl https://app.tolgee.io/api/project/export/jsonZip?ak=<YOUR_API_KEY> --output data.zip
+```

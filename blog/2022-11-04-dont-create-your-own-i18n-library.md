@@ -144,7 +144,7 @@ added similar if statements in each occurrence, and everything works fine. Now y
 Arabic. Gotcha! Since all your plurals are defined in the code, you'll have a very tough time finding all the plurals in
 your code and adding Arabic forms.
 
-Luckily, there's an easier way how to handle plurals. [ICU Message Format 🙌](https://tolgee.io/docs/icu_message_format)!
+Luckily, there's an easier way how to handle plurals. [ICU Message Format 🙌](https://tolgee.io/platform/icu_message_format)!
 With ICU message format, you can define translations like this:
 
 ```
@@ -222,7 +222,7 @@ but is not very popular for other solutions than React. It has a lot of features
 when you decide to use this solution, I recommend using it with
 their [ICU Message Formatter plugin](https://github.com/i18next/i18next-icu). They have some native plural solution, but
 ICU is a standard solution supported by many i18n tools. Tolgee also
-has [integration to i18next](https://tolgee.io/docs/web/using_with_i18next/installation), so you can enjoy all the
+has [integration to i18next](https://tolgee.io/js-sdk/using_with_i18next/installation), so you can enjoy all the
 features of Tolgee while using i18next at the same time.
 
 ### Angular i18n (Angular native solution)
