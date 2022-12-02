@@ -22,8 +22,14 @@ completely redesigned to be more lightweight end extendable by plugins.
 The most interesting feature of the new platform release is the namespaces support. Now you can select a namespace
 while creating a new key, importing data or exporting data.
 
-<video loop autoPlay muted controls={true} style={{ maxWidth: '100%', margin: '0 auto' }}>
-  <source src="/img/blog/namespaces.webm"/>
+<video
+  loop
+  autoPlay
+  muted
+  controls={true}
+  style={{ maxWidth: '100%', margin: '0 auto' }}
+>
+  <source src="/img/blog/namespaces.webm" />
 </video>
 
 ### The breaking changes
@@ -37,12 +43,62 @@ pipelines, please replace those with the `/v2` endpoints. We have removed these 
 
 While the `/api/project/{projectId}/export/jsonZip` is kept as the only v1 endpoint accessible with API key.
 
-
 ## What's new in the Tolgee JS v5
 
 The base package of Tolgee JS `@tolgee/core` was completely redesigned and refactored to be more customizable,
 be lightweight and support the namespaces feature. With this new implementation it is extremely simple to create new
 plugins or new framework integrations.
+
+### `@tolgee/web`
+
+We've extracted web related plugins into separated package, so `@tolgee/core` is as small as possible and ready to run in different environments (other than web).
+
+### Unified initialization
+
+In new integrations, tolgee is always initialized outside the actual integration and only the tolgee instance is passed down. Example in React:
+
+```jsx
+const tolgee = Tolgee()
+  .use(ReactPlugin())
+  .use(FormatIcu())
+  .init({
+    ...
+  });
+
+export function App() {
+  return (
+    <TolgeeProvider tolgee={tolgee} fallback="Loading...">
+      ...
+    </TolgeeProvider>
+  );
+};
+```
+
+This way we offer you more flexibility what you can do with tolgee instance and embrace its plugin system.
+
+### `useTranslate`, `getTranslate` changes
+
+To properly incorporate namespace logic into tolgee, we've changed the methods for getting `t` function in Svelte, Vue and React. Now you can pass required namespace as an argument and it returns object instead of `t` function itself:
+
+```ts
+const { t, isLoading } = useTranslate('common');
+```
+
+The `t` function is automatically bind to the namespace selected in `useTranslate`. `isLoading` property tells you if the selected namespace is loaded.
+
+### Unified `t` function interface
+
+All the integrations now use unified `t` function interface which is now a bit different, but cleaner and more straight forward [read more](/js-sdk/5.0.0-alpha.1/api/core_package/tolgee#t).
+
+### Usage of Suspense in React integration
+
+React integration now uses Suspense in order to nicely implement dynamic namespaces addition. Component which would start loading new namespace through `useTranslate` will trigger suspense exception which you can catch by your `Suspense` component. If you won't catch it, it will bubble to `TolgeeProvider` and `fallback` will be shown. Suspense can be turned off:
+
+```ts
+<TolgeeProvider options={{ useSuspense: false }}>
+  {...}
+</TolgeeProvider>
+```
 
 ## TL;DR
 
