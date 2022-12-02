@@ -1,0 +1,80 @@
+---
+id: events
+title: Core Events
+sidebar_label: Events
+---
+
+Tolgee events which can be listened through `tolgee.on` method.
+
+### language
+
+Emitted on language change.
+
+```ts
+tolgee.on('language', handler: ListenerHandler<string>)
+```
+
+### pendingLanguage
+
+Emitted on language change. Before languages are loaded (when tolgee is running).
+
+```ts
+tolgee.on('pendingLanguage', handler: ListenerHandler<string>)
+```
+
+### key
+
+Emitted on single key change.
+
+```ts
+tolgee.on('key', handler: ListenerHandler<string>)
+```
+
+### loading
+
+Emitted on loading change. Changes when tolgee is loading some data for the first time.
+
+```ts
+tolgee.on('loading', handler: ListenerHandler<boolean>)
+```
+
+### fetching
+
+Emitted on fetching change. Changes when tolgee is fetching any data.
+
+```ts
+tolgee.on('fetching', handler: ListenerHandler<boolean>)
+```
+
+### initialLoad
+
+Emitted when `run` method finishes.
+
+```ts
+tolgee.on('initialLoad', handler: ListenerHandler<void>)
+```
+
+### running
+
+Emitted when internal `running` state changes.
+
+```ts
+tolgee.on('initialLoad', handler: ListenerHandler<boolean>)
+```
+
+### cache
+
+Emitted when cache changes.
+
+```ts
+tolgee.on('cache', handler: ListenerHandler<CacheDescriptorWithKey>)
+```
+
+### keyUpdate
+
+Emitted when any key needs (or might need) to be re-rendered. Similar to `tolgee.onKeyUpdate`,
+except we intercept all events, not just selection.
+
+```ts
+tolgee.on('keyUpdate', handler: ListenerHandler<void>)
+```

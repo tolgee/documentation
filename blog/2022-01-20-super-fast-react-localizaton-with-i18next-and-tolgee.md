@@ -18,8 +18,8 @@ countries, you have to translate your App to their languages. 🇬🇧 🇨🇳 
 In this article, I am going to show you, how to integrate i18next and Tolgee into your project and how easy and fast you
 can translate a React app using these tools.
 
-> Tolgee has also its [native integrations](/docs/integrations). Which are a bit easier to set up, so if you're not used to i18next, maybe it
-> would be easier for you to [start with those](/docs/web/using_with_react/installation).
+> Tolgee has also its [native integrations](/integrations/all). Which are a bit easier to set up, so if you're not used to i18next, maybe it
+> would be easier for you to [start with those](/js-sdk/using_with_react/installation).
 
 <!--truncate-->
 
@@ -94,7 +94,7 @@ We don't need the default CRA content.
 To get started, we are going to need a new project in Tolgee localization Platform.
 
 1. Login to [Tolgee Platform](https://app.tolgee.io) or use your
-   self-hosted [Tolgee instance](/docs/platform/self_hosting/running_with_docker).
+   self-hosted [Tolgee instance](/platform/self_hosting/running_with_docker).
 
 2. Create a new project by clicking **`Add` button in the top right**. And fill the project name.
 
@@ -144,7 +144,7 @@ withTolgee(i18n, {
 ```
 
 This sets Tolgee as translation provider for i18next and enables
-[ICU message formatter](/docs/icu_message_format). Change
+[ICU message formatter](/platform/icu_message_format). Change
 `supportedLngs` to language tags you created while creating project in Tolgee localization platform.
 
 Then wrap your `<App/>` component with `Suspens` component.
@@ -302,7 +302,7 @@ src
 ```
 
 Now, lets provide the data to Tolgee. There are multiple ways, how to do
-so [described in docs](/docs/web/using_with_i18next/preparing_for_production). But I am going to
+so [described in docs](/js-sdk/using_with_i18next/preparing_for_production). But I am going to
 provide them as imported static objects, which is good option, since the App is small and there are not many
 translations yet.
 
@@ -354,4 +354,4 @@ permitted to translate the App product directly in it just with ALT + Clicking t
     - [github.com/tolgee/server](https://github.com/tolgee/server) ⭐
     - [github.com/tolgee/js](https://github.com/tolgee/js) ⭐
 - To read more about i18next Tolgee integration,
-  visit [Tolgee docs](/docs/web/using_with_i18next/installation)
+  visit [Tolgee docs](/js-sdk/using_with_i18next/installation)

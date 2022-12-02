@@ -1,0 +1,26 @@
+---
+id: other_tools
+title: Other tools
+sidebar_label: Other tools
+slug: other-tools
+---
+
+## `TolgeeCore`
+
+Regular `Tolgee` constructor imported from `@tolgee/web` automatically includes [`BrowserExtensionPlugin`](./plugins#browserextensionplugin). If you want to get clean instance, use `TolgeeCore`.
+
+## Constants
+
+```ts
+// name of attribute, which is used on html elements
+// that are active for user to click in-context
+const TOLGEE_ATTRIBUTE_NAME = '_tolgee';
+
+// use this attribute on any html element with translation key
+// and it will be in-context clickable
+const TOLGEE_WRAPPED_ONLY_DATA_ATTRIBUTE = 'data-tolgee-key-only';
+
+// use this attribute when you want to disable tolgee observer
+// on html element and all it's children
+const TOLGEE_RESTRICT_ATTRIBUTE = 'data-tolgee-restricted';
+```

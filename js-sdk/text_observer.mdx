@@ -1,0 +1,45 @@
+---
+id: text_observer
+title: Text observer
+slug: text-observer
+---
+
+`TextObserver` an alternative observer to default `InvisibleObserver`. It uses text format instead of invisible characters. Main difference is that initially we put a placeholder into the dom, which is replaced by correct translation by mutation observer.
+
+Advantage of this is that all necessary data are included in the placeholder itself, so you can e.g. render the translation on the server and if you use Tolgee on FE it will get picked up and can be edited. `TextObserver` is able to update translation live on the page automatically, so in-context will work properly.
+
+Disadvantages of this approach are that translations will be invalid until `MutationObserver` finds them. So when you use this e.g. in page title it won't work. Also it can cause problems with things like tooltips, because their position is usually based on initial text size. You can generally use `noWrap` parameter where it causes problems:
+
+```ts
+t('title', { noWrap: true });
+```
+
+## Usage
+
+You can switch to `TextObserver` through `DevTools` plugin, where you can also define other options.
+
+```ts
+tolgee.use(DevTools({ observerType: 'text' }));
+```
+
+## Format
+
+Placeholders are in following format:
+
+```
+<prefix><key>[|<namespace>][,<defaultValue>][:<param1>:<value1>,...]<suffix>
+```
+
+Prefix and suffix can be set through `inputPrefix` and `inputSuffix` options, by default it's `%-%tolgee:` and `%-%`.
+
+Example for `t('key', 'Default value', { ns: 'namespace', parameter: 'Test' })` will generate this placeholder:
+
+```
+%-%tolgee:key|namespace,Default value:parameter:Test%-%
+```
+
+If necessary, special characters are escaped with `\`.
+
+## When to use
+
+This wrapper is more universal, as it is able to register translations generated on server easily, however it is more invasive and translation parameters need to be serializable (so it won't work with tag interpolation in React).

@@ -29,7 +29,7 @@ There are 2 ways in which you can create a Tolgee project:
 
 - Using Tolgee App
 
-- Using [Self-Hosted Tolgee Server](/docs/platform/self_hosting/running_with_docker)
+- Using [Self-Hosted Tolgee Server](/platform/self_hosting/running_with_docker)
 
 For now, we will be taking a look at how to create a tolgee project using the tolgee app.
 

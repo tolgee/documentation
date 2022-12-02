@@ -1,0 +1,83 @@
+---
+id: running_with_docker
+title: Running with Docker
+sidebar_label: Running with Docker
+slug: /self_hosting/running_with_docker
+---
+
+:::info
+Since v2, Tolgee runs PostgreSQL database in its container by default. To disable embedded Postgres, set
+`tolgee.postgres-autostart.enabled` property to `false`.
+:::
+
+## Running Tolgee in single container (recommended)
+To run server locally you should be fine just with running simple Docker image with mounted data volume.
+Tolgee has embedded PostgreSQL database, so you don't have to manually set it.
+
+```
+docker run -v tolgee_data:/data/ -p 8085:8080 tolgee/tolgee
+```
+
+This will:
+ - mount tolgee_data volume into it's directory inside the container
+ - expose tolgee container port on port 8085
+ - run the image!
+
+Now you should be able to access Tolgee web application on [http://localhost:8085](http://localhost:8085)
+
+## Running with compose
+To run it on company infrastructure it is better to use some more optimized database system. Tolgee supports PostgreSQL.
+You can run it using docker-compose.
+To start let's create and enter a folder to store Tolgee related files:
+```
+mkdir tolgee && cd tolgee
+```
+
+Create a file named `docker-compose.yml` containing following content.
+```yaml title="docker-compose.yml"
+version: '3'
+
+services:
+  db:
+    image: postgres:11
+    environment:
+      - POSTGRES_PASSWORD=postgres
+  app:
+    image: tolgee/tolgee
+    volumes:
+     - ./data:/data
+    ports:
+      - "8090:8080"
+    env_file:
+      - .env
+    depends_on:
+      - "db"
+```
+
+To provide a configuration, add following .env file.
+```properties title=".env"
+spring.datasource.url=jdbc:postgresql://db:5432/postgres
+spring.datasource.username=postgres
+spring.datasource.password=postgres
+tolgee.postgres-autostart.enabled=false
+```
+Similarly, you can define other [configuration properties](configuration).
+
+:::info
+Some versions of docker-compose doesn't accept dots (".") in `.env` file key names. Then you can replace `.` characters with
+underscores `_`.
+```properties title=".env"
+spring_datasource_url=jdbc:postgresql://db:5432/postgres
+spring_datasource_username=postgres
+spring_datasource_password=postgres
+tolgee_postgres-autostart_enabled=false
+```
+:::
+
+Your initial username is `admin`. Initial password is automatically generated and stored in /data/initial.pwd file in the
+Tolgee container. You can print it by executing this:
+```
+cat data/initial.pwd
+```
+
+The is now accessible on [http://localhost:8090](http://localhost:8090).

@@ -1,0 +1,158 @@
+---
+id: plugin
+title: Plugin
+slug: plugin-api
+---
+
+## TolgeePlugin interface
+
+Plugin is a function which recieves tolgee instance and additional `tools` object, where you have access
+to additional methods for extending tolgee, it also needs to return tolgee instance at the end.
+
+```ts
+function (tolgee: TolgeeInstance, tools: PluginTools): TolgeeInstance
+```
+
+## PluginTools
+
+Tools to manipulate different middleware interfaces.
+
+### Formatter
+
+#### Methods
+
+```ts
+tools.setFinalFormatter(formatter: FormatterInterface | undefined): void;
+tools.addFormatter(formatter: FormatterInterface | undefined): void;
+```
+
+#### Inteface
+
+```ts
+interface FinalFormatter {
+  format(props: {
+    translation: string;
+    language: string;
+    params: Record<string, any> | undefined;
+  }): string;
+}
+```
+
+Formats translation, allows you to add custom formatter.
+There can be multiple formatters, they will be applied in order in which they were added.
+`FinalFormatter` is applied last and can return different value than string.
+
+### Observer
+
+#### Methods
+
+```ts
+tools.setObserver(observer: ObserverInterface | undefined): void;
+tools.hasObserver(): boolean;
+```
+
+#### Interface
+
+```ts
+function Observer(props: ObserverProps) {
+  return {
+    unwrap(text: string): Unwrapped;
+    wrap: WrapperWrapFunction;
+    retranslate(): void;
+    stop(): void;
+    run(props: ObserverRunProps): void;
+    highlight: HighlightInterface;
+    outputNotFormattable: boolean;
+  }
+};
+```
+
+Middleware which enables in-context translating. Check [Observer options](./observer-options).
+
+### UI
+
+#### Methods
+
+```ts
+tools.setUi(ui: UiLibInterface | undefined): void;
+tools.hasUi(): boolean;
+```
+
+Tolgee UI enables in-context translating.
+
+### Backend
+
+#### Methods
+
+```ts
+tools.addBackend(backend: BackendInterface | undefined): void;
+tools.setDevBackend(backend: BackendInterface | undefined): void;
+```
+
+#### Interface
+
+```ts
+interface BackendInterface {
+  getRecord(props: {
+    language: string;
+    namespace?: string;
+  }): Promise<TreeTranslationsData | undefined> | undefined;
+}
+```
+
+`Backend` middleware is used when `Tolgee` needs to fetch record (identified by language and namespace).
+`Backend` can be skipped if `getRecord` returns `undefined`, in that case next backend is used.
+
+`DevBackend` is used when in dev mode and only difference in interface is that `getRecord` will also
+recieve `apiUrl`, `apiKey` and `projectId`. It's used to connect to Tolgee platform.
+
+### Language detector
+
+```ts
+tools.setLanguageDetector(
+  languageDetector: LanguageDetectorInterface | undefined
+): void
+```
+
+#### Interface
+
+```ts
+interface LanguageDetectorInterface {
+  getLanguage: (props: {
+    availableLanguages: string[];
+  }): string | undefined | Promise<string | undefined>;
+}
+```
+
+Language detector, use for detection from user locale/cookies, etc.
+
+### Language storage
+
+```ts
+tools.setLanguageStorage(
+  languageStorage: LanguageStorageInterface | undefined
+): void
+```
+
+#### Interface
+
+```ts
+interface LanguageStorageInterface {
+  getLanguage(): string | undefined | Promise<string | undefined>;
+  setLanguage(language: string): void | Promise<void>;
+}
+```
+
+Language storage, use for storing language in LocalStorage or on custom server.
+
+### Override credentials
+
+```ts
+tools.overrideCredentials(credentials: {
+  apiUrl?: string;
+  apiKey?: string;
+  projectId?: string | number;
+}): void;
+```
+
+Method which overrides user credentials to tolgee platform.
