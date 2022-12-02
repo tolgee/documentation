@@ -18,22 +18,20 @@ However this will not update translation in case you change language or update t
 If you use Tolgee with any supported framework, this is solved for you automatically.
 :::
 
-You can [listen](./api/core_package/tolgee.mdx#on) for translation change with `keyUpdate` event.
+You can [listen](./api/core_package/tolgee.mdx#on) for translation change with `update` event.
 
 ```ts
-tolgee.on('keyUpdate', () => {
+tolgee.on('update', () => {
   domElement.textContent = tolgee.t('key', 'Default value');
 });
 ```
 
-This event gets triggered when any translation need to be updated, so it might be inefficient if you use many translations. Therefore there is also [`onKeyUpdate`](./api/core_package/tolgee.mdx#onkeyupdate) method.
+This event gets triggered when any translation need to be updated, so it might be inefficient if you use many namespaces. Therefore there is also [`onNsUpdate`](./api/core_package/tolgee.mdx#onnsupdate) method, which allows you to subscribe only to selected namespaces.
 
 ```ts
 tolgee
-  .onKeyUpdate(() => {
+  .onNsUpdate(() => {
     domElement.textContent = tolgee.t('key', 'Default value');
   })
-  .subscribeKey({ key: 'key' });
+  .subscribeNs('my_namespace');
 ```
-
-Here you only get notified when your key changes, you can also specify namespace or subscribe to multiple keys.

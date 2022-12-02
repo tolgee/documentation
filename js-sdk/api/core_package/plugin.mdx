@@ -7,7 +7,7 @@ slug: plugin-api
 ## TolgeePlugin interface
 
 Plugin is a function which recieves tolgee instance and additional `tools` object, where you have access
-to additional methods for extending tolgee, it also needs to return tolgee instance at the end.
+to additional methods for adding different middlewares, it also needs to return tolgee instance at the end.
 
 ```ts
 function (tolgee: TolgeeInstance, tools: PluginTools): TolgeeInstance
@@ -22,18 +22,18 @@ Tools to manipulate different middleware interfaces.
 #### Methods
 
 ```ts
-tools.setFinalFormatter(formatter: FormatterInterface | undefined): void;
-tools.addFormatter(formatter: FormatterInterface | undefined): void;
+tools.setFinalFormatter(formatter: FormatterMiddleware): void;
+tools.addFormatter(formatter: FormatterMiddleware): void;
 ```
 
 #### Inteface
 
 ```ts
-interface FinalFormatter {
+interface FormatterMiddleware {
   format(props: {
     translation: string;
     language: string;
-    params: Record<string, any> | undefined;
+    params: Record<string, any>;
   }): string;
 }
 ```
@@ -47,23 +47,21 @@ There can be multiple formatters, they will be applied in order in which they we
 #### Methods
 
 ```ts
-tools.setObserver(observer: ObserverInterface | undefined): void;
+tools.setObserver(observer: ObserverMiddleware): void;
 tools.hasObserver(): boolean;
 ```
 
 #### Interface
 
 ```ts
-function Observer(props: ObserverProps) {
-  return {
-    unwrap(text: string): Unwrapped;
-    wrap: WrapperWrapFunction;
-    retranslate(): void;
-    stop(): void;
-    run(props: ObserverRunProps): void;
-    highlight: HighlightInterface;
-    outputNotFormattable: boolean;
-  }
+type ObserverMiddleware = (props: ObserverProps) => {
+  unwrap: (text: string) => Unwrapped;
+  wrap: WrapperWrapFunction;
+  retranslate: () => void;
+  stop: () => void;
+  run: (props: ObserverRunProps) => void;
+  highlight: HighlightInterface;
+  outputNotFormattable: boolean;
 };
 ```
 
@@ -74,7 +72,7 @@ Middleware which enables in-context translating. Check [Observer options](./obse
 #### Methods
 
 ```ts
-tools.setUi(ui: UiLibInterface | undefined): void;
+tools.setUi(ui: UiMiddleware): void;
 tools.hasUi(): boolean;
 ```
 
@@ -85,18 +83,18 @@ Tolgee UI enables in-context translating.
 #### Methods
 
 ```ts
-tools.addBackend(backend: BackendInterface | undefined): void;
-tools.setDevBackend(backend: BackendInterface | undefined): void;
+tools.addBackend(backend: BackendMiddleware): void;
+tools.setDevBackend(backend: BackendMiddleware): void;
 ```
 
 #### Interface
 
 ```ts
-interface BackendInterface {
+interface BackendMiddleware {
   getRecord(props: {
     language: string;
     namespace?: string;
-  }): Promise<TreeTranslationsData | undefined> | undefined;
+  }): Promise<TreeTranslationsData | undefined>;
 }
 ```
 
@@ -110,17 +108,17 @@ recieve `apiUrl`, `apiKey` and `projectId`. It's used to connect to Tolgee platf
 
 ```ts
 tools.setLanguageDetector(
-  languageDetector: LanguageDetectorInterface | undefined
+  languageDetector: LanguageDetectorMiddleware
 ): void
 ```
 
 #### Interface
 
 ```ts
-interface LanguageDetectorInterface {
+interface LanguageDetectorMiddleware {
   getLanguage: (props: {
     availableLanguages: string[];
-  }): string | undefined | Promise<string | undefined>;
+  }): string | Promise<string>;
 }
 ```
 
@@ -130,15 +128,15 @@ Language detector, use for detection from user locale/cookies, etc.
 
 ```ts
 tools.setLanguageStorage(
-  languageStorage: LanguageStorageInterface | undefined
+  languageStorage: LanguageStorageMiddleware
 ): void
 ```
 
 #### Interface
 
 ```ts
-interface LanguageStorageInterface {
-  getLanguage(): string | undefined | Promise<string | undefined>;
+interface LanguageStorageMiddleware {
+  getLanguage(): strin | Promise<string>;
   setLanguage(language: string): void | Promise<void>;
 }
 ```

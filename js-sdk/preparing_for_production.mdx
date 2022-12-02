@@ -23,7 +23,7 @@ const tolgee = Tolgee({
     de: () => import('./i18n/de.json'),
 
     // or for namespaces
-    'de:common': () => import('./i18n/de/common.json'),
+    'de:common': () => import('./i18n/common/de.json'),
   }
 })
 ```
@@ -36,7 +36,7 @@ Using this approach data will be fetched just when it's needed, so you will save
 import * as localeEn from 'i18n/en.json';
 import * as localeDe from 'i18n/de.json';
 
-import * as commonDe from 'i18n/de/common.json'
+import * as commonDe from 'i18n/common/de.json'
 
 ...
 
@@ -77,10 +77,9 @@ If you use namespaces, it should look like this:
 
 ```
 ├── i18n
-│   ├── cs
-│   │   └── common.json
-│   └── en
-│       └── common.json
+│   └── common
+│       ├── en.json
+│       └── de.json
 ├── index.html
 ```
 

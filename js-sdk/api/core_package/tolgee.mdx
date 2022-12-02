@@ -3,26 +3,66 @@ id: tolgee
 title: Tolgee
 ---
 
-### Tolgee
+## TolgeeCore
 
-Tolgee instance constructor. Accepts [Tolgee options](./options) object. Use without `new` keyword.
+Allows you to gradually initialize Tolgee instance. You can repeatedly call `use` and `updateDefaults`. Finally when you call `init` it will apply everything at once and return `TolgeeInstance`.
 
 ```ts
-function Tolgee(options?: TolgeeOptions): TolgeeInstance;
+function TolgeeCore(): TolgeeChainer;
 ```
 
 Basic usage:
 
 ```ts
-import { Tolgee } from '@tolgee/core';
+import { TolgeeCore } from '@tolgee/core';
 
-const tolgee = Tolgee(...);
+const tolgee = TolgeeCore()
+  .use(...)
+  .updateDefaults(...)
+  .init(...);
 ```
+
+### use
+
+Add tolgee plugin.
+
+```ts
+Tolgee().use(plugin: TolgeePlugin): TolgeeChainer
+```
+
+Plugins are applied after `init` is called. To see how TolgeePlugin interface work check [Plugin API](./plugin-api).
+
+### updateDefaults
+
+Updates [Tolgee options](./options) before `init` is called. Extends existing options,
+so it only changes the fields, that are listed.
+
+```ts
+Tolgee().updateDefaults(options: TolgeeOptions): TolgeeChainer
+```
+
+You can call it multiple times and rewrite only part of the configuration:
+
+```ts
+const tolgee = TolgeeCore()
+  .updateDefaults({ apiKey: 'key' })
+  .updateDefaults({ language: 'en' })
+  .init({ apiUrl: 'url' });
+// resulting configuration will be:
+{
+  apiUrl: 'url',
+  apiKey: 'key',
+  language: 'en'
+}
+```
+
+## TolgeeInstance
+
+Represents initialized tolgee instance. Allows you to read translations and manipulate lanugage or cache.
 
 ### run
 
-Changes internal state to `running: true` and loads initial files. Runs runnable plugins
-mainly `Observer` if present.
+Changes internal state to `running: true` and loads initial files. Starts `Observer` if present.
 
 ```ts
 tolgee.run(): Promise<void>
@@ -36,38 +76,8 @@ Changes internal state to `running: false` and stops runnable plugins.
 tolgee.stop(): void
 ```
 
-### use
-
-Add tolgee plugin.
-
-```ts
-tolgee.use(plugin: TolgeePlugin): TolgeeInstance
-```
-
-To see how TolgeePlugin interface work check [Plugin API](./plugin-api)
-
-### init
-
-Updates [Tolgee options](./options) after instance creation. Extends existing options,
-so it only changes the fields, that are listed. Useful when using with plugins.
-When called in `running` state, tolgee stops and runs again.
-
 ```ts
 tolgee.init(options: TolgeeOptions): TolgeeInstance
-```
-
-You can call init multiple and rewrite only part of the configuration:
-
-```ts
-const tolgee = Tolgee({ apiUrl: 'url' })
-  .init({ apiKey: 'key' })
-  .init({ language: 'en' });
-// resulting configuration will be:
-{
-  apiUrl: 'url',
-  apiKey: 'key',
-  language: 'en'
-}
 ```
 
 ### on
@@ -87,30 +97,26 @@ listener.unsubscribe()
 
 Check [Events](./events) for details.
 
-### onKeyUpdate
+### onNsUpdate
 
-Allows you to listen to key changes of keys/namespaces that you pick.
+Allows you to listen to key changes of namespaces that you pick.
 
 ```ts
-tolgee.onKeyUpdate(handler: ListenerHandler): ListenerSelective
+tolgee.onNsUpdate(handler: ListenerHandler): ListenerSelective
 ```
 
-Returns object, which allows you to subscribe to key(s) and namespaces.
+Returns object, which allows you to subscribe to namespaces.
 
 ```ts
-const listener = tolgee.onKeyUpdate(...)
-// subscribes to key in default/fallback namespace(s)
-listener.subscribeKey({ key })
-// subscribes to key in namespace(s)
-listener.subscribeKey({ key, ns})
-// subscribes to whole namespace
+const listener = tolgee.onNsUpdate(...)
+// subscribes namespace
 listener.subscribeNs(ns)
 // unsubscribe completely
 listener.unsubscribe()
 ```
 
 Use this when you want to make sure, you always update translation when it's necessary.
-It internally stores list of namespaces/keys that you are interested in and calls the handler, when necessary.
+It internally stores list of namespaces that you are interested in and calls the handler, when necessary.
 
 ### t
 
@@ -275,7 +281,7 @@ tolgee.isDev(): boolean
 
 ### getInitialOptions
 
-Returns current [Tolgee options](./tolgee).
+Returns current [Tolgee options](./options).
 
 ```ts
 tolgee.getInitialOptions(): TolgeeOptions
@@ -305,14 +311,6 @@ Returns wrapped translation info.
 
 ```ts
 tolgee.unwrap(text: string): Unwrapped
-```
-
-### setObserverOptions
-
-Accepts [`ObserverOptions`](./observer-options) which are passed to observer when created.
-
-```ts
-tolgee.setObserverOptions(options: Partial<ObserverOptions>): TolgeeInstance
 ```
 
 ### loadRecord
@@ -366,3 +364,35 @@ tolgee.changeTranslation(descriptor: CacheDescriptor, key: string, value: string
 ```
 
 Returns object with `revert` method.
+
+### overrideCredentials
+
+Override creadentials passed on initialization. When called in running state, tolgee stops and runs again.
+
+```ts
+tolgee.overrideCredentials(credentials: DevCredentials)
+```
+
+```ts
+type DevCredentials = {
+  apiUrl?: string;
+  apiKey?: string;
+  projectId?: string | number;
+};
+```
+
+### addPlugin
+
+Add tolgee plugin after initialization. When called in running state, tolgee stops and runs again. To see how TolgeePlugin interface work check [Plugin API](./plugin-api).
+
+```ts
+tolgee.addPlugin(plugin: TolgeePlugin | undefined)
+```
+
+### updateOptions
+
+Updates [Tolgee options](./options) after instance creation. Extends existing options, so it only changes the fields, that are listed. When called in `running` state, tolgee stops and runs again.
+
+```ts
+tolgee.updateOptions(options?: TolgeeOptions)
+```
