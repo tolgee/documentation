@@ -1,0 +1,51 @@
+---
+slug: whats-new-in-platform-v3
+
+title: "What's new in Tolgee Platform v3 and Tolgee JS v5"
+
+authors: [jcizmar, sgranat]
+
+image: "/img/blog/dont-custom-i18n.png"
+
+description: "We have released Tolgee Platform v3 and Tolgee JS v5. Namespaces support added, Integrations are much
+more lightweight and customizable."
+
+tags: [i18n, localization, tolgee-platform, tolgee-js]
+---
+
+We are very proud to share that we have released alpha versions if Tolgee Platform v3 and Tolgee JS v5. We have added
+namespaces support, so you can structure your strings into smaller chunks. The base library of our JS integrations are
+completely redesigned to be more lightweight end extendable by plugins.
+
+## What's new in the Tolgee Platform v3
+
+The most interesting feature of the new platform release is the namespaces support. Now you can select a namespace
+while creating a new key, importing data or exporting data.
+
+<video loop autoPlay muted controls={true} style={{ maxWidth: '100%', margin: '0 auto' }}>
+  <source src="/img/blog/namespaces.webm"/>
+</video>
+
+### The breaking changes
+
+While adding the namespaces support, we also removed some deprecated API endpoints. So if you use those in you CI/CD
+pipelines, please replace those with the `/v2` endpoints. We have removed these endpoints:
+
+- All the endpoints matching `/api/project/**` (use `/v2/projects/*`)
+- All the endpoints matching `/api/address-part/**` (use `/v2/slug/*`)
+- `/v2/projects/{projectId}/import/with-streaming-response` (use `/v2/projects/{projectId}/import`)
+
+While the `/api/project/{projectId}/export/jsonZip` is kept as the only v1 endpoint accessible with API key.
+
+
+## What's new in the Tolgee JS v5
+
+The base package of Tolgee JS `@tolgee/core` was completely redesigned and refactored to be more customizable,
+be lightweight and support the namespaces feature. With this new implementation it is extremely simple to create new
+plugins or new framework integrations.
+
+## TL;DR
+
+- The Tolgee Platform v3 and Tolgee JS v5 integrations support namespaces
+- Deprecated v1 endpoints (`/api/*`) were deleted
+- The JS `@tolgee/core` new JS SKDs are now lightweight, customizable and cleaner
