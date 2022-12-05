@@ -11,7 +11,7 @@ To get full image of working Svelte integration, check our [Svelte Example Appli
 
 To install Tolgee Svelte integration library, run:
 
-import {InstallationTabs} from "../../../src/component/InstallationTabs";
+import { InstallationTabs } from '../../../src/component/InstallationTabs';
 
 <InstallationTabs lib="@tolgee/svelte" />
 
@@ -19,10 +19,11 @@ Init Tolgee with [`SveltePlugin`](./api#svelteplugin) and wrap your application 
 
 ```svelte
 <script>
-  import { TolgeeProvider, Tolgee } from '@tolgee/svelte';
+  import { TolgeeProvider, Tolgee, SveltePlugin, FormatSimple } from '@tolgee/svelte';
 
   const tolgee = Tolgee()
     .use(SveltePlugin())
+    .use(FormatSimple())
     .init({
       apiUrl: import.meta.env.VITE_TOLGEE_API_URL,
       apiKey: import.meta.env.VITE_TOLGEE_API_KEY,

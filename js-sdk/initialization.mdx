@@ -7,11 +7,16 @@ description: 'Tolgee initialization'
 Standard way to initialize tolgee is:
 
 ```ts
-const tolgee = Tolgee().use(DevTools()).init({
-  language: 'en'
-  apiUrl: 'https://app.tolgee.io'
-  apiKey: '<your tolgee API key>'
-})
+import {Tolgee, DevTools, FormatSimple} from '@tolgee/web'
+
+const tolgee = Tolgee()
+  .use(DevTools())
+  .use(FormatSimple())
+  .init({
+    language: 'en'
+    apiUrl: 'https://app.tolgee.io'
+    apiKey: '<your tolgee API key>'
+  })
 
 tolgee.run();
 ```
