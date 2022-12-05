@@ -31,7 +31,7 @@ Save exported json files to `src/i18n` folder in your project structure.
 
 ## Use Intl extension
 
-import {InstallationTabs} from "../../../../src/component/InstallationTabs";
+import { InstallationTabs } from '../../../../src/component/InstallationTabs';
 
 <InstallationTabs lib="gatsby-plugin-react-intl" />
 
@@ -56,25 +56,27 @@ module.exports = {
 ```jsx
 import { useIntl } from 'gatsby-plugin-react-intl';
 
+const tolgee = Tolgee()
+  .use(ReactPlugin())
+  .init({
+    defaultLanguage: 'en',
+    apiKey: process.env.GATSBY_TOLGEE_API_KEY,
+    apiUrl: process.env.GATSBY_TOLGEE_API_URL,
+    staticData: {
+      en: () => import(`../i18n/en.json`),
+      de: () => import('../i18n/de.json'),
+    },
+  })
+
 export const AppWrapper: React.FC = ({ children }) => {
   const { locale, messages } = useIntl();
 
-  const [tolgee] = useState(
-    Tolgee()
-      .use(ReactPlugin())
-      .init({
-        language: locale,
-        apiKey: process.env.GATSBY_TOLGEE_API_KEY,
-        apiUrl: process.env.GATSBY_TOLGEE_API_URL,
-        fallbackLanguage: 'en',
-        staticData: {
-          en: () => import(`../i18n/en.json`),
-          de: () => import('../i18n/de.json'),
-          // translations provided by intl plugin
-          [locale]: messages as Record<string, string>,
-        },
-      })
-  );
+  useMemo(() => {
+    tolgee.setEmmiterActive(false);
+    tolgee.changeLanguage(locale);
+    tolgee.addStaticData({ [locale]: messages as Record<string, string> });
+    tolgee.setEmmiterActive(true);
+  }, [locale, messages]);
 
 
   return (

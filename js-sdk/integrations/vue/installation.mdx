@@ -11,17 +11,18 @@ To get full image of working Vue integration, check our [Vue Example Application
 
 To install Tolgee Vue integration library run:
 
-import {InstallationTabs} from "../../../src/component/InstallationTabs";
+import { InstallationTabs } from '../../../src/component/InstallationTabs';
 
 <InstallationTabs lib="@tolgee/vue" />
 
 First initialize `Tolgee` with [`VuePlugin`](./api#vueplugin) (plugin for Tolgee) and use [`VueTolgee`](./api#vuetolgee-plugin) (plugin for Vue).
 
 ```ts
-import { Tolgee, VuePlugin, VueTolgee } from '@tolgee/vue';
+import { Tolgee, VuePlugin, VueTolgee, FormatSimple } from '@tolgee/vue';
 
 const tolgee = Tolgee()
   .use(VuePlugin())
+  .use(FormatSimple())
   .init({
     language: 'en',
     apiUrl: process.env.VUE_APP_TOLGEE_API_URL,

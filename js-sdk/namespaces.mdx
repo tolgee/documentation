@@ -23,8 +23,8 @@ You can tell Tolgee how to get namespaces through [`staticData`](./api/core_pack
 ```ts
 const tolgee = Tolgee({
   staticData: {
-    'en:common': () => import('./i18n/en/common.json'),
-    'en:test': () => import('./i18n/en/test.json'),
+    'en:common': () => import('./i18n/common/en.json'),
+    'en:test': () => import('./i18n/test/en.json'),
   },
 });
 ```

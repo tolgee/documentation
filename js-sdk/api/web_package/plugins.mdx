@@ -4,6 +4,19 @@ title: Plugins
 sidebar_label: Plugins
 ---
 
+## Tolgee
+
+[`TolgeeCore`](../core_package/tolgee#tolgeecore) with added [`BrowserExtensionPlugin`](./plugins#browserextensionplugin).
+
+Usage:
+
+```ts
+const tolgee = Tolgee()
+  .use(...)
+  .updateDefaults(...)
+  .init(...)
+```
+
 ## `BackendFetch`
 
 Plugin for fetching translations JSON files.
@@ -26,7 +39,7 @@ Combines prefix, namespace and language and generates file path.
 function ({ prefix, namespace, language }): string
 ```
 
-Default returns `{prefix}/{language}/{namespace}.json` or `{prefix}/{language}.json` when namespace is empty.
+Default returns `{prefix}/{namespace}/{language}.json` or `{prefix}/{language}.json` when namespace is empty.
 
 ### `options.getData`
 
@@ -64,15 +77,15 @@ tolgee.use(TextObserver());
 
 Plugin which connects Tolgee to [Tolgee Tools browser extension](https://chrome.google.com/webstore/detail/tolgee-tools/hacnbapajkkfohnonhbmegojnddagfnj). This plugin is automatically included in Tolgee, if you import it from `@tolgee/web`.
 
-## `InvisibleObserver`
+## `ObserverPlugin`
 
 Plugin which wraps translations and observes the DOM, so it's able to locate translations on the page. Read more in [this article](/blog/2021/12/17/invisible-characters-for-better-localization).
 
 ```ts
-tolgee.use(InvisibleObserver());
+tolgee.use(ObserverPlugin());
 ```
 
-You can influence behavior of this plugin through [`tolgee.setObserverOptions`](../core_package/tolgee#setobserveroptions).
+You can influence behavior of this plugin through [`observer options`](../core_package/observer-options).
 
 ## `ContextUi`
 
@@ -89,9 +102,3 @@ Plugin for communication with Tolgee platform, uses `apiUrl`, `apiKey` (+ `proje
 ```ts
 tolgee.use(DevBackend());
 ```
-
-## `TextObserver`
-
-Alternative observer to `InvisibleObserver`. The difference is that it doesn't use invisible characters, but encodes all the information into our custom syntax string. This observer actively updates translations on your page when you change language or any translation is updated, so you don't have to use `tolgee.onKeyUpdate`.
-
-You can influence behavior of this plugin through [`tolgee.setObserverOptions`](../core_package/tolgee#setobserveroptions).

@@ -50,33 +50,33 @@ Save exported json files to `i18n` folder in your project structure.
 Then wrap your main component with `TolgeeProvider component`.
 Import the localization data and provide them to TolgeeProvider using `staticData` prop.
 
-```typescript jsx
-import { useState } from 'react'
+```tsx
+import { useState } from 'react';
 import type { AppProps } from 'next/app';
 import enLocale from '../i18n/en.json';
 import csLocale from '../i18n/cs.json';
 import { useRouter } from 'next/router';
 import { TolgeeProvider, ReactPlugin, Tolgee } from '@tolgee/react';
 
+const tolgee = Tolgee().use(ReactPlugin()).use(FormatSimple()).init({
+  defaultLanguage: 'en',
+  apiKey: process.env.NEXT_PUBLIC_TOLGEE_API_KEY,
+  apiUrl: process.env.NEXT_PUBLIC_TOLGEE_API_URL,
+});
+
 function MyApp({ Component, pageProps }: AppProps) {
   const { locale: activeLocale } = useRouter();
 
-  const [tolgee] = useState(
-    Tolgee().use(ReactPlugin()).init({
-      language: activeLocale,
-      apiKey={process.env.NEXT_PUBLIC_TOLGEE_API_KEY}
-      apiUrl={process.env.NEXT_PUBLIC_TOLGEE_API_URL}
-      staticData:{
-        en: enLocale,
-        cs: csLocale,
-      }
-    })
-  );
+  useMemo(() => {
+    // change tolgee language without emitting events
+    // to not trigger re-render while rendering
+    tolgee.setEmmiterActive(false);
+    tolgee.changeLanguage(locale);
+    tolgee.setEmmiterActive(true);
+  }, [locale]);
 
   return (
-    <TolgeeProvider
-      tolgee={tolgee}
-    >
+    <TolgeeProvider tolgee={tolgee}>
       <Component {...pageProps} />
     </TolgeeProvider>
   );
@@ -88,26 +88,25 @@ export default MyApp;
 We can optimize bundle size by only including locale which is needed for rendered page by using getInitialProps.
 
 ```jsx
+const tolgee = Tolgee().use(ReactPlugin()).use(FormatSimple()).init({
+  defaultLanguage: 'en',
+  apiKey: process.env.NEXT_PUBLIC_TOLGEE_API_KEY,
+  apiUrl: process.env.NEXT_PUBLIC_TOLGEE_API_URL,
+});
+
 function MyApp({ Component, pageProps, locales }: AppProps) {
   const { locale: activeLocale } = useRouter();
 
-  const [tolgee] = useState(
-    Tolgee().use(ReactPlugin()).init({
-      language: activeLocale,
-      apiKey={process.env.NEXT_PUBLIC_TOLGEE_API_KEY}
-      apiUrl={process.env.NEXT_PUBLIC_TOLGEE_API_URL}
-      staticData:{
-        en: enLocale,
-        cs: csLocale,
-        ...locales,
-      }
-    })
-  );
+  useMemo(() => {
+    // set language and static data, without emitting events
+    tolgee.setEmmiterActive(false);
+    tolgee.changeLanguage(locale);
+    tolgee.addStaticData(locales);
+    tolgee.setEmmiterActive(true);
+  }, [locale, locales]);
 
   return (
-    <TolgeeProvider
-      tolgee={tolgee}
-    >
+    <TolgeeProvider tolgee={tolgee}>
       <Component {...pageProps} />
     </TolgeeProvider>
   );
