@@ -12,7 +12,7 @@ We offer multiple ways how to install Tolgee.
 If you use Tolgee integration, install only integration package, `@tolgee/web` will be included automatically.
 :::
 
-import {InstallationTabs} from "../src/component/InstallationTabs";
+import { InstallationTabs } from '../src/component/InstallationTabs';
 
 <InstallationTabs lib="@tolgee/web" />
 
@@ -50,7 +50,7 @@ import { DevTools } from '@tolgee/web';
 const tolgee = Tolgee().use(DevTools()).init(...)
 ```
 
-If you use any standard standard FE setup with bundler, `DevTools` will be automatically excluded (based on `process.env.NODE_ENV`). If you want want the In-context to be always available, use `InContextTools`instead of`DevTools`- it is the same plugin, only difference is that`DevTools` are exported conditionally.
+If you use any standard FE setup with bundler, `DevTools` will be automatically excluded in production (based on `process.env.NODE_ENV`). If you want want the In-context to be always available, use `InContextTools` instead of `DevTools`- it is the same plugin, only difference is that `DevTools` are exported conditionally.
 
 ## Using dev tools without bundler
 

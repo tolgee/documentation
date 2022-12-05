@@ -12,7 +12,17 @@ Contains [`InvisibleObserver`](./plugins#invisibleobserver), [`ContextUi`](./plu
 This plugin is automatically downloaded and applied by [`BrowserExtensionPlugin`](./plugins#browserextensionplugin), when you enable in-context translating.
 
 ```ts
-tolgee.use(InContextTools(credentials?: DevCredentials));
+tolgee.use(InContextTools(props?: InContextOptions));
+```
+
+```ts
+type InContextOptions = {
+  credentials: {
+    apiUrl?: string;
+    apiKey?: string;
+    projectId?: string | number;
+  };
+};
 ```
 
 Can be applied even when `Tolgee` is already running.

@@ -6,7 +6,7 @@ slug: other-tools
 
 Other helper functions exported in `@tolgee/core`.
 
-### getTranslateParams
+### getTranslateProps
 
 Takes arguments of `t` function and returns them in standard object.
 Use this if you need to wrap `t` function and use it's arguments.
@@ -15,7 +15,7 @@ Example:
 
 ```ts
 function myT(...args) {
-  const props = getTranslateParams(...args);
+  const props = getTranslateProps(...args);
   console.log(props.key);
   return tolgee.t(props);
 }

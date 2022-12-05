@@ -16,10 +16,16 @@ t('title', { noWrap: true });
 
 ## Usage
 
-You can switch to `TextObserver` through `DevTools` plugin, where you can also define other options.
+You can switch to `TextObserver` through [tolgee options](./api/core_package/options#observertype), where you can also define other options.
 
 ```ts
-tolgee.use(DevTools({ observerType: 'text' }));
+const tolgee = Tolgee()
+  .use(DevTools())
+  .init({
+    ...
+    observerType: 'text'
+    observerOptions: { ... }
+  });
 ```
 
 ## Format

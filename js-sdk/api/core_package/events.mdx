@@ -22,14 +22,6 @@ Emitted on language change. Before languages are loaded (when tolgee is running)
 tolgee.on('pendingLanguage', handler: ListenerHandler<string>)
 ```
 
-### key
-
-Emitted on single key change.
-
-```ts
-tolgee.on('key', handler: ListenerHandler<string>)
-```
-
 ### loading
 
 Emitted on loading change. Changes when tolgee is loading some data for the first time.
@@ -70,11 +62,11 @@ Emitted when cache changes.
 tolgee.on('cache', handler: ListenerHandler<CacheDescriptorWithKey>)
 ```
 
-### keyUpdate
+### update
 
-Emitted when any key needs (or might need) to be re-rendered. Similar to `tolgee.onKeyUpdate`,
+Emitted when any key needs (or might need) to be re-rendered. Similar to `tolgee.onNsUpdate`,
 except we intercept all events, not just selection.
 
 ```ts
-tolgee.on('keyUpdate', handler: ListenerHandler<void>)
+tolgee.on('update', handler: ListenerHandler<void>)
 ```
