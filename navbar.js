@@ -75,7 +75,7 @@ module.exports.navbar = {
           label: 'Gatsby',
         },
         {
-          to: 'integrations/all',
+          to: 'integrations',
           label: 'more...',
         },
         {

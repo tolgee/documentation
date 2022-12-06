@@ -203,7 +203,7 @@ Out of the box, it has an [in-context editing feature](/blog/in-context-producti
 even in production. This can save you a lot of time and stress. It also provides a unique way how you can get perfect translation
 results. And it's open-source!
 
-To get started, you can choose your favorite technology [here](https://tolgee.io/integrations/all) and follow the
+To get started, you can choose your favorite technology [here](https://tolgee.io/integrations) and follow the
 guide.
 
 To be fair, I also have to mention other i18n solutions in the JS world.
