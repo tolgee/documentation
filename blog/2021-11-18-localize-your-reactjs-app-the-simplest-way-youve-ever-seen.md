@@ -105,7 +105,7 @@ To get started, you can simply follow the integration guides provided in the pla
 
 You can find the resulting code in [this GitHub repo](https://github.com/JanCizmar/tolgee-react-hello-world), **but you have to add your `.env.development.local` file.**
 
-Now you are able to translate your React.js applications with Tolgee. To learn more about Tolgee or to find out how to translate more complicated cases, [visit our docs](https://tolgee.io) or integrations to other [frameworks](https://tolgee.io/integrations/all).
+Now you are able to translate your React.js applications with Tolgee. To learn more about Tolgee or to find out how to translate more complicated cases, [visit our docs](https://tolgee.io) or integrations to other [frameworks](https://tolgee.io/integrations).
 
 ## TL;DR
 

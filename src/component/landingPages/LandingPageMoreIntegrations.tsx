@@ -24,7 +24,7 @@ export const MoreIntegrations: FC = () => {
           ))}
       </div>
       <Link
-        to="/integrations/all"
+        to="/integrations"
         className="md:mb-10 underline font-[400] text-[18px]"
       >
         Show all
