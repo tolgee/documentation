@@ -49,8 +49,8 @@ module.exports.redirects = {
       from: '/docs/web/understanding_tolgee_for_web',
       to: '/js-sdk/',
     },
-    { from: '/docs/integrations', to: '/integrations' },
-    { from: '/integrations/all', to: '/integrations' },
+    { from: '/docs/integrations', to: '/integrations/' },
+    { from: '/integrations/all', to: '/integrations/' },
   ],
   createRedirects(existingPath) {
     if (existingPath.indexOf('/docs/platform') === 0) {
