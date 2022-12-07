@@ -1,0 +1,29 @@
+---
+id: switching_language
+title: Switching language (Vue)
+sidebar_label: Switching language
+slug: switching-language
+description: 'Learn how to switch languages in Vue integration. For language management, use useLanguage composition function'
+---
+
+For language management, use [`useTolgee`](./api#composable-usetolgee) composable function, with subscription to `language` event:
+
+```html
+<template>
+  <select :value="tolgee.getLanguage()" v-on:change="changeLanguage">
+    ...
+  </select>
+</template>
+
+<script setup>
+  import { useTolgee } from '@tolgee/vue';
+
+  const tolgee = useTolgee(['language']);
+
+  const changeLanguage = (e) => {
+    tolgee.value.changeLanguage(e.target.value);
+  };
+</script>
+```
+
+> Read more about [Language change](/switching_language.mdx)

@@ -1,0 +1,50 @@
+---
+id: translating
+title: Translating (React)
+sidebar_label: Translating
+description: 'Learn about several ways how to translate a text using Tolgee React integration: T-component or useTranslate hook.'
+---
+
+There are several ways how to translate a text using our React integration.
+
+## `useTranslate` hook
+
+Other option how to translate is using of [`useTranslate`](./api#hook-usetranslate) hook. You can use it this way:
+
+```js
+import { useTranslate } from '@tolgee/react';
+
+function Component() {
+  const { t } = useTranslate();
+
+  <div title={t('key_to_translate')}>...</div>;
+}
+```
+
+> Read more about [`tolgee.t`](/api/core_package/tolgee.mdx#t)
+
+### Using namespaces
+
+`useTranslate` hook can be also used for loading additional namespaces.
+
+```ts
+const { t, isLoading } = useTranslate('common');
+```
+
+This example will add `common` to [active namespaces](/api/core_package/tolgee.mdx#addactivens). You can then also use `isLoading` property, which will tell you if your data are ready.
+
+## The `T` component
+
+Another way is to use [`T` component](./api#t-component)
+
+```jsx
+import { T } from "@tolgee/react";
+
+...
+
+<T keyName="translation_key" />
+```
+
+## Message format
+
+By default Tolgee is without any message formatter. You can use [`FormatSimple`](/api/core_package/format_simple.mdx) or [`FormatIcu`](/platform/icu_message_format)

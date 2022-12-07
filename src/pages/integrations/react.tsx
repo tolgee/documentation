@@ -11,7 +11,7 @@ import { MoreIntegrations } from '../../component/landingPages/LandingPageMoreIn
 
 const DocsLinks = ({ primary }: { primary?: boolean }) => (
   <LandingPageActions
-    docs={{ link: '/docs/web/using_with_react/installation' }}
+    docs={{ link: '/js-sdk/using_with_react/installation' }}
     githubRepo="react"
     exampleApp="react-example"
     primary={primary}
@@ -48,7 +48,7 @@ export default function ReactIntegration() {
           <p>
             Go to <a href="https://app.tolgee.io">Tolgee Cloud app</a> or access
             your{' '}
-            <a href="/docs/platform/self_hosting/running_with_docker">
+            <a href="/platform/self_hosting/running_with_docker">
               self-hosted instance
             </a>{' '}
             and create a project. Then obtain your API key.

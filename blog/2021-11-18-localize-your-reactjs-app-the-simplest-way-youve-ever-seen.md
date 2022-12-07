@@ -27,7 +27,7 @@ Tolgee is also localization platform, where you can manage all your localization
 ## Isn't that hard to integrate? No it's not!
 To get started, you can simply follow the integration guides provided in the platform. Which is the simplest way to get started. 
 
-1. Login to [Tolgee Cloud](https://app.tolgee.io) or use your self hosted [Tolgee instance](https://tolgee.io/docs/platform/self_hosting/running_with_docker).
+1. Login to [Tolgee Cloud](https://app.tolgee.io) or use your self hosted [Tolgee instance](https://tolgee.io/platform/self_hosting/running_with_docker).
 
 2. Create a new project by clicking **`Add` button in the top right**. And filling the project name.
 
@@ -105,7 +105,7 @@ To get started, you can simply follow the integration guides provided in the pla
 
 You can find the resulting code in [this GitHub repo](https://github.com/JanCizmar/tolgee-react-hello-world), **but you have to add your `.env.development.local` file.**
 
-Now you are able to translate your React.js applications with Tolgee. To learn more about Tolgee or to find out how to translate more complicated cases, [visit our docs](https://tolgee.io) or integrations to other [frameworks](https://tolgee.io/integrations/all).
+Now you are able to translate your React.js applications with Tolgee. To learn more about Tolgee or to find out how to translate more complicated cases, [visit our docs](https://tolgee.io) or integrations to other [frameworks](https://tolgee.io/integrations).
 
 ## TL;DR
 

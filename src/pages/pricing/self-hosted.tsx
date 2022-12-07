@@ -22,7 +22,7 @@ export default function SelfHosted() {
             <div className="pricing__option-price">0 €</div>
             <Link
               className="pricing__option-button"
-              to="/docs/platform/self_hosting/running_with_docker"
+              to="/platform/self_hosting/running_with_docker"
             >
               Docs
             </Link>

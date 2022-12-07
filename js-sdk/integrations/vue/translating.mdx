@@ -1,0 +1,64 @@
+---
+id: translating
+title: Translating (Vue)
+sidebar_label: Translating
+description: 'Learn how to translate your Vue application with Tolgee localization tool: with the T-component or by Imperative translation.'
+---
+
+There are two ways how to translate with Tolgee.
+
+## Global `$t` function
+
+If you use [`VueTolgee`](./api#vuetolgee-plugin) plugin, you can use `$t` function in any component.
+
+```html
+<template>
+  <div>{{ $t('this_is_a_key') }}</div>
+</template>
+```
+
+## `useTranslate` composable
+
+Other option how to translate is using of [`useTranslate`](./api#composable-usetranslate) composable. You can use it this way:
+
+```html
+<template>
+  <div :title="t('key')">...</div>
+</template>
+
+<script setup>
+  import { useTranslate } from '@tolgee/vue';
+
+  const { t } = useTranslate();
+</script>
+```
+
+> Read more about [`tolgee.t`](/api/core_package/tolgee.mdx#t)
+
+### Using namespaces
+
+[`useTranslate`](./api#composable-usetranslate) composable can be also used for loading additional namespaces.
+
+```ts
+const { t, isLoading } = useTranslate('common');
+```
+
+This example will add `common` to [active namespaces](/api/core_package/tolgee.mdx#addactivens). You can then also use `isLoading` property, which will tell you if your data are ready.
+
+## The `T` component
+
+Another way is to use [`T` component](./api#t-component)
+
+```html
+<template>
+  <T keyName="translation_key" />
+</template>
+
+<script setup>
+  import { T } from '@tolgee/vue';
+</script>
+```
+
+## Message format
+
+By default Tolgee is without any message formatter. You can use [`FormatSimple`](/api/core_package/format_simple.mdx) or [`FormatIcu`](/platform/icu_message_format)

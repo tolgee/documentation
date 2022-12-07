@@ -1,0 +1,65 @@
+---
+id: installation
+title: Installation (Vue)
+sidebar_label: Installation
+description: 'Learn how to install Tolgee Vue integration library and how to wrap your application with TolgeeProvider component.'
+---
+
+:::info
+To get full image of working Vue integration, check our [Vue Example Application](https://github.com/tolgee/vue-example).
+:::
+
+To install Tolgee Vue integration library run:
+
+import { InstallationTabs } from '../../../src/component/InstallationTabs';
+
+<InstallationTabs lib="@tolgee/vue" />
+
+First initialize `Tolgee` with [`VuePlugin`](./api#vueplugin) (plugin for Tolgee) and use [`VueTolgee`](./api#vuetolgee-plugin) (plugin for Vue).
+
+```ts
+import { Tolgee, VuePlugin, VueTolgee, FormatSimple } from '@tolgee/vue';
+
+const tolgee = Tolgee()
+  .use(VuePlugin())
+  .use(FormatSimple())
+  .init({
+    language: 'en',
+    apiUrl: process.env.VUE_APP_TOLGEE_API_URL,
+    apiKey: process.env.VUE_APP_TOLGEE_API_KEY,
+  });
+
+...
+
+app.use(VueTolgee, { tolgee });
+```
+
+> Check [Initialization](/initialization.mdx) for more info.
+
+[`VueTolgee`](./api#vuetolgee-plugin) plugin makes `$t` function globally available.
+
+Wrap your application with [`TolgeeProvider`](./api#tolgeeprovider) component. `TolgeeProvider` will start tolgee at correct moment and waits for initial data to be loaded. You can provide `fallback` slot, to show custom loader while translations are being loaded.
+
+```html
+<template>
+  <TolgeeProvider>
+    <template v-slot:fallback>
+      <div>Loading...</div>
+    </template>
+    <App />
+  </TolgeeProvider>
+</template>
+```
+
+If you bootstrapped your application with vue-cli, your `.env.development.local` file should look like this:
+
+```shell
+VUE_APP_TOLGEE_API_URL=https://app.tolgee.io
+VUE_APP_TOLGEE_API_KEY=<your_api_key>
+```
+
+Otherwise, you can set the properties directly, or you can use plugins like [dotenv-webpack plugin](https://www.npmjs.com/package/dotenv-webpack).
+
+> Obtaining Tolgee API key is described in [Integration](/platform/integration) chapter.
+
+> To see how to use your local translations [Preparing for production](/preparing_for_production.mdx).

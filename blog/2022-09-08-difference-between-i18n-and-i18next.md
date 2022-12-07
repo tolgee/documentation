@@ -46,7 +46,7 @@ JavaScript you can use. Here are some of them:
 
 - [FormatJS](https://formatjs.io/)
   - [react-intl (a react i18n library from FormatJS family)](https://formatjs.io/docs/react-intl/)
-- [Tolgee JS (Our integrations)](/integrations/all)
+- [Tolgee JS (Our integrations)](/integrations)
 - [Typesafe-i18n](https://github.com/ivanhofer/typesafe-i18n)
 
 i18next is not the only solution out there. Different solutions suit different needs.

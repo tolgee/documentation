@@ -49,7 +49,7 @@ In some cases, screenshots may be the only available information about a particu
 
 ![manual screenshots in tolgee](/img/blog/context-gamechanger/manual_screenshot.png)
 
-To generate screenshots automatically, install [Tolgee tools plugin](https://chrome.google.com/webstore/detail/tolgee-tools/hacnbapajkkfohnonhbmegojnddagfnj) for the Google Chrome browser. With this plugin, you can [generate screenshots](/docs/web/automated_screenshot_generation) by clicking the camera icon in Tolgee UI translation dialog. However, this Chrome plugin can do much more than the automated generation of screenshots! So continue reading.
+To generate screenshots automatically, install [Tolgee tools plugin](https://chrome.google.com/webstore/detail/tolgee-tools/hacnbapajkkfohnonhbmegojnddagfnj) for the Google Chrome browser. With this plugin, you can [generate screenshots](/js-sdk/automated_screenshot_generation) by clicking the camera icon in Tolgee UI translation dialog. However, this Chrome plugin can do much more than the automated generation of screenshots! So continue reading.
 
 ![in-context plugin](/img/blog/context-gamechanger/translate_in_context.png)
 

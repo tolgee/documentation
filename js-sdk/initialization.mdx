@@ -1,0 +1,42 @@
+---
+id: initialization
+title: Initialization
+description: 'Tolgee initialization'
+---
+
+Standard way to initialize tolgee is:
+
+```ts
+import {Tolgee, DevTools, FormatSimple} from '@tolgee/web'
+
+const tolgee = Tolgee()
+  .use(DevTools())
+  .use(FormatSimple())
+  .init({
+    language: 'en'
+    apiUrl: 'https://app.tolgee.io'
+    apiKey: '<your tolgee API key>'
+  })
+
+tolgee.run();
+```
+
+:::warning
+Never leak your API key! We strongly recommend against adding API key into git repository.
+:::
+
+We use `DevTools` plugin which will provide in-context translating in dev mode. We also need to provide `apiUrl` and `apiKey` for the in-context to work.
+
+> Obtaining Tolgee API key is described in [Integration](/platform/integration) chapter.
+
+> Check all [tolgee options](./api/core_package/options) and [tolgee plugins](./api/web_package/plugins).
+
+## What does `run` do?
+
+:::info
+In tolgee integrations `run` method is usually called automatically in tolgee provider, it is generally better to hook it into framework lifecycle because of SSR.
+:::
+
+Tolgee [`run`](./api/core_package/tolgee.mdx#run) method will start loading translations data (if necessary) and also activates in-context tools.
+
+You can use tolgee without running it (e.g. on server with ssr). That way tolgee won't activate in-context tools and will not load anything asynchronously, but you can still use [`tolgee.t`](./api/core_package/tolgee.mdx#t) function with [`staticData`](./api/core_package/options#staticdata).

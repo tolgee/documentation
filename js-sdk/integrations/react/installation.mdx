@@ -1,0 +1,60 @@
+---
+id: installation
+title: Installation (React)
+sidebar_label: Installation
+description: 'Learn how to install Tolgee React integration library. To get full image of working React integration check our React example application.'
+---
+
+:::info
+To get full image of working React integration check our [React example application](https://github.com/tolgee/react-example).
+:::
+
+To install Tolgee React integration library run:
+
+import { InstallationTabs } from '../../../src/component/InstallationTabs';
+
+<InstallationTabs lib="@tolgee/react" />
+
+Init Tolgee with [`ReactPlugin`](./api#reactplugin) and wrap your application in [`TolgeeProvider`](./api#tolgeeprovider).
+
+```tsx
+import { Tolgee, ReactPlugin, TolgeeProvider, FormatSimple } from "@tolgee/react";
+
+const tolgee = Tolgee()
+  .use(ReactPlugin())
+  .use(FormatSimple())
+  .init({
+    language: 'en',
+    apiUrl: process.env.REACT_APP_TOLGEE_API_URL,
+    apiKey: process.env.REACT_APP_TOLGEE_API_KEY
+  });
+
+...
+
+<TolgeeProvider
+  tolgee={tolgee}
+  fallback="Loading..." // loading fallback
+>
+  <your-app-components>
+</TolgeeProvider>
+```
+
+> Check [Initialization](/initialization.mdx) for more info.
+
+If you bootstrapped your application with Create React App, your `.env.development.local` file should look like this:
+
+```sh
+REACT_APP_TOLGEE_API_URL=https://app.tolgee.io
+REACT_APP_TOLGEE_API_KEY=bkcq7tkoinjg9ehk9hc4t3duq3
+```
+
+:::danger
+Never leak your API key! You don't want visitors of your site to edit your translations. That's why we recommend to use
+.env files to store your API key. API key is then omitted for production build.
+:::
+
+Otherwise, you can set the properties directly, or you can use plugins like [dotenv-webpack plugin](https://www.npmjs.com/package/dotenv-webpack).
+
+> Obtaining Tolgee API key is described in [Integration](/platform/integration) chapter.
+
+> To see how to use your local translations [Preparing for production](/preparing_for_production.mdx).

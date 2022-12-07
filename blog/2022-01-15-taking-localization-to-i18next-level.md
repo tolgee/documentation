@@ -88,7 +88,7 @@ We have example applications for [React](https://github.com/tolgee/react-i18next
 
 ![In-context example](/img/blog/i18next/incontext.jpg)
 
-Read more in our [documentation](/docs/web/using_with_i18next/installation).
+Read more in our [documentation](/js-sdk/using_with_i18next/installation).
 Learn also how to integrate i18next and Tolgee into your project and how easy and fast you can translate your React.js app using these tools [here](/blog/super-fast-react-localization-i18n-with-i18next-and-tolgee).
 
 Thats it! :)

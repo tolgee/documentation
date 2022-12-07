@@ -1,0 +1,40 @@
+---
+id: installation
+title: Installation (i18next)
+sidebar_label: Installation
+description: 'Learn how to install Tolgee i18next integration library to use regular i18next translation features. Tolgee will follow i18next configuration.'
+---
+
+To install Tolgee i18next integration library run:
+
+import { InstallationTabs } from '../../../src/component/InstallationTabs';
+
+<InstallationTabs lib="@tolgee/i18next" />
+
+Then wrap your i18next instance [`withTolgee`](./api#function-withtolgeei18next-tolgeeconfig):
+
+```ts
+import i18n from 'i18next';
+import { withTolgee, Tolgee, I18nextPlugin, FormatSimple } from '@tolgee/i18next';
+
+const tolgee = Tolgee()
+  .use(I18nextPlugin())
+  .use(FormatSimple())
+  .init({
+    apiUrl: ...,
+    apiKey: ...,
+  });
+
+withTolgee(i18n, tolgee)
+  .use(...)
+  .init(...)
+
+```
+
+Now you can use regular i18next translation features.
+
+## Language detection/changes
+
+Tolgee will follow i18next configuration, so you can use i18next language detectors or set the language manually.
+
+To change language use `i18next.changeLanguage` function.
