@@ -5,6 +5,8 @@ sidebar_label: Running with Docker
 slug: /self_hosting/running_with_docker
 ---
 
+import { CodeWithVersion } from '../../src/component/CodeWithVersion';
+
 :::info
 Since v2, Tolgee runs PostgreSQL database in its container by default. To disable embedded Postgres, set
 `tolgee.postgres-autostart.enabled` property to `false`.
@@ -14,9 +16,7 @@ Since v2, Tolgee runs PostgreSQL database in its container by default. To disabl
 To run server locally you should be fine just with running simple Docker image with mounted data volume.
 Tolgee has embedded PostgreSQL database, so you don't have to manually set it.
 
-```
-docker run -v tolgee_data:/data/ -p 8085:8080 tolgee/tolgee
-```
+<CodeWithVersion code={'docker run -v tolgee_data:/data/ -p 8085:8080 tolgee/tolgee{{version}}'} />
 
 This will:
  - mount tolgee_data volume into it's directory inside the container
@@ -34,25 +34,25 @@ mkdir tolgee && cd tolgee
 ```
 
 Create a file named `docker-compose.yml` containing following content.
-```yaml title="docker-compose.yml"
-version: '3'
 
+<CodeWithVersion title="docker-compose.yml" code={`\
+version: '3'\n
 services:
   db:
     image: postgres:11
     environment:
       - POSTGRES_PASSWORD=postgres
   app:
-    image: tolgee/tolgee
+    image: tolgee/tolgee{{version}}
     volumes:
-     - ./data:/data
+      - ./data:/data
     ports:
       - "8090:8080"
     env_file:
       - .env
     depends_on:
       - "db"
-```
+`} />
 
 To provide a configuration, add following .env file.
 ```properties title=".env"
