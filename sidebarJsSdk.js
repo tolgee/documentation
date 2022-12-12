@@ -45,6 +45,7 @@ module.exports = {
             'integrations/angular/switching_language',
             'integrations/angular/html_tags',
             'integrations/angular/api',
+            'integrations/angular/migrating_to_v5',
           ],
         },
         {

@@ -1,0 +1,113 @@
+---
+id: migrating_to_v5
+title: Migrating to v5
+sidebar_label: Migrating to v5
+description: How to migrate Tolgee for Angular from v4 to v5
+---
+
+Since the new `@tolgee/core` has a brand new API, the `@tolgee/ngx` integration has changed as well. To migrate to v5
+you have to modify part of your code.
+
+## Initialization
+In v4 the initialization of Tolgee for angular was done by passing configuration parameters to `forRoot` method, you
+will need to provide tolgee instance using `TOLGEE_ISTANCE` injection token.
+
+```typescript title="app.module.ts"
+...
+import {
+  Tolgee,
+  TOLGEE_INSTANCE,
+} from '@tolgee/ngx';
+
+@NgModule({
+  ...
+  providers: [
+    {
+      provide: TOLGEE_INSTANCE,
+      useFactory: () => {
+        return Tolgee() // << The initialization of Tolgee instance is here
+          .use(...)
+          .use(...)
+          .init({
+            apiUrl: environment.tolgeeApiUrl,
+            apiKey: environment.tolgeeApiKey,
+            fallbackLanguage: 'en',
+            defaultLanguage: 'en',
+            ...
+          });
+      },
+    },
+  ],
+  ...
+})
+export class AppModule {}
+```
+
+The initialization & configuration of Tolgee is described here.
+
+## The Formatter
+In v4 the ICU formatter was bundled with `@tolgee/core`, and used as only formatting option. If you are already using ICU
+features in you strings, you can add ICU message format support by installing `@tolgee/format-icu` and providing it to
+Tolgee instance via `use()` method.
+
+```typescript title="app.module.ts"
+import { FormatIcu } from '@tolgee/format-icu';
+...
+
+// Add this to the useFactory function
+return Tolgee()
+  .use(FormatIcu())
+  ...
+```
+
+If you only need parameter interpolation and you don't need to format advanced plurals, selects, dates or use other cool
+ICU features, you can stick with `FormatSimple` plugin, which is more lightweight. The `FormatSimple` module is included
+in `@tolgee/core`, so you don't have to install it.
+
+```typescript title="app.module.ts"
+import { FormatSimple } from '@tolgee/core';
+
+// Add this to the useFactory function
+return Tolgee()
+  .use(FormatSimple())
+```
+
+## Providing the localization data
+If you were not using the `staticData` configuration property for providing the localization data in production, the
+localization data were fetched automatically from you static assets of your app. To continue using this approach, you
+need to use [`BackendFetch`](../../api/web_package/plugins#backendfetch) plugin.
+
+If you are using the `staticData` property. You can continue using it the same way.
+
+```typescript title="app.module.ts"
+import { FormatSimple } from '@tolgee/core';
+
+// Add this to the useFactory function
+return Tolgee()
+  .use(BackendFetch())
+```
+
+## Usage
+While the T component API is still the same. The API of translate pipe and TranslateService APIs are changed.
+The `stranslate` pipe was removed and replaced with parameter of `translate` pipe.
+
+### The `translate` pipe
+
+The `translate` pipe API now shares the same API as [`tolgee.t`](../../api/core_package/tolgee#t). In most cases the
+usage is the same, but it allows new ways of usage.
+
+For example, you can provide all the params via options object.
+```html
+<div>{{ { key: 'this_is_a_key', defaultValue: 'Jeeey!' } | translate}}</div>
+```
+
+### The `stranslate` pipe
+The `stranslate` pipe was removed, but you can achieve the same result using `noWrap` parameter.
+
+```html
+{ 'this_is_a_key' | translate:{ noWrap: true } }}
+```
+
+### The `translationService` methods.
+
+
