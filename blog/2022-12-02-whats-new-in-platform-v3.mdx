@@ -13,14 +13,16 @@ more lightweight and customizable."
 tags: [i18n, localization, tolgee-platform, tolgee-js]
 ---
 
-We are proud to share that we have released alpha versions if Tolgee Platform v3 and Tolgee JS v5. We have added
+We are proud to share that we have released alpha versions of Tolgee Platform v3 and Tolgee JS v5. We have added
 namespaces support to structure your strings into smaller chunks. The base library of our JS integrations is
 completely redesigned to be more lightweight end extendable by plugins.
+
+<!--truncate-->
 
 ## What's new in the Tolgee Platform v3
 
 The most exciting feature of the new platform release is the namespaces support. Now you can select a namespace
-while creating a new key, importing data or exporting data.
+while creating a new key, importing data, or exporting data.
 
 <video
   loop
@@ -34,7 +36,7 @@ while creating a new key, importing data or exporting data.
 
 ### The breaking changes
 
-While adding the namespaces support, we also removed some deprecated API endpoints. So if you use those in you CI/CD
+While adding the namespaces support, we also removed some deprecated API endpoints. So if you use those in your CI/CD
 pipelines, please replace those with the `/v2` endpoints. We have removed these endpoints:
 
 - All the endpoints matching `/api/project/**` (use `/v2/projects/*`)
@@ -88,7 +90,7 @@ React integration now uses Suspense to implement dynamic namespaces addition nic
 
 - The Tolgee Platform v3 and Tolgee JS v5 integrations support namespaces
 - Deprecated v1 endpoints (`/api/*`) were deleted
-- The JS `@tolgee/core` new JS SKDs are now lightweight, customizable and cleaner
+- The JS `@tolgee/core` new JS SDKs are now lightweight, customizable, and cleaner
 - The `@tolgee/web` package contains plugins related to web
 - The interface of `t` function is unified across integrations
 - `@tolgee/react` now uses Suspense
