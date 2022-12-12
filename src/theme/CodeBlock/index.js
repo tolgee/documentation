@@ -1,20 +1,20 @@
 import React from 'react';
-import CodeBlock from '@theme/CodeBlock';
-// @ts-ignore
+import CodeBlock from '@theme-original/CodeBlock';
 import { useActivePluginAndVersion } from '@docusaurus/plugin-content-docs/client';
 
-type Props = Omit<React.ComponentProps<typeof CodeBlock>, 'children'> & {
-  code: string;
-};
-
-export function CodeWithVersion({ code, ...props }: Props) {
+export default function CodeBlockWrapper(props) {
   const { activeVersion } = useActivePluginAndVersion();
   const { label: versionLabel } = activeVersion;
   const versionSegment = activeVersion.isLast ? '' : ':v' + versionLabel;
 
+  const newProps = {
+    ...props,
+    children: props.children?.replace(/{{dockerTagVersion}}/, versionSegment),
+  };
+
   return (
-    <CodeBlock {...props}>
-      {code?.replace(/{{version}}/, versionSegment)}
-    </CodeBlock>
+    <>
+      <CodeBlock {...newProps} />
+    </>
   );
 }
