@@ -10,7 +10,6 @@ import { LandingPageActions } from '../../component/landingPages/LandingPageActi
 import { MoreIntegrations } from '../../component/landingPages/LandingPageMoreIntegrations';
 import Head from '@docusaurus/Head';
 
-
 const DocsLinks = ({ primary }: { primary?: boolean }) => (
   <LandingPageActions
     docs={{ link: '/js-sdk/using_with_svelte/installation' }}
@@ -23,8 +22,11 @@ const DocsLinks = ({ primary }: { primary?: boolean }) => (
 export default function Svelte() {
   return (
     <LandingPage title={'Tolgee for Svelte'}>
-       <Head>
-        <meta name="description" content="Learn how to install Tolgee Svelte integration library. With Tolgee i18n library for Svelte you can enjoy all Tolgee i18n features." />
+      <Head>
+        <meta
+          name="description"
+          content="Learn how to install Tolgee Svelte integration library. With Tolgee i18n library for Svelte you can enjoy all Tolgee i18n features."
+        />
       </Head>
       <LandingPageHeadline
         loveImage={{

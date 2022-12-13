@@ -1,3 +1,4 @@
+/* eslint-disable react/no-unescaped-entities */
 import React from 'react';
 import './roadmap.css';
 import DecoratedLayout from '../../theme/DecoratedLayout';
@@ -5,7 +6,6 @@ import { PageHeader } from '../../component/pageComponents/header/PageHeader';
 import { PageHeaderTitle } from '../../component/pageComponents/header/PageHeaderTitle';
 import { PageHeaderSubtitle } from '../../component/pageComponents/header/PageHeaderSubtitle';
 import Head from '@docusaurus/Head';
-
 
 type Item = {
   name: string;
@@ -388,7 +388,10 @@ export default function Roadmap() {
           <PageHeaderSubtitle h1>Roadmap</PageHeaderSubtitle>
           <PageHeaderTitle active>We are on it.</PageHeaderTitle>
           <Head>
-            <meta name="description" content="Roadmap of Tolgee localization tool. Learn what we have done so far and what new features we plan for the next year ahead." />
+            <meta
+              name="description"
+              content="Roadmap of Tolgee localization tool. Learn what we have done so far and what new features we plan for the next year ahead."
+            />
           </Head>
         </PageHeader>
         <div className="container roadmap__container">

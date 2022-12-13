@@ -36,7 +36,6 @@ We have a tiny little app with a headline and button, whatever the button does, 
 translated! 😎 To translate it we have to transform it to something like this.
 
 ```html
-
 <h1>
   <T key="my-app-headline">My beautiful App</T>
 </h1>
@@ -61,11 +60,11 @@ calls.
 ```html
 <h1 id="headline"></h1>
 <script>
-  const headline = document.getElementById("headline");
+  const headline = document.getElementById('headline');
   if (isTheAppCool) {
-    headline.textContent = "My cool App"
+    headline.textContent = 'My cool App';
   } else {
-    headline.textContent = "My App"
+    headline.textContent = 'My App';
   }
 </script>
 ```
@@ -111,7 +110,7 @@ Preparing your app to be localized is always good idea and with Tolgee you can d
 only task is to wrap the string with T component come up with a nice translation key. Then you can just go to your app
 and translate your string with `ALT + Click`. You can also automatically generate a screenshot from your App to provide
 the context to your future translators. If you would like to learn more about it,
-check [our documentation 📚](/platform) or choose an integration library above and follow the tutorials. 📖 
+check [our documentation 📚](/platform) or choose an integration library above and follow the tutorials. 📖
 
 ## TL; DR
 

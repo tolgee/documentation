@@ -32,8 +32,11 @@ const DocsLinks = ({ primary }: { primary?: boolean }) => (
 export default function Gatsby() {
   return (
     <LandingPage title={'Tolgee for Gatsby'}>
-       <Head>
-        <meta name="description" content="Learn how to use Tolgee with your Gatsby application, using React integration library together with Gatsby i18n support." />
+      <Head>
+        <meta
+          name="description"
+          content="Learn how to use Tolgee with your Gatsby application, using React integration library together with Gatsby i18n support."
+        />
       </Head>
       <LandingPageHeadline
         loveImage={{

@@ -14,7 +14,6 @@ import { LandingPageActions } from '../../component/landingPages/LandingPageActi
 import { MoreIntegrations } from '../../component/landingPages/LandingPageMoreIntegrations';
 import Head from '@docusaurus/Head';
 
-
 const DocsLinks = ({ primary }: { primary?: boolean }) => (
   <LandingPageActions
     docs={{
@@ -33,8 +32,11 @@ const DocsLinks = ({ primary }: { primary?: boolean }) => (
 export default function Next() {
   return (
     <LandingPage title={'Tolgee for Next'}>
-       <Head>
-        <meta name="description" content="Learn how to install Tolgee React integration library. With Tolgee i18n library for React you can enjoy all Tolgee i18n features." />
+      <Head>
+        <meta
+          name="description"
+          content="Learn how to install Tolgee React integration library. With Tolgee i18n library for React you can enjoy all Tolgee i18n features."
+        />
       </Head>
       <LandingPageHeadline
         loveImage={{

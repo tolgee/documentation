@@ -10,7 +10,6 @@ import { LandingPageActions } from '../../component/landingPages/LandingPageActi
 import { MoreIntegrations } from '../../component/landingPages/LandingPageMoreIntegrations';
 import Head from '@docusaurus/Head';
 
-
 const DocsLinks = ({ primary }: { primary?: boolean }) => (
   <LandingPageActions
     docs={{ link: '/js-sdk/using_with_angular/installation' }}
@@ -23,8 +22,11 @@ const DocsLinks = ({ primary }: { primary?: boolean }) => (
 export default function Angular() {
   return (
     <LandingPage title={'Tolgee for Angular'}>
-       <Head>
-        <meta name="description" content="Learn how to install Tolgee Angular integration library. With Tolgee i18n library for Angular you can enjoy all Tolgee i18n features." />
+      <Head>
+        <meta
+          name="description"
+          content="Learn how to install Tolgee Angular integration library. With Tolgee i18n library for Angular you can enjoy all Tolgee i18n features."
+        />
       </Head>
       <LandingPageHeadline
         loveImage={{

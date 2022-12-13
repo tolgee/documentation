@@ -23,7 +23,10 @@ export default function ReactIntegration() {
   return (
     <LandingPage title={'Tolgee for React'}>
       <Head>
-        <meta name="description" content="Learn how to install Tolgee React integration library. With Tolgee i18n library for React you can enjoy all Tolgee i18n features." />
+        <meta
+          name="description"
+          content="Learn how to install Tolgee React integration library. With Tolgee i18n library for React you can enjoy all Tolgee i18n features."
+        />
       </Head>
       <LandingPageHeadline
         loveImage={{

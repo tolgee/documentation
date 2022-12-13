@@ -23,8 +23,11 @@ const DocsLinks = ({ primary }: { primary?: boolean }) => (
 export default function Vue() {
   return (
     <LandingPage title={'Tolgee for Vue'}>
-       <Head>
-        <meta name="description" content="Learn how to install Tolgee Vue integration library. With Tolgee i18n library for Vue you can enjoy all Tolgee i18n features." />
+      <Head>
+        <meta
+          name="description"
+          content="Learn how to install Tolgee Vue integration library. With Tolgee i18n library for Vue you can enjoy all Tolgee i18n features."
+        />
       </Head>
       <LandingPageHeadline
         loveImage={{
