@@ -15,7 +15,7 @@ To run server locally you should be fine just with running simple Docker image w
 Tolgee has embedded PostgreSQL database, so you don't have to manually set it.
 
 ```
-docker run -v tolgee_data:/data/ -p 8085:8080 tolgee/tolgee
+docker run -v tolgee_data:/data/ -p 8085:8080 tolgee/tolgee{{dockerTagVersion}}
 ```
 
 This will:
@@ -34,7 +34,8 @@ mkdir tolgee && cd tolgee
 ```
 
 Create a file named `docker-compose.yml` containing following content.
-```yaml title="docker-compose.yml"
+
+```yaml title=docker-compose.yaml
 version: '3'
 
 services:
@@ -43,9 +44,9 @@ services:
     environment:
       - POSTGRES_PASSWORD=postgres
   app:
-    image: tolgee/tolgee
+    image: tolgee/tolgee{{dockerTagVersion}}
     volumes:
-     - ./data:/data
+      - ./data:/data
     ports:
       - "8090:8080"
     env_file:
