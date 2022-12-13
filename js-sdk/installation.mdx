@@ -18,8 +18,6 @@ import { InstallationTabs } from '../src/component/InstallationTabs';
 
 ```ts
 import { Tolgee } from '@tolgee/web';
-
-const tolgee = Tolgee(...);
 ```
 
 ### With script tag
@@ -30,14 +28,12 @@ const tolgee = Tolgee(...);
 
 ```ts
 const { Tolgee } = window['@tolgee/web'];
-const tolgee = Tolgee(...)
 ```
 
 ### With native es import
 
 ```ts
 import { Tolgee } from 'https://cdn.jsdelivr.net/npm/@tolgee/sdk/dist/tolgee-web-tolgee.esm.min.mjs'
-const tolgee = Tolgee(...)
 ```
 
 ## In-context (DevTools)
@@ -45,7 +41,7 @@ const tolgee = Tolgee(...)
 To use In-context in development mode, you can simply use [`DevTools`](./api/web_package/bundled-plugins#devtools) from `@tolgee/web`
 
 ```ts
-import { DevTools } from '@tolgee/web';
+import { Tolgee, DevTools } from '@tolgee/web';
 
 const tolgee = Tolgee().use(DevTools()).init(...)
 ```

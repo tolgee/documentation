@@ -17,11 +17,13 @@ import { useTranslate } from '@tolgee/react';
 function Component() {
   const { t } = useTranslate();
 
-  <div title={t('key_to_translate')}>...</div>;
+  return (
+    <div title={t('key_to_translate')}>...</div>
+  );
 }
 ```
 
-> Read more about [`tolgee.t`](/api/core_package/tolgee.mdx#t)
+> `t` function has same API as `tolgee.t` ([read more](/api/core_package/tolgee.mdx#t)).
 
 ### Using namespaces
 
@@ -47,4 +49,4 @@ import { T } from "@tolgee/react";
 
 ## Message format
 
-By default Tolgee is without any message formatter. You can use [`FormatSimple`](/api/core_package/format_simple.mdx) or [`FormatIcu`](/platform/icu_message_format)
+By default Tolgee is without any message formatter ([read more](/formatting.mdx)). You can use [`FormatSimple`](/api/core_package/format_simple.mdx) or [`FormatIcu`](/platform/icu_message_format).
