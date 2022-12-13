@@ -1,7 +1,7 @@
 ---
 slug: software-localization-machine-translation
 
-title: "Software Localization & Machine Translation: Which Provider Should I Choose? "
+title: "Software Localization & Machine Translation: Which Provider? "
 
 authors: [mchalupnikova]
 

@@ -12,6 +12,7 @@ import { ReactInstallationStepUseTComponent } from '../../component/landingPages
 import GatsbyLogo from '../../../static/img/technologies/logo-gatsby.svg';
 import { LandingPageActions } from '../../component/landingPages/LandingPageActions';
 import { MoreIntegrations } from '../../component/landingPages/LandingPageMoreIntegrations';
+import Head from '@docusaurus/Head';
 
 const DocsLinks = ({ primary }: { primary?: boolean }) => (
   <LandingPageActions
@@ -31,6 +32,12 @@ const DocsLinks = ({ primary }: { primary?: boolean }) => (
 export default function Gatsby() {
   return (
     <LandingPage title={'Tolgee for Gatsby'}>
+      <Head>
+        <meta
+          name="description"
+          content="Learn how to use Tolgee with your Gatsby application, using React integration library together with Gatsby i18n support."
+        />
+      </Head>
       <LandingPageHeadline
         loveImage={{
           img: <GatsbyLogo width={70} />,

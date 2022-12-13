@@ -8,9 +8,14 @@ export default function CodeBlockWrapper(props) {
   const isLast = activeVersion?.isLast;
   const versionSegment = !versionLabel || isLast ? '' : ':v' + versionLabel;
 
+  const children =
+    typeof props.children === 'string'
+      ? props.children.replace(/{{dockerTagVersion}}/, versionSegment)
+      : props.children;
+
   const newProps = {
     ...props,
-    children: props.children?.replace?.(/{{dockerTagVersion}}/, versionSegment),
+    children,
   };
 
   return (

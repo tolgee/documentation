@@ -8,6 +8,7 @@ import AngularLogo from '../../../static/img/technologies/logo-angular.svg';
 import { LandingPageDescription } from '../../component/landingPages/LandingPageDescription';
 import { LandingPageActions } from '../../component/landingPages/LandingPageActions';
 import { MoreIntegrations } from '../../component/landingPages/LandingPageMoreIntegrations';
+import Head from '@docusaurus/Head';
 
 const DocsLinks = ({ primary }: { primary?: boolean }) => (
   <LandingPageActions
@@ -21,6 +22,12 @@ const DocsLinks = ({ primary }: { primary?: boolean }) => (
 export default function Angular() {
   return (
     <LandingPage title={'Tolgee for Angular'}>
+      <Head>
+        <meta
+          name="description"
+          content="Learn how to install Tolgee Angular integration library. With Tolgee i18n library for Angular you can enjoy all Tolgee i18n features."
+        />
+      </Head>
       <LandingPageHeadline
         loveImage={{
           img: <AngularLogo width={80} />,

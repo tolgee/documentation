@@ -5,6 +5,8 @@ import { PageHeader } from '../../component/pageComponents/header/PageHeader';
 import { PageHeaderTitle } from '../../component/pageComponents/header/PageHeaderTitle';
 import { PageHeaderSubtitle } from '../../component/pageComponents/header/PageHeaderSubtitle';
 import { GradientText } from '../../component/GradientText';
+import Head from '@docusaurus/Head';
+
 
 export default function WhyOpensource() {
   return (
@@ -16,6 +18,9 @@ export default function WhyOpensource() {
           </PageHeaderTitle>
           <PageHeaderSubtitle>Why so?</PageHeaderSubtitle>
         </PageHeader>
+        <Head>
+        <meta name="description" content="Why is open source our passion? Learn why we follow the open-source model with Tolgee localization tool and what are the benefits." />
+      </Head>
 
         <div className="container opensource__container">
           <p>Open-source is just a wonderful thing 😍</p>
