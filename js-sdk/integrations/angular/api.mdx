@@ -45,7 +45,7 @@ The injection token to provide [Tolgee instance](/api/core_package/tolgee.mdx).
         return Tolgee()
           .use(LanguageDetector())
           .use(FormatIcu())
-          .use(NgxPlugin())
+          .use(DevTools())
           .init({
             staticData: {
               en: () => import('../i18n/en.json'),

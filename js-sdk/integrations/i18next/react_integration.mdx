@@ -19,12 +19,12 @@ import {InstallationTabs} from "../../../src/component/InstallationTabs";
 And then use following setup:
 
 ```ts
-import { withTolgee, Tolgee, I18nextPlugin } from '@tolgee/i18next';
+import { withTolgee, Tolgee, I18nextPlugin, DevTools } from '@tolgee/i18next';
 import i18n from 'i18next';
 import ICU from 'i18next-icu';
 import { initReactI18next } from 'react-i18next';
 
-const tolgee = Tolgee().use(I18nextPlugin()).init({
+const tolgee = Tolgee().use(DevTools()).use(I18nextPlugin()).init({
   apiUrl: process.env.REACT_APP_TOLGEE_API_URL,
   apiKey: process.env.REACT_APP_TOLGEE_API_KEY,
 });

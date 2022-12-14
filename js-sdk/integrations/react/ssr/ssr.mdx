@@ -15,7 +15,7 @@ import localeDe from 'i18n/de.json';
 ...
 
 const tolgee = Tolgee()
-  .use(ReactPlugin())
+  .use(DevTools())
   .use(FormatSimple())
   .init({
     defaultLanguage: 'en',
@@ -57,7 +57,7 @@ For these cases we need to only provide statically the locale, that the user is 
 ```jsx
 
 const tolgee = Tolgee()
-  .use(ReactPlugin())
+  .use(DevTools())
   .use(FormatSimple())
   .init({
     defaultLanguage: 'en',

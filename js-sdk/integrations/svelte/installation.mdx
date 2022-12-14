@@ -15,14 +15,14 @@ import { InstallationTabs } from '../../../src/component/InstallationTabs';
 
 <InstallationTabs lib="@tolgee/svelte" />
 
-Init Tolgee with [`SveltePlugin`](./api#svelteplugin) and wrap your application in [`TolgeeProvider`](./api#tolgeeprovider).
+Init Tolgee and wrap your application in [`TolgeeProvider`](./api#tolgeeprovider).
 
 ```svelte
 <script>
-  import { TolgeeProvider, Tolgee, SveltePlugin, FormatSimple } from '@tolgee/svelte';
+  import { TolgeeProvider, Tolgee, DevTools, FormatSimple } from '@tolgee/svelte';
 
   const tolgee = Tolgee()
-    .use(SveltePlugin())
+    .use(DevTools())
     .use(FormatSimple())
     .init({
       apiUrl: import.meta.env.VITE_TOLGEE_API_URL,

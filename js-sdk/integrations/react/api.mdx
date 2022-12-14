@@ -5,18 +5,6 @@ sidebar_label: API
 description: 'API documentation for React integration: TolgeeProvider, T-component and different hooks ( useCurrentLanguage, useSetLanguage, useTranslate).'
 ---
 
-## ReactPlugin
-
-This plugin adds [`DevTools`](/api/web_package/bundled_plugins.mdx#devtools) plugin automatically and also makes tolgee globally available, so it can be used even without `TolgeeProvider`.
-
-```ts
-tolgee.use(ReactPlugin(options?: ReactOptions))
-```
-
-### React plugin options
-
-- useSuspense: boolean - `TolgeeProvider` and `useTranslate` will use suspense pattern (default: true)
-
 ## TolgeeProvider
 
 Provides Tolgee context and takes care of running/stopping tolgee. Accepts [`Tolgee`](/api/core_package/tolgee.mdx) instance.
@@ -37,7 +25,13 @@ import { TolgeeProvider } from '@tolgee/react';
 
 ### Prop `options?`
 
-[`ReactOptions`](#react-plugin-options) - overrides ReactPlugin options.
+```ts
+{
+  useSuspense?: boolean
+}
+```
+  - useSuspense: boolean - `TolgeeProvider` and `useTranslate` will use suspense pattern (default: true)
+
 
 ## T component
 
@@ -108,7 +102,7 @@ Returns requested translation and also subscribes component to translation/langu
 t('key', 'Default value', <options>);
 ```
 
-> `t` function has same API as `tolgee.t` ([read more](/api/core_package/tolgee.mdx#t)).
+> `t` function has the same API as [`tolgee.t`](/api/core_package/tolgee.mdx#t).
 
 ## Hook `useTolgee`
 

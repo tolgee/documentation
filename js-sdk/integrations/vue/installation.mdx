@@ -15,13 +15,13 @@ import { InstallationTabs } from '../../../src/component/InstallationTabs';
 
 <InstallationTabs lib="@tolgee/vue" />
 
-First initialize `Tolgee` with [`VuePlugin`](./api#vueplugin) (plugin for Tolgee) and use [`VueTolgee`](./api#vuetolgee-plugin) (plugin for Vue).
+First initialize `Tolgee` and use [`VueTolgee`](./api#vuetolgee-plugin).
 
 ```ts
-import { Tolgee, VuePlugin, VueTolgee, FormatSimple } from '@tolgee/vue';
+import { Tolgee, DevTools, VueTolgee, FormatSimple } from '@tolgee/vue';
 
 const tolgee = Tolgee()
-  .use(VuePlugin())
+  .use(DevTools())
   .use(FormatSimple())
   .init({
     language: 'en',

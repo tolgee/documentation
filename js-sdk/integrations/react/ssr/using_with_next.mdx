@@ -56,9 +56,9 @@ import type { AppProps } from 'next/app';
 import enLocale from '../i18n/en.json';
 import csLocale from '../i18n/cs.json';
 import { useRouter } from 'next/router';
-import { TolgeeProvider, ReactPlugin, Tolgee } from '@tolgee/react';
+import { TolgeeProvider, DevTools, Tolgee } from '@tolgee/react';
 
-const tolgee = Tolgee().use(ReactPlugin()).use(FormatSimple()).init({
+const tolgee = Tolgee().use(DevTools()).use(FormatSimple()).init({
   defaultLanguage: 'en',
   apiKey: process.env.NEXT_PUBLIC_TOLGEE_API_KEY,
   apiUrl: process.env.NEXT_PUBLIC_TOLGEE_API_URL,
@@ -88,7 +88,7 @@ export default MyApp;
 We can optimize bundle size by only including locale which is needed for rendered page by using getInitialProps.
 
 ```jsx
-const tolgee = Tolgee().use(ReactPlugin()).use(FormatSimple()).init({
+const tolgee = Tolgee().use(DevTools()).use(FormatSimple()).init({
   defaultLanguage: 'en',
   apiKey: process.env.NEXT_PUBLIC_TOLGEE_API_KEY,
   apiUrl: process.env.NEXT_PUBLIC_TOLGEE_API_URL,

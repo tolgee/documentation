@@ -57,7 +57,7 @@ module.exports = {
 import { useIntl } from 'gatsby-plugin-react-intl';
 
 const tolgee = Tolgee()
-  .use(ReactPlugin())
+  .use(DevTools())
   .init({
     defaultLanguage: 'en',
     apiKey: process.env.GATSBY_TOLGEE_API_KEY,
