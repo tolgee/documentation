@@ -6,11 +6,20 @@ description: 'Tolgee installation'
 
 We offer multiple ways how to install Tolgee.
 
-### With package manager
+## Integrations
 
-:::info
-If you use Tolgee integration, install only integration package, `@tolgee/web` will be included automatically.
-:::
+For supported integrations, install directly tolgee integration package:
+
+ - [React (Next.js, Gatsby ...)](./integrations/react/installation)
+ - [Angular](./integrations/angular/installation)
+ - [Vue](./integrations/vue/installation)
+ - [Svelte](./integrations/svelte/installation)
+ - [i18next library](./integrations/i18next/installation)
+
+
+## Without integration
+
+If you use vanilla javascript or unsupported framework, use [`@tolgee/web`](./api/web_package/about) package.
 
 import { InstallationTabs } from '../src/component/InstallationTabs';
 
@@ -18,8 +27,6 @@ import { InstallationTabs } from '../src/component/InstallationTabs';
 
 ```ts
 import { Tolgee } from '@tolgee/web';
-
-const tolgee = Tolgee(...);
 ```
 
 ### With script tag
@@ -30,14 +37,12 @@ const tolgee = Tolgee(...);
 
 ```ts
 const { Tolgee } = window['@tolgee/web'];
-const tolgee = Tolgee(...)
 ```
 
 ### With native es import
 
 ```ts
 import { Tolgee } from 'https://cdn.jsdelivr.net/npm/@tolgee/sdk/dist/tolgee-web-tolgee.esm.min.mjs'
-const tolgee = Tolgee(...)
 ```
 
 ## In-context (DevTools)
@@ -45,7 +50,7 @@ const tolgee = Tolgee(...)
 To use In-context in development mode, you can simply use [`DevTools`](./api/web_package/bundled-plugins#devtools) from `@tolgee/web`
 
 ```ts
-import { DevTools } from '@tolgee/web';
+import { Tolgee, DevTools } from '@tolgee/web';
 
 const tolgee = Tolgee().use(DevTools()).init(...)
 ```

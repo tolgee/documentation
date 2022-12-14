@@ -16,7 +16,7 @@ There are multiple options to provide static localization data for production bu
 To provide your localization data using dynamic import you will need to add providers for every supported language to [`staticData`](./api/core_package/options#staticdata).
 
 ```jsx
-const tolgee = Tolgee({
+const tolgee = Tolgee().init({
   ...
   staticData: {
     en: () => import('./i18n/en.json'),
@@ -40,7 +40,7 @@ import * as commonDe from 'i18n/common/de.json'
 
 ...
 
-const tolgee = Tolgee({
+const tolgee = Tolgee().init({
   ...
   staticData: {
     en: localeEn,

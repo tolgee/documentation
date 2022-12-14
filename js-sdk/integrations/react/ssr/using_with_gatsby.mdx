@@ -74,7 +74,7 @@ export const AppWrapper: React.FC = ({ children }) => {
   useMemo(() => {
     tolgee.setEmmiterActive(false);
     tolgee.changeLanguage(locale);
-    tolgee.addStaticData({ [locale]: messages as Record<string, string> });
+    tolgee.addStaticData({ [locale]: messages });
     tolgee.setEmmiterActive(true);
   }, [locale, messages]);
 

@@ -5,12 +5,14 @@ sidebar_label: Installation
 description: 'Learn how to install Tolgee Angular integration library.'
 ---
 
+import {InstallationTabs} from "../../../src/component/InstallationTabs";
+import PreparingForProduction from '../../shared/PreparingForProduction.mdx'
+
 Check our [Angular example application](https://github.com/tolgee/ngx-example) to get a complete image of working Angular integration.
 
 
 To install Tolgee Angular integration library, run the following:
 
-import {InstallationTabs} from "../../../src/component/InstallationTabs";
 
 <InstallationTabs lib="@tolgee/ngx"/>
 
@@ -79,8 +81,4 @@ section.
 
 ## Preparing for production
 
-In production mode, you should never use localization data from Tolgee REST API and never leak your API key.
-You should use data exported from the Tolgee platform.
-To get exported localization files, see [exporting translations](/platform/exporting_translations).
-
-Then provide the data via Tolgee configuration options described in [Preparing for production](/preparing_for_production.mdx).
+<PreparingForProduction />
