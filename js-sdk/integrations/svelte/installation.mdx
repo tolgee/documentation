@@ -25,9 +25,16 @@ Init Tolgee with [`SveltePlugin`](./api#svelteplugin) and wrap your application 
     .use(SveltePlugin())
     .use(FormatSimple())
     .init({
+      language: 'en',
+
+      // for development
       apiUrl: import.meta.env.VITE_TOLGEE_API_URL,
       apiKey: import.meta.env.VITE_TOLGEE_API_KEY,
-      language: 'en',
+
+      // for production
+      staticData: {
+        ...
+      }
     });
 </script>
 
