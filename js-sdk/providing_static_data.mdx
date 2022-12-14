@@ -1,15 +1,10 @@
 ---
-id: preparing_for_production
-title: Preparing for production
-sidebar_label: Preparing for production
-slug: preparing-for-production
+id: providing_static_data
+title: Providing static data
+slug: providing-static-data
 ---
 
-In production mode you should never use localization data from Tolgee REST API and you should never leak your API key.
-You should use data exported from Tolgee platform.
-To get exported localization files, see [exporting translations](/platform/exporting_translations).
-
-There are multiple options to provide static localization data for production builds.
+Provide static localization data in production mode or if you want to use it [without Tolgee platform](./usage-without-platform).
 
 ## Providing data using dynamic import
 
@@ -84,3 +79,5 @@ If you use namespaces, it should look like this:
 ```
 
 > This is default behavior, it's possible to customize in [`BackendFetch`](./api/web_package/plugins#backendfetch) plugin.
+
+

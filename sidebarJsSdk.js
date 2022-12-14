@@ -9,7 +9,7 @@ module.exports = {
     'namespaces',
     'in_context',
     'wrapping',
-    'preparing_for_production',
+    'providing_static_data',
     {
       label: 'Integrations',
       collapsed: false,
@@ -81,6 +81,10 @@ module.exports = {
     },
     {
       id: 'text_observer',
+      type: 'doc',
+    },
+    {
+      id: 'usage_without_platform',
       type: 'doc',
     },
     {

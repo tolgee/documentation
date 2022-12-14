@@ -45,9 +45,16 @@ import {
           .use(NgxPlugin())
           .use(FormatSimple())
           .init({
+            language: 'en'
+
+            // for development
             apiUrl: environment.tolgeeApiUrl,
             apiKey: environment.tolgeeApiKey,
-            language: 'en'
+
+            // for production
+            staticData: {
+              ...
+            }
           });
       },
     },

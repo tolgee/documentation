@@ -14,8 +14,15 @@ const tolgee = Tolgee()
   .use(FormatSimple())
   .init({
     language: 'en'
+
+    // for development mode
     apiUrl: 'https://app.tolgee.io'
     apiKey: '<your tolgee API key>'
+
+    // for production
+    staticData: {
+      ...
+    }
   })
 
 tolgee.run();
@@ -30,6 +37,8 @@ We use `DevTools` plugin which will provide in-context translating in dev mode. 
 > Obtaining Tolgee API key is described in [Integration](/platform/integration) chapter.
 
 > Check all [tolgee options](./api/core_package/options) and [tolgee plugins](./api/web_package/plugins).
+
+> Tolgee SDK can be used [without connection to Tolgee Platform](./usage-without-platform)
 
 ## What does `run` do?
 

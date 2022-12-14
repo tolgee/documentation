@@ -21,8 +21,14 @@ const tolgee = Tolgee()
   .use(I18nextPlugin())
   .use(FormatSimple())
   .init({
+    // for development
     apiUrl: ...,
     apiKey: ...,
+
+    // for production
+    staticData: {
+      ...
+    }
   });
 
 withTolgee(i18n, tolgee)

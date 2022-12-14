@@ -25,8 +25,15 @@ const tolgee = Tolgee()
   .use(FormatSimple())
   .init({
     language: 'en',
+
+    // for development
     apiUrl: process.env.VUE_APP_TOLGEE_API_URL,
     apiKey: process.env.VUE_APP_TOLGEE_API_KEY,
+
+    // for production
+    staticData: {
+      ...
+    }
   });
 
 ...
