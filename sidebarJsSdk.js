@@ -116,16 +116,8 @@ module.exports = {
             'api/web_package/other_tools',
           ],
         },
-
-        {
-          label: 'Changelog',
-          type: 'category',
-          items: [
-            { type: 'doc', id: 'changelog/tolgee_js_version_4' },
-            { type: 'doc', id: 'changelog/tolgee_js_version_3' },
-          ],
-        },
       ],
     },
+    { type: 'doc', id: 'tolgee_js_version_5' },
   ],
 };

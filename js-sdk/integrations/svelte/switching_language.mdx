@@ -8,13 +8,13 @@ slug: switching-language
 For language management, use [`getTolgee`](./api#gettolgee-function) function, with subscription to `language` event:
 
 ```svelte
-<script lang="ts">
+<script>
   import { getTolgee } from '@tolgee/svelte';
 
   const tolgee = getTolgee(['language'])
 
-  function handleLanguageChange(e: any) {
-    $tolgee.changeLanguage(e.currentTarget!.value)
+  function handleLanguageChange(e) {
+    $tolgee.changeLanguage(e.currentTarget.value)
   }
 </script>
 
