@@ -50,7 +50,8 @@ module.exports.redirects = {
       to: "/js-sdk/"
     },
     { from: "/docs/integrations", to: "/integrations/" },
-    { from: "/integrations/all", to: "/integrations/" }
+    { from: "/integrations/all", to: "/integrations/" },
+    { from: "/docs/icu_message_format", to: "/platform/icu_message_format" }
   ],
   createRedirects(existingPath) {
     if (existingPath.indexOf("/platform") === 0) {
