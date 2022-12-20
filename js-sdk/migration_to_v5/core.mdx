@@ -1,0 +1,58 @@
+---
+id: core
+title: Core
+description: "Tolgee JS core version 5 changelog + migration guide"
+---
+
+In this version we did a complete rewrite of core functionality, so the core has quite a different API. The goal was to make it more compact and move a lot of functionality into plugins, so we save bundle size and allow customization.
+
+## Packages organization
+
+Packages are now organized, so you only need to install (and use) the most specific package. If you want to use Tolgee with vanilla JS, you should just install `@tolgee/web` (while `@tolgee/core` will be installed as a dependency). You can then import everything from `@tolge/web`. Similarly, if you want integration for React, just install `@tolgee/react` and it installs and exports everything from `@tolgee/web` and `@tolgee/core`, so you don't have to worry about these packages.
+
+![img](/img/docs/web/packages.svg)
+
+## Tolgee initialization
+
+Rather than integrations doing Tolgee initialization for you, we now require you to do Tolgee initialization yourself. It requires a bit more work on your side, but now you have complete access to Tolgee instance which allows more flexibility in the way how you use Tolgee ([read more](/initialization.mdx)).
+
+Basic initialization:
+
+```ts
+const tolgee = Tolgee()
+  .use(DevTools())
+  .use(FormatSimple())
+  .init({
+    language: 'en'
+    ...
+  })
+
+// pass tolgee to integration
+// or call tolgee.run() and use it without integration
+```
+
+### Plugins
+
+Some of Tolgee functionality was moved to plugins, so it's now not included by default:
+
+ - ICU formatter - now shipped in separate package [`@tolgee/format-icu`](/formatting.mdx#icu-formatter), in examples we use [`FormatSimple`](/formatting.mdx#simple-formatter), which is simplified formatter with small bundle size included directly in core.
+ - In-context translating tools are now in a plugin called [`InContextTools`](/api/web_package/bundled_plugins.mdx#incontexttools) or `DevTools` (which is the same, only conditionally exported to only be included in dev mode)
+ - Fetching static json files - [`BackendFetch`](/api/web_package/plugins.mdx#backendfetch)
+ - Language storage - [`LanguageStorage`](/api/web_package/plugins.mdx#languagestorage)
+ - Language detection - [`LanguageDetector`](/api/web_package/plugins.mdx#languagedetector)
+
+### Different `fallbackLanguage` behavior
+
+In v4 `fallbackLanguage` was set to `en` by default, but the language file was only fetched when some key was missing. We've now changed that to `fallbackLanguage` being empty by default and if you set it, it will automatically fetch it right at the start, so it's immediately available ([read more](/api/core_package/options.mdx#fallbacklanguage)).
+
+### Unification of `t` interface
+
+Function `t` now has the same interface in all integrations. It has some breaking changes
+([read more](/api/core_package/tolgee.mdx#t)).
+
+
+## Migration of integrations
+
+ - [Migration React](./react)
+ - [Migration Svelte](./svelte)
+ - [Migration Vue](./vue)

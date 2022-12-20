@@ -118,6 +118,15 @@ module.exports = {
         },
       ],
     },
-    { type: 'doc', id: 'tolgee_js_version_5' },
+    {
+      type: 'category',
+      label: 'Migration to v5',
+      items: [
+        'migration_to_v5/core',
+        'migration_to_v5/react',
+        'migration_to_v5/svelte',
+        'migration_to_v5/vue',
+      ],
+    },
   ],
 };
