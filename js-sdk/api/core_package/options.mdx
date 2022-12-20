@@ -110,9 +110,18 @@ Example:
 }
 ```
 
+### onFormatError
+
+Defines what gets displayed when formatter throws an error. (Default: "invalid")
+
+```ts
+onFormatError: string
+onFormatError(error: string, info: TranslationInfo): string
+```
+
 ### observerType
 
-Switches between invisible and text observer if present. (Default: invisible)
+Switches between invisible and text observer if present. (Default: "invisible")
 
 ```ts
 observerType: 'invisible' | 'text';
