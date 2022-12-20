@@ -351,7 +351,7 @@ permitted to translate the App product directly in it just with ALT + Clicking t
 - It enables you or your colleagues to modify translated string in the context of developed web application
 - Tolgee is also a localization platform, where you can manage all your translations
 - If you like our project, please star our projects on GitHub
-    - [github.com/tolgee/server](https://github.com/tolgee/server) ⭐
-    - [github.com/tolgee/js](https://github.com/tolgee/js) ⭐
+    - [github.com/tolgee/platform](https://github.com/tolgee/tolgee-platform) ⭐
+    - [github.com/tolgee/js](https://github.com/tolgee/tolgee-js) ⭐
 - To read more about i18next Tolgee integration,
   visit [Tolgee docs](/js-sdk/using_with_i18next/installation)
