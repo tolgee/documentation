@@ -57,7 +57,7 @@ Tolgee Chrome plugin may help you in the translation review phase to see how the
 
 ## 3. Accurate translation
 
-Another challenge you may face when localizing your software is ensuring that all text is accurately translated. The best outcome you would certainly get is by hiring a professional translator. However, not all people want to make such an investment and prefer machine translations. However, machine translations are currently not at the stage when they can translate software solely on their own with perfect results. If you use machine translation and even if you choose [suitable MT provider](/blog/software-localization-machine-translation), you better ask a translator or native speaker to review the translations. You can learn how Tolgee can help you with MT translation in this [article.](/blog/machine-translation-in-tolgee)
+Another challenge you may face when localizing your software is ensuring that all text is accurately translated. The best outcome you would certainly get is by hiring a professional translator. However, not all people want to make such an investment and prefer machine translations. Also, machine translations are currently not at the stage when they can translate software solely on their own with perfect results. If you use machine translation and even if you choose [suitable MT provider](/blog/software-localization-machine-translation), you better ask a translator or native speaker to review the translations. You can learn how Tolgee can help you with MT translation in this [article.](/blog/machine-translation-in-tolgee)
 
 
 ## 4. Lack of context of translations
@@ -70,7 +70,7 @@ First, Tolgee can offer context in the form of automatic screenshots to provide 
 
 To make your software usable for customers in different regions, it’s not enough to simply translate the text. You must also account for formatting differences and conventions for writing dates, times, numbers, addresses, and currency. Hard-coded date, time, or currency formats will cause trouble during the localization process, as languages and countries use different date and time formats. 
 
-Tolgee deals with formatting issues using the [ICU (International Components for Unicode)](https://icu.unicode.org/home) message format. ICU also provides a lot of other helpful functionalities, such as advanced pluralization or selection rules. 
+Tolgee deals with formatting issues using the [ICU (International Components for Unicode)](/platform/icu_message_format) message format. ICU also provides a lot of other helpful functionalities, such as advanced pluralization or selection rules. 
 
 
 ## 6. Inconsistency of translation
