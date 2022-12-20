@@ -15,13 +15,13 @@ import { InstallationTabs } from '../../../src/component/InstallationTabs';
 
 <InstallationTabs lib="@tolgee/react" />
 
-Init Tolgee with [`ReactPlugin`](./api#reactplugin) and wrap your application in [`TolgeeProvider`](./api#tolgeeprovider).
+Init Tolgee and wrap your application in [`TolgeeProvider`](./api#tolgeeprovider).
 
 ```tsx
-import { Tolgee, ReactPlugin, TolgeeProvider, FormatSimple } from "@tolgee/react";
+import { Tolgee, DevTools, TolgeeProvider, FormatSimple } from "@tolgee/react";
 
 const tolgee = Tolgee()
-  .use(ReactPlugin())
+  .use(DevTools())
   .use(FormatSimple())
   .init({
     language: 'en',

@@ -22,7 +22,7 @@ Then import [`NgxTolgeeModule`](/integrations/angular/api.mdx#ngxtolgeemodule) i
 ```typescript
 ...
 import {
-  NgxPlugin,
+  DevTools,
   NgxTolgeeModule,
   Tolgee,
   TOLGEE_INSTANCE,
@@ -42,7 +42,7 @@ import {
       provide: TOLGEE_INSTANCE,
       useFactory: () => {
         return Tolgee()
-          .use(NgxPlugin())
+          .use(DevTools())
           .use(FormatSimple())
           .init({
             language: 'en'
