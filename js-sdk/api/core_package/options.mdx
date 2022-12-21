@@ -24,11 +24,23 @@ defaultLanguage: string;
 
 ### fallbackLanguage
 
-Language which is used when no translation is available for current one.
+A language(s) that is used when no translation is available for the current one.
 
 ```ts
-fallbackLanguage: FallbackLanguageOption;
+fallbackLanguage: string | string[] | Object;
 ```
+
+You can also specify which language should fallback to which individually:
+
+```ts
+fallbackLanguage: {
+  'en-GB': 'en',
+  'en-IN': ['en-GB', 'en'],
+  'es-MX': 'es',
+}
+```
+
+All the fallback languages will be fetched at the start of the application.
 
 ### apiUrl
 

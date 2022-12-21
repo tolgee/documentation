@@ -1,0 +1,50 @@
+---
+id: svelte
+title: Svelte
+description: 'Tolgee JS Svelte version 5 changelog + migration guide'
+---
+
+Update TolgeeProvider component and initialize Tolgee as described in [core migration](./core#tolgee-initialization):
+
+```ts
+const tolgee = ...
+
+...
+
+<TolgeeProvider tolgee={tolgee}>
+  <div slot="fallback">Loading...</div>
+  <Children/>
+</TolgeeProvider>
+```
+
+### Changing language
+
+We've removed v4 `getLanguageStore`, it's now replaced by the more general hook `getTolgee` ([read more](/integrations/svelte/switching_language.mdx)).
+
+```ts
+<script>
+  import { getTolgee } from '@tolgee/svelte';
+
+  const tolgee = getTolgee(['language'])
+
+  function handleLanguageChange(e) {
+    $tolgee.changeLanguage(e.currentTarget.value)
+  }
+</script>
+
+<select value={$tolgee.getLanguage()} on:change={handleLanguageChange}>
+  ...
+</select>
+```
+
+### Translating
+
+`useTranslate` now returns an object with `t` store instead of the `t` directly.
+
+```ts
+const { t } = useTranslate();
+
+...
+
+$t('key')
+```

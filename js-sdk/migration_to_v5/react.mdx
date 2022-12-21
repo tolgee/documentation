@@ -1,0 +1,44 @@
+---
+id: react
+title: React
+description: "Tolgee JS React version 5 changelog + migration guide"
+---
+
+Update TolgeeProvider component and initialize Tolgee as described in [core migration](./core#tolgee-initialization):
+
+```ts
+const tolgee = ...
+
+...
+
+<TolgeeProvider tolgee={tolgee} fallback="Loading...">
+  <Children />
+</TolgeeProvider>
+```
+
+### Changing language
+
+We've removed v4 `useCurrentLanguage` and `useSetLanguage` hooks, which are now replaced by the more general hook `useTolgee` ([read more](/integrations/react/switching_languages.mdx)).
+
+```ts
+const tolgee = useTolgee(['language']);
+
+...
+
+<select
+  value={tolgee.getLanguage()}
+  onChange={(e) => tolgee.changeLanguage(e.event.target)}
+>
+  ...
+</select>
+```
+
+### Translating
+
+`useTranslate` now returns an object with `t` function instead of the function directly.
+
+```ts
+const { t } = useTranslate();
+```
+
+Tags interpolation is now supported only with `<T>` component and not with `t` function. The types for `t` function were too complicated as it could return string or react component based on input. Now it's more straightforward.

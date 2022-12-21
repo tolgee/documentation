@@ -116,15 +116,16 @@ module.exports = {
             'api/web_package/other_tools',
           ],
         },
-
-        {
-          label: 'Changelog',
-          type: 'category',
-          items: [
-            { type: 'doc', id: 'changelog/tolgee_js_version_4' },
-            { type: 'doc', id: 'changelog/tolgee_js_version_3' },
-          ],
-        },
+      ],
+    },
+    {
+      type: 'category',
+      label: 'Migration to v5',
+      items: [
+        'migration_to_v5/core',
+        'migration_to_v5/react',
+        'migration_to_v5/svelte',
+        'migration_to_v5/vue',
       ],
     },
   ],

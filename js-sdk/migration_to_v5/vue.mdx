@@ -1,0 +1,64 @@
+---
+id: vue
+title: Vue
+description: "Tolgee JS Vue version 5 changelog + migration guide"
+---
+
+## Migration Vue
+
+Initialize Tolgee as described in [core migration](./core#tolgee-initialization). Vue integration now uses Vue plugin API:
+
+```ts
+const tolgee = ...
+
+...
+
+app.use(VueTolgee, { tolgee });
+
+...
+
+<template>
+  <TolgeeProvider>
+    <template v-slot:fallback>
+      <div>Loading...</div>
+    </template>
+    <Children />
+  </TolgeeProvider>
+</template>
+```
+
+### Changing language
+
+We've removed v4 `useLanguage`, it's now replaced by the more general hook `useTolgee` ([read more](/integrations/vue/switching_languages.mdx)).
+
+```ts
+<template>
+  <select :value="tolgee.getLanguage()" v-on:change="changeLanguage">
+    ...
+  </select>
+</template>
+
+<script setup>
+  import { useTolgee } from '@tolgee/vue';
+
+  const tolgee = useTolgee(['language']);
+
+  const changeLanguage = (e) => {
+    tolgee.value.changeLanguage(e.target.value);
+  };
+</script>
+```
+
+### Translating
+
+You can now use the global `$t` function, which is available through Vue plugin.
+
+```ts
+<template>
+  <div :title="$t('key')">...</div>
+</template>
+```
+
+Or use `useTranslate` composable, which is useful with namespaces.
+
+`TolgeeMixin` was removed completely.
