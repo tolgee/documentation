@@ -39,8 +39,8 @@ export default function ReactIntegration() {
       </LandingPageHeadline>
       <LandingPageDescription installationCommand="npm i @tolgee/react">
         <p>
-          Tolgee for React provides simple API to create multi-lingual React
-          application. With Tolgee i18n library for React you can enjoy all
+          Tolgee for React provides a simple API to create a multi-lingual React
+          application. With Tolgee i18n library for React, you can enjoy all
           Tolgee i18n features.
         </p>
         <p>
@@ -62,7 +62,7 @@ export default function ReactIntegration() {
           </p>
         </LandingPageInstallationStep>
         <LandingPageInstallationStep title="2. Setup Tolgee integration">
-          <p>Install the npm packages.</p>
+          <p>Install the npm package.</p>
           <LandingPageInstallationCode>
             npm i @tolgee/react
           </LandingPageInstallationCode>
@@ -91,19 +91,25 @@ export default function ReactIntegration() {
   );
 }
 
-const reactProviderCode = `import { TolgeeProvider } from "@tolgee/react";
-export const Wrapper = () => {
-  return (
-    <TolgeeProvider
-      filesUrlPrefix="i18n/"
-      apiUrl="https://app.tolgee.io"
-      apiKey="<your api key>"
-      loadingFallback="Loading..."
-    >
-      <App />
-    </TolgeeProvider>
-  );
-}
+const reactProviderCode = `import { Tolgee, DevTools, TolgeeProvider, FormatSimple } from "@tolgee/react";
+
+const tolgee = Tolgee()
+  .use(DevTools())
+  .use(FormatSimple())
+  .init({
+    language: 'en',
+    apiUrl: process.env.REACT_APP_TOLGEE_API_URL,
+    apiKey: process.env.REACT_APP_TOLGEE_API_KEY,
+  });
+
+...
+
+<TolgeeProvider
+  tolgee={tolgee}
+  fallback="Loading..." // loading fallback
+>
+  <App />
+</TolgeeProvider>
 `;
 
 const usingTCode = `import { T } from "@tolgee/react";

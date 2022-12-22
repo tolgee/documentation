@@ -35,7 +35,7 @@ export default function Next() {
       <Head>
         <meta
           name="description"
-          content="Learn how to install Tolgee React integration library. With Tolgee i18n library for React you can enjoy all Tolgee i18n features."
+          content="Learn how to install Tolgee React integration library. With Tolgee i18n library for React, you can enjoy all Tolgee i18n features."
         />
       </Head>
       <LandingPageHeadline
@@ -90,8 +90,7 @@ export default function Next() {
   );
 }
 
-const nextConfigCode = `/** @type {import('next').NextConfig} */
-module.exports = {
+const nextConfigCode = `module.exports = {
     reactStrictMode: true,
     i18n: {
         locales: ['en', 'cs'],
@@ -100,25 +99,39 @@ module.exports = {
     },
 }`;
 
-const reactProviderCode = `import { TolgeeProvider } from "@tolgee/react";
-import enLocale from "../i18n/en.json";
-import csLocale from "../i18n/cs.json";
+const reactProviderCode = `import enLocale from '../i18n/en.json';
+import csLocale from '../i18n/cs.json';
+import { useRouter } from 'next/router';
+import { TolgeeProvider, DevTools, Tolgee, FormatSimple } from '@tolgee/react';
 
-export const Wrapper = () => {
-  const {locale: activeLocale} = useRouter();
-  
+const tolgee = Tolgee()
+  .use(DevTools())
+  .use(FormatSimple())
+  .init({
+    defaultLanguage: 'en',
+    apiKey: process.env.NEXT_PUBLIC_TOLGEE_API_KEY,
+    apiUrl: process.env.NEXT_PUBLIC_TOLGEE_API_URL,
+    staticData: {
+      en: enLocale,
+      cs: csLocale,
+    },
+  });
+
+function MyApp({ Component, pageProps }: AppProps) {
+  const { locale } = useRouter();
+
+  useMemo(() => {
+    // change tolgee language without emitting events
+    tolgee.setEmmiterActive(false);
+    tolgee.changeLanguage(locale);
+    tolgee.setEmmiterActive(true);
+  }, [locale]);
+
   return (
-    <TolgeeProvider
-      filesUrlPrefix="i18n/"
-      apiUrl="https://app.tolgee.io"
-      apiKey="<your api key>"
-      forceLanguage={activeLocale}
-      staticData={{
-        en: enLocale,
-        cs: csLocale
-      }}
-    >
-      <App />
+    <TolgeeProvider tolgee={tolgee}>
+      <Component {...pageProps} />
     </TolgeeProvider>
   );
-}`;
+}
+
+export default MyApp;`;
