@@ -45,6 +45,16 @@ pipelines, please replace those with the `/v2` endpoints. We have removed these 
 
 While the `/api/project/{projectId}/export/jsonZip` is kept as the only v1 endpoint accessible with an API key.
 
+We are removing these parameters of `/v2/projects/export` endpoint:
+- splitByScope
+- splitByScopeDelimiter
+- splitByScopeDepth
+
+And introducing a new parameter `structureDelimiter`, which controls the character causing structuring in the resulting
+`.jsons`.
+
+Since v3 supports namespaces natively, there is no need to control the depth of the directory structure in the export.
+
 ## What's new in the Tolgee JS v5
 
 The base package of Tolgee JS `@tolgee/core` was redesigned entirely and refactored to be more customizable,
