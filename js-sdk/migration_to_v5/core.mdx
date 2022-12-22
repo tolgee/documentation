@@ -1,20 +1,20 @@
 ---
 id: core
 title: Core
-description: "Tolgee JS core version 5 changelog + migration guide"
+description: "Tolgee JS Core version 5 changelog + migration guide"
 ---
 
-In this version we did a complete rewrite of core functionality, so the core has quite a different API. The goal was to make it more compact and move a lot of functionality into plugins, so we save bundle size and allow customization.
+In this version, we did a complete rewrite of core functionality, so the core has quite a different API. The goal was to make it more compact and move a lot of functionality into plugins, so we save bundle size and allow customization.
 
 ## Packages organization
 
-Packages are now organized, so you only need to install (and use) the most specific package. If you want to use Tolgee with vanilla JS, you should just install `@tolgee/web` (while `@tolgee/core` will be installed as a dependency). You can then import everything from `@tolge/web`. Similarly, if you want integration for React, just install `@tolgee/react` and it installs and exports everything from `@tolgee/web` and `@tolgee/core`, so you don't have to worry about these packages.
+Packages are now organized, so you only need to install (and use) the most specific package. If you want to use Tolgee with vanilla JS, you should just install `@tolgee/web` (while `@tolgee/core` will be installed as a dependency). You can then import everything from `@tolge/web`. Similarly, if you want integration for React, just install `@tolgee/react`, and it installs and exports everything from `@tolgee/web` and `@tolgee/core`, so you don't have to worry about these packages.
 
 ![img](/img/docs/web/packages.svg)
 
 ## Tolgee initialization
 
-Rather than integrations doing Tolgee initialization for you, we now require you to do Tolgee initialization yourself. It requires a bit more work on your side, but now you have complete access to Tolgee instance which allows more flexibility in the way how you use Tolgee ([read more](/initialization.mdx)).
+Rather than integrations doing Tolgee initialization for you, we now require you to do Tolgee initialization yourself. It requires a bit more work on your side, but now you have complete access to Tolgee instance, which allows more flexibility in the way how you use Tolgee ([read more](/initialization.mdx)).
 
 Basic initialization:
 
@@ -47,12 +47,13 @@ In v4 `fallbackLanguage` was set to `en` by default, but the language file was o
 
 ### Unification of `t` interface
 
-Function `t` now has the same interface in all integrations. It has some breaking changes
+Function `t` now has the same interface in all integrations. It has some breaking changes.
 ([read more](/api/core_package/tolgee.mdx#t)).
 
 
 ## Migration of integrations
 
- - [Migration React](./react)
- - [Migration Svelte](./svelte)
- - [Migration Vue](./vue)
+ - [React](./react)
+ - [Svelte](./svelte)
+ - [Vue](./vue)
+ - [Angular](./ngx)

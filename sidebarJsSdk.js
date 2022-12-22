@@ -45,7 +45,6 @@ module.exports = {
             'integrations/angular/switching_language',
             'integrations/angular/html_tags',
             'integrations/angular/api',
-            'integrations/angular/migrating_to_v5',
           ],
         },
         {
@@ -125,6 +124,7 @@ module.exports = {
       items: [
         'migration_to_v5/core',
         'migration_to_v5/react',
+        'migration_to_v5/ngx',
         'migration_to_v5/svelte',
         'migration_to_v5/vue',
       ],

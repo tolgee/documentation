@@ -1,7 +1,0 @@
-idea {
-    module {
-        excludeDirs += file('node_modules')
-        excludeDirs += file('build')
-        excludeDirs += file('.docusaurus')
-    }
-}
