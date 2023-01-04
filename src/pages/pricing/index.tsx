@@ -7,7 +7,6 @@ import Link from '@docusaurus/Link';
 import { PricingPlan } from '../../component/pricing/PricingPlan';
 import Head from '@docusaurus/Head';
 
-
 export default function Pricing() {
   const [billing, setBilling] = useState<'monthly' | 'annually'>('annually');
 
@@ -17,8 +16,11 @@ export default function Pricing() {
 
   return (
     <PricingBase>
-       <Head>
-        <meta name="description" content="Pricing for the cloud version of Tolgee localization tool. Choose among Free, Basic, Premium, or Enterprise subscription. " />
+      <Head>
+        <meta
+          name="description"
+          content="Pricing for the cloud version of Tolgee localization tool. Choose among Free, Basic, Premium, or Enterprise subscription. "
+        />
       </Head>
       <div className="pricing__toggle">
         <PricingToggle value="cloud" />

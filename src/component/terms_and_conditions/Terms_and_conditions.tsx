@@ -185,8 +185,8 @@ export const TermsAndConditions = () => (
               </a>
             </span>{' '}
             website as well as any other media form, media channel, mobile
-            website or web application related, linked, or otherwise
-            connected thereto (collectively, the “Site”).
+            website or web application related, linked, or otherwise connected
+            thereto (collectively, the “Site”).
             <span
               style={{
                 fontSize: '11.0pt',
@@ -927,12 +927,12 @@ export const TermsAndConditions = () => (
                     all use of your account and password. We reserve the right
                     to remove, reclaim, or change a username you select if we
                     determine, in our sole discretion, that such username is
-                    inappropriate, obscene, or otherwise objectionable. We are 
-                    not responsible for any losses due to stolen or hacked passwords.
-                    If you sign up on behalf of a company or other entity, you 
-                    represent and warrant that you have the authority to accept 
-                    these Terms on their behalf. One person or legal entity may 
-                    not maintain more than one free account. 
+                    inappropriate, obscene, or otherwise objectionable. We are
+                    not responsible for any losses due to stolen or hacked
+                    passwords. If you sign up on behalf of a company or other
+                    entity, you represent and warrant that you have the
+                    authority to accept these Terms on their behalf. One person
+                    or legal entity may not maintain more than one free account.
                   </span>
                 </div>
               </span>
@@ -1035,9 +1035,7 @@ export const TermsAndConditions = () => (
                   className="block-container forloop"
                   data-type="forloop"
                   id="a6e21b8e-b955-c546-15dd-bb6eda2fe88a"
-                >
-            
-                </span>
+                ></span>
               </span>
             </div>
             <div
@@ -1064,9 +1062,7 @@ export const TermsAndConditions = () => (
                   className="block-container forloop"
                   data-type="forloop"
                   id="a6e21b8e-b955-c546-15dd-bb6eda2fe88a"
-                >
-                
-                </span>
+                ></span>
               </span>
             </div>
             <div
@@ -1128,15 +1124,14 @@ export const TermsAndConditions = () => (
                 payment information, including email address, payment method,
                 and payment card expiration date, so that we can complete your
                 transactions and contact you as needed. We bill you through an
-                online billing account for purchases made via Stripe. Free 
-                accounts are not required to provide a credit card details. 
-                The service is billed in advance on a monthly or on a yearly 
-                basis. Downgrading your service may cause the loss of content, 
-                features, or capacity of your account. We may change prices 
-                at any time. We may change prices at any time. We reserve 
-                the right to introduce different pricing structure for 
-                existing users. All payments shall be
-                in <span className="question">Euros</span>.
+                online billing account for purchases made via Stripe. Free
+                accounts are not required to provide a credit card details. The
+                service is billed in advance on a monthly or on a yearly basis.
+                Downgrading your service may cause the loss of content,
+                features, or capacity of your account. We may change prices at
+                any time. We may change prices at any time. We reserve the right
+                to introduce different pricing structure for existing users. All
+                payments shall be in <span className="question">Euros</span>.
               </span>
             </div>
           </span>
