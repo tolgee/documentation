@@ -7,7 +7,7 @@ export const IWantItButton: FC<{ className?: string }> = ({
 }) => (
   <a
     className={clsx('button--primary', className)}
-    href="https://app.tolgee.io"
+    href="https://app.tolgee.io/sign_up"
   >
     {children}
   </a>
