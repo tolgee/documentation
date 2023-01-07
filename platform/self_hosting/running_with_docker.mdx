@@ -7,7 +7,7 @@ slug: /self_hosting/running_with_docker
 
 :::info
 Since v2, Tolgee runs PostgreSQL database in its container by default. To disable embedded Postgres, set
-`tolgee.postgres-autostart.enabled` property to `false`.
+`tolgee.postgres_autostart.enabled` property to `false`.
 :::
 
 ## Running Tolgee in single container (recommended)
@@ -71,7 +71,7 @@ underscores `_`.
 spring_datasource_url=jdbc:postgresql://db:5432/postgres
 spring_datasource_username=postgres
 spring_datasource_password=postgres
-tolgee_postgres-autostart_enabled=false
+tolgee_postgres_autostart_enabled=false
 ```
 :::
 
