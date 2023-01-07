@@ -14,7 +14,7 @@ Port on which Tolgee exposes itself (default: `8080`)
 ## Data source settings
 Since Tolgee is built on Spring framework, to configure its database connection you have to edit following
 configuration props. These properties can be omitted when using
-[`postgres-autostart`](/self_hosting/configuration.mdx#postgres-autostart), which is enabled
+[`postgres_autostart`](/self_hosting/configuration.mdx#postgres-autostart), which is enabled
 by default.
 
 ### spring.datasource.url
@@ -227,7 +227,7 @@ Then, you simply need to set the following configuration properties:
  - secret-key
 
 ## Postgres autostart
-Prefix: `tolgee.postgres-autostart`
+Prefix: `tolgee.postgres_autostart`
 
 :::info
 This feature was added in v2.
