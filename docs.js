@@ -10,8 +10,8 @@ const docs = [
       versions: {
         current: {
           banner: 'none',
-          label: '3.0.0-alpha.1',
-          path: '3.0.0-alpha.1',
+          label: '3.0.0-alpha.6',
+          path: '3.0.0-alpha.6',
         },
       },
     },
@@ -27,8 +27,8 @@ const docs = [
       versions: {
         current: {
           banner: 'none',
-          label: '5.0.0-alpha.1',
-          path: '5.0.0-alpha.1',
+          label: '5.0.0-alpha.2',
+          path: '5.0.0-alpha.2',
         },
       },
     },

@@ -12,7 +12,7 @@ Since v2, Tolgee runs PostgreSQL database in its container by default. To disabl
 
 ## Running Tolgee in single container (recommended)
 To run server locally you should be fine just with running simple Docker image with mounted data volume.
-Tolgee has embedded PostgreSQL database, so you don't have to manually set it.
+Tolgee has embedded PostgresSQL database, so you don't have to manually set it.
 
 ```
 docker run -v tolgee_data:/data/ -p 8085:8080 tolgee/tolgee{{dockerTagVersion}}
@@ -39,20 +39,71 @@ Create a file named `docker-compose.yml` containing following content.
 version: '3'
 
 services:
-  db:
-    image: postgres:11
-    environment:
-      - POSTGRES_PASSWORD=postgres
   app:
     image: tolgee/tolgee{{dockerTagVersion}}
     volumes:
       - ./data:/data
     ports:
-      - "8090:8080"
+      - "25432:25432" # if you would like to access the DB
+      - "8080:8080"
+```
+### Configuring using configuration file
+The recommended way of configuring the application is using configuration file.
+
+To do so, you have to create the `config.yaml` file containing configuration properties in the same directory as `docker-compose.yaml`.
+You can find the list of all properties in [configuration reference](configuration).
+
+```yaml title=docker-compose.yaml
+version: '3'
+
+services:
+  app:
+    image: tolgee/tolgee{{dockerTagVersion}}
+    volumes:
+      - ./data:/data
+      - ./config.yaml:/config.yaml # <--- this line
+    ports:
+      - "25432:25432"
+      - "8080:8080"
+    environment:
+      spring.config.additional-location: file:///config.yaml # <--- this line
+```
+
+```yaml title=config.yaml
+tolgee:
+  machine-translation:
+    google:
+      api-key: my_google_api_key
+  authentication:
+    enabled: true
+    user-can-create-organizations: true
+  smtp:
+    from: Tolgee <no-reply@mydomain.com>
+    host: email-smtp.regional-region.amazonaws.com
+    username: "OMGTHISISUSERNAME"
+    password: "omg/my/password"
+    auth: true
+    port: 465
+    ssl-enabled: true
+```
+
+### Configuring using environmental variables
+You can provide the configuration variables using environment variables or using `.env` file.
+
+```yaml title=docker-compose.yaml
+version: '3'
+
+services:
+  app:
+    image: tolgee/tolgee{{dockerTagVersion}}
+    volumes:
+      - ./data:/data
+      - ./config.yaml:/config.yaml
+    ports:
+      - "25432:25432"
+      - "8080:8080"
     env_file:
       - .env
-    depends_on:
-      - "db"
 ```
 
 To provide a configuration, add following .env file.
@@ -65,20 +116,19 @@ tolgee.postgres-autostart.enabled=false
 Similarly, you can define other [configuration properties](configuration).
 
 :::info
-Some versions of docker-compose doesn't accept dots (".") in `.env` file key names. Then you can replace `.` characters with
+Some versions of docker-compose doesn't accept `.` or `-` in `.env` file key names. Then you can replace `.` and `-` characters with
 underscores `_`.
 ```properties title=".env"
 spring_datasource_url=jdbc:postgresql://db:5432/postgres
 spring_datasource_username=postgres
 spring_datasource_password=postgres
-tolgee_postgres-autostart_enabled=false
+tolgee_postgres_autostart_enabled=false
 ```
 :::
+
 
 Your initial username is `admin`. Initial password is automatically generated and stored in /data/initial.pwd file in the
 Tolgee container. You can print it by executing this:
 ```
 cat data/initial.pwd
 ```
-
-The is now accessible on [http://localhost:8090](http://localhost:8090).

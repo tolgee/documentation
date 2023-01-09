@@ -65,6 +65,12 @@ module.exports.redirects = {
     if (existingPath.indexOf('/js-sdk') === 0) {
       return [existingPath.replace('/js-sdk', '/docs/web')];
     }
+    if (existingPath.indexOf('/platform/3.0.0-alpha.6') === 0) {
+      return [existingPath.replace('/platform/3.0.0-alpha.6', '/platform/3.0.0-alpha.1')];
+    }
+    if (existingPath.indexOf('/js-sdk/5.0.0-alpha.2') === 0) {
+      return [existingPath.replace('/js-sdk/5.0.0-alpha.2', '/js-sdk/5.0.0-alpha.1')];
+    }
     return undefined;
   },
 };
