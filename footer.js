@@ -71,6 +71,10 @@ module.exports.footer = {
           href: 'https://www.facebook.com/Tolgee.i18n',
         },
         {
+          label: 'Privacy policy',
+          href: '/docs/terms_and_conditions/privacy_policy',
+        },
+        {
           label: 'Terms of use',
           href: '/docs/terms_of_use',
         },
