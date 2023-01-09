@@ -1,12 +1,15 @@
 ---
 id: react
-title: React
+title: Migrating to v5 (React)
+sidebar_label: React
 description: "Tolgee JS React version 5 changelog + migration guide"
 ---
+In version 5, the core library was completely redesigned. Before you start, please read the [general info about
+this new version](./core.mdx).
 
 Update TolgeeProvider component and initialize Tolgee as described in [core migration](./core#tolgee-initialization):
 
-```ts
+```typescript jsx
 const tolgee = ...
 
 ...
@@ -20,7 +23,7 @@ const tolgee = ...
 
 We've removed v4 `useCurrentLanguage` and `useSetLanguage` hooks, which are now replaced by the more general hook `useTolgee` ([read more](/integrations/react/switching_languages.mdx)).
 
-```ts
+```typescript jsx
 const tolgee = useTolgee(['language']);
 
 ...
@@ -37,7 +40,7 @@ const tolgee = useTolgee(['language']);
 
 `useTranslate` now returns an object with `t` function instead of the function directly.
 
-```ts
+```typescript jsx
 const { t } = useTranslate();
 ```
 

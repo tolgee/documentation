@@ -1,14 +1,16 @@
 ---
 id: vue
-title: Vue
+title: Migrating to v5 (Vue)
+sidebar_label: Vue
 description: "Tolgee JS Vue version 5 changelog + migration guide"
 ---
 
-## Migration Vue
+In version 5, the core library was completely redesigned. Before you start, please read the [general info about
+this new version](./core.mdx).
 
 Initialize Tolgee as described in [core migration](./core#tolgee-initialization). Vue integration now uses Vue plugin API:
 
-```ts
+```typescript jsx
 const tolgee = ...
 
 ...
@@ -31,7 +33,7 @@ app.use(VueTolgee, { tolgee });
 
 We've removed v4 `useLanguage`, it's now replaced by the more general hook `useTolgee` ([read more](/integrations/vue/switching_languages.mdx)).
 
-```ts
+```typescript jsx
 <template>
   <select :value="tolgee.getLanguage()" v-on:change="changeLanguage">
     ...
@@ -53,7 +55,7 @@ We've removed v4 `useLanguage`, it's now replaced by the more general hook `useT
 
 You can now use the global `$t` function, which is available through Vue plugin.
 
-```ts
+```typescript jsx
 <template>
   <div :title="$t('key')">...</div>
 </template>

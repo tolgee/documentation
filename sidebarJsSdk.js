@@ -124,6 +124,7 @@ module.exports = {
       items: [
         'migration_to_v5/core',
         'migration_to_v5/react',
+        'migration_to_v5/ngx',
         'migration_to_v5/svelte',
         'migration_to_v5/vue',
       ],
