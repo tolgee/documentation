@@ -7,7 +7,7 @@ export const integrations = [
     logo: '/img/technologies/logo-react.svg',
     links: {
       'Landing Page': '/integrations/react',
-      Docs: '/js-sdk/using_with_react/installation',
+      Docs: '/js-sdk/integrations/react/installation',
       'GitHub Repository':
         'https://github.com/tolgee/tolgee-js/tree/main/packages/react',
       'Example App': 'https://github.com/tolgee/react-example',
@@ -18,7 +18,7 @@ export const integrations = [
     logo: '/img/technologies/logo-angular.svg',
     links: {
       'Landing Page': '/integrations/angular',
-      Docs: '/js-sdk/using_with_angular/installation',
+      Docs: '/js-sdk/integrations/angular/installation',
       'GitHub Repository':
         'https://github.com/tolgee/tolgee-js/tree/main/packages/ngx',
       'Example App': 'https://github.com/tolgee/ngx-example',
@@ -29,7 +29,7 @@ export const integrations = [
     logo: '/img/technologies/logo-vue.svg',
     links: {
       'Landing Page': '/integrations/vue',
-      Docs: '/js-sdk/using_with_vue/installation',
+      Docs: '/js-sdk/integrations/vue/installation',
       'GitHub Repository':
         'https://github.com/tolgee/tolgee-js/tree/main/packages/vue',
       'Example App': 'https://github.com/tolgee/vue-example',
@@ -40,7 +40,7 @@ export const integrations = [
     logo: '/img/technologies/logo-svelte.svg',
     links: {
       'Landing Page': '/integrations/svelte',
-      Docs: '/js-sdk/using_with_svelte/installation',
+      Docs: '/js-sdk/integrations/svelte/installation',
       'GitHub Repository':
         'https://github.com/tolgee/tolgee-js/tree/main/packages/svelte',
       'Example App': 'https://github.com/tolgee/svelte-example',
@@ -51,7 +51,7 @@ export const integrations = [
     logo: <NextLogo />,
     links: {
       'Landing Page': '/integrations/next',
-      Docs: '/js-sdk/using_with_react/ssr/using_with_next',
+      Docs: '/js-sdk/integrations/react/ssr/next',
       'Example App': 'https://github.com/tolgee/next-example',
     },
   },
@@ -60,7 +60,7 @@ export const integrations = [
     logo: '/img/technologies/logo-gatsby.svg',
     links: {
       'Landing Page': '/integrations/gatsby',
-      Docs: '/js-sdk/using_with_react/ssr/using_with_gatsby',
+      Docs: '/js-sdk/integrations/react/ssr/gatsby',
       'Example App': 'https://github.com/tolgee/gatsby-example',
     },
   },
@@ -68,7 +68,7 @@ export const integrations = [
     label: 'i18next',
     logo: '/img/technologies/logo-i18next.svg',
     links: {
-      Docs: '/js-sdk/using_with_i18next/installation',
+      Docs: '/js-sdk/integrations/i18next/installation',
       'GitHub Repository':
         'https://github.com/tolgee/tolgee-js/tree/main/packages/i18next',
       'Example React App': 'https://github.com/tolgee/react-i18next-example',

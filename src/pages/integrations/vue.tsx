@@ -13,7 +13,7 @@ import Head from '@docusaurus/Head';
 
 const DocsLinks = ({ primary }: { primary?: boolean }) => (
   <LandingPageActions
-    docs={{ link: '/js-sdk/using_with_vue/installation' }}
+    docs={{ link: '/js-sdk/integrations/vue/installation' }}
     githubRepo="vue"
     exampleApp="vue-example"
     primary={primary}

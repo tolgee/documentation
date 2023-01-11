@@ -12,7 +12,7 @@ import Head from '@docusaurus/Head';
 
 const DocsLinks = ({ primary }: { primary?: boolean }) => (
   <LandingPageActions
-    docs={{ link: '/js-sdk/using_with_react/installation' }}
+    docs={{ link: '/js-sdk/integrations/react/installation' }}
     githubRepo="react"
     exampleApp="react-example"
     primary={primary}
