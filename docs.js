@@ -6,7 +6,7 @@ const docs = [
       path: 'platform',
       routeBasePath: 'platform',
       sidebarPath: require.resolve('./sidebarPlatform.js'),
-      lastVersion: '2.x.x',
+      lastVersion: 'current',
       includeCurrentVersion: true,
       versions: {
         current: {
