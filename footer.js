@@ -9,8 +9,8 @@ module.exports.footer = {
           to: '/platform/',
         },
         {
-          label: 'Get Started',
-          to: '/js-sdk/get_started/hello_world',
+          label: 'Get Started with Tolgee JS',
+          to: '/js-sdk',
         },
         {
           label: 'Using Tolgee App',
@@ -21,8 +21,8 @@ module.exports.footer = {
           to: '/platform/self_hosting/running_with_docker',
         },
         {
-          label: 'Using with React',
-          to: 'js-sdk/using_with_react/installation',
+          label: 'Integrations',
+          to: '/integrations',
         },
       ],
     },
