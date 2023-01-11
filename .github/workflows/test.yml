@@ -11,8 +11,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
-      - name: Build
-        uses: actions/setup-node@v1
+      - uses: actions/setup-node@v1
         with:
           node-version: '16.x'
       - run: npm install
@@ -21,14 +20,13 @@ jobs:
         env:
           CI: true
 
-  static-check:
+  static:
     runs-on: ubuntu-latest
     steps:
-      - name: Build
-        uses: actions/setup-node@v1
+      - uses: actions/checkout@v2
+      - uses: actions/setup-node@v1
         with:
           node-version: '16.x'
       - run: npm install
-      - run: touch .env
-      - run: npm run prettier-check
       - run: npm run eslint
+      - run: npm run prettier-check
