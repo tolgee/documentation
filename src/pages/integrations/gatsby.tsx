@@ -103,25 +103,29 @@ const gatsbyConfigCode = `module.exports = {
   ],
 };`;
 
-const reactProviderCode = `import { TolgeeProvider } from "@tolgee/react";
-import enLocale from "../i18n/en.json";
-import csLocale from "../i18n/cs.json";
+const reactProviderCode = `import { TolgeeProvider, DevTools, Tolgee, FormatSimple } from '@tolgee/react';
+import { useIntl } from 'gatsby-plugin-react-intl';
 
-export const Wrapper = () => {
-  const intl = useIntl();
-  
+const tolgee = Tolgee().use(DevTools()).use(FormatSimple()).init({
+  defaultLanguage: 'en',
+  apiKey: process.env.GATSBY_TOLGEE_API_KEY,
+  apiUrl: process.env.GATSBY_TOLGEE_API_URL,
+});
+
+export const AppWrapper: React.FC = ({ children }) => {
+  const { locale, messages } = useIntl();
+
+  useMemo(() => {
+    // change tolgee language without emitting events
+    tolgee.setEmmiterActive(false);
+    tolgee.changeLanguage(locale);
+    tolgee.addStaticData({ [locale]: messages });
+    tolgee.setEmmiterActive(true);
+  }, [locale, messages]);
+
   return (
-    <TolgeeProvider
-      filesUrlPrefix="i18n/"
-      apiUrl="https://app.tolgee.io"
-      apiKey="<your api key>"
-      forceLanguage={intl.locale}
-      staticData={{
-            en: enLocale,
-            cs: csLocale
-      }}
-    >
-      <App />
+    <TolgeeProvider tolgee={tolgee} fallback="Loading...">
+      {children}
     </TolgeeProvider>
   );
-}`;
+};`;

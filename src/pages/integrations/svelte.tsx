@@ -39,8 +39,8 @@ export default function Svelte() {
       </LandingPageHeadline>
       <LandingPageDescription installationCommand="npm i @tolgee/svelte">
         <p>
-          Tolgee for Svelte provides simple API to create multi-lingual Svelte
-          application. With Tolgee i18n library for Svelte you can enjoy all
+          Tolgee for Svelte provides a simple API to create multi-lingual Svelte
+          application. With Tolgee i18n library for Svelte, you can enjoy all
           Tolgee i18n features.
         </p>
         <p>
@@ -64,11 +64,11 @@ export default function Svelte() {
           </p>
         </LandingPageInstallationStep>
         <LandingPageInstallationStep title="2. Setup Tolgee integration">
-          <p>Install the npm packages.</p>
+          <p>Install the npm package:</p>
           <LandingPageInstallationCode>
             npm i @tolgee/svelte
           </LandingPageInstallationCode>
-          <p>Then wrap your code with TolgeeProvider</p>
+          <p>Then initialize Tolgee and wrap your code with TolgeeProvider</p>
           <LandingPageInstallationCode language="svelte" fullWidth>
             {svelteProviderCode}
           </LandingPageInstallationCode>
@@ -94,17 +94,20 @@ export default function Svelte() {
 }
 
 const svelteProviderCode = `<script>
-  import { TolgeeProvider } from "@tolgee/svelte";
+import { TolgeeProvider, Tolgee, DevTools, FormatSimple } from '@tolgee/svelte';
 
-  const tolgeeConfig = {
-    preloadFallback: true,
-    apiUrl: 'https://app.tolgee.io',
-    apiKey: '<your API key>',
-  };
+const tolgee = Tolgee()
+  .use(DevTools())
+  .use(FormatSimple())
+  .init({
+    language: 'en',
+    apiUrl: import.meta.env.VITE_TOLGEE_API_URL,
+    apiKey: import.meta.env.VITE_TOLGEE_API_KEY,
+  });
 </script>
 
-<TolgeeProvider config={tolgeeConfig}>
-  <div slot="loading-fallback">Loading...</div>
+<TolgeeProvider tolgee={tolgee}>
+  <div slot="fallback">Loading...</div>
   <slot />
 </TolgeeProvider>`;
 

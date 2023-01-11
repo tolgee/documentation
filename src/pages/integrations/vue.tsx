@@ -26,7 +26,7 @@ export default function Vue() {
       <Head>
         <meta
           name="description"
-          content="Learn how to install Tolgee Vue integration library. With Tolgee i18n library for Vue you can enjoy all Tolgee i18n features."
+          content="Learn how to install Tolgee Vue integration library. With Tolgee i18n library for Vue, you can enjoy all Tolgee i18n features."
         />
       </Head>
       <LandingPageHeadline
@@ -40,9 +40,9 @@ export default function Vue() {
       </LandingPageHeadline>
       <LandingPageDescription installationCommand="npm i @tolgee/vue">
         <p>
-          Tolgee for Vue provides simple API to create multi-lingual Vue
-          application. With Tolgee i18n library for Vue you can enjoy all Tolgee
-          i18n features.
+          Tolgee for Vue provides a simple API to create a multi-lingual Vue
+          application. With Tolgee i18n library for Vue, you can enjoy all
+          Tolgee i18n features.
         </p>
         <p>
           To see Vue with Tolgee in action, check{' '}
@@ -52,7 +52,7 @@ export default function Vue() {
 
       <LandingPageInstallation>
         <AlertInfo>Tolgee for Vue currently supports only Vue v3.</AlertInfo>
-        <LandingPageInstallationStep title="1. Create project in Tolgee platform">
+        <LandingPageInstallationStep title="1. Create a project in Tolgee platform">
           <p>
             Go to <a href="https://app.tolgee.io">Tolgee Cloud app</a> or access
             your{' '}
@@ -67,7 +67,11 @@ export default function Vue() {
           <LandingPageInstallationCode>
             npm i @tolgee/vue
           </LandingPageInstallationCode>
-          <p>Then wrap your code with TolgeeProvider</p>
+          <p>Initialize Tolgee and use Vue plugin:</p>
+          <LandingPageInstallationCode language="js" fullWidth={true}>
+            {initialization}
+          </LandingPageInstallationCode>
+          <p>And use Tolgee provider:</p>
           <LandingPageInstallationCode language="html" fullWidth={true}>
             {providerCode}
           </LandingPageInstallationCode>
@@ -91,25 +95,30 @@ export default function Vue() {
   );
 }
 
+const initialization = `import { Tolgee, DevTools, VueTolgee, FormatSimple } from '@tolgee/vue';
+
+const tolgee = Tolgee()
+  .use(DevTools())
+  .use(FormatSimple())
+  .init({
+    language: 'en',
+    apiUrl: process.env.VUE_APP_TOLGEE_API_URL,
+    apiKey: process.env.VUE_APP_TOLGEE_API_KEY,
+  });
+
+...
+
+app.use(VueTolgee, { tolgee });
+`;
+
 const providerCode = `<template>
-  <TolgeeProvider :config="config">
-    <YourApp />
+  <TolgeeProvider>
+    <template v-slot:fallback>
+      <div>Loading...</div>
+    </template>
+    <App />
   </TolgeeProvider>
-</template>
-
-<script>
-
-export default {
-  data() {
-    return {
-      config: {
-        apiUrl: 'https://app.tolgee.io',
-        apiKey: '<your api key>',
-      },
-    };
-  },
-};
-</script>`;
+</template>`;
 
 const usingTCode = `<template>
   <T keyName="translation_key" defaultValue="Translate me!" />
