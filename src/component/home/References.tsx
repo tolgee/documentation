@@ -1,5 +1,4 @@
 import React, { useState } from 'react';
-import ThemedImage from '@theme/ThemedImage';
 
 import { ReferenceItem } from '../reference/ReferenceItem';
 import { OptimizedImage } from '../OptimizedImage';

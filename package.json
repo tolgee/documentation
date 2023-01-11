@@ -12,6 +12,7 @@
     "clear": "docusaurus clear",
     "generate-pricing": "ts-node scripts/generatePricingData.ts",
     "prettier": "prettier --write ./src --write ./scripts",
+    "prettier-check": "prettier --check ./src --check ./scripts",
     "eslint": "eslint --ext .ts --ext .tsx --max-warnings 0 --report-unused-disable-directives ."
   },
   "dependencies": {

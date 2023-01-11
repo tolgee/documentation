@@ -79,7 +79,7 @@ export const integrations = [
     label: 'Vanilla JS',
     logo: '/img/technologies/logo-js.svg',
     links: {
-      Docs: '/js-sdk/get_started/hello_world',
+      Docs: '/js-sdk/installation',
       'GitHub Repository':
         'https://github.com/tolgee/tolgee-js/tree/main/packages/core',
       'Example App': 'https://github.com/tolgee/window-example',
@@ -90,26 +90,6 @@ export const integrations = [
     logo: '/img/technologies/logo-swagger.svg',
     links: {
       'API Docs': '/api',
-    },
-  },
-  {
-    label: 'PHP',
-    experimental: true,
-    logo: '/img/technologies/logo-php.svg',
-    links: {
-      Docs: '/docs/using_with_php',
-      'GitHub Repository': 'https://github.com/tolgee/php',
-      'Example App': 'https://github.com/tolgee/php-example',
-    },
-  },
-  {
-    label: 'Dart',
-    experimental: true,
-    logo: '/img/technologies/logo-dart.svg',
-    links: {
-      Docs: '/docs/using_with_dart',
-      'GitHub Repository': 'https://github.com/tolgee/dart',
-      'Example App': 'https://github.com/tolgee/dart-example',
     },
   },
 ];
