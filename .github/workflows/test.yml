@@ -20,7 +20,7 @@ jobs:
         env:
           CI: true
 
-  static:
+  static-checks:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
