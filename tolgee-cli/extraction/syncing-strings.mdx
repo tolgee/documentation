@@ -1,0 +1,88 @@
+---
+id: syncing-strings
+title: Syncing strings
+---
+
+import Experimental from '../components/experimental.mdx'
+
+<Experimental/>
+
+The code extractor is a feature of the CLI that allows you not to worry about manually finding strings and adding them
+to the localization project, and leave this up to the CLI. No more stories about keys that have been forgotten!
+
+The CLI will look through your code project and look for usage of the [Tolgee SDK](/js-sdk), and give you all the keys
+used in your app. You'll then be able to push the missing keys to the platform, and deletes keys that have gone unused
+to keep your localization project clean.
+
+During analysis the extractor will also look for [magic comments](/tolgee-cli/extraction/magic-comments) which are
+basically explicit directives you can give to the extractor.
+
+If you need to use custom logic to extract strings, we got you covered! You can use a [custom extractor](/tolgee-cli/extraction/custom-extractor)
+and have the CLI handle the rest for you.
+
+:::tip
+Beware, glob patterns **will** conflict with your shell and **must be escaped**. If you don't wrap it as a string
+(e.g. `./src/**/*.tsx` instead of `"./src/**/*.tsx"`), your shell will attempt to process the `*` tokens and you will
+not have the results you're hoping for.
+:::
+
+## Check for extraction warnings
+When extracting, the CLI might not be able to fully extract strings for a variety of reasons (e.g. dynamic data). When
+this happens, the CLI will emit a warning and tell you the file and line where this warning was emitted.
+
+```
+tolgee extractor check [options] [glob of files]
+```
+
+Options:
+ - `--extractor` (short: `-e`): [Custom extractor](/tolgee-cli/extraction/custom-extractor) to use. Leave unspecified
+    to use the default internal extractor.
+
+:::info
+In the future, when running this command on GitHub Actions, it will be able to add automated review annotation warnings
+directly in your commits and pull requests.
+
+Currently, it will only emit a workflow annotation you can see on the workflow summary.
+
+See [issue #20](https://github.com/tolgee/tolgee-cli/issues/20)
+:::
+
+## Comparing projects
+You can think of this utility as a dry-run of `tolgee sync`. You can use it to see the added/removed strings and
+see if what it tells you seems right, or if it got it somehow wrong.
+
+```
+tolgee compare [options] [glob of files]
+```
+
+Options:
+ - `--extractor` (short: `-e`): [Custom extractor](/tolgee-cli/extraction/custom-extractor) to use. Leave unspecified
+    to use the default internal extractor.
+
+## Synchronizing projects
+```
+tolgee sync [options] [glob of files]
+```
+
+Options:
+ - `--extractor` (short: `-e`): [Custom extractor](/tolgee-cli/extraction/custom-extractor) to use. Leave unspecified
+    to use the default internal extractor.
+ - `--backup <path>` (short: `-B`): Optional. Path where a backup should be downloaded before performing the sync.
+    If something goes wrong, the backup can be used to restore the project to its previous state.
+ - `--remove-unused`: Set this flag to also remove keys from the platform that are unused.
+ - `--continue-on-warning`: Set this flag to continue the sync if warnings are detected during string extraction.
+    By default, as warnings may indicate an invalid extraction, the CLI will abort the sync.
+ - `--yes` (short: `-Y`): Skip prompts and automatically say yes to them. You will not be asked for confirmation before
+    creating/deleting keys.
+
+## Dumping all strings
+This is more of a debug command, which you can use to troubleshoot extraction issues, use as a way to test your
+[custom extractor](/tolgee-cli/extraction/custom-extractor), ...
+
+```
+tolgee extract print [options] [glob of files]
+```
+
+Options:
+ - `--extractor` (short: `-e`): [Custom extractor](/tolgee-cli/extraction/custom-extractor) to use. Leave unspecified
+    to use the default internal extractor.

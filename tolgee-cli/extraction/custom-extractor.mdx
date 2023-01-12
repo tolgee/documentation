@@ -1,0 +1,75 @@
+---
+id: custom-extractor
+title: Custom extractor
+---
+
+import Experimental from '../components/experimental.mdx'
+
+<Experimental/>
+
+You can customize the extraction procedure by using a custom extractor. When using this setup, instead of relying on
+its own internal extractor Tolgee will use your script (written in JavaScript or TypeScript) to find and extract
+strings.
+
+:::caution
+When using a custom extractor, you give up on the [magic comments](/tolgee-cli/extraction/magic-comments) as it is
+part of the internal extractor logic.
+:::
+
+## Extractor sctructure
+There is not much to know to know when writing a custom extractor. Here is the bare minimum file structure to follow:
+
+```ts title=extractor.ts
+import type { ExtractionResult } from 'tolgee-cli/extractor'
+
+export default function (code: string, fileName: string): ExtractionResult {
+  const foundKeys = ... // some magic code
+
+  return {
+    keys: foundKeys,
+  }
+}
+```
+
+## Using your custom extractor
+All commands using code extraction allow you to specify a `--extractor` option, and takes a path to the extraction
+script to use. You can also configure it for the project via [`.tolgeerc`](/tolgee-cli/project-configuration)
+
+:::caution
+When using TypeScript to write your extractor, you must also install `ts-node` as the CLI will use it to load the
+file.
+:::
+
+:::tip
+[`tolgee extractor print`](/tolgee-cli/extraction/syncing-strings#dumping-all-strings) is a very helpful command to
+test and troubleshoot your extractor. I'll dump all the keys it found and the warnings emitted to the console.
+:::
+
+## Type definitions
+Here is the type definition of `ExtractionResult`:
+```ts title=extractor.d.ts
+type Warning = {
+  /** Warning message */
+  warning: string
+  /** Line where the warning was emitted */
+  line: number
+}
+
+type Key = {
+  /** Name of the key */
+  keyName: string
+  /** Default value used when creating the key */
+  defaultValue?: string
+  /** Namespace of the key */
+  namespace?: string
+  /** Line where the key was found */
+  line: number
+}
+
+type ExtractionResult = {
+  /** Keys found during the extraction */
+  keys: Key[]
+  /** Emitted warnings during the extraction */
+  warnings?: Warning[]
+}
+```

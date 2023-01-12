@@ -1,0 +1,30 @@
+---
+id: project-configuration
+title: Project configuration
+---
+
+import Experimental from './components/experimental.mdx'
+
+<Experimental/>
+
+Rather than specifying project details every single time you run a command, you can set them once and forget about it
+by creating a `.tolgeerc` file. It will be parsed as a JSON file.
+
+## List of properties
+### `projectId`
+Integer. ID of the project on the Tolgee server.
+
+### `delimiter`
+Single char, or null. Structure delimiter used.
+
+By default, Tolgee interprets `.` in string keys as nested structures. You can use another delimiter, or disable this
+behavior by specifying `null`.
+
+### `extractor`
+String. Path to the [custom extractor](/tolgee-cli/extraction/how-extraction-works) to use, relative to the `.tolgeerc`
+file.
+
+By default, Tolgee uses its own internal extractor which looks for use of the [Tolgee SDK](/js-sdk).
+
+### `apiUrl`
+String. URL to the Tolgee instance you're using. If you're using Tolgee Cloud, you can ignore this.
