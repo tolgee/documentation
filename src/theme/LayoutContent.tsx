@@ -7,6 +7,7 @@ import { getGtagScript } from '../component/externalScripts/getGtagScript';
 import websiteSchema from '../info/website';
 import { createTheme, ThemeProvider as MuiThemeProvider } from '@mui/material';
 import { useDarkMode } from '../utils';
+import { getHotjarScript } from '../component/externalScripts/getHotjarScript';
 
 export const LayoutContent = ({ children }) => {
   const isDarkTheme = useDarkMode();
@@ -14,6 +15,7 @@ export const LayoutContent = ({ children }) => {
 
   const trackingId = siteConfig.customFields.googleTrackingId;
   const chatwootToken = siteConfig.customFields.chatwootToken;
+  const hotjarId = siteConfig.customFields.hotjarId;
 
   useEffect(() => {
     setTimeout(() => {
@@ -41,10 +43,13 @@ export const LayoutContent = ({ children }) => {
   return (
     <>
       <Head>
-        <script>{getGtagScript(trackingId as string)}</script>
-        <script>
-          {getChatwootScript(chatwootToken as string, isDarkTheme)}
-        </script>
+        {trackingId && <script>{getGtagScript(trackingId as string)}</script>}
+        {chatwootToken && (
+          <script>
+            {getChatwootScript(chatwootToken as string, isDarkTheme)}
+          </script>
+        )}
+        {hotjarId && <script>{getHotjarScript(hotjarId as string)}</script>}
         <script type="application/ld+json">
           {JSON.stringify(websiteSchema)}
         </script>
