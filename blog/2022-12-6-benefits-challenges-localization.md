@@ -7,7 +7,7 @@ authors: [mchalupnikova]
 
 image: "/img/blog/mt-tolgee/machine_translation_tolgee.png"
 
-description: "Software localization can be a complex and costly undertaking. Still, it can offer many benefits for your software business, including expanding your market reach and increasing customer satisfaction."
+description: "Software localization can be a complex and costly undertaking. Still, it can offer many benefits for your software business."
 
 tags: [in-context, localization, i18n, translation]
 ---
