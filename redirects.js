@@ -56,6 +56,10 @@ module.exports.redirects = {
       from: '/server_and_web_app/self_hosting/configuration',
       to: '/platform/self_hosting/configuration',
     },
+    {
+      from: '/docs/web/using_with_angular/translating',
+      to: '/js-sdk/integrations/angular/translating',
+    },
     { from: '/docs/', to: '/platform/' },
   ],
   createRedirects(existingPath) {
