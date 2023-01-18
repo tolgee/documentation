@@ -7,8 +7,8 @@ import Experimental from '../components/experimental.mdx'
 
 <Experimental/>
 
-In some cases you may need to be explicit about what you want the extractor to do, because it's getting something wrong
-or because of a very specific use case. Magic comments to the rescue! They're a set of directives you can add in your
+In some cases, you may need to be explicit about what you want the extractor to do, because it's getting something wrong
+or because of a very specific use case. Magic comments to the rescue! They're a set of directives you can add to your
 code that'll explicitly tell the CLI what it should do.
 
 ## Usage
@@ -47,8 +47,8 @@ If the ignore directive does not have any effect, a warning will be emitted.
 ### `@tolgee-key`
 Specified a localization key. It can be written in 2 forms: simple or detailed.
 
-The simple form just takes the key name as argument. The detailed form takes a JSON5 object, that takes the `keyName`,
-`ns`, and `defaultValue` properties.
+The simple form just takes the key name as an argument. The detailed form takes a JSON5 object, that takes the
+`keyName`, `ns`, and `defaultValue` properties.
 
 ```js
 // @tolgee-key simple-key

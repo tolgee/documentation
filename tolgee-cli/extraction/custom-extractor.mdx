@@ -16,8 +16,8 @@ When using a custom extractor, you give up on the [magic comments](/tolgee-cli/e
 part of the internal extractor logic.
 :::
 
-## Extractor sctructure
-There is not much to know to know when writing a custom extractor. Here is the bare minimum file structure to follow:
+## Extractor structure
+There is not much to know when writing a custom extractor. Here is the bare minimum file structure to follow:
 
 ```ts title=extractor.ts
 import type { ExtractionResult } from 'tolgee-cli/extractor'
@@ -32,7 +32,7 @@ export default function (code: string, fileName: string): ExtractionResult {
 ```
 
 ## Using your custom extractor
-All commands using code extraction allow you to specify a `--extractor` option, and takes a path to the extraction
+All commands using code extraction allow you to specify a `--extractor` option which takes a path to the extraction
 script to use. You can also configure it for the project via [`.tolgeerc`](/tolgee-cli/project-configuration)
 
 :::caution
