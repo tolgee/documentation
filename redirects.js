@@ -60,6 +60,10 @@ module.exports.redirects = {
       from: '/docs/web/using_with_angular/translating',
       to: '/js-sdk/integrations/angular/translating',
     },
+    {
+      from: '/docs/web/in_context',
+      to: '/js-sdk/in-context',
+    },
     { from: '/docs/', to: '/platform/' },
   ],
   createRedirects(existingPath) {
