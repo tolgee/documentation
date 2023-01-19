@@ -20,7 +20,7 @@ part of the internal extractor logic.
 There is not much to know when writing a custom extractor. Here is the bare minimum file structure to follow:
 
 ```ts title=extractor.ts
-import type { ExtractionResult } from 'tolgee-cli/extractor'
+import type { ExtractionResult } from '@tolgee/cli/extractor'
 
 export default function (code: string, fileName: string): ExtractionResult {
   const foundKeys = ... // some magic code
