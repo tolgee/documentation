@@ -44,7 +44,7 @@ const docs = [
       versions: {
         current: {
           banner: 'none',
-          label: '0.1',
+          label: '1.0',
         },
       },
     },
