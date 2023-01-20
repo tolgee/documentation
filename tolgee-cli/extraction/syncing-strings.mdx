@@ -35,7 +35,10 @@ When extracting, the CLI might not be able to fully extract strings for a variet
 this happens, the CLI will emit a warning and tell you the file and line where this warning was emitted.
 
 ```
-tolgee extractor check [options] [glob of files]
+tolgee extractor check [options] '[glob of files]'
+
+Example usage:
+   tolgee extractor check './src/**/*.ts?(x)'
 ```
 
 Options:
@@ -56,7 +59,10 @@ You can think of this utility as a dry-run of `tolgee sync`. You can use it to s
 see if what it tells you seems right, or if it got it somehow wrong.
 
 ```
-tolgee compare [options] [glob of files]
+tolgee compare [options] '[glob of files]'
+
+Example usage:
+   tolgee compare './src/**/*.ts?(x)'
 ```
 
 Options:
@@ -65,7 +71,10 @@ Options:
 
 ## Synchronizing projects
 ```
-tolgee sync [options] [glob of files]
+tolgee sync [options] '[glob of files]'
+
+Example usage:
+   tolgee sync './src/**/*.ts?(x)'
 ```
 
 Options:
@@ -84,7 +93,10 @@ This is more of a debug command, which you can use to troubleshoot extraction is
 [custom extractor](/tolgee-cli/extraction/custom-extractor), ...
 
 ```
-tolgee extract print [options] [glob of files]
+tolgee extract print [options] '[glob of files]'
+
+Example usage:
+   tolgee extract print './src/**/*.ts?(x)'
 ```
 
 Options:
