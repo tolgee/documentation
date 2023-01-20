@@ -2,7 +2,7 @@
 id: switching_language
 title: Switching language
 sidebar_label: Switching language
-description: 'Switching language of the application UI with Tolgee in Vanilla JS.'
+description: 'Switching language of the application UI with Tolgee in Vanilla JS. To change language use changeLanguage method.'
 ---
 
 To change language use [`changeLanguage`](./api/core_package/tolgee.mdx#changelanguage) method.
@@ -13,7 +13,7 @@ await tolgee.changeLanguage('es');
 
 ## Getting current language
 
-When tolgee is running, this will first change `pendingLanguage` property, loads required translation file(s) (when they are not already in the cache) and then changes `language` property.
+When Tolgee is running, this will first change `pendingLanguage` property, loads required translation file(s) (when they are not already in the cache) and then changes `language` property.
 
 Use [`getLanguage`](./api/core_package/tolgee.mdx#getlanguage) or [`getPendingLanguage`](./api/core_package/tolgee.mdx#getpendinglanguage) methods to read current state.
 

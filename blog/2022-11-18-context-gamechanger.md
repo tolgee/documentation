@@ -7,7 +7,7 @@ authors: [mchalupnikova]
 
 image: '/img/blog/mt-tolgee/machine_translation_tolgee.png'
 
-description: 'Learn how context is crucial in the process of software localization. Screenshots and in-context translation can immensely improve the accuracy and quality of translations.'
+description: 'Learn how context is crucial in the process of software localization. Screenshots and in-context translation can immensely improve the quality of translations.'
 
 tags: [in-context, localization, i18n]
 ---
