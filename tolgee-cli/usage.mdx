@@ -1,0 +1,72 @@
+---
+id: usage
+title: Usage
+---
+
+import Experimental from './components/experimental.mdx'
+
+<Experimental/>
+
+Here is an overview of the basics of using the CLI.
+
+## Base options
+These options are available on all commands. They can be specified during the command execution, or configured once
+in a [per-project configuration](/tolgee-cli/project-configuration).
+
+ - `--api-url <URL>` (short: `-au`) - URL of the Tolgee server. Useful for self-hosted installations. Can be [configured per-project](/tolgee-cli/project-configuration).
+ - `--api-key <PAT/PAK>` (short: `-ak`) - **Required**. API Key. Can be a [Personal Access Token or a Project API Key](/platform/api-keys-and-pat-tokens).
+    May be omitted if you [logged in](#logging-in). You can also set it via the `TOLGEE_API_KEY` environment variable
+    (recommended for CI server use).
+ - `--project-id <ID>` (short: `-p`) - **Required**. Project ID on the Tolgee server. May be omitted if you explicitly
+    specified a Project API Key via `--api-key` or `TOLGEE_API_KEY`. Can be [configured per-project](/tolgee-cli/project-configuration).
+ - `--verbose` (short: `-v`) - Enables debug output.
+
+:::tip
+When dealing with options that take multiple values, we recommend you put `--` at the end of the list of option values.
+For instance, let's take this command as an example:
+```
+tolgee some-command [options] [path]
+
+Options:
+  --languages <languages...>     List of languages
+```
+
+We recommend writing the command like so:
+```
+tolgee some-command --languages en cz fr -- example/path
+```
+
+This makes sure the command parser will understand what you mean without any ambiguity.
+:::
+
+## Logging in
+To interact with the Tolgee server, you need to authenticate yourself. For security reasons, the CLI doesn't use your
+username/password combo, but rather Personal Access Tokens, or Project API Keys. You can learn more about these
+on the [Tolgee Platform docs](/platform/api-keys-and-pat-tokens).
+
+To make your life easier, the CLI allows you to store authentication tokens via `tolgee login` (and remove them via
+`tolgee logout`), so you don't have to specify your authentication tokens every single time.
+
+### Saving credentials
+To save your credentials, you simply need to run `tolgee login <token>`. The CLI will figure out what type of token it
+is and save it appropriately. You can save multiple Project API Keys for different projects.
+
+:::info
+Here's how the CLI attempts to fetch the authentication token, from highest priority to lowest.
+ - `--api-key` option
+ - `TOLGEE_API_KEY` environment variable
+ - Personal Access Token saved in credentials store
+ - Project API Key saved in credentials store
+:::
+
+### Using a self-hosted instance
+If you are not hosting your project on Tolgee Cloud, you can configure this in the [`.tolgeerc`](/tolgee-cli/project-configuration#apiUrl)
+file for a whole project, or specify it when running commands via the `--api-url` flag.
+
+When running `tolgee login` in a project configured to use a different instance, Tolgee will automatically attempt to
+connect to this instance instead of Tolgee Cloud.
+
+:::info
+You can be logged into multiple Tolgee instances at the same time. Tokens are stored separately for each instance, so
+you don't have to worry about conflicts.
+:::

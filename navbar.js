@@ -102,6 +102,10 @@ module.exports.navbar = {
           to: 'js-sdk',
           label: 'JavaScript SDK',
         },
+        {
+          to: 'tolgee-cli',
+          label: 'Tolgee CLI',
+        },
       ],
     },
     {

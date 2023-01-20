@@ -33,6 +33,22 @@ const docs = [
       },
     },
   ],
+  [
+    '@docusaurus/plugin-content-docs',
+    {
+      id: 'tolgee-cli',
+      path: 'tolgee-cli',
+      routeBasePath: 'tolgee-cli',
+      sidebarPath: require.resolve('./sidebarTolgeeCli.js'),
+      lastVersion: 'current',
+      versions: {
+        current: {
+          banner: 'none',
+          label: '1.0',
+        },
+      },
+    },
+  ],
 ];
 
 module.exports = { docs };
