@@ -21,11 +21,11 @@ _Imagine having a single tool to handle all these tasks, making the translation 
 
 ## Tolgee platform: what is it, and how can it help with localization?
 
-Tolgee software localization platform is a **free and open-source online tool** that helps software developers localize their products for international markets. Tolgee provides a platform that makes localization easy and affordable with an **easy-to-use interface** for managing translations and supporting all languages. It is constantly being updated with new features and improvements, making it an essential tool for anyone looking to localize their software products. In addition, it provides many great features that make the app localization a piece of cake, such as automatic or machine translation. 
+Tolgee software localization platform is a **free and open-source online tool** that helps software developers localize their products for international markets. Tolgee provides a platform that makes localization easy and affordable with an **easy-to-use interface** for managing translations and supporting all languages. It is constantly being updated with new features and improvements, making it an essential tool for anyone looking to localize their software products. In addition, it provides many great features that make the app localization a breeze, such as automatic or machine translation. 
 
 ## There are many i18n libraries out there. So why should I use Tolgee?
 
-Tolgee can do a lot more than just traditional i18n library. It doesn't only provide the different strings for different languages, but it also enables you to **change the strings directly in the app you are currently working on**. It also allows your colleagues without coding knowledge to translate/modify/fix strings in your app: even your grandma, aunt, or friend from studies abroad can do that.
+Tolgee can do a lot more than just traditional i18n library. It doesn't only provide the different strings for different languages, but it also enables you to **change the strings directly in the app you are currently working on**, even in the production environment, when your app is deployed. It also allows your colleagues without coding knowledge to translate/modify/fix strings in your app: even your grandma, aunt, or friend from studies abroad can do that.
 
 Tolgee is, at the same time, a localization platform where you can translate your strings, while it suggests results from various third-party translators like Google Translator, Amazon Translate, or DeepL. It also enables developers to **provide screenshots from the app in one click**. Hence, translators know the context and don't provide wrong translations. 
 
@@ -44,7 +44,7 @@ Tolgee localization platform is free to use to translate your software projects 
 
 **1. Free plan of Tolgee cloud**
 
-When you sign up for Tolgee, we give you a free account by default. It is suitable for smaller individual projects with up to 3000 translations. There are also 10 000 credits you can use for machine translation from third-party providers such as Google Translate, DeepL, or Amazon Translate. The number of projects and users in the project are unlimited, so you can invite as many translators, reviewers, or collaborators as you wish. [Try Tolgee platform](https://app.tolgee.io/sign_up) first without any financial commitment and make an informed decision about whether or not the tool is suitable for your needs.
+When you sign up for Tolgee, you will be given a free account by default. It is suitable for smaller individual projects with up to 3000 translations. There are also 10 000 credits you can use for machine translation from third-party providers such as Google Translate, DeepL, or Amazon Translate. The number of projects and users in the project are unlimited, so you can invite as many translators, reviewers, or collaborators as you wish. [Try Tolgee platform](https://app.tolgee.io/sign_up) first without any financial commitment and make an informed decision about whether or not the tool is suitable for your needs.
 ![free plan](/img/blog/free-localization/free_plan.png)
 
 **2. Free for open-source projects**
