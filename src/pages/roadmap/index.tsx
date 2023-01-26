@@ -24,56 +24,56 @@ const roadmapData = {
     active: false,
     future: true,
     items: [
-        {
-          name: 'Permission enhancements',
-          description: (
-            <p>
-              Currently, the permissions are level oriented. You can have MANAGE
-              permission, which enables you to do everything in the project, or
-              EDIT which enables you to manage keys, translations, or screenshots.
-              But what if you want to enable a specific user to only add
-              screenshots? With enhanced permissions users will be able to set
-              granular permissions for each scope like uploading screenshots,
-              adding a key, modifying translations, you name it.
-            </p>
-          ),
-        },
-      
-        {
-          name: 'Community translations',
-          description: (
-            <p>
-              Tolgee is currently used by many open source projects, but Tolgee
-              doesn&apos;t support a safe way of community translating. It can
-              limit translation permissions to specific users, but the user can
-              then modify all the strings in the language. We need to provide a
-              better way, where the community members would be able to only
-              propose changes, which have to be approved and merged by somebody
-              who is permitted to.
-            </p>
-          ),
-        },
-        {
-          name: 'Webhooks',
-          description: (
-            <p>
-              With webhooks, developers would be able to create their custom
-              automation when project data change without periodically calling the
-              REST API. They will be notified by specific events automatically!
-            </p>
-          ),
-        },
+      {
+        name: 'Permission enhancements',
+        description: (
+          <p>
+            Currently, the permissions are level oriented. You can have MANAGE
+            permission, which enables you to do everything in the project, or
+            EDIT which enables you to manage keys, translations, or screenshots.
+            But what if you want to enable a specific user to only add
+            screenshots? With enhanced permissions users will be able to set
+            granular permissions for each scope like uploading screenshots,
+            adding a key, modifying translations, you name it.
+          </p>
+        ),
+      },
 
-        {
-          name: 'Batch operations',
-          description: (
-            <p>
-              Select as many keys as you want and then tag them, find and replace
-              in them, auto-translate, or change their state.
-            </p>
-          ),
-        },
-        {
+      {
+        name: 'Community translations',
+        description: (
+          <p>
+            Tolgee is currently used by many open source projects, but Tolgee
+            doesn&apos;t support a safe way of community translating. It can
+            limit translation permissions to specific users, but the user can
+            then modify all the strings in the language. We need to provide a
+            better way, where the community members would be able to only
+            propose changes, which have to be approved and merged by somebody
+            who is permitted to.
+          </p>
+        ),
+      },
+      {
+        name: 'Webhooks',
+        description: (
+          <p>
+            With webhooks, developers would be able to create their custom
+            automation when project data change without periodically calling the
+            REST API. They will be notified by specific events automatically!
+          </p>
+        ),
+      },
+
+      {
+        name: 'Batch operations',
+        description: (
+          <p>
+            Select as many keys as you want and then tag them, find and replace
+            in them, auto-translate, or change their state.
+          </p>
+        ),
+      },
+      {
         name: 'All format support',
         description: (
           <p>
@@ -333,9 +333,9 @@ If you are self-hosting Tolgee, don't worry. Tolgee stays free for you.`,
 data from the Tolgee platform, analyzing code, looking for new keys,
 and extracting data in specific formats. Everything mentioned is
 customizable and flexible!`,
-      done: true,
+        done: true,
       },
-      
+
       {
         name: 'Namespaces in Tolgee JS integrations',
         description: `Enable localization data export to be split to multiple files not
