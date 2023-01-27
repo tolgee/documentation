@@ -1,0 +1,46 @@
+---
+id: tools
+title: Tools
+sidebar_label: Tools
+slug: tools
+---
+
+As `DevTools` are automatically omitted on production, `@tolgee/web/tools` can be used to include it unconditionally.
+
+## `InContextTools`
+
+:::info
+We recommend using conditionally exported [`DevTools`](./plugins#devtools). Use `InContextTools` only if you know what you are doing.
+:::
+
+It's combination [`ObserverPlugin`](./plugins#observerplugin), [`ContextUi`](./tools#contextui) and [`DevBackend`](./plugins#devbackend) in one plugin, which you can use when you want to enable in-context capability anywhere. It only applies plugins if there they are not already applied. You can optionaly provide credentials to Tolgee platform, which will override anything that was set before.
+
+This plugin is automatically downloaded and applied by [`BrowserExtensionPlugin`](./plugins#browserextensionplugin), when you enable in-context translating.
+
+```ts
+import { InContextTools } from '@tolgee/web/tools'
+
+tolgee.use(InContextTools(props?: InContextOptions));
+```
+
+```ts
+type InContextOptions = {
+  credentials: {
+    apiUrl?: string;
+    apiKey?: string;
+    projectId?: string | number;
+  };
+};
+```
+
+Can be applied even when `Tolgee` is already running.
+
+## `ContextUi`
+
+Tolgee in-context modal, which allows you to edit translation in-context.
+
+```ts
+import { ContextUi } from '@tolgee/web/tools'
+
+tolgee.use(ContextUi());
+```
