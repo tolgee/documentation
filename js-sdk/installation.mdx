@@ -19,7 +19,7 @@ For supported integrations, install directly Tolgee integration package:
 
 ## Without integration
 
-If you use vanilla javascript or unsupported framework, use [`@tolgee/web`](./api/web_package/about) package.
+If you use vanilla javascript or an unsupported framework, use [`@tolgee/web`](./api/web_package/about) package.
 
 import { InstallationTabs } from '../src/component/InstallationTabs';
 
@@ -32,7 +32,7 @@ import { Tolgee } from '@tolgee/web';
 ### With script tag
 
 ```jsx
-<script src="https://cdn.jsdelivr.net/npm/@tolgee/sdk/dist/tolgee-web-tolgee.umd.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@tolgee/web/dist/tolgee-web.production.umd.min.js"></script>
 ```
 
 ```ts
@@ -42,7 +42,7 @@ const { Tolgee } = window['@tolgee/web'];
 ### With native es import
 
 ```ts
-import { Tolgee } from 'https://cdn.jsdelivr.net/npm/@tolgee/sdk/dist/tolgee-web-tolgee.esm.min.mjs'
+import { Tolgee } from 'https://cdn.jsdelivr.net/npm/@tolgee/web/dist/tolgee-web.production.esm.min.mjs'
 ```
 
 ## In-context (DevTools)
@@ -62,12 +62,12 @@ If you use any standard FE setup with bundler, `DevTools` will be automatically 
 You can use separately bundled `in-context-tools`, however you'll have to make sure you won't include it in production.
 
 ```jsx
-<script src="https://cdn.jsdelivr.net/npm/@tolgee/sdk/dist/tolgee-in-context-tools.umd.min.js"></script>;
+<script src="https://cdn.jsdelivr.net/npm/@tolgee/web/dist/tolgee-in-context-tools.umd.min.js"></script>;
 const { InContextTools } = window['@tolgee/in-context-tools'];
 
 // or
 
-import { InContextTools } from 'https://cdn.jsdelivr.net/npm/@tolgee/sdk/dist/tolgee-in-context-tools.esm.min.mjs';
+import { InContextTools } from 'https://cdn.jsdelivr.net/npm/@tolgee/web/dist/tolgee-in-context-tools.esm.min.mjs';
 ```
 
-All `@tolgee/web` plugins are bundled separately, check the [complete list](https://cdn.jsdelivr.net/npm/@tolgee/web/dist/).
+Check the [complete list](https://cdn.jsdelivr.net/npm/@tolgee/web/dist/) of bundles.
