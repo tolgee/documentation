@@ -1,0 +1,30 @@
+---
+id: plugins
+title: Plugins
+sidebar_label: Plugins
+description: 'Plugins of the application UI with Tolgee in Vanilla JS.'
+---
+
+For adding further functionality Tolgee SDK contains a plugin system. You can add them at the Tolgee initialization:
+
+```ts
+const tolgee = Tolgee()
+  .use(DevTools())          // <-– plugin
+  .use(FormatSimple())      // <-- another plugin
+  .init(...)
+```
+
+## Existing plugins
+ - [DevTools](./api/web_package/bundled-plugins#devtools) - for in-context translating in dev mode
+
+#### Formatters
+ - [FormatSimple](./api/core_package/format-simple) - bundle size friendly simple formatter
+ - [FormatIcu](./formatting#icu-formatter) - full ICU formatter
+
+#### Backends (data fetching)
+ - [BackendFetch](./api/web_package/plugins#backendfetch) - fetch data from custom backend
+
+#### Language helpers
+ - [LanguageStorage](./api/web_package/plugins#languagestorage) - store language in LocalStorage
+ - [LanguageDetector](./api/web_package/plugins#languagedetector) - detect user language from browser
+

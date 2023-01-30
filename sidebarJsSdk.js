@@ -10,6 +10,7 @@ module.exports = {
     'in_context',
     'wrapping',
     'providing_static_data',
+    'plugins',
     {
       label: 'Integrations',
       collapsed: false,
