@@ -113,8 +113,8 @@ module.exports = {
           items: [
             'api/web_package/about',
             'api/web_package/plugins',
-            'api/web_package/bundled_plugins',
-            'api/web_package/other_tools',
+            'api/web_package/tools',
+            'api/web_package/constants',
           ],
         },
       ],
