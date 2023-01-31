@@ -20,21 +20,10 @@ type PeriodData = {
 };
 
 const roadmapData = {
-  '2022/Q4': {
-    future: false,
-    active: true,
+  '2023/Q1-Q2': {
+    active: false,
+    future: true,
     items: [
-      {
-        name: 'CLI',
-        description: (
-          <p>
-            Command Line Interface will help users with extracting localization
-            data from the Tolgee platform, analyzing code, looking for new keys,
-            and extracting data in specific formats. Everything mentioned is
-            customizable and flexible!
-          </p>
-        ),
-      },
       {
         name: 'Permission enhancements',
         description: (
@@ -49,16 +38,7 @@ const roadmapData = {
           </p>
         ),
       },
-      {
-        name: 'New Core of Tolgee JS',
-        description: (
-          <p>
-            The new @tolgee/core package will provide refactored core of all js
-            integrations and cleaner API with enhanced customization reduced
-            bundle size and new features.
-          </p>
-        ),
-      },
+
       {
         name: 'Community translations',
         description: (
@@ -83,6 +63,7 @@ const roadmapData = {
           </p>
         ),
       },
+
       {
         name: 'Batch operations',
         description: (
@@ -92,21 +73,6 @@ const roadmapData = {
           </p>
         ),
       },
-      {
-        name: 'Namespaces in Tolgee JS integrations',
-        description: (
-          <p>
-            Enable localization data export to be split to multiple files not
-            only by the language but also by their namespace.
-          </p>
-        ),
-      },
-    ],
-  },
-  '2023/Q1-Q2': {
-    active: false,
-    future: true,
-    items: [
       {
         name: 'All format support',
         description: (
@@ -353,6 +319,35 @@ translating your new keys automatically when enabled.`,
         description: `To generate some profit from providing this great localization tool, we need to
 enable our users to pay for our services. To do so, we have to implement backend services and UI to bill for our services.
 If you are self-hosting Tolgee, don't worry. Tolgee stays free for you.`,
+        done: true,
+      },
+    ],
+  },
+  '2022/Q4': {
+    active: false,
+    future: false,
+    items: [
+      {
+        name: 'CLI',
+        description: `Command Line Interface will help users with extracting localization
+data from the Tolgee platform, analyzing code, looking for new keys,
+and extracting data in specific formats. Everything mentioned is
+customizable and flexible!`,
+        done: true,
+      },
+
+      {
+        name: 'Namespaces in Tolgee JS integrations',
+        description: `Enable localization data export to be split to multiple files not
+          only by the language but also by their namespace.`,
+        done: true,
+      },
+
+      {
+        name: 'New Core of Tolgee JS',
+        description: `The new @tolgee/core package will provide refactored core of all js
+integrations and cleaner API with enhanced customization reduced
+bundle size and new features.`,
         done: true,
       },
     ],
