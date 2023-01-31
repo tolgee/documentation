@@ -5,17 +5,21 @@ sidebar_label: Tools
 slug: tools
 ---
 
+
 As `DevTools` are automatically omitted on production, `@tolgee/web/tools` can be used to include it unconditionally.
+
+:::info
+Tools were moved from `@tolgee/web` in version 5.2.0.
+:::
 
 ## `InContextTools`
 
-:::info
-We recommend using conditionally exported [`DevTools`](./plugins#devtools). Use `InContextTools` only if you know what you are doing.
-:::
 
-It's combination [`ObserverPlugin`](./plugins#observerplugin), [`ContextUi`](./tools#contextui) and [`DevBackend`](./plugins#devbackend) in one plugin, which you can use when you want to enable in-context capability anywhere. It only applies plugins if there they are not already applied. You can optionaly provide credentials to Tolgee platform, which will override anything that was set before.
+Similar to [`DevTools`](./plugins#devtools). Use `InContextTools` only if you know what you are doing.
 
-This plugin is automatically downloaded and applied by [`BrowserExtensionPlugin`](./plugins#browserextensionplugin), when you enable in-context translating.
+It's a combination [`ObserverPlugin`](./plugins#observerplugin), [`ContextUi`](./tools#contextui) and [`DevBackend`](./plugins#devbackend) in one plugin, which you can use when you want to enable in-context capability anywhere. It only applies plugins if there they are not already applied. You can optionally provide credentials to Tolgee platform, which will override anything that was set before.
+
+This plugin is automatically downloaded and applied by [`BrowserExtensionPlugin`](./plugins#browserextensionplugin) when you enable in-context translating.
 
 ```ts
 import { InContextTools } from '@tolgee/web/tools'
