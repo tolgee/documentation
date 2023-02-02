@@ -17,7 +17,11 @@ Tools were moved from `@tolgee/web` in version 5.2.0.
 
 Similar to [`DevTools`](./plugins#devtools). Use `InContextTools` only if you know what you are doing.
 
-It's a combination [`ObserverPlugin`](./plugins#observerplugin), [`ContextUi`](./tools#contextui) and [`DevBackend`](./plugins#devbackend) in one plugin, which you can use when you want to enable in-context capability anywhere. It only applies plugins if there they are not already applied. You can optionally provide credentials to Tolgee platform, which will override anything that was set before.
+:::tip
+For safe and efficient in-context on production use [Tolgee Tools](https://chrome.google.com/webstore/detail/tolgee-tools/hacnbapajkkfohnonhbmegojnddagfnj) chrome plugin.
+:::
+
+It's a combination [`ObserverPlugin`](./plugins#observerplugin), [`ContextUi`](./tools#contextui) and [`DevBackend`](./plugins#devbackend) in one plugin, which you can use when you want to enable in-context capability anywhere. It only applies plugins if there they are not already applied. You can optionally provide credentials to the Tolgee platform, which will override anything that was set before.
 
 This plugin is automatically downloaded and applied by [`BrowserExtensionPlugin`](./plugins#browserextensionplugin) when you enable in-context translating.
 
