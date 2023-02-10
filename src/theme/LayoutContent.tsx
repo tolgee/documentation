@@ -53,6 +53,10 @@ export const LayoutContent = ({ children }) => {
         <script type="application/ld+json">
           {JSON.stringify(websiteSchema)}
         </script>
+        <meta
+          name="facebook-domain-verification"
+          content="boppg6u2f0982xhjbg7jtr9odtchvk"
+        />
       </Head>
       <MuiThemeProvider theme={theme}>{children}</MuiThemeProvider>
     </>
