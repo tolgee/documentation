@@ -228,6 +228,18 @@ const roadmapData = {
         ),
       },
       {
+        name: 'Translation Memory management',
+        gitHubIssueLink:
+          'https://github.com/tolgee/tolgee-platform/issues/1569',
+        description: (
+          <p>
+            Management of Translation Memories will to share them between
+            different projects. You will be also able to import and export TMX
+            files, so you can back-up them if you want.
+          </p>
+        ),
+      },
+      {
         name: 'Ordering professional translation',
         gitHubIssueLink:
           'https://github.com/tolgee/tolgee-platform/issues/1561',
