@@ -11,8 +11,9 @@ type Item = {
   name: string;
   description: React.ReactNode;
   done?: boolean;
-  inProgressLink?: string;
+  gitHubIssueLink?: string;
 };
+
 type PeriodData = {
   active?: boolean;
   future?: boolean;
@@ -26,6 +27,8 @@ const roadmapData = {
     items: [
       {
         name: 'Permission enhancements',
+        gitHubIssueLink:
+          'https://github.com/tolgee/tolgee-platform/issues/1336',
         description: (
           <p>
             Currently, the permissions are level oriented. You can have MANAGE
@@ -38,9 +41,83 @@ const roadmapData = {
           </p>
         ),
       },
-
+      {
+        name: 'Batch operations',
+        gitHubIssueLink: 'https://github.com/tolgee/tolgee-platform/issues/911',
+        description: (
+          <p>
+            Select as many keys as you want and then tag them, find and replace
+            in them, auto-translate, or change their state.
+          </p>
+        ),
+      },
+      {
+        name: 'Webhooks',
+        gitHubIssueLink:
+          'https://github.com/tolgee/tolgee-platform/issues/1544',
+        description: (
+          <p>
+            With webhooks, developers would be able to create their custom
+            automation when project data change without periodically calling the
+            REST API. They will be notified by specific events automatically!
+          </p>
+        ),
+      },
+      {
+        name: 'Backups and data export',
+        gitHubIssueLink:
+          'https://github.com/tolgee/tolgee-platform/issues/1540',
+        description: (
+          <p>
+            For our subscribers, we would like to provide an automated backups
+            feature, which will enable users to restore their project data to a
+            specific state when something goes wrong. Users will be also able to
+            export all project data including metadata and screenshots and
+            import them later.
+          </p>
+        ),
+      },
+      {
+        name: 'CDN',
+        gitHubIssueLink:
+          'https://github.com/tolgee/tolgee-platform/issues/1538',
+        description: (
+          <p>
+            Tolgee will automatically upload the exported localization data
+            after every change, so your translations will be always up to date.
+            You will be also able to configure your S3-compatible bucket, so the
+            data stay with you.
+          </p>
+        ),
+      },
+      {
+        name: 'Tasks',
+        gitHubIssueLink:
+          'https://github.com/tolgee/tolgee-platform/issues/1548',
+        description: (
+          <p>
+            Tasks will enhance project management, improve collaboration, and
+            enable better time management for translators. You will easily break
+            down your large project into smaller, more manageable sections which
+            helps translators to prioritize and work more efficiently.
+          </p>
+        ),
+      },
+      {
+        name: 'Notifications',
+        gitHubIssueLink:
+          'https://github.com/tolgee/tolgee-platform/issues/1539',
+        description: (
+          <p>
+            When something changes in your project, users will be notified, if
+            enabled. So you can get your strings translated asap.
+          </p>
+        ),
+      },
       {
         name: 'Community translations',
+        gitHubIssueLink:
+          'https://github.com/tolgee/tolgee-platform/issues/1360',
         description: (
           <p>
             Tolgee is currently used by many open source projects, but Tolgee
@@ -54,27 +131,9 @@ const roadmapData = {
         ),
       },
       {
-        name: 'Webhooks',
-        description: (
-          <p>
-            With webhooks, developers would be able to create their custom
-            automation when project data change without periodically calling the
-            REST API. They will be notified by specific events automatically!
-          </p>
-        ),
-      },
-
-      {
-        name: 'Batch operations',
-        description: (
-          <p>
-            Select as many keys as you want and then tag them, find and replace
-            in them, auto-translate, or change their state.
-          </p>
-        ),
-      },
-      {
         name: 'All format support',
+        gitHubIssueLink:
+          'https://github.com/tolgee/tolgee-platform/issues/1547',
         description: (
           <p>
             Tolgee currently works fine with ICU message format and you can
@@ -87,6 +146,8 @@ const roadmapData = {
       },
       {
         name: 'Visual editor',
+        gitHubIssueLink:
+          'https://github.com/tolgee/tolgee-platform/issues/1547',
         description: (
           <>
             <p>
@@ -106,18 +167,9 @@ const roadmapData = {
         ),
       },
       {
-        name: 'Translator Marketplace',
-        description: (
-          <p>
-            Looking for a translator to access foreign markets? Tolgee will help
-            you with this. With the Tolgee Translator Marketplace, there will be
-            nothing easier than finding the ideal professional translator for
-            your app.
-          </p>
-        ),
-      },
-      {
         name: 'Tolgee Translator (experimental)',
+        gitHubIssueLink:
+          'https://github.com/tolgee/tolgee-platform/issues/1543',
         description: (
           <p>
             Tolgee's very own Translator, which uses open-source projects data
@@ -127,18 +179,16 @@ const roadmapData = {
           </p>
         ),
       },
-      {
-        name: 'Branching',
-        description: (
-          <p>
-            Sometimes you need to maintain multiple versions of your software,
-            so you’ll need to have multiple versions of your localization data
-            stored in Tolgee as well.
-          </p>
-        ),
-      },
+    ],
+  },
+  '2023/Q3-Q4': {
+    active: false,
+    future: true,
+    items: [
       {
         name: 'Git integrations',
+        gitHubIssueLink:
+          'https://github.com/tolgee/tolgee-platform/issues/1542',
         description: (
           <>
             <p>
@@ -154,45 +204,9 @@ const roadmapData = {
         ),
       },
       {
-        name: 'Backups and data export',
-        description: (
-          <p>
-            For our subscribers, we would like to provide an automated backups
-            feature, which will enable users to restore their project data to a
-            specific state when something goes wrong. Users will be also able to
-            export all project data including metadata and screenshots and
-            import them later.
-          </p>
-        ),
-      },
-      {
-        name: 'Notifications',
-        description: (
-          <p>
-            When something changes in your project, users will be notified, if
-            enabled. So you can get your strings translated asap.
-          </p>
-        ),
-      },
-      {
-        name: 'CDN',
-        description: (
-          <p>
-            Tolgee will automatically upload the exported localization data
-            after every change, so your translations will be always up to date.
-            You will be also able to configure your S3-compatible bucket, so the
-            data stay with you.
-          </p>
-        ),
-      },
-    ],
-  },
-  '2023/Q3-Q4': {
-    active: false,
-    future: true,
-    items: [
-      {
         name: 'Glossaries',
+        gitHubIssueLink:
+          'https://github.com/tolgee/tolgee-platform/issues/1418',
         description: (
           <p>
             To translate the same terms the same way every time, you need to
@@ -202,13 +216,45 @@ const roadmapData = {
         ),
       },
       {
+        name: 'Ordering professional translation',
+        gitHubIssueLink:
+          'https://github.com/tolgee/tolgee-platform/issues/1561',
+        description: (
+          <p>
+            Looking for a way to localize your product into foreign markets
+            Tolgee will help you with that. With Tolgee, you will easily find
+            the ideal professional translator for your needs.
+          </p>
+        ),
+      },
+      {
+        name: 'Document formats support',
+        gitHubIssueLink:
+          'https://github.com/tolgee/tolgee-platform/issues/1549',
+        description: (
+          <p>
+            Support for document file formats like DOCX, PPTX, or HTML will
+            enable you to have them translated with ease.
+          </p>
+        ),
+      },
+      {
         name: 'Design tools integrations',
-        description: `With Tolgee, developers and translators can translate apps very easily. We 
-would also like to provide translators with simplicity by enabling them to 
-translate texts directly in tools like <b>Figma, XD, or Miro</b>.`,
+        gitHubIssueLink:
+          'https://github.com/tolgee/tolgee-platform/issues/1560',
+        description: (
+          <p>
+            With Tolgee, developers and translators can translate apps very
+            easily. We would also like to provide translators with simplicity by
+            enabling them to translate texts directly in tools like{' '}
+            <b>Figma, XD, or Miro</b>.
+          </p>
+        ),
       },
       {
         name: 'In-context support for mobile apps',
+        gitHubIssueLink:
+          'https://github.com/tolgee/tolgee-platform/issues/1545',
         description: (
           <p>
             The in-context translating works great with web apps, and we would
@@ -218,11 +264,31 @@ translate texts directly in tools like <b>Figma, XD, or Miro</b>.`,
       },
       {
         name: 'QA Checks',
+        gitHubIssueLink:
+          'https://github.com/tolgee/tolgee-platform/issues/1546',
         description: (
           <p>
             Even translators make mistakes, but some of these mistakes can be
             detected, and translators can be notified. No more mistakes like
             missing tags, missing parameters, or missing punctuation marks.
+          </p>
+        ),
+      },
+    ],
+  },
+  '2024/Q1-Q2': {
+    active: false,
+    future: true,
+    items: [
+      {
+        name: 'Branching',
+        gitHubIssueLink:
+          'https://github.com/tolgee/tolgee-platform/issues/1550',
+        description: (
+          <p>
+            Sometimes you need to maintain multiple versions of your software,
+            so you’ll need to have multiple versions of your localization data
+            stored in Tolgee as well.
           </p>
         ),
       },
@@ -267,7 +333,7 @@ key in the in-context translation UI.`,
         name: 'Translation memory',
         description: `Translation memory will suggest sentences that will have already been 
 translated in your projects before.`,
-        inProgressLink: 'https://github.com/tolgee/server/pull/920',
+        gitHubIssueLink: 'https://github.com/tolgee/server/pull/920',
         done: true,
       },
       {
@@ -275,14 +341,14 @@ translated in your projects before.`,
         description: `Don't translate everything manually. With an automated translations feature, 
 services like DeepL, Google Translate, or AWS translate will help by suggesting or 
 translating your new keys automatically when enabled.`,
-        inProgressLink: 'https://github.com/tolgee/server/pull/920',
+        gitHubIssueLink: 'https://github.com/tolgee/server/pull/920',
         done: true,
       },
       {
         name: 'Translating on production',
         description: `Currently, in-context localization works only when the application is in development mode which is cool, but we would like
          to enable users to translate directly in the deployed app by providing API key using the Tolgee Tools Chrome plugin.`,
-        inProgressLink: 'https://github.com/tolgee/tolgee-js/pull/1775',
+        gitHubIssueLink: 'https://github.com/tolgee/tolgee-js/pull/1775',
         done: true,
       },
       {
@@ -299,19 +365,19 @@ translating your new keys automatically when enabled.`,
       {
         name: 'Project Dashboard',
         description: `To see detailed statistics for the project and for each language.`,
-        inProgressLink: 'https://github.com/tolgee/server/issues/915',
+        gitHubIssueLink: 'https://github.com/tolgee/server/issues/915',
         done: true,
       },
       {
         name: 'Translation history',
         description: `Enable users to see, how translation was edited in the past.`,
-        inProgressLink: 'https://github.com/tolgee/server/issues/1001',
+        gitHubIssueLink: 'https://github.com/tolgee/server/issues/1001',
         done: true,
       },
       {
         name: 'Translation permissions limited by language',
         description: `Add an option specifying a particular language a user can translate to.`,
-        inProgressLink: 'https://github.com/tolgee/server/pull/991',
+        gitHubIssueLink: 'https://github.com/tolgee/server/pull/991',
         done: true,
       },
       {
@@ -411,9 +477,9 @@ export default function Roadmap() {
                         >
                           <h3>
                             {item.name}
-                            <InProgress
+                            <GitHubLink
                               done={item.done}
-                              link={item.inProgressLink}
+                              link={item.gitHubIssueLink}
                             />
                           </h3>
                           {item.description &&
@@ -441,11 +507,11 @@ export default function Roadmap() {
   );
 }
 
-const InProgress = (props: { link?: string; done: boolean }) => {
+const GitHubLink = (props: { link?: string; done: boolean }) => {
   return props.link && !props.done ? (
     <>
       {` `}
-      <a href={props.link}>(In progress)</a>
+      <a href={props.link}>(GitHub link)</a>
     </>
   ) : null;
 };
