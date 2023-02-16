@@ -26,6 +26,18 @@ const roadmapData = {
     future: true,
     items: [
       {
+        name: 'Figma plugin',
+        gitHubIssueLink:
+          'https://github.com/tolgee/tolgee-platform/issues/1385',
+        description: (
+          <p>
+            Figma plugin is our first integration with a design tools. This will
+            help developers and localization managers to simply import and
+            export keys directly in Figma.
+          </p>
+        ),
+      },
+      {
         name: 'Permission enhancements',
         gitHubIssueLink:
           'https://github.com/tolgee/tolgee-platform/issues/1336',
@@ -244,10 +256,9 @@ const roadmapData = {
           'https://github.com/tolgee/tolgee-platform/issues/1560',
         description: (
           <p>
-            With Tolgee, developers and translators can translate apps very
-            easily. We would also like to provide translators with simplicity by
-            enabling them to translate texts directly in tools like{' '}
-            <b>Figma, XD, or Miro</b>.
+            After the Figma plugin, we would also like to provide developers and
+            localization managers plugins for more design tools like{' '}
+            <b>Adobe XD or Sketch</b>.
           </p>
         ),
       },
