@@ -3,11 +3,11 @@ slug: conditional-export
 title: 'NPM Packge: How to Conditionally Include Developer Tools?'
 authors: [sgranat]
 image: '/img/blog/free-localization/painless_localization.png'
-description: 'Creating a package with smaller bundle size for production by excluding developer tools'
+description: 'Learn how to reduce the size of your production bundle by conditionally including developer tools based on the environment in which it's being used.'
 tags: [localization, i18n, translation]
 ---
 
-Reducing the size of your production bundle can be a significant challenge. One common issue is including developer tools in the package, they are essential in development mode but add unnecessary bulk to the production bundle. In this article, we'll explore a solution to this problem that involves including the developer tools conditionally, based on the environment in which the package is being used.
+Reducing the size of your production bundle can be a significant challenge, particularly when it comes to including developer tools. Libraries like React Query, React DevTools, and Redux are essential in development mode, but they add unnecessary bulk to the production bundle. However, this is not a new problem, and there are existing solutions that can be applied to different contexts. In this article, we'll explore a solution to this problem that involves including developer tools conditionally, based on the environment in which the package is being used.
 
 <!--truncate-->
 
