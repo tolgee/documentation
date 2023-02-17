@@ -9,6 +9,8 @@ tags: [localization, i18n, translation]
 
 Reducing the size of your production bundle can be a significant challenge. One common issue is including developer tools in the package, they are essential in development mode but add unnecessary bulk to the production bundle. In this article, we'll explore a solution to this problem that involves including the developer tools conditionally, based on the environment in which the package is being used.
 
+<!--truncate-->
+
 ## The background
 
 I'm a maintainer of Tolgee SDK and in version 5 we've decided to make some changes.
