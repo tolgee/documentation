@@ -7,7 +7,7 @@ description: "Learn how to reduce the size of your production bundle by conditio
 tags: [localization, i18n, translation]
 ---
 
-Reducing the size of your production bundle can be a significant challenge, particularly when it comes to including developer tools. Libraries like React Query, React DevTools, and Redux are essential in development mode, but they add unnecessary bulk to the production bundle. However, this is not a new problem, and there are existing solutions that can be applied to different contexts. In this article, we'll explore a solution to this problem that involves including developer tools conditionally, based on the environment in which the package is being used.
+Reducing the size of your production bundle can be a significant challenge, particularly when it comes to including unnecessary code. Libraries like React, React Query or Redux include useful developer tools, but they exclude them on production where it would be just an unecessary bulk. It is not a new problem, but it is hard to do when you don't have a deep konwledge of different build systems. In this article, we'll explore a solution to this problem that involves including developer tools conditionally, based on the environment in which the package is being used.
 
 <!--truncate-->
 
