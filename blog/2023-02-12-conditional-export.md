@@ -3,7 +3,7 @@ slug: conditional-export
 title: 'NPM Packge: How to Conditionally Include Developer Tools?'
 authors: [sgranat]
 image: '/img/blog/free-localization/painless_localization.png'
-description: 'Learn how to reduce the size of your production bundle by conditionally including developer tools based on the environment in which it's being used.'
+description: "Learn how to reduce the size of your production bundle by conditionally including developer tools based on the environment in which it's being used."
 tags: [localization, i18n, translation]
 ---
 
