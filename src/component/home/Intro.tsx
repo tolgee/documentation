@@ -126,7 +126,7 @@ export const Intro = () => {
             transform: isLarge ? 'translateY(-50%)' : undefined,
           }}
         >
-          <section className="flex justify-center w-[100vw]">
+          <section className="flex justify-center">
             {Boolean(viewPortHeight) && (
               <div className="flex gap-12 sm:m-12 m-8 flex-col lg:flex-row md:max-w-[1500px] flex-grow">
                 <ImageColumn>
