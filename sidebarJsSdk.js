@@ -128,6 +128,7 @@ module.exports = {
         'migration_to_v5/ngx',
         'migration_to_v5/svelte',
         'migration_to_v5/vue',
+        'migration_to_v5/i18next',
       ],
     },
   ],

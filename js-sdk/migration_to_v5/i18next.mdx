@@ -1,0 +1,15 @@
+---
+id: i18next
+title: Migrating to v5 (i18next)
+sidebar_label: I18next
+description: "In version 5, the core library was completely redesigned. Learn how to migrate Tolgee for i18next from v4 to v5."
+---
+
+In version 5, the core library was completely redesigned. Before you start, please read the [general info about
+this new version](./core.mdx).
+
+## Namespaces
+
+Since Tolgee now supports namespaces you can now use them directly from i18next.
+
+Because i18next doesn't let you have empty namespaces (""), you have to move your translations to some namespace in Tolgee Platform (`i18next` defaults to "translation"). Otherwise, Tolgee returns no translations.
