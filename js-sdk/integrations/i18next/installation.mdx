@@ -28,7 +28,8 @@ const tolgee = Tolgee()
 
     // for production
     staticData: {
-      ...
+      'en:translation': ...,
+      'cs:translation': ...
     }
   });
 
@@ -39,6 +40,10 @@ withTolgee(i18n, tolgee)
 ```
 
 Now you can use regular i18next translation features.
+
+:::info
+`i18next` namespaces are mapped to Tolgee namespaces and since i18next doesn't support empty namespace, you have to have your translations in some namespace in the Tolgee platform (`i18next` defaults to "translation").
+:::
 
 ## Language detection/changes
 
