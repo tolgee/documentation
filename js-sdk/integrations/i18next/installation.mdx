@@ -15,12 +15,11 @@ Then wrap your i18next instance [`withTolgee`](./api#function-withtolgeei18next-
 
 ```ts
 import i18n from 'i18next';
-import { withTolgee, Tolgee, I18nextPlugin, FormatSimple, DevTools } from '@tolgee/i18next';
+import { withTolgee, Tolgee, I18nextPlugin, DevTools } from '@tolgee/i18next';
 
 const tolgee = Tolgee()
   .use(DevTools())
   .use(I18nextPlugin())
-  .use(FormatSimple())
   .init({
     // for development
     apiUrl: ...,
