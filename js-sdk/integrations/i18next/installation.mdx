@@ -15,12 +15,11 @@ Then wrap your i18next instance [`withTolgee`](./api#function-withtolgeei18next-
 
 ```ts
 import i18n from 'i18next';
-import { withTolgee, Tolgee, I18nextPlugin, FormatSimple, DevTools } from '@tolgee/i18next';
+import { withTolgee, Tolgee, I18nextPlugin, DevTools } from '@tolgee/i18next';
 
 const tolgee = Tolgee()
   .use(DevTools())
   .use(I18nextPlugin())
-  .use(FormatSimple())
   .init({
     // for development
     apiUrl: ...,
@@ -28,7 +27,8 @@ const tolgee = Tolgee()
 
     // for production
     staticData: {
-      ...
+      'en:translation': ...,
+      'cs:translation': ...
     }
   });
 
@@ -39,6 +39,10 @@ withTolgee(i18n, tolgee)
 ```
 
 Now you can use regular i18next translation features.
+
+:::info
+`i18next` namespaces are mapped to Tolgee namespaces and since i18next doesn't support empty namespace, you have to have your translations in some namespace in the Tolgee platform (`i18next` defaults to "translation").
+:::
 
 ## Language detection/changes
 
