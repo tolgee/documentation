@@ -29,7 +29,7 @@
     "@types/react": "^17.0.45",
     "@types/react-helmet": "^6.1.0",
     "@types/react-router-dom": "^5.1.7",
-    "@types/styled-components": "5.1.14",
+    "@types/styled-components": "5.1.26",
     "autoprefixer": "10.4.7",
     "clsx": "^1.1.1",
     "docusaurus-tailwindcss": "^0.1.0",
