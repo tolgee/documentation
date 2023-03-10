@@ -133,3 +133,40 @@ const WorksAlsoWithOtherEvents = () => {
   return <div>Tolgee is loading: {tolgee.isLoading()}</div>
 };
 ```
+
+## Hook `useTolgeeSSR`
+
+```ts
+function useTolgeeSSR(
+  tolgee: TolgeeInstance, 
+  language?: string, 
+  staticData?: TolgeeStaticData
+): TolgeeInstance;
+```
+
+Safely syncs tolgee language and adds static data to tolgee cache for the initial SSR render.
+
+It returns a "shallow copy" of tolgee instance which will ensure the first render is the same on server and client. So make sure you pass this copy to `TolgeeProvider`.
+
+:::info
+`staticData` need to be in tolgee format which is accepted by [`tolgee.addStaticData`](/api/core_package/tolgee.mdx#addstaticdata)
+:::
+Usage:
+
+```tsx
+
+const tolgee = ...
+
+function App() {
+  const locale = // server provided locale
+  const staticData = // server provided static data
+
+  const ssrTolgee = useTolgeeSSR(tolgee, locale, staticData);
+
+  return (
+    <TolgeePrivider tolgee={ssrTolgee}>
+      ...
+    </TolgeeProvider>
+  )
+}
+```

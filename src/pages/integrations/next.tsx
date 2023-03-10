@@ -102,7 +102,7 @@ const nextConfigCode = `module.exports = {
 const reactProviderCode = `import enLocale from '../i18n/en.json';
 import csLocale from '../i18n/cs.json';
 import { useRouter } from 'next/router';
-import { TolgeeProvider, DevTools, Tolgee, FormatSimple } from '@tolgee/react';
+import { TolgeeProvider, DevTools, Tolgee, FormatSimple, useTolgeeSSR } from '@tolgee/react';
 
 const tolgee = Tolgee()
   .use(DevTools())
@@ -120,15 +120,10 @@ const tolgee = Tolgee()
 function MyApp({ Component, pageProps }: AppProps) {
   const { locale } = useRouter();
 
-  useMemo(() => {
-    // change tolgee language without emitting events
-    tolgee.setEmmiterActive(false);
-    tolgee.changeLanguage(locale);
-    tolgee.setEmmiterActive(true);
-  }, [locale]);
+  const ssrTolgee = useTolgeeSSR(tolgee, router.locale);
 
   return (
-    <TolgeeProvider tolgee={tolgee}>
+    <TolgeeProvider tolgee={ssrTolgee}>
       <Component {...pageProps} />
     </TolgeeProvider>
   );
