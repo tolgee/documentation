@@ -53,6 +53,10 @@ module.exports = {
 
 ## Use TolgeeProvider
 
+:::info
+[`useTolgeeSSR`](/integrations/react/api.mdx#hook-usetolgeessr) function was added in SDK version `5.5`
+:::
+
 ```jsx
 import { useIntl } from 'gatsby-plugin-react-intl';
 
@@ -71,17 +75,17 @@ const tolgee = Tolgee()
 export const AppWrapper: React.FC = ({ children }) => {
   const { locale, messages } = useIntl();
 
-  useMemo(() => {
-    tolgee.setEmmiterActive(false);
-    tolgee.changeLanguage(locale);
-    tolgee.addStaticData({ [locale]: messages });
-    tolgee.setEmmiterActive(true);
-  }, [locale, messages]);
+  const staticData = useMemo(() => {
+    return { [locale]: messages } 
+  }, [locale, messages])
 
+  // sync tolgee with locale and adds locales into cache
+  // makes sure first render matches the server one
+  const ssrTolgee = useTolgeeSSR(tolgee, locale, staticData);
 
   return (
     <TolgeeProvider
-      tolgee={tolgee}
+      tolgee={ssrTolgee}
       fallback={<div>Loading...</div>}
     >
       {children}

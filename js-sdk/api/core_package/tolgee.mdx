@@ -363,6 +363,20 @@ tolgee.getAllRecords(): CachePublicRecord[]
 
 Add data to cache. It will only rewrite cache if there are no dev data loaded.
 
+Example:
+
+```ts
+tolgee.addStaticData({
+  'locale': {
+    'key': 'translation'
+  },
+  // or
+  'locale': () => fetchTranslations(),
+  // or
+  'locale:namespace': ...
+})
+```
+
 ```ts
 tolgee.addStaticData(data: TolgeeStaticData): CachePublicRecord[]
 ```

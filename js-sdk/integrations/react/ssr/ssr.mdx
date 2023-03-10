@@ -8,6 +8,10 @@ To use Tolgee with your SSR framework such as Next or Gatsby, you can provide lo
 using staticData property of TolgeeProvider component, this data will be loaded directly into cache and immediately
 available with first render for SSR. We also need to know user's locale already on the server and set it through Tolgee `language` option.
 
+:::info
+[`useTolgeeSSR`](/integrations/react/api.mdx#hook-usetolgeessr) function was added in SDK version `5.5`
+:::
+
 ```jsx
 import localeEn from 'i18n/en.json';
 import localeDe from 'i18n/de.json';
@@ -27,19 +31,14 @@ const tolgee = Tolgee()
 
 const App = () => {
   // this needs to work on server
-  const locale = ?
+  const language = ?
 
-  useMemo(() => {
-    // change tolgee language without emitting events
-    // to not trigger re-render while rendering
-    tolgee.setEmmiterActive(false);
-    tolgee.changeLanguage(locale);
-    tolgee.setEmmiterActive(true);
-  }, [locale]);
+  // sync tolgee language with locale recieved on server
+  const ssrTolgee = useTolgeeSSR(tolgee, locale);
 
   return (
     <TolgeeProvider
-      tolgee={tolgee}
+      tolgee={ssrTolgee}
       ...
     >
       ...
@@ -48,7 +47,7 @@ const App = () => {
 }
 ```
 
-> We use `useMemo` to switch `Tolgee` locale as that need to be ready for the first render on the server. We need to turn event emitting, so we don't cause unecessary re-rendering.
+> We use useTolgeeSSR to safely sync locale as that need to be ready for the first render on the server.
 
 With this approach we include all translations directly in the bundle regardless user locale. For smaller projects this is not a big issue, however it might be significant for large applications with many translations and languages.
 
@@ -66,20 +65,15 @@ const tolgee = Tolgee()
 const App = () => {
   // we need to get these on server, which we'll need to implement
   // differently for each framework
-  const locale = ?
-  const localeTranslations = ?
+  const language = ?
+  const staticData = ?
 
-  useMemo(() => {
-    // set language and static data, without emitting events
-    tolgee.setEmmiterActive(false);
-    tolgee.changeLanguage(locale);
-    tolgee.addStaticData(localeTranslations);
-    tolgee.setEmmiterActive(true);
-  }, [locale, localeTranslations]);
+  // sync language and add static data to be ready in cache
+  const ssrTolgee = useTolgeeSSR(tolgee, language, staticData);
 
   return (
     <TolgeeProvider
-      tolgee={tolgee}
+      tolgee={ssrTolgee}
       ...
     >
       ...

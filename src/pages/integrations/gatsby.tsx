@@ -115,16 +115,14 @@ const tolgee = Tolgee().use(DevTools()).use(FormatSimple()).init({
 export const AppWrapper: React.FC = ({ children }) => {
   const { locale, messages } = useIntl();
 
-  useMemo(() => {
-    // change tolgee language without emitting events
-    tolgee.setEmmiterActive(false);
-    tolgee.changeLanguage(locale);
-    tolgee.addStaticData({ [locale]: messages });
-    tolgee.setEmmiterActive(true);
-  }, [locale, messages]);
+  const staticData = useMemo(() => {
+    return { [locale]: messages } 
+  }, [locale, messages])
+
+  const ssrTolgee = useTolgeeSSR(tolgee, locale, staticData);
 
   return (
-    <TolgeeProvider tolgee={tolgee} fallback="Loading...">
+    <TolgeeProvider tolgee={ssrTolgee} fallback="Loading...">
       {children}
     </TolgeeProvider>
   );

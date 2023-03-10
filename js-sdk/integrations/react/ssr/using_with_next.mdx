@@ -50,13 +50,17 @@ Save exported json files to `i18n` folder in your project structure.
 Then wrap your main component with `TolgeeProvider component`.
 Import the localization data and provide them to TolgeeProvider using `staticData` prop.
 
+:::info
+[`useTolgeeSSR`](/integrations/react/api.mdx#hook-usetolgeessr) function was added in SDK version `5.5`
+:::
+
 ```tsx
 import { useState } from 'react';
 import type { AppProps } from 'next/app';
 import enLocale from '../i18n/en.json';
 import csLocale from '../i18n/cs.json';
 import { useRouter } from 'next/router';
-import { TolgeeProvider, DevTools, Tolgee } from '@tolgee/react';
+import { TolgeeProvider, DevTools, Tolgee, useTolgeeSSR } from '@tolgee/react';
 
 const tolgee = Tolgee().use(DevTools()).use(FormatSimple()).init({
   defaultLanguage: 'en',
@@ -65,18 +69,14 @@ const tolgee = Tolgee().use(DevTools()).use(FormatSimple()).init({
 });
 
 function MyApp({ Component, pageProps }: AppProps) {
-  const { locale: activeLocale } = useRouter();
+  const router = useRouter();
 
-  useMemo(() => {
-    // change tolgee language without emitting events
-    // to not trigger re-render while rendering
-    tolgee.setEmmiterActive(false);
-    tolgee.changeLanguage(locale);
-    tolgee.setEmmiterActive(true);
-  }, [locale]);
+  // sync tolgee with router.locale
+  // make sure first render matches the server one
+  const ssrTolgee = useTolgeeSSR(tolgee, router.locale);
 
   return (
-    <TolgeeProvider tolgee={tolgee}>
+    <TolgeeProvider tolgee={ssrTolgee}>
       <Component {...pageProps} />
     </TolgeeProvider>
   );
@@ -94,19 +94,14 @@ const tolgee = Tolgee().use(DevTools()).use(FormatSimple()).init({
   apiUrl: process.env.NEXT_PUBLIC_TOLGEE_API_URL,
 });
 
-function MyApp({ Component, pageProps, locales }: AppProps) {
+function MyApp({ Component, pageProps, staticData }: AppProps) {
   const { locale: activeLocale } = useRouter();
 
-  useMemo(() => {
-    // set language and static data, without emitting events
-    tolgee.setEmmiterActive(false);
-    tolgee.changeLanguage(locale);
-    tolgee.addStaticData(locales);
-    tolgee.setEmmiterActive(true);
-  }, [locale, locales]);
+  // adding locales static data recieved from getInitialProps
+  const ssrTolgee = useTolgeeSSR(tolgee, router.locale, staticData);
 
   return (
-    <TolgeeProvider tolgee={tolgee}>
+    <TolgeeProvider tolgee={ssrTolgee}>
       <Component {...pageProps} />
     </TolgeeProvider>
   );
@@ -115,7 +110,7 @@ function MyApp({ Component, pageProps, locales }: AppProps) {
 MyApp.getInitialProps = async (context) => {
   const locale = context.router.locale;
   const result = {
-    locales: {
+    staticData: {
       [locale]: await import(`../i18n/${locale}.json`),
     },
   };
