@@ -26,7 +26,7 @@ module.exports.footer = {
         },
         {
           label: 'Chrome plugin',
-          to: 'https://chrome.google.com/webstore/detail/tolgee-tools/hacnbapajkkfohnonhbmegojnddagfnj',
+          href: 'https://chrome.google.com/webstore/detail/tolgee-tools/hacnbapajkkfohnonhbmegojnddagfnj',
         },
       ],
     },
