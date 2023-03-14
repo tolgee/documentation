@@ -13,7 +13,7 @@ export const LandingPageHeadline: FC<{
   style?: CSSProperties;
 }> = ({ loveImage, children, title, style }) => (
   <div>
-    <PageHeader className="mb-[180px]">
+    <PageHeader className="mb-[80px] md:mb-[180px]">
       {loveImage.img}
       <PageHeaderTitle h1 active className="mb-2">
         {title}

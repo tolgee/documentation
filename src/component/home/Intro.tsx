@@ -116,7 +116,7 @@ export const Intro = () => {
         style={{
           position: 'relative',
           top: isLarge ? 300 : undefined,
-          marginBottom: isLarge ? 150 : 100,
+          marginBottom: isLarge ? 150 : 60,
         }}
       >
         <div
@@ -128,7 +128,7 @@ export const Intro = () => {
         >
           <section className="flex justify-center">
             {Boolean(viewPortHeight) && (
-              <div className="flex gap-12 sm:m-12 m-8 flex-col lg:flex-row md:max-w-[1500px] flex-grow">
+              <div className="flex gap-12 sm:m-12 mx-8 flex-col lg:flex-row md:max-w-[1500px] flex-grow">
                 <ImageColumn>
                   <ParallaxImage />
                 </ImageColumn>
@@ -139,10 +139,7 @@ export const Intro = () => {
                   <TextColumnTitle>The revolution is here</TextColumnTitle>
                   <TextColumnText>
                     Speed up your translation process by{' '}
-                    <span>
-                      <GradientText>90%</GradientText>
-                    </span>
-                    . Set up in seconds with{' '}
+                    <GradientText>90%</GradientText>. Set up in seconds with{' '}
                     <GradientText>revolutionary</GradientText> integrations. Let{' '}
                     your colleagues easily translate your App with the{' '}
                     <GradientText>in-context</GradientText> translating feature.
