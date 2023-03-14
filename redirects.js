@@ -65,6 +65,23 @@ module.exports.redirects = {
       to: '/js-sdk/in-context',
     },
     { from: '/docs/', to: '/platform/' },
+    {
+      from: '/docs/web/using_with_react/installation',
+      to: '/js-sdk/integrations/react/installation',
+    },
+    {
+      from: '/blog/let-this-script-type-instead-of-you-when-you-record-your-browser',
+      to: '/blog/let-this-script-type-instead-of-you',
+    },
+    {
+      from: '/docs/web/get_started/preparing_for_production',
+      to: '/js-sdk/providing-static-data',
+    },
+    { from: '/docs/web/get_started/hello_world', to: '/js-sdk' },
+    {
+      from: '/docs/web/using_with_react/ssr/ssr',
+      to: '/js-sdk/integrations/react/ssr/',
+    },
   ],
   createRedirects(existingPath) {
     if (existingPath.indexOf('/js-sdk/5.x.x') === 0) {
