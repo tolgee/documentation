@@ -1,8 +1,9 @@
 sgranat:
   name: Štěpán Granát
-  title: Frontend Architect
+  title: Co-founder and Frontend Architect
   url: https://github.com/stepan662
   image_url: https://avatars.githubusercontent.com/u/8831144?v=4
+  description: Štěpán is a passionate developer responsible for Frontend and SDK development at Tolgee.
 
 jcizmar:
   name: Jan Cizmar 😎
@@ -22,7 +23,7 @@ bkhokhani:
   url: https://github.com/bhumikhokhani
   image_url: https://avatars.githubusercontent.com/u/40931657?v=4
 
-msurti: 
+msurti:
   name: Murtuzaali Surti
   title: Content Creator
   url: https://github.com/murtuzaalisurti
@@ -34,7 +35,7 @@ gpatil:
   url: https://github.com/ganeshpatil386386
   image_url: https://avatars.githubusercontent.com/u/59861179?v=4
 
-pmarattha: 
+pmarattha:
   name: Pramit Marattha
   title: Blogger & content writer
   url: https://github.com/pramit-marattha
