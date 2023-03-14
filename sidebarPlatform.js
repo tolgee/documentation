@@ -27,7 +27,6 @@ module.exports = {
       label: 'Figma plugin',
       type: 'category',
       items: [
-        'figma-plugin/installation',
         'figma-plugin/setup',
         'figma-plugin/usage',
       ],
