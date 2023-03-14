@@ -24,11 +24,12 @@ export default function BlogPostItemFooter() {
         isBlogPostPage && styles.blogPostFooterDetailsFull
       )}
     >
-      {authors.map((author, i) => {
-        if (author.description) {
-          return <AuthorSummary key={i} author={author} />;
-        }
-      })}
+      {!truncatedPost &&
+        authors.map((author, i) => {
+          if (author.description) {
+            return <AuthorSummary key={i} author={author} />;
+          }
+        })}
 
       {tagsExists && (
         <div className={clsx('col', { 'col--9': truncatedPost })}>
