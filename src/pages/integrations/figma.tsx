@@ -11,7 +11,7 @@ import Head from '@docusaurus/Head';
 
 const DocsLinks = ({ primary }: { primary?: boolean }) => (
   <LandingPageActions
-    docs={{ link: '/platform/figma-plugin/installation' }}
+    docs={{ link: '/platform/figma-plugin/usage' }}
     githubRepo={{
       explicitLink: true,
       link: 'https://github.com/tolgee/figma-plugin',

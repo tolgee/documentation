@@ -28,6 +28,8 @@ module.exports = {
       type: 'category',
       items: [
         'figma-plugin/installation',
+        'figma-plugin/setup',
+        'figma-plugin/usage',
       ],
     },
     'icu_message_format',
