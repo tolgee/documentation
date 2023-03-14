@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import Translate, { translate } from '@docusaurus/Translate';
 import { PageMetadata } from '@docusaurus/theme-common';
 import Layout from '@theme/Layout';
@@ -19,10 +19,14 @@ const variants = [
     caption:
       "Looks like the page you're looking for is taking a siesta. We'll wake it up and get it back to work soon!",
   },
-];
+] as const;
 
 export default function NotFound() {
-  const variant = variants[Math.floor(Math.random() * variants.length)];
+  const [variant, setVariant] = useState<typeof variants[number]>();
+
+  useEffect(() => {
+    setVariant(variants[Math.floor(Math.random() * variants.length)]);
+  }, []);
 
   return (
     <>
@@ -44,10 +48,14 @@ export default function NotFound() {
                   404: Page Not Found
                 </Translate>
               </h1>
-              <div className="flex justify-center mb-4">
-                <img style={{ height: 300 }} src={variant.image} />
-              </div>
-              <p className="italic">{variant.caption}</p>
+              {variant && (
+                <>
+                  <div className="flex justify-center mb-4">
+                    <img style={{ height: 300 }} src={variant.image} />
+                  </div>
+                  <p className="italic">{variant.caption}</p>
+                </>
+              )}
             </div>
           </div>
         </main>
