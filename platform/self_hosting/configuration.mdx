@@ -368,6 +368,27 @@ DeepL auth key. Both key types (commercial and free) are supported.
 Whether the translated text should lean towards formal or informal language.
 See [DeepL's documentation](https://www.deepl.com/docs-api/translating-text/request/) for supported languages and details. (default: `default`)
 
+## Baidu Translate
+Prefix: `tolgee.machine-translation.baidu`
+
+See [Baidu's](https://fanyi-api.baidu.com/product/11) page (in Chinese) for more information and applicable pricing.
+
+### default-enabled
+Whether Baidu-powered machine translation is enabled. (default `true`)
+
+### default-primary
+Whether to use Baidu Translate as a primary translation engine. (default: `false`)
+
+### app-id
+Baidu Translate APP ID.
+
+### app-secret
+Baidu Translate secret key.
+
+### action
+Whether the resulting translation should be changed acccording to the user-defined dictionary.
+The dictionary used can be modified at [Manage Terms](https://fanyi-api.baidu.com/manage/term) (login required). (default: `false`)
+
 ## Socket.IO
 Prefix: `tolgee.socket-io`
 
