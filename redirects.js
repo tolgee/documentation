@@ -77,7 +77,7 @@ module.exports.redirects = {
       from: '/docs/web/get_started/preparing_for_production',
       to: '/js-sdk/providing-static-data',
     },
-    { from: '/docs/web/get_started/hello_world', to: '/js-sdk' },
+    { from: '/docs/web/get_started/hello_world', to: '/js-sdk/' },
     {
       from: '/docs/web/using_with_react/ssr/ssr',
       to: '/js-sdk/integrations/react/ssr/',
