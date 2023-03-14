@@ -25,9 +25,9 @@
 .c_darkmode {
     --cc-bg: #181b1d;
     --cc-text: #d8e5ea;
-    --cc-btn-primary-bg: #822B55;
+    --cc-btn-primary-bg: #e55e86;
     --cc-btn-primary-text: #000;
-    --cc-btn-primary-hover-bg: #974569;
+    --cc-btn-primary-hover-bg: #c45374;
     --cc-btn-secondary-bg: #33383c;
     --cc-btn-secondary-text: var(--cc-text);
     --cc-btn-secondary-hover-bg: #3e454a;
