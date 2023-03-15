@@ -3,19 +3,28 @@ sgranat:
   title: Co-founder and Frontend Architect
   url: https://github.com/stepan662
   image_url: https://avatars.githubusercontent.com/u/8831144?v=4
-  description: Štěpán is a passionate developer responsible for Frontend and SDK development at Tolgee.
+  description: "Štěpán is a passionate developer responsible for Frontend and SDK development at Tolgee. He's on a mission to make software localization as easy as pie while keeping it smart. 🧠"
 
 jcizmar:
   name: Jan Cizmar 😎
   title: Founder & Full-stack Architect
   url: https://github.com/JanCizmar
   image_url: https://avatars.githubusercontent.com/u/18496315?v=4
+  description: "Jan is a coding mastermind who's on a mission to save the world from software localization chaos. He has a passion for clean code, hates being a copy-pasting monkey 🙈 and is dedicated to delivering smart and simple software as the head of Tolgee."
 
 mchalupnikova:
   name: Marketa Chalupnikova
   title: Co-founder & COO
   url: https://github.com/marketachalupnikova
   image_url: https://avatars.githubusercontent.com/u/75572718
+  description: "Markéta is Chief Operating Officer and Chief Tolgee Evangelist. When she's not doing marketing magic, she's busy spreading the word about Tolgee and making sure the world knows how awesome it is. ✨"
+
+mchrastek:
+  name: Martin Chrastek
+  title: Product Manager
+  url: https://github.com/Martin005
+  image_url: https://avatars.githubusercontent.com/u/10096404?v=4
+  description: 'Martin is a software localization ninja with a passion for software development. He is always cooking up new ideas on how to make the Tolgee platform more user-friendly and boost its functionality. 🚀'
 
 bkhokhani:
   name: Bhumi Khokhani
