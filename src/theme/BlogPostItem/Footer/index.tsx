@@ -26,9 +26,7 @@ export default function BlogPostItemFooter() {
     >
       {!truncatedPost &&
         authors.map((author, i) => {
-          if (author.description) {
-            return <AuthorSummary key={i} author={author} />;
-          }
+          return <AuthorSummary key={i} author={author} />;
         })}
 
       {tagsExists && (

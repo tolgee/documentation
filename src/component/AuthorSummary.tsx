@@ -18,7 +18,9 @@ export const AuthorSummary = ({ author }: Props) => {
   return (
     <div className="flex flex-col gap-2 my-4 px-4">
       <Author author={author} />
-      <div className="text-md">{author.description}</div>
+      {author.description && (
+        <div className="text-md">{author.description}</div>
+      )}
     </div>
   );
 };
