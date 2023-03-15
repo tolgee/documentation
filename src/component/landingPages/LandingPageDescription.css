@@ -6,7 +6,6 @@
 
 .integration__headline-head-code {
   width: 400px;
-  padding: 40px 0;
 }
 
 .integration__header p {
@@ -25,5 +24,9 @@
 
   .integration__headline-description {
     justify-content: space-between;
+  }
+
+  .integration__headline-head-code {
+    padding: 40px 0;
   }
 }

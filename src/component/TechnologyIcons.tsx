@@ -16,29 +16,31 @@ const TechnologyLink = (props) => (
 );
 
 export const TechnologyIcons: FC<{ className?: string }> = ({ className }) => (
-  <div
-    className={clsx(
-      'home-technologies flex flex-shrink gap-3 flex-wrap mt-8',
-      className
-    )}
-  >
-    <TechnologyLink to="/integrations/react">
-      <LogoReact />
-    </TechnologyLink>
-    <TechnologyLink to="/integrations/angular">
-      <LogoAngular />
-    </TechnologyLink>
-    <TechnologyLink to="/integrations/next">
-      <LogoNext />
-    </TechnologyLink>
-    <TechnologyLink to="/integrations/vue">
-      <LogoVue />
-    </TechnologyLink>
-    <TechnologyLink to="/integrations/svelte">
-      <LogoSvelte />
-    </TechnologyLink>
-    <TechnologyLink to="/integrations/gatsby">
-      <LogoGatsby />
-    </TechnologyLink>
+  <div className="flex justify-start">
+    <div
+      className={clsx(
+        'home-technologies flex flex-shrink gap-3 flex-wrap mt-8 justify-center',
+        className
+      )}
+    >
+      <TechnologyLink to="/integrations/react">
+        <LogoReact />
+      </TechnologyLink>
+      <TechnologyLink to="/integrations/angular">
+        <LogoAngular />
+      </TechnologyLink>
+      <TechnologyLink to="/integrations/next">
+        <LogoNext />
+      </TechnologyLink>
+      <TechnologyLink to="/integrations/vue">
+        <LogoVue />
+      </TechnologyLink>
+      <TechnologyLink to="/integrations/svelte">
+        <LogoSvelte />
+      </TechnologyLink>
+      <TechnologyLink to="/integrations/gatsby">
+        <LogoGatsby />
+      </TechnologyLink>
+    </div>
   </div>
 );
