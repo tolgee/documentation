@@ -49,8 +49,12 @@ export default function Figma() {
           connecting Figma with Tolgee.
         </p>
         <p>
-          This integration will make the process of localizing your designs
-          faster, easier, and more efficient.
+          Simplify your localization process with our plugin that allows you to
+          seamlessly synchronize text with screenshots from Figma to Tolgee.
+        </p>
+        <p>
+          Connect existing keys, pull translations, and create page copies with
+          ease. Save time and improve efficiency with Tolgee Figma plugin!
         </p>
       </LandingPageDescription>
 
