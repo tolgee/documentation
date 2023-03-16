@@ -20,17 +20,11 @@ mchalupnikova:
   description: "Markéta is Chief Operating Officer and Chief Tolgee Evangelist. When she's not doing marketing magic, she's busy spreading the word about Tolgee and making sure the world knows how awesome it is. ✨"
 
 mchrastek:
-  name: Martin Chrastek
+  name: Martin Chrástek
   title: Product Manager
   url: https://github.com/Martin005
   image_url: https://avatars.githubusercontent.com/u/10096404?v=4
   description: 'Martin is a software localization ninja with a passion for software development. He is always cooking up new ideas on how to make the Tolgee platform more user-friendly and boost its functionality. 🚀'
-
-mchrastek:
-  name: Martin Chrástek
-  title: Product Manager
-  url: https://github.com/martin005
-  image_url: https://avatars.githubusercontent.com/u/10096404
 
 bkhokhani:
   name: Bhumi Khokhani
