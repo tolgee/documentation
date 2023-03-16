@@ -26,7 +26,7 @@ export default function Figma() {
       <Head>
         <meta
           name="description"
-          content="Connect your Figma designs with Tolgee. This integration will make the process of localizing your designs faster, easier, and more efficient."
+          content="Connect your Figma designs with Tolgee localization platform. This plugin will make the process of localizing your designs faster, easier, and more efficient."
         />
       </Head>
       <LandingPageHeadline
