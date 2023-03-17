@@ -36,7 +36,7 @@ The Figma plugin provides users with a seamless workflow for localization, enabl
 Getting started with Tolgee’s Figma plugin is easy. Here’s how:
 
 1. Sign up for Tolgee: If you haven’t already, [sign up for Tolgee](https://app.tolgee.io/sign_up).
-2. [Install Tolgee’s Figma plugin](https://www.figma.com/community/plugin/0).
+2. [Install Tolgee’s Figma plugin](https://www.figma.com/community/plugin/1212381421658754793/Tolgee).
 3. [Connect your Figma project to Tolgee](/platform/figma-plugin/setup#setup) and start managing your localization process seamlessly.
 
 

@@ -72,7 +72,7 @@ export default function Figma() {
         <LandingPageInstallationStep title="2. Install Figma plugin">
           <p>
             First, you need to install the plugin from the{' '}
-            <a href="https://www.figma.com/community/plugin/0">
+            <a href="https://www.figma.com/community/plugin/1212381421658754793/Tolgee">
               Figma Community
             </a>{' '}
             by clicking on the <strong>Try it out</strong> button.
