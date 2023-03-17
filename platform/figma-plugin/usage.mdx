@@ -1,0 +1,80 @@
+---
+id: usage
+title: Usage
+sidebar_label: Usage
+---
+
+## Pushing texts from Figma into Tolgee
+
+First, you need to provide key name to each text that you want to push to Tolgee.
+If you use namespaces in Tolgee, you can select what namespace should be used for given key.
+
+![Usage - key name](/img/docs/platform/figma-plugin/usage-push-key-name.png)
+
+To push all texts into Tolgee, first unselect all and then click **Push all**. If you need to push only some keys, select them first and click **Push**.
+
+![Usage - push keys](/img/docs/platform/figma-plugin/usage-push-keys.png)
+
+Then you will see an overview of the keys that will be pushed into Tolgee.
+By default, the plugin will create (or update) screenshots to the keys – you can disable this by unchecking the checkbox. To confirm the settings, click **Push to Tolgee**.
+
+![Usage - push translations](/img/docs/platform/figma-plugin/usage-push-translations.png)
+
+## Connecting to existing keys
+
+If you have existing keys in Tolgee, you can connect them to the texts in Figma with our plugin.
+
+First, click on the "link" icon.
+
+![Usage - connect to existing key](/img/docs/platform/figma-plugin/usage-connect-to-existing-key.png)
+
+Then select a key from list of keys that you want to connect the text to. You can edit the text in the **Search** field to find any key in Tolgee.
+
+![Usage - select existing key](/img/docs/platform/figma-plugin/usage-connect-key-select.png)
+
+After you connect an existing key to the text, the "link" icon will be darker (or lighter when using the Dark theme).
+If you want to remove the connect, just click on the "link" icon again and click **Remove connection**.
+
+![Usage - remove connection to key](/img/docs/platform/figma-plugin/usage-remove-connection.png)
+
+## Pulling texts from Tolgee into Figma
+
+Once the keys are translated, you can pull them from Tolgee into Figma. Select a language on the main screen and then click **Replace**.
+
+If there are some keys with missing translation in the selected language, they will be displayed on this screen.
+
+![Usage - pull all when selecting language](/img/docs/platform/figma-plugin/usage-pull-change-language.png)
+
+If you want to update new translations for all texts, click **Pull all**.
+
+![Usage - pull all](/img/docs/platform/figma-plugin/usage-pull-all.png)
+
+If you want to update only some translations, select the keys and click **Pull**.
+
+## Creating page copies
+
+With our plugin, you can create the following **page copies**:
+
+- **Copy with key names** – this creates a copy with all texts replaced with the corresponding key names.
+Duplicate pages that contain key names are particularly useful for developers, as they provide clear guidance on which key names to use in the code.
+- **Copy with languages** – this creates a copy for each selected language with texts replaced with their translation in given language.
+
+To create a page copy, first click **Create a copy**:
+
+![Usage - create a copy](/img/docs/platform/figma-plugin/usage-create-copy.png)
+
+Next, choose whether you would like to create a copy with key names or with translations:
+
+![Usage - create and select type of copy](/img/docs/platform/figma-plugin/usage-create-copy-select.png)
+
+After you click **Create**, the plugin will automatically create new page(s) according to what you selected.
+
+### Updating translated page copies
+
+When you open the page copy, you can click **Pull all** to update all translations when no texts are selected.
+
+![Usage - update all keys](/img/docs/platform/figma-plugin/usage-copy-pull-all.png)
+
+If you want to update only translations of some keys, first select the keys and then click **Pull**.
+
+![Usage - update selected keys](/img/docs/platform/figma-plugin/usage-copy-pull.png)

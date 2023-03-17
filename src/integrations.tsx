@@ -65,6 +65,15 @@ export const integrations = [
     },
   },
   {
+    label: 'Figma plugin',
+    logo: '/img/technologies/logo-figma.svg',
+    links: {
+      'Landing Page': '/integrations/figma',
+      Docs: '/platform/figma-plugin/usage',
+      'GitHub Repository': 'https://github.com/tolgee/figma-plugin',
+    },
+  },
+  {
     label: 'i18next',
     logo: '/img/technologies/logo-i18next.svg',
     links: {

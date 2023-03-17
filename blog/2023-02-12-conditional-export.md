@@ -1,12 +1,12 @@
 ---
 slug: conditional-export
-title: 'NPM Packge: How to Conditionally Include Developer Tools?'
+title: 'NPM Package: How to Conditionally Include Developer Tools?'
 authors: [sgranat]
 description: "Learn how to reduce the size of your production bundle by conditionally including developer tools based on the environment in which it's being used."
 tags: [npm, react, node]
 ---
 
-Reducing the size of your production bundle can be a significant challenge, particularly when it comes to including unnecessary code. Libraries like React, React Query or Redux include useful developer tools, but they exclude them on production where it would be just an unecessary bulk. It is not a new problem, but it is hard to do when you don't have a deep konwledge of different build systems. In this article, we'll explore a solution to this problem that involves including developer tools conditionally, based on the environment in which the package is being used.
+Reducing the size of your production bundle can be a significant challenge, particularly when it comes to including unnecessary code. Libraries like React, React Query or Redux include useful developer tools, but they exclude them on production where it would be just an unnecessary bulk. It is not a new problem, but it is hard to do when you don't have a deep knowledge of different build systems. In this article, we'll explore a solution to this problem that involves including developer tools conditionally, based on the environment in which the package is being used.
 
 <!--truncate-->
 
@@ -110,7 +110,7 @@ Modern build tools utilize this feature by using semi-standard fields "productio
 }
 ```
 
-It is also possible to nest conditions to combine them, so we can support both esm and csj and also add fallbacks to `index.js` (which contains the old way of using `require`):
+It is also possible to nest conditions to combine them, so we can support both esm and cjs and also add fallbacks to `index.js` (which contains the old way of using `require`):
 
 ```json
 {

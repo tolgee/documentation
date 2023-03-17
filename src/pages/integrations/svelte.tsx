@@ -14,7 +14,7 @@ const DocsLinks = ({ primary }: { primary?: boolean }) => (
   <LandingPageActions
     docs={{ link: '/js-sdk/integrations/svelte/installation' }}
     exampleApp="svelte-example"
-    githubRepo="svelte"
+    githubRepo={{ link: 'svelte' }}
     primary={primary}
   />
 );

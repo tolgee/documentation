@@ -23,6 +23,14 @@ module.exports = {
         'self_hosting/configuration',
       ],
     },
+    {
+      label: 'Figma plugin',
+      type: 'category',
+      items: [
+        'figma-plugin/setup',
+        'figma-plugin/usage',
+      ],
+    },
     'icu_message_format',
   ],
 };

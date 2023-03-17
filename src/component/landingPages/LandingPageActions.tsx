@@ -11,7 +11,10 @@ type Props = {
     label?: string;
     link: string;
   };
-  githubRepo?: string;
+  githubRepo?: {
+    explicitLink?: boolean;
+    link: string;
+  };
   primary?: boolean;
   additionalDocs?: {
     label: string;
@@ -48,7 +51,11 @@ export const LandingPageActions: React.FC<Props> = ({
       {githubRepo && (
         <CoolButton
           component={Link}
-          to={`https://github.com/tolgee/tolgee-js/tree/main/packages/${githubRepo}`}
+          to={
+            githubRepo.explicitLink
+              ? githubRepo.link
+              : `https://github.com/tolgee/tolgee-js/tree/main/packages/${githubRepo.link}`
+          }
           primary={primary}
         >
           <CoolButtonText>GitHub Repository</CoolButtonText>

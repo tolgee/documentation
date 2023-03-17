@@ -75,6 +75,10 @@ module.exports.navbar = {
           label: 'Gatsby',
         },
         {
+          to: 'integrations/figma',
+          label: 'Figma',
+        },
+        {
           to: 'integrations',
           label: 'more...',
         },
