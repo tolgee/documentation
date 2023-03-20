@@ -22,7 +22,15 @@ To generate screenshots automatically, you have to have installed
 for Google Chrome browser. With this plugin, you can generate screenshots by clicking camera icon in Tolgee UI
 translation dialog.
 
+:::info
+[`DevTools`](./api/web_package/tools#devtools) are automatically omitted in production builds (based on `NODE_ENV` variable).
+:::
+
 ## In-context on production
+
+If you want to enable in-context on production build, there are two options:
+
+### Tolgee Chrome plugin
 
 To enable in-context translating on production you can pass `apiKey` and `apiUrl` through [Tolgee Tools](https://chrome.google.com/webstore/detail/tolgee-tools/hacnbapajkkfohnonhbmegojnddagfnj) plugin, that way Tolgee will switch to development mode (plugin will also supply `@tolgee/ui` package automatically).
 
@@ -43,3 +51,33 @@ This property is intended only for local development, as it's not meant to be pu
 - You can turn off development mode by switching "Applied" toggle, which will turn it off, but stores credentials locally so you don't have to fill it again next time
 - Plugin will supply `apiUrl` from Tolgee configuration if it's present (if not you can fill it manually)
 - Plugin changes its icon if Tolgee is present on the page or if credentials are set
+
+### Using InContextTools instead of DevTools
+
+DevTools are automatically omitted in production build (based on `NODE_ENV` variable), if you want to enable In-context unconditionally, you can use [`InContextTools`](/api/web_package/tools.mdx#incontexttools) (from `@tolgee/web/tools` package).
+
+Note that [`InContextTools`](/api/web_package/tools.mdx#incontexttools) will significantly increase your bundle size, so we recommend using dynamic import and only including them when needed.
+
+:::warning
+In-context on production should be always behind some authentication or in a private network. Make sure you are not exposing your credentials publicly.
+:::
+
+```ts
+// initialize tolgee without DevTools
+const tolgee = Tolgee()
+  .use(FormatSimple())
+  .init({
+    ...
+  });
+
+// include in-context tools only if needed
+if (shouldIncludeInContextTools) {
+  import('@tolgee/web/tools').then((module) => {
+    tolgee.addPlugin(module.InContextTools())
+  })
+}
+```
+
+#### Using parts of InContextTools functionality
+
+[`InContextTools`](/api/web_package/tools.mdx#incontexttools) (or `DevTools` in development) are  a combination of multiple plugins, which you can include independently, check [`InContextTools`](/api/web_package/tools.mdx#incontexttools) documentation for more info.
