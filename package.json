@@ -30,7 +30,7 @@
     "@types/react-helmet": "^6.1.0",
     "@types/react-router-dom": "^5.1.7",
     "@types/styled-components": "5.1.14",
-    "autoprefixer": "10.4.7",
+    "autoprefixer": "10.4.14",
     "clsx": "^1.1.1",
     "docusaurus-tailwindcss": "^0.1.0",
     "docusaurus2-dotenv": "^1.4.0",
