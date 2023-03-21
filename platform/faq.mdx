@@ -1,0 +1,120 @@
+---
+id: faq
+title: FAQs
+sidebar_label: FAQs
+---
+
+Tolgee is a localization platform that also provides its native integration libraries. In addition, it provides many great features making the app localization a piece of cake.
+
+Localization used to be just so ineffective. The whole management process of creating, managing, and fixing localization strings
+is sometimes very complicated and involves developers much more than is actually needed.
+
+Tolgee aims to reshape the process of software localization with a different approach, which saves time and
+the effort of everyone involved, such as developers, translators, and others.
+
+![Tolgee Platform](/img/tolgee-platform.png)
+
+## Why are there wrong translations on the Internet?
+
+In most cases, translators don't know the context of what they're translating. They see the source string but don't see what's around it. So they have to guess the context, which leads to extremely wrong results.
+
+Close -> near or dismiss?
+
+Glass -> eyeglasses or glass for a drink?
+
+There are many wrong translations like this on the internet, and the only way to avoid this is to provide the context to your translators. But taking screenshots or providing a text description for each label can be annoying.
+
+## There are many i18n platforms & libraries out there. Why should I use Tolgee?
+
+Tolgee can do a lot more than just traditional i18n library. It not only provides the different strings for different languages but also enables you to change the strings directly in the App you are currently working on. It also allows others to translate/modify/fix strings in your App. Even your grandma, aunt, or Armenian friend from studies abroad.
+
+It is also a localization platform where you can translate your strings, while it suggests results from various third-party translators like Google Translator or DeepL.
+
+It also enables developers to provide screenshots from the App in one click, so translators know the context and don't provide wrong translations, which happens often.
+
+And much more.
+
+<video loop autoPlay muted style={{ maxWidth: '100%', margin: '0 auto' }}>
+  <source src="/assistance.webm"></source>
+</video>
+
+## How does Tolgee help me to have my App perfectly translated?
+
+The operation of providing context has to be easy. Otherwise, developers won't do it. That's why Tolgee enables you to provide a screenshot with a highlighted string to translate with a single click. In the same dialog, where you can modify your localization strings, you can let Tolgee automatically take the screenshot from your App and highlight the string to be translated. This operation takes less than a few seconds. So the developers won't be annoyed by that.
+
+## How does it help developers? (The ALT+click magic)
+
+There are various dev Tools for various things. You have React Dev tools. There are Angular dev tools. There are dev tools for state management libraries, etc. Tolgee brings dev tools for localization. When you click a translation string in your App with the ALT key, Tolgee dev tools open, and you can translate your string. You never have to edit a .json/.po or other localization data files. The only thing you have to do is ALT + Click the string.
+
+<video loop autoPlay muted style={{ maxWidth: '100%', margin: '0 auto' }}>
+  <source src="/alt-click-magic.webm"></source>
+</video>
+
+## Cool. But how does it work?
+
+In the development mode of the App, the strings are fetched from Tolgee API. If you modify the string or add a new key, the key is saved in the Tolgee Platform. So in development mode, you are working with remote data. That's basically it.
+
+## So my App relies on Tolgee Servers?
+
+No! You can export the translations from the API and store them as a static asset for the production build. So your App doesn't fetch anything from Tolgee API when used in the production environment.
+
+## So I have to export the string from Tolgee every time I change a string?
+
+No! You can do that automatically in the CI/CD pipeline when your App is built. Or whenever you wish. We are also working on Tolgee CLI, which will help you with tasks like this.
+
+## My mama speaks Spanish. Can she translate the strings when my App is deployed?
+
+Yes! She can use [the Tolgee Tools Chrome plugin](https://chrome.google.com/webstore/detail/tolgee-tools/hacnbapajkkfohnonhbmegojnddagfnj) to enable the dev tools also in deployed App. Then she can translate it directly in the App.
+
+## What frameworks are supported?
+
+Tolgee has integrations for React, Angular, Vue, Svelte, Next.js, and Gatsby. Learn more here.
+
+## How long does it take to integrate?
+
+The integration is very fast! You can do it in seconds. It doesn't take longer than other libraries. There are integration guides in the docs and also in the platform. If you get lost, you can contact us via chat on our website or our community Slack channel.
+
+## Does it work with SSR?
+
+Yes. There are guides in the docs on how to make it work with popular SSR frameworks.
+
+## I don't want to use the Tolgee Platform. Can I only use Tolgee JS SDKs?
+
+Yes, you can use only the library with static translation data assets.
+However, fancy pants Dev Tools won't work since they rely on the Tolgee Platform.
+
+## Can I use the Tolgee Platform without its integration libraries (SDKs)?
+
+Yes. Tolgee can currently export to .json or .xliff, which can be used with many i18n libraries.
+You don't have to use Tolgee SDKs, if you don't work on Web projects.
+
+## Can I self-host the platform?
+
+Yes. It's open source, and you can self-host the platform. Just [follow the docs](/platform/self_hosting/running_with_docker).
+
+## Typescript?
+
+The @tolgee/core and all the JS integrations are written in Typescript, so the API is typed. Therefore, you don't have to install `@types/*`. The types are in npm packages. We also plan to provide type safety for the translation keys, similar to `typesafe-i18n`, in the future.
+
+## What technologies are used?
+
+For the platform, we use Kotlin/SpringBoot on the backend and Typescript/React on the frontend. For the JS integrations, we use Typescript if we can.
+
+## How can I fetch the translations from the API?
+
+To do so, you can use [Tolgee CLI](/tolgee-cli). This helps you fetch the API translations and store them as a static asset. You can also use Tolgee API directly. You can find the docs here.
+
+## What else can [Tolgee CLI](/tolgee-cli) do?
+
+It also helps synchronize the source code's keys with the Tolgee Platform.
+When some key seems unused, the CLI can remove it from the Tolgee Platform.
+
+<video loop autoPlay muted style={{ maxWidth: '100%', margin: '0 auto' }}>
+  <source src="/tolgee-cli.webm"></source>
+</video>
+
+## Get started
+
+To get started, Sign up for the [Tolgee Cloud](https://app.tolgee.io) or learn how to
+[self-host](/platform/self_hosting/running_with_docker#running-with-compose) Tolgee,
+or read [integration docs](https://tolgee.io/integrations).

@@ -1,9 +1,8 @@
 ---
-id: exporting_translations
-title: Exporting translations
-sidebar_label: Exporting translations
-slug: /exporting_translations
-description: "Learn how to export and download your translations two ways: from Tolgee App and via command line (via REST API, via curl utility)."
+id: export
+title: Export
+sidebar_label: Export
+description: 'Learn how to export and download your translations two ways: from Tolgee App and via command line (via REST API, via curl utility).'
 ---
 
 To export translations, go to the app, select project, and then choose the "Export" item from the sidebar.
@@ -24,17 +23,19 @@ To configure the result options, check the [API documentation](/api#tag/Export/o
 ### Examples
 
 #### Disabling nesting in exported files
+
 When exporting to .json, the data is structured to nested objects by default. So the output looks like this.
+
 ```json
 {
- "homepage":
-  {
+  "homepage": {
     "title": "Welcome!"
   }
 }
 ```
 
 To change this behavior, provide the `structureDelimiter` query parameter.
+
 ```bash
 curl "https://app.tolgee.io/v2/projects/export?structureDelimiter=" -H "X-API-Key: <Your API key>" --output data.zip
 ```
@@ -42,13 +43,17 @@ curl "https://app.tolgee.io/v2/projects/export?structureDelimiter=" -H "X-API-Ke
 When `structureDelimiter` is empty, nesting is disabled.
 
 #### Exporting only specific namespaces
+
 By default, all namespaces are exported. To export only some of them, provide `filterNamespace` parameter.
+
 ```bash
 curl "https://app.tolgee.io/v2/projects/export?filterNamespace=ns-1&filterNamespace=ns-2" -H "X-API-Key: <Your API key>" --output data.zip
 ```
 
 #### Including untranslated strings
+
 By default, only non-empty values are exported. To export also `null` values, set `filterState` parameter.
+
 ```bash
 curl "https://app.tolgee.io/v2/projects/export?filterState=UNTRANSLATED&filterState=TRANSLATED&filterState=REVIEWED" \
 -H "X-API-Key: <Your API key>" --output data.zip
