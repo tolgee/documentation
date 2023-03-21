@@ -42,3 +42,5 @@ Getting started with Tolgee’s Figma plugin is easy. Here’s how:
 
 ## Conclusion
 With Tolgee’s Figma plugin, the localization team can save time, simplify collaboration, and reduce errors in their localization process. We’re thrilled to offer this integration to our customers, and we’re excited to see how it simplifies your localization process!
+
+For more information, you can visit the [plugin documentation](/platform/figma-plugin/setup) and the [GitHub repository](https://github.com/tolgee/figma-plugin).
