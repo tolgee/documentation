@@ -19,7 +19,7 @@
     "@docusaurus/core": "^2.3.1",
     "@docusaurus/mdx-loader": "^2.3.1",
     "@docusaurus/preset-classic": "^2.3.1",
-    "@emotion/react": "11.9.3",
+    "@emotion/react": "11.10.6",
     "@emotion/styled": "11.9.3",
     "@mdx-js/react": "^1.6.21",
     "@mui/icons-material": "^5.8.4",
