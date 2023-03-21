@@ -41,7 +41,7 @@ function MtCreditsSlider() {
       />
       <div className="">{totalPrice.toLocaleString('en-US')} €</div>
 
-      <div className="line-through text-xs dark:text-gray-300 text-gray-500 mt-[-10px] min-h-[17px]">
+      <div className="line-through text-xs dark:text-gray-300 text-gray-500 min-h-[17px]">
         {regularPrice && <>{regularPrice.toLocaleString('en-US')} €</>}
       </div>
     </div>
