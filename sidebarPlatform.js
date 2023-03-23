@@ -59,7 +59,7 @@ module.exports = {
       ],
     },
     {
-      label: 'Self hosting',
+      label: 'Self-hosting',
       type: 'category',
       items: [
         'self_hosting/getting_started',
