@@ -9,7 +9,7 @@ module.exports = {
       ],
     },
     {
-      label: 'Projects and organizations',
+      label: 'Projects and Organizations',
       type: 'category',
       items: [
         'projects_and_organizations/project_settings',
@@ -21,12 +21,17 @@ module.exports = {
       ],
     },
     {
-      label: 'Keys',
+      label: 'Translation Keys',
       type: 'category',
-      items: ['keys/tags', 'keys/namespaces', 'keys/screenshots'],
+      items: [
+        'translation_keys/keys',
+        'translation_keys/tags',
+        'translation_keys/namespaces',
+        'translation_keys/screenshots',
+      ],
     },
     {
-      label: 'Translation process',
+      label: 'Translation Process',
       type: 'category',
       items: [
         'translation_process/translation_memory',
@@ -51,7 +56,7 @@ module.exports = {
       ],
     },
     {
-      label: 'Account settings',
+      label: 'Account Settings',
       type: 'category',
       items: [
         'account_settings/password_and_2fa',
