@@ -85,7 +85,7 @@ module.exports = {
       type: 'doc',
     },
     {
-      id: 'typescript',
+      id: 'typed_keys',
       type: 'doc',
     },
     {
