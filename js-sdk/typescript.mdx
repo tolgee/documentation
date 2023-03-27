@@ -1,0 +1,40 @@
+---
+id: typescript
+title: Typed translation keys
+description: 'Adding type definitions to the translation keys.'
+---
+
+If you want your keys to be typed with TypeScript you can do with the following `tolgee.d.ts` file:
+
+```ts
+// tolgee.d.ts
+
+import type en from './i18n/en.json';
+
+declare module '@tolgee/core/lib/types' {
+  type TranslationsType = typeof en;
+
+  // ensures that nested keys are accessible with "."
+  type DotNotationEntries<T> = T extends object
+    ? {
+        [K in keyof T]: `${K & string}${T[K] extends undefined
+          ? ''
+          : T[K] extends object
+          ? `.${DotNotationEntries<T[K]>}`
+          : ''}`;
+      }[keyof T]
+    : '';
+
+  // enables both intellisense and new keys without an error
+  type LiteralUnion<LiteralType extends BaseType, BaseType extends Primitive> =
+    | LiteralType
+    | (BaseType & { _?: never });
+
+  export type TranslationKey = LiteralUnion<
+    DotNotationEntries<TranslationsType>,
+    string
+  >;
+}
+```
+
+This setup will give you TypeScript intellisense for existing keys but also allows you to add non-existing keys. If you intentionally want TypeScript errors for non-existing keys, just remove `LiteralUnion`.
