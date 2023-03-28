@@ -13,7 +13,7 @@ module.exports = {
       type: 'category',
       items: [
         'projects_and_organizations/project_settings',
-        'projects_and_organizations/languages',
+        'projects_and_organizations/languages_and_mt',
         'projects_and_organizations/import',
         'projects_and_organizations/export',
         'projects_and_organizations/members',
