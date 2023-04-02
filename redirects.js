@@ -23,7 +23,7 @@ module.exports.redirects = {
     },
     {
       from: '/docs/web_app/creating_repository',
-      to: '/platform/creating_project',
+      to: '/platform/getting_started/creating_project',
     },
     {
       from: '/docs/web_app/obtaining_api_key',
