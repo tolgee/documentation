@@ -90,6 +90,22 @@ module.exports.redirects = {
       to: '/platform/integrations/about_integrations',
     },
     {
+      from: '/platform/introduction',
+      to: '/platform/',
+    },
+    {
+      from: '/platform/creating_project',
+      to: '/platform/getting_started/creating_project',
+    },
+    {
+      from: '/platform/namespaces',
+      to: '/platform/translation_keys/namespaces',
+    },
+    {
+      from: '/platform/translation_tools',
+      to: '/platform/translation_process/translation_memory',
+    },
+    {
       from: '/platform/api-keys-and-pat-tokens',
       to: '/platform/account_settings/api_keys_and_pat_tokens',
     },
