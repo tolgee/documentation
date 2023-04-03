@@ -6,6 +6,7 @@ module.exports = {
       items: [
         'getting_started/about_tolgee',
         'getting_started/creating_project',
+        'getting_started/translation_content',
       ],
     },
     {
@@ -70,7 +71,6 @@ module.exports = {
         'self_hosting/running_with_docker',
         'self_hosting/running_with_java',
         'self_hosting/configuration',
-        'self_hosting/enterprise',
       ],
     },
     'faq',
