@@ -4,40 +4,44 @@ title: Introduction to the CLI
 slug: /
 ---
 
-import Experimental from './components/experimental.mdx'
-
-<Experimental/>
-
 The Tolgee CLI is a command line utility created to make your life easier while using Tolgee, by allowing you to
 easily synchronize your code project with the translation project on Tolgee.
 
-<video loop autoPlay muted style={{ maxWidth: "100%", margin: "0 auto" }}>
+You can find the **source code** of the CLI on [GitHub](https://github.com/tolgee/tolgee-cli).
+
+<video loop autoPlay muted style={{ maxWidth: '100%', margin: '0 auto' }}>
   <source src="/tolgee-cli.webm"></source>
 </video>
 
 ## Features
+
 ### Easy project configuration
+
 Don't want to deal with having to type all project-specific options whenever invoking the CLI? No worries! You can
 create a [`.tolgeerc` file](/tolgee-cli/project-configuration) and not have to worry about specifying all these
 annoying options.
 
 ### Downloading & uploading strings
+
 You can easily download and upload localization files using the [`pull` and `push` commands](/tolgee-cli/push-pull-strings).
 
 Easily push new and updated strings to Tolgee when you're done working on a new feature, and automatically download all
 of the strings when building your app for production. It's really this easy!
 
 ### Extracting strings from your code
+
 One major feature of the CLI is the ability to scan your code for localization strings, and automagically extract them
 for you and sync them with the localization project.
 
 You can learn more about how it works [here](/tolgee-cli/extraction/syncing-strings).
 
 ### Work on your self-hosted server
+
 Not a fan of Service-as-a-Service and prefer to roll your own server? Or working locally? That's fine! You can very
 easily tell the CLI to talk to your Tolgee server.
 
 ### And more to come!
+
 We're working on constantly improving the CLI to make it even more powerful, just like the Tolgee Platform. Any idea
 for new features? We'd love to hear it! Make sure to send it to our [issue tracker](https://github.com/tolgee/tolgee-cli/issues/new)
 so we can start working on it.
