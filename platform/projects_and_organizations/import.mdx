@@ -1,0 +1,36 @@
+---
+id: import
+title: Import
+sidebar_label: Import
+---
+
+Tolgee supports importing existing translations from various formats. You can import translations from JSON, XLIFF, and PO files.
+
+## Importing to Tolgee
+
+To import translations to Tolgee, you need to have a project created. You can create a project in the [Projects](/platform/getting_started/creating_project) section.
+After creating a project, you can import translations to it by navigating to the "Import" page.
+
+Then you can select the file you want to import or drag and drop it to the import page. You can import multiple files at once.
+
+![Import](/img/docs/platform/import_blank_page.png)
+
+After selecting the file(s) to import, you can **select the language** of the strings and the namespace.
+You can also check which keys and strings will be imported by clicking on the number under `Translation count` column.
+
+When you are done, click the `Import` button and the file will be imported into Tolgee.
+
+![Import file](/img/docs/platform/import_file.png)
+
+### Resolving conflicts
+
+When you import a file, Tolgee will check if the imported strings already exist in the project. If there are some **conflicts** in the strings, you will be prompted to **resolve them**.
+
+![Import conflicts](/img/docs/platform/import_conflicts.png)
+
+You can choose to accept the old (existing) strings or accept the imported strings.
+You can make this change for all the conflicts at once by clicking on the `Accept old` or `Accept imported` button respectively, or you can make the change for each conflict individually.
+
+After resolving the conflicts, you can close this dialog by clicking on the `Close` button and you will be redirected back to the import page.
+
+![Import conflicts dialog](/img/docs/platform/import_conflicts_dialog.png)

@@ -20,7 +20,7 @@ Even though Machine translation is a remarkable technological invention, we stil
 
 ## How to set up machine translation in your Tolgee project?
 
-With the [machine translation](/platform/translation_tools) feature, you don't have to translate every string manually. Tolgee suggests translations from third-party services, so you can click and save them. Currently, Tolgee is offering three machine translation providers: Amazon Translate, DeepL, and Google Translate.
+With the [machine translation](/platform/translation_process/machine_translation) feature, you don't have to translate every string manually. Tolgee suggests translations from third-party services, so you can click and save them. Currently, Tolgee is offering three machine translation providers: Amazon Translate, DeepL, and Google Translate.
 
 ## Machine Translation in Tolgee
 

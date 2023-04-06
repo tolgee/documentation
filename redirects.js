@@ -23,11 +23,11 @@ module.exports.redirects = {
     },
     {
       from: '/docs/web_app/creating_repository',
-      to: '/platform/creating_project',
+      to: '/platform/getting_started/creating_project',
     },
     {
       from: '/docs/web_app/obtaining_api_key',
-      to: '/platform/integration',
+      to: '/platform/integrations/about_integrations',
     },
     {
       from: '/docs/web/using_with_react/react_preparing_for_production',
@@ -43,7 +43,7 @@ module.exports.redirects = {
     },
     {
       from: '/platform/managing_api_keys',
-      to: '/platform/api-keys-and-pat-tokens',
+      to: '/platform/account_settings/api_keys_and_pat_tokens',
     },
     {
       from: '/docs/web/understanding_tolgee_for_web',
@@ -51,7 +51,10 @@ module.exports.redirects = {
     },
     { from: '/docs/integrations', to: '/integrations/' },
     { from: '/integrations/all', to: '/integrations/' },
-    { from: '/docs/icu_message_format', to: '/platform/icu_message_format' },
+    {
+      from: '/docs/icu_message_format',
+      to: '/platform/translation_process/icu_message_format',
+    },
     {
       from: '/server_and_web_app/self_hosting/configuration',
       to: '/platform/self_hosting/configuration',
@@ -81,6 +84,46 @@ module.exports.redirects = {
     {
       from: '/docs/web/using_with_react/ssr/ssr',
       to: '/js-sdk/integrations/react/ssr/',
+    },
+    {
+      from: '/platform/integration',
+      to: '/platform/integrations/about_integrations',
+    },
+    {
+      from: '/platform/introduction',
+      to: '/platform/',
+    },
+    {
+      from: '/platform/creating_project',
+      to: '/platform/getting_started/creating_project',
+    },
+    {
+      from: '/platform/namespaces',
+      to: '/platform/translation_keys/namespaces',
+    },
+    {
+      from: '/platform/translation_tools',
+      to: '/platform/translation_process/translation_memory',
+    },
+    {
+      from: '/platform/api-keys-and-pat-tokens',
+      to: '/platform/account_settings/api_keys_and_pat_tokens',
+    },
+    {
+      from: '/platform/icu_message_format',
+      to: '/platform/translation_process/icu_message_format',
+    },
+    {
+      from: '/platform/figma-plugin/setup',
+      to: '/platform/integrations/figma_plugin/setup',
+    },
+    {
+      from: '/platform/figma-plugin/usage',
+      to: '/platform/integrations/figma_plugin/usage',
+    },
+    {
+      from: '/platform/exporting_translations',
+      to: '/platform/projects_and_organizations/export',
     },
   ],
   createRedirects(existingPath) {

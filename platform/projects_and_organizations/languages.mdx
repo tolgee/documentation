@@ -1,0 +1,57 @@
+---
+id: languages
+title: Languages
+sidebar_label: Languages
+---
+
+## Languages settings
+### Adding new language
+To add a language to the project, simple use the search field to find the language (or to create a custom one). If you want to add that language, simply click `Add`.
+
+![Add language](/img/docs/platform/languages_add.png)
+
+If you want to edit the language details before adding it to the project, click on the pencil icon.
+You can also change the language tag, original name and English name, and flag.
+
+![Add language details](/img/docs/platform/languages_add_details.png)
+
+### Editing languages
+When opening the Languages settings, you can see the list of all languages in the project. You can **change the base language** in the [project settings](project_settings).
+![Languages settings](/img/docs/platform/languages_settings.png)
+
+You can edit the language details by clicking on the cog icon in the language list. You can also change the language tag, original name and English name, and flag.
+And if you wish to delete the language, you can do so by clicking the `Delete language` button.
+
+![Language details](/img/docs/platform/languages_language_details.png)
+
+
+## Machine translation settings
+
+Machine translation (MT) uses external providers to translate base text to currently edited language.
+Number of machine translations that you can use is limited by credits which are shown in language settings. You can **buy more credits** in the [billing settings](organization_settings#billing).
+
+Currently, we support the following machine translation providers:
+
+- Google Translate
+- Amazon Translate (AWS)
+- DeepL
+- Microsoft Azure Translator (Azure Cognitive)
+
+You can selectively **enable or disable machine translation suggestions** for each language and each MT provider.
+When you set a "primary" MT provider, it will be displayed first in the suggestions list and will be used for [automatic translation](#automatic-translation).
+
+![Machine translation settings](/img/docs/platform/languages_mt_settings.png)
+
+To enable machine translation when self-hosting, please check out the [configuration](/platform/self_hosting/configuration#machine-translation).
+
+## Automatic translation
+
+Automatic translation is a feature that allows you to translate base text automatically when a new string is added.
+
+You can enable whether Tolgee should automatically translate new strings by looking for **100% translation memory matches** or by using **machine translation** with the selected primary MT provider.
+
+![Automatic translation settings](/img/docs/platform/languages_automatic_translation.png)
+
+Translations that were translated automatically (and not edited by human) are marked by provider icon or translation memory icon.
+
+![Automatic translation](/img/docs/platform/auto_translation.png)

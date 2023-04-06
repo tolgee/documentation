@@ -1,0 +1,74 @@
+---
+id: export
+title: Export
+sidebar_label: Export
+---
+
+Translations can be exported from Tolgee. You can currently export translations in two formats (JSON and XLIFF), and you can also export only specific translations, e.g., only the ones that are not translated yet.
+
+## Exporting from Tolgee
+
+To export translations from Tolgee, select project, and then choose the "Export" item from the sidebar.
+
+![img](/img/docs/platform/project_menu_export.png)
+
+Then you can choose the following options:
+
+- **States** – which translations should be exported. You can choose multiple states.
+- **Languages** – which languages should be exported (all languages are exported by default).
+- **Format** – select the format of the exported file. Currently, we support only JSON and XLIFF formats.
+- **Namespaces** – which namespaces should be exported (all namespaces are exported by default). Learn more about namespaces in [this article](/platform/translation_keys/namespaces).
+- **Nested structure** – whether the exported file should be structured as nested objects or not (based on the "." separator in key names). This option is available **only for JSON format**.
+
+When you are done, click the `Export` button and the file will be downloaded.
+
+![Export options](/img/docs/platform/export_options.png)
+
+## Exporting via API
+
+You can also export translations via REST API, e.g., via the `curl` utility:
+
+```bash
+curl https://app.tolgee.io/v2/projects/export -H "X-API-Key: <Your API key>" --output data.zip
+```
+
+To configure the result options, check the [API documentation](/api#tag/Export/operation/export_1).
+
+### Examples
+
+#### Disabling nesting in exported files
+
+When exporting to .json, the data is structured to nested objects by default. So the output looks like this.
+
+```json
+{
+  "homepage": {
+    "title": "Welcome!"
+  }
+}
+```
+
+To change this behavior, provide the `structureDelimiter` query parameter.
+
+```bash
+curl "https://app.tolgee.io/v2/projects/export?structureDelimiter=" -H "X-API-Key: <Your API key>" --output data.zip
+```
+
+When `structureDelimiter` is empty, nesting is disabled.
+
+#### Exporting only specific namespaces
+
+By default, all namespaces are exported. To export only some of them, provide `filterNamespace` parameter.
+
+```bash
+curl "https://app.tolgee.io/v2/projects/export?filterNamespace=ns-1&filterNamespace=ns-2" -H "X-API-Key: <Your API key>" --output data.zip
+```
+
+#### Including untranslated strings
+
+By default, only non-empty values are exported. To export also `null` values, set `filterState` parameter.
+
+```bash
+curl "https://app.tolgee.io/v2/projects/export?filterState=UNTRANSLATED&filterState=TRANSLATED&filterState=REVIEWED" \
+-H "X-API-Key: <Your API key>" --output data.zip
+```

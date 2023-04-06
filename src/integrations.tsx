@@ -69,7 +69,7 @@ export const integrations = [
     logo: '/img/technologies/logo-figma.svg',
     links: {
       'Landing Page': '/integrations/figma',
-      Docs: '/platform/figma-plugin/setup',
+      Docs: '/platform/integrations/figma_plugin/setup',
       'GitHub Repository': 'https://github.com/tolgee/figma-plugin',
     },
   },

@@ -75,4 +75,4 @@ It is difficult to provide a single conclusion about the accuracy of machine tra
 
 The results of translations by machine translation providers certainly differ. It depends on multiple variables like e.g. your language pairs, the style of the text, and the industry to which the text is related. Unfortunately, there is no single MT tool that can do it all perfectly, especially when it comes to software localization. One universal piece of advice could be to just give a chance to multiple MT providers, test and compare the results and find out which one suit your needs the best. 
 
-Next time, in part 2 of this article, we’ll have a look at how Google Translate, Amazon Translate, and DeepL are implemented in the localization platform Tolgee, how [machine translations](/platform/translation_tools) are working in this tool and you can use them for the best. 
+Next time, in part 2 of this article, we’ll have a look at how Google Translate, Amazon Translate, and DeepL are implemented in the localization platform Tolgee, how [machine translations](/platform/translation_process/machine_translation) are working in this tool and you can use them for the best. 

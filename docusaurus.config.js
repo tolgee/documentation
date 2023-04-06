@@ -24,6 +24,9 @@ const config = {
       indexName: 'tolgee',
       searchParameters: {}, // Optional (if provided by Algolia)
     },
+    prism: {
+      additionalLanguages: ['icu-message-format'],
+    },
   },
   presets: [
     [

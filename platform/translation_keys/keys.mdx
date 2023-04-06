@@ -1,0 +1,57 @@
+---
+id: keys
+title: Keys
+sidebar_label: Keys
+---
+
+Translation keys are used to identify a string or text that is displayed to the user.
+They are used in the translation files to translate the text to the user's language. They are also used in the code to display the text to the user.
+
+Example of a translation key:
+
+```text
+settings.account-security.mfa.disable-mfa
+```
+
+## Adding translation keys to Tolgee
+
+To add new translation keys to Tolgee, you have a few options:
+
+- [Import](/platform/projects_and_organizations/import) a new translation file.
+- Use the editor to [create a single translation key](#creating-translation-keys-manually) and adjust its options as needed.
+- Use the [Tolgee API](/api) to add one or more keys through the [`create` endpoint](/api#tag/Localization-keys/operation/create_2).
+- Use the [Tolgee CLI (experimental)](/tolgee-cli) to add one or more keys with the [`push` command](/tolgee-cli/push-pull-strings#pushing-strings).
+- Use the [Tolgee Figma plugin](/platform/integrations/figma_plugin/setup) to add one or more keys with the [`Push` action](/platform/integrations/figma_plugin/usage#pushing-texts-from-figma-into-tolgee).
+
+## Creating translation keys manually
+
+To create a new translation key, click the `+ Add` button on the project's Translations view.
+
+![Add key button](/img/docs/platform/add_key_button.png)
+
+When adding a new key, you can specify the following options:
+
+- **Key name**: The name of the key. This name is used to identify the key in the translation files and in the code. The name must be unique within a project.
+- **Namespace**: The namespace of the key. This is an optional field that can be used to structure keys into different "buckets" – namespaces separate translation keys to separate files.
+  It can be useful in large projects, we recommend it for projects with more than ~1000 keys. You can learn more on the [Namespaces](namespaces) page.
+- **Tags**: Tags can be used to group keys together. You can select multiple tags. You can learn more on the [Tags](tags) page.
+- **Language text(s)**: The text that should be displayed to the user in each language. You can specify the text for one or more languages.
+  You can select which languages to show here by selecting them in the dropdown at the top. If you don't specify the text for a language, the key will be marked as "Untranslated" for that language.
+
+![Create key form](/img/docs/platform/create_key_form.png)
+
+## Naming conventions
+
+When it comes to naming conventions for translation keys, there are no hard and fast rules.
+However, it is generally advisable to use naming conventions that are easy to understand and follow a consistent format. Here are some common naming conventions that can be used for translation keys:
+
+1. **Meaningful names**: Translation keys should be named based on the meaning or purpose of the content they represent.
+   For example, a translation key for a button that says `Save` could be named `save_button`.
+2. **Descriptive names**: It's also helpful to use descriptive names that provide additional information about the content, such as the location of the content or its function.
+   For example, a translation key for a header that appears on the homepage could be named `homepage_header`.
+3. **Consistent naming**: To ensure consistency across translation keys, it's recommended to follow a standard naming convention.
+4. **Short and memorable**: Translation keys should be short and easy to remember.
+   Avoid using long, complicated names that are difficult to type or remember.
+
+Overall, the most important factor is to choose a naming convention that makes sense for your specific project or organization, and to use it consistently throughout the translation process.
+This can help to ensure that translation keys are easy to manage and understand, and that translations are accurate and consistent.
