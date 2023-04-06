@@ -85,6 +85,10 @@ module.exports = {
       type: 'doc',
     },
     {
+      id: 'typed_keys',
+      type: 'doc',
+    },
+    {
       id: 'usage_without_platform',
       type: 'doc',
     },

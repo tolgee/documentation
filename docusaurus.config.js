@@ -92,12 +92,6 @@ const config = {
   },
   scripts: [
     {
-      src:
-        'https://www.googletagmanager.com/gtag/js?id=' +
-        process.env.DOCUSAURUS_GOOGLE_TRACKING_ID,
-      async: true,
-    },
-    {
       src: '/scripts/cookieconsent.js',
       defer: true,
       async: true,
