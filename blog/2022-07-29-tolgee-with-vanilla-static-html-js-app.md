@@ -167,7 +167,7 @@ The code above shows how to initialize Tolgee with the provided configuration ob
 
 |apiUrl|The URL of the api where we are saving data.|
 |:------|:--------------------------------------------|
-|apiKey|Which you can obtain in the [app](https://app.tolgee.io) or in your self-hosted app by following this [documentation page](/platform/api-keys-and-pat-tokens)|
+|apiKey|Which you can obtain in the [app](https://app.tolgee.io) or in your self-hosted app by following this [documentation page](/platform/account_settings/api_keys_and_pat_tokens)|
 |inputPrefix|Character sequence that appears before each translation|
 |inputSuffix|Character sequence that appears after each translation|
 |watch|parameter that tells Tolgee whether or not to watch for changes in the DOM and update translations.|

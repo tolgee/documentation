@@ -4,9 +4,10 @@ title: Preparing for production (React)
 sidebar_label: Preparing for production
 slug: /using_with_react/preparing_for_production
 ---
+
 In production mode you should never use localization data from Tolgee REST API and you should never leak your API key.
 You should use data exported from Tolgee platform.
-To get exported localization files, see [exporting translations](/platform/exporting_translations).
+To get exported localization files, see [exporting translations](/platform/projects_and_organizations/export).
 
 There are multiple options to provide static localization data for production builds. Providing a URL prefix where Tolgee can
 fetch the data from or providing imported data as reference or provider in TolgeeProvider config prop.
@@ -31,6 +32,7 @@ TolgeeProvider's configuration property.
 Using this approach data will be fetched just when it's needed, so you will save some network traffic.
 
 ## Using imported object
+
 ```jsx
 import * as localeEn from 'i18n/en.json';
 import * as localeDe from 'i18n/de.json';
@@ -52,6 +54,7 @@ Using this approach, all localization data are bundled with your application, so
 This approach could be very useful for SSR, when you need your localization data imported to be rendered by your SSR engine.
 
 ## Providing data using filesUrlPrefix option
+
 ```jsx
 <TolgeeProvider
   filesUrlPrefix="i18n/"
@@ -60,5 +63,6 @@ This approach could be very useful for SSR, when you need your localization data
   ...
 </TolgeePrivider>
 ```
+
 This option tells Tolgee, that localization data (en.json, de.json) can be found on `https://<your url>/i18n`,
 so it will be fetched with every page load.

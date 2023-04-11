@@ -3,10 +3,11 @@ id: api
 title: API
 sidebar_label: API
 slug: /using_with_vue/api
-description: "Detaile documentation to API in VueJS integration. TolgeeProvider​ Provides Tolgee context. Use in root of your application."
+description: 'Detaile documentation to API in VueJS integration. TolgeeProvider​ Provides Tolgee context. Use in root of your application.'
 ---
 
 ## TolgeeProvider
+
 Provides Tolgee context. Use in root of your application.
 
 ```js
@@ -14,19 +15,20 @@ import { TolgeeProvider } from '@tolgee/vue';
 ```
 
 ```html
-<TolgeeProvider config="...">
-  ... content ...
-</TolgeeProvider>
+<TolgeeProvider config="..."> ... content ... </TolgeeProvider>
 ```
 
 #### Prop `config`
+
 [`TolgeeConfiguration`](../configuration) object, which is passed to Tolgee instance.
 
-#### Prop `loadingFallback?` 
+#### Prop `loadingFallback?`
+
 `String | JSX.Element` - it is rendered when Tolgee is loading translations instead of provided content.
 You can pass custom loading element when using Vue with JSX.
 
 #### Slot `fallback`
+
 Alternative for `loadingFallback` use when you are using Vue with templates:
 
 ```html
@@ -39,6 +41,7 @@ Alternative for `loadingFallback` use when you are using Vue with templates:
 ```
 
 ## T component
+
 ```js
 import { T } from '@tolgee/vue';
 ```
@@ -48,18 +51,23 @@ import { T } from '@tolgee/vue';
 ```
 
 #### Prop `keyName`
+
 `String` - translation key.
 
 #### Prop `parameters?`
-`Record<string, string>` - variable parameters, which can be used in translation value 
-(read more about [ICU message format](/platform/icu_message_format)).
+
+`Record<string, string>` - variable parameters, which can be used in translation value
+(read more about [ICU message format](/platform/translation_process/icu_message_format)).
 
 #### Prop `noWrap?`
+
 `Boolean` (default: `false`)
- - `false` - in development mode translation will be [wrapped](../wrapping)
- - `true` - use when wrapping in dev mode causes problems, in this case in-context translation won't work
+
+- `false` - in development mode translation will be [wrapped](../wrapping)
+- `true` - use when wrapping in dev mode causes problems, in this case in-context translation won't work
 
 #### Prop `defaultValue?`
+
 `String` - You can pass default value, which will be rendered if there is no translation
 for this key (in selected language nor base language). If you won't provide this value, `keyName` will be rendered instead.
 
@@ -88,11 +96,11 @@ Function `t` has following interface:
 
 ```ts
 function t(
-  key: string, 
+  key: string,
   parameters: Record<string, string>,
   noWrap?: boolean,
   defaultValue?: string
-): string
+): string;
 
 // or with options object
 function t(options: {
@@ -100,7 +108,7 @@ function t(options: {
   parameters?: Record<string, string>;
   noWrap?: boolean;
   defaultValue?: string;
-}): string
+}): string;
 ```
 
 ### `useLanguage`
@@ -122,7 +130,6 @@ Returns reactive `language`, which you can use for language switching.
 </script>
 ```
 
-
 ## TolgeeMixin
 
 :::info
@@ -134,16 +141,17 @@ import { TolgeeMixin } from '@tolgee/vue';
 ```
 
 ### Function `$t`
-Returns requested translation and also subscribes component to translation/language changes, 
+
+Returns requested translation and also subscribes component to translation/language changes,
 so component will be re-rendered every time translation changes.
 
 ```ts
 function $t(
-  key: string, 
+  key: string,
   parameters: Record<string, string>,
   noWrap?: boolean,
   defaultValue?: string
-): string
+): string;
 
 // or with options object
 function $t(options: {
@@ -151,27 +159,33 @@ function $t(options: {
   parameters?: Record<string, string>;
   noWrap?: boolean;
   defaultValue?: string;
-}): string
+}): string;
 ```
 
 #### Parameter `key`
+
 `String` - translation key.
 
 #### Parameter `parameters?`
-`Record<string, string>` - variable parameters, which can be used in translation value 
-(read more about [ICU message format](/platform/icu_message_format)).
+
+`Record<string, string>` - variable parameters, which can be used in translation value
+(read more about [ICU message format](/platform/translation_process/icu_message_format)).
 
 #### Parameter `noWrap?`
+
 `Boolean` (default: `false`)
- - `false` - in development mode translation will be [wrapped](../wrapping)
- - `true` - use when wrapping in dev mode causes problems, or you pass write it outside the DOM 
-    (for example `document.title`), in this case in-context translation won't work
+
+- `false` - in development mode translation will be [wrapped](../wrapping)
+- `true` - use when wrapping in dev mode causes problems, or you pass write it outside the DOM
+  (for example `document.title`), in this case in-context translation won't work
 
 #### Parameter `defaultValue?`
+
 `String` - It will be rendered if there is no translation for this key (in selected language nor base language).
 If you won't provide this value, `key` will be rendered instead.
 
 ### Property `tolgeeLanguage`
+
 `String` - Reactive property, which contains current Tolgee language. Use it for reading or setting current language.
 
 ```html
@@ -179,4 +193,3 @@ If you won't provide this value, `key` will be rendered instead.
   ... languages ...
 </select>
 ```
-

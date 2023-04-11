@@ -4,9 +4,10 @@ title: Preparing for production (Angular)
 sidebar_label: Preparing for production
 slug: /using_with_angular/angular_preparing_for_production
 ---
+
 In production mode you should never use localization data from Tolgee REST API and you should never leak your API key.
 You should use data exported from Tolgee platform.
-To get exported localization files, see [exporting translations](/platform/exporting_translations).
+To get exported localization files, see [exporting translations](/platform/projects_and_organizations/export).
 
 There are multiple options to provide static localization data for production builds. Providing a URL prefix where Tolgee can
 fetch the data from or providing imported data as reference or provider in `NgxTolgeeModule.forRoot(...)` config property.
@@ -17,13 +18,13 @@ To provide your localization data using dynamic import you will need to add prov
 to staticData configuration property.
 
 ```typescript jsx title="src/app/app.module.ts"
-import { BrowserModule } from "@angular/platform-browser";
-import { NgModule } from "@angular/core";
+import { BrowserModule } from '@angular/platform-browser';
+import { NgModule } from '@angular/core';
 
-import { AppComponent } from "./app.component";
-import { NgxTolgeeModule } from "@tolgee/ngx";
-import { environment } from "../environments/environment";
-import { FormsModule } from "@angular/forms";
+import { AppComponent } from './app.component';
+import { NgxTolgeeModule } from '@tolgee/ngx';
+import { environment } from '../environments/environment';
+import { FormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [AppComponent],
@@ -31,8 +32,8 @@ import { FormsModule } from "@angular/forms";
     BrowserModule,
     NgxTolgeeModule.forRoot({
       staticData: {
-        en: () => import("../assets/i18n/en.json"),
-        cs: () => import("../assets/i18n/cs.json"),
+        en: () => import('../assets/i18n/en.json'),
+        cs: () => import('../assets/i18n/cs.json'),
       },
     }),
     FormsModule,
@@ -41,24 +42,24 @@ import { FormsModule } from "@angular/forms";
   bootstrap: [AppComponent],
 })
 export class AppModule {}
-
 ```
 
 Using this approach data will be fetched just when it's needed, so you will save some network traffic.
 
 ## Using imported object
+
 This approach just provides localization data as imported object.
 
 ```typescript jsx title="src/app/app.module.ts"
-import { BrowserModule } from "@angular/platform-browser";
-import { NgModule } from "@angular/core";
+import { BrowserModule } from '@angular/platform-browser';
+import { NgModule } from '@angular/core';
 
-import { AppComponent } from "./app.component";
-import { NgxTolgeeModule } from "@tolgee/ngx";
-import { environment } from "../environments/environment";
-import { FormsModule } from "@angular/forms";
-import * as localeCs from "../assets/i18n/cs.json";
-import * as localeEn from "../assets/i18n/en.json";
+import { AppComponent } from './app.component';
+import { NgxTolgeeModule } from '@tolgee/ngx';
+import { environment } from '../environments/environment';
+import { FormsModule } from '@angular/forms';
+import * as localeCs from '../assets/i18n/cs.json';
+import * as localeEn from '../assets/i18n/en.json';
 
 @NgModule({
   declarations: [AppComponent],
@@ -77,17 +78,19 @@ import * as localeEn from "../assets/i18n/en.json";
 })
 export class AppModule {}
 ```
+
 This way, all localization data are bundled with your application, so it will be downloaded with your application code.
 
 ## Providing data using filesUrlPrefix option (default)
-```typescript jsx title="src/app/app.module.ts"
-import { BrowserModule } from "@angular/platform-browser";
-import { NgModule } from "@angular/core";
 
-import { AppComponent } from "./app.component";
-import { NgxTolgeeModule } from "@tolgee/ngx";
-import { environment } from "../environments/environment";
-import { FormsModule } from "@angular/forms";
+```typescript jsx title="src/app/app.module.ts"
+import { BrowserModule } from '@angular/platform-browser';
+import { NgModule } from '@angular/core';
+
+import { AppComponent } from './app.component';
+import { NgxTolgeeModule } from '@tolgee/ngx';
+import { environment } from '../environments/environment';
+import { FormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [AppComponent],
@@ -95,7 +98,7 @@ import { FormsModule } from "@angular/forms";
     BrowserModule,
     NgxTolgeeModule.forRoot({
       // this value is default, so we could have omitted this property
-      filesUrlPrefix: "assets/i18n/",
+      filesUrlPrefix: 'assets/i18n/',
     }),
     FormsModule,
   ],
@@ -103,7 +106,7 @@ import { FormsModule } from "@angular/forms";
   bootstrap: [AppComponent],
 })
 export class AppModule {}
-
 ```
+
 This option tells Tolgee, that localization data (en.json, cs.json) can be found on `https://yoururl.com/assets/i18n/`,
 so it will be fetched with every page load.

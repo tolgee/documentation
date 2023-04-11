@@ -3,7 +3,7 @@ id: translating
 title: Translating with Angular
 sidebar_label: Translating
 slug: /using_with_angular/translating
-description: "Learn how to translate with Angular, and how to safely translating without wrapping. To translate strings in Angular you can use pipe or translation methods."
+description: 'Learn how to translate with Angular, and how to safely translating without wrapping. To translate strings in Angular you can use pipe or translation methods.'
 ---
 
 To get full image of working Angular integration check our [Angular example application](https://github.com/tolgee/ngx-example).
@@ -11,6 +11,7 @@ To get full image of working Angular integration check our [Angular example appl
 To translate strings in Angular you can use pipe or translation methods.
 
 ## Using pipe
+
 To translate a string use [`translate`](api#translate-pipe) pipe.
 
 ```html
@@ -20,7 +21,7 @@ To translate a string use [`translate`](api#translate-pipe) pipe.
 To provide parameters for translation pass them as first parameter of `translate` pipe.
 
 ```typescript
-params = {name: "John Doe"};
+params = { name: 'John Doe' };
 ```
 
 ```html
@@ -28,46 +29,55 @@ params = {name: "John Doe"};
 ```
 
 You can also provide default value.
+
 ```html
-<h1>{{'hello' | translate:params:'Default!'}}</h1> // with params
-<h1>{{'hello' | translate:'Default!'}}</h1> // or without params
+<h1>{{'hello' | translate:params:'Default!'}}</h1>
+// with params
+<h1>{{'hello' | translate:'Default!'}}</h1>
+// or without params
 ```
 
 ## [Element with `t` attribute](api#tcomponent)
+
 You can also use [element with `t`](api#tcomponent) attribute. Angular will render Tolgee component with `t` attribute selector.
+
 ```html
 <h1 t key="providing_default_values"></h1>
-<p t key="Peter has n dogs" [params]="params"></p> // with params
+<p t key="Peter has n dogs" [params]="params"></p>
+// with params
 ```
 
 Default value can be provided as well
+
 ```html
 <p t key="using_t_with_default" default="This is default"></p>
 ```
 
 ## Using translate methods
+
 To translate texts in your component code use [`get`](api#method-get)
-or [`instant`](api#method-instant)  method.
+or [`instant`](api#method-instant) method.
 
 These methods are part of translateService, which can be injected by dependency injection:
 
 ```typescript
-import {Component, OnInit} from '@angular/core';
-import {TranslateService} from "@tolgee/ngx";
+import { Component, OnInit } from '@angular/core';
+import { TranslateService } from '@tolgee/ngx';
 
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
-  styleUrls: ['./app.component.css']
+  styleUrls: ['./app.component.css'],
 })
 export class AppComponent implements OnInit {
-
   constructor(private translateService: TranslateService) {}
 
   helloWorld: string;
 
   async ngOnInit(): Promise<void> {
-    this.translateService.get('hello_world').subscribe(r => this.helloWorld = r);
+    this.translateService
+      .get('hello_world')
+      .subscribe((r) => (this.helloWorld = r));
   }
 }
 ```
@@ -75,9 +85,10 @@ export class AppComponent implements OnInit {
 `get` method returns [**Observable**](https://rxjs-dev.firebaseapp.com/guide/observable) as the result. That means, the
 result is provided asynchronously, when the localization strings are loaded.
 
-
 ```typescript
-this.translateService.get('hello_world').subscribe(r => this.helloWorld = r);
+this.translateService
+  .get('hello_world')
+  .subscribe((r) => (this.helloWorld = r));
 ```
 
 If you are unable to use this asynchronous approach for some reason, you can use
@@ -102,10 +113,13 @@ to [`get`](api#method-get) or
 [`instant`](api#method-instant) functions.
 
 ```typescript
-this.translateService.get('hello', {name: "John Doe"}).subscribe(r => this.hello = r);
+this.translateService
+  .get('hello', { name: 'John Doe' })
+  .subscribe((r) => (this.hello = r));
 ```
 
 ## Safe translating (without wrapping)
+
 When translating with Tolgee, there could be situations, when your texts are rendered incorrectly because of
 [wrapping](/wrapping.mdx).
 For example encoded strings like `%-%tolgee:something%-%` will be rendered in your document or tooltips will be rendered
@@ -124,10 +138,11 @@ To change language, use [`setLang`](api#method-setlang) method of
 [`translateService`](api#translateservice).
 
 ```typescript
-this.translateService.setLang("en");
+this.translateService.setLang('en');
 ```
 
 ## Obtaining current language
+
 To obtain current language, use [`getCurrentLang`](api#method-getcurrentlang)
 method of [`translateService`](api#translateservice).
 
@@ -136,6 +151,7 @@ this.translateService.getCurrentLang();
 ```
 
 ## Subscribing to language change event
+
 Your imperatively translated texts will be not automatically updated in production mode. To do so, you will need to
 listen to onLanguageChange EventEmitter and refresh your values manually.
 
@@ -150,7 +166,6 @@ listen to onLanguageChange EventEmitter and refresh your values manually.
   }
 ```
 
-
 ## Translations with HTML tags
 
 Our JS SDKs currently don't support rendering of HTML tags natively. However, if you really really need to render HTML tags there is a way.
@@ -160,6 +175,7 @@ This is dangerous, and you should know what you are doing.
 :::
 
 Consider a translation value:
+
 ```
 '<h1>'Hello'</h1>'
 ```
@@ -168,15 +184,14 @@ Notice that `h1` tags are wrapped with `'` characters. This tells ICU message fo
 To get HTML you can use [`TranslateService.getSafe`](api#method-getsafe) method.
 
 ```ts
-this.translateService
-  .getSafe('key_with_html_translation', undefined)
-  .subscribe(
-    (r) => (this.translated = r) // r is <h1>Hello</h1>
-  );
+this.translateService.getSafe('key_with_html_translation', undefined).subscribe(
+  (r) => (this.translated = r) // r is <h1>Hello</h1>
+);
 ```
 
 Nice, but Angular doesn't allow us to set HTML into element so easily, so we have to set it using `[innerHtml]` attribute,
 which enables us to set inner HTML of the element.
+
 ```html
 <div
   data-tolgee-key-only="key_with_html_translation"
@@ -194,11 +209,12 @@ TIP: Maybe you can remove tags from your translated value or parameters using [s
 :::
 
 ## Message format
+
 All Tolgee integrations follow ICU message format standard.
 
-```{dogsCount, plural, one {One dog is} other {# dogs are}} here.```
+`{dogsCount, plural, one {One dog is} other {# dogs are}} here.`
 
 To read more about it, check
-[ICU Message Format](/platform/icu_message_format) documentation page.
+[ICU Message Format](/platform/translation_process/icu_message_format) documentation page.
 
 All Tolgee JS integrations are using [MessageFormat class of formatJs library](https://formatjs.io/docs/intl-messageformat/).

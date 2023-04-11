@@ -3,7 +3,7 @@ id: api
 title: API of Tolgee for React
 sidebar_label: API
 slug: /using_with_react/api
-description: "API documentation for React integration: TolgeeProvider​, T-component and different hooks ( useCurrentLanguage, useSetLanguage, useTranslate)."
+description: 'API documentation for React integration: TolgeeProvider​, T-component and different hooks ( useCurrentLanguage, useSetLanguage, useTranslate).'
 ---
 
 ## TolgeeProvider
@@ -18,35 +18,43 @@ import { TolgeeProvider } from '@tolgee/react';
 </TolgeeProvider>
 ```
 
-#### Prop `loadingFallback?` 
+#### Prop `loadingFallback?`
+
 `React.Node` - it is rendered when Tolgee is loading translations instead of provided content.
 You can pass custom loading element when using Vue with JSX.
 
 #### Config as props
+
 All keys from [`TolgeeConfiguration`](../configuration) object can be used as props.
 
-
-
 ## T component
+
 ```jsx
 import { T } from '@tolgee/react';
 
-<T keyName="..." parameters={{ param: '...' }}>default value ...</T>
+<T keyName="..." parameters={{ param: '...' }}>
+  default value ...
+</T>;
 ```
 
 #### Prop `keyName?`
+
 `String` - translation key.
 
 #### Prop `parameters?`
-`Record<string, string | number | ReactElement | (val) => ReactNode>` - variable parameters, which can be used in translation value 
-(read more about [ICU message format](/platform/icu_message_format)).
+
+`Record<string, string | number | ReactElement | (val) => ReactNode>` - variable parameters, which can be used in translation value
+(read more about [ICU message format](/platform/translation_process/icu_message_format)).
 
 #### Prop `noWrap?`
+
 `Boolean` (default: `false`)
- - `false` - in development mode translation will be [wrapped](../wrapping)
- - `true` - use when wrapping in dev mode causes problems, in this case in-context translation won't work
+
+- `false` - in development mode translation will be [wrapped](../wrapping)
+- `true` - use when wrapping in dev mode causes problems, in this case in-context translation won't work
 
 #### Children `defaultValue?` | `keyName?`
+
 `String` - If `keyName` property is not defined, child is taken as `keyName`. If it is present child can be used as `defaultValue`.
 
 ## Hook `useTranslate`
@@ -54,23 +62,23 @@ import { T } from '@tolgee/react';
 Use this hook to get `t` function, which can be used for imperative translating.
 
 ```js
-import { useTranslate } from '@tolgee/react'
+import { useTranslate } from '@tolgee/react';
 
 const Component = () => {
-  const t = useTranslate()
+  const t = useTranslate();
 
-  return <div title={t('title_key')} />
-}
+  return <div title={t('title_key')} />;
+};
 ```
 
 ### Function `t`
 
-Returns requested translation and also subscribes component to translation/language changes, 
+Returns requested translation and also subscribes component to translation/language changes,
 so component will be re-rendered every time translation changes.
 
 ```ts
 function t(
-  key: string, 
+  key: string,
   parameters?: Record<string, string | number | ReactElement | (val) => ReactNode>,
   noWrap?: boolean,
   defaultValue?: string
@@ -86,19 +94,24 @@ function t(options: {
 ```
 
 #### Parameter `key`
+
 `String` - translation key.
 
 #### Parameter `parameters?`
-`Record<string, string | number | ReactElement | (val) => ReactNode>` - variable parameters, which can be used in translation value 
-(read more about [ICU message format](/platform/icu_message_format)).
+
+`Record<string, string | number | ReactElement | (val) => ReactNode>` - variable parameters, which can be used in translation value
+(read more about [ICU message format](/platform/translation_process/icu_message_format)).
 
 #### Parameter `noWrap?`
+
 `Boolean` (default: `false`)
- - `false` - in development mode translation will be [wrapped](../wrapping)
- - `true` - use when wrapping in dev mode causes problems, or you pass write it outside the DOM 
-    (for example `document.title`), in this case in-context translation won't work
+
+- `false` - in development mode translation will be [wrapped](../wrapping)
+- `true` - use when wrapping in dev mode causes problems, or you pass write it outside the DOM
+  (for example `document.title`), in this case in-context translation won't work
 
 #### Parameter `defaultValue?`
+
 `String` - It will be rendered if there is no translation for this key (in selected language nor base language).
 If you won't provide this value, `key` will be rendered instead.
 
@@ -106,11 +119,9 @@ If you won't provide this value, `key` will be rendered instead.
 
 Returns function `getLanguage(): string`, which returns current language key.
 
-
 ## Hook `useSetLanguage`
 
 Returns function `setLanguage(lang: string)`, which changes language in Tolgee context.
-
 
 ```jsx title="useCurrentLanguage & useSetLanguage"
 import { useSetLanguage, useCurrentLanguage } from '@tolgee/react';
@@ -124,10 +135,8 @@ const Component = () => {
       onChange={(e) => setLanguage(e.target.value)}
       value={getLanguage()}
     >
-      ...      
+      ...
     </select>
   );
-}
+};
 ```
-
-

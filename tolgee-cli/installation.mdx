@@ -6,34 +6,25 @@ title: Installation
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 import CodeBlock from '@theme/CodeBlock';
-import Experimental from './components/experimental.mdx'
 
-<Experimental/>
-
-The Tolgee CLI is written as a NodeJS program you can download via `npm`. You will need NodeJS version 18 or greater.
+The Tolgee CLI is written as a NodeJS program you can download via `npm`. You will need NodeJS version 18 or higher.
 Once installed, you'll have access to the `tolgee` command globally.
 
 <Tabs>
-  <TabItem value="npm" label="NPM" default>
-    <CodeBlock language="bash">
-      npm install --global @tolgee/cli
-    </CodeBlock>
+  <TabItem value="npm" label="npm" default>
+    <CodeBlock language="bash">npm install --global @tolgee/cli</CodeBlock>
   </TabItem>
   <TabItem value="yarn" label="Yarn">
-    <CodeBlock language="bash">
-      yarn global add @tolgee/cli
-    </CodeBlock>
+    <CodeBlock language="bash">yarn global add @tolgee/cli</CodeBlock>
   </TabItem>
   <TabItem value="pnpm" label="pnpm">
-    <CodeBlock language="bash">
-      pnpm add --global @tolgee/cli
-    </CodeBlock>
+    <CodeBlock language="bash">pnpm add --global @tolgee/cli</CodeBlock>
   </TabItem>
 </Tabs>
 
 :::info
-You can also install the `@tolgee/cli` package in the current package only. You won't benefit from the global command,
+You can also install the `@tolgee/cli` package in the current project only. You won't benefit from the global command,
 and will have to use a package script (or `npx`) to run commands.
 
-You should make sure to save it as a dev dependency!
+You should make sure to install it as a dev dependency!
 :::
