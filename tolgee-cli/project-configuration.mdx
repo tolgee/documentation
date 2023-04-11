@@ -23,13 +23,14 @@ You can also store your config in `package.json`, under the `tolgee` key.
 
 ### `projectId`
 
-Integer or integer string (i.e. 4242 or "4242"). ID of the project on the Tolgee server. It is printed when you first add an API key, but you can also easily find it in the url on the tolgee platform: `app.tolgee.io/projects/[projectId]`.
+Integer or integer string (i.e. 4242 or "4242"). ID of the project on the Tolgee server.
+It is shown when you first add an API key, but you can also easily find it in the URL: `app.tolgee.io/projects/{projectId}`.
 
 ### `delimiter`
 
-Single char, or null. Structure delimiter used.
+Single char, or null. Used as a structure delimiter.
 
-By default, Tolgee interprets `.` in string keys as nested structures. You can use another delimiter, or disable this
+By default, Tolgee interprets `.` in string keys as nested structures. You can use other delimiter, or disable this
 behavior by specifying `null`.
 
 ### `extractor`

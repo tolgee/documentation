@@ -4,13 +4,14 @@ title: Preparing for production
 sidebar_label: Preparing for production
 slug: /using_with_vue/preparing_for_production
 ---
+
 :::danger
 In production mode you should never use localization data from Tolgee REST API and you should never leak your API key.
 :::
 
 :::info
 You should use data exported from Tolgee platform.
-To get exported localization files, see [Exporting translations doc page](/platform/exporting_translations).
+To get exported localization files, see [Exporting translations doc page](/platform/projects_and_organizations/export).
 :::
 
 In production, you should set the API key to `undefined` and provide exported translations.
@@ -58,10 +59,10 @@ To provide your localization data using dynamic import, you will need to provide
 supported language to [TolgeeProvider's](api#tolgeeprovider) config prop.
 
 ```js
-import enLang from "../i18n/en.json"
-import deLang from "../i18n/de.json"
-import csLang from "../i18n/cs.json"
-import frLang from "../i18n/fr.json"
+import enLang from '../i18n/en.json';
+import deLang from '../i18n/de.json';
+import csLang from '../i18n/cs.json';
+import frLang from '../i18n/fr.json';
 
 export default defineComponent({
   data() {
@@ -72,9 +73,9 @@ export default defineComponent({
           en: enLang,
           cs: csLang,
           de: deLang,
-          fr: frLang
+          fr: frLang,
         },
-        availableLanguages: ["en", "de", "cs", "fr"]
+        availableLanguages: ['en', 'de', 'cs', 'fr'],
       },
     };
   },

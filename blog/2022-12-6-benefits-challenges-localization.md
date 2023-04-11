@@ -70,7 +70,7 @@ First, Tolgee can offer context in the form of automatic screenshots to provide 
 
 To make your software usable for customers in different regions, it’s not enough to simply translate the text. You must also account for formatting differences and conventions for writing dates, times, numbers, addresses, and currency. Hard-coded date, time, or currency formats will cause trouble during the localization process, as languages and countries use different date and time formats. 
 
-Tolgee deals with formatting issues using the [ICU (International Components for Unicode)](/platform/icu_message_format) message format. ICU also provides a lot of other helpful functionalities, such as advanced pluralization or selection rules. 
+Tolgee deals with formatting issues using the [ICU (International Components for Unicode)](/platform/translation_process/icu_message_format) message format. ICU also provides a lot of other helpful functionalities, such as advanced pluralization or selection rules. 
 
 
 ## 6. Inconsistency of translation

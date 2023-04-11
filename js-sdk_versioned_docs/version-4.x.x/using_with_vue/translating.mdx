@@ -3,7 +3,7 @@ id: translating
 title: Translating with Vue
 sidebar_label: Translating
 slug: /using_with_vue/translating
-description: "Learn how to translate your Vue application with Tolgee localization tool: with the T-component or by Imperative translation."
+description: 'Learn how to translate your Vue application with Tolgee localization tool: with the T-component or by Imperative translation.'
 ---
 
 There are two ways how to translate with Tolgee.
@@ -16,22 +16,23 @@ There are two ways how to translate with Tolgee.
 </template>
 
 <script>
-import { T } from '@tolgee/vue';
+  import { T } from '@tolgee/vue';
 
-export default {
-  components: { T }
-}
+  export default {
+    components: { T },
+  };
 </script>
 ```
 
 ### Parameter interpolation
+
 To pass parameters, just add parameters property:
 
 ```html
 <T keyName="translation_key" :parameters="{param: 'value'}" />
 ```
 
-For translated text `This is {param} of the text` it will result in `This is value of the text` (read [ICU Message Format](/platform/icu_message_format)).
+For translated text `This is {param} of the text` it will result in `This is value of the text` (read [ICU Message Format](/platform/translation_process/icu_message_format)).
 
 ### Providing default value
 
@@ -45,7 +46,7 @@ The default value will be rendered when no translation is provided in current no
 
 This solution is designed for cases where you can't use components (e.g. props).
 Use [useTranslate](./api#usetranslate-with-function-t), then you'll get access to the [`t`](./api#function-t) function,
-which has similar API as [`T`](./api#t-component) component, but you can use it anywhere. 
+which has similar API as [`T`](./api#t-component) component, but you can use it anywhere.
 You can check all [`t`](./api#usetranslate-with-function-t) parameters in [API section](./api#usetranslate-with-function-t)
 
 ```html
@@ -59,6 +60,6 @@ You can check all [`t`](./api#usetranslate-with-function-t) parameters in [API s
       const t = useTranslate();
       return { t };
     },
-  }
+  };
 </script>
 ```

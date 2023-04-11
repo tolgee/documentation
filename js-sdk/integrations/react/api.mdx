@@ -30,8 +30,8 @@ import { TolgeeProvider } from '@tolgee/react';
   useSuspense?: boolean
 }
 ```
-  - useSuspense: boolean - `TolgeeProvider` and `useTranslate` will use suspense pattern (default: true)
 
+- useSuspense: boolean - `TolgeeProvider` and `useTranslate` will use suspense pattern (default: true)
 
 ## T component
 
@@ -54,7 +54,7 @@ import { T } from '@tolgee/react';
 ### Prop `params?`
 
 `Record<string, string | number | ReactElement | (val) => ReactNode>` - variable parameters, which can be used in translation value
-(read more about [ICU message format](/platform/icu_message_format)).
+(read more about [ICU message format](/platform/translation_process/icu_message_format)).
 
 ### Prop `ns?`
 
@@ -138,8 +138,8 @@ const WorksAlsoWithOtherEvents = () => {
 
 ```ts
 function useTolgeeSSR(
-  tolgee: TolgeeInstance, 
-  language?: string, 
+  tolgee: TolgeeInstance,
+  language?: string,
   staticData?: TolgeeStaticData
 ): TolgeeInstance;
 ```

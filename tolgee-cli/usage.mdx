@@ -5,17 +5,17 @@ title: Usage
 
 Here is an overview of the basics of using the CLI.
 
-## Base options
+## Command options
 
 These options are available on all commands. They can be specified during the command execution, or configured once
 in a [per-project configuration](/tolgee-cli/project-configuration).
 
-- `--api-url <URL>` (short: `-au`) - URL of the Tolgee server. Useful for self-hosted installations. Can be [configured per-project](/tolgee-cli/project-configuration).
-- `--api-key <PAT/PAK>` (short: `-ak`) - **Required**. API Key. Can be a [Personal Access Token or a Project API Key](/platform/api-keys-and-pat-tokens).
-  May be omitted if you [logged in](#logging-in). You can also set it via the `TOLGEE_API_KEY` environment variable (recommended for CI server use).
-- `--project-id <ID>` (short: `-p`) - **Required**. Project ID on the Tolgee server. May be omitted if you explicitly
+- `--api-url <URL>` (short: `-au`) – URL of the Tolgee server. Useful for [self-hosted installations](/platform/self_hosting/getting_started). Can be [configured per-project](/tolgee-cli/project-configuration).
+- `--api-key <PAT/PAK>` (short: `-ak`) – **Required**. API Key. Can be a [Personal Access Token or a Project API Key](/platform/account_settings/api_keys_and_pat_tokens).
+  May be omitted if you are [logged in](#logging-in). You can also set it via the `TOLGEE_API_KEY` environment variable (recommended for CI server use).
+- `--project-id <ID>` (short: `-p`) – **Required**. Project ID on the Tolgee server. May be omitted if you explicitly
   specified a Project API Key via `--api-key` or `TOLGEE_API_KEY`. Can be [configured per-project](/tolgee-cli/project-configuration).
-- `--verbose` (short: `-v`) - Enables debug output.
+- `--verbose` (short: `-v`) – Enables debug output.
 
 :::tip
 When dealing with options that take multiple values, we recommend you put `--` at the end of the list of option values.
@@ -41,7 +41,7 @@ This makes sure the command parser will understand what you mean without any amb
 
 To interact with the Tolgee server, you need to authenticate yourself. For security reasons, the CLI doesn't use your
 username/password combo, but rather Personal Access Tokens, or Project API Keys. You can learn more about these
-on the [Tolgee Platform docs](/platform/api-keys-and-pat-tokens).
+on the [Tolgee Platform docs](/platform/account_settings/api_keys_and_pat_tokens).
 
 To make your life easier, the CLI allows you to store authentication tokens via `tolgee login` (and remove them via
 `tolgee logout`), so you don't have to specify your authentication tokens every single time.
@@ -52,17 +52,18 @@ To save your credentials, you simply need to run `tolgee login <token>`. The CLI
 is and save it appropriately. You can save multiple Project API Keys for different projects.
 
 :::info
-Here's how the CLI attempts to fetch the authentication token, from highest priority to lowest.
+Here's how the CLI attempts to fetch the authentication token, from highest priority to lowest:
 
-- `--api-key` option
-- `TOLGEE_API_KEY` environment variable
-- Personal Access Token saved in credentials store
-- Project API Key saved in credentials store
-  :::
+1. `--api-key` option
+2. `TOLGEE_API_KEY` environment variable
+3. Personal Access Token saved in credentials store
+4. Project API Key saved in credentials store
+
+:::
 
 ### Using a self-hosted instance
 
-If you are not hosting your project on Tolgee Cloud, you can configure this in the [`.tolgeerc`](/tolgee-cli/project-configuration#apiUrl)
+If you are not using Tolgee Cloud, but you are running a [self-hosted instance](/platform/self_hosting/getting_started) instead, you can configure this in the [`.tolgeerc`](/tolgee-cli/project-configuration#apiUrl)
 file for a whole project, or specify it when running commands via the `--api-url` flag.
 
 When running `tolgee login` in a project configured to use a different instance, Tolgee will automatically attempt to
