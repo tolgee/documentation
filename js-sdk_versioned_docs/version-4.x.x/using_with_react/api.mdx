@@ -131,7 +131,10 @@ const Component = () => {
   const getLanguage = useCurrentLanguage();
 
   return (
-    <select onChange={(e) => setLanguage(e.target.value)} value={getLanguage()}>
+    <select
+      onChange={(e) => setLanguage(e.target.value)}
+      value={getLanguage()}
+    >
       ...
     </select>
   );

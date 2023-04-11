@@ -22,19 +22,13 @@ To provide parameters and its values, append them after the key or default value
 Multiple parameters are delimited with "," character.
 
 ```html
-<h1>
-  {{hello,Hello {name} {surname}:name:John,surname:Doe}}
-  <h1></h1>
-</h1>
+<h1>{{hello,Hello {name} {surname}:name:John,surname:Doe}}</h1>
 ```
 
 You can also omit the default value, ft you don't want to provide it in your code.
 
 ```html
-<h1>
-  {{hello:name:John,surname:Doe}}
-  <h1></h1>
-</h1>
+<h1>{{hello:name:John,surname:Doe}}</h1>
 ```
 
 ## Parameter interpolation when translating imperatively
