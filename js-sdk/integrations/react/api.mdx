@@ -67,6 +67,10 @@ import { T } from '@tolgee/react';
 - `false` - in development mode translation will be [wrapped](/wrapping.mdx)
 - `true` - use when wrapping in dev mode causes problems, in this case in-context translation won't work
 
+### Prop `language?`
+
+`String` - override current Tolgee language. This way you can switch to different language for separate translation. Load the language manually with [`tolgee.loadRecord`](/api/core_package/tolgee.mdx#loadrecord).
+
 ### Children `defaultValue?` | `keyName?`
 
 `String` - If `keyName` property is not defined, child is taken as `keyName`. If it is present child can be used as `defaultValue`.
