@@ -158,6 +158,7 @@ All the options:
 - `orEmpty`: `boolean` - return empty string instead of key if translation doesn't exist (default: false)
 - `params`: `Record<string, value>` object with parameters for the formatter
 - `ns`: `string` - namespace, if not provided default namespace is used
+- `language`: `string` - override current Tolgee language. This way you can switch to different language for separate translation. Load the language manually with [`tolgee.loadRecord`](/api/core_package/tolgee.mdx#loadrecord).
 
 > `t` function serves only for reading, not for loading new namespaces. Use [`addActiveNs`](#addactivens) for loading additional namespaces.
 

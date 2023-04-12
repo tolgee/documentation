@@ -98,6 +98,10 @@ for this key (in selected language nor base language). If you won't provide this
 - `false` - in development mode translation will be [wrapped](/wrapping.mdx)
 - `true` - use when wrapping in dev mode causes problems, in this case in-context translation won't work
 
+### Prop `language?`
+
+`String` - override current Tolgee language. This way you can switch to different language for separate translation. Load the language manually with [`tolgee.loadRecord`](/api/core_package/tolgee.mdx#loadrecord).
+
 ## Composable `useTranslate`
 
 Use it for loading namespaces for specific components/pages or to get `t` function for translating.
