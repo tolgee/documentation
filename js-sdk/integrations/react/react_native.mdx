@@ -1,0 +1,66 @@
+---
+id: react_native
+title: React Native
+description: "Learn how to use Tolgee with React Native. To get full image of working React integration check our React Native example application."
+---
+
+:::info
+To get full image of working React Native with Tolgee check our [React Native example application](https://github.com/tolgee/react-native-example).
+:::
+
+For React Native we recommend following setup (with [Expo](https://expo.dev/)):
+
+```tsx
+import {
+  Tolgee,
+  DevTools,
+  TolgeeProvider,
+  FormatSimple
+} from "@tolgee/react";
+
+import en from "./i18n/en.json";
+import cs from "./i18n/cs.json";
+import { TOLGEE_API_KEY, TOLGEE_API_URL } from "@env";
+
+
+const tolgee = Tolgee()
+  // DevTools will work only for web view
+  .use(DevTools())
+  // FormatIcu currently doesn't work
+  .use(FormatSimple())
+  .init({
+    language: 'en',
+
+    // for development
+    apiUrl: TOLGEE_API_URL,
+    apiKey: TOLGEE_API_KEY,
+
+    // include translations statically
+    staticData: { en, cs },
+  });
+
+...
+
+<TolgeeProvider
+  tolgee={tolgee}
+>
+  <your-app-components>
+</TolgeeProvider>
+```
+
+You can use [react-native-dotenv](https://www.npmjs.com/package/react-native-dotenv) to configure environment variables:
+
+```sh
+TOLGEE_API_URL=https://app.tolgee.io
+TOLGEE_API_KEY=tgpak_gfpwiojtnrztqmtbna3dczjxny2ha3dmnu4tk4tnnjvgc
+```
+
+> Obtaining Tolgee API key is described in [Integration](/platform/integrations/about_integrations) chapter.
+
+:::info
+In-context tools won't have any effect in emulators, but can help you when you run the app in web mode.
+:::
+
+## Production
+
+Make sure you don't include `TOLGEE_API_KEY` in production build.

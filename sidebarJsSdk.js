@@ -33,6 +33,7 @@ module.exports = {
                 'integrations/react/ssr/gatsby',
               ],
             },
+            'integrations/react/react_native',
             'integrations/react/api',
           ],
         },
