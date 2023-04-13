@@ -75,6 +75,10 @@ module.exports.navbar = {
           label: 'Gatsby',
         },
         {
+          to: 'js-sdk/integrations/react/react_native',
+          label: 'React Native',
+        },
+        {
           to: 'integrations/figma',
           label: 'Figma',
         },
