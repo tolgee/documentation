@@ -1,3 +1,4 @@
+import Head from '@docusaurus/Head';
 import React, { useEffect } from 'react';
 
 declare global {
@@ -139,5 +140,11 @@ export const CookieConsent = () => {
     });
   });
 
-  return <></>;
+  // prevent docosaurus from removing this class from html
+  // (which was closing the consent popup when switching to different page)
+  return (
+    <Head>
+      <html className="show--consent" />
+    </Head>
+  );
 };
