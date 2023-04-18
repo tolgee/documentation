@@ -62,6 +62,17 @@ export const LayoutContent = ({ children }) => {
           name="facebook-domain-verification"
           content="boppg6u2f0982xhjbg7jtr9odtchvk"
         />
+        <script
+          type="text/javascript"
+          src="https://cdn.weglot.com/weglot.min.js"
+        ></script>
+        <script>
+          {`
+            Weglot.initialize({
+                api_key: 'wg_c52a5f447574ce5780a1430e5b9178b88'
+            });
+          `}
+        </script>
       </Head>
       {trackingId && (
         <div
