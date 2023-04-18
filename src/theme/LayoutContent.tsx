@@ -68,9 +68,9 @@ export const LayoutContent = ({ children }) => {
         ></script>
         <script>
           {`
-            Weglot.initialize({
-                api_key: 'wg_c52a5f447574ce5780a1430e5b9178b88'
-            });
+              Weglot.initialize({
+                api_key: 'wg_e399438925cfdbd578c9b7512ebee6d21'
+              });
           `}
         </script>
       </Head>
