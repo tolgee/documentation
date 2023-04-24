@@ -6,7 +6,7 @@ description: 'Unlock the secrets of translation with our ultimate guide to namin
 tags: [guide, translation, localization, i18n, keys]
 ---
 
-When working with translation and localization, properly naming translation keys is crucial. A good naming convention ensures that translation keys are easy to understand for translators and maintain, making it easier to manage translations across languages and updates to the application.
+In software development and localization, translation keys are placeholders for text strings requiring translation. This guide will explore the importance of appropriately naming translation keys and provide tips and best practices to improve your workflow.
 
 <!--truncate-->
 
@@ -26,7 +26,7 @@ Appropriately named translation keys provide context for translators, making it 
 
 ### Clarity
 
-Translation keys are labels that help you identify specific phrases or sentences in your code that need to be translated into different languages. When you give your keys clear and descriptive names, it becomes **clearer** for developers, translators, and other stakeholders to understand **what the keys represent**.
+Translation keys are labels that help you identify specific phrases or sentences in your code that need to be translated into different languages. When you give your keys clear and descriptive names, it becomes **more apparent** for developers, translators, and other stakeholders to understand **what the keys represent**.
 
 ### Efficiency
 
@@ -37,9 +37,13 @@ Efficiency is a crucial benefit of adequately naming translation keys. When tran
 When naming translation keys, starting with a clear and consistent system will make it easy to organize and locate your keys as your project grows. Here are some tips to help you get started:
 
 - **Naming convention**: The first step to naming translation keys is to decide on a naming convention that will work for your project. A naming convention is a set of rules that define how translation keys should be named. A **good naming convention should be easy to understand and follow consistently**.
+
   - **Casing**: Casing is how letters are capitalized in a word. Using a consistent casing convention makes it easier to identify and troubleshoot issues related to translations. You can, for example, use `CamelCase` or `snake_case`.
-- **Key categories**: Once you have your naming convention in place, it's crucial to identify the different categories of keys that you will need. For example, **you may want to have keys for other products**. Think about how you want to organize your keys and create a list of categories that makes sense for your project.
-- **Nesting**: Nesting is the process of organizing translation keys into a hierarchy. This **helps you organize your keys into logical groups** and makes finding the keys you need easier. For example, you can nest keys for different products under a `products` category.
+
+- **Key categories**: Once you have your naming convention in place, it's crucial to identify the different categories of keys that you will need. Think about how you want to organize your keys and create a list of categories that makes sense for your project. For example, you can **split the keys based on where they appear in the application** – if you have a web application, you may want to have separate categories for keys that appear on the homepage, in the login/sign-up flow, and the user profile.
+
+- **Nesting**: Nesting is the process of organizing translation keys into a hierarchy. This **helps you organize your keys into logical groups** and makes finding the keys easier. For example, you can split the keys based on the previously mentioned categories.
+
 - **Keep it simple**: While creating a consistent and organized system for naming translation keys is necessary, it's equally important to keep things simple. **Avoid using overly complex naming conventions** or structures that are difficult to understand, as this can lead to confusion and errors down the line.
 
 ## Best Practices for Naming Translation Keys
@@ -169,3 +173,5 @@ A nested structure is a structure that separates keys into nested levels, **each
 In conclusion, accurately naming translation keys is crucial for efficient management of the translation process across languages and updates to the application. Appropriately named translation keys **provide context, clarity, and consistency**, which help **avoid potential misunderstandings and errors** that could result from vague or poorly named keys.
 
 When naming translation keys, it's critical to use a **clear and consistent naming convention, meaningful and unambiguous names**, and to keep the naming simple. By following best practices for naming translation keys, developers and localization managers can ensure translations are accurate and consistent, **saving time and effort for both translators and developers**.
+
+💡 Do you have **any questions** regarding the best practices for naming translation keys? Or do you have specific questions related to your project? Feel free to **[join our Slack community](https://tolg.ee/slack) to discuss them with us!**
