@@ -21,22 +21,10 @@ type PeriodData = {
 };
 
 const roadmapData = {
-  '2023/Q1-Q2': {
+  '2023/Q2': {
     active: false,
     future: true,
     items: [
-      {
-        name: 'Figma plugin',
-        gitHubIssueLink:
-          'https://github.com/tolgee/tolgee-platform/issues/1385',
-        description: (
-          <p>
-            Figma plugin is our first integration with a design tools. This will
-            help developers and localization managers to simply import and
-            export keys directly in Figma.
-          </p>
-        ),
-      },
       {
         name: 'Permission enhancements',
         gitHubIssueLink:
@@ -72,20 +60,6 @@ const roadmapData = {
             With webhooks, developers would be able to create their custom
             automation when project data change without periodically calling the
             REST API. They will be notified by specific events automatically!
-          </p>
-        ),
-      },
-      {
-        name: 'Backups and data export',
-        gitHubIssueLink:
-          'https://github.com/tolgee/tolgee-platform/issues/1540',
-        description: (
-          <p>
-            For our subscribers, we would like to provide an automated backups
-            feature, which will enable users to restore their project data to a
-            specific state when something goes wrong. Users will be also able to
-            export all project data including metadata and screenshots and
-            import them later.
           </p>
         ),
       },
@@ -143,6 +117,39 @@ const roadmapData = {
         ),
       },
       {
+        name: 'Backups and data export',
+        gitHubIssueLink:
+          'https://github.com/tolgee/tolgee-platform/issues/1540',
+        description: (
+          <p>
+            For our subscribers, we would like to provide an automated backups
+            feature, which will enable users to restore their project data to a
+            specific state when something goes wrong. Users will be also able to
+            export all project data including metadata and screenshots and
+            import them later.
+          </p>
+        ),
+      },
+      {
+        name: 'Tolgee AI Translator (experimental)',
+        gitHubIssueLink:
+          'https://github.com/tolgee/tolgee-platform/issues/1543',
+        description: (
+          <p>
+            Tolgee's very own AI Translator, which uses open-source projects
+            data to provide the best possible results. For enterprise customers,
+            it will use their specific data to deliver results reflecting their
+            particular context and terminology.
+          </p>
+        ),
+      },
+    ],
+  },
+  '2023/Q3-Q4': {
+    active: false,
+    future: true,
+    items: [
+      {
         name: 'All format support',
         gitHubIssueLink:
           'https://github.com/tolgee/tolgee-platform/issues/1547',
@@ -178,25 +185,6 @@ const roadmapData = {
           </>
         ),
       },
-      {
-        name: 'Tolgee Translator (experimental)',
-        gitHubIssueLink:
-          'https://github.com/tolgee/tolgee-platform/issues/1543',
-        description: (
-          <p>
-            Tolgee's very own Translator, which uses open-source projects data
-            to provide the best possible results. For enterprise customers, it
-            will use their specific data to deliver results reflecting their
-            particular context and terminology.
-          </p>
-        ),
-      },
-    ],
-  },
-  '2023/Q3-Q4': {
-    active: false,
-    future: true,
-    items: [
       {
         name: 'Git integrations',
         gitHubIssueLink:
@@ -317,66 +305,68 @@ const roadmapData = {
       },
     ],
   },
-  '2021/Q3-Q4': {
+  '2023/Q1': {
+    active: false,
+    future: false,
     items: [
       {
-        name: 'V1 Release',
-        description: `After a year and a half of development, we’ve decided to finally release the 
-first official and stable version of Tolgee. Tolgee is now tested and stable, so 
-it's time to celebrate. 🎉🎉🎉`,
+        name: 'Figma plugin',
         done: true,
-      },
-      {
-        name: 'Start to promote Tolgee',
-        description: `Until now, we have been working hard to come up with a product that will 
-satisfy most of the needs of our users. Since Tolgee is now production-ready, 
-and we are going to promote it hard!`,
-        done: true,
-      },
-      {
-        name: 'Clean and improve UI',
-        description: `Before we released Tolgee V1, we wanted to clean up the UI since we wanted 
-        our users to have a great user experience.`,
-        done: true,
-      },
-      {
-        name: 'Automatic screenshot generation',
-        description: `Context is the most important thing for translators to do their job correctly. 
-We wanted to enable software developers to provide the context to translators
-without wasting their time. With Tolgee JS SDK and Tolgee Chrome plugin, 
-developers are able to generate screenshots automatically while creating the 
-key in the in-context translation UI.`,
-        done: true,
+        description: (
+          <>
+            <p>
+              Figma plugin is our first integration with a design tools. This
+              will help developers and localization managers to simply import
+              and export keys directly in Figma.
+            </p>
+            <p>
+              The Figma plugin has been{' '}
+              <a href="https://tolgee.io/blog/figma-plugin">
+                <strong>released</strong>
+              </a>
+              !
+            </p>
+            <p>
+              For more information, you can visit the{' '}
+              <a href="https://tolgee.io/platform/figma-plugin/setup">
+                documentation
+              </a>{' '}
+              and the{' '}
+              <a href="https://github.com/tolgee/figma-plugin">
+                GitHub repository
+              </a>
+              .
+            </p>
+          </>
+        ),
       },
     ],
   },
-  '2022/Q1': {
+  '2022/Q4': {
+    active: false,
+    future: false,
     items: [
       {
-        name: 'Translation memory',
-        description: `Translation memory will suggest sentences that will have already been 
-translated in your projects before.`,
-        gitHubIssueLink: 'https://github.com/tolgee/server/pull/920',
+        name: 'CLI',
+        description: `Command Line Interface will help users with extracting localization
+data from the Tolgee platform, analyzing code, looking for new keys,
+and extracting data in specific formats. Everything mentioned is
+customizable and flexible!`,
         done: true,
       },
+
       {
-        name: 'Automated/Machine translations',
-        description: `Don't translate everything manually. With an automated translations feature, 
-services like DeepL, Google Translate, or AWS translate will help by suggesting or 
-translating your new keys automatically when enabled.`,
-        gitHubIssueLink: 'https://github.com/tolgee/server/pull/920',
+        name: 'Namespaces in Tolgee JS integrations',
+        description: `Enable localization data export to be split to multiple files not
+          only by the language but also by their namespace.`,
         done: true,
       },
+
       {
-        name: 'Translating on production',
-        description: `Currently, in-context localization works only when the application is in development mode which is cool, but we would like
-         to enable users to translate directly in the deployed app by providing API key using the Tolgee Tools Chrome plugin.`,
-        gitHubIssueLink: 'https://github.com/tolgee/tolgee-js/pull/1775',
-        done: true,
-      },
-      {
-        name: 'More export options',
-        description: `More formats (json, xliff) and export options like filtering or structuring will be provided, so exports will be more versatile.`,
+        name: 'New Core of Tolgee JS',
+        description: `The new @tolgee/core package will provide refactored core of all js
+integrations and cleaner API with enhanced customization reduced
+bundle size and new features.`,
         done: true,
       },
     ],
@@ -412,31 +402,66 @@ If you are self-hosting Tolgee, don't worry. Tolgee stays free for you.`,
       },
     ],
   },
-  '2022/Q4': {
-    active: false,
-    future: false,
+  '2022/Q1': {
     items: [
       {
-        name: 'CLI',
-        description: `Command Line Interface will help users with extracting localization
-data from the Tolgee platform, analyzing code, looking for new keys,
-and extracting data in specific formats. Everything mentioned is
-customizable and flexible!`,
+        name: 'Translation memory',
+        description: `Translation memory will suggest sentences that will have already been 
+translated in your projects before.`,
+        gitHubIssueLink: 'https://github.com/tolgee/server/pull/920',
         done: true,
       },
-
       {
-        name: 'Namespaces in Tolgee JS integrations',
-        description: `Enable localization data export to be split to multiple files not
-          only by the language but also by their namespace.`,
+        name: 'Automated/Machine translations',
+        description: `Don't translate everything manually. With an automated translations feature, 
+services like DeepL, Google Translate, or AWS translate will help by suggesting or 
+translating your new keys automatically when enabled.`,
+        gitHubIssueLink: 'https://github.com/tolgee/server/pull/920',
         done: true,
       },
-
       {
-        name: 'New Core of Tolgee JS',
-        description: `The new @tolgee/core package will provide refactored core of all js
-integrations and cleaner API with enhanced customization reduced
-bundle size and new features.`,
+        name: 'Translating on production',
+        description: `Currently, in-context localization works only when the application is in development mode which is cool, but we would like
+         to enable users to translate directly in the deployed app by providing API key using the Tolgee Tools Chrome plugin.`,
+        gitHubIssueLink: 'https://github.com/tolgee/tolgee-js/pull/1775',
+        done: true,
+      },
+      {
+        name: 'More export options',
+        description: `More formats (json, xliff) and export options like filtering or structuring will be provided, so exports will be more versatile.`,
+        done: true,
+      },
+    ],
+  },
+  '2021/Q3-Q4': {
+    items: [
+      {
+        name: 'V1 Release',
+        description: `After a year and a half of development, we’ve decided to finally release the 
+first official and stable version of Tolgee. Tolgee is now tested and stable, so 
+it's time to celebrate. 🎉🎉🎉`,
+        done: true,
+      },
+      {
+        name: 'Start to promote Tolgee',
+        description: `Until now, we have been working hard to come up with a product that will 
+satisfy most of the needs of our users. Since Tolgee is now production-ready, 
+and we are going to promote it hard!`,
+        done: true,
+      },
+      {
+        name: 'Clean and improve UI',
+        description: `Before we released Tolgee V1, we wanted to clean up the UI since we wanted 
+        our users to have a great user experience.`,
+        done: true,
+      },
+      {
+        name: 'Automatic screenshot generation',
+        description: `Context is the most important thing for translators to do their job correctly. 
+We wanted to enable software developers to provide the context to translators
+without wasting their time. With Tolgee JS SDK and Tolgee Chrome plugin, 
+developers are able to generate screenshots automatically while creating the 
+key in the in-context translation UI.`,
         done: true,
       },
     ],
