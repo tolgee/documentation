@@ -70,7 +70,7 @@ export default function Pricing() {
             ]}
             billingType={billing}
             toggleBillingType={toggleBilling}
-            features={['Granular permissions']}
+            features={['granular-permissions', 'prioritized-feature-requests']}
             action={
               <Link
                 className="pricing__option-button pricing__option-button--grey"
@@ -91,7 +91,13 @@ export default function Pricing() {
               mtCredits: Infinity,
               seats: Infinity,
             }}
-            features={['Granular permissions']}
+            features={[
+              'granular-permissions',
+              'prioritized-feature-requests',
+              'premium-support',
+              'dedicated-slack-channel',
+              'deployment-assistance',
+            ]}
             action={
               <Link
                 className="pricing__option-button pricing__option-button--grey"

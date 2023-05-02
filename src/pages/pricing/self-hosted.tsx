@@ -48,15 +48,16 @@ export default function SelfHosted() {
 
         <div className="pricing__option pricing__option--highlighted">
           <PricingPlan
-            name="Basic"
+            name="Business"
             description="For individuals and medium teams that use Tolgee for one or just a few apps."
             billing={{ monthly: 300, annually: 250 }}
             billingType={billing}
             toggleBillingType={toggleBilling}
             limits={{
+              translations: Infinity,
               seats: 10,
             }}
-            features={['Granular permissions']}
+            features={['granular-permissions', 'prioritized-feature-requests']}
             secondaryPrices={['+ 20€/mo for extra seat']}
             action={
               <Link
@@ -68,29 +69,6 @@ export default function SelfHosted() {
             }
           />
         </div>
-        {/* 
-        <div className="pricing__option pricing__option--business pricing__option--highlighted">
-          <PricingPlan
-            name="Business"
-            description="For larger teams where localization is critical component."
-            billing={{ monthly: 1000, annually: 840 }}
-            billingType={billing}
-            toggleBillingType={toggleBilling}
-            limits={{
-              seats: 20,
-            }}
-            features={['Granular permissions']}
-            secondaryPrices={['+ 50€/mo for extra seat']}
-            action={
-              <Link
-                className="pricing__option-button"
-                to="https://app.tolgee.io/billing-self-hosted"
-              >
-                Subscribe
-              </Link>
-            }
-          />
-        </div> */}
 
         <div className="pricing__option">
           <PricingPlan
@@ -99,9 +77,16 @@ export default function SelfHosted() {
             billingType={billing}
             toggleBillingType={toggleBilling}
             limits={{
+              translations: Infinity,
               seats: Infinity,
             }}
-            features={['Granular permissions']}
+            features={[
+              'granular-permissions',
+              'prioritized-feature-requests',
+              'premium-support',
+              'dedicated-slack-channel',
+              'deployment-assistance',
+            ]}
             action={
               <Link
                 className="pricing__option-button pricing__option-button--grey"

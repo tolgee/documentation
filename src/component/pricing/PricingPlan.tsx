@@ -29,6 +29,20 @@ const Credits = () => {
   );
 };
 
+const FEATURES_MAP = {
+  'granular-permissions': 'Granular permissions',
+  'prioritized-feature-requests': 'Prioritized feature requests',
+  'premium-support': 'Premium support',
+  'dedicated-slack-channel': 'Dedicated slack channel',
+  'assisted-updates': 'Assisted updates',
+  'deployment-assistance': 'Deployment assistance',
+  'backup-configuration': 'Backup configuration',
+  'team-training': 'Team training',
+  'account-manager': 'Account manager',
+};
+
+type Feature = keyof typeof FEATURES_MAP;
+
 type Limits = {
   translations?: number;
   mtCredits?: number;
@@ -46,7 +60,7 @@ type Props = {
   price?: number;
   secondaryPrices?: string[];
   action: React.ReactNode;
-  features?: string[];
+  features?: Feature[];
 };
 
 export const PricingPlan: React.FC<Props> = ({
@@ -124,7 +138,7 @@ export const PricingPlan: React.FC<Props> = ({
           <p className="pricing__features-title">Features</p>
           <ul className="pricing__option-highlights">
             {features.map((feature) => (
-              <li key={feature}>{feature}</li>
+              <li key={feature}>{FEATURES_MAP[feature]}</li>
             ))}
           </ul>
         </div>
