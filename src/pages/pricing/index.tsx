@@ -42,6 +42,15 @@ export default function Pricing() {
               '+ 10€/mo for extra 1000 Translations',
               '+ 0.2€ for extra 1000 MT credits',
             ]}
+            features={[
+              'in-context-translating',
+              'translation-memory',
+              'machine-translations',
+              'auto-translation',
+              'activity-log',
+              'one-click-screenshots',
+              'figma-plugin',
+            ]}
             action={
               <Link
                 className="pricing__option-button pricing__option-button--contained"
@@ -70,7 +79,13 @@ export default function Pricing() {
             ]}
             billingType={billing}
             toggleBillingType={toggleBilling}
-            features={['granular-permissions', 'prioritized-feature-requests']}
+            features={[
+              'all-from-free',
+              'granular-permissions',
+              'prioritized-feature-requests',
+              'cdn',
+              'webhooks',
+            ]}
             action={
               <Link
                 className="pricing__option-button pricing__option-button--grey"
@@ -92,10 +107,13 @@ export default function Pricing() {
               seats: Infinity,
             }}
             features={[
-              'granular-permissions',
-              'prioritized-feature-requests',
+              'all-from-business',
               'premium-support',
               'dedicated-slack-channel',
+              'assisted-updates',
+              'deployment-assistance',
+              'backup-configuration',
+              'team-training',
               'deployment-assistance',
             ]}
             action={

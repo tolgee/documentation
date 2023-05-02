@@ -5,6 +5,7 @@ import { PricingBase } from '../../component/pricing/PricingBase';
 import Link from '@docusaurus/Link';
 import Head from '@docusaurus/Head';
 import { PricingPlan } from '../../component/pricing/PricingPlan';
+import { RoboMouse } from '../../component/images/RoboMouse';
 
 export default function SelfHosted() {
   const [billing, setBilling] = useState<'monthly' | 'annually'>('annually');
@@ -24,6 +25,14 @@ export default function SelfHosted() {
           />
         </Head>
       </div>
+
+      <div className="pricing__top-right-robomouse">
+        <RoboMouse />
+      </div>
+      <div className="pricing__bottom-right-robomouse">
+        <RoboMouse />
+      </div>
+
       <div className="pricing__options-wrapper">
         <div className="pricing__option">
           <PricingPlan
@@ -31,10 +40,22 @@ export default function SelfHosted() {
             price={0}
             description={
               <>
-                Since Tolgee is open-source, self hosting will be{' '}
-                <b>free forever</b> with basic features.
+                Since Tolgee is open-source, self-hosting will be{' '}
+                <b>free forever</b>.
+                <br />
+                <br />
+                <span className="pricing__option-value">No support</span>
               </>
             }
+            features={[
+              'in-context-translating',
+              'translation-memory',
+              'machine-translations',
+              'auto-translation',
+              'activity-log',
+              'one-click-screenshots',
+              'figma-plugin',
+            ]}
             action={
               <Link
                 className="pricing__option-button pricing__option-button--grey"
@@ -57,7 +78,13 @@ export default function SelfHosted() {
               translations: Infinity,
               seats: 10,
             }}
-            features={['granular-permissions', 'prioritized-feature-requests']}
+            features={[
+              'all-from-free',
+              'granular-permissions',
+              'prioritized-feature-requests',
+              'cdn',
+              'webhooks',
+            ]}
             secondaryPrices={['+ 20€/mo for extra seat']}
             action={
               <Link
@@ -81,6 +108,7 @@ export default function SelfHosted() {
               seats: Infinity,
             }}
             features={[
+              'all-from-business',
               'granular-permissions',
               'prioritized-feature-requests',
               'premium-support',

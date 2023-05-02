@@ -1,6 +1,7 @@
 import Link from '@docusaurus/Link';
 import React from 'react';
 import { Tooltip } from '@mui/material';
+import { PricingFeatures } from './PricingFeatures';
 
 const Translations = () => {
   return (
@@ -28,20 +29,6 @@ const Credits = () => {
     </Tooltip>
   );
 };
-
-const FEATURES_MAP = {
-  'granular-permissions': 'Granular permissions',
-  'prioritized-feature-requests': 'Prioritized feature requests',
-  'premium-support': 'Premium support',
-  'dedicated-slack-channel': 'Dedicated slack channel',
-  'assisted-updates': 'Assisted updates',
-  'deployment-assistance': 'Deployment assistance',
-  'backup-configuration': 'Backup configuration',
-  'team-training': 'Team training',
-  'account-manager': 'Account manager',
-};
-
-type Feature = keyof typeof FEATURES_MAP;
 
 type Limits = {
   translations?: number;
@@ -136,11 +123,7 @@ export const PricingPlan: React.FC<Props> = ({
       {Boolean(features?.length) && (
         <div className="pricing__features-section">
           <p className="pricing__features-title">Features</p>
-          <ul className="pricing__option-highlights">
-            {features.map((feature) => (
-              <li key={feature}>{FEATURES_MAP[feature]}</li>
-            ))}
-          </ul>
+          <PricingFeatures features={features} />
         </div>
       )}
 
