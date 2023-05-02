@@ -53,7 +53,6 @@ html[data-theme='dark'] .pricing__background-wrapper::after {
   display: grid;
   flex-wrap: wrap;
   justify-content: center;
-  align-items: center;
   gap: 24px;
   padding: var(--ifm-spacing-horizontal);
   grid-template-columns: 1fr 1fr 1fr;
@@ -106,16 +105,21 @@ html[data-theme='dark'] .pricing__option--highlighted > div {
 }
 
 .pricing__option {
-  height: 550px;
+  margin: 10px 0px;
   min-width: 270px;
   max-width: 320px;
   display: flex;
   flex-direction: column;
   width: 100%;
 }
+@media screen and (max-width: 1200px) {
+  .pricing__option {
+    margin: 0px;
+  }
+}
 
 .pricing__option--highlighted {
-  height: 580px;
+  margin: 0px;
 }
 
 .pricing__billing-switch {
@@ -291,6 +295,7 @@ html[data-theme='dark'] .pricing__option-button:hover {
   text-decoration-style: dashed;
   text-underline-position: under;
   text-decoration-thickness: from-font;
+  color: var(--home-text);
 }
 
 /* Pricing toggle */
@@ -368,4 +373,24 @@ html[data-theme='dark'] .pricing__option-button:hover {
   margin-inline-end: 7px;
   position: relative;
   top: 1px;
+}
+
+/**
+ * Pricing details
+ */
+
+.pricing-details__table {
+  display: grid;
+  margin: 20px 50px;
+  grid-template-columns: auto 1fr;
+  gap: 8px 40px;
+}
+
+.pricing-details__separator {
+  grid-column: 1 / -1;
+  border-top: 1px solid var(--ifm-color-emphasis-200);
+}
+
+.pricing-details__scroll-target {
+  scroll-margin-top: 60px;
 }

@@ -1,0 +1,38 @@
+import React from 'react';
+
+export function PricingDetails() {
+  return (
+    <section className="bg-surface flex flex-col items-center">
+      <h2
+        className="mt-12 mb-0 text-primary pricing-details__scroll-target"
+        id="pricing-details"
+      >
+        Pricing details
+      </h2>
+
+      <div className="pricing-details__table max-w-[800px]">
+        <div className="pricing-details__name">Strings</div>
+        <div className="pricing-details__description">
+          The total amount of localization strings stored in your cloud
+          organization, including strings in the base language.
+        </div>
+
+        <div className="pricing-details__separator" />
+
+        <div className="pricing-details__name">MT credits</div>
+        <div className="pricing-details__description">
+          Credits for machine translation. One credit ⋍ 1 translated character.
+        </div>
+
+        <div className="pricing-details__separator" />
+
+        <div className="pricing-details__name">Users</div>
+        <div className="pricing-details__description">
+          Weighted arithmetic mean of active user count for given month
+          (disabled accounts are not included). When self-hosting number of
+          users is reported to the Tolgee cloud.
+        </div>
+      </div>
+    </section>
+  );
+}

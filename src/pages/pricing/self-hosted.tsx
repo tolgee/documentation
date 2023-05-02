@@ -89,7 +89,7 @@ export default function SelfHosted() {
             secondaryPrices={[`+ €${(20).toLocaleString()}/mo for extra seat`]}
             action={
               <Link
-                className="pricing__option-button"
+                className="pricing__option-button pricing__option-button--contained"
                 to="https://app.tolgee.io/billing-self-hosted"
               >
                 Subscribe

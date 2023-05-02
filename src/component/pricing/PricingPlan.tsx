@@ -1,32 +1,21 @@
 import Link from '@docusaurus/Link';
 import React from 'react';
-import { Tooltip } from '@mui/material';
 import { PricingFeatures } from './PricingFeatures';
 
-const Translations = () => {
+const PricingDetailsLink = ({ children }) => {
   return (
-    <Tooltip
-      title={
-        <div>
-          Total amount of translated texts you can store in projects in your
-          organization.
-        </div>
-      }
-      disableInteractive
+    <a
+      href="#pricing-details"
+      className="pricing__with-hint"
+      onClick={(e) => {
+        e.preventDefault();
+        document
+          .querySelector('#pricing-details')
+          .scrollIntoView({ behavior: 'smooth' });
+      }}
     >
-      <span className="pricing__with-hint">translations</span>
-    </Tooltip>
-  );
-};
-
-const Credits = () => {
-  return (
-    <Tooltip
-      title="Credits for machine translation. One credit ⋍ 1 translated character."
-      disableInteractive
-    >
-      <span className="pricing__with-hint">MT credits</span>
-    </Tooltip>
+      {children}
+    </a>
   );
 };
 
@@ -96,7 +85,7 @@ export const PricingPlan: React.FC<Props> = ({
                   ? translations.toLocaleString()
                   : 'unlimited'}
               </span>{' '}
-              <Translations />
+              <PricingDetailsLink>Strings</PricingDetailsLink>
             </li>
           )}
           {mtCredits !== undefined && (
@@ -106,7 +95,7 @@ export const PricingPlan: React.FC<Props> = ({
                   ? mtCredits.toLocaleString()
                   : 'unlimited'}
               </span>{' '}
-              <Credits />
+              <PricingDetailsLink>MT Credits</PricingDetailsLink>
             </li>
           )}
           {seats !== undefined && (
@@ -114,7 +103,7 @@ export const PricingPlan: React.FC<Props> = ({
               <span className="pricing__option-value">
                 {seats !== Infinity ? seats.toLocaleString() : 'unlimited'}
               </span>{' '}
-              users
+              <PricingDetailsLink>Users</PricingDetailsLink>
             </li>
           )}
         </ul>
