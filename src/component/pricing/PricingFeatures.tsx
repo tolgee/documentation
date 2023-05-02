@@ -52,8 +52,8 @@ const FEATURES_MAP = {
   'team-training': <Ready>Team training</Ready>,
   'account-manager': <Ready>Account manager</Ready>,
 
-  'all-from-business': <Ready>All from "Business"</Ready>,
-  'all-from-free': <Ready>All from "Free"</Ready>,
+  'all-from-business': <Ready>{'All from "Business"'}</Ready>,
+  'all-from-free': <Ready>{'All from "Free"'}</Ready>,
 };
 
 export type Feature = keyof typeof FEATURES_MAP;
