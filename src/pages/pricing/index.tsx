@@ -31,14 +31,17 @@ export default function Pricing() {
       <div className="pricing__bottom-right-robomouse">
         <RoboMouse />
       </div>
-      <div className="pricing__options-wrapper-cloud">
-        <div className="pricing__option pricing__option--free">
+      <div className="pricing__options-wrapper">
+        <div className="pricing__option">
           <PricingPlan
-            name="Free"
+            name="Free / Pay as you go"
             description="For individuals and hobby projects."
-            numTranslations={3000}
-            numCredits={10000}
+            limits={{ translations: 1_000, mtCredits: 10_000, seats: Infinity }}
             price={0}
+            secondaryPrices={[
+              '+ 10€/mo for extra 1000 Translations',
+              '+ 0.2€ for extra 1000 MT credits',
+            ]}
             action={
               <Link
                 className="pricing__option-button pricing__option-button--contained"
@@ -50,36 +53,24 @@ export default function Pricing() {
           />
         </div>
 
-        <div className="pricing__option pricing__option--basic pricing__option--highlighted">
+        <div className="pricing__option pricing__option--highlighted">
           <PricingPlan
-            name="Basic"
+            name="Business"
             freeForOpensource
             description="For individuals and medium teams that use Tolgee for one or just a few apps."
-            numTranslations={15000}
-            numCredits={100000}
-            billing={{ monthly: 50, annually: 42 }}
-            billingType={billing}
-            toggleBillingType={toggleBilling}
-            action={
-              <Link
-                className="pricing__option-button pricing__option-button--grey"
-                to="https://app.tolgee.io/billing"
-              >
-                Subscribe
-              </Link>
-            }
-          />
-        </div>
-
-        <div className="pricing__option pricing__option--premium pricing__option--highlighted">
-          <PricingPlan
-            name="Premium"
-            description="For businesses and larger teams who need Tolgee to translate big systems or multiple apps."
-            numTranslations={30000}
-            numCredits={1000000}
+            limits={{
+              translations: 20_000,
+              mtCredits: 100_000,
+              seats: Infinity,
+            }}
             billing={{ monthly: 100, annually: 84 }}
+            secondaryPrices={[
+              '+ 7€/mo for extra 1000 Translations',
+              '+ 0.15€ for extra 1000 MT credits',
+            ]}
             billingType={billing}
             toggleBillingType={toggleBilling}
+            features={['Granular permissions']}
             action={
               <Link
                 className="pricing__option-button pricing__option-button--grey"
@@ -91,12 +82,16 @@ export default function Pricing() {
           />
         </div>
 
-        <div className="pricing__option pricing__option--enterprise">
+        <div className="pricing__option">
           <PricingPlan
             name="Enterprise"
             description="For enterprise organizations and very large teams that need Tolgee to translate large systems or a huge number of apps."
-            numTranslations={undefined}
-            numCredits={undefined}
+            limits={{
+              translations: Infinity,
+              mtCredits: Infinity,
+              seats: Infinity,
+            }}
+            features={['Granular permissions']}
             action={
               <Link
                 className="pricing__option-button pricing__option-button--grey"

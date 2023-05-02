@@ -2,28 +2,13 @@ import Link from '@docusaurus/Link';
 import React from 'react';
 import { Tooltip } from '@mui/material';
 
-type Props = {
-  name: string;
-  description: string;
-  numTranslations: number | undefined;
-  numCredits: number | undefined;
-  freeForOpensource?: boolean;
-  billing?: { monthly: number; annually: number };
-  billingType?: 'monthly' | 'annually';
-  toggleBillingType?: () => void;
-  price?: number;
-  action: React.ReactNode;
-};
-
 const Translations = () => {
   return (
     <Tooltip
       title={
         <div>
-          Amount of translations you can store in projects in your organization.
-          <br />
-          Current amount of translations is calculated as sum of keys multiplied
-          by languages for every project.
+          Total amount of translated texts you can store in projects in your
+          organization.
         </div>
       }
       disableInteractive
@@ -44,6 +29,26 @@ const Credits = () => {
   );
 };
 
+type Limits = {
+  translations?: number;
+  mtCredits?: number;
+  seats?: number;
+};
+
+type Props = {
+  name: string;
+  description: React.ReactNode;
+  limits?: Limits;
+  freeForOpensource?: boolean;
+  billing?: { monthly: number; annually: number };
+  billingType?: 'monthly' | 'annually';
+  toggleBillingType?: () => void;
+  price?: number;
+  secondaryPrices?: string[];
+  action: React.ReactNode;
+  features?: string[];
+};
+
 export const PricingPlan: React.FC<Props> = ({
   billingType,
   toggleBillingType,
@@ -52,9 +57,10 @@ export const PricingPlan: React.FC<Props> = ({
   name,
   description,
   freeForOpensource,
-  numCredits,
-  numTranslations,
+  limits,
   action,
+  features,
+  secondaryPrices,
 }) => {
   const BillingSwitch = () => {
     return (
@@ -65,6 +71,8 @@ export const PricingPlan: React.FC<Props> = ({
       </button>
     );
   };
+
+  const { translations, mtCredits, seats } = limits || {};
 
   return (
     <div>
@@ -78,30 +86,51 @@ export const PricingPlan: React.FC<Props> = ({
         </Link>
       )}
       <p>{description}</p>
-      <ul className="pricing__option-highlights pricing__option-highlights--no-list-style">
-        <li>
-          <span className="pricing__option-value">
-            {numTranslations !== undefined
-              ? numTranslations.toLocaleString()
-              : 'unlimited'}
-          </span>{' '}
-          <Translations />
-        </li>
-        <li>
-          <span className="pricing__option-value">
-            {numCredits !== undefined
-              ? numCredits.toLocaleString()
-              : 'unlimited'}
-          </span>{' '}
-          <Credits />
-        </li>
-        <li>
-          <span className="pricing__option-value">unlimited</span> users
-        </li>
-        <li>
-          <span className="pricing__option-value">unlimited</span> projects
-        </li>
-      </ul>
+      {limits && (
+        <ul className="pricing__option-highlights pricing__option-highlights--no-list-style">
+          {translations !== undefined && (
+            <li>
+              <span className="pricing__option-value">
+                {translations !== Infinity
+                  ? translations.toLocaleString()
+                  : 'unlimited'}
+              </span>{' '}
+              <Translations />
+            </li>
+          )}
+          {mtCredits !== undefined && (
+            <li>
+              <span className="pricing__option-value">
+                {mtCredits !== Infinity
+                  ? mtCredits.toLocaleString()
+                  : 'unlimited'}
+              </span>{' '}
+              <Credits />
+            </li>
+          )}
+          {seats !== undefined && (
+            <li>
+              <span className="pricing__option-value">
+                {seats !== Infinity ? seats.toLocaleString() : 'unlimited'}
+              </span>{' '}
+              users
+            </li>
+          )}
+        </ul>
+      )}
+
+      {Boolean(features?.length) && (
+        <div className="pricing__features-section">
+          <p className="pricing__features-title">Features</p>
+          <ul className="pricing__option-highlights">
+            {features.map((feature) => (
+              <li key={feature}>{feature}</li>
+            ))}
+          </ul>
+        </div>
+      )}
+
+      <div className="pricing__option-spacer" />
 
       {billing && (
         <>
@@ -129,6 +158,12 @@ export const PricingPlan: React.FC<Props> = ({
           <div>{Number(price).toLocaleString()} €</div>
         </div>
       )}
+
+      {secondaryPrices?.map((price, i) => (
+        <div key={i} className="pricing__option-secondary-price">
+          {price}
+        </div>
+      ))}
 
       {action}
     </div>

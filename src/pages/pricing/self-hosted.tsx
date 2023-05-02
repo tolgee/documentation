@@ -1,11 +1,18 @@
-import React from 'react';
+import React, { useState } from 'react';
 import './pricing.css';
 import { PricingToggle } from '../../component/pricing/PricingToggle';
 import { PricingBase } from '../../component/pricing/PricingBase';
 import Link from '@docusaurus/Link';
 import Head from '@docusaurus/Head';
+import { PricingPlan } from '../../component/pricing/PricingPlan';
 
 export default function SelfHosted() {
+  const [billing, setBilling] = useState<'monthly' | 'annually'>('annually');
+
+  const toggleBilling = () => {
+    setBilling((val) => (val === 'annually' ? 'monthly' : 'annually'));
+  };
+
   return (
     <PricingBase>
       <div className="pricing__toggle">
@@ -17,53 +24,93 @@ export default function SelfHosted() {
           />
         </Head>
       </div>
-      <div className="pricing__options-wrapper-self-hosted">
-        <div className="pricing__option pricing__option--no-support">
-          <div>
-            <h3 className="pricing__option--title">No support</h3>
-            <p>
-              Since Tolgee is open-source, self hosting will be{' '}
-              <b>free forever</b>. However, you have to serve yourself.
-            </p>
-            <ul className="pricing__option-highlights" />
-            <div className="pricing__option-price">0 €</div>
-            <Link
-              className="pricing__option-button"
-              to="/platform/self_hosting/running_with_docker"
-            >
-              Docs
-            </Link>
-          </div>
+      <div className="pricing__options-wrapper">
+        <div className="pricing__option">
+          <PricingPlan
+            name="Free"
+            price={0}
+            description={
+              <>
+                Since Tolgee is open-source, self hosting will be{' '}
+                <b>free forever</b> with basic features.
+              </>
+            }
+            action={
+              <Link
+                className="pricing__option-button pricing__option-button--grey"
+                to="/platform/self_hosting/running_with_docker"
+              >
+                Docs
+              </Link>
+            }
+          />
         </div>
 
-        <div className="pricing__option pricing__option--support pricing__option--highlighted">
-          <div>
-            <h3 className="pricing__option--title">With support</h3>
-            <p>
-              For businesses that need high reliability and require professional
-              support.
-            </p>
-            <ul className="pricing__option-highlights">
-              <li>
-                Professional{' '}
-                <span className="pricing__option-value">setup</span>
-              </li>
-              <li>
-                <span className="pricing__option-value">Support</span> from our
-                team
-              </li>
-              <li>
-                Prioritized{' '}
-                <span className="pricing__option-value">feature requests</span>
-              </li>
-            </ul>
-            <Link
-              className="pricing__option-button pricing__option-button--grey"
-              to="mailto:info@tolgee.io"
-            >
-              Contact us
-            </Link>
-          </div>
+        <div className="pricing__option pricing__option--highlighted">
+          <PricingPlan
+            name="Basic"
+            description="For individuals and medium teams that use Tolgee for one or just a few apps."
+            billing={{ monthly: 300, annually: 250 }}
+            billingType={billing}
+            toggleBillingType={toggleBilling}
+            limits={{
+              seats: 10,
+            }}
+            features={['Granular permissions']}
+            secondaryPrices={['+ 20€/mo for extra seat']}
+            action={
+              <Link
+                className="pricing__option-button"
+                to="https://app.tolgee.io/billing-self-hosted"
+              >
+                Subscribe
+              </Link>
+            }
+          />
+        </div>
+        {/* 
+        <div className="pricing__option pricing__option--business pricing__option--highlighted">
+          <PricingPlan
+            name="Business"
+            description="For larger teams where localization is critical component."
+            billing={{ monthly: 1000, annually: 840 }}
+            billingType={billing}
+            toggleBillingType={toggleBilling}
+            limits={{
+              seats: 20,
+            }}
+            features={['Granular permissions']}
+            secondaryPrices={['+ 50€/mo for extra seat']}
+            action={
+              <Link
+                className="pricing__option-button"
+                to="https://app.tolgee.io/billing-self-hosted"
+              >
+                Subscribe
+              </Link>
+            }
+          />
+        </div> */}
+
+        <div className="pricing__option">
+          <PricingPlan
+            name="Enterprise"
+            description="For enterprise organizations and very large teams that need Tolgee to translate large systems or a huge number of apps."
+            billingType={billing}
+            toggleBillingType={toggleBilling}
+            limits={{
+              seats: Infinity,
+            }}
+            features={['Granular permissions']}
+            action={
+              <Link
+                className="pricing__option-button pricing__option-button--grey"
+                to="/platform/self_hosting/running_with_docker"
+              >
+                Contact us
+              </Link>
+            }
+          />
         </div>
       </div>
     </PricingBase>
