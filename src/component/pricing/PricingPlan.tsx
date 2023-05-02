@@ -136,11 +136,13 @@ export const PricingPlan: React.FC<Props> = ({
           <div className="pricing__option-price">
             {billingType === 'monthly' ? (
               <div>
-                {Number(billing.monthly).toLocaleString()} €<span>/mo</span>
+                €{Number(billing.monthly).toLocaleString()}
+                <span>/mo</span>
               </div>
             ) : (
               <div>
-                {Number(billing.annually).toLocaleString()} €<span>/mo</span>{' '}
+                €{Number(billing.annually).toLocaleString()}
+                <span>/mo</span>{' '}
                 <span className="pricing__option-billing">
                   (annual billing)
                 </span>
@@ -152,7 +154,7 @@ export const PricingPlan: React.FC<Props> = ({
 
       {price !== undefined && (
         <div className="pricing__option-price">
-          <div>{Number(price).toLocaleString()} €</div>
+          <div>€{Number(price).toLocaleString()}</div>
         </div>
       )}
 

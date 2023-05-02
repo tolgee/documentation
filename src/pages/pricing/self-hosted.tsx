@@ -85,7 +85,7 @@ export default function SelfHosted() {
               'cdn',
               'webhooks',
             ]}
-            secondaryPrices={['+ 20€/mo for extra seat']}
+            secondaryPrices={[`+ €${(20).toLocaleString()}/mo for extra seat`]}
             action={
               <Link
                 className="pricing__option-button"
