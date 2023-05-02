@@ -18,11 +18,13 @@ function InDevelopment({ children }) {
   return (
     <>
       <Tooltip title="Feature is in development" disableInteractive>
-        <span className="pricing__features-option--checkmark">
-          <PricingInDevelopment />
+        <span className="pricing__with-hint">
+          <span className="pricing__features-option--checkmark">
+            <PricingInDevelopment />
+          </span>
+          <span>{children}</span>
         </span>
       </Tooltip>
-      {children}
     </>
   );
 }
@@ -38,6 +40,7 @@ const FEATURES_MAP = {
 
   'granular-permissions': <Ready>Granular permissions</Ready>,
   'prioritized-feature-requests': <Ready>Prioritized feature requests</Ready>,
+  'standard-support': <Ready>Standard support</Ready>,
   cdn: <InDevelopment>CDN</InDevelopment>,
   webhooks: <InDevelopment>Webhooks</InDevelopment>,
 

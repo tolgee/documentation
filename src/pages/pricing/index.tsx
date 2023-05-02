@@ -83,6 +83,7 @@ export default function Pricing() {
               'all-from-free',
               'granular-permissions',
               'prioritized-feature-requests',
+              'standard-support',
               'cdn',
               'webhooks',
             ]}
@@ -110,11 +111,7 @@ export default function Pricing() {
               'all-from-business',
               'premium-support',
               'dedicated-slack-channel',
-              'assisted-updates',
-              'deployment-assistance',
-              'backup-configuration',
               'team-training',
-              'deployment-assistance',
             ]}
             action={
               <Link

@@ -365,7 +365,7 @@ html[data-theme='dark'] .pricing__option-button:hover {
 }
 
 .pricing__features-option--checkmark {
-  margin-inline-end: 5px;
+  margin-inline-end: 7px;
   position: relative;
   top: 1px;
 }

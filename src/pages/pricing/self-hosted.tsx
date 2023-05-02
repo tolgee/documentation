@@ -82,6 +82,7 @@ export default function SelfHosted() {
               'all-from-free',
               'granular-permissions',
               'prioritized-feature-requests',
+              'standard-support',
               'cdn',
               'webhooks',
             ]}
@@ -109,11 +110,12 @@ export default function SelfHosted() {
             }}
             features={[
               'all-from-business',
-              'granular-permissions',
-              'prioritized-feature-requests',
               'premium-support',
               'dedicated-slack-channel',
               'deployment-assistance',
+              'assisted-updates',
+              'backup-configuration',
+              'team-training',
             ]}
             action={
               <Link
