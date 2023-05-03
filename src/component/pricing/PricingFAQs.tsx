@@ -33,13 +33,18 @@ export function PricingFAQs() {
         </PricingQuestion>
 
         <PricingQuestion question="What are the MT credits?">
-          Credits for machine translation providers (such as Google). One credit
-          ⋍ 1 translated character.
+          Credits for machine translation providers (such as Google translate,
+          AWS, DeepL, etc.). One credit ⋍ 1 translated character.
         </PricingQuestion>
 
         <PricingQuestion question="What are the seats?">
           The number of active users (disabled accounts are not included). When
           self-hosting, the number of users is reported to the Tolgee cloud.
+        </PricingQuestion>
+
+        <PricingQuestion question="Do you offer a completely free cloud plan?">
+          Absolutely! When you sign up for Tolgee, you will automatically
+          receive our "Free" plan, which comes with default limits.
         </PricingQuestion>
 
         <PricingQuestion question="What happens when I exceed seat or string limits?">
@@ -53,6 +58,11 @@ export function PricingFAQs() {
             In this case, you will only be charged half the cost of the extra
             seat since the price is weighted by time.
           </p>
+        </PricingQuestion>
+
+        <PricingQuestion question="How do I pay for exceeding limits if I pay annually?">
+          If you pay for the service annually, you may still be charged every
+          month if you exceed the limits of your plan.
         </PricingQuestion>
       </div>
     </section>

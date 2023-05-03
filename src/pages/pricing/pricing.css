@@ -179,7 +179,7 @@ html[data-theme='dark'] .pricing__option--highlighted > div {
   color: var(--ifm-color-primary);
   z-index: 5;
   transition: filter 0.2s ease-in-out;
-  margin-top: 8px;
+  margin-top: 20px;
 }
 
 html[data-theme='dark'] .pricing__option-button,
@@ -207,7 +207,9 @@ html[data-theme='dark'] .pricing__option-button:hover {
   border-color: #e6e6e6 !important;
 }
 
-.pricing__option--footnote {
+.pricing__option--price-note {
+  margin-top: 4px;
+  text-align: center;
   font-size: 12px;
 }
 

@@ -59,7 +59,7 @@ export default function Pricing() {
                 >
                   Get started
                 </Link>
-                <div className="pricing__option--footnote">
+                <div className="pricing__option--price-note">
                   No credit card required
                 </div>
               </>
