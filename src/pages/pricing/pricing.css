@@ -219,7 +219,7 @@ html[data-theme='dark'] .pricing__option-button:hover {
 
 .pricing__bottom-center-robomouse > svg {
   position: absolute;
-  top: 50px;
+  top: -50px;
   width: 281px !important;
   pointer-events: none;
 }
