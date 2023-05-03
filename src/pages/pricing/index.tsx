@@ -36,11 +36,11 @@ export default function Pricing() {
           <PricingPlan
             name="Free / Pay as you go"
             description="For individuals and hobby projects."
-            limits={{ translations: 1_000, mtCredits: 10_000, seats: Infinity }}
+            limits={{ strings: 1_000, mtCredits: 10_000, seats: Infinity }}
             price={0}
             secondaryPrices={[
-              `+ €${(10).toLocaleString()}/mo for extra 1000 Translations`,
-              `+ €${(0.2).toLocaleString()} for extra 1000 MT credits`,
+              `+ €${(10).toLocaleString()}/mo for extra 1000 Strings`,
+              `+ €${(0.2).toLocaleString()} for extra 1000 MT Credits`,
             ]}
             features={[
               'in-context-translating',
@@ -68,14 +68,14 @@ export default function Pricing() {
             freeForOpensource
             description="For individuals and medium teams that use Tolgee for one or just a few apps."
             limits={{
-              translations: 20_000,
+              strings: 20_000,
               mtCredits: 100_000,
               seats: Infinity,
             }}
             billing={{ monthly: 100, annually: 84 }}
             secondaryPrices={[
-              `+ €${(7).toLocaleString()}/mo for extra 1000 Translations`,
-              `+ €${(0.15).toLocaleString()} for extra 1000 MT credits`,
+              `+ €${(7).toLocaleString()}/mo for extra 1000 Strings`,
+              `+ €${(0.15).toLocaleString()} for extra 1000 MT Credits`,
             ]}
             billingType={billing}
             toggleBillingType={toggleBilling}
@@ -103,7 +103,7 @@ export default function Pricing() {
             name="Enterprise"
             description="For enterprise organizations and very large teams that need Tolgee to translate large systems or a huge number of apps."
             limits={{
-              translations: Infinity,
+              strings: Infinity,
               mtCredits: Infinity,
               seats: Infinity,
             }}

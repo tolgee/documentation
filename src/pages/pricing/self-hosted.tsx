@@ -75,7 +75,7 @@ export default function SelfHosted() {
             billingType={billing}
             toggleBillingType={toggleBilling}
             limits={{
-              translations: Infinity,
+              strings: Infinity,
               seats: 10,
             }}
             features={[
@@ -105,7 +105,7 @@ export default function SelfHosted() {
             billingType={billing}
             toggleBillingType={toggleBilling}
             limits={{
-              translations: Infinity,
+              strings: Infinity,
               seats: Infinity,
             }}
             features={[

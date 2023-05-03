@@ -19,14 +19,14 @@ export function PricingDetails() {
 
         <div className="pricing-details__separator" />
 
-        <div className="pricing-details__name">MT credits</div>
+        <div className="pricing-details__name">MT Credits</div>
         <div className="pricing-details__description">
           Credits for machine translation. One credit ⋍ 1 translated character.
         </div>
 
         <div className="pricing-details__separator" />
 
-        <div className="pricing-details__name">Users</div>
+        <div className="pricing-details__name">Seats</div>
         <div className="pricing-details__description">
           A weighted arithmetic average of the number of active users for the
           given month (disabled accounts are not included). When self-hosting,

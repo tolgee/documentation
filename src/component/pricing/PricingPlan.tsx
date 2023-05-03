@@ -20,7 +20,7 @@ const PricingDetailsLink = ({ children }) => {
 };
 
 type Limits = {
-  translations?: number;
+  strings?: number;
   mtCredits?: number;
   seats?: number;
 };
@@ -62,7 +62,7 @@ export const PricingPlan: React.FC<Props> = ({
     );
   };
 
-  const { translations, mtCredits, seats } = limits || {};
+  const { strings, mtCredits, seats } = limits || {};
 
   return (
     <div>
@@ -78,12 +78,10 @@ export const PricingPlan: React.FC<Props> = ({
       <p>{description}</p>
       {limits && (
         <ul className="pricing__option-highlights pricing__option-highlights--no-list-style">
-          {translations !== undefined && (
+          {strings !== undefined && (
             <li>
               <span className="pricing__option-value">
-                {translations !== Infinity
-                  ? translations.toLocaleString()
-                  : 'unlimited'}
+                {strings !== Infinity ? strings.toLocaleString() : 'unlimited'}
               </span>{' '}
               <PricingDetailsLink>Strings</PricingDetailsLink>
             </li>
@@ -103,7 +101,7 @@ export const PricingPlan: React.FC<Props> = ({
               <span className="pricing__option-value">
                 {seats !== Infinity ? seats.toLocaleString() : 'unlimited'}
               </span>{' '}
-              <PricingDetailsLink>Users</PricingDetailsLink>
+              <PricingDetailsLink>Seats</PricingDetailsLink>
             </li>
           )}
         </ul>
