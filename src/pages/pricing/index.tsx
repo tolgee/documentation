@@ -52,12 +52,17 @@ export default function Pricing() {
               'figma-plugin',
             ]}
             action={
-              <Link
-                className="pricing__option-button pricing__option-button--contained"
-                to="https://app.tolgee.io/sign_up"
-              >
-                Get started
-              </Link>
+              <>
+                <Link
+                  className="pricing__option-button pricing__option-button--contained"
+                  to="https://app.tolgee.io/sign_up"
+                >
+                  Get started
+                </Link>
+                <div className="pricing__option--footnote">
+                  No credit card required
+                </div>
+              </>
             }
           />
         </div>

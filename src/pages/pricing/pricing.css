@@ -207,6 +207,10 @@ html[data-theme='dark'] .pricing__option-button:hover {
   border-color: #e6e6e6 !important;
 }
 
+.pricing__option--footnote {
+  font-size: 12px;
+}
+
 /** Robo mice **/
 
 .pricing__bottom-center-robomouse {
@@ -383,15 +387,19 @@ html[data-theme='dark'] .pricing__option-button:hover {
 .pricing-details__table {
   display: grid;
   margin: 20px 50px;
-  grid-template-columns: auto 1fr;
+  grid-template-columns: 1fr;
   gap: 8px 40px;
 }
 
 .pricing-details__separator {
   grid-column: 1 / -1;
   border-top: 1px solid var(--ifm-color-emphasis-200);
+  margin: 10px 0px;
 }
 
+.pricing-details__table .pricing-details__separator:last-of-type {
+  display: none;
+}
 .pricing-details__name {
   font-weight: bold;
 }

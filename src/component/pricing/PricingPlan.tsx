@@ -1,6 +1,6 @@
 import Link from '@docusaurus/Link';
 import React from 'react';
-import { PricingFeatures } from './PricingFeatures';
+import { PricingFeatures, Feature } from './PricingFeatures';
 
 const PricingDetailsLink = ({ children }) => {
   return (
@@ -83,7 +83,7 @@ export const PricingPlan: React.FC<Props> = ({
               <span className="pricing__option-value">
                 {strings !== Infinity ? strings.toLocaleString() : 'unlimited'}
               </span>{' '}
-              <PricingDetailsLink>Strings</PricingDetailsLink>
+              <PricingDetailsLink>strings</PricingDetailsLink>
             </li>
           )}
           {mtCredits !== undefined && (
@@ -93,7 +93,7 @@ export const PricingPlan: React.FC<Props> = ({
                   ? mtCredits.toLocaleString()
                   : 'unlimited'}
               </span>{' '}
-              <PricingDetailsLink>MT Credits</PricingDetailsLink>
+              <PricingDetailsLink>MT credits</PricingDetailsLink>
             </li>
           )}
           {seats !== undefined && (
@@ -101,7 +101,7 @@ export const PricingPlan: React.FC<Props> = ({
               <span className="pricing__option-value">
                 {seats !== Infinity ? seats.toLocaleString() : 'unlimited'}
               </span>{' '}
-              <PricingDetailsLink>Seats</PricingDetailsLink>
+              <PricingDetailsLink>seats</PricingDetailsLink>
             </li>
           )}
         </ul>

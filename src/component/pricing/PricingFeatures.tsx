@@ -45,7 +45,7 @@ const FEATURES_MAP = {
   webhooks: <InDevelopment>Webhooks</InDevelopment>,
 
   'premium-support': <Ready>Premium support</Ready>,
-  'dedicated-slack-channel': <Ready>Dedicated slack channel</Ready>,
+  'dedicated-slack-channel': <Ready>Dedicated Slack channel</Ready>,
   'assisted-updates': <Ready>Assisted updates</Ready>,
   'deployment-assistance': <Ready>Deployment assistance</Ready>,
   'backup-configuration': <Ready>Backup configuration</Ready>,

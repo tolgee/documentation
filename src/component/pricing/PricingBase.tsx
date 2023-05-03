@@ -5,7 +5,7 @@ import DecoratedLayout from '../../theme/DecoratedLayout';
 import { PageHeader } from '../pageComponents/header/PageHeader';
 import { Features } from '../home/Features';
 import { PageHeaderTitle } from '../pageComponents/header/PageHeaderTitle';
-import { PricingDetails } from './PricingDetails';
+import { PricingFAQs } from './PricingFAQs';
 
 export const PricingBase: React.FC = ({ children }) => {
   return (
@@ -25,7 +25,7 @@ export const PricingBase: React.FC = ({ children }) => {
           </div>
         </div>
 
-        <PricingDetails />
+        <PricingFAQs />
 
         <Features />
       </DecoratedLayout>
