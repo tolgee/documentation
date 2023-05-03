@@ -33,7 +33,7 @@ export function PricingFAQs() {
         </PricingQuestion>
 
         <PricingQuestion question="What are the MT credits?">
-          Credits for machine translation providers (such as Google translate,
+          Credits for machine translation providers (such as Google Translate,
           AWS, DeepL, etc.). One credit ⋍ 1 translated character.
         </PricingQuestion>
 
@@ -44,7 +44,7 @@ export function PricingFAQs() {
 
         <PricingQuestion question="Do you offer a completely free cloud plan?">
           Absolutely! When you sign up for Tolgee, you will automatically
-          receive our "Free" plan, which comes with default limits.
+          receive our Free plan, which comes with default limits.
         </PricingQuestion>
 
         <PricingQuestion question="What happens when I exceed seat or string limits?">
