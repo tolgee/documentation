@@ -3,15 +3,14 @@ import React from 'react';
 type Props = {
   question: string;
   children: React.ReactNode;
-  noSeparator?: boolean;
 };
 
-function PricingQuestion({ question, children, noSeparator }: Props) {
+function PricingQuestion({ question, children }: Props) {
   return (
     <>
       <div className="pricing-details__name">{question}</div>
       <div className="pricing-details__description">{children}</div>
-      {!noSeparator && <div className="pricing-details__separator" />}
+      <div className="pricing-details__separator" />
     </>
   );
 }
@@ -23,7 +22,7 @@ export function PricingFAQs() {
         className="mt-12 mb-0 text-primary pricing-details__scroll-target"
         id="pricing-details"
       >
-        Questions and answers
+        Frequently asked questions
       </h2>
 
       <div className="pricing-details__table max-w-[800px]">
@@ -44,7 +43,7 @@ export function PricingFAQs() {
 
         <PricingQuestion question="Do you offer a completely free cloud plan?">
           Absolutely! When you sign up for Tolgee, you will automatically
-          receive our Free plan, which comes with default limits.
+          receive our Free plan, which is limited by string count.
         </PricingQuestion>
 
         <PricingQuestion question="What happens when I exceed seat or string limits?">
