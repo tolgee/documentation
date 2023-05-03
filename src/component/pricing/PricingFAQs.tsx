@@ -33,7 +33,8 @@ export function PricingFAQs() {
         </PricingQuestion>
 
         <PricingQuestion question="What are the MT credits?">
-          Credits for machine translation. One credit ⋍ 1 translated character.
+          Credits for machine translation providers (such as Google). One credit
+          ⋍ 1 translated character.
         </PricingQuestion>
 
         <PricingQuestion question="What are the seats?">
@@ -41,12 +42,17 @@ export function PricingFAQs() {
           self-hosting, the number of users is reported to the Tolgee cloud.
         </PricingQuestion>
 
-        <PricingQuestion question="What happens when I exceed the limits?">
-          {`
-            In case you've inserted your credit card, we'll charge it monthly
-            above the regular price. Seats and strings are calculated by their
-            weighted average.
-          `}
+        <PricingQuestion question="What happens when I exceed seat or string limits?">
+          <p>
+            If you have provided your credit card details, you will be charged
+            extra every month. The cost of seats and strings will be determined
+            by their weighted average.
+          </p>
+          <p>
+            To illustrate, suppose you add an extra seat for half of the month.
+            In this case, you will only be charged half the cost of the extra
+            seat since the price is weighted by time.
+          </p>
         </PricingQuestion>
       </div>
     </section>
