@@ -304,6 +304,7 @@ html[data-theme='dark'] .pricing__option-button:hover {
   display: flex;
   justify-content: center;
   margin-bottom: 40px;
+  scroll-margin-top: 120px;
 }
 
 .pricing__toggle a {
@@ -389,6 +390,10 @@ html[data-theme='dark'] .pricing__option-button:hover {
 .pricing-details__separator {
   grid-column: 1 / -1;
   border-top: 1px solid var(--ifm-color-emphasis-200);
+}
+
+.pricing-details__name {
+  font-weight: bold;
 }
 
 .pricing-details__scroll-target {

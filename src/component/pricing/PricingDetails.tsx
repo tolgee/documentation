@@ -28,9 +28,9 @@ export function PricingDetails() {
 
         <div className="pricing-details__name">Users</div>
         <div className="pricing-details__description">
-          Weighted arithmetic mean of active user count for given month
-          (disabled accounts are not included). When self-hosting number of
-          users is reported to the Tolgee cloud.
+          A weighted arithmetic average of the number of active users for the
+          given month (disabled accounts are not included). When self-hosting,
+          the number of users is reported to the Tolgee cloud.
         </div>
       </div>
     </section>
