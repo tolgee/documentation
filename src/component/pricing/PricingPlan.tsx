@@ -81,7 +81,7 @@ export const PricingPlan: React.FC<Props> = ({
           {strings !== undefined && (
             <li>
               <span className="pricing__option-value">
-                {strings !== Infinity ? strings.toLocaleString() : 'unlimited'}
+                {strings !== Infinity ? strings.toLocaleString() : 'Unlimited'}
               </span>{' '}
               <PricingDetailsLink>strings</PricingDetailsLink>
             </li>
@@ -91,7 +91,7 @@ export const PricingPlan: React.FC<Props> = ({
               <span className="pricing__option-value">
                 {mtCredits !== Infinity
                   ? mtCredits.toLocaleString()
-                  : 'unlimited'}
+                  : 'Unlimited'}
               </span>{' '}
               <PricingDetailsLink>MT credits</PricingDetailsLink>
             </li>
@@ -99,7 +99,7 @@ export const PricingPlan: React.FC<Props> = ({
           {seats !== undefined && (
             <li>
               <span className="pricing__option-value">
-                {seats !== Infinity ? seats.toLocaleString() : 'unlimited'}
+                {seats !== Infinity ? seats.toLocaleString() : 'Unlimited'}
               </span>{' '}
               <PricingDetailsLink>seats</PricingDetailsLink>
             </li>

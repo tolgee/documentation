@@ -26,24 +26,25 @@ export function PricingFAQs() {
       </h2>
 
       <div className="pricing-details__table max-w-[800px]">
-        <PricingQuestion question="What are the strings?">
+        <PricingQuestion question="What are strings?">
           The total amount of localization strings stored in your cloud
           organization, including strings in the base language.
         </PricingQuestion>
 
-        <PricingQuestion question="What are the MT credits?">
-          Credits for machine translation providers (such as Google Translate,
-          AWS, DeepL, etc.). One credit ⋍ 1 translated character.
+        <PricingQuestion question="What are MT credits?">
+          MT credits are used for Machine Translation providers (such as Google
+          Translate, AWS, DeepL, etc.). One credit ⋍ 1 translated character.
         </PricingQuestion>
 
-        <PricingQuestion question="What are the seats?">
+        <PricingQuestion question="What are seats?">
           The number of active users (disabled accounts are not included). When
           self-hosting, the number of users is reported to the Tolgee cloud.
         </PricingQuestion>
 
         <PricingQuestion question="Do you offer a completely free cloud plan?">
           Absolutely! When you sign up for Tolgee, you will automatically
-          receive our Free plan, which is limited by string count.
+          receive our Free plan, which is limited by the number of strings and
+          MT credits.
         </PricingQuestion>
 
         <PricingQuestion question="What happens when I exceed seat or string limits?">
@@ -53,8 +54,7 @@ export function PricingFAQs() {
             by their weighted average.
           </p>
           <p>
-            To illustrate, suppose you add an extra seat for half of the month.
-            In this case, you will only be charged half the cost of the extra
+            In this case, you will be charged only half the cost of the extra
             seat since the price is weighted by time.
           </p>
         </PricingQuestion>

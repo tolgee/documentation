@@ -70,7 +70,7 @@ export default function SelfHosted() {
         <div className="pricing__option pricing__option--highlighted">
           <PricingPlan
             name="Business"
-            description="For individuals and medium teams that use Tolgee for one or just a few apps."
+            description="For individuals and medium teams that use Tolgee for just one or a few apps."
             billing={{ monthly: 300, annually: 250 }}
             billingType={billing}
             toggleBillingType={toggleBilling}
@@ -101,7 +101,7 @@ export default function SelfHosted() {
         <div className="pricing__option">
           <PricingPlan
             name="Enterprise"
-            description="For enterprise organizations and very large teams that need Tolgee to translate large systems or a huge number of apps."
+            description="For enterprise organizations and large teams that need Tolgee to translate large systems or a huge number of apps."
             billingType={billing}
             toggleBillingType={toggleBilling}
             limits={{
@@ -120,7 +120,7 @@ export default function SelfHosted() {
             action={
               <Link
                 className="pricing__option-button pricing__option-button--grey"
-                to="/platform/self_hosting/running_with_docker"
+                to="mailto:info@tolgee.io"
               >
                 Contact us
               </Link>

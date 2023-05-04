@@ -39,8 +39,8 @@ export default function Pricing() {
             limits={{ strings: 1_000, mtCredits: 10_000, seats: Infinity }}
             price={0}
             secondaryPrices={[
-              `+ €${(10).toLocaleString()}/mo for extra 1000 Strings`,
-              `+ €${(0.2).toLocaleString()} for extra 1000 MT Credits`,
+              `+ €${(10).toLocaleString()}/mo for extra 1000 strings`,
+              `+ €${(0.2).toLocaleString()} for extra 1000 MT credits`,
             ]}
             features={[
               'in-context-translating',
@@ -79,8 +79,8 @@ export default function Pricing() {
             }}
             billing={{ monthly: 100, annually: 84 }}
             secondaryPrices={[
-              `+ €${(7).toLocaleString()}/mo for extra 1000 Strings`,
-              `+ €${(0.15).toLocaleString()} for extra 1000 MT Credits`,
+              `+ €${(7).toLocaleString()}/mo for extra 1000 strings`,
+              `+ €${(0.15).toLocaleString()} for extra 1000 MT credits`,
             ]}
             billingType={billing}
             toggleBillingType={toggleBilling}
