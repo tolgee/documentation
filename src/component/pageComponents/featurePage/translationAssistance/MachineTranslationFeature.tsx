@@ -79,16 +79,6 @@ export const MachineTranslationFeature = () => {
           </TextColumnText>
         </TextColumn>
       </TwoColumnSection>
-      <SingleColumnSection className="mt-24">
-        <TextColumnTitle>Pay as you go.</TextColumnTitle>
-        <TextColumnText>
-          Each <Link to="/pricing">subscription plan</Link> includes preloaded
-          translation credits. If you need more, you can buy Extra Machine
-          Translation credits in the Billing section.
-        </TextColumnText>
-
-        <MtCreditsSlider />
-      </SingleColumnSection>
     </>
   );
 };
