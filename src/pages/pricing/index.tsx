@@ -19,7 +19,7 @@ export default function Pricing() {
       <Head>
         <meta
           name="description"
-          content="Pricing for the cloud version of Tolgee localization tool. Choose among Free, Basic, Premium, or Enterprise subscription. "
+          content="Pricing for the cloud version of Tolgee localization tool. Choose among Free, Basic, Premium, or Enterprise subscription."
         />
       </Head>
       <div className="pricing__toggle">
