@@ -29,9 +29,11 @@ export const CookieConsent = () => {
 
     const update = (data: { level: string }) => {
       window.onGtagLoaded = () => {
+        const state =
+          data.level.indexOf('analytics') > -1 ? 'granted' : 'denied';
         const settings = {
-          analytics_storage:
-            data.level.indexOf('analytics') > -1 ? 'granted' : 'denied',
+          analytics_storage: state,
+          ad_storage: state,
         };
 
         window.gtag('consent', 'update', settings);
