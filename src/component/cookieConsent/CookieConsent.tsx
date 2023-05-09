@@ -132,6 +132,23 @@ export const CookieConsent = () => {
                   enabled: false,
                   readonly: false,
                 },
+                cookie_table: [
+                  {
+                    col1: '^_ga',
+                    col2: 'google.com',
+                    col3: '2 years',
+                    col4: 'description ...',
+                    col5: 'Permanent cookie',
+                    is_regex: true,
+                  },
+                  {
+                    col1: '_gid',
+                    col2: 'google.com',
+                    col3: '1 day',
+                    col4: 'description ...',
+                    col5: 'Permanent cookie',
+                  },
+                ],
               },
             ],
           },
