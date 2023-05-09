@@ -1,6 +1,5 @@
 import React, { useEffect, useState } from 'react';
 
-import { CookieConsent } from '../component/cookieConsent/CookieConsent';
 import Layout from './Layout';
 import clsx from 'clsx';
 
@@ -35,7 +34,6 @@ export default function DecoratedLayout(props) {
           {props.children}
         </div>
       </Layout>
-      <CookieConsent />
     </>
   );
 }
