@@ -66,6 +66,10 @@ export const CookieConsent = () => {
         },
       },
 
+      onFirstAction: function (_, cookie) {
+        update(cookie);
+      },
+
       onAccept: function (cookie) {
         update(cookie);
       },
