@@ -62,6 +62,7 @@ export const LayoutContent = ({ children }) => {
           name="facebook-domain-verification"
           content="boppg6u2f0982xhjbg7jtr9odtchvk"
         />
+        <script async src="/_proxy/start-tolgee.js"></script>
       </Head>
       {trackingId && (
         <div
