@@ -1,5 +1,4 @@
-import Head from '@docusaurus/Head';
-import React, { useEffect } from 'react';
+import { useEffect } from 'react';
 
 declare global {
   interface Window {
