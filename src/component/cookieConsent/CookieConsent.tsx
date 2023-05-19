@@ -163,11 +163,5 @@ export const CookieConsent = () => {
     });
   });
 
-  // prevent docosaurus from removing this class from html
-  // (which was closing the consent popup when switching to different page)
-  return (
-    <Head>
-      <html className="show--consent" />
-    </Head>
-  );
+  return null;
 };
