@@ -12,8 +12,8 @@ export const Pricing = () => {
         </div>
         <div className="md:col-span-3">
           <p className="text-[24px] md:text-[28px] mb-0">
-            Get <span className="text-gradient">{(3000).toLocaleString()}</span>{' '}
-            translations &{' '}
+            Get <span className="text-gradient">{(1000).toLocaleString()}</span>{' '}
+            strings &{' '}
             <span className="text-gradient">{(10000).toLocaleString()}</span>{' '}
             machine translation credits for free.
           </p>

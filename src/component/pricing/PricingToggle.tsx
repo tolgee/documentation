@@ -10,9 +10,9 @@ type Props = {
 
 export const PricingToggle: React.FC<Props> = ({ value }) => {
   return (
-    <div className="pricing__toggle">
+    <div className="pricing__toggle" id="pricing-toggle">
       <Link
-        to="/pricing"
+        to="/pricing#pricing-toggle"
         className={clsx('pricing__toggle-button', {
           'pricing__toggle-button--selected': value === 'cloud',
         })}
@@ -23,7 +23,7 @@ export const PricingToggle: React.FC<Props> = ({ value }) => {
         className={clsx('pricing__toggle-button', {
           'pricing__toggle-button--selected': value === 'self-hosted',
         })}
-        to="/pricing/self-hosted"
+        to="/pricing/self-hosted#pricing-toggle"
       >
         Self-hosted
       </Link>

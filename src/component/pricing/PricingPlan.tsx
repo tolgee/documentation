@@ -1,47 +1,42 @@
 import Link from '@docusaurus/Link';
 import React from 'react';
-import { Tooltip } from '@mui/material';
+import { PricingFeatures, Feature } from './PricingFeatures';
+
+const PricingDetailsLink = ({ children }) => {
+  return (
+    <a
+      href="#pricing-details"
+      className="pricing__with-hint"
+      onClick={(e) => {
+        e.preventDefault();
+        document
+          .querySelector('#pricing-details')
+          .scrollIntoView({ behavior: 'smooth' });
+      }}
+    >
+      {children}
+    </a>
+  );
+};
+
+type Limits = {
+  strings?: number;
+  mtCredits?: number;
+  seats?: number;
+};
 
 type Props = {
   name: string;
-  description: string;
-  numTranslations: number | undefined;
-  numCredits: number | undefined;
+  description: React.ReactNode;
+  limits?: Limits;
   freeForOpensource?: boolean;
   billing?: { monthly: number; annually: number };
   billingType?: 'monthly' | 'annually';
   toggleBillingType?: () => void;
   price?: number;
+  secondaryPrices?: string[];
   action: React.ReactNode;
-};
-
-const Translations = () => {
-  return (
-    <Tooltip
-      title={
-        <div>
-          Amount of translations you can store in projects in your organization.
-          <br />
-          Current amount of translations is calculated as sum of keys multiplied
-          by languages for every project.
-        </div>
-      }
-      disableInteractive
-    >
-      <span className="pricing__with-hint">translations</span>
-    </Tooltip>
-  );
-};
-
-const Credits = () => {
-  return (
-    <Tooltip
-      title="Credits for machine translation. One credit ⋍ 1 translated character."
-      disableInteractive
-    >
-      <span className="pricing__with-hint">MT credits</span>
-    </Tooltip>
-  );
+  features?: Feature[];
 };
 
 export const PricingPlan: React.FC<Props> = ({
@@ -52,9 +47,10 @@ export const PricingPlan: React.FC<Props> = ({
   name,
   description,
   freeForOpensource,
-  numCredits,
-  numTranslations,
+  limits,
   action,
+  features,
+  secondaryPrices,
 }) => {
   const BillingSwitch = () => {
     return (
@@ -65,6 +61,8 @@ export const PricingPlan: React.FC<Props> = ({
       </button>
     );
   };
+
+  const { strings, mtCredits, seats } = limits || {};
 
   return (
     <div>
@@ -78,30 +76,45 @@ export const PricingPlan: React.FC<Props> = ({
         </Link>
       )}
       <p>{description}</p>
-      <ul className="pricing__option-highlights pricing__option-highlights--no-list-style">
-        <li>
-          <span className="pricing__option-value">
-            {numTranslations !== undefined
-              ? numTranslations.toLocaleString()
-              : 'unlimited'}
-          </span>{' '}
-          <Translations />
-        </li>
-        <li>
-          <span className="pricing__option-value">
-            {numCredits !== undefined
-              ? numCredits.toLocaleString()
-              : 'unlimited'}
-          </span>{' '}
-          <Credits />
-        </li>
-        <li>
-          <span className="pricing__option-value">unlimited</span> users
-        </li>
-        <li>
-          <span className="pricing__option-value">unlimited</span> projects
-        </li>
-      </ul>
+      {limits && (
+        <ul className="pricing__option-highlights pricing__option-highlights--no-list-style">
+          {strings !== undefined && (
+            <li>
+              <span className="pricing__option-value">
+                {strings !== Infinity ? strings.toLocaleString() : 'Unlimited'}
+              </span>{' '}
+              <PricingDetailsLink>strings</PricingDetailsLink> included
+            </li>
+          )}
+          {mtCredits !== undefined && (
+            <li>
+              <span className="pricing__option-value">
+                {mtCredits !== Infinity
+                  ? mtCredits.toLocaleString()
+                  : 'Unlimited'}
+              </span>{' '}
+              <PricingDetailsLink>MT credits</PricingDetailsLink> included
+            </li>
+          )}
+          {seats !== undefined && (
+            <li>
+              <span className="pricing__option-value">
+                {seats !== Infinity ? seats.toLocaleString() : 'Unlimited'}
+              </span>{' '}
+              <PricingDetailsLink>seats</PricingDetailsLink> included
+            </li>
+          )}
+        </ul>
+      )}
+
+      {Boolean(features?.length) && (
+        <div className="pricing__features-section">
+          <p className="pricing__features-title">Features</p>
+          <PricingFeatures features={features} />
+        </div>
+      )}
+
+      <div className="pricing__option-spacer" />
 
       {billing && (
         <>
@@ -110,11 +123,13 @@ export const PricingPlan: React.FC<Props> = ({
           <div className="pricing__option-price">
             {billingType === 'monthly' ? (
               <div>
-                {Number(billing.monthly).toLocaleString()} €<span>/mo</span>
+                €{Number(billing.monthly).toLocaleString()}
+                <span>/mo</span>
               </div>
             ) : (
               <div>
-                {Number(billing.annually).toLocaleString()} €<span>/mo</span>{' '}
+                €{Number(billing.annually).toLocaleString()}
+                <span>/mo</span>{' '}
                 <span className="pricing__option-billing">
                   (annual billing)
                 </span>
@@ -126,9 +141,15 @@ export const PricingPlan: React.FC<Props> = ({
 
       {price !== undefined && (
         <div className="pricing__option-price">
-          <div>{Number(price).toLocaleString()} €</div>
+          <div>€{Number(price).toLocaleString()}</div>
         </div>
       )}
+
+      {secondaryPrices?.map((price, i) => (
+        <div key={i} className="pricing__option-secondary-price">
+          {price}
+        </div>
+      ))}
 
       {action}
     </div>
