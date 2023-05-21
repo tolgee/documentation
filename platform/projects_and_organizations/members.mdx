@@ -1,0 +1,74 @@
+---
+id: members
+title: Members
+sidebar_label: Members
+---
+
+Once you have created a project and set up the languages, you can add members to your project.
+
+## Adding members
+
+To add members to your project, navigate to the "Members" page. Then click on the "Invite user" button.
+You can add a member by **entering their email address or creating an invitation link** to share with them.
+
+Then you can select the **permissions** you want to give the member. The permissions are explained in the [next section](#permissions).
+
+![Add members](/img/docs/platform/member_add.png)
+
+## Permissions
+
+You can choose the permissions that you want to give to the member. The permissions are:
+
+- **None** – The member cannot access the project. This is useful if you want to hide a project from a member without removing them from the organization.
+- **View** – The member can view the project and the translations. The member can also export the translations.
+- **Translate** – The member can change the translations in the selected language(s).
+- **Review** – The member can change the translations and mark them as reviewed in the selected language(s).
+- **Edit** – The member can change the translations, mark them as reviewed, and add new keys.
+- **Manage** – The member can manage the project. The member can add and remove members, change the project settings, including languages, and delete the project.
+
+![Member permissions](/img/docs/platform/member_permissions.png)
+
+### Granular permissions
+
+:::info Paid feature
+
+Granular permissions are available in the Business and Enterprise plans. [Upgrade your plan](/pricing) to use this feature.
+
+If you use the self-hosted version, you need to [set up the license](/platform/self_hosting/licensing) to use this feature.
+
+:::
+
+Granular permissions give you **fine-grained control** over what a member can do in your project.
+
+For example, you can give a member permission to change translations in a specific language but only view translations in some other languages for reference.
+
+Or you can give a member permission to view and add screenshots but not delete them. The possibilities are endless here!
+
+![Granular permissions](/img/docs/platform/member_granular_permissions.png)
+
+Here is a **list of all the granular permissions** and what they do:
+- **Admin** – Enabling this permission gives the member **all the permissions for the project**.
+  - **Keys** – Enabling this permission gives the member **all the permissions related to keys** below.
+    - **View** – The member can view all existing keys.
+    - **Create** – The member can create new keys.
+    - **Edit** – The member can edit existing keys.
+    - **Delete** – The member can delete existing keys.
+  - **Translations** – Enabling this permission gives the member **all the permissions related to translations** below.
+    - **View** – The member can view the translations in the selected languages.
+    - **Edit** – The member can edit the translations in the selected languages.
+    - **Change state** – The member can change the state of the translations in the selected languages (mark the translations as "Reviewed").
+    - **Comments** – Enabling this permission gives the member **all the permissions related to comments** in the languages selected in the "View" permission below.
+      - **Add** – The member can add comments to the translations in the languages selected in the "View" permission.
+      - **Edit** – The member can edit and delete comments in the languages selected in the "View" permission.
+        The member **can always edit and delete their comment** even if this permission is disabled.
+      - **Resolve** – The member can resolve comments in the languages selected in the "View" permission.
+  - **Screenshots** – Enabling this permission gives the member **all the permissions related to screenshots** below.
+    - **View** – The member can view existing screenshots on keys.
+    - **Add** – The member can add screenshots on keys.
+    - **Delete** – The member can delete existing screenshots on keys.
+  - **Members** – Enabling this permission gives the member **all the permissions related to members** below.
+    - **View** – The member can view the project members.
+    - **Edit** – The member can add and remove project members and change their permissions.
+  - **Edit project** – The member can change project settings, including **changing the base language**.
+  - **View activity** – The member can view the project activity.
+  - **Edit languages** – The member can add and remove project languages.

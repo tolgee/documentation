@@ -15,6 +15,7 @@ module.exports = {
       items: [
         'projects_and_organizations/project_settings',
         'projects_and_organizations/languages',
+        'projects_and_organizations/members',
         'projects_and_organizations/import',
         'projects_and_organizations/export',
         'projects_and_organizations/organization_settings',
@@ -70,6 +71,7 @@ module.exports = {
         'self_hosting/getting_started',
         'self_hosting/running_with_docker',
         'self_hosting/running_with_java',
+        'self_hosting/licensing',
         'self_hosting/configuration',
       ],
     },
