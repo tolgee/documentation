@@ -74,7 +74,7 @@ export default function Pricing() {
             description="For individuals and medium teams that use Tolgee for one or just a few apps."
             limits={{
               strings: 20_000,
-              mtCredits: 100_000,
+              mtCredits: 1_000_000,
               seats: Infinity,
             }}
             billing={{ monthly: 100, annually: 84 }}
@@ -114,6 +114,7 @@ export default function Pricing() {
             }}
             features={[
               'all-from-business',
+              'account-manager',
               'premium-support',
               'dedicated-slack-channel',
               'team-training',

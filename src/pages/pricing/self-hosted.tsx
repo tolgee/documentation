@@ -110,6 +110,7 @@ export default function SelfHosted() {
             }}
             features={[
               'all-from-business',
+              'account-manager',
               'premium-support',
               'dedicated-slack-channel',
               'deployment-assistance',
