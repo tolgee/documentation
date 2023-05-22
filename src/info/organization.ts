@@ -13,7 +13,7 @@ const organization = {
   },
   slogan: 'Painless localization',
   description:
-    'Localization tool which makes the localization process simple. Easy to integrate to React, Angular and other applications.',
+    'Open-source localization platform developers enjoy working with. Set up in seconds & speed up the translation process. Sign up for free. No credit card required.',
   name: 'Tolgee',
   legalName: 'Tolgee s.r.o.',
   url: URL,

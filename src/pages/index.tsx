@@ -15,6 +15,10 @@ function Home() {
   return (
     <div className="home__container">
       <Head>
+        <meta
+          name="description"
+          content="Open-source localization platform developers enjoy working with. Set up in seconds & speed up the translation process. Sign up for free. No credit card required."
+        />
         <script type="application/ld+json">{JSON.stringify(baseSchema)}</script>
       </Head>
       <DecoratedLayout

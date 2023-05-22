@@ -112,6 +112,16 @@ and translate your string with `ALT + Click`. You can also automatically generat
 the context to your future translators. If you would like to learn more about it,
 check [our documentation 📚](/platform) or choose an integration library above and follow the tutorials. 📖
 
+<iframe
+    width="640"
+    height="480"
+    src="https://www.youtube.com/embed/D2g7ly77st4"
+    frameborder="0"
+    allow="autoplay; encrypted-media"
+    allowfullscreen
+>
+</iframe>
+
 ## TL; DR
 
 - Prepare your app for localization now 😎
