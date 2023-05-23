@@ -6,7 +6,6 @@ module.exports = {
     'translating',
     'formatting',
     'switching_language',
-    'language_detection',
     'namespaces',
     'in_context',
     'wrapping',
