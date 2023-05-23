@@ -165,9 +165,13 @@ export const CookieConsent = () => {
 
   // prevent docosaurus from changing class from html
   // (which was closing the consent popup when switching to different page)
+  const documentClassName =
+    typeof document !== 'undefined' &&
+    document?.querySelector('html')?.className;
+
   return (
     <Head>
-      <html className={document.querySelector('html').className} />
+      <html className={documentClassName} />
     </Head>
   );
 };
