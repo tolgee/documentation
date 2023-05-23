@@ -2,13 +2,13 @@
 id: text_observer
 title: Text observer
 slug: text-observer
-description: "TextObserver an alternative observer to default InvisibleObserver: it uses text format instead of invisible characters."
+description: "Text observer an alternative observer to default InvisibleObserver: it uses text format instead of invisible characters."
 
 ---
 
-`TextObserver` an alternative observer to default `InvisibleObserver`. It uses text format instead of invisible characters. Main difference is that initially we put a placeholder into the dom, which is replaced by correct translation by mutation observer.
+Text observer an alternative observer to the default invisible observer. It uses text format instead of invisible characters. Main difference is that initially we put a placeholder into the dom, which is replaced by correct translation by mutation observer.
 
-Advantage of this is that all necessary data are included in the placeholder itself, so you can e.g. render the translation on the server and if you use Tolgee on FE it will get picked up and can be edited. `TextObserver` is able to update translation live on the page automatically, so in-context will work properly.
+Advantage of this is that all necessary data are included in the placeholder itself, so you can e.g. render the translation on the server and if you use Tolgee on FE it will get picked up and can be edited. Text observer is able to update translation live on the page automatically, so in-context will work properly.
 
 Disadvantages of this approach are that translations will be invalid until `MutationObserver` finds them. So when you use this e.g. in page title it won't work. Also it can cause problems with things like tooltips, because their position is usually based on initial text size. You can generally use `noWrap` parameter where it causes problems:
 
@@ -18,7 +18,7 @@ t('title', { noWrap: true });
 
 ## Usage
 
-You can switch to `TextObserver` through [tolgee options](./api/core_package/options#observertype), where you can also define other options.
+You can switch to text observer through [tolgee options](./api/core_package/options#observertype), where you can also define other options.
 
 ```ts
 const tolgee = Tolgee()
@@ -51,3 +51,7 @@ If necessary, special characters are escaped with `\`.
 ## When to use
 
 This wrapper is more universal, as it is able to register translations generated on server easily, however it is more invasive and translation parameters need to be serializable (so it won't work with tag interpolation in React).
+
+:::info
+Text observer is part of [`ObserverPlugin`](./api/web_package/plugins#observerplugin), which is included in [`DevTools`](./api/web_package/plugins#observerplugin).
+:::
