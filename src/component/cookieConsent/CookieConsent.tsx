@@ -1,4 +1,5 @@
-import { useEffect } from 'react';
+import Head from '@docusaurus/Head';
+import React, { useEffect } from 'react';
 
 declare global {
   interface Window {
@@ -162,5 +163,11 @@ export const CookieConsent = () => {
     });
   });
 
-  return null;
+  // prevent docosaurus from changing class from html
+  // (which was closing the consent popup when switching to different page)
+  return (
+    <Head>
+      <html className={document.querySelector('html').className} />
+    </Head>
+  );
 };
