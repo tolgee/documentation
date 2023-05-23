@@ -54,6 +54,7 @@ export function PricingFAQs() {
             by their weighted average.
           </p>
           <p>
+            To illustrate, suppose you add an extra seat for half of the month.
             In this case, you will be charged only half the cost of the extra
             seat since the price is weighted by time.
           </p>
