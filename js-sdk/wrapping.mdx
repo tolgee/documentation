@@ -4,7 +4,7 @@ title: Wrapping and observing
 description: 'Learn about two ways of wrapping in Tolgee: text wrapping and invisible wrapping. You can configure this through wrapperMode.'
 ---
 
-## Invisible wrapping
+## Invisible wrapping (default)
 
 Tolgee offers unique technology for in-context translating, it combines simplicity of regular i18n libraries with
 comfort of in-context translating directly in your app.
@@ -48,10 +48,10 @@ We wanted something which is almost invisible to the developer, but reliable and
 Because we actually return the translation that should be rendered only with some extra characters, you can
 use any custom formatter (even outside Tolgee) and modify the string. The secret information will stay intact as it's a valid part of the string.
 
-## Is there an alternative?
+## Text wrapping
 
-Yes, there is a more straightforward solution which is called [text observer](./text-observer), which uses plain text for encoding the key info.
+There is also a more straightforward solution which is called [text observer](./text-observer), which uses plain text for encoding the key info and can be more practical in some cases.
 
 :::info
-Mentioned behavior is part of [`ObserverPlugin`](./api/web_package/plugins#observerplugin), which is included in [`DevTools`](./api/web_package/plugins#devtools).
+Wrapping is part of [`ObserverPlugin`](./api/web_package/plugins#observerplugin), which is included in [`DevTools`](./api/web_package/plugins#devtools).
 :::
