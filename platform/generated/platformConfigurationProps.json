@@ -1,0 +1,975 @@
+[
+  {
+    "name": "server.port",
+    "description": "Port on which Tolgee exposes itself",
+    "defaultValue": "8080",
+    "defaultExplanation": null,
+    "removedIn": null
+  },
+  {
+    "name": "Data source settings",
+    "description": "Since Tolgee is built on Spring framework, to configure its database connection you have to edit following configuration props. These properties can be omitted when using postgres-autostart, which is enabled by default.",
+    "children": [
+      {
+        "name": "spring.datasource.url",
+        "description": "The url of the datasource in format jdbc:postgresql://<host>:<port>/<dbname>.",
+        "defaultValue": null,
+        "defaultExplanation": null,
+        "removedIn": null
+      },
+      {
+        "name": "spring.datasource.username",
+        "description": "Database username. e.g. postgres",
+        "defaultValue": null,
+        "defaultExplanation": null,
+        "removedIn": null
+      },
+      {
+        "name": "spring.datasource.password",
+        "description": "Database password. e.g. postgres",
+        "defaultValue": null,
+        "defaultExplanation": null,
+        "removedIn": null
+      }
+    ],
+    "prefix": null
+  },
+  {
+    "name": "tolgee",
+    "description": "Configuration specific to Tolgee",
+    "children": [
+      {
+        "name": "appName",
+        "description": null,
+        "defaultValue": "Tolgee",
+        "defaultExplanation": null,
+        "removedIn": null
+      },
+      {
+        "name": "authentication",
+        "description": null,
+        "children": [
+          {
+            "name": "createInitialUser",
+            "description": null,
+            "defaultValue": "true",
+            "defaultExplanation": null,
+            "removedIn": null
+          },
+          {
+            "name": "enabled",
+            "description": null,
+            "defaultValue": "true",
+            "defaultExplanation": null,
+            "removedIn": null
+          },
+          {
+            "name": "github",
+            "description": null,
+            "children": [
+              {
+                "name": "authorizationUrl",
+                "description": null,
+                "defaultValue": "https://github.com/login/oauth/access_token",
+                "defaultExplanation": null,
+                "removedIn": null
+              },
+              {
+                "name": "clientId",
+                "description": null,
+                "defaultValue": null,
+                "defaultExplanation": null,
+                "removedIn": null
+              },
+              {
+                "name": "clientSecret",
+                "description": null,
+                "defaultValue": null,
+                "defaultExplanation": null,
+                "removedIn": null
+              },
+              {
+                "name": "userUrl",
+                "description": null,
+                "defaultValue": "https://api.github.com/user",
+                "defaultExplanation": null,
+                "removedIn": null
+              }
+            ],
+            "prefix": "tolgee.authentication.github"
+          },
+          {
+            "name": "google",
+            "description": null,
+            "children": [
+              {
+                "name": "authorizationUrl",
+                "description": null,
+                "defaultValue": "https://oauth2.googleapis.com/token",
+                "defaultExplanation": null,
+                "removedIn": null
+              },
+              {
+                "name": "clientId",
+                "description": null,
+                "defaultValue": null,
+                "defaultExplanation": null,
+                "removedIn": null
+              },
+              {
+                "name": "clientSecret",
+                "description": null,
+                "defaultValue": null,
+                "defaultExplanation": null,
+                "removedIn": null
+              },
+              {
+                "name": "userUrl",
+                "description": null,
+                "defaultValue": "https://www.googleapis.com/oauth2/v3/userinfo",
+                "defaultExplanation": null,
+                "removedIn": null
+              },
+              {
+                "name": "workspaceDomain",
+                "description": null,
+                "defaultValue": null,
+                "defaultExplanation": null,
+                "removedIn": null
+              }
+            ],
+            "prefix": "tolgee.authentication.google"
+          },
+          {
+            "name": "initialPassword",
+            "description": null,
+            "defaultValue": null,
+            "defaultExplanation": null,
+            "removedIn": null
+          },
+          {
+            "name": "initialUsername",
+            "description": null,
+            "defaultValue": "admin",
+            "defaultExplanation": null,
+            "removedIn": null
+          },
+          {
+            "name": "jwtExpiration",
+            "description": null,
+            "defaultValue": "604800000",
+            "defaultExplanation": null,
+            "removedIn": null
+          },
+          {
+            "name": "jwtSecret",
+            "description": null,
+            "defaultValue": null,
+            "defaultExplanation": null,
+            "removedIn": null
+          },
+          {
+            "name": "jwtSuperExpiration",
+            "description": null,
+            "defaultValue": "3600000",
+            "defaultExplanation": null,
+            "removedIn": null
+          },
+          {
+            "name": "ldap",
+            "description": "LDAP authentication settings",
+            "children": [
+              {
+                "name": "baseDn",
+                "description": null,
+                "defaultValue": null,
+                "defaultExplanation": null,
+                "removedIn": null
+              },
+              {
+                "name": "enabled",
+                "description": null,
+                "defaultValue": "false",
+                "defaultExplanation": null,
+                "removedIn": null
+              },
+              {
+                "name": "port",
+                "description": null,
+                "defaultValue": null,
+                "defaultExplanation": null,
+                "removedIn": null
+              },
+              {
+                "name": "principalPassword",
+                "description": null,
+                "defaultValue": null,
+                "defaultExplanation": null,
+                "removedIn": null
+              },
+              {
+                "name": "securityPrincipal",
+                "description": null,
+                "defaultValue": null,
+                "defaultExplanation": null,
+                "removedIn": null
+              },
+              {
+                "name": "urls",
+                "description": null,
+                "defaultValue": null,
+                "defaultExplanation": null,
+                "removedIn": null
+              },
+              {
+                "name": "userDnPattern",
+                "description": null,
+                "defaultValue": null,
+                "defaultExplanation": null,
+                "removedIn": null
+              }
+            ],
+            "prefix": "tolgee.authentication.ldap"
+          },
+          {
+            "name": "nativeEnabled",
+            "description": null,
+            "defaultValue": "true",
+            "defaultExplanation": null,
+            "removedIn": null
+          },
+          {
+            "name": "needsEmailVerification",
+            "description": null,
+            "defaultValue": "false",
+            "defaultExplanation": null,
+            "removedIn": null
+          },
+          {
+            "name": "oauth2",
+            "description": null,
+            "children": [
+              {
+                "name": "authorizationUrl",
+                "description": null,
+                "defaultValue": null,
+                "defaultExplanation": null,
+                "removedIn": null
+              },
+              {
+                "name": "clientId",
+                "description": null,
+                "defaultValue": null,
+                "defaultExplanation": null,
+                "removedIn": null
+              },
+              {
+                "name": "clientSecret",
+                "description": null,
+                "defaultValue": null,
+                "defaultExplanation": null,
+                "removedIn": null
+              },
+              {
+                "name": "scopes",
+                "description": null,
+                "defaultValue": "[]",
+                "defaultExplanation": null,
+                "removedIn": null
+              },
+              {
+                "name": "tokenUrl",
+                "description": null,
+                "defaultValue": null,
+                "defaultExplanation": null,
+                "removedIn": null
+              },
+              {
+                "name": "userUrl",
+                "description": null,
+                "defaultValue": null,
+                "defaultExplanation": null,
+                "removedIn": null
+              }
+            ],
+            "prefix": "tolgee.authentication.oauth2"
+          },
+          {
+            "name": "registrationsAllowed",
+            "description": null,
+            "defaultValue": "false",
+            "defaultExplanation": null,
+            "removedIn": null
+          },
+          {
+            "name": "securedImageRetrieval",
+            "description": null,
+            "defaultValue": "false",
+            "defaultExplanation": null,
+            "removedIn": null
+          },
+          {
+            "name": "securedImageTimestampMaxAge",
+            "description": null,
+            "defaultValue": "600000",
+            "defaultExplanation": null,
+            "removedIn": null
+          },
+          {
+            "name": "userCanCreateOrganizations",
+            "description": null,
+            "defaultValue": "true",
+            "defaultExplanation": null,
+            "removedIn": null
+          }
+        ],
+        "prefix": "tolgee.authentication"
+      },
+      {
+        "name": "cache",
+        "description": null,
+        "children": [
+          {
+            "name": "caffeineMaxSize",
+            "description": null,
+            "defaultValue": "-1",
+            "defaultExplanation": null,
+            "removedIn": null
+          },
+          {
+            "name": "defaultTtl",
+            "description": null,
+            "defaultValue": "7200000",
+            "defaultExplanation": null,
+            "removedIn": null
+          },
+          {
+            "name": "enabled",
+            "description": null,
+            "defaultValue": "false",
+            "defaultExplanation": null,
+            "removedIn": null
+          },
+          {
+            "name": "useRedis",
+            "description": null,
+            "defaultValue": "false",
+            "defaultExplanation": null,
+            "removedIn": null
+          }
+        ],
+        "prefix": "tolgee.cache"
+      },
+      {
+        "name": "capterraTracker",
+        "description": null,
+        "defaultValue": null,
+        "defaultExplanation": null,
+        "removedIn": null
+      },
+      {
+        "name": "chatwootToken",
+        "description": null,
+        "defaultValue": null,
+        "defaultExplanation": null,
+        "removedIn": null
+      },
+      {
+        "name": "fileStorage",
+        "description": null,
+        "children": [
+          {
+            "name": "fsDataPath",
+            "description": null,
+            "defaultValue": "/Users/jenik/.tolgee",
+            "defaultExplanation": null,
+            "removedIn": null
+          },
+          {
+            "name": "s3",
+            "description": "Tolgee supports storing its files on an S3-compatible storage server. When enabled, Tolgee will store all its files on the S3 server rather than in filesystem.",
+            "children": [
+              {
+                "name": "accessKey",
+                "description": null,
+                "defaultValue": null,
+                "defaultExplanation": null,
+                "removedIn": null
+              },
+              {
+                "name": "bucketName",
+                "description": null,
+                "defaultValue": null,
+                "defaultExplanation": null,
+                "removedIn": null
+              },
+              {
+                "name": "enabled",
+                "description": null,
+                "defaultValue": "false",
+                "defaultExplanation": null,
+                "removedIn": null
+              },
+              {
+                "name": "endpoint",
+                "description": null,
+                "defaultValue": null,
+                "defaultExplanation": null,
+                "removedIn": null
+              },
+              {
+                "name": "secretKey",
+                "description": null,
+                "defaultValue": null,
+                "defaultExplanation": null,
+                "removedIn": null
+              },
+              {
+                "name": "signingRegion",
+                "description": null,
+                "defaultValue": null,
+                "defaultExplanation": null,
+                "removedIn": null
+              }
+            ],
+            "prefix": "tolgee.file-storage.s3"
+          }
+        ],
+        "prefix": "tolgee.file-storage"
+      },
+      {
+        "name": "fileStorageUrl",
+        "description": null,
+        "defaultValue": null,
+        "defaultExplanation": null,
+        "removedIn": null
+      },
+      {
+        "name": "frontEndUrl",
+        "description": null,
+        "defaultValue": null,
+        "defaultExplanation": null,
+        "removedIn": null
+      },
+      {
+        "name": "ga4Tag",
+        "description": null,
+        "defaultValue": null,
+        "defaultExplanation": null,
+        "removedIn": null
+      },
+      {
+        "name": "import",
+        "description": null,
+        "children": [
+          {
+            "name": "baseLanguageTag",
+            "description": null,
+            "defaultValue": "en",
+            "defaultExplanation": null,
+            "removedIn": null
+          },
+          {
+            "name": "createImplicitApiKey",
+            "description": null,
+            "defaultValue": "false",
+            "defaultExplanation": null,
+            "removedIn": null
+          },
+          {
+            "name": "dir",
+            "description": null,
+            "defaultValue": null,
+            "defaultExplanation": null,
+            "removedIn": null
+          }
+        ],
+        "prefix": "tolgee.import"
+      },
+      {
+        "name": "internal",
+        "description": null,
+        "children": [
+          {
+            "name": "controllerEnabled",
+            "description": null,
+            "defaultValue": "false",
+            "defaultExplanation": null,
+            "removedIn": null
+          },
+          {
+            "name": "fakeGithubLogin",
+            "description": null,
+            "defaultValue": "false",
+            "defaultExplanation": null,
+            "removedIn": null
+          },
+          {
+            "name": "fakeMtProviders",
+            "description": null,
+            "defaultValue": "false",
+            "defaultExplanation": null,
+            "removedIn": null
+          },
+          {
+            "name": "showVersion",
+            "description": null,
+            "defaultValue": "false",
+            "defaultExplanation": null,
+            "removedIn": null
+          },
+          {
+            "name": "stopRightAfterStart",
+            "description": null,
+            "defaultValue": "false",
+            "defaultExplanation": null,
+            "removedIn": null
+          }
+        ],
+        "prefix": "tolgee.internal"
+      },
+      {
+        "name": "machineTranslation",
+        "description": null,
+        "children": [
+          {
+            "name": "aws",
+            "description": null,
+            "children": [
+              {
+                "name": "accessKey",
+                "description": null,
+                "defaultValue": null,
+                "defaultExplanation": null,
+                "removedIn": null
+              },
+              {
+                "name": "defaultEnabled",
+                "description": null,
+                "defaultValue": "true",
+                "defaultExplanation": null,
+                "removedIn": null
+              },
+              {
+                "name": "defaultPrimary",
+                "description": null,
+                "defaultValue": "false",
+                "defaultExplanation": null,
+                "removedIn": null
+              },
+              {
+                "name": "region",
+                "description": null,
+                "defaultValue": "eu-central-1",
+                "defaultExplanation": null,
+                "removedIn": null
+              },
+              {
+                "name": "secretKey",
+                "description": null,
+                "defaultValue": null,
+                "defaultExplanation": null,
+                "removedIn": null
+              }
+            ],
+            "prefix": "tolgee.machine-translation.aws"
+          },
+          {
+            "name": "azure",
+            "description": null,
+            "children": [
+              {
+                "name": "authKey",
+                "description": null,
+                "defaultValue": null,
+                "defaultExplanation": null,
+                "removedIn": null
+              },
+              {
+                "name": "defaultEnabled",
+                "description": null,
+                "defaultValue": "true",
+                "defaultExplanation": null,
+                "removedIn": null
+              },
+              {
+                "name": "defaultPrimary",
+                "description": null,
+                "defaultValue": "false",
+                "defaultExplanation": null,
+                "removedIn": null
+              },
+              {
+                "name": "region",
+                "description": null,
+                "defaultValue": null,
+                "defaultExplanation": null,
+                "removedIn": null
+              }
+            ],
+            "prefix": "tolgee.machine-translation.azurecognitive"
+          },
+          {
+            "name": "baidu",
+            "description": null,
+            "children": [
+              {
+                "name": "action",
+                "description": null,
+                "defaultValue": "false",
+                "defaultExplanation": null,
+                "removedIn": null
+              },
+              {
+                "name": "appId",
+                "description": null,
+                "defaultValue": null,
+                "defaultExplanation": null,
+                "removedIn": null
+              },
+              {
+                "name": "appSecret",
+                "description": null,
+                "defaultValue": null,
+                "defaultExplanation": null,
+                "removedIn": null
+              },
+              {
+                "name": "defaultEnabled",
+                "description": null,
+                "defaultValue": "true",
+                "defaultExplanation": null,
+                "removedIn": null
+              },
+              {
+                "name": "defaultPrimary",
+                "description": null,
+                "defaultValue": "false",
+                "defaultExplanation": null,
+                "removedIn": null
+              }
+            ],
+            "prefix": "tolgee.machine-translation.baidu"
+          },
+          {
+            "name": "deepl",
+            "description": null,
+            "children": [
+              {
+                "name": "authKey",
+                "description": null,
+                "defaultValue": null,
+                "defaultExplanation": null,
+                "removedIn": null
+              },
+              {
+                "name": "defaultEnabled",
+                "description": null,
+                "defaultValue": "true",
+                "defaultExplanation": null,
+                "removedIn": null
+              },
+              {
+                "name": "defaultPrimary",
+                "description": null,
+                "defaultValue": "false",
+                "defaultExplanation": null,
+                "removedIn": null
+              },
+              {
+                "name": "formality",
+                "description": null,
+                "defaultValue": "default",
+                "defaultExplanation": null,
+                "removedIn": null
+              }
+            ],
+            "prefix": "tolgee.machine-translation.deepl"
+          },
+          {
+            "name": "freeCreditsAmount",
+            "description": null,
+            "defaultValue": "-1",
+            "defaultExplanation": null,
+            "removedIn": null
+          },
+          {
+            "name": "google",
+            "description": null,
+            "children": [
+              {
+                "name": "apiKey",
+                "description": null,
+                "defaultValue": null,
+                "defaultExplanation": null,
+                "removedIn": null
+              },
+              {
+                "name": "defaultEnabled",
+                "description": null,
+                "defaultValue": "true",
+                "defaultExplanation": null,
+                "removedIn": null
+              },
+              {
+                "name": "defaultPrimary",
+                "description": null,
+                "defaultValue": "true",
+                "defaultExplanation": null,
+                "removedIn": null
+              }
+            ],
+            "prefix": "tolgee.machine-translation.google"
+          }
+        ],
+        "prefix": "tolgee.machine-translation"
+      },
+      {
+        "name": "maxScreenshotsPerKey",
+        "description": null,
+        "defaultValue": "20",
+        "defaultExplanation": null,
+        "removedIn": null
+      },
+      {
+        "name": "maxTranslationTextLength",
+        "description": null,
+        "defaultValue": "10000",
+        "defaultExplanation": null,
+        "removedIn": null
+      },
+      {
+        "name": "maxUploadFileSize",
+        "description": null,
+        "defaultValue": "51200",
+        "defaultExplanation": null,
+        "removedIn": null
+      },
+      {
+        "name": "postgresAutostart",
+        "description": null,
+        "children": [
+          {
+            "name": "containerName",
+            "description": null,
+            "defaultValue": "tolgee_postgres",
+            "defaultExplanation": null,
+            "removedIn": null
+          },
+          {
+            "name": "databaseName",
+            "description": null,
+            "defaultValue": "postgres",
+            "defaultExplanation": null,
+            "removedIn": null
+          },
+          {
+            "name": "enabled",
+            "description": null,
+            "defaultValue": "true",
+            "defaultExplanation": null,
+            "removedIn": null
+          },
+          {
+            "name": "mode",
+            "description": null,
+            "defaultValue": "DOCKER",
+            "defaultExplanation": null,
+            "removedIn": null
+          },
+          {
+            "name": "password",
+            "description": null,
+            "defaultValue": "postgres",
+            "defaultExplanation": null,
+            "removedIn": null
+          },
+          {
+            "name": "port",
+            "description": null,
+            "defaultValue": "25432",
+            "defaultExplanation": null,
+            "removedIn": null
+          },
+          {
+            "name": "user",
+            "description": null,
+            "defaultValue": "postgres",
+            "defaultExplanation": null,
+            "removedIn": null
+          }
+        ],
+        "prefix": "tolgee.postgres-autostart"
+      },
+      {
+        "name": "rateLimitProperties",
+        "description": null,
+        "children": [
+          {
+            "name": "enabled",
+            "description": null,
+            "defaultValue": "true",
+            "defaultExplanation": null,
+            "removedIn": null
+          }
+        ],
+        "prefix": "tolgee.rate-limits"
+      },
+      {
+        "name": "recaptcha",
+        "description": null,
+        "children": [
+          {
+            "name": "secretKey",
+            "description": null,
+            "defaultValue": null,
+            "defaultExplanation": null,
+            "removedIn": null
+          },
+          {
+            "name": "siteKey",
+            "description": null,
+            "defaultValue": null,
+            "defaultExplanation": null,
+            "removedIn": null
+          }
+        ],
+        "prefix": "tolgee.recaptcha"
+      },
+      {
+        "name": "sendInBlueProperties",
+        "description": null,
+        "children": [
+          {
+            "name": "apiKey",
+            "description": null,
+            "defaultValue": null,
+            "defaultExplanation": null,
+            "removedIn": null
+          },
+          {
+            "name": "listId",
+            "description": null,
+            "defaultValue": null,
+            "defaultExplanation": null,
+            "removedIn": null
+          }
+        ],
+        "prefix": "tolgee.send-in-blue"
+      },
+      {
+        "name": "sentry",
+        "description": null,
+        "children": [
+          {
+            "name": "clientDsn",
+            "description": null,
+            "defaultValue": null,
+            "defaultExplanation": null,
+            "removedIn": null
+          },
+          {
+            "name": "serverDsn",
+            "description": null,
+            "defaultValue": null,
+            "defaultExplanation": null,
+            "removedIn": null
+          },
+          {
+            "name": "tracesSampleRate",
+            "description": null,
+            "defaultValue": null,
+            "defaultExplanation": null,
+            "removedIn": null
+          }
+        ],
+        "prefix": "tolgee.sentry"
+      },
+      {
+        "name": "smtp",
+        "description": null,
+        "children": [
+          {
+            "name": "auth",
+            "description": null,
+            "defaultValue": "false",
+            "defaultExplanation": null,
+            "removedIn": null
+          },
+          {
+            "name": "from",
+            "description": null,
+            "defaultValue": null,
+            "defaultExplanation": null,
+            "removedIn": null
+          },
+          {
+            "name": "host",
+            "description": null,
+            "defaultValue": null,
+            "defaultExplanation": null,
+            "removedIn": null
+          },
+          {
+            "name": "password",
+            "description": null,
+            "defaultValue": null,
+            "defaultExplanation": null,
+            "removedIn": null
+          },
+          {
+            "name": "port",
+            "description": null,
+            "defaultValue": "25",
+            "defaultExplanation": null,
+            "removedIn": null
+          },
+          {
+            "name": "sslEnabled",
+            "description": null,
+            "defaultValue": "false",
+            "defaultExplanation": null,
+            "removedIn": null
+          },
+          {
+            "name": "tlsEnabled",
+            "description": null,
+            "defaultValue": "false",
+            "defaultExplanation": null,
+            "removedIn": null
+          },
+          {
+            "name": "tlsRequired",
+            "description": null,
+            "defaultValue": "false",
+            "defaultExplanation": null,
+            "removedIn": null
+          },
+          {
+            "name": "username",
+            "description": null,
+            "defaultValue": null,
+            "defaultExplanation": null,
+            "removedIn": null
+          }
+        ],
+        "prefix": "tolgee.smtp"
+      },
+      {
+        "name": "websocket",
+        "description": null,
+        "children": [
+          {
+            "name": "useRedis",
+            "description": null,
+            "defaultValue": "false",
+            "defaultExplanation": null,
+            "removedIn": null
+          }
+        ],
+        "prefix": "tolgee.websocket"
+      }
+    ],
+    "prefix": "tolgee"
+  }
+]

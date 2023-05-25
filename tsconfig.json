@@ -1,10 +1,11 @@
 {
   "extends": "@tsconfig/docusaurus/tsconfig.json",
   "compilerOptions": {
-    "resolveJsonModule": true
+    "resolveJsonModule": true,
   },
   "include": [
-    "src/"
+    "src/",
+    "./mdx.d.ts"
   ],
   "exclude": [
     "node_modules"

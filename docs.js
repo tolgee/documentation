@@ -7,6 +7,7 @@ const docs = [
       routeBasePath: 'platform',
       sidebarPath: require.resolve('./sidebarPlatform.js'),
       lastVersion: 'current',
+      editUrl: 'https://github.com/tolgee/documentation/tree/main',
       includeCurrentVersion: true,
       versions: {
         current: {
@@ -25,6 +26,7 @@ const docs = [
       sidebarPath: require.resolve('./sidebarJsSdk.js'),
       lastVersion: 'current',
       includeCurrentVersion: true,
+      editUrl: 'https://github.com/tolgee/documentation/tree/main',
       versions: {
         current: {
           banner: 'none',
@@ -40,6 +42,7 @@ const docs = [
       path: 'tolgee-cli',
       routeBasePath: 'tolgee-cli',
       sidebarPath: require.resolve('./sidebarTolgeeCli.js'),
+      editUrl: 'https://github.com/tolgee/documentation/tree/main',
       lastVersion: 'current',
       versions: {
         current: {
