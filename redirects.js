@@ -125,6 +125,10 @@ module.exports.redirects = {
       from: '/platform/exporting_translations',
       to: '/platform/projects_and_organizations/export',
     },
+    {
+      from: '/docs/web/using_with_angular/installation',
+      to: '/js-sdk/integrations/angular/installation',
+    },
   ],
   createRedirects(existingPath) {
     if (existingPath.indexOf('/js-sdk/5.x.x') === 0) {
