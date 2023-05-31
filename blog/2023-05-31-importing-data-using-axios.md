@@ -1,7 +1,7 @@
 ---
 slug: importing-data-to-tolgee-using-axios
 title: 'Importing data to Tolgee using custom JS and Axios'
-authors: [ jcizmar ]s
+authors: [ jcizmar ]
 image: '/img/blog/importing-data-to-tolgee-using-axios.png'
 description: 'Learn how to import data to Tolgee using Axios'
 tags: [ import, javascript, axios ]
