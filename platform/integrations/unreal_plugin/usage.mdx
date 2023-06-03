@@ -1,0 +1,98 @@
+---
+id: usage
+title: Usage
+sidebar_label: Usage
+---
+
+## Localization setup in Unreal Engine
+
+Localizing your project is one of the most complicated tasks for any project. If you're not familiar at all with Localization, I highly encourage you to check out Unreal's official [documentation](https://docs.unrealengine.com/5.2/en-US/localizing-content-in-unreal-engine/).
+
+Tolgee's plugin will re-use the default Unreal Localization setup, so if you've already completed the process for your project, skip ahead to [Tolgee Menu](#tolgee-menu)
+
+In the following sections, we will cover the most basic example and setup required to localize your project before using the Tolgee plugin.
+
+### Step 1: Create String a string table
+
+First and foremost we have to create a **String Table**. This is a special asset that can hold multiple localization keys. For this example, we will name it `ST_MyCoolTable`.
+
+**Note**: The name of the asset will also be the name of the namespace for all the keys that will be added.
+
+![Create String Table](/img/docs/platform/unreal-plugin/step-1-create-string-table.png)
+
+### Step 2: Add your first key
+
+Double-click the newly created asset to open it. In the newly spawned editor, you can add new translation keys at the button.
+
+To do so, you will have to provide a key name and a default translation (text to be used if no translation is provided).
+
+For this example, we will be using `MyCoolKey`.
+
+![Add your key](/img/docs/platform/unreal-plugin/step-2-add-your-key.png)
+
+### Step 3: Use your key (Bind key to an FText)
+
+To use your newly created key, you can navigate to any Text (FText) variable and press the localization (flag) button.
+
+This will create a small menu where you will be able to select the string table asset (`ST_MyCoolTable`) and the key (`MyCoolKey`) you want to use.
+
+In this example, we are binding the newly created key to a standard TextBlock inside a UserWidget Blueprint.
+
+![Use your key](/img/docs/platform/unreal-plugin/step-3-use-your-key.png)
+
+### Step 4: Open the localization Dashboard
+
+Now that our Text variable is properly localized, we will need to set up the localization dashboard to pick up our newly created key.
+
+The first step to do so is to open the Localization Dashboard, which can be found under the `Tools` dropdown menu.
+
+![Open localization dashboard](/img/docs/platform/unreal-plugin/step-4-open-localization-dashboard.png)
+
+### Step 5: Add your string table asset to the gathering process
+
+Finally, the last step is setting up the Localization targets of the project to properly gather our string table asset.
+
+To do so, perform the following actions inside the Localization Dashboard:
+1. Enable the `Gather from Packages` step
+1. Add a new entry inside the `Include Path Wildcards` with the `*` path.
+1. Inside the `Cultures` section press the radio button next to `English` to enable it as the `default culture`.
+
+![Assets gather settings](/img/docs/platform/unreal-plugin/step-5-assets-gather-settings.png)
+
+## Tolgee Menu
+
+After Enabling the Tolgee plugin and restarting the editor, a mouse icon should be visible in the upper right corner toolbar.
+
+You can use this menu to access all the functionality available to you:
+- launch the Tolgee web platform
+- open the Tolgee dashboard inside Unreal
+- shortcuts to documentation, settings, and support (Slack)
+- Uploading & Purging actions
+
+![Unreal Engine Integration Menu](/img/docs/platform/unreal-plugin/integration-menu.png)
+
+## Pushing texts from Unreal into Tolgee
+
+One of the first actions you should perform is **Upload missing keys**. This will evaluate all the translation keys used by your project and upload them to the tolgee platform so you can start translating them.
+
+**Note**: This action requires valid translation targets, you haven't set those up yet, please refer to [Localization setup in Unreal Engine](#Localization-setup-in-Unreal-Engine).
+
+After the operation is complete, you will be able to see all your namespaces and keys inside your web dashboard.
+
+## Purging unused texts from Tolgee
+
+As the project grows, it's common for keys to get deleted locally without having their linked key deleted from the project as well.
+
+To simplify the maintenance process, we added the **Purge unused keys** button. This will verify what keys from your Tolgee project are no longer used by your Unreal project and delete them.
+
+## Tolgee Dashboard - hover to translate
+
+The best part of the Tolgee plugin is the **Tolgee Dashboard** to open this window, press the **Translation Dashboard** button from your [Integration Menu](#tolgee-menu)
+
+![Unreal Engine Hover Translation](/img/docs/platform/unreal-plugin/hover-translation.png)
+
+While this window is open, it will highlight every TextBlock you are hovering in the UI and open the corresponding web widget to change the translation for that particular key.
+
+After entering your desired translation, you can press Save and the text will directly update at **runtime**.
+
+**Note**: To use this functionality you are required to log into your Tolgee account inside Unreal's browser.

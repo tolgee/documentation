@@ -95,6 +95,18 @@ export const integrations = [
     },
   },
   {
+    label: 'Unreal Engine',
+    logo: '/img/technologies/logo-unreal-engine.svg',
+    links: {
+      'Landing Page': '/integrations/unreal',
+      Docs: '/platform/integrations/unreal_plugin/setup',
+      'Unreal Marketplace':
+        'TODO',
+      'GitHub Repository':
+        'https://github.com/tolgee/tolgee-unreal',
+    },
+  },
+  {
     label: 'REST API',
     logo: '/img/technologies/logo-swagger.svg',
     links: {

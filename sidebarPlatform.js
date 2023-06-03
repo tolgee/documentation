@@ -54,6 +54,14 @@ module.exports = {
             'integrations/figma_plugin/usage',
           ],
         },
+        {
+          label: 'Unreal plugin',
+          type: 'category',
+          items: [
+            'integrations/unreal_plugin/setup',
+            'integrations/unreal_plugin/usage',
+          ],
+        },
       ],
     },
     {
