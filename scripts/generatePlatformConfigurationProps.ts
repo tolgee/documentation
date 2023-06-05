@@ -226,6 +226,7 @@ function writeFullPropertiesConfig(
   prefix = ''
 ) {
   items.forEach((item) => {
+    if (item.removedIn) return;
     const name = getNameWithoutDisplayName(item, displayOption);
     if (item.children) {
       if (!item.prefix) {
@@ -254,6 +255,7 @@ function writeFullEnvConfig(
   prefix = ''
 ) {
   items.forEach((item) => {
+    if (item.removedIn) return;
     const name = getNameWithoutDisplayName(item, displayOption);
     if (item.children) {
       if (!item.prefix) {
@@ -282,6 +284,7 @@ function writeFullYamlConfig(
   level = 0
 ) {
   items.forEach((item) => {
+    if (item.removedIn) return;
     const name = getNameWithoutDisplayName(item, displayOption);
     if (item.children) {
       if (!item.prefix) {

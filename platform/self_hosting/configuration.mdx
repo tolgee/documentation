@@ -64,10 +64,6 @@ Prefix: `tolgee`
 
 Configuration specific to Tolgee.
 
-- ##### `app-name` {#app-name}
-
-  Name of the application. (default: `Tolgee`)
-
 - ##### `file-storage-url` {#file-storage-url}
 
   Public base path where files are accessible. Used by the user interface.
@@ -676,7 +672,6 @@ spring:
     username: 
     password: 
 tolgee:
-  app-name: Tolgee
   file-storage-url: 
   front-end-url: 
   max-screenshots-per-key: 20
@@ -722,7 +717,6 @@ tolgee:
       scopes: []
       token-url: 
       user-url: 
-    user-can-create-projects: true
   cache:
     caffeine-max-size: -1
     default-ttl: 7200000
@@ -855,10 +849,6 @@ to configure its database connection. These properties can be omitted when using
 Prefix: `TOLGEE`
 
 Configuration specific to Tolgee.
-
-- <h5 id="app-name"><code>APP_NAME</code></h5>
-
-  Name of the application. (default: `Tolgee`)
 
 - <h5 id="file-storage-url"><code>FILE_STORAGE_URL</code></h5>
 
@@ -1464,7 +1454,6 @@ SERVER_PORT=8080
 SPRING_DATASOURCE_URL=
 SPRING_DATASOURCE_USERNAME=
 SPRING_DATASOURCE_PASSWORD=
-TOLGEE_APP_NAME=Tolgee
 TOLGEE_FILE_STORAGE_URL=
 TOLGEE_FRONT_END_URL=
 TOLGEE_MAX_SCREENSHOTS_PER_KEY=20
@@ -1505,7 +1494,6 @@ TOLGEE_AUTHENTICATION_OAUTH2_CLIENT_SECRET=
 TOLGEE_AUTHENTICATION_OAUTH2_SCOPES=[]
 TOLGEE_AUTHENTICATION_OAUTH2_TOKEN_URL=
 TOLGEE_AUTHENTICATION_OAUTH2_USER_URL=
-TOLGEE_AUTHENTICATION_USER_CAN_CREATE_PROJECTS=true
 TOLGEE_CACHE_CAFFEINE_MAX_SIZE=-1
 TOLGEE_CACHE_DEFAULT_TTL=7200000
 TOLGEE_CACHE_ENABLED=false
@@ -1622,10 +1610,6 @@ to configure its database connection. These properties can be omitted when using
 Prefix: `tolgee`
 
 Configuration specific to Tolgee.
-
-- <h5 id="app-name"><code>app-name</code></h5>
-
-  Name of the application. (default: `Tolgee`)
 
 - <h5 id="file-storage-url"><code>file-storage-url</code></h5>
 
@@ -2231,7 +2215,6 @@ server.port = 8080
 spring.datasource.url = 
 spring.datasource.username = 
 spring.datasource.password = 
-tolgee.app-name = Tolgee
 tolgee.file-storage-url = 
 tolgee.front-end-url = 
 tolgee.max-screenshots-per-key = 20
@@ -2272,7 +2255,6 @@ tolgee.authentication.oauth2.client-secret =
 tolgee.authentication.oauth2.scopes = []
 tolgee.authentication.oauth2.token-url = 
 tolgee.authentication.oauth2.user-url = 
-tolgee.authentication.user-can-create-projects = true
 tolgee.cache.caffeine-max-size = -1
 tolgee.cache.default-ttl = 7200000
 tolgee.cache.enabled = false
