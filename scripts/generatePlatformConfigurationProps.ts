@@ -185,7 +185,8 @@ function writeFullConfig(
 `);
 
   const format = definition.configFormats[configFormatIndex];
-  stream.write(`<TabItem value="${format.value}">`);
+  stream.write(`<TabItem value="${format.value}">\n`);
+  stream.write('<details>');
   stream.write('\n\n');
 
   switch (format.value) {
@@ -206,6 +207,9 @@ function writeFullConfig(
       break;
   }
 
+  stream.write('\n\n');
+
+  stream.write('</details>');
   stream.write('\n\n');
 
   stream.write('</TabItem>');
