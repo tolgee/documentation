@@ -169,7 +169,7 @@ function writeFullConfig(
   stream: fs.WriteStream,
   configFormatIndex: number
 ) {
-  const name = 'Full configuration';
+  const name = 'Full configuration example';
   if (configFormatIndex === 0) {
     stream.write(`## ${name}`);
   } else {

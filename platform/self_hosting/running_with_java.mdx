@@ -26,9 +26,16 @@ By default, server is exposed on port 8080. To change this you can set `server.p
 ```
 java -jar tolgee-<version>.jar --server.port=80
 ```
-See [configuration](configuration?config-format=properties) page for other configuration options.
 
 :::tip
 You can specify your configuration in an `application.properties` file, next to the Tolgee server jar. The configuration
 will be automatically loaded from it, which is more convenient than specifying everything as part of the run command.
 :::
+
+To provide a configuration, add following application.properties file.
+
+import ExamplePropertiesConfig from "./shared/examplePropertiesConfig.mdx";
+
+<ExamplePropertiesConfig />
+
+See [configuration](configuration?config-format=properties) page for other configuration options.
