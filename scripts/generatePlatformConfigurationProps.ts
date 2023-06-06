@@ -89,79 +89,108 @@ function writeItems(
       definition.configFormats[configFormatIndex].displayOption;
     const name = getName(item, displayOption);
 
-    if (item.children) {
-      if (configFormatIndex === 0) {
-        stream.write(`${'#'.repeat(level)} ${name}`);
-      } else {
-        const slugger = createSlugger();
-        stream.write(
-          `<h${level} id="${slugger.slug(name)}">${name}</h${level}>`
-        );
-      }
-      stream.write('\n\n');
-    } else {
-      if (configFormatIndex === 0) {
-        stream.write(
-          `- ${'#'.repeat(5)} ${
-            item.removedIn ? `~~\`${name}\`~~` : `\`${name}\``
-          } {#${
-            displayOption === 'snake-upper-case'
-              ? getName(item, 'kebab-case')
-              : name
-          }}`
-        );
-      } else {
-        stream.write(`- <h5 id="${getName(item, 'kebab-case')}">`);
+    writeItemHeading(
+      item,
+      configFormatIndex,
+      stream,
+      level,
+      name,
+      displayOption
+    );
 
-        if (item.removedIn) stream.write('<del>');
+    writeItemPrefix(item, displayOption, stream);
 
-        stream.write(`<code>${name}</code>`);
-
-        if (item.removedIn) stream.write('</del>');
-
-        stream.write('</h5>');
-      }
-      stream.write('\n\n');
-    }
-
-    if (item.prefix) {
-      if (displayOption === 'kebab-case') {
-        stream.write(`Prefix: \`${item.prefix}\``);
-      } else if (displayOption === 'snake-upper-case') {
-        stream.write(`Prefix: \`${camelCaseToSnakeUpperCase(item.prefix)}\``);
-      }
-      stream.write('\n\n');
-    }
-
-    if (item.description) {
-      if (item.removedIn) {
-        stream.write(`  **Removed in:** ${item.removedIn}`);
-        stream.write('\n\n');
-      }
-
-      if (!item.children) {
-        stream.write(item.description.replace(/^/gm, '  '));
-      } else {
-        stream.write(item.description);
-      }
-
-      if (item.defaultValue) {
-        stream.write(` (default: \`${item.defaultValue}\``);
-
-        if (item.defaultExplanation) {
-          stream.write(` ${item.defaultExplanation})`);
-        } else {
-          stream.write(')');
-        }
-      }
-
-      stream.write('\n\n');
-    }
+    writeItemDescription(item, stream);
 
     if (item.children) {
       writeItems(item.children, stream, configFormatIndex, level + 1);
     }
   });
+}
+
+function writeItemHeading(
+  item: Data,
+  configFormatIndex: number,
+  stream: fs.WriteStream,
+  level: number,
+  name: string,
+  displayOption: string
+) {
+  if (item.children) {
+    if (configFormatIndex === 0) {
+      stream.write(`${'#'.repeat(level)} ${name}`);
+    } else {
+      const slugger = createSlugger();
+      stream.write(`<h${level} id="${slugger.slug(name)}">${name}</h${level}>`);
+    }
+  } else {
+    if (configFormatIndex === 0) {
+      stream.write(
+        `- ${'#'.repeat(5)} ${
+          item.removedIn ? `~~\`${name}\`~~` : `\`${name}\``
+        } {#${
+          displayOption === 'snake-upper-case'
+            ? getName(item, 'kebab-case')
+            : name
+        }}`
+      );
+    } else {
+      stream.write(`- <h5 id="${getName(item, 'kebab-case')}">`);
+
+      let nameToWrite = `<code>${name}</code>`;
+
+      if (item.removedIn) {
+        nameToWrite = `<del>${nameToWrite}</del>`;
+      }
+
+      stream.write(nameToWrite);
+
+      stream.write('</h5>');
+    }
+  }
+  stream.write('\n\n');
+}
+
+function writeItemPrefix(
+  item: Data,
+  displayOption: string,
+  stream: fs.WriteStream
+) {
+  if (item.prefix) {
+    if (displayOption === 'kebab-case') {
+      stream.write(`Prefix: \`${item.prefix}\``);
+    } else if (displayOption === 'snake-upper-case') {
+      stream.write(`Prefix: \`${camelCaseToSnakeUpperCase(item.prefix)}\``);
+    }
+    stream.write('\n\n');
+  }
+}
+
+function writeItemDescription(item: Data, stream: fs.WriteStream) {
+  if (item.description) {
+    if (item.removedIn) {
+      stream.write(`  **Removed in:** ${item.removedIn}`);
+      stream.write('\n\n');
+    }
+
+    if (!item.children) {
+      stream.write(item.description.replace(/^/gm, '  '));
+    } else {
+      stream.write(item.description);
+    }
+
+    if (item.defaultValue) {
+      stream.write(` (default: \`${item.defaultValue}\``);
+
+      if (item.defaultExplanation) {
+        stream.write(` ${item.defaultExplanation})`);
+      } else {
+        stream.write(')');
+      }
+    }
+
+    stream.write('\n\n');
+  }
 }
 
 function writeFullConfig(
@@ -329,28 +358,16 @@ async function generateDocsMdx() {
     )
   );
 
-  docsStream.write(`---
-id: configuration
-title: Server configuration
-sidebar_label: Configuration
-slug: /self_hosting/configuration
-toc_max_heading_level: 4
----
+  writeDocsStart(docsStream);
 
-As the Server is based on Spring framework, it follows its configuration standards. You can configure Tolgee by providing
-a configuration file, provide configuration properties as command line arguments when you run Tolgee with \`java -jar\` command, or as environment variables.
+  writeConfigFormatsDocs(docsStream, json);
 
-Example configuration files:
+  docsStream.write('</Tabs>');
 
-import Tabs from '@theme/Tabs';
-import TabItem from '@theme/TabItem';
+  docsStream.close();
+}
 
-<Tabs lazy groupId="config-format" queryString values={${JSON.stringify(
-    definition.configFormats
-  )}}>
-
-`);
-
+function writeConfigFormatsDocs(docsStream: fs.WriteStream, json: Data[]) {
   for (let i = 0; i < definition.configFormats.length; i++) {
     const format = definition.configFormats[i];
     docsStream.write(`<TabItem value="${format.value}">`);
@@ -389,10 +406,30 @@ import TabItem from '@theme/TabItem';
     docsStream.write('</TabItem>');
     docsStream.write('\n\n');
   }
+}
 
-  docsStream.write('</Tabs>');
+function writeDocsStart(docsStream: fs.WriteStream) {
+  docsStream.write(`---
+id: configuration
+title: Server configuration
+sidebar_label: Configuration
+slug: /self_hosting/configuration
+toc_max_heading_level: 4
+---
 
-  docsStream.close();
+As the Server is based on Spring framework, it follows its configuration standards. You can configure Tolgee by providing
+a configuration file, provide configuration properties as command line arguments when you run Tolgee with \`java -jar\` command, or as environment variables.
+
+Example configuration files:
+
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
+
+<Tabs lazy groupId="config-format" queryString values={${JSON.stringify(
+    definition.configFormats
+  )}}>
+
+`);
 }
 
 async function downloadProps() {
