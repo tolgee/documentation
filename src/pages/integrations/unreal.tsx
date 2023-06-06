@@ -49,15 +49,15 @@ export default function Unreal() {
         }}
       >
         <p>
-          Integrate your existing Unreal Engine project into the Tolgee platform 
-          within minutes by using our plugin to automate the process. 
+          Integrate your existing Unreal Engine project into the Tolgee platform
+          within minutes by using our plugin to automate the process.
         </p>
         <p>
-          Start translating your project today with us or add new languages without
-          changing your current localization pipeline.
+          Start translating your project today with us or add new languages
+          without changing your current localization pipeline.
         </p>
         <p>
-          Invite collaborators to help you with translating or leverage our 
+          Invite collaborators to help you with translating or leverage our
           Translation assistance to speed up the process.
         </p>
       </LandingPageDescription>
@@ -65,8 +65,8 @@ export default function Unreal() {
       <LandingPageInstallation>
         <LandingPageInstallationStep title="1. Create project in Tolgee platform">
           <p>
-            Go to the <a href="https://app.tolgee.io">Tolgee Cloud app</a> or access
-            your{' '}
+            Go to the <a href="https://app.tolgee.io">Tolgee Cloud app</a> or
+            access your{' '}
             <a href="/platform/self_hosting/running_with_docker">
               self-hosted instance
             </a>{' '}
@@ -75,7 +75,7 @@ export default function Unreal() {
         </LandingPageInstallationStep>
         <LandingPageInstallationStep title="2. Install Unreal plugin">
           <p>
-          First, you need to install the plugin from the{' '}
+            First, you need to install the plugin from the{' '}
             <a href="TODO">
               Unreal Marketplace
             </a>{' '}
@@ -87,7 +87,7 @@ export default function Unreal() {
           <p>
             After installing and enabling the plugin, you need to set the{' '}
             <strong>API key</strong> you created previously and the{' '}
-            <strong>Project Id</strong> in the Project Settings.
+            <strong>API url</strong> in the Project Settings.
           </p>
           <p>
             If you already have a localization setup done, you directly scan and

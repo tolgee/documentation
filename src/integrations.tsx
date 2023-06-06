@@ -100,10 +100,8 @@ export const integrations = [
     links: {
       'Landing Page': '/integrations/unreal',
       Docs: '/platform/integrations/unreal_plugin/setup',
-      'Unreal Marketplace':
-        'TODO',
-      'GitHub Repository':
-        'https://github.com/tolgee/tolgee-unreal',
+      'Unreal Marketplace': 'TODO',
+      'GitHub Repository': 'https://github.com/tolgee/tolgee-unreal',
     },
   },
   {
