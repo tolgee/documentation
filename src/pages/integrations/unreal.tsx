@@ -49,15 +49,15 @@ export default function Unreal() {
         }}
       >
         <p>
-          Integrate your existing Unreal Engine project into the Tolgee platform
+          Integrate your existing Unreal Engine project with the Tolgee platform
           within minutes by using our plugin to automate the process.
         </p>
         <p>
-          Start translating your project today with us or add new languages
+          Start translating your project today with Tolgee and add new languages
           without changing your current localization pipeline.
         </p>
         <p>
-          Invite collaborators to help you with translating or leverage our
+          Invite collaborators to help you with translating and leverage our
           Translation assistance to speed up the process.
         </p>
       </LandingPageDescription>
@@ -90,8 +90,8 @@ export default function Unreal() {
             <strong>API url</strong> in the Project Settings.
           </p>
           <p>
-            If you already have a localization setup done, you directly scan and
-            upload all your Keys to the Tolgee platform.
+            If you have already set up your project, you can directly
+            upload all your keys to the Tolgee platform.
             If you are unfamiliar with the localization setup, you can read our
             step-by-step guide.
           </p>
