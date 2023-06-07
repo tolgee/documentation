@@ -67,8 +67,7 @@ export function PricingFAQs() {
 
         <PricingQuestion question="Does pricing change affect users who already use legacy plans?">
           <p>
-            No. If you are using a legacy plan, you can continue to use it as
-            long as you wish if we don&apos;t inform you via e-mail.
+            No. If you are using a legacy plan, you can continue to use it.
           </p>
           <p>This also applies to legacy free plans.</p>
         </PricingQuestion>
