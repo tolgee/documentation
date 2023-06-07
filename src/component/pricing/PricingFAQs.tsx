@@ -64,6 +64,25 @@ export function PricingFAQs() {
           If you pay for the service annually, you may still be charged every
           month if you exceed the limits of your plan.
         </PricingQuestion>
+
+        <PricingQuestion question="Does pricing change affect users who already use legacy plans?">
+          <p>No. If you are using a legacy plan, you can continue to use it.</p>
+          <p>This also applies to legacy free plans.</p>
+        </PricingQuestion>
+
+        <PricingQuestion question="What are the seats/strings limitations for the free self-hosted plan?">
+          <p>
+            None. The free self-hosted plan does not have seats or string
+            limitations. However, you must subscribe to a paid plan to use
+            advanced features like Granular permissions, CND, or Webhooks.
+          </p>
+        </PricingQuestion>
+        <PricingQuestion question="What is the string limit for the self-hosted plans?">
+          <p>
+            None. We are not limiting the number of strings in the self-hosted
+            instances.
+          </p>
+        </PricingQuestion>
       </div>
     </section>
   );
