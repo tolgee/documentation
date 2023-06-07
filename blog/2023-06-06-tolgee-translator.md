@@ -25,7 +25,7 @@ For a long time, we pondered the idea that if we could provide AI with the same 
 
 Thanks to new AI tools like ChatGPT, we can now convey translation context to AI models just like we would to any other human. But the question remains: where do we obtain this context?
 
-Context lies at the core of the Tolgee platform. Our aim is to provide translators with as much context as possible, and our solution with Tolgee SDK offers a unique approach. However, screenshots remain the gold standard for context provision, although they present challenges in interpretation. While it is possible to detect the content of a screenshot, it can be costly and time-consuming. Luckily, a better alternative exists.
+Context lies at the core of the Tolgee platform. Our aim is to provide translators with as much context as possible, and our solution with Tolgee SDK offers a unique approach. However, screenshots remain the gold standard for context provision. While it is possible to detect the content of a screenshot, it can be costly and time-consuming. Luckily, a better alternative exists.
 
 Within the Tolgee SDK, we possess knowledge about the specific location of each translation on a webpage. This information proves invaluable in establishing context.
 
