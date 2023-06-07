@@ -342,10 +342,14 @@ Whether AWS-powered machine translation is enabled. (default `true`)
 Whether to use Amazon Translate as a primary translation engine. (default: `false`)
 
 ### access-key
-AWS access key.
+AWS access key (optional if you are authenticating with a different method, like STS Web Identity)
 
 ### secret-key
-AWS secret key.
+AWS secret key (optional if you are authenticating with a different method, like STS Web Identity)
+
+### enabled
+If you are authenticating using a different method than explicit access key and secret key above, which implicitly enable AWS Translate,
+you should enable AWS Translate using this.
 
 ### region
 AWS region. (default: `eu-central-1`)
