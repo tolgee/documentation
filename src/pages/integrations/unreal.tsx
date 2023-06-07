@@ -8,13 +8,15 @@ import UnrealLogo from '../../../static/img/technologies/logo-unreal-engine.svg'
 import { LandingPageActions } from '../../component/landingPages/LandingPageActions';
 import { MoreIntegrations } from '../../component/landingPages/LandingPageMoreIntegrations';
 import Head from '@docusaurus/Head';
+import Marketplace from '../../../static/img/Marketplace.svg';
 
 const DocsLinks = ({ primary }: { primary?: boolean }) => (
   <LandingPageActions
-    docs={{ link: '/platform/integrations/unreal_plugin/usage' }}
+    docs={{ link: '/platform/integrations/unreal_plugin/setup' }}
     additionalDocs={{
       label: 'Unreal Marketplace',
       link: 'TODO',
+      icon: <Marketplace />
     }}
     githubRepo={{
       explicitLink: true,
@@ -76,10 +78,8 @@ export default function Unreal() {
         <LandingPageInstallationStep title="2. Install Unreal plugin">
           <p>
             First, you need to install the plugin from the{' '}
-            <a href="TODO">
-              Unreal Marketplace
-            </a>{' '}
-            and <strong>enable it in your project</strong>.
+            <a href="TODO">Unreal Marketplace</a> and{' '}
+            <strong>enable it in your project</strong>.
           </p>
         </LandingPageInstallationStep>
 
@@ -90,14 +90,14 @@ export default function Unreal() {
             <strong>API url</strong> in the Project Settings.
           </p>
           <p>
-            If you have already set up your project, you can directly
-            upload all your keys to the Tolgee platform.
-            If you are unfamiliar with the localization setup, you can read our
-            step-by-step guide.
+            If you have already set up your project, you can directly upload all
+            your keys to the Tolgee platform. If you are unfamiliar with the
+            localization setup, you can read our step-by-step{' '}
+            <a href="/platform/integrations/unreal_plugin/usage">guide</a> .
           </p>
           <p>
-            Then open the <strong>Tolgee Dashboard</strong>, and you are now ready 
-            to hover over any text you wish to translate!
+            Then open the <strong>Tolgee Dashboard</strong>, and you are now
+            ready to hover over any text you wish to translate!
           </p>
         </LandingPageInstallationStep>
         <LandingPageInstallationStep title="Explore the Docs and check out GitHub repository!">

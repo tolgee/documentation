@@ -12,7 +12,7 @@ The Tolgee plugin will re-use the default Unreal localization setup, so if you'v
 
 In the following sections, we will cover the most basic example and setup required to localize your project before using the Tolgee plugin.
 
-### Step 1: Create String a string table
+### Step 1: Create a String Table asset
 
 First and foremost we have to create a **String Table**. This is a special asset that can hold multiple localization keys. For this example, we will name it `ST_MyCoolTable`.
 
@@ -48,22 +48,26 @@ Open the Localization Dashboard, which can be found under the `Tools` dropdown m
 
 ![Open localization dashboard](/img/docs/platform/unreal-plugin/step-4-open-localization-dashboard.png)
 
-### Step 5: Add your string table asset to the gathering process
+### Step 5: Add your String Table asset to the gathering process
 
-Finally, the last step is setting up the Localization targets of the project to properly gather our string table asset.
+Now we need to set up the Localization targets of the project to properly gather our string table asset.
 
-To do so, perform the following actions inside the Localization Dashboard:
-1. Enable the `Gather from Packages` step.
-1. Add a new entry inside the `Include Path Wildcards` with the `*` path.
-1. Inside the `Cultures` section, press the radio button next to `English` to enable it as the `default culture`.
+Enable the `Gather from Packages` step and add a new entry inside the `Include Path Wildcards` with the `*` path.
 
-![Assets gather settings](/img/docs/platform/unreal-plugin/step-5-assets-gather-settings.png)
+![Dashboard gather settings](/img/docs/platform/unreal-plugin/step-5-dashboard-gather-settings.png)
+
+### Step 6: Set up the default culture
+
+Finally, Inside the `Cultures` section, press the radio button next to `English` to enable it as the `default culture`.
+
+![Dashboard default locale](/img/docs/platform/unreal-plugin/step-6-dashboard-default-locale.png)
 
 ## Tolgee Menu
 
 After enabling the Tolgee plugin and restarting the editor, the Tolgee icon should be visible in the upper right corner toolbar.
 
 You can use this menu to access all the functionality available to you:
+
 - launch the Tolgee Platform
 - open the Tolgee Dashboard inside Unreal
 - shortcuts to documentation, settings, and support (Slack)
