@@ -70,11 +70,11 @@ export function PricingFAQs() {
           <p>This also applies to legacy free plans.</p>
         </PricingQuestion>
 
-        <PricingQuestion question="What are the seats/strings limitations for the free self-hosted plan?">
+        <PricingQuestion question="What are the seats/strings limitations for the Free self-hosted plan?">
           <p>
-            None. The free self-hosted plan does not have seats or string
+            None. The Free self-hosted plan does not have seats or string
             limitations. However, you must subscribe to a paid plan to use
-            advanced features like Granular permissions, CND, or Webhooks.
+            advanced features like Granular permissions, CDN, or Webhooks.
           </p>
         </PricingQuestion>
         <PricingQuestion question="What is the string limit for the self-hosted plans?">
