@@ -16,7 +16,7 @@ const DocsLinks = ({ primary }: { primary?: boolean }) => (
     additionalDocs={{
       label: 'Unreal Marketplace',
       link: 'TODO',
-      icon: <Marketplace />
+      icon: <Marketplace />,
     }}
     githubRepo={{
       explicitLink: true,
