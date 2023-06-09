@@ -8,7 +8,6 @@ import UnrealLogo from '../../../static/img/technologies/logo-unreal-engine.svg'
 import { LandingPageActions } from '../../component/landingPages/LandingPageActions';
 import { MoreIntegrations } from '../../component/landingPages/LandingPageMoreIntegrations';
 import Head from '@docusaurus/Head';
-import Marketplace from '../../../static/img/Marketplace.svg';
 
 const DocsLinks = ({ primary }: { primary?: boolean }) => (
   <LandingPageActions
@@ -16,7 +15,7 @@ const DocsLinks = ({ primary }: { primary?: boolean }) => (
     additionalDocs={{
       label: 'Unreal Marketplace',
       link: 'TODO',
-      icon: <Marketplace />,
+      icon: <UnrealLogo />,
     }}
     githubRepo={{
       explicitLink: true,

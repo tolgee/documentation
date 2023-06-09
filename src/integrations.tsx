@@ -1,4 +1,5 @@
 import NextLogo from '../static/img/technologies/logo-next.svg';
+import UnrealLogo from '../static/img/technologies/logo-unreal-engine.svg'
 import React from 'react';
 
 export const integrations = [
@@ -96,7 +97,7 @@ export const integrations = [
   },
   {
     label: 'Unreal Engine',
-    logo: '/img/technologies/logo-unreal-engine.svg',
+    logo: <UnrealLogo />,
     links: {
       'Landing Page': '/integrations/unreal',
       Docs: '/platform/integrations/unreal_plugin/setup',
