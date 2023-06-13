@@ -329,7 +329,7 @@ Tolgee supports storing its files on an S3-compatible storage server. When enabl
 
 - ##### `access-key` {#access-key}
 
-  Access key for the S3 server.
+  Access key for the S3 server. (optional if you are authenticating with a different method, like STS Web Identity)
 
 - ##### `bucket-name` {#bucket-name}
 
@@ -345,7 +345,7 @@ Tolgee supports storing its files on an S3-compatible storage server. When enabl
 
 - ##### `secret-key` {#secret-key}
 
-  Secret key for the access key.
+  Secret key for the access key. (optional if you are authenticating with a different method, like STS Web Identity)
 
 - ##### `signing-region` {#signing-region}
 
@@ -393,7 +393,7 @@ See [AWS's Amazon Translate](https://aws.amazon.com/translate) page for more inf
 
 - ##### `access-key` {#access-key}
 
-  AWS access key.
+  AWS access key. (optional if you are authenticating with a different method, like STS Web Identity)
 
 - ##### `default-enabled` {#default-enabled}
 
@@ -403,13 +403,17 @@ See [AWS's Amazon Translate](https://aws.amazon.com/translate) page for more inf
 
   Whether to use AWS Amazon Translate as a primary translation engine. (default: `false`)
 
+- ##### `enabled` {#enabled}
+
+  If you are authenticating using a different method than explicit access key and secret key, which implicitly enable AWS Translate, you should enable AWS Translate using this option.
+
 - ##### `region` {#region}
 
   AWS region. (default: `eu-central-1`)
 
 - ##### `secret-key` {#secret-key}
 
-  AWS secret key.
+  AWS secret key. (optional if you are authenticating with a different method, like STS Web Identity)
 
 #### Azure Cognitive Translation
 
@@ -737,6 +741,7 @@ tolgee:
       access-key: 
       default-enabled: true
       default-primary: false
+      enabled: 
       region: eu-central-1
       secret-key: 
     azure:
@@ -1111,7 +1116,7 @@ Tolgee supports storing its files on an S3-compatible storage server. When enabl
 
 - <h5 id="access-key"><code>ACCESS_KEY</code></h5>
 
-  Access key for the S3 server.
+  Access key for the S3 server. (optional if you are authenticating with a different method, like STS Web Identity)
 
 - <h5 id="bucket-name"><code>BUCKET_NAME</code></h5>
 
@@ -1127,7 +1132,7 @@ Tolgee supports storing its files on an S3-compatible storage server. When enabl
 
 - <h5 id="secret-key"><code>SECRET_KEY</code></h5>
 
-  Secret key for the access key.
+  Secret key for the access key. (optional if you are authenticating with a different method, like STS Web Identity)
 
 - <h5 id="signing-region"><code>SIGNING_REGION</code></h5>
 
@@ -1175,7 +1180,7 @@ See [AWS's Amazon Translate](https://aws.amazon.com/translate) page for more inf
 
 - <h5 id="access-key"><code>ACCESS_KEY</code></h5>
 
-  AWS access key.
+  AWS access key. (optional if you are authenticating with a different method, like STS Web Identity)
 
 - <h5 id="default-enabled"><code>DEFAULT_ENABLED</code></h5>
 
@@ -1185,13 +1190,17 @@ See [AWS's Amazon Translate](https://aws.amazon.com/translate) page for more inf
 
   Whether to use AWS Amazon Translate as a primary translation engine. (default: `false`)
 
+- <h5 id="enabled"><code>ENABLED</code></h5>
+
+  If you are authenticating using a different method than explicit access key and secret key, which implicitly enable AWS Translate, you should enable AWS Translate using this option.
+
 - <h5 id="region"><code>REGION</code></h5>
 
   AWS region. (default: `eu-central-1`)
 
 - <h5 id="secret-key"><code>SECRET_KEY</code></h5>
 
-  AWS secret key.
+  AWS secret key. (optional if you are authenticating with a different method, like STS Web Identity)
 
 <h4 id="azure-cognitive-translation">Azure Cognitive Translation</h4>
 
@@ -1504,6 +1513,7 @@ TOLGEE_MACHINE_TRANSLATION_FREE_CREDITS_AMOUNT=-1
 TOLGEE_MACHINE_TRANSLATION_AWS_ACCESS_KEY=
 TOLGEE_MACHINE_TRANSLATION_AWS_DEFAULT_ENABLED=true
 TOLGEE_MACHINE_TRANSLATION_AWS_DEFAULT_PRIMARY=false
+TOLGEE_MACHINE_TRANSLATION_AWS_ENABLED=
 TOLGEE_MACHINE_TRANSLATION_AWS_REGION=eu-central-1
 TOLGEE_MACHINE_TRANSLATION_AWS_SECRET_KEY=
 TOLGEE_MACHINE_TRANSLATION_AZURE_AUTH_KEY=
@@ -1868,7 +1878,7 @@ Tolgee supports storing its files on an S3-compatible storage server. When enabl
 
 - <h5 id="access-key"><code>access-key</code></h5>
 
-  Access key for the S3 server.
+  Access key for the S3 server. (optional if you are authenticating with a different method, like STS Web Identity)
 
 - <h5 id="bucket-name"><code>bucket-name</code></h5>
 
@@ -1884,7 +1894,7 @@ Tolgee supports storing its files on an S3-compatible storage server. When enabl
 
 - <h5 id="secret-key"><code>secret-key</code></h5>
 
-  Secret key for the access key.
+  Secret key for the access key. (optional if you are authenticating with a different method, like STS Web Identity)
 
 - <h5 id="signing-region"><code>signing-region</code></h5>
 
@@ -1932,7 +1942,7 @@ See [AWS's Amazon Translate](https://aws.amazon.com/translate) page for more inf
 
 - <h5 id="access-key"><code>access-key</code></h5>
 
-  AWS access key.
+  AWS access key. (optional if you are authenticating with a different method, like STS Web Identity)
 
 - <h5 id="default-enabled"><code>default-enabled</code></h5>
 
@@ -1942,13 +1952,17 @@ See [AWS's Amazon Translate](https://aws.amazon.com/translate) page for more inf
 
   Whether to use AWS Amazon Translate as a primary translation engine. (default: `false`)
 
+- <h5 id="enabled"><code>enabled</code></h5>
+
+  If you are authenticating using a different method than explicit access key and secret key, which implicitly enable AWS Translate, you should enable AWS Translate using this option.
+
 - <h5 id="region"><code>region</code></h5>
 
   AWS region. (default: `eu-central-1`)
 
 - <h5 id="secret-key"><code>secret-key</code></h5>
 
-  AWS secret key.
+  AWS secret key. (optional if you are authenticating with a different method, like STS Web Identity)
 
 <h4 id="azure-cognitive-translation">Azure Cognitive Translation</h4>
 
@@ -2261,6 +2275,7 @@ tolgee.machine-translation.free-credits-amount = -1
 tolgee.machine-translation.aws.access-key = 
 tolgee.machine-translation.aws.default-enabled = true
 tolgee.machine-translation.aws.default-primary = false
+tolgee.machine-translation.aws.enabled = 
 tolgee.machine-translation.aws.region = eu-central-1
 tolgee.machine-translation.aws.secret-key = 
 tolgee.machine-translation.azure.auth-key = 
