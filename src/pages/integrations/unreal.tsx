@@ -77,8 +77,10 @@ export default function Unreal() {
         <LandingPageInstallationStep title="2. Install Unreal plugin">
           <p>
             First, you need to install the plugin from the{' '}
-            <a href="https://www.unrealengine.com/marketplace/en-US/store">Unreal Marketplace</a> and{' '}
-            <strong>enable it in your project</strong>.
+            <a href="https://www.unrealengine.com/marketplace/en-US/store">
+              Unreal Marketplace
+            </a>{' '}
+            and <strong>enable it in your project</strong>.
           </p>
         </LandingPageInstallationStep>
 
