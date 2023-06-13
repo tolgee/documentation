@@ -1,5 +1,5 @@
 import NextLogo from '../static/img/technologies/logo-next.svg';
-import UnrealLogo from '../static/img/technologies/logo-unreal-engine.svg'
+import UnrealLogo from '../static/img/technologies/logo-unreal-engine.svg';
 import React from 'react';
 
 export const integrations = [
@@ -101,7 +101,7 @@ export const integrations = [
     links: {
       'Landing Page': '/integrations/unreal',
       Docs: '/platform/integrations/unreal_plugin/setup',
-      'Unreal Marketplace': 'TODO',
+      'Unreal Marketplace': 'https://www.unrealengine.com/marketplace/en-US/store',
       'GitHub Repository': 'https://github.com/tolgee/tolgee-unreal',
     },
   },

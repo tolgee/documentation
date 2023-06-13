@@ -14,7 +14,7 @@ const DocsLinks = ({ primary }: { primary?: boolean }) => (
     docs={{ link: '/platform/integrations/unreal_plugin/setup' }}
     additionalDocs={{
       label: 'Unreal Marketplace',
-      link: 'TODO',
+      link: 'https://www.unrealengine.com/marketplace/en-US/store',
       icon: <UnrealLogo />,
     }}
     githubRepo={{
@@ -77,7 +77,7 @@ export default function Unreal() {
         <LandingPageInstallationStep title="2. Install Unreal plugin">
           <p>
             First, you need to install the plugin from the{' '}
-            <a href="TODO">Unreal Marketplace</a> and{' '}
+            <a href="https://www.unrealengine.com/marketplace/en-US/store">Unreal Marketplace</a> and{' '}
             <strong>enable it in your project</strong>.
           </p>
         </LandingPageInstallationStep>
