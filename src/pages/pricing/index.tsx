@@ -6,6 +6,7 @@ import { PricingBase } from '../../component/pricing/PricingBase';
 import Link from '@docusaurus/Link';
 import { PricingPlan } from '../../component/pricing/PricingPlan';
 import Head from '@docusaurus/Head';
+import { PricingHorizontalPlan } from '../../component/pricing/PricingHorizontalPlan';
 
 export default function Pricing() {
   const [billing, setBilling] = useState<'monthly' | 'annually'>('annually');
@@ -19,11 +20,40 @@ export default function Pricing() {
       <Head>
         <meta
           name="description"
-          content="Pricing for the cloud version of Tolgee localization tool. Choose among Free, Basic, Premium, or Enterprise subscription."
+          content="Pricing for the cloud version of Tolgee localization tool. Choose among Free, Business, or Enterprise subscription."
         />
       </Head>
       <div className="pricing__toggle">
         <PricingToggle value="cloud" />
+      </div>
+      <div className="pricing__option--horizontal">
+        <PricingHorizontalPlan
+          name="Free"
+          price={0}
+          description={
+            <>
+              Start localizing your project for free and connect with global
+              audiences at no cost. When your project grows, you can upgrade to
+              the Pay as you go plan and pay only for what you use. The Free
+              plan comes with the same features as the Pay as you go plan.
+              <br />
+            </>
+          }
+          limits={{ strings: 1_000, mtCredits: 10_000, seats: Infinity }}
+          action={
+            <>
+              <Link
+                className="pricing__option-button pricing__option-button--contained"
+                to="https://app.tolgee.io/sign_up"
+              >
+                Get started
+              </Link>
+              <div className="pricing__option--price-note">
+                No credit card required
+              </div>
+            </>
+          }
+        />
       </div>
       <div className="pricing__top-right-robomouse">
         <RoboMouse />
@@ -34,8 +64,15 @@ export default function Pricing() {
       <div className="pricing__options-wrapper">
         <div className="pricing__option">
           <PricingPlan
-            name="Free / Pay as you go"
-            description="For individuals and hobby projects."
+            name="Pay as you go"
+            description={
+              <>
+                <br />
+                You can start with the Free plan, then pay only for the
+                translation strings and MT credits you actually use.
+                <br />
+              </>
+            }
             limits={{ strings: 1_000, mtCredits: 10_000, seats: Infinity }}
             price={0}
             secondaryPrices={[
@@ -51,17 +88,15 @@ export default function Pricing() {
               'one-click-screenshots',
               'figma-plugin',
             ]}
+            featuresHeight={'250px'}
             action={
               <>
                 <Link
-                  className="pricing__option-button pricing__option-button--contained"
+                  className="pricing__option-button pricing__option-button--grey"
                   to="https://app.tolgee.io/sign_up"
                 >
                   Get started
                 </Link>
-                <div className="pricing__option--price-note">
-                  No credit card required
-                </div>
               </>
             }
           />
@@ -71,7 +106,7 @@ export default function Pricing() {
           <PricingPlan
             name="Business"
             freeForOpensource
-            description="For individuals and medium teams that use Tolgee for one or just a few apps."
+            description="Designed for individuals and medium teams, leverage Tolgee's power for one or a few apps."
             limits={{
               strings: 20_000,
               mtCredits: 1_000_000,
@@ -92,9 +127,10 @@ export default function Pricing() {
               'cdn',
               'webhooks',
             ]}
+            featuresHeight={'250px'}
             action={
               <Link
-                className="pricing__option-button pricing__option-button--grey"
+                className="pricing__option-button pricing__option-button--contained"
                 to="https://app.tolgee.io/billing"
               >
                 Subscribe
@@ -106,7 +142,14 @@ export default function Pricing() {
         <div className="pricing__option">
           <PricingPlan
             name="Enterprise"
-            description="For enterprise organizations and very large teams that need Tolgee to translate large systems or a huge number of apps."
+            description={
+              <>
+                <br />
+                Tailored for enterprise organizations and large teams, scale
+                your translation needs with Tolgee.
+                <br />
+              </>
+            }
             limits={{
               strings: Infinity,
               mtCredits: Infinity,
@@ -119,6 +162,7 @@ export default function Pricing() {
               'dedicated-slack-channel',
               'team-training',
             ]}
+            featuresHeight={'250px'}
             action={
               <Link
                 className="pricing__option-button pricing__option-button--grey"

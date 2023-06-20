@@ -40,11 +40,8 @@ export default function SelfHosted() {
             price={0}
             description={
               <>
-                Since Tolgee is open-source, self-hosting will be{' '}
-                <b>free forever</b>.
-                <br />
-                <br />
-                <span className="pricing__option-value">No support</span>
+                Have your localization data exactly where you want it. Since
+                Tolgee is open-source, self-hosting will be <b>free forever</b>.
               </>
             }
             features={[
@@ -56,6 +53,7 @@ export default function SelfHosted() {
               'one-click-screenshots',
               'figma-plugin',
             ]}
+            featuresHeight={'270px'}
             action={
               <Link
                 className="pricing__option-button pricing__option-button--grey"
@@ -70,7 +68,7 @@ export default function SelfHosted() {
         <div className="pricing__option pricing__option--highlighted">
           <PricingPlan
             name="Business"
-            description="For individuals and medium teams that use Tolgee for just one or a few apps."
+            description="Self-host your localization project anywhere you prefer. Designed for individuals and medium teams."
             billing={{ monthly: 300, annually: 250 }}
             billingType={billing}
             toggleBillingType={toggleBilling}
@@ -86,6 +84,7 @@ export default function SelfHosted() {
               'cdn',
               'webhooks',
             ]}
+            featuresHeight={'270px'}
             secondaryPrices={[`+ €${(20).toLocaleString()}/mo for extra seat`]}
             action={
               <Link
@@ -101,7 +100,12 @@ export default function SelfHosted() {
         <div className="pricing__option">
           <PricingPlan
             name="Enterprise"
-            description="For enterprise organizations and large teams that need Tolgee to translate large systems or a huge number of apps."
+            description={
+              <>
+                Setup Tolgee in your own infrastructure. Designed for enterprise
+                organizations and large teams, with <b>premium support</b>.
+              </>
+            }
             billingType={billing}
             toggleBillingType={toggleBilling}
             limits={{
@@ -118,6 +122,7 @@ export default function SelfHosted() {
               'backup-configuration',
               'team-training',
             ]}
+            featuresHeight={'270px'}
             action={
               <Link
                 className="pricing__option-button pricing__option-button--grey"

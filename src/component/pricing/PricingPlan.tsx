@@ -37,6 +37,7 @@ type Props = {
   secondaryPrices?: string[];
   action: React.ReactNode;
   features?: Feature[];
+  featuresHeight?: '250px' | '270px';
 };
 
 export const PricingPlan: React.FC<Props> = ({
@@ -50,6 +51,7 @@ export const PricingPlan: React.FC<Props> = ({
   limits,
   action,
   features,
+  featuresHeight,
   secondaryPrices,
 }) => {
   const BillingSwitch = () => {
@@ -72,10 +74,36 @@ export const PricingPlan: React.FC<Props> = ({
           className="pricing__opensource-link"
           to="mailto:info@tolgee.io?subject=Tolgee for open-source"
         >
-          Free for open-source projects
+          <p className="pricing__free-for-open-source">
+            Free for open-source projects
+          </p>
         </Link>
       )}
-      <p>{description}</p>
+      <p
+        className={
+          freeForOpensource
+            ? ''
+            : 'pricing__description-highlighted-noopensource'
+        }
+      >
+        {description}
+      </p>
+
+      {Boolean(features?.length) && (
+        <div
+          className={`pricing__features-section${
+            featuresHeight === '250px'
+              ? ` h-[250px]`
+              : featuresHeight === '270px'
+              ? ` h-[270px]`
+              : ''
+          }`}
+        >
+          <p className="pricing__features-title">Features</p>
+          <PricingFeatures features={features} />
+        </div>
+      )}
+
       {limits && (
         <ul className="pricing__option-highlights pricing__option-highlights--no-list-style">
           {strings !== undefined && (
@@ -107,19 +135,10 @@ export const PricingPlan: React.FC<Props> = ({
         </ul>
       )}
 
-      {Boolean(features?.length) && (
-        <div className="pricing__features-section">
-          <p className="pricing__features-title">Features</p>
-          <PricingFeatures features={features} />
-        </div>
-      )}
-
       <div className="pricing__option-spacer" />
 
       {billing && (
         <>
-          <BillingSwitch />
-
           <div className="pricing__option-price">
             {billingType === 'monthly' ? (
               <div>
@@ -130,12 +149,10 @@ export const PricingPlan: React.FC<Props> = ({
               <div>
                 €{Number(billing.annually).toLocaleString()}
                 <span>/mo</span>{' '}
-                <span className="pricing__option-billing">
-                  (annual billing)
-                </span>
               </div>
             )}
           </div>
+          <BillingSwitch />
         </>
       )}
 

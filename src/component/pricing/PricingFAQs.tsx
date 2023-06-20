@@ -47,17 +47,34 @@ export function PricingFAQs() {
           MT credits.
         </PricingQuestion>
 
+        <PricingQuestion question="What features are included in the Free plan?">
+          The Free plan includes the same features as the Pay as you go plan.
+        </PricingQuestion>
+
+        <PricingQuestion question="How does the Pay as you go plan work?">
+          The Pay as you go plan comes with a limit of 1,000 strings and 10,000
+          monthly MT credits; the MT credits are refilled each month. If you
+          exceed the MT credits limit, you will be charged for each extra 1,000
+          MT credits. If you exceed the strings limit, you will be charged each
+          month for the extra 1,000 strings.
+        </PricingQuestion>
+
+        <PricingQuestion question="Can I change my plan?">
+          You can upgrade or downgrade your plan at any time. If you upgrade or
+          downgrade in the middle of the monthly billing cycle, your account
+          will be instantly switched to the new plan, and starting the next
+          month the charge will be taken for the chosen plan.
+        </PricingQuestion>
+
         <PricingQuestion question="What happens when I exceed seat or string limits?">
-          <p>
-            If you have provided your credit card details, you will be charged
-            extra every month. The cost of seats and strings will be determined
-            by their weighted average.
-          </p>
-          <p>
-            To illustrate, suppose you add an extra seat for half of the month.
-            In this case, you will be charged only half the cost of the extra
-            seat since the price is weighted by time.
-          </p>
+          If you have provided your credit card details, you will be charged
+          extra every month. The cost of seats or strings will be determined by
+          their weighted average usage during the month.
+          <br />
+          <br />
+          To illustrate, suppose you add an extra seat for half of the month. In
+          this case, you will be charged only half the cost of the extra seat
+          since the price is weighted by time.
         </PricingQuestion>
 
         <PricingQuestion question="How do I pay for exceeding limits if I pay annually?">
@@ -66,22 +83,18 @@ export function PricingFAQs() {
         </PricingQuestion>
 
         <PricingQuestion question="Does pricing change affect users who already use legacy plans?">
-          <p>No. If you are using a legacy plan, you can continue to use it.</p>
-          <p>This also applies to legacy free plans.</p>
+          No. If you are using a legacy plan, you can continue to use it. This
+          also applies to legacy free plans.
         </PricingQuestion>
 
         <PricingQuestion question="What are the seats/strings limitations for the Free self-hosted plan?">
-          <p>
-            None. The Free self-hosted plan does not have seats or string
-            limitations. However, you must subscribe to a paid plan to use
-            advanced features like Granular permissions, CDN, or Webhooks.
-          </p>
+          None. The Free self-hosted plan does not have seats or string
+          limitations. However, you must subscribe to a paid plan to use
+          advanced features like Granular permissions, CDN, or Webhooks.
         </PricingQuestion>
         <PricingQuestion question="What is the string limit for the self-hosted plans?">
-          <p>
-            None. We are not limiting the number of strings in the self-hosted
-            instances.
-          </p>
+          None. We are not limiting the number of strings in the self-hosted
+          instances.
         </PricingQuestion>
       </div>
     </section>

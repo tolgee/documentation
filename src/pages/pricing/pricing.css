@@ -53,7 +53,7 @@ html[data-theme='dark'] .pricing__background-wrapper::after {
   display: grid;
   flex-wrap: wrap;
   justify-content: center;
-  gap: 24px;
+  gap: 48px;
   padding: var(--ifm-spacing-horizontal);
   grid-template-columns: 1fr 1fr 1fr;
 }
@@ -104,10 +104,40 @@ html[data-theme='dark'] .pricing__option--highlighted > div {
   border-radius: 10px;
 }
 
+.pricing__option--horizontal {
+  margin-bottom: 80px !important;
+}
+
+@media screen and (max-width: 1300px) {
+  .pricing__option--horizontal {
+    padding: var(--ifm-spacing-horizontal);
+  }
+}
+
+.pricing__option--highlighted .pricing__description-highlighted-noopensource {
+  margin-top: 10px;
+}
+
+.pricing__option--horizontal > div {
+  z-index: 2;
+  background-color: var(--ifm-background-surface-color);
+  padding: 16px;
+  display: flex;
+  flex-direction: row;
+  flex-grow: 1;
+  box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.2);
+  border-radius: 10px;
+}
+
+.pricing__option-price--horizontal {
+  font-size: 28px;
+  color: var(--ifm-color-primary);
+  text-align: center;
+}
+
 .pricing__option {
   margin: 10px 0px;
   min-width: 270px;
-  max-width: 320px;
   display: flex;
   flex-direction: column;
   width: 100%;
@@ -125,16 +155,21 @@ html[data-theme='dark'] .pricing__option--highlighted > div {
 .pricing__billing-switch {
   background: transparent;
   border: 0;
-  margin-bottom: 8px;
+  margin-bottom: 16px;
+  text-align: left;
   cursor: pointer;
   text-decoration: underline;
   color: var(--home-text);
   font-size: 13px;
 }
 
+.pricing__free-for-open-source {
+  font-size: 14px;
+}
+
 .pricing__option-price {
-  font-size: 24px;
-  padding-bottom: 0px;
+  font-size: 28px;
+  padding-bottom: 4px;
   color: var(--ifm-color-primary);
   display: grid;
 }
@@ -146,10 +181,6 @@ html[data-theme='dark'] .pricing__option--highlighted > div {
 .pricing__option--secondary-price {
   font-size: 16px;
   color: var(--ifm-color-secondary);
-}
-
-.pricing__option-billing {
-  font-size: 14px;
 }
 
 .pricing__opensource-link {
@@ -275,6 +306,7 @@ html[data-theme='dark'] .pricing__option-button:hover {
 
 .pricing__option-highlights {
   padding-left: 18px;
+  padding-bottom: 10px;
 }
 
 .pricing__option-spacer {
