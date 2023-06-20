@@ -41,7 +41,7 @@ When naming translation keys, starting with a clear and consistent system will m
 
 - **Naming convention**: The first step to naming translation keys is to decide on a naming convention that will work for your project. A naming convention is a set of rules that define how translation keys should be named. A **good naming convention should be easy to understand and follow consistently**.
 
-  - **Casing**: Casing is how letters are capitalized in a word. Using a consistent casing convention makes it easier to identify and troubleshoot issues related to translations. You can, for example, use `CamelCase` or `snake_case`.
+  - **Casing**: Casing is how letters are capitalized in a word. Using a consistent casing convention makes it easier to identify and troubleshoot issues related to translations. You can, for example, use `camelCase`, `snake_case` or `PascalCase`.
 
 - **Key categories**: Once you have your naming convention in place, it's crucial to identify the different categories of keys that you will need. Think about how you want to organize your keys and create a list of categories that make sense for your project. For example, you can **split the keys based on where they appear in the application** – if you have a web application, you may want to have separate categories for keys that appear on the homepage, in the login/sign-up flow, and the user profile.
 
