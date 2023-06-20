@@ -5,177 +5,48 @@ import './termsAndConditions.css';
 export const TermsAndConditions = () => (
   <div>
     <div data-custom-class="body">
-      <div style={{ textAlign: 'left', lineHeight: '1.5' }}>
-        <div
-          className="MsoNormal"
-          data-custom-class="title"
-          style={{ textAlign: 'left', lineHeight: '1.5' }}
-        >
-          <a />
-          <strong>
-            <span
-              style={{
-                lineHeight: '150%',
-                fontFamily: 'Arial',
-                fontSize: '26px',
-              }}
-            >
-              <span className="block-component" />
-              <span className="question">TERMS OF USE</span>
-              <span className="statement-end-if-in-editor" />
-            </span>
-          </strong>
-        </div>
-        <div
-          className="MsoNormal"
-          style={{ textAlign: 'center', lineHeight: '1.5' }}
-        >
-          <a />
-        </div>
+      <div>
+        <p className="MsoNormal" data-custom-class="title">
+          <b>
+            <span>TERMS OF SERVICE</span>
+          </b>
+        </p>
         <div
           className="MsoNormal"
           data-custom-class="subtitle"
           style={{ textAlign: 'left', lineHeight: '1.5' }}
         >
-          <br />
-        </div>
-        <div
-          className="MsoNormal"
-          data-custom-class="subtitle"
-          style={{ textAlign: 'left', lineHeight: '1.5' }}
-        >
-          <span
-            style={{
-              fontSize: '11.0pt',
-              lineHeight: '150%',
-              fontFamily: 'Arial',
-              color: '#A6A6A6',
-            }}
-          >
-            <span
-              style={{
-                color: 'rgb(127, 127, 127)',
-                fontSize: '15px',
-                textAlign: 'justify',
-              }}
-            >
+          <span>
+            <span>
               <strong>Last updated</strong>
             </span>
             <strong>
-              <span
-                style={{
-                  color: 'rgb(127,127,127)',
-                  fontSize: '14.6667px',
-                  textAlign: 'justify',
-                }}
-              >
-                {' '}
-              </span>
+              <span> </span>
             </strong>
-            <span
-              style={{
-                color: 'rgb(127, 127, 127)',
-                fontSize: '15px',
-                textAlign: 'justify',
-              }}
-            >
+            <span>
               <span
                 className="block-container question question-in-editor"
                 data-id="0d5ae8ae-7749-9afb-1fed-6556cb563dc0"
                 data-type="question"
               >
-                <strong>September 7, 2022</strong>
+                <strong>June 20, 2023</strong>
               </span>
             </span>
           </span>
         </div>
-      </div>
-      <div style={{ textAlign: 'left', lineHeight: '1.5' }}>
         <br />
-      </div>
-      <div style={{ textAlign: 'left', lineHeight: '1.5' }}>
-        <br />
-      </div>
-      <div style={{ textAlign: 'left', lineHeight: '1.5' }}>
-        <br />
-      </div>
-      <div style={{ textAlign: 'left', lineHeight: '1.5' }}>
-        <div
-          className="MsoNormal"
-          data-custom-class="heading_1"
-          style={{ lineHeight: '1.5' }}
-        >
-          <a />
-          <strong>
-            <span
-              style={{
-                lineHeight: '115%',
-                fontFamily: 'Arial',
-                fontSize: '19px',
-              }}
-            >
-              AGREEMENT TO TERMS
-            </span>
-          </strong>
+        <div className="MsoNormal" data-custom-class="heading_1">
+          <a>
+            <span>1.&nbsp;</span>
+            <span>ACCEPTANCE OF THE TERMS</span>
+          </a>
         </div>
-      </div>
-      <div style={{ textAlign: 'left', lineHeight: 1 }}>
-        <br />
-      </div>
-      <div style={{ textAlign: 'left', lineHeight: '1.5' }}>
-        <div
-          className="MsoNormal"
-          data-custom-class="body_text"
-          style={{ lineHeight: '1.5' }}
-        >
-          <span
-            style={{
-              fontSize: '15px',
-              lineHeight: '115%',
-              fontFamily: 'Arial',
-              color: 'rgb(89, 89, 89)',
-            }}
-          >
-            These Terms of Use constitute a legally binding agreement made
-            between you, whether personally or on behalf of an entity (“you”)
-            and{' '}
-            <span
-              className="block-container question question-in-editor"
-              data-id="9d459c4e-c548-e5cb-7729-a118548965d2"
-              data-type="question"
-            >
-              Tolgee s.r.o.
-            </span>
-          </span>
-          <span
-            style={{
-              fontSize: '11.0pt',
-              lineHeight: '115%',
-              fontFamily: 'Arial',
-              color: '#595959',
-            }}
-          >
-            <span className="block-component" />{' '}
-          </span>
-          <span
-            style={{
-              fontSize: '15px',
-              lineHeight: '115%',
-              fontFamily: 'Arial',
-              color: 'rgb(89, 89, 89)',
-            }}
-          >
-            ("
-            <span className="block-component" />
-            <strong>Company</strong>
-            <span className="statement-end-if-in-editor" />
-            ", “<strong>we</strong>”, “<strong>us</strong>”, or “
-            <strong>our</strong>”), concerning your access to and use of the{' '}
-            <span
-              className="block-container question question-in-editor"
-              data-id="fdf30452-99b8-c68b-5cdf-34af764cd1fd"
-              data-type="question"
-            >
+        <div className="MsoNormal" data-custom-class="heading_2">
+          <a>
+            <span>1.1.&nbsp;</span>
+            <span>
+              Please read these Terms of Service, the Privacy Policy available
+              at{' '}
               <a
                 href="https://tolgee.io"
                 target="_blank"
@@ -183,7009 +54,1366 @@ export const TermsAndConditions = () => (
               >
                 https://tolgee.io
               </a>
-            </span>{' '}
-            website as well as any other media form, media channel, mobile
-            website or web application related, linked, or otherwise connected
-            thereto (collectively, the “Site”).
-            <span
-              style={{
-                fontSize: '11.0pt',
-                lineHeight: '115%',
-
-                color: '#595959',
-              }}
-            >
-              <span
-                style={{
-                  fontSize: '11.0pt',
-                  lineHeight: '115%',
-
-                  color: '#595959',
-                }}
-              >
-                <span
-                  style={{
-                    fontSize: '11.0pt',
-                    lineHeight: '115%',
-
-                    color: '#595959',
-                  }}
-                >
-                  <span className="question">
-                    <span className="block-component" />
-                  </span>
-                  <span
-                    style={{
-                      fontSize: '11.0pt',
-                      lineHeight: '115%',
-
-                      color: '#595959',
-                    }}
-                  >
-                    <span className="block-component" />
-                  </span>{' '}
-                  We are registered in
-                  <span className="block-component" />
-                  <span className="block-component" />{' '}
-                  <span
-                    style={{
-                      fontSize: '11.0pt',
-                      lineHeight: '115%',
-
-                      color: '#595959',
-                    }}
-                  >
-                    <span
-                      style={{
-                        fontSize: '11.0pt',
-                        lineHeight: '115%',
-
-                        color: '#595959',
-                      }}
-                    >
-                      <span className="question">Czechia</span>
-                      <span className="statement-end-if-in-editor">
-                        <span
-                          style={{
-                            fontSize: '11.0pt',
-                            lineHeight: '115%',
-
-                            color: '#595959',
-                          }}
-                        >
-                          <span
-                            style={{
-                              fontSize: '11.0pt',
-                              lineHeight: '115%',
-
-                              color: '#595959',
-                            }}
-                          >
-                            <span className="statement-end-if-in-editor" />
-                          </span>
-                        </span>
-                      </span>
-                    </span>
-                  </span>{' '}
-                  and have our registered office at{' '}
-                  <span className="question">
-                    Letovická 22, 621 00 Brno-Řečkovice a Mokrá Hora, Czechia
-                  </span>
-                  <span className="block-component" />
-                </span>
-              </span>
-              , <span className="question">Brno</span>
+              , and all other documents referred to herein (collectively, the “
+              <b>Terms</b> “) carefully before you start using the Service. When
+              you start using the Service or click to agree to the Terms of
+              Service when this option is made available to you, you conclude an
+              agreement on use of the Service with Us (the “<b>Agreement</b>”)
+              which includes the Terms. If you do not agree to the Terms, you
+              must not access or use the Service.
             </span>
-          </span>
-          <span style={{ fontSize: '15px' }}>
-            <span data-custom-class="body_text">
-              <span style={{ fontSize: '15px' }}>
-                <span data-custom-class="body_text">
-                  <span style={{ color: 'rgb(89, 89, 89)' }}>
-                    <span className="block-component" />,{' '}
-                    <span className="question">Jihomoravský kraj</span>
-                    <span className="statement-end-if-in-editor" />
-                    <span className="block-component" />{' '}
-                    <span className="question">621 00</span>
-                    <span className="statement-end-if-in-editor" />
-                  </span>
-                </span>
-              </span>
-            </span>
-          </span>
-          <span
-            style={{
-              fontSize: '11.0pt',
-              lineHeight: '115%',
-
-              color: '#595959',
-            }}
-          >
-            <span
-              style={{
-                fontSize: '11.0pt',
-                lineHeight: '115%',
-
-                color: '#595959',
-              }}
-            >
-              <span className="statement-end-if-in-editor">.</span>
-              <span className="else-block" />
-            </span>
-          </span>
-          <span className="statement-end-if-in-editor" />
-          <span className="block-component" />
-          Our VAT number is <span className="question">CZ09968326.</span>
-          <span className="statement-end-if-in-editor" />
-          You agree that by accessing the Site, you have read, understood, and
-          agree to be bound by all of these Terms of Use
-          <span
-            className="block-container if"
-            data-type="if"
-            id="c4a4c609-d962-97d8-9b96-d3492402adad"
-          >
-            <span data-type="conditional-block">
-              <span
-                className="block-component"
-                data-record-question-key="separate_agreement_option"
-                data-type="statement"
-              />
-            </span>
-            . IF YOU DO NOT AGREE WITH ALL OF THESE TERMS OF USE, THEN YOU ARE
-            EXPRESSLY PROHIBITED FROM USING THE SITE AND YOU MUST DISCONTINUE
-            USE IMMEDIATELY.
+          </a>
+        </div>
+        <div className="MsoNormal" data-custom-class="heading_1">
+          <span>2.&nbsp;</span>
+          <span>DEFINITIONS</span>
+        </div>
+        <div className="MsoNormal" data-custom-class="heading_2">
+          <span>2.1.&nbsp;</span>
+          <span>
+            Upper case pronouns “<b>We</b>”, “<b>Us</b>” and “<b>Our</b>” refer
+            to Tolgee s.r.o., with registered office at Letovická 1421/22,
+            Řečkovice, 621 00 Brno, ID number: 09968326, incorporated under the
+            laws of the Czech Republic, registered at the Regional Court in Brno
+            under file no. C 121574.
           </span>
         </div>
-      </div>
-      <div style={{ textAlign: 'left', lineHeight: 1 }}>
-        <br />
-      </div>
-      <div style={{ textAlign: 'left', lineHeight: '1.5' }}>
-        <div
-          className="MsoNormal"
-          data-custom-class="body_text"
-          style={{ lineHeight: '1.5' }}
-        >
-          <span style={{ fontSize: '15px' }}>
-            <span
-              style={{
-                lineHeight: '115%',
-                fontFamily: 'Arial',
-                color: 'rgb(89, 89, 89)',
-              }}
-            >
-              Supplemental terms and conditions or documents that may be posted
-              on the Site from time to time are hereby expressly incorporated
-              herein by reference. We reserve the right, in our sole discretion,
-              to make changes or modifications to these Terms of Use{' '}
-              <span className="block-component" />
-              from time to time
-              <span className="else-block" />. We will alert you about any
-              changes by updating the “Last updated” date of these Terms of Use,
-              and you waive any right to receive specific notice of each such
-              change. Please ensure that you check the applicable Terms every
-              time you use our Site so that you understand which Terms apply.
-              You will be subject to, and will be deemed to have been made aware
-              of and to have accepted, the changes in any revised Terms of Use
-              by your continued use of the Site after the date such revised
-              Terms of Use are posted.
-            </span>
+        <div className="MsoNormal" data-custom-class="heading_2">
+          <span>2.2.&nbsp;</span>
+          <span>
+            Pronouns “<b>you</b>” and “<b>your</b>” refer to you as a customer
+            of Tolgee (the "<b>Services</b>") including any content and services
+            offered through{' '}
+            <a data-custom-class="link" href="http://www.tolgee.io">
+              <span>www.tolgee.io</span>
+            </a>{' '}
+            (the "<b>Website</b>"). If you are using the Service on behalf of a
+            legal entity, then you, as an individual, represent that you have
+            authority to bind that entity to the Agreement and “you” and “your”
+            also refer to that entity.
           </span>
         </div>
-      </div>
-      <div style={{ textAlign: 'left', lineHeight: 1 }}>
-        <br />
-      </div>
-      <div style={{ textAlign: 'left', lineHeight: '1.5' }}>
-        <div
-          className="MsoNormal"
-          data-custom-class="body_text"
-          style={{ lineHeight: '1.5' }}
-        >
-          <span
-            style={{
-              fontSize: '15px',
-              lineHeight: '115%',
-              fontFamily: 'Arial',
-              color: 'rgb(89, 89, 89)',
-            }}
-          >
-            The information provided on the Site is not intended for
-            distribution to or use by any person or entity in any jurisdiction
-            or country where such distribution or use would be contrary to law
-            or regulation or which would subject us to any registration
-            requirement within such jurisdiction or country. Accordingly, those
-            persons who choose to access the Site from other locations do so on
-            their own initiative and are solely responsible for compliance with
-            local laws, if and to the extent local laws are applicable.
+        <div className="MsoNormal" data-custom-class="heading_2">
+          <span>2.3.&nbsp;</span>
+          <span>
+            ”<b>Affiliate</b>” of a person is any person that controls, is
+            controlled by, or is under common control with, such person. The
+            term “control” (“controlled by”) means the power to direct or cause
+            direction of management and policies of a person, whether through
+            the ownership of voting securities, by contract, or otherwise.
           </span>
-          <span
-            style={{
-              fontSize: '11.0pt',
-              lineHeight: '115%',
-              fontFamily: 'Arial',
-              color: '#595959',
-            }}
-          >
+        </div>
+        <div className="MsoNormal" data-custom-class="heading_2">
+          <span>2.4.&nbsp;</span>
+          <span>
+            ”<b>Authorized Users</b>” are you, your employees, consultants,
+            contractors, and agents who are authorized by you to access or use
+            the Services under the rights granted to you pursuant to the
+            Agreement.
+          </span>
+        </div>
+        <div className="MsoNormal" data-custom-class="heading_2">
+          <span>2.5.&nbsp;</span>
+          <span>
+            ”<b>Documentation</b>” are documents describing the features of the
+            Service, requirements for its use, integration, configuration,
+            support, or maintenance. Non-exhaustive list of documentation is
+            available on the Website.
+          </span>
+        </div>
+        <div className="MsoNormal" data-custom-class="heading_2">
+          <span>2.6.&nbsp;</span>
+          <span>
+            ”<b>Resultant Data</b>” are data related to your use of the Services
+            that are used by Us in an aggregate and anonymized manner, including
+            statistical and performance information related to operation of the
+            Services.
+          </span>
+        </div>
+        <div className="MsoNormal" data-custom-class="heading_2">
+          <span>2.7.&nbsp;</span>
+          <span>
+            ”<b>Third-Party Materials</b>” are materials, documents, data,
+            products, services, or software that are not Ours, including
+            open-source software.
+          </span>
+        </div>
+        <div className="MsoNormal" data-custom-class="heading_2">
+          <span>2.8.&nbsp;</span>
+          <b>
+            <span>”Your Data”</span>
+          </b>
+          <span>
             {' '}
+            are data, instructions, materials, and other content that is
+            provided by Authorized User, or that We receive by or through the
+            Service. Your Data does not include Resultant Data.
           </span>
         </div>
-        <div
-          className="MsoNormal"
-          data-custom-class="body_text"
-          style={{ lineHeight: '1.5' }}
-        >
-          <span
-            style={{
-              fontSize: '11.0pt',
-              lineHeight: '115%',
-              fontFamily: 'Arial',
-              color: '#595959',
-            }}
-          >
-            <span className="block-component" />
-            <span className="block-component" />
+        <div className="MsoNormal" data-custom-class="heading_2">
+          <span>2.9.&nbsp;</span>
+          <b>
+            <span>”Your Systems”</span>
+          </b>
+          <span>
+            {' '}
+            means your information technology infrastructure, including
+            computers, software, databases, and networks, whether operated
+            directly by you or through the use of third-party services.
           </span>
         </div>
-        <div
-          className="MsoNormal"
-          data-custom-class="body_text"
-          style={{ lineHeight: 1 }}
-        >
-          <br />
+        <div className="MsoNormal" data-custom-class="heading_1">
+          <span>3.&nbsp;</span>
+          <span>COMMISSIONING</span>
         </div>
-        <div
-          className="MsoNormal"
-          data-custom-class="body_text"
-          style={{ lineHeight: '1.5' }}
-        >
-          <span
-            style={{
-              fontSize: '11.0pt',
-              lineHeight: '115%',
-              fontFamily: 'Arial',
-              color: '#595959',
-            }}
-          >
-            The Site is not tailored to comply with industry-specific
-            regulations (Health Insurance Portability and Accountability Act
-            (HIPAA), Federal Information Security Management Act (FISMA), etc.),
-            so if your interactions would be subjected to such laws, you may not
-            use this Site. You may not use the Site in a way that would violate
-            the Gramm-Leach-Bliley Act (GLBA).
-            <span className="block-component" />
-            <span className="statement-end-if-in-editor" />
+        <div className="MsoNormal" data-custom-class="heading_2">
+          <span>3.1.&nbsp;</span>
+          <u>
+            <span>Conditions</span>
+          </u>
+          <span>. To commission the Service, We need you to:</span>
+        </div>
+        <div className="MsoNormal" data-custom-class="heading_3">
+          <span>a)&nbsp;</span>
+          <span>
+            Arrange all organizational conditions, HW and basic software
+            necessary to operate the Service in accordance with Our
+            recommendations set forth in the Documentation. This is particularly
+            important in case of self-hosted Service, and
           </span>
         </div>
-        <div
-          className="MsoNormal"
-          data-custom-class="body_text"
-          style={{ lineHeight: 1 }}
-        >
-          <br />
-        </div>
-        <div
-          className="MsoNormal"
-          data-custom-class="body_text"
-          style={{ lineHeight: '1.5' }}
-        >
-          <span
-            className="block-container if"
-            data-type="if"
-            id="a2595956-7028-dbe5-123e-d3d3a93ed076"
-          >
-            <span data-type="conditional-block">
-              <span style={{ fontSize: '15px' }}>
-                <span
-                  className="block-component"
-                  data-record-question-key="user_o18_option"
-                  data-type="statement"
-                />
-                <span
-                  className="block-container if"
-                  data-type="if"
-                  id="a2595956-7028-dbe5-123e-d3d3a93ed076"
-                >
-                  <span data-type="conditional-block">
-                    <span data-type="body">
-                      <span
-                        style={{
-                          color: 'rgb(89, 89, 89)',
-                          fontSize: '15px',
-                        }}
-                      >
-                        The Site is intended for users who are at least 18 years
-                        of age. All users who are minors in the jurisdiction in
-                        which they reside (generally under the age of 18) must
-                        have the permission of, and be directly supervised by,
-                        their parent or guardian to use the Site. If you are a
-                        minor, you must have your parent or guardian read and
-                        agree to these Terms of Use
-                      </span>
-                      <span
-                        style={{
-                          color: 'rgb(89, 89, 89)',
-                          fontSize: '14.6667px',
-                        }}
-                      >
-                        {' '}
-                      </span>
-                      <span
-                        style={{
-                          color: 'rgb(89, 89, 89)',
-                          fontSize: '15px',
-                        }}
-                      >
-                        prior to you using the Site.
-                      </span>
-                    </span>
-                  </span>
-                </span>
-              </span>
-            </span>
-          </span>
-          <span data-type="conditional-block">
-            <span style={{ fontSize: '15px' }}>
-              <span
-                className="block-component"
-                data-record-question-key="user_o18_option"
-                data-type="statement"
-              />
-            </span>
+        <div className="MsoNormal" data-custom-class="heading_3">
+          <span>b)&nbsp;</span>
+          <span>
+            Provide Us with assistance required by these Terms and any other
+            assistance necessary to make the Service operational without undue
+            delay, but no later than 5 days from request.
           </span>
         </div>
-      </div>
-      <div style={{ textAlign: 'left', lineHeight: '1.5' }}>
-        <br />
-      </div>
-      <div style={{ textAlign: 'left', lineHeight: '1.5' }}>
-        <div className="MsoNormal" style={{ lineHeight: '1.5' }}>
-          <br />
+        <div className="MsoNormal" data-custom-class="heading_2">
+          <span>3.2.&nbsp;</span>
+          <u>
+            <span>Commissioning</span>
+          </u>
+          <span>
+            . We will commission the Service in accordance with the
+            Documentation by providing you with access details to use the
+            Service. You may check that the Service has been commissioned
+            correctly within 3 days from receiving the access details
+            ("acceptance period"). Within the acceptance period, you must
+            confirm that the Service has been commissioned correctly or report
+            any detected defects. Once you confirm that the Service has been
+            commissioned properly or if you do not report any defects within the
+            acceptance period, this constitutes your acceptance of the proper
+            commissioning of the Service. Further, acceptance of the proper
+            commissioning of the Service occurs if you begin to use the Service
+            beyond its testing.{' '}
+          </span>
         </div>
-        <div
-          className="MsoNormal"
-          data-custom-class="heading_1"
-          style={{ lineHeight: '1.5' }}
-        >
-          <a />
+        <div className="MsoNormal" data-custom-class="heading_2">
+          <span>3.3.&nbsp;</span>
+          <u>
+            <span>Extra Work</span>
+          </u>
+          <span>
+            . If You request any modifications to the Service that are not
+            specified in the Documentation (for example, implementing custom
+            integration, implementing custom feature, this is a request for
+            extra work. Upon receipt of such request, we will propose the terms
+            and conditions for its delivery (in particular time, price,
+            co-operation requirements, etc.). Unless we agree otherwise,
+            negotiations on extra work shall not affect your obligation to
+            accept the Service and pay the agreed price. If we agree on the
+            terms and conditions, You will pay Us the price for extra work based
+            on an invoice issued before with we start the extra works.
+          </span>
+        </div>
+        <div className="MsoNormal" data-custom-class="heading_1">
+          <span>4.&nbsp;</span>
+          <span>SERVICES</span>
+        </div>
+        <div className="MsoNormal" data-custom-class="heading_2">
+          <span>4.1.&nbsp;</span>
+          <u>
+            <span>Use</span>
+          </u>
+          <span>
+            . Subject and conditioned on your and your Authorized Users’
+            compliance with the Agreement, We hereby grant you a non-exclusive,
+            non-transferable right to use the Service during the term of the
+            Agreement, solely for use by Authorized Users in accordance with the
+            Agreement. Such use is limited to your internal use.
+          </span>
+        </div>
+        <div className="MsoNormal" data-custom-class="heading_2">
+          <span>4.2.&nbsp;</span>
+          <u>
+            <span>Reservation of Rights</span>
+          </u>
+          <span>
+            . Nothing in the Agreement grants any license or other right to any
+            intellectual property rights in or relating to the Service, or
+            Third-Party Materials. All rights to the Service and the Third-Party
+            Materials are and will remain with Us and the respective rights
+            holders. You do not acquire any rights except as expressly set forth
+            in Section 4.1 or in the applicable third-party license terms. By
+            entering into the Agreement or, as the case may be, by creation of
+            such data, you assign to Us all rights relating to the Resultant
+            Data. We reserve the right to make changes to the Service that We
+            deem necessary or useful to comply with applicable law, enhance the
+            quality of Service, cost efficiency or performance.
+          </span>
+        </div>
+        <div className="MsoNormal" data-custom-class="heading_2">
+          <span>4.3.&nbsp;</span>
+          <u>
+            <span>Suspension or Termination</span>
+          </u>
+          <span>
+            . We may suspend, terminate, or otherwise deny your, Authorized
+            User’s, or any other person’s access to or use of the Service,
+            without incurring any resulting obligation or liability, if:
+          </span>
+        </div>
+        <div className="MsoNormal" data-custom-class="heading_3">
+          <span>a)&nbsp;</span>
+          <span>
+            We receive a judicial or governmental request or order that requires
+            Us to do so,
+          </span>
+        </div>
+        <div className="MsoNormal" data-custom-class="heading_3">
+          <span>b)&nbsp;</span>
+          <span>
+            We believe that you or any Authorized User has failed to comply with
+            the Agreement or used the Service beyond the scope of rights granted
+            or for a purpose not authorized under the Agreement; or that you or
+            Authorized User has been, or is likely to be involved in fraudulent
+            or unlawful activities,
+          </span>
+        </div>
+        <div className="MsoNormal" data-custom-class="heading_3">
+          <span>c)&nbsp;</span>
+          <span style={{ background: 'white' }}>you do not pay the </span>
+          <span>fees when due, or We receive a chargeback.</span>
+        </div>
+        <div className="MsoNormal" data-custom-class="heading_1">
+          <span>5.&nbsp;</span>
+          <span>USE RESTRICTIONS</span>
+        </div>
+        <div className="MsoNormal" data-custom-class="heading_2">
+          <span>5.1.&nbsp;</span>
+          <u>
+            <span>Use Restrictions</span>
+          </u>
+          <span>
+            . You may not, and may not permit any other person to, access or use
+            the Service except as expressly permitted by the Agreement and, in
+            case of Third-Party Materials, the applicable third-party license
+            terms. You shall not in particular, but not exclusively:
+          </span>
+        </div>
+        <div className="MsoNormal" data-custom-class="heading_3">
+          <span>a)&nbsp;</span>
+          <span>
+            copy, republish, display, distribute, transmit, sell, rent, lease,
+            loan or otherwise make available in any form or by any means all or
+            any portion of the Service,
+          </span>
+        </div>
+        <div className="MsoNormal" data-custom-class="heading_3">
+          <span>b)&nbsp;</span>
+          <span>
+            unless explicitly allowed by the relevant third-party license terms,
+            modify, create compilations or derivative works of the Service,
+            remove, or alter trademarks, Documentation, disclaimers, or notices
+            from Services,
+          </span>
+        </div>
+        <div className="MsoNormal" data-custom-class="heading_3">
+          <span>c)&nbsp;</span>
+          <span>
+            bypass or breach any security used by the Service or access or use
+            the Service other than by an Authorized User through the use of its
+            own then valid access credentials,
+          </span>
+        </div>
+        <div className="MsoNormal" data-custom-class="heading_3">
+          <span>d)&nbsp;</span>
+          <span>
+            upload, transmit, or otherwise provide to or through the Service,
+            any information or materials that are unsolicited advertisements or
+            content (i.e., “spam"), unlawful or contain or activate any harmful
+            code (software, hardware, or other technology, including malware,
+            the purpose or effect of which is to permit unauthorized access to,
+            disrupt or otherwise harm any computer, software, hardware, or
+            network; or prevent any other customer or Authorized User from
+            accessing or using the Service),
+          </span>
+        </div>
+        <div className="MsoNormal" data-custom-class="heading_3">
+          <span>e)&nbsp;</span>
+          <span>
+            damage, disable, interfere with, or otherwise harm the Services, or
+            Our provision of Service,
+          </span>
+        </div>
+        <div className="MsoNormal" data-custom-class="heading_3">
+          <span>f)&nbsp;</span>
+          <span>
+            access or use the Service for purposes of competitive analysis of
+            the Service, development, provision, or use of a competing service
+            or product or any other purpose that is to Our commercial
+            disadvantage,
+          </span>
+        </div>
+        <div className="MsoNormal" data-custom-class="heading_3">
+          <span>g)&nbsp;</span>
+          <span>
+            access or use the Service in association with any safety-critical
+            systems, or other systems in which the use or failure of the Service
+            could lead to personal injury or physical or property damage, or
+          </span>
+        </div>
+        <div className="MsoNormal" data-custom-class="heading_3">
+          <span>h)&nbsp;</span>
+          <span>
+            access or use the Service in manner or for purpose that infringes
+            any intellectual property right or other right of any third party or
+            that violates any applicable law.
+          </span>
+        </div>
+        <div className="MsoNormal" data-custom-class="heading_2">
+          <span>5.2.&nbsp;</span>
+          <u>
+            <span style={{ background: 'white' }}>Free version</span>
+          </u>
+          <span style={{ background: 'white' }}>
+            . We may provide you with a free version of the Service. Provision
+            of free version may be subject to limitations listed on the Website.
+            We are not liable for any defects in the Service or any damage
+            caused by the use of the Service if you use the free version.
+          </span>
+        </div>
+        <div className="MsoNormal" data-custom-class="heading_1">
+          <span>6.&nbsp;</span>
+          <span>YOUR OBLIGATIONS</span>
+        </div>
+        <div className="MsoNormal" data-custom-class="heading_2">
+          <span>6.1.&nbsp;</span>
+          <u>
+            <span>Cooperation</span>
+          </u>
+          <span>. You shall at all times during the Agreement term:</span>
+        </div>
+        <div className="MsoNormal" data-custom-class="heading_3">
+          <span>a)&nbsp;</span>
+          <span>
+            maintain and operate Your Systems in accordance with the
+            Documentation and Our recommendations,
+          </span>
+        </div>
+        <div className="MsoNormal" data-custom-class="heading_3">
+          <span>b)&nbsp;</span>
+          <span>
+            provide Our personnel with such access to your premises and Your
+            Systems as is necessary for Us to commission or provide the Service,
+            and
+          </span>
+        </div>
+        <div className="MsoNormal" data-custom-class="heading_3">
+          <span>c)&nbsp;</span>
+          <span>
+            provide all cooperation and assistance as We may reasonably request
+            to enable Us to exercise Our rights and perform Our obligations
+            under and in connection with the Agreement.
+          </span>
+        </div>
+        <div className="MsoNormal" data-custom-class="heading_2">
+          <span>6.2.&nbsp;</span>
+          <u>
+            <span>Delay</span>
+          </u>
+          <span>
+            . If You fail to provide Us with cooperation or fail to fulfil any
+            other obligation under the Agreement, this constitutes an obstacle
+            which prevents Us from performing Our obligations under the
+            Agreement and entitles Us to suspend the performance of the
+            Agreement. The duration of the obstacle for which We are unable to
+            perform is calculated from the first day on which the obstacle
+            occurs until the moment You inform Us of its removal. The deadlines
+            for performance of Our obligations under the Agreement are
+            automatically extended by the duration of the obstacle and the time
+            necessary to restore continuity of Our performance to You.
+          </span>
+        </div>
+        <div className="MsoNormal" data-custom-class="heading_2">
+          <span>6.3.&nbsp;</span>
+          <u>
+            <span>Corrective Action</span>
+          </u>
+          <span>
+            . If You become aware of any actual or threatened activity
+            prohibited by Section 5.1, You must, and must cause your Authorized
+            Users to, immediately take all reasonable measures within their
+            respective control that are necessary to stop the activity and to
+            mitigate its effects (including by discontinuing and preventing any
+            unauthorized access to the Services and erasing data to which any of
+            them have gained unauthorized access) and notify Us of any such
+            actual or threatened activity.
+          </span>
+        </div>
+        <div className="MsoNormal" data-custom-class="heading_2">
+          <span>6.4.&nbsp;</span>
+          <u>
+            <span>Non-Solicitation</span>
+          </u>
+          <span>
+            . During the term of the Agreement and for a period of 2 years
+            thereafter, you must not, and must not assist any other person to,
+            directly or indirectly, recruit or solicit (other than by general
+            advertisement not directed specifically to any person) for
+            employment or engagement as an independent contractor any person
+            then or within the prior 6 months employed or engaged by Us. In the
+            event of a breach of this Section 6.4, We will be entitled to
+            liquidated damages equal to the compensation paid by Us to the
+            applicable employee or contractor during the 6 months prior to the
+            breach.
+          </span>
+        </div>
+        <div className="MsoNormal" data-custom-class="heading_2">
+          <span>6.5.&nbsp;</span>
+          <u>
+            <span>Non-Compete</span>
+          </u>
+          <span>
+            . You must not to develop, sell, or otherwise make available to any
+            third party any software or service that serves the same or similar
+            purpose or has the same or substantially similar functionality as
+            the Service or software used in provision of the Service and you
+            must not assist any other person in such activity. The restriction
+            applies in the USA and EEA, during the term of the Agreement and for
+            a period of 2 years thereafter. If You breach the provisions of this
+            Section 6.5, You shall pay Us a liquidated damages EUR 1 million.
+          </span>
+        </div>
+        <div className="MsoNormal" data-custom-class="heading_2">
+          <span>6.6.&nbsp;</span>
+          <u>
+            <span>Inspection</span>
+          </u>
+          <span>
+            . We may inspect or instruct a third party to inspect and you shall
+            provide Us with access to all relevant documents, premises,
+            personnel, and other requested information to the extent We have
+            reasonable grounds to suspect a breach of the Agreement by You. If
+            an inspection reveals that You have used the Service in excess of
+            that permitted by the Agreement, You will pay Us the cost of such
+            excessive use calculated pro rata in accordance with current the
+            price list, including interest on such amounts, and any costs
+            incurred in connection with the inspection within 15 days of the
+            date of notification of the results of the inspection.
+          </span>
+        </div>
+        <div className="MsoNormal" data-custom-class="heading_2">
+          <span>6.7.&nbsp;</span>
+          <u>
+            <span>Your Responsibility</span>
+          </u>
+          <span>. You are solely responsible for: </span>
+        </div>
+        <div className="MsoNormal" data-custom-class="heading_3">
+          <span>a)&nbsp;</span>
+          <span>
+            Your Systems and the fact that they meet the requirements set out in
+            the Documentation. If you do not meet these requirements, the
+            Service may not function properly or at all,
+          </span>
+        </div>
+        <div className="MsoNormal" data-custom-class="heading_3">
+          <span>b)&nbsp;</span>
+          <span>
+            legality of processing of Your Data. In particular, You are
+            responsible for ensuring that You are entitled to provide Us with
+            all Your Data and that Our use and processing of Your Data for the
+            purpose of providing the Service does not infringe any third-party
+            rights, in particular intellectual property rights or privacy rights
+            or obligations under any law or regulation. You are required to
+            inform persons whose personal and other data You transfer to Us of
+            such transfer, and to obtain consent to such transfer of personal
+            data where necessary,
+          </span>
+        </div>
+        <div className="MsoNormal" data-custom-class="heading_3">
+          <span>c)&nbsp;</span>
+          <span>
+            use, security, and protection of access details from unauthorized
+            use; and
+          </span>
+        </div>
+        <div className="MsoNormal" data-custom-class="heading_3">
+          <span>d)&nbsp;</span>
+          <span>
+            all access to and use of the Service through Your Systems or the
+            access details of Authorized Users, including all results obtained
+            from such access or use and all conclusions, decisions and actions
+            based thereon.
+          </span>
+        </div>
+        <div className="MsoNormal" data-custom-class="heading_1">
+          <span>7.&nbsp;</span>
+          <span>FEES AND PAYMENT</span>
+        </div>
+        <div className="MsoNormal" data-custom-class="heading_2">
+          <span>7.1.&nbsp;</span>
+          <u>
+            <span>Fees</span>
+          </u>
+          <span>
+            . Unless we agree on a different amount of fees, you shall pay Us
+            the fees in accordance with the currently effective price list
+            available at{' '}
+            <a href="https://tolgee.io/pricing">
+              <span data-custom-class="link">https://tolgee.io/pricing</span>
+            </a>{' '}
+          </span>
+          <span>
+            immediately after the order has been submitted. We may change the
+            price list, institute new fees, or increase the fees for next
+            renewal term by providing written notice to you prior to the
+            commencement of such term. The obligation to pay the fees is not
+            tied to your actual use of the Service. In the event that You do not
+            use the Service, this shall not affect Our right to payment of the
+            fees in full. Unless expressly set forth herein, the fees are
+            non-cancelable and non-refundable.
+          </span>
+        </div>
+        <div className="MsoNormal" data-custom-class="heading_2">
+          <span>7.2.&nbsp;</span>
+          <u>
+            <span>Sets</span>
+          </u>
+          <span>
+            . Price list sets forth the fees for designated number of Authorized
+            Users, stored translations, and machine translations (so called
+            “sets”) per relevant subscription term. If you exceed your sets in
+            any subscription term, you shall also pay Us the applicable fees set
+            forth in the price list, the fees for excessive use are due at the
+            end of each subscription term. You may upgrade the set and
+            corresponding fee obligations in accordance with the price list at
+            any time, upgrade options are listed in{' '}
+          </span>
+          <span data-custom-class="link">
+            <span>app.tolgee.io</span>
+          </span>
+          <span>
+            . You agree that We have no obligation to permit you to decrease
+            your then-current set. But if We do, we are not obliged to return
+            the already paid price. Instead, we may issue Service credits. We
+            will activate the upgraded set after We receive your payment.
+          </span>
+        </div>
+        <div className="MsoNormal" data-custom-class="heading_2">
+          <span>7.3.&nbsp;</span>
+          <u>
+            <span>Taxes</span>
+          </u>
+          <span>
+            . All fees and other amounts payable by you under the Agreement are
+            exclusive of taxes and similar assessments. Without limiting the
+            foregoing, you are responsible for VAT, sales, use, and excise
+            taxes, and any other similar taxes, duties, and charges of any kind
+            imposed by any federal, state, or local governmental or regulatory
+            authority on any amounts payable by You hereunder. If you are
+            required to make any deduction from the payment of the fee (for
+            example, to pay income tax withholding), you must notify Us in
+            advance. Unless we agree otherwise, We shall be entitled to increase
+            the invoiced fees so that We always receive the net amount due to Us
+            without any deductions or withholdings.
+          </span>
+        </div>
+        <div className="MsoNormal" data-custom-class="heading_2">
+          <span>7.4.&nbsp;</span>
+          <u>
+            <span>Payment</span>
+          </u>
+          <span>
+            . You shall make all payments via Stripe payment gateway. You hereby
+            agree to the terms and conditions of Stripe services available at
+            https://stripe.com. Payment instructions will be displayed to you in
+            immediately after the order is submitted. We will issue and send the
+            invoice to You at the same time as the order confirmation. In case
+            of subscription term renewal and payment for excessive use, the fees
+            will be charged automatically to the payment method you last
+            selected.&nbsp;{' '}
+          </span>
+        </div>
+        <div className="MsoNormal" data-custom-class="heading_2">
+          <span>7.5.&nbsp;</span>
+          <u>
+            <span>Late Payment</span>
+          </u>
+          <span>
+            . If you fail to make any payment when due, then in addition to
+            other remedies:
+          </span>
+        </div>
+        <div className="MsoNormal" data-custom-class="heading_3">
+          <span>a)&nbsp;</span>
+          <span>
+            We may charge interest on the past due amount at the rate of 0.5%
+            per each commenced day of delay or, if lower, the highest rate
+            permitted under applicable law,{' '}
+          </span>
+        </div>
+        <div className="MsoNormal" data-custom-class="heading_3">
+          <span>b)&nbsp;</span>
+          <span>
+            You shall reimburse Us for all costs incurred in collecting any late
+            payments or interest, including attorneys’ fees, court costs, and
+            collection agency fees, and
+          </span>
+        </div>
+        <div className="MsoNormal" data-custom-class="heading_3">
+          <span>c)&nbsp;</span>
+          <span>
+            We may suspend provision of the Service until all past due amounts
+            and interest thereon have been paid, without incurring any
+            obligation or liability to You or any other person by reason of such
+            suspension.
+          </span>
+        </div>
+        <div className="MsoNormal" data-custom-class="heading_2">
+          <span>7.6.&nbsp;</span>
+          <u>
+            <span style={{ background: 'white' }}>Chargeback</span>
+          </u>
+          <span style={{ background: 'white' }}>
+            . We reserve the right to immediately suspend access to the Service,
+            without prior notice, in the event we receive notice of a Chargeback
+            (as defined below). Contacting your bank or credit / debit card
+            provider and rejecting, cancelling, or contesting the charge of any
+            amount payable in connection with your use of the Service (“
+          </span>
           <strong>
             <span
-              style={{
-                lineHeight: '115%',
-                fontFamily: 'Arial',
-                fontSize: '19px',
-              }}
+              style={{ fontFamily: '"Calibri",sans-serif', color: '#001D2F' }}
             >
-              INTELLECTUAL PROPERTY RIGHTS
+              Chargeback
             </span>
           </strong>
-        </div>
-      </div>
-      <div style={{ textAlign: 'left', lineHeight: 1 }}>
-        <br />
-      </div>
-      <div style={{ textAlign: 'left', lineHeight: '1.5' }}>
-        <div
-          className="MsoNormal"
-          data-custom-class="body_text"
-          style={{ lineHeight: '1.5' }}
-        >
-          <span
-            style={{
-              fontSize: '15px',
-              lineHeight: '115%',
-              fontFamily: 'Arial',
-              color: 'rgb(89, 89, 89)',
-            }}
-          >
-            Unless otherwise indicated, the Site is our proprietary property and
-            all source code, databases, functionality, software, website
-            designs, audio, video, text, photographs, and graphics on the Site
-            (collectively, the “Content”) and the trademarks, service marks, and
-            logos contained therein (the “Marks”) are owned or controlled by us
-            or licensed to us, and are protected by copyright and trademark laws
-            and various other intellectual property rights and unfair
-            competition laws of the United States, international copyright laws,
-            and international conventions. The Content and the Marks are
-            provided on the Site “AS IS” for your information and personal use
-            only. Except as expressly provided in these Terms of Use, no part of
-            the Site and no Content or Marks may be copied, reproduced,
-            aggregated, republished, uploaded, posted, publicly displayed,
-            encoded, translated, transmitted, distributed, sold, licensed, or
-            otherwise exploited for any commercial purpose whatsoever, without
-            our express prior written permission.
+          <span style={{ background: 'white' }}>
+            ”) will be considered a breach of your payment obligations under the
+            Agreement. We also reserve the right to dispute any Chargeback
+            received. We may take reasonable steps to restrict your future
+            access to our Service if We believe that you have maliciously
+            requested a Chargeback.
           </span>
         </div>
-      </div>
-      <div style={{ textAlign: 'left', lineHeight: 1 }}>
-        <br />
-      </div>
-      <div style={{ textAlign: 'left', lineHeight: '1.5' }}>
-        <div
-          className="MsoNormal"
-          data-custom-class="body_text"
-          style={{ lineHeight: '1.5' }}
-        >
-          <span
-            style={{
-              fontSize: '15px',
-              lineHeight: '115%',
-              fontFamily: 'Arial',
-              color: 'rgb(89, 89, 89)',
-            }}
-          >
-            Provided that you are eligible to use the Site, you are granted a
-            limited license to access and use the Site and to download or print
-            a copy of any portion of the Content to which you have properly
-            gained access solely for your personal, non-commercial use. We
-            reserve all rights not expressly granted to you in and to the Site,
-            the Content and the Marks.
+        <div className="MsoNormal" data-custom-class="heading_2">
+          <span>7.7.&nbsp;</span>
+          <u>
+            <span>Fair Use Policy</span>
+          </u>
+          <span>
+            . You may use the Service only to the extent that is reasonable. Our
+            current fair use policy will be listed on the Website. If you intend
+            to use the Service in excess of the fair use, please contact us and
+            We will negotiate in good faith with the intention to increase the
+            amount. Unless we agree otherwise within 30 days of the day when you
+            are found to have used the Service in excess, you will pay Us the
+            fees for such excessive use calculated as pro-rata portion of the
+            price corresponding to the amount in excess.
           </span>
         </div>
-      </div>
-      <div style={{ textAlign: 'left', lineHeight: '1.5' }}>
-        <br />
-      </div>
-      <div style={{ textAlign: 'left', lineHeight: '1.5' }}>
-        <div className="MsoNormal" style={{ lineHeight: '1.5' }}>
-          <br />
+        <div className="MsoNormal" data-custom-class="heading_2">
+          <span>7.8.&nbsp;</span>
+          <u>
+            <span>Inspection</span>
+          </u>
+          <span>
+            . We or Our nominee (including its accountants and auditors) may
+            inspect your use of the Service under the Agreement. All audits will
+            be conducted in a manner that does not unreasonably interfere with
+            your business operations. You shall make available all such books,
+            records, equipment, information, and personnel, and provide all such
+            cooperation, as may be requested by or on behalf of Us. We shall
+            only examine information directly related to your use of the
+            Service. If the inspection determines that your use of the Service
+            exceeded the usage permitted by the Agreement, you shall pay Us all
+            amounts due for such excess use of the Service, plus interest on
+            such amounts, as calculated pursuant to Section 7.5. If the
+            inspection determines that such excess use equals or exceeds 10 % of
+            permitted usage, you shall also pay to Us all costs incurred in
+            conducting the inspection. You shall make all payments required
+            under this Section within 15 days of the date of written
+            notification of the inspection results.
+          </span>
         </div>
-        <div
-          className="MsoNormal"
-          data-custom-class="heading_1"
-          style={{ lineHeight: '1.5' }}
-        >
-          <a />
-          <strong>
-            <span
-              style={{
-                lineHeight: '115%',
-                fontFamily: 'Arial',
-                fontSize: '19px',
-              }}
-            >
-              USER REPRESENTATIONS
+        <div className="MsoNormal" data-custom-class="heading_1">
+          <span>8.&nbsp;</span>
+          CONFIDENTIALITY
+        </div>
+        <div className="MsoNormal" data-custom-class="heading_2">
+          <span>8.1.&nbsp;</span>
+          <u>
+            <span>Confidential Information</span>
+          </u>
+          <span>
+            . In connection with the Agreement each of us as a “Disclosing
+            Party” may disclose or make available Confidential Information to
+            the other one as a “Receiving Party”. “Confidential Information” is
+            any information consisting of or relating to the Disclosing Party’s
+            technology, trade secrets, know-how, business operations, plans,
+            strategies, customers, or pricing.
+          </span>
+        </div>
+        <div className="MsoNormal" data-custom-class="heading_2">
+          <span>8.2.&nbsp;</span>
+          <u>
+            <span>Exclusions</span>
+          </u>
+          <span>
+            . Confidential Information does not include information that:{' '}
+          </span>
+        </div>
+        <div className="MsoNormal" data-custom-class="heading_3">
+          <span>a)&nbsp;</span>
+          <span>
+            was known to the Receiving Party without restriction on use or
+            disclosure prior to such information’s being disclosed or made
+            available to the Receiving Party in connection with this Agreement;{' '}
+          </span>
+        </div>
+        <div className="MsoNormal" data-custom-class="heading_3">
+          <span>b)&nbsp;</span>
+          <span>
+            was or becomes generally known by the public other than by the
+            Receiving Party’s or any of its representatives’ noncompliance with
+            this Agreement;{' '}
+          </span>
+        </div>
+        <div className="MsoNormal" data-custom-class="heading_3">
+          <span>c)&nbsp;</span>
+          <span>
+            the Receiving Party can demonstrate by written or other documentary
+            records was or is independently developed by the Receiving Party
+            without reference to or use of any Confidential Information.
+          </span>
+        </div>
+        <div className="MsoNormal" data-custom-class="heading_2">
+          <span>8.3.&nbsp;</span>
+          <u>
+            <span>Protection of Confidential Information</span>
+          </u>
+          <span>
+            . As a condition to being provided with any disclosure of or access
+            to Confidential Information, the Receiving Party shall:
+          </span>
+        </div>
+        <div className="MsoNormal" data-custom-class="heading_3">
+          <span>a)&nbsp;</span>
+          <span>
+            not access or use Confidential Information other than as necessary
+            to exercise its rights or perform its obligations under and in
+            accordance with this Agreement;&nbsp;and
+          </span>
+        </div>
+        <div className="MsoNormal" data-custom-class="heading_3">
+          <span>b)&nbsp;</span>
+          <span>
+            except as may be permitted, not disclose or permit access to
+            Confidential Information other than to its representatives who: (i)
+            need to know such Confidential Information for purposes of the
+            Receiving Party’s exercise of its rights or performance of its
+            obligations under and in accordance with the Agreement; (ii) have
+            been informed of the confidential nature of the Confidential
+            Information and the Receiving Party’s obligations under Section 8;
+            and (iii) are bound by confidentiality and restricted use
+            obligations at least as protective of the Confidential Information
+            as the terms set forth therein.
+          </span>
+        </div>
+        <div className="MsoNormal" data-custom-class="heading_2">
+          <span>8.4.&nbsp;</span>
+          <u>
+            <span>Compelled Disclosures</span>
+          </u>
+          <span>
+            . If the Receiving Party or any of its representatives is compelled
+            by applicable law to disclose any Confidential Information then, the
+            Receiving Party may disclose only that portion of the Confidential
+            Information that the Receiving Party is legally required to
+            disclose. To the extent permitted by applicable Law, the Receiving
+            Party shall notify the Disclosing Party in writing of such
+            requirement. Also, sometimes We look into user projects using
+            open-replay to see how they behave to improve UX and also for
+            debugging when they report a bug, this shall not be considered to be
+            a breach of confidentiality.
+          </span>
+        </div>
+        <div className="MsoNormal" data-custom-class="heading_2">
+          <span>8.5.&nbsp;</span>
+          <u>
+            <span>Term</span>
+          </u>
+          <span>
+            . Each Party's obligations under this Section 8 will last throughout
+            the Agreement term and for five years thereafter; provided, however,
+            with respect to any confidential information that constitutes a
+            trade secret, such obligations of non-disclosure will survive the
+            termination or expiration of this Agreement for as long as such
+            confidential information remains subject to trade secret protection
+            under applicable law.
+          </span>
+        </div>
+        <div className="MsoNormal" data-custom-class="heading_1">
+          <span>9.&nbsp;</span>
+          <span>REPRESENTATIONS AND WARRANTIES</span>
+        </div>
+        <div className="MsoNormal" data-custom-class="heading_2">
+          <span>9.1.&nbsp;</span>
+          <u>
+            <span>Mutual Representations and Warranties</span>
+          </u>
+          <span>
+            . Each party represents and warrants to the other party that
+            execution of the Agreement by its representative has been duly
+            authorized by all necessary corporate or organizational action of
+            such party; and when executed and delivered by both parties, the
+            Agreement will constitute the legal, valid, and binding obligation
+            of such party, enforceable against such party.
+          </span>
+        </div>
+        <div className="MsoNormal" data-custom-class="heading_2">
+          <span>9.2.&nbsp;</span>
+          <u>
+            <span>Your Additional Warranties</span>
+          </u>
+          <span>
+            . You represent and warrant to Us that you own the necessary rights
+            and consents relating to Your Data so that, as received by Us and
+            processed in accordance with the Agreement, they do not and will not
+            infringe, misappropriate, or otherwise violate any intellectual
+            property rights, or any privacy or other rights of any third party
+            or violate any applicable law.
+          </span>
+        </div>
+        <div className="MsoNormal" data-custom-class="heading_2">
+          <span>9.3.&nbsp;</span>
+          <u>
+            <span>DISCLAIMER OF WARRANTIES</span>
+          </u>
+          <span>
+            . EXCEPT FOR THE EXPRESS WARRANTIES SET FORTH IN SECTION 9.1, ALL
+            SERVICES ARE PROVIDED “AS IS.” TO THE MAXIMUM EXTENT PERMITTED UNDER
+            THE APPLICABLE LAW, WE SPECIFICALLY DISCLAIM ALL IMPLIED WARRANTIES
+            OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE, TITLE, AND
+            NON-INFRINGEMENT, AND ALL WARRANTIES ARISING FROM COURSE OF DEALING,
+            USAGE, OR TRADE PRACTICE. WITHOUT LIMITING THE FOREGOING, WE MAKE NO
+            WARRANTY OF ANY KIND THAT THE SERVICE, OR ANY PRODUCTS OR RESULTS OF
+            THE USE THEREOF, WILL MEET YOUR OR ANY OTHER PERSON’S REQUIREMENTS,
+            BE AVAILABLE OR OPERATE WITHOUT INTERRUPTION, ACHIEVE ANY INTENDED
+            RESULT, BE COMPATIBLE OR WORK WITH ANY SOFTWARE, SYSTEM, OR OTHER
+            SERVICE, OR BE SECURE, ACCURATE, COMPLETE, FREE OF HARMFUL CODE, OR
+            ERROR FREE. ALL THIRD-PARTY MATERIALS ARE PROVIDED “AS IS” AND ANY
+            REPRESENTATION OR WARRANTY OF OR CONCERNING ANY THIRD-PARTY
+            MATERIALS IS STRICTLY BETWEEN YOU AND THE THIRD-PARTY OWNER OR
+            DISTRIBUTOR OF THE THIRD-PARTY MATERIALS. Service does not replace
+            the need for you to maintain regular data backups or redundant data
+            archives. WE HAVE NO OBLIGATION OR LIABILITY FOR ANY LOSS,
+            ALTERATION, DESTRUCTION, DAMAGE, CORRUPTION, OR RECOVERY OF YOUR
+            DATA.
+          </span>
+        </div>
+        <div className="MsoNormal" data-custom-class="heading_1">
+          <span>10.&nbsp;</span>
+          <span>INDEMNIFICATION</span>
+        </div>
+        <div className="MsoNormal" data-custom-class="heading_2">
+          <span>10.1.&nbsp;</span>
+          <u>
+            <span>Our Indemnification</span>
+          </u>
+          <span>
+            . We shall indemnify you from and against damages awarded against
+            you in a final non-appealable judgment arising out of any claim by a
+            third party (other than an Affiliate of yours) that your use of the
+            Service (excluding Your Data and Third-Party Materials) in
+            accordance with the Agreement infringes such third party’s
+            copyrights. The foregoing obligation does not apply if the alleged
+            infringement arises from:
+          </span>
+        </div>
+        <div className="MsoNormal" data-custom-class="heading_3">
+          <span>a)&nbsp;</span>
+          <span>Third-Party Materials or Your Data,</span>
+        </div>
+        <div className="MsoNormal" data-custom-class="heading_3">
+          <span>b)&nbsp;</span>
+          <span>
+            access to or use of the Service in combination with any hardware,
+            system, software, network, or other materials or service not
+            provided by Us or specified for your use in the Documentation,
+          </span>
+        </div>
+        <div className="MsoNormal" data-custom-class="heading_3">
+          <span>c)&nbsp;</span>
+          <span>
+            modification of the Service other than by or on behalf of Us or with
+            Our prior written approval,
+          </span>
+        </div>
+        <div className="MsoNormal" data-custom-class="heading_3">
+          <span>d)&nbsp;</span>
+          <span>
+            failure to timely implement any modifications, upgrades,
+            replacements, or enhancements made available to you by or on behalf
+            of Us, or
+          </span>
+        </div>
+        <div className="MsoNormal" data-custom-class="heading_3">
+          <span>e)&nbsp;</span>
+          <span>
+            act, omission, or other matter described in Sections 10.3 a) – c).
+          </span>
+        </div>
+        <div className="MsoNormal" data-custom-class="heading_2">
+          <span>10.2.&nbsp;</span>
+          <u>
+            <span>Mitigation</span>
+          </u>
+          <span>
+            . If the Service is, or in Our opinion is likely to infringe
+            third-party intellectual property right, or if your or any
+            Authorized User’s use of the Service is enjoined, We may, at Our
+            option and expense:
+          </span>
+        </div>
+        <div className="MsoNormal" data-custom-class="heading_3">
+          <span>a)&nbsp;</span>
+          <span>
+            obtain the right for you to continue to use the Service materially
+            as contemplated by the Agreement;
+          </span>
+        </div>
+        <div className="MsoNormal" data-custom-class="heading_3">
+          <span>b)&nbsp;</span>
+          <span>
+            modify or replace the Service to make them non-infringing, while
+            providing materially equivalent functionality, in which case the
+            modifications or replacements will constitute Service under the
+            Agreement; or
+          </span>
+        </div>
+        <div className="MsoNormal" data-custom-class="heading_3">
+          <span>c)&nbsp;</span>
+          <span>
+            by written notice to you, terminate the Agreement with respect to
+            all or part of the Service and require you to immediately cease any
+            use of the Service or any specified part or feature thereof.
+          </span>
+        </div>
+        <div className="MsoNormal" data-custom-class="heading_2">
+          <span>10.3.&nbsp;</span>
+          <u>
+            <span>Your Indemnification</span>
+          </u>
+          <span>
+            . You shall indemnify, defend, and hold harmless Us and Our
+            Affiliates, and each of our respective officers, directors,
+            employees, and agents from and against any and all loss, damage,
+            claim, action, judgment, settlement, interest, penalty, fine, costs,
+            or expenses, including attorneys’ fees and the costs of enforcing
+            any right to indemnification hereunder incurred resulting from any
+            action by a third party that arise out of or result from, or are
+            alleged to arise out of or result from:
+          </span>
+        </div>
+        <div className="MsoNormal" data-custom-class="heading_3">
+          <span>a)&nbsp;</span>
+          <span>
+            Your Data, including any processing of it by or on behalf of Us in
+            accordance with the Agreement;
+          </span>
+        </div>
+        <div className="MsoNormal" data-custom-class="heading_3">
+          <span>b)&nbsp;</span>
+          <span>
+            allegation of facts that, if true, would constitute your breach of
+            any of your representations, warranties, covenants, or obligations
+            under the Agreement; or
+          </span>
+        </div>
+        <div className="MsoNormal" data-custom-class="heading_3">
+          <span>c)&nbsp;</span>
+          <span>
+            negligence or more culpable act or omission (including recklessness
+            or willful misconduct) by you, any Authorized User, or any third
+            party on behalf of you or any Authorized User, in connection with
+            the Agreement.
+          </span>
+        </div>
+        <div className="MsoNormal" data-custom-class="heading_2">
+          <span>10.4.&nbsp;</span>
+          <u>
+            <span>Indemnification Procedure</span>
+          </u>
+          <span>
+            . Each party shall promptly notify the other party in writing of any
+            action for which such party believes it is entitled to be
+            indemnified. The party seeking indemnification (“Indemnitee”) shall
+            cooperate with the other party (“Indemnitor”) at the Indemnitor’s
+            cost and expense. Indemnitor shall promptly assume control of the
+            defense and shall employ counsel reasonably acceptable to the
+            Indemnitee to handle and defend the same, at the Indemnitor’s sole
+            cost and expense. Indemnitee may participate in and observe the
+            proceedings at its own cost and expense with counsel of its own
+            choosing. Indemnitor shall not settle any action without
+            Indemnitee’s prior written consent. If the Indemnitor fails or
+            refuses to assume control of the defense of such action, Indemnitee
+            shall have the right, but no obligation, to defend against such
+            action, including settling such action, in each case in such manner
+            and on such terms as the Indemnitee may deem appropriate.
+            Indemnitee’s failure to perform any obligations under this Section
+            10.4 will not relieve the Indemnitor of its obligations under this
+            Section 10.
+          </span>
+        </div>
+        <div className="MsoNormal" data-custom-class="heading_2">
+          <span>10.5.&nbsp;</span>
+          <u>
+            <span>Sole Remedy</span>
+          </u>
+          <span>
+            . THIS SECTION 10 AND ISSUANCE OF SERVICE CREDIT SETS FORTH YOUR
+            SOLE REMEDIES AND OUR SOLE LIABILITY AND OBLIGATION FOR ANY ACTUAL,
+            THREATENED, OR ALLEGED CLAIMS THAT THE SERVICE OR ANY SUBJECT MATTER
+            OF THE AGREEMENT INFRINGES OR OTHERWISE VIOLATES ANY INTELLECTUAL
+            PROPERTY RIGHTS OF THIRD PARTY.
+          </span>
+        </div>
+        <div className="MsoNormal" data-custom-class="heading_1">
+          <span>11.&nbsp;</span>
+          <span>LIMITATION OF LIABILITY</span>
+        </div>
+        <div className="MsoNormal" data-custom-class="heading_2">
+          <span>11.1.&nbsp;</span>
+          <u>
+            <span>EXCLUSION OF DAMAGES</span>
+          </u>
+          <span>
+            . TO THE MAXIMUM EXTENT PERMITTED UNDER THE APPLICABLE LAW, IN NO
+            EVENT WILL WE OR ANY OF OUR AFFILIATES, LICENSORS, SERVICE
+            PROVIDERS, OR SUPPLIERS BE LIABLE UNDER OR IN CONNECTION WITH THE
+            AGREEMENT OR ITS SUBJECT MATTER UNDER ANY LEGAL OR EQUITABLE THEORY,
+            INCLUDING BREACH OF CONTRACT, TORT (INCLUDING NEGLIGENCE), STRICT
+            LIABILITY, AND OTHERWISE, FOR ANY: (a) LOSS OF PRODUCTION, USE,
+            BUSINESS, REVENUE, OR PROFIT OR DIMINUTION IN VALUE; (b) IMPAIRMENT,
+            INABILITY TO USE OR LOSS, INTERRUPTION, OR DELAY OF THE SERVICES;
+            (c) LOSS, DAMAGE, CORRUPTION, OR RECOVERY OF DATA, OR BREACH OF DATA
+            OR SYSTEM SECURITY; (d) COST OF REPLACEMENT GOODS OR SERVICES; (e)
+            LOSS OF GOODWILL OR REPUTATION; (f) CONSEQUENTIAL, INCIDENTAL,
+            INDIRECT, EXEMPLARY, SPECIAL, ENHANCED, OR PUNITIVE DAMAGES,
+            REGARDLESS OF WHETHER YOU WERE ADVISED OF THE POSSIBILITY OF SUCH
+            LOSSES OR DAMAGES OR SUCH LOSSES OR DAMAGES WERE OTHERWISE
+            FORESEEABLE, AND NOTWITHSTANDING THE FAILURE OF ANY AGREED OR OTHER
+            REMEDY OF ITS ESSENTIAL PURPOSE.
+          </span>
+        </div>
+        <div className="MsoNormal" data-custom-class="heading_2">
+          <span>11.2.&nbsp;</span>
+          <u>
+            <span>CAP ON MONETARY LIABILITY</span>
+          </u>
+          <span>
+            . TO THE MAXIMUM EXTENT PERMITTED UNDER THE APPLICABLE LAW, IN NO
+            EVENT WILL THE COLLECTIVE AGGREGATE LIABILITY OF US AND OUR
+            AFFILIATES, LICENSORS, SERVICE PROVIDERS, AND SUPPLIERS ARISING OUT
+            OF OR RELATED TO THE AGREEMENT, WHETHER ARISING UNDER OR RELATED TO
+            BREACH OF CONTRACT, TORT (INCLUDING NEGLIGENCE), STRICT LIABILITY,
+            OR ANY OTHER LEGAL OR EQUITABLE THEORY, EXCEED 100 % THE TOTAL
+            AMOUNTS PAID TO US UNDER THIS AGREEMENT IN THE 12 MONTH PERIOD
+            PRECEDING THE EVENT GIVING RISE TO THE CLAIM OR $1000, WHICHEVER IS
+            LESS. THE FOREGOING LIMITATIONS APPLY EVEN IF ANY REMEDY FAILS OF
+            ITS ESSENTIAL PURPOSE.
+          </span>
+        </div>
+        <div className="MsoNormal" data-custom-class="heading_1">
+          <span>12.&nbsp;</span>
+          <span>TERM AND TERMINATION</span>
+        </div>
+        <div className="MsoNormal" data-custom-class="heading_2">
+          <span>12.1.&nbsp;</span>
+          <u>
+            <span>Term</span>
+          </u>
+          <span>
+            . Initial term of the Agreement commences on the date of its
+            conclusion and unless terminated earlier pursuant the Agreement’s
+            express provisions, will continue for the agreed subscription term.
+            Agreement term will automatically renew for additional successive
+            subscription term of the same length as the previous one unless
+            earlier terminated pursuant to the Agreement’s express provisions or
+            either party gives the other party written notice of non-renewal at
+            least on the last day of the then-current term. Each renewal term is
+            subject to payment of relevant fees.
+          </span>
+        </div>
+        <div className="MsoNormal" data-custom-class="heading_2">
+          <span>12.2.&nbsp;</span>
+          <u>
+            <span>Termination</span>
+          </u>
+          <span>
+            . In addition to any other express termination right set forth in
+            the Agreement:
+          </span>
+        </div>
+        <div className="MsoNormal" data-custom-class="heading_3">
+          <span>a)&nbsp;</span>
+          <span>
+            We may terminate the Agreement, effective on written notice to you,
+            if you: (i) fail to pay any amount when due hereunder, or (ii)
+            breach any of your obligations under Section 5.1, 6.4, 6.5 or 8, and
+          </span>
+        </div>
+        <div className="MsoNormal" data-custom-class="heading_3">
+          <span>b)&nbsp;</span>
+          <span>
+            either of us may terminate the Agreement effective on written notice
+            to the other one, if the other one materially breaches the Agreement
+            and such breach is incapable of cure or remains uncured 30 days
+            after the non-breaching party provides the breaching party with
+            written notice of such breach.
+          </span>
+        </div>
+        <div className="MsoNormal" data-custom-class="heading_2">
+          <span>12.3.&nbsp;</span>
+          <u>
+            <span>Effect</span>
+          </u>
+          <span>
+            . Upon expiration or termination of the Agreement, except as
+            expressly otherwise provided herein:
+          </span>
+        </div>
+        <div className="MsoNormal" data-custom-class="heading_3">
+          <span>a)&nbsp;</span>
+          <span>
+            rights and licenses granted by Us to you hereunder will immediately
+            terminate,
+          </span>
+        </div>
+        <div className="MsoNormal" data-custom-class="heading_3">
+          <span>b)&nbsp;</span>
+          <span>
+            We may destroy and permanently erase all Your Data and Confidential
+            Information, provided that, for clarity, this obligations does not
+            apply to any Resultant Data,
+          </span>
+        </div>
+        <div className="MsoNormal" data-custom-class="heading_3">
+          <span>c)&nbsp;</span>
+          <span>
+            You shall immediately cease all use of the Services and within 15
+            days, or at Our written request permanently erase Our Confidential
+            Information from all Your Systems, and certify to Us in writing that
+            you have complied with this obligation,
+          </span>
+        </div>
+        <div className="MsoNormal" data-custom-class="heading_3">
+          <span>d)&nbsp;</span>
+          <span>
+            We may disable your and Authorized User access to the Services,
+          </span>
+        </div>
+        <div className="MsoNormal" data-custom-class="heading_3">
+          <span>e)&nbsp;</span>
+          <span>
+            if We terminate the Agreement pursuant to Section 10.2 (c) or you
+            terminate the Agreement pursuant to Section 12.2 (b), you will be
+            relieved of obligation to pay the fees attributable to the period
+            after the effective date of such termination, in all other cases all
+            fees that would have become payable had the Agreement remained in
+            effect until expiration of the current subscription term will become
+            immediately due and payable, and you shall pay such fees, together
+            with all previously accrued but not yet paid fees. If We are unable
+            to charge them automatically to the payment method you last
+            selected, You will pay the amount on receipt of Our invoice
+            therefor.
+          </span>
+        </div>
+        <div className="MsoNormal" data-custom-class="heading_2">
+          <span>12.4.&nbsp;</span>
+          <u>
+            <span>Surviving Terms</span>
+          </u>
+          <span>
+            . The rights and obligation of the parties in the Agreement that, by
+            nature, should survive termination or expiration of the Agreement,
+            will survive any expiration or termination of the Agreement.
+          </span>
+        </div>
+        <div className="MsoNormal" data-custom-class="heading_1">
+          <span>13.&nbsp;</span>
+          <span>FINAL PROVISIONS</span>
+        </div>
+        <div className="MsoNormal" data-custom-class="heading_2">
+          <span>13.1.&nbsp;</span>
+          <u>
+            <span>Entire Agreement</span>
+          </u>
+          <span>
+            . Agreement constitutes our sole and entire agreement with respect
+            to its subject matter and supersedes all prior and contemporaneous
+            agreements, with respect to such subject matter. In the event of a
+            conflict between the documents constituting the Agreement, the
+            documents shall apply in the following order: (i) order form, (ii)
+            Terms of Use, (iii) remaining documents in order of their appearance
+            in the Terms.
+          </span>
+        </div>
+        <div className="MsoNormal" data-custom-class="heading_2">
+          <span>13.2.&nbsp;</span>
+          <u>
+            <span>Assignment</span>
+          </u>
+          <span>
+            . Neither of us may assign or otherwise transfer any of its rights
+            or obligations under the Agreement, without prior written consent of
+            the other party,{' '}
+            <span className="None">
+              provided that We may assign the Agreement as a whole without your
+              prior written consent to any Affiliate.
             </span>
-          </strong>
-        </div>
-      </div>
-      <div style={{ textAlign: 'left', lineHeight: 1 }}>
-        <br />
-      </div>
-      <div style={{ textAlign: 'left', lineHeight: '1.5' }}>
-        <div
-          className="MsoNormal"
-          data-custom-class="body_text"
-          style={{ lineHeight: '1.5' }}
-        >
-          <span
-            style={{
-              fontSize: '15px',
-              lineHeight: '115%',
-              fontFamily: 'Arial',
-              color: 'rgb(89, 89, 89)',
-            }}
-          >
-            By using the Site, you represent and warrant that:
-          </span>
-          <span
-            className="block-container if"
-            data-type="if"
-            id="d2d82ca8-275f-3f86-8149-8a5ef8054af6"
-          >
-            <span data-type="conditional-block">
-              <span
-                className="block-component"
-                data-record-question-key="user_account_option"
-                data-type="statement"
-              >
-                <span style={{ fontSize: '15px' }} />
-              </span>
-              <span data-type="body">
-                <span style={{ color: 'rgb(89, 89, 89)', fontSize: '11pt' }}>
-                  {' '}
-                  (
-                </span>
-                <span style={{ color: 'rgb(89, 89, 89)', fontSize: '15px' }}>
-                  1)
-                </span>
-                <span style={{ color: 'rgb(89, 89, 89)', fontSize: '11pt' }}>
-                  {' '}
-                </span>
-                <span style={{ color: 'rgb(89, 89, 89)', fontSize: '15px' }}>
-                  all registration information you submit will be true,
-                  accurate, current, and complete; (
-                </span>
-                <span style={{ fontSize: '15px' }}>
-                  <span style={{ color: 'rgb(89, 89, 89)' }}>2</span>
-                </span>
-                <span style={{ color: 'rgb(89, 89, 89)', fontSize: '15px' }}>
-                  ) you will maintain the accuracy of such information and
-                  promptly update such registration information
-                </span>
-                <span style={{ color: 'rgb(89, 89, 89)', fontSize: '11pt' }}>
-                  {' '}
-                </span>
-                <span style={{ color: 'rgb(89, 89, 89)', fontSize: '15px' }}>
-                  as necessary;
-                </span>
-              </span>
-            </span>
-            <span className="statement-end-if-in-editor" data-type="close">
-              <span style={{ fontSize: '15px' }} />
-            </span>{' '}
-          </span>
-          <span style={{ color: 'rgb(89, 89, 89)', fontSize: '15px' }}>(</span>
-          <span style={{ fontSize: '15px' }}>
-            <span style={{ color: 'rgb(89, 89, 89)' }}>3</span>
-          </span>
-          <span style={{ color: 'rgb(89, 89, 89)', fontSize: '15px' }}>
-            ) you have the legal capacity and you agree to comply with these
-            Terms of Use; <span className="block-component" />
-          </span>
-          <span
-            className="block-container if"
-            data-type="if"
-            id="8d4c883b-bc2c-f0b4-da3e-6d0ee51aca13"
-          >
-            <span data-type="conditional-block">
-              <span data-type="body">
-                <span style={{ fontSize: '15px' }}>
-                  <span style={{ color: 'rgb(89, 89, 89)' }}>(4</span>
-                </span>
-                <span style={{ color: 'rgb(89, 89, 89)', fontSize: '15px' }}>
-                  )
-                </span>
-                <span style={{ color: 'rgb(89, 89, 89)', fontSize: '11pt' }}>
-                  {' '}
-                </span>
-                <span style={{ color: 'rgb(89, 89, 89)', fontSize: '15px' }}>
-                  you are not under the age of 13;{' '}
-                </span>
-              </span>
-            </span>
-            <span className="statement-end-if-in-editor" data-type="close">
-              <span style={{ fontSize: '15px' }} />
-            </span>
-          </span>
-          <span style={{ color: 'rgb(89, 89, 89)', fontSize: '15px' }}>(</span>
-          <span style={{ fontSize: '15px' }}>
-            <span style={{ color: 'rgb(89, 89, 89)' }}>5</span>
-          </span>
-          <span style={{ color: 'rgb(89, 89, 89)', fontSize: '15px' }}>
-            ) you are not a minor in the jurisdiction in which you reside
-            <span
-              className="block-container if"
-              data-type="if"
-              id="76948fab-ec9e-266a-bb91-948929c050c9"
-            >
-              <span data-type="conditional-block">
-                <span
-                  className="block-component"
-                  data-record-question-key="user_o18_option"
-                  data-type="statement"
-                />
-              </span>
-            </span>
-            <span
-              className="block-container if"
-              data-type="if"
-              id="76948fab-ec9e-266a-bb91-948929c050c9"
-            >
-              <span data-type="conditional-block">
-                <span data-type="body">, </span>
-              </span>
-            </span>
-            <span
-              className="block-container if"
-              data-type="if"
-              id="76948fab-ec9e-266a-bb91-948929c050c9"
-            >
-              <span data-type="conditional-block">
-                <span data-type="body">
-                  or if a minor, you have received parental permission to use
-                  the Site
-                </span>
-              </span>
-            </span>
-            <span
-              className="block-container if"
-              data-type="if"
-              id="76948fab-ec9e-266a-bb91-948929c050c9"
-            >
-              <span className="statement-end-if-in-editor" data-type="close" />
-            </span>
-            ;
-          </span>
-          <span style={{ color: 'rgb(89, 89, 89)', fontSize: '11pt' }}> </span>
-          <span style={{ color: 'rgb(89, 89, 89)', fontSize: '15px' }}>(</span>
-          <span style={{ fontSize: '15px' }}>
-            <span style={{ color: 'rgb(89, 89, 89)' }}>6</span>
-          </span>
-          <span style={{ color: 'rgb(89, 89, 89)', fontSize: '15px' }}>
-            ) you will not access the Site through automated or non-human means,
-            whether through a bot, script or otherwise;
-          </span>
-          <span style={{ color: 'rgb(89, 89, 89)', fontSize: '11pt' }}> </span>
-          <span style={{ color: 'rgb(89, 89, 89)', fontSize: '15px' }}>(</span>
-          <span style={{ fontSize: '15px' }}>
-            <span style={{ color: 'rgb(89, 89, 89)' }}>7</span>
-          </span>
-          <span style={{ color: 'rgb(89, 89, 89)', fontSize: '15px' }}>
-            ) you will not use the Site for any illegal or unauthorized purpose;
-            and (
-          </span>
-          <span style={{ fontSize: '15px' }}>
-            <span style={{ color: 'rgb(89, 89, 89)' }}>8</span>
-          </span>
-          <span style={{ color: 'rgb(89, 89, 89)', fontSize: '15px' }}>
-            ) your use of the Site will not violate any applicable law or
-            regulation.
           </span>
         </div>
-      </div>
-      <div style={{ textAlign: 'left', lineHeight: '1.5' }}>
-        <br />
-      </div>
-      <div style={{ textAlign: 'left', lineHeight: '1.5' }}>
-        <div
-          className="MsoNormal"
-          data-custom-class="body_text"
-          style={{ lineHeight: '1.5' }}
-        >
-          <span
-            style={{
-              fontSize: '15px',
-              lineHeight: '115%',
-              fontFamily: 'Arial',
-              color: 'rgb(89, 89, 89)',
-            }}
-          >
-            If you provide any information that is untrue, inaccurate, not
-            current, or incomplete, we have the right to suspend or terminate
-            your account and refuse any and all current or future use of the
-            Site (or any portion thereof).{' '}
+        <div className="MsoNormal" data-custom-class="heading_2">
+          <span>13.3.&nbsp;</span>
+          <u>
+            <span>Force Majeure</span>
+          </u>
+          <span>
+            . In no event will We be liable for any failure or delay in
+            performance of this Agreement, when and to the extent such failure
+            or delay is caused by any circumstances beyond Our reasonable
+            control, including acts of God, flood, fire, earthquake, war,
+            terrorism, cyber-attack (including DDoS), invasion, embargoes,
+            strikes, passage of law, including imposing an embargo, export or
+            import restriction, quota, or other restriction or prohibition or
+            any complete or partial government shutdown, or national or regional
+            shortage of adequate power or telecommunications or transportation.
+            We may terminate the Agreement if a force majeure event continues
+            for a period of 30 days or more.
           </span>
         </div>
-        <div
-          className="MsoNormal"
-          style={{ textAlign: 'justify', lineHeight: '1.5' }}
-        >
-          <br />
-        </div>
-        <div
-          className="MsoNormal"
-          style={{ textAlign: 'justify', lineHeight: '1.5' }}
-        >
-          <br />
-        </div>
-        <div
-          className="MsoNormal"
-          style={{ textAlign: 'justify', lineHeight: 1 }}
-        >
-          <span
-            className="block-container if"
-            data-type="if"
-            id="d13abc62-cc6f-e059-7fd6-cb6208085aa7"
-          >
-            <span data-type="conditional-block">
-              <span
-                className="block-component"
-                data-record-question-key="user_account_option"
-                data-type="statement"
-              />{' '}
-              <span data-type="body">
-                <div
-                  className="MsoNormal"
-                  data-custom-class="heading_1"
-                  style={{ lineHeight: '1.5', textAlign: 'left' }}
-                >
-                  <strong>
-                    <span
-                      style={{
-                        lineHeight: '115%',
-                        fontFamily: 'Arial',
-                        fontSize: '19px',
-                      }}
-                    >
-                      USER REGISTRATION
-                    </span>
-                  </strong>
-                </div>
-              </span>
-            </span>
-          </span>
-        </div>
-        <div
-          className="MsoNormal"
-          style={{ textAlign: 'justify', lineHeight: 1 }}
-        >
-          <br />
-        </div>
-        <div
-          className="MsoNormal"
-          style={{ textAlign: 'justify', lineHeight: 1 }}
-        >
-          <span className="block-container if" data-type="if">
-            <span data-type="conditional-block">
-              <span data-type="body">
-                <div
-                  className="MsoNormal"
-                  data-custom-class="body_text"
-                  style={{ textAlign: 'left', lineHeight: '1.5' }}
-                >
-                  <span
-                    style={{
-                      fontSize: '15px',
-                      lineHeight: '115%',
-                      fontFamily: 'Arial',
-                      color: 'rgb(89, 89, 89)',
-                    }}
-                  >
-                    You may be required to register with the Site. You agree to
-                    keep your password confidential and will be responsible for
-                    all use of your account and password. We reserve the right
-                    to remove, reclaim, or change a username you select if we
-                    determine, in our sole discretion, that such username is
-                    inappropriate, obscene, or otherwise objectionable. We are
-                    not responsible for any losses due to stolen or hacked
-                    passwords. If you sign up on behalf of a company or other
-                    entity, you represent and warrant that you have the
-                    authority to accept these Terms on their behalf. One person
-                    or legal entity may not maintain more than one free account.
-                  </span>
-                </div>
-              </span>
-            </span>
-          </span>
-        </div>
-        <div
-          className="MsoNormal"
-          style={{ textAlign: 'justify', lineHeight: '1.5' }}
-        >
-          <br />
-        </div>
-        <div
-          className="MsoNormal"
-          style={{ textAlign: 'justify', lineHeight: '1.5' }}
-        >
-          <br />
-        </div>
-        <div
-          className="MsoNormal"
-          style={{ textAlign: 'justify', lineHeight: '1.5' }}
-        >
-          <span className="block-container if" data-type="if">
-            <span className="statement-end-if-in-editor" data-type="close" />
-          </span>
-        </div>
-        <div
-          className="MsoNormal"
-          data-custom-class="heading_1"
-          style={{ lineHeight: '1.5' }}
-        >
-          <a />
-          <strong>
-            <span
-              style={{
-                lineHeight: '115%',
-                fontFamily: 'Arial',
-                fontSize: '19px',
-              }}
-            >
-              FEES AND PAYMENT
-            </span>
-          </strong>
-        </div>
-        <div className="MsoNormal" style={{ lineHeight: 1 }}>
-          <span
-            style={{
-              fontSize: '11.0pt',
-              lineHeight: '115%',
-              fontFamily: 'Arial',
-              color: '#595959',
-            }}
-          >
-            <br />
-          </span>
-        </div>
-        <div
-          className="MsoNormal"
-          style={{ textAlign: 'justify', lineHeight: 1 }}
-        >
-          <div className="MsoNormal" style={{ lineHeight: '17.25px' }}>
-            <div
-              className="MsoNormal"
-              data-custom-class="body_text"
-              style={{ lineHeight: 1, textAlign: 'left' }}
-            >
-              <br />
-            </div>
-            <div
-              className="MsoNormal"
-              data-custom-class="body_text"
-              style={{
-                marginLeft: '46.9pt',
-                textIndent: '-18.55pt',
-                lineHeight: '1.5',
-                textAlign: 'left',
-              }}
-            >
-              <span
-                style={{
-                  fontSize: '15px',
-                  lineHeight: '16.8667px',
-                  color: 'rgb(89, 89, 89)',
-                }}
-              >
-                <span
-                  className="block-container forloop"
-                  data-type="forloop"
-                  id="a6e21b8e-b955-c546-15dd-bb6eda2fe88a"
-                >
-                  <span data-type="conditional-block">
-                    <span
-                      className="forloop-component"
-                      data-record-question-key="payment_list"
-                      data-type="statement"
-                    />
-                  </span>
-                </span>
-                <span
-                  className="block-container forloop"
-                  data-type="forloop"
-                  id="a6e21b8e-b955-c546-15dd-bb6eda2fe88a"
-                ></span>
-              </span>
-            </div>
-            <div
-              className="MsoNormal"
-              data-custom-class="body_text"
-              style={{
-                marginLeft: '46.9pt',
-                textIndent: '-18.55pt',
-                lineHeight: '1.5',
-                textAlign: 'left',
-              }}
-            >
-              <span
-                style={{
-                  fontSize: '15px',
-                  lineHeight: '16.8667px',
-                  color: 'rgb(89, 89, 89)',
-                }}
-              >
-                <span className="block-container forloop" data-type="forloop">
-                  <span className="for-end-in-editor" data-type="close" />
-                </span>
-                <span
-                  className="block-container forloop"
-                  data-type="forloop"
-                  id="a6e21b8e-b955-c546-15dd-bb6eda2fe88a"
-                ></span>
-              </span>
-            </div>
-            <div
-              className="MsoNormal"
-              data-custom-class="body_text"
-              style={{
-                marginLeft: '46.9pt',
-                textIndent: '-18.55pt',
-                lineHeight: '1.5',
-                textAlign: 'left',
-              }}
-            >
-              <span
-                style={{
-                  fontSize: '15px',
-                  lineHeight: '16.8667px',
-                  color: 'rgb(89, 89, 89)',
-                }}
-              >
-                <span className="block-container forloop" data-type="forloop">
-                  <span className="for-end-in-editor" data-type="close" />
-                </span>
-              </span>
-            </div>
-          </div>
-          <span
-            style={{
-              fontSize: '11.0pt',
-              lineHeight: '115%',
-              fontFamily: 'Arial',
-              color: '#595959',
-            }}
-          >
-            <div
-              className="MsoNormal"
-              style={{ lineHeight: 1, textAlign: 'left' }}
-            >
-              <br />
-            </div>
-          </span>
-          <span
-            style={{
-              fontSize: '15px',
-              lineHeight: '115%',
-              fontFamily: 'Arial',
-              color: 'rgb(89, 89, 89)',
-            }}
-          >
-            <div
-              className="MsoNormal"
-              data-custom-class="body_text"
-              style={{ lineHeight: '1.5', textAlign: 'left' }}
-            >
-              <span style={{ lineHeight: '115%', color: 'rgb(89, 89, 89)' }}>
-                You may be required to purchase or pay a fee to access some of
-                our services. You agree to provide current, complete, and
-                accurate purchase and account information for all purchases made
-                via the Site. You further agree to promptly update account and
-                payment information, including email address, payment method,
-                and payment card expiration date, so that we can complete your
-                transactions and contact you as needed. We bill you through an
-                online billing account for purchases made via Stripe. Free
-                accounts are not required to provide a credit card details. The
-                service is billed in advance on a monthly or on a yearly basis.
-                Downgrading your service may cause the loss of content,
-                features, or capacity of your account. We may change prices at
-                any time. We may change prices at any time. We reserve the right
-                to introduce different pricing structure for existing users. All
-                payments shall be in <span className="question">Euros</span>.
-              </span>
-            </div>
-          </span>
-          <span
-            style={{
-              fontSize: '11.0pt',
-              lineHeight: '115%',
-              fontFamily: 'Arial',
-              color: '#595959',
-            }}
-          >
-            <div
-              className="MsoNormal"
-              style={{ lineHeight: 1, textAlign: 'left' }}
-            >
-              <br />
-            </div>
-            <div
-              className="MsoNormal"
-              data-custom-class="body_text"
-              style={{ lineHeight: '1.5', textAlign: 'left' }}
-            >
-              <span
-                style={{
-                  fontSize: '15px',
-                  lineHeight: '115%',
-                  color: 'rgb(89, 89, 89)',
-                }}
-              >
-                You agree to pay all charges or fees at the prices then in
-                effect for your purchases, and you authorize us to charge your
-                chosen payment provider for any such amounts upon making your
-                purchase.{' '}
-                <span
-                  className="block-container if"
-                  data-type="if"
-                  id="2955e4e9-b2fc-b1ce-6d2e-99ed4a0c390d"
-                >
-                  <span data-type="conditional-block">
-                    <span
-                      className="block-component"
-                      data-record-question-key="recurring_charge_option"
-                      data-type="statement"
-                    />
-                  </span>
-                </span>
-                <span
-                  className="block-container if"
-                  data-type="if"
-                  id="2955e4e9-b2fc-b1ce-6d2e-99ed4a0c390d"
-                >
-                  <span data-type="conditional-block">
-                    <span data-type="body">If </span>
-                  </span>
-                </span>
-                <span
-                  className="block-container if"
-                  data-type="if"
-                  id="2955e4e9-b2fc-b1ce-6d2e-99ed4a0c390d"
-                >
-                  <span data-type="conditional-block">
-                    <span data-type="body">
-                      your purchase is subject to recurring charges, then you
-                      consent to our charging your payment method on a recurring
-                      basis without requiring your prior approval for each
-                      recurring charge, until you notify us of your
-                      cancellation.{' '}
-                    </span>
-                  </span>
-                </span>
-                <span
-                  className="block-container if"
-                  data-type="if"
-                  id="2955e4e9-b2fc-b1ce-6d2e-99ed4a0c390d"
-                >
-                  <span
-                    className="statement-end-if-in-editor"
-                    data-type="close"
-                  />
-                </span>
-              </span>
-            </div>
-            <br />
-          </span>
-          <span
-            style={{
-              fontSize: '15px',
-              lineHeight: '115%',
-              fontFamily: 'Arial',
-              color: 'rgb(89, 89, 89)',
-            }}
-          >
-            <div
-              className="MsoNormal"
-              data-custom-class="body_text"
-              style={{ lineHeight: '1.5', textAlign: 'left' }}
-            >
-              <span style={{ lineHeight: '115%', color: 'rgb(89, 89, 89)' }}>
-                We reserve the right to correct any errors or mistakes in
-                pricing, even if we have already requested or received payment.
-                We also reserve the right to refuse any order placed through the
-                Site. We do not offer any type of refunds.
-              </span>
-            </div>
-          </span>
-        </div>
-        <div
-          className="MsoNormal"
-          style={{ textAlign: 'justify', lineHeight: '1.5' }}
-        >
-          <br />
-        </div>
-        <div
-          className="MsoNormal"
-          style={{ textAlign: 'justify', lineHeight: '1.5' }}
-        >
-          <br />
-        </div>
-        <div
-          className="MsoNormal"
-          style={{ textAlign: 'justify', lineHeight: 1 }}
-        >
-          <div
-            className="MsoNormal"
-            style={{ lineHeight: '1.5', textAlign: 'left' }}
-          >
-            <a />
-          </div>
-          <span
-            className="block-container if"
-            data-type="if"
-            id="4380167d-5abe-b98f-f389-f707429e6c52"
-          >
-            <span data-type="conditional-block">
-              <span
-                className="block-component"
-                data-record-question-key="free_trial_option"
-                data-type="statement"
-              />
-            </span>
-            <div
-              className="MsoNormal"
-              data-custom-class="heading_1"
-              style={{ textAlign: 'left', lineHeight: '1.5' }}
-            >
-              <a />
-              <strong>
-                <span
-                  style={{
-                    lineHeight: '115%',
-                    fontFamily: 'Arial',
-                    fontSize: '19px',
-                  }}
-                >
-                  CANCELLATION
-                </span>
-              </strong>
-            </div>
-          </span>
-        </div>
-        <div
-          className="MsoNormal"
-          style={{ textAlign: 'justify', lineHeight: 1 }}
-        >
-          <br />
-        </div>
-        <div
-          className="MsoNormal"
-          style={{ textAlign: 'justify', lineHeight: '1.5' }}
-        >
-          <div
-            className="MsoNormal"
-            data-custom-class="body_text"
-            style={{ lineHeight: '1.5', textAlign: 'left' }}
-          >
-            <span
-              style={{
-                fontSize: '15px',
-                lineHeight: '115%',
-                color: 'rgb(89, 89, 89)',
-              }}
-            >
-              <span
-                className="block-container if"
-                data-type="if"
-                id="cef55cf6-3a65-8031-d0c3-cffe36e64f10"
-              >
-                <span data-type="conditional-block">
-                  <span
-                    className="block-component"
-                    data-record-question-key="return_option"
-                    data-type="statement"
-                  />
-                </span>
-                You can cancel your subscription at any time
-              </span>
-            </span>
-            <span
-              style={{
-                fontSize: '11.0pt',
-                lineHeight: '115%',
-                color: '#595959',
-              }}
-            >
+        <div className="MsoNormal" data-custom-class="heading_2">
+          <span>13.4.&nbsp;</span>
+          <u>
+            <span>Amendment</span>
+          </u>
+          <span>
+            .
+            <a>
               {' '}
-            </span>
-            <span
-              style={{
-                fontSize: '15px',
-                lineHeight: '115%',
-                color: 'rgb(89, 89, 89)',
-              }}
-            >
-              <span
-                className="block-container if"
-                data-type="if"
-                id="1a40a488-252c-f087-02cc-5e0de451aa88"
-              >
-                <span data-type="conditional-block">
-                  <span
-                    className="block-component"
-                    data-record-question-key="cancel_how"
-                    data-type="statement"
-                  />
-                </span>
-              </span>
-              <span
-                className="block-container if"
-                data-type="if"
-                id="1a40a488-252c-f087-02cc-5e0de451aa88"
-              >
-                <span data-type="conditional-block">
-                  <span data-type="body">by logging</span>
-                </span>
-              </span>
-            </span>
-            <span
-              style={{
-                fontSize: '11.0pt',
-                lineHeight: '115%',
-                color: '#595959',
-              }}
-            >
-              <span
-                className="block-container if"
-                data-type="if"
-                id="1a40a488-252c-f087-02cc-5e0de451aa88"
-              >
-                <span data-type="conditional-block">
-                  <span data-type="body"> </span>
-                </span>
-              </span>
-            </span>
-            <span
-              style={{
-                fontSize: '15px',
-                lineHeight: '115%',
-                color: 'rgb(89, 89, 89)',
-              }}
-            >
-              <span
-                className="block-container if"
-                data-type="if"
-                id="1a40a488-252c-f087-02cc-5e0de451aa88"
-              >
-                <span data-type="conditional-block">
-                  <span data-type="body">into your account</span>
-                </span>
-              </span>
-              <span
-                className="block-container if"
-                data-type="if"
-                id="1a40a488-252c-f087-02cc-5e0de451aa88"
-              >
-                <span data-type="conditional-block">
-                  <span
-                    className="block-component"
-                    data-record-question-key="null"
-                    data-type="statement"
-                  />
-                </span>
-                . Your cancellation will take effect at the end of the current
-                paid term.
-              </span>
-            </span>
-            <span
-              style={{
-                fontSize: '11.0pt',
-                lineHeight: '115%',
-                color: '#595959',
-              }}
-            >
-              {' '}
-            </span>
-          </div>
-        </div>
-        <div
-          className="MsoNormal"
-          style={{ textAlign: 'justify', lineHeight: 1 }}
-        >
-          <br />
-        </div>
-        <div
-          className="MsoNormal"
-          style={{ textAlign: 'justify', lineHeight: '1.5' }}
-        >
-          <div
-            className="MsoNormal"
-            data-custom-class="body_text"
-            style={{ lineHeight: '1.5', textAlign: 'left' }}
-          >
-            <span
-              style={{
-                fontSize: '15px',
-                lineHeight: '115%',
-                color: 'rgb(89, 89, 89)',
-              }}
-            >
-              If you are unsatisfied with our services, please email us at{' '}
-              <span
-                className="block-container question question-in-editor"
-                data-id="7c40698b-5cc8-bb58-245d-2fbd1b57dfba"
-                data-type="question"
-              >
-                info@tolgee.io
-              </span>
-              <span className="block-component" /> or call us at
-            </span>
-            <span
-              style={{
-                fontSize: '11.0pt',
-                lineHeight: '115%',
-                color: '#595959',
-              }}
-            >
-              {' '}
-            </span>
-            <span
-              style={{
-                fontSize: '15px',
-                lineHeight: '115%',
-                color: 'rgb(89, 89, 89)',
-              }}
-            >
-              <span
-                className="block-container question question-in-editor"
-                data-id="7d27e26e-2e8b-6d22-d41d-b468e8115f39"
-                data-type="question"
-              >
-                (+420)731259489
-              </span>
-            </span>
-            <span
-              style={{
-                fontSize: '11.0pt',
-                lineHeight: '115%',
-                color: '#595959',
-              }}
-            >
-              <span
-                style={{
-                  fontSize: '11.0pt',
-                  lineHeight: '115%',
-                  color: '#595959',
-                }}
-              >
-                <span
-                  style={{
-                    fontSize: '15px',
-                    lineHeight: '115%',
-                    color: 'rgb(89, 89, 89)',
-                  }}
-                >
-                  <span
-                    style={{
-                      fontSize: '15px',
-                      lineHeight: '115%',
-                      color: 'rgb(89, 89, 89)',
-                    }}
-                  >
-                    <span className="statement-end-if-in-editor" />
-                  </span>
-                </span>
-              </span>
-              .
-            </span>
-          </div>
-          <div className="MsoNormal" style={{ lineHeight: '1.5' }}>
-            <br />
-          </div>
-          <div className="MsoNormal" style={{ lineHeight: '1.5' }}>
-            <br />
-          </div>
-          <div className="MsoNormal" style={{ lineHeight: 1 }}>
-            <span
-              className="block-container if"
-              data-type="if"
-              id="b671a946-ab46-9fff-9cee-e88149335e8e"
-            >
-              <span data-type="conditional-block">
-                <span
-                  className="block-component"
-                  data-record-question-key="software_option"
-                  data-type="statement"
-                />{' '}
-                <span data-type="body">
-                  <div
-                    className="MsoNormal"
-                    data-custom-class="heading_1"
-                    style={{ textAlign: 'left', lineHeight: '1.5' }}
-                  >
-                    <strong>
-                      <span
-                        style={{
-                          lineHeight: '115%',
-                          fontFamily: 'Arial',
-                          fontSize: '19px',
-                        }}
-                      >
-                        SOFTWARE
-                      </span>
-                    </strong>
-                  </div>
-                </span>
-              </span>
-            </span>
-          </div>
-          <div className="MsoNormal" style={{ lineHeight: 1 }}>
-            <br />
-          </div>
-          <div className="MsoNormal" style={{ lineHeight: 1 }}>
-            <span className="block-container if" data-type="if">
-              <span data-type="conditional-block">
-                <span data-type="body">
-                  <div
-                    className="MsoNormal"
-                    data-custom-class="body_text"
-                    style={{ lineHeight: '1.5', textAlign: 'left' }}
-                  >
-                    <span
-                      style={{
-                        fontSize: '15px',
-                        lineHeight: '115%',
-                        color: 'rgb(89, 89, 89)',
-                      }}
-                    >
-                      We may include software for use in connection with our
-                      services. If such software is accompanied by an end user
-                      license agreement (“EULA”), the terms of the EULA will
-                      govern your use of the software. If such software is not
-                      accompanied by a EULA, then we grant to you a
-                      non-exclusive, revocable, personal, and non-transferable
-                      license to use such software solely in connection with our
-                      services and in accordance with these Terms of Use. Any
-                      Software and any related documentation is provided “as is”
-                      without warranty of any kind, either express or implied,
-                      including, without limitation, the implied warranties of
-                      merchantability, fitness for a particular purpose, or
-                      non-infringement. You accept any and all risk arising out
-                      of use or performance of any Software. You may not
-                      reproduce or redistribute any software except in
-                      accordance with the EULA or these Terms of Use.
-                    </span>
-                  </div>
-                </span>
-              </span>
-            </span>
-          </div>
-          <div className="MsoNormal" style={{ lineHeight: '1.5' }}>
-            <br />
-          </div>
-          <div className="MsoNormal" style={{ lineHeight: '1.5' }}>
-            <br />
-          </div>
-          <div className="MsoNormal" style={{ lineHeight: '1.5' }}>
-            <span className="block-container if" data-type="if">
-              <span className="statement-end-if-in-editor" data-type="close" />
-            </span>
-          </div>
-          <div
-            className="MsoNormal"
-            data-custom-class="heading_1"
-            style={{ lineHeight: '1.5', textAlign: 'left' }}
-          >
-            <a />
-            <strong>
-              <span
-                style={{
-                  lineHeight: '115%',
-                  fontFamily: 'Arial',
-                  fontSize: '19px',
-                }}
-              >
-                PROHIBITED ACTIVITIES
-              </span>
-            </strong>
-            <span
-              style={{
-                fontSize: '11.0pt',
-                lineHeight: '115%',
-                fontFamily: 'Arial',
-                color: '#595959',
-              }}
-            >
-              {' '}
-            </span>
-          </div>
-        </div>
-        <div className="MsoNormal" style={{ lineHeight: 1 }}>
-          <br />
-        </div>
-        <div
-          className="MsoNormal"
-          data-custom-class="body_text"
-          style={{ lineHeight: '1.5' }}
-        >
-          <span
-            style={{
-              fontSize: '15px',
-              lineHeight: '115%',
-              fontFamily: 'Arial',
-              color: 'rgb(89, 89, 89)',
-            }}
-          >
-            You may not access or use the Site for any purpose other than that
-            for which we make the Site available. The Site may not be used in
-            connection with any commercial endeavors except those that are
-            specifically endorsed or approved by us.{' '}
+              We may revise and update the Terms from time to time in Our sole
+              discretion. All changes are effective on the indicated date and
+              apply to all access to and use of the Service thereafter.{' '}
+            </a>
+            <a>
+              Your continued use of the Service following their term of
+              effectiveness means that you accept and agree to the changes. You
+              are expected to check the Terms from time to time so you are aware
+              of any changes, as they are binding on you.
+            </a>
           </span>
-          <span style={{ fontSize: '15px' }}>
-            <span
-              style={{
-                lineHeight: '115%',
-                fontFamily: 'Arial',
-                color: 'rgb(89, 89, 89)',
-              }}
-            >
-              {' '}
+        </div>
+        <div className="MsoNormal" data-custom-class="heading_2">
+          <span className="None">
+            <span>13.5.&nbsp;</span>
+          </span>
+          <u>
+            <span>Notices</span>
+          </u>
+          <span>
+            .{' '}
+            <span className="None">
+              The requirement of written form is met if the electronic text with
+              a simple electronic signature is delivered to the e-mail address
+              of the other Party, or by other electronic means agreed by the
+              parties.
             </span>
           </span>
         </div>
-        <div className="MsoNormal" style={{ lineHeight: 1 }}>
-          <br />
-        </div>
-        <div
-          className="MsoNormal"
-          style={{ textAlign: 'justify', lineHeight: '115%' }}
-        >
-          <div
-            className="MsoNormal"
-            data-custom-class="body_text"
-            style={{ lineHeight: '1.5', textAlign: 'left' }}
-          >
-            <span
-              style={{
-                fontSize: '15px',
-                lineHeight: '16.8667px',
-                color: 'rgb(89, 89, 89)',
-              }}
-            >
-              As a user of the Site, you agree not to:
-            </span>
-          </div>
-          <div
-            className="MsoNormal"
-            data-custom-class="body_text"
-            style={{ lineHeight: 1, marginLeft: '20px', textAlign: 'left' }}
-          >
-            <br />
-          </div>
-          <div
-            className="MsoNormal"
-            data-custom-class="body_text"
-            style={{
-              lineHeight: '1.5',
-              marginLeft: '20px',
-              textAlign: 'left',
-            }}
-          >
-            <span
-              style={{
-                fontSize: '11pt',
-                lineHeight: '16.8667px',
-                color: 'rgb(89, 89, 89)',
-              }}
-            >
-              <span
-                style={{
-                  fontFamily: 'sans-serif',
-                  fontSize: '15px',
-                  fontStyle: 'normal',
-                  fontVariantLigatures: 'normal',
-                  fontVariantCaps: 'normal',
-                  fontWeight: 400,
-                  letterSpacing: 'normal',
-                  orphans: 2,
-                  textAlign: 'justify',
-                  textIndent: '-29.4px',
-                  textTransform: 'none',
-                  whiteSpace: 'normal',
-                  widows: 2,
-                  wordSpacing: '0px',
-                  WebkitTextStrokeWidth: '0px',
-                  backgroundColor: 'rgb(255, 255, 255)',
-                  textDecorationStyle: 'initial',
-                  textDecorationColor: 'initial',
-                  color: 'rgb(89, 89, 89)',
-                }}
-              >
-                <span
-                  style={{
-                    lineHeight: '16.8667px',
-                    color: 'rgb(89, 89, 89)',
-                  }}
-                >
-                  <span
-                    style={{
-                      fontFamily: 'sans-serif',
-                      fontStyle: 'normal',
-                      fontVariantLigatures: 'normal',
-                      fontVariantCaps: 'normal',
-                      fontWeight: 400,
-                      letterSpacing: 'normal',
-                      orphans: 2,
-                      textAlign: 'justify',
-                      textIndent: '-22.05pt',
-                      textTransform: 'none',
-                      whiteSpace: 'normal',
-                      widows: 2,
-                      wordSpacing: '0px',
-                      WebkitTextStrokeWidth: '0px',
-                      backgroundColor: 'rgb(255, 255, 255)',
-                      textDecorationStyle: 'initial',
-                      textDecorationColor: 'initial',
-                      color: 'rgb(89, 89, 89)',
-                    }}
-                  >
-                    <span
-                      className="block-container forloop"
-                      data-type="forloop"
-                      id="19beb913-5a5e-2b51-51f9-8600a8eb26c3"
-                      style={{ display: 'inline' }}
-                    >
-                      <span
-                        data-type="conditional-block"
-                        style={{ display: 'inline' }}
-                      >
-                        <span data-type="body" style={{ display: 'inline' }}>
-                          1
-                        </span>
-                      </span>
-                    </span>
-                  </span>
-                  <span
-                    style={{
-                      fontFamily: 'sans-serif',
-                      fontStyle: 'normal',
-                      fontVariantLigatures: 'normal',
-                      fontVariantCaps: 'normal',
-                      fontWeight: 400,
-                      letterSpacing: 'normal',
-                      orphans: 2,
-                      textAlign: 'justify',
-                      textIndent: '-29.4px',
-                      textTransform: 'none',
-                      whiteSpace: 'normal',
-                      widows: 2,
-                      wordSpacing: '0px',
-                      WebkitTextStrokeWidth: '0px',
-                      backgroundColor: 'rgb(255, 255, 255)',
-                      textDecorationStyle: 'initial',
-                      textDecorationColor: 'initial',
-                      color: 'rgb(89, 89, 89)',
-                    }}
-                  >
-                    .{' '}
-                  </span>
-                </span>
-                Systematically retrieve data or other content from the Site to
-                create or compile, directly or indirectly, a collection,
-                compilation, database, or directory without written permission
-                from us.
-              </span>
-            </span>
-          </div>
-          <div
-            className="MsoNormal"
-            data-custom-class="body_text"
-            style={{
-              lineHeight: '1.5',
-              marginLeft: '20px',
-              textAlign: 'left',
-            }}
-          >
-            <span style={{ fontSize: '15px' }}>
-              <span
-                style={{
-                  lineHeight: '16.8667px',
-                  color: 'rgb(89, 89, 89)',
-                }}
-              >
-                <span
-                  style={{
-                    fontFamily: 'sans-serif',
-                    fontStyle: 'normal',
-                    fontVariantLigatures: 'normal',
-                    fontVariantCaps: 'normal',
-                    fontWeight: 400,
-                    letterSpacing: 'normal',
-                    orphans: 2,
-                    textAlign: 'justify',
-                    textIndent: '-29.4px',
-                    textTransform: 'none',
-                    whiteSpace: 'normal',
-                    widows: 2,
-                    wordSpacing: '0px',
-                    WebkitTextStrokeWidth: '0px',
-                    backgroundColor: 'rgb(255, 255, 255)',
-                    textDecorationStyle: 'initial',
-                    textDecorationColor: 'initial',
-                    color: 'rgb(89, 89, 89)',
-                  }}
-                >
-                  <span
-                    style={{
-                      lineHeight: '16.8667px',
-                      color: 'rgb(89, 89, 89)',
-                    }}
-                  >
-                    <span
-                      style={{
-                        fontFamily: 'sans-serif',
-                        fontStyle: 'normal',
-                        fontVariantLigatures: 'normal',
-                        fontVariantCaps: 'normal',
-                        fontWeight: 400,
-                        letterSpacing: 'normal',
-                        orphans: 2,
-                        textAlign: 'justify',
-                        textIndent: '-22.05pt',
-                        textTransform: 'none',
-                        whiteSpace: 'normal',
-                        widows: 2,
-                        wordSpacing: '0px',
-                        WebkitTextStrokeWidth: '0px',
-                        backgroundColor: 'rgb(255, 255, 255)',
-                        textDecorationStyle: 'initial',
-                        textDecorationColor: 'initial',
-                        color: 'rgb(89, 89, 89)',
-                      }}
-                    >
-                      <span
-                        className="block-container forloop"
-                        data-type="forloop"
-                        id="19beb913-5a5e-2b51-51f9-8600a8eb26c3"
-                        style={{ display: 'inline' }}
-                      >
-                        <span
-                          data-type="conditional-block"
-                          style={{ display: 'inline' }}
-                        >
-                          <span data-type="body" style={{ display: 'inline' }}>
-                            2
-                          </span>
-                        </span>
-                      </span>
-                    </span>
-                    <span
-                      style={{
-                        fontFamily: 'sans-serif',
-                        fontStyle: 'normal',
-                        fontVariantLigatures: 'normal',
-                        fontVariantCaps: 'normal',
-                        fontWeight: 400,
-                        letterSpacing: 'normal',
-                        orphans: 2,
-                        textAlign: 'justify',
-                        textIndent: '-29.4px',
-                        textTransform: 'none',
-                        whiteSpace: 'normal',
-                        widows: 2,
-                        wordSpacing: '0px',
-                        WebkitTextStrokeWidth: '0px',
-                        backgroundColor: 'rgb(255, 255, 255)',
-                        textDecorationStyle: 'initial',
-                        textDecorationColor: 'initial',
-                        color: 'rgb(89, 89, 89)',
-                      }}
-                    >
-                      . Trick, defraud, or mislead us and other users,
-                      especially in any attempt to learn sensitive account
-                      information such as user passwords.
-                    </span>
-                  </span>
-                </span>
-              </span>
-            </span>
-          </div>
-          <div
-            className="MsoNormal"
-            data-custom-class="body_text"
-            style={{
-              lineHeight: '1.5',
-              marginLeft: '20px',
-              textAlign: 'left',
-            }}
-          >
-            <span style={{ fontSize: '15px' }}>
-              <span
-                style={{
-                  lineHeight: '16.8667px',
-                  color: 'rgb(89, 89, 89)',
-                }}
-              >
-                <span
-                  style={{
-                    fontFamily: 'sans-serif',
-                    fontStyle: 'normal',
-                    fontVariantLigatures: 'normal',
-                    fontVariantCaps: 'normal',
-                    fontWeight: 400,
-                    letterSpacing: 'normal',
-                    orphans: 2,
-                    textAlign: 'justify',
-                    textIndent: '-29.4px',
-                    textTransform: 'none',
-                    whiteSpace: 'normal',
-                    widows: 2,
-                    wordSpacing: '0px',
-                    WebkitTextStrokeWidth: '0px',
-                    backgroundColor: 'rgb(255, 255, 255)',
-                    textDecorationStyle: 'initial',
-                    textDecorationColor: 'initial',
-                    color: 'rgb(89, 89, 89)',
-                  }}
-                >
-                  <span
-                    style={{
-                      lineHeight: '16.8667px',
-                      color: 'rgb(89, 89, 89)',
-                    }}
-                  >
-                    <span
-                      style={{
-                        fontFamily: 'sans-serif',
-                        fontStyle: 'normal',
-                        fontVariantLigatures: 'normal',
-                        fontVariantCaps: 'normal',
-                        fontWeight: 400,
-                        letterSpacing: 'normal',
-                        orphans: 2,
-                        textAlign: 'justify',
-                        textIndent: '-22.05pt',
-                        textTransform: 'none',
-                        whiteSpace: 'normal',
-                        widows: 2,
-                        wordSpacing: '0px',
-                        WebkitTextStrokeWidth: '0px',
-                        backgroundColor: 'rgb(255, 255, 255)',
-                        textDecorationStyle: 'initial',
-                        textDecorationColor: 'initial',
-                        color: 'rgb(89, 89, 89)',
-                      }}
-                    >
-                      <span
-                        className="block-container forloop"
-                        data-type="forloop"
-                        id="19beb913-5a5e-2b51-51f9-8600a8eb26c3"
-                        style={{ display: 'inline' }}
-                      >
-                        <span
-                          data-type="conditional-block"
-                          style={{ display: 'inline' }}
-                        >
-                          <span data-type="body" style={{ display: 'inline' }}>
-                            3
-                          </span>
-                        </span>
-                      </span>
-                    </span>
-                    <span
-                      style={{
-                        fontFamily: 'sans-serif',
-                        fontStyle: 'normal',
-                        fontVariantLigatures: 'normal',
-                        fontVariantCaps: 'normal',
-                        fontWeight: 400,
-                        letterSpacing: 'normal',
-                        orphans: 2,
-                        textAlign: 'justify',
-                        textIndent: '-29.4px',
-                        textTransform: 'none',
-                        whiteSpace: 'normal',
-                        widows: 2,
-                        wordSpacing: '0px',
-                        WebkitTextStrokeWidth: '0px',
-                        backgroundColor: 'rgb(255, 255, 255)',
-                        textDecorationStyle: 'initial',
-                        textDecorationColor: 'initial',
-                        color: 'rgb(89, 89, 89)',
-                      }}
-                    >
-                      . Circumvent, disable, or otherwise interfere with
-                      security-related features of the Site, including features
-                      that prevent or restrict the use or copying of any Content
-                      or enforce limitations on the use of the Site and/or the
-                      Content contained therein.
-                    </span>
-                  </span>
-                </span>
-              </span>
-            </span>
-          </div>
-          <div
-            className="MsoNormal"
-            data-custom-class="body_text"
-            style={{
-              lineHeight: '1.5',
-              marginLeft: '20px',
-              textAlign: 'left',
-            }}
-          >
-            <span style={{ fontSize: '15px' }}>
-              <span
-                style={{
-                  lineHeight: '16.8667px',
-                  color: 'rgb(89, 89, 89)',
-                }}
-              >
-                <span
-                  style={{
-                    fontFamily: 'sans-serif',
-                    fontStyle: 'normal',
-                    fontVariantLigatures: 'normal',
-                    fontVariantCaps: 'normal',
-                    fontWeight: 400,
-                    letterSpacing: 'normal',
-                    orphans: 2,
-                    textAlign: 'justify',
-                    textIndent: '-29.4px',
-                    textTransform: 'none',
-                    whiteSpace: 'normal',
-                    widows: 2,
-                    wordSpacing: '0px',
-                    WebkitTextStrokeWidth: '0px',
-                    backgroundColor: 'rgb(255, 255, 255)',
-                    textDecorationStyle: 'initial',
-                    textDecorationColor: 'initial',
-                    color: 'rgb(89, 89, 89)',
-                  }}
-                >
-                  <span
-                    style={{
-                      lineHeight: '16.8667px',
-                      color: 'rgb(89, 89, 89)',
-                    }}
-                  >
-                    <span
-                      style={{
-                        fontFamily: 'sans-serif',
-                        fontStyle: 'normal',
-                        fontVariantLigatures: 'normal',
-                        fontVariantCaps: 'normal',
-                        fontWeight: 400,
-                        letterSpacing: 'normal',
-                        orphans: 2,
-                        textAlign: 'justify',
-                        textIndent: '-22.05pt',
-                        textTransform: 'none',
-                        whiteSpace: 'normal',
-                        widows: 2,
-                        wordSpacing: '0px',
-                        WebkitTextStrokeWidth: '0px',
-                        backgroundColor: 'rgb(255, 255, 255)',
-                        textDecorationStyle: 'initial',
-                        textDecorationColor: 'initial',
-                        color: 'rgb(89, 89, 89)',
-                      }}
-                    >
-                      <span
-                        className="block-container forloop"
-                        data-type="forloop"
-                        id="19beb913-5a5e-2b51-51f9-8600a8eb26c3"
-                        style={{ display: 'inline' }}
-                      >
-                        <span
-                          data-type="conditional-block"
-                          style={{ display: 'inline' }}
-                        >
-                          <span data-type="body" style={{ display: 'inline' }}>
-                            4
-                          </span>
-                        </span>
-                      </span>
-                    </span>
-                    <span
-                      style={{
-                        fontFamily: 'sans-serif',
-                        fontStyle: 'normal',
-                        fontVariantLigatures: 'normal',
-                        fontVariantCaps: 'normal',
-                        fontWeight: 400,
-                        letterSpacing: 'normal',
-                        orphans: 2,
-                        textAlign: 'justify',
-                        textIndent: '-29.4px',
-                        textTransform: 'none',
-                        whiteSpace: 'normal',
-                        widows: 2,
-                        wordSpacing: '0px',
-                        WebkitTextStrokeWidth: '0px',
-                        backgroundColor: 'rgb(255, 255, 255)',
-                        textDecorationStyle: 'initial',
-                        textDecorationColor: 'initial',
-                        color: 'rgb(89, 89, 89)',
-                      }}
-                    >
-                      . Disparage, tarnish, or otherwise harm, in our opinion,
-                      us and/or the Site.
-                    </span>
-                  </span>
-                </span>
-              </span>
-            </span>
-          </div>
-          <div
-            className="MsoNormal"
-            data-custom-class="body_text"
-            style={{
-              lineHeight: '1.5',
-              marginLeft: '20px',
-              textAlign: 'left',
-            }}
-          >
-            <span style={{ fontSize: '15px' }}>
-              <span
-                style={{
-                  lineHeight: '16.8667px',
-                  color: 'rgb(89, 89, 89)',
-                }}
-              >
-                <span
-                  style={{
-                    fontFamily: 'sans-serif',
-                    fontStyle: 'normal',
-                    fontVariantLigatures: 'normal',
-                    fontVariantCaps: 'normal',
-                    fontWeight: 400,
-                    letterSpacing: 'normal',
-                    orphans: 2,
-                    textAlign: 'justify',
-                    textIndent: '-29.4px',
-                    textTransform: 'none',
-                    whiteSpace: 'normal',
-                    widows: 2,
-                    wordSpacing: '0px',
-                    WebkitTextStrokeWidth: '0px',
-                    backgroundColor: 'rgb(255, 255, 255)',
-                    textDecorationStyle: 'initial',
-                    textDecorationColor: 'initial',
-                    color: 'rgb(89, 89, 89)',
-                  }}
-                >
-                  <span
-                    style={{
-                      lineHeight: '16.8667px',
-                      color: 'rgb(89, 89, 89)',
-                    }}
-                  >
-                    <span
-                      style={{
-                        fontFamily: 'sans-serif',
-                        fontStyle: 'normal',
-                        fontVariantLigatures: 'normal',
-                        fontVariantCaps: 'normal',
-                        fontWeight: 400,
-                        letterSpacing: 'normal',
-                        orphans: 2,
-                        textAlign: 'justify',
-                        textIndent: '-22.05pt',
-                        textTransform: 'none',
-                        whiteSpace: 'normal',
-                        widows: 2,
-                        wordSpacing: '0px',
-                        WebkitTextStrokeWidth: '0px',
-                        backgroundColor: 'rgb(255, 255, 255)',
-                        textDecorationStyle: 'initial',
-                        textDecorationColor: 'initial',
-                        color: 'rgb(89, 89, 89)',
-                      }}
-                    >
-                      <span
-                        className="block-container forloop"
-                        data-type="forloop"
-                        id="19beb913-5a5e-2b51-51f9-8600a8eb26c3"
-                        style={{ display: 'inline' }}
-                      >
-                        <span
-                          data-type="conditional-block"
-                          style={{ display: 'inline' }}
-                        >
-                          <span data-type="body" style={{ display: 'inline' }}>
-                            5
-                          </span>
-                        </span>
-                      </span>
-                    </span>
-                    <span
-                      style={{
-                        fontFamily: 'sans-serif',
-                        fontStyle: 'normal',
-                        fontVariantLigatures: 'normal',
-                        fontVariantCaps: 'normal',
-                        fontWeight: 400,
-                        letterSpacing: 'normal',
-                        orphans: 2,
-                        textAlign: 'justify',
-                        textIndent: '-29.4px',
-                        textTransform: 'none',
-                        whiteSpace: 'normal',
-                        widows: 2,
-                        wordSpacing: '0px',
-                        WebkitTextStrokeWidth: '0px',
-                        backgroundColor: 'rgb(255, 255, 255)',
-                        textDecorationStyle: 'initial',
-                        textDecorationColor: 'initial',
-                        color: 'rgb(89, 89, 89)',
-                      }}
-                    >
-                      . Use any information obtained from the Site in order to
-                      harass, abuse, or harm another person.
-                    </span>
-                  </span>
-                </span>
-              </span>
-            </span>
-          </div>
-          <div
-            className="MsoNormal"
-            data-custom-class="body_text"
-            style={{
-              lineHeight: '1.5',
-              marginLeft: '20px',
-              textAlign: 'left',
-            }}
-          >
-            <span style={{ fontSize: '15px' }}>
-              <span
-                style={{
-                  lineHeight: '16.8667px',
-                  color: 'rgb(89, 89, 89)',
-                }}
-              >
-                <span
-                  style={{
-                    fontFamily: 'sans-serif',
-                    fontStyle: 'normal',
-                    fontVariantLigatures: 'normal',
-                    fontVariantCaps: 'normal',
-                    fontWeight: 400,
-                    letterSpacing: 'normal',
-                    orphans: 2,
-                    textAlign: 'justify',
-                    textIndent: '-29.4px',
-                    textTransform: 'none',
-                    whiteSpace: 'normal',
-                    widows: 2,
-                    wordSpacing: '0px',
-                    WebkitTextStrokeWidth: '0px',
-                    backgroundColor: 'rgb(255, 255, 255)',
-                    textDecorationStyle: 'initial',
-                    textDecorationColor: 'initial',
-                    color: 'rgb(89, 89, 89)',
-                  }}
-                >
-                  <span
-                    style={{
-                      lineHeight: '16.8667px',
-                      color: 'rgb(89, 89, 89)',
-                    }}
-                  >
-                    <span
-                      style={{
-                        fontFamily: 'sans-serif',
-                        fontStyle: 'normal',
-                        fontVariantLigatures: 'normal',
-                        fontVariantCaps: 'normal',
-                        fontWeight: 400,
-                        letterSpacing: 'normal',
-                        orphans: 2,
-                        textAlign: 'justify',
-                        textIndent: '-22.05pt',
-                        textTransform: 'none',
-                        whiteSpace: 'normal',
-                        widows: 2,
-                        wordSpacing: '0px',
-                        WebkitTextStrokeWidth: '0px',
-                        backgroundColor: 'rgb(255, 255, 255)',
-                        textDecorationStyle: 'initial',
-                        textDecorationColor: 'initial',
-                        color: 'rgb(89, 89, 89)',
-                      }}
-                    >
-                      <span
-                        className="block-container forloop"
-                        data-type="forloop"
-                        id="19beb913-5a5e-2b51-51f9-8600a8eb26c3"
-                        style={{ display: 'inline' }}
-                      >
-                        <span
-                          data-type="conditional-block"
-                          style={{ display: 'inline' }}
-                        >
-                          <span data-type="body" style={{ display: 'inline' }}>
-                            6
-                          </span>
-                        </span>
-                      </span>
-                    </span>
-                    <span
-                      style={{
-                        fontFamily: 'sans-serif',
-                        fontStyle: 'normal',
-                        fontVariantLigatures: 'normal',
-                        fontVariantCaps: 'normal',
-                        fontWeight: 400,
-                        letterSpacing: 'normal',
-                        orphans: 2,
-                        textAlign: 'justify',
-                        textIndent: '-29.4px',
-                        textTransform: 'none',
-                        whiteSpace: 'normal',
-                        widows: 2,
-                        wordSpacing: '0px',
-                        WebkitTextStrokeWidth: '0px',
-                        backgroundColor: 'rgb(255, 255, 255)',
-                        textDecorationStyle: 'initial',
-                        textDecorationColor: 'initial',
-                        color: 'rgb(89, 89, 89)',
-                      }}
-                    >
-                      . Make improper use of our support services or submit
-                      false reports of abuse or misconduct.
-                    </span>
-                  </span>
-                </span>
-              </span>
-            </span>
-          </div>
-          <div
-            className="MsoNormal"
-            data-custom-class="body_text"
-            style={{
-              lineHeight: '1.5',
-              marginLeft: '20px',
-              textAlign: 'left',
-            }}
-          >
-            <span style={{ fontSize: '15px' }}>
-              <span
-                style={{
-                  lineHeight: '16.8667px',
-                  color: 'rgb(89, 89, 89)',
-                }}
-              >
-                <span
-                  style={{
-                    fontFamily: 'sans-serif',
-                    fontStyle: 'normal',
-                    fontVariantLigatures: 'normal',
-                    fontVariantCaps: 'normal',
-                    fontWeight: 400,
-                    letterSpacing: 'normal',
-                    orphans: 2,
-                    textAlign: 'justify',
-                    textIndent: '-29.4px',
-                    textTransform: 'none',
-                    whiteSpace: 'normal',
-                    widows: 2,
-                    wordSpacing: '0px',
-                    WebkitTextStrokeWidth: '0px',
-                    backgroundColor: 'rgb(255, 255, 255)',
-                    textDecorationStyle: 'initial',
-                    textDecorationColor: 'initial',
-                    color: 'rgb(89, 89, 89)',
-                  }}
-                >
-                  <span
-                    style={{
-                      lineHeight: '16.8667px',
-                      color: 'rgb(89, 89, 89)',
-                    }}
-                  >
-                    <span
-                      style={{
-                        fontFamily: 'sans-serif',
-                        fontStyle: 'normal',
-                        fontVariantLigatures: 'normal',
-                        fontVariantCaps: 'normal',
-                        fontWeight: 400,
-                        letterSpacing: 'normal',
-                        orphans: 2,
-                        textAlign: 'justify',
-                        textIndent: '-22.05pt',
-                        textTransform: 'none',
-                        whiteSpace: 'normal',
-                        widows: 2,
-                        wordSpacing: '0px',
-                        WebkitTextStrokeWidth: '0px',
-                        backgroundColor: 'rgb(255, 255, 255)',
-                        textDecorationStyle: 'initial',
-                        textDecorationColor: 'initial',
-                        color: 'rgb(89, 89, 89)',
-                      }}
-                    >
-                      <span
-                        className="block-container forloop"
-                        data-type="forloop"
-                        id="19beb913-5a5e-2b51-51f9-8600a8eb26c3"
-                        style={{ display: 'inline' }}
-                      >
-                        <span
-                          data-type="conditional-block"
-                          style={{ display: 'inline' }}
-                        >
-                          <span data-type="body" style={{ display: 'inline' }}>
-                            7
-                          </span>
-                        </span>
-                      </span>
-                    </span>
-                    <span
-                      style={{
-                        fontFamily: 'sans-serif',
-                        fontStyle: 'normal',
-                        fontVariantLigatures: 'normal',
-                        fontVariantCaps: 'normal',
-                        fontWeight: 400,
-                        letterSpacing: 'normal',
-                        orphans: 2,
-                        textAlign: 'justify',
-                        textIndent: '-29.4px',
-                        textTransform: 'none',
-                        whiteSpace: 'normal',
-                        widows: 2,
-                        wordSpacing: '0px',
-                        WebkitTextStrokeWidth: '0px',
-                        backgroundColor: 'rgb(255, 255, 255)',
-                        textDecorationStyle: 'initial',
-                        textDecorationColor: 'initial',
-                        color: 'rgb(89, 89, 89)',
-                      }}
-                    >
-                      . Use the Site in a manner inconsistent with any
-                      applicable laws or regulations.
-                    </span>
-                  </span>
-                </span>
-              </span>
-            </span>
-          </div>
-          <div
-            className="MsoNormal"
-            data-custom-class="body_text"
-            style={{
-              lineHeight: '1.5',
-              marginLeft: '20px',
-              textAlign: 'left',
-            }}
-          >
-            <span style={{ fontSize: '15px' }}>
-              <span
-                style={{
-                  lineHeight: '16.8667px',
-                  color: 'rgb(89, 89, 89)',
-                }}
-              >
-                <span
-                  style={{
-                    fontFamily: 'sans-serif',
-                    fontStyle: 'normal',
-                    fontVariantLigatures: 'normal',
-                    fontVariantCaps: 'normal',
-                    fontWeight: 400,
-                    letterSpacing: 'normal',
-                    orphans: 2,
-                    textAlign: 'justify',
-                    textIndent: '-29.4px',
-                    textTransform: 'none',
-                    whiteSpace: 'normal',
-                    widows: 2,
-                    wordSpacing: '0px',
-                    WebkitTextStrokeWidth: '0px',
-                    backgroundColor: 'rgb(255, 255, 255)',
-                    textDecorationStyle: 'initial',
-                    textDecorationColor: 'initial',
-                    color: 'rgb(89, 89, 89)',
-                  }}
-                >
-                  <span
-                    style={{
-                      lineHeight: '16.8667px',
-                      color: 'rgb(89, 89, 89)',
-                    }}
-                  >
-                    <span
-                      style={{
-                        fontFamily: 'sans-serif',
-                        fontStyle: 'normal',
-                        fontVariantLigatures: 'normal',
-                        fontVariantCaps: 'normal',
-                        fontWeight: 400,
-                        letterSpacing: 'normal',
-                        orphans: 2,
-                        textAlign: 'justify',
-                        textIndent: '-22.05pt',
-                        textTransform: 'none',
-                        whiteSpace: 'normal',
-                        widows: 2,
-                        wordSpacing: '0px',
-                        WebkitTextStrokeWidth: '0px',
-                        backgroundColor: 'rgb(255, 255, 255)',
-                        textDecorationStyle: 'initial',
-                        textDecorationColor: 'initial',
-                        color: 'rgb(89, 89, 89)',
-                      }}
-                    >
-                      <span
-                        className="block-container forloop"
-                        data-type="forloop"
-                        id="19beb913-5a5e-2b51-51f9-8600a8eb26c3"
-                        style={{ display: 'inline' }}
-                      >
-                        <span
-                          data-type="conditional-block"
-                          style={{ display: 'inline' }}
-                        >
-                          <span data-type="body" style={{ display: 'inline' }}>
-                            8
-                          </span>
-                        </span>
-                      </span>
-                    </span>
-                    <span
-                      style={{
-                        fontFamily: 'sans-serif',
-                        fontStyle: 'normal',
-                        fontVariantLigatures: 'normal',
-                        fontVariantCaps: 'normal',
-                        fontWeight: 400,
-                        letterSpacing: 'normal',
-                        orphans: 2,
-                        textAlign: 'justify',
-                        textIndent: '-29.4px',
-                        textTransform: 'none',
-                        whiteSpace: 'normal',
-                        widows: 2,
-                        wordSpacing: '0px',
-                        WebkitTextStrokeWidth: '0px',
-                        backgroundColor: 'rgb(255, 255, 255)',
-                        textDecorationStyle: 'initial',
-                        textDecorationColor: 'initial',
-                        color: 'rgb(89, 89, 89)',
-                      }}
-                    >
-                      . Engage in unauthorized framing of or linking to the
-                      Site.
-                    </span>
-                  </span>
-                </span>
-              </span>
-            </span>
-          </div>
-          <div
-            className="MsoNormal"
-            data-custom-class="body_text"
-            style={{
-              lineHeight: '1.5',
-              marginLeft: '20px',
-              textAlign: 'left',
-            }}
-          >
-            <span style={{ fontSize: '15px' }}>
-              <span
-                style={{
-                  lineHeight: '16.8667px',
-                  color: 'rgb(89, 89, 89)',
-                }}
-              >
-                <span
-                  style={{
-                    fontFamily: 'sans-serif',
-                    fontStyle: 'normal',
-                    fontVariantLigatures: 'normal',
-                    fontVariantCaps: 'normal',
-                    fontWeight: 400,
-                    letterSpacing: 'normal',
-                    orphans: 2,
-                    textAlign: 'justify',
-                    textIndent: '-29.4px',
-                    textTransform: 'none',
-                    whiteSpace: 'normal',
-                    widows: 2,
-                    wordSpacing: '0px',
-                    WebkitTextStrokeWidth: '0px',
-                    backgroundColor: 'rgb(255, 255, 255)',
-                    textDecorationStyle: 'initial',
-                    textDecorationColor: 'initial',
-                    color: 'rgb(89, 89, 89)',
-                  }}
-                >
-                  <span
-                    style={{
-                      lineHeight: '16.8667px',
-                      color: 'rgb(89, 89, 89)',
-                    }}
-                  >
-                    <span
-                      style={{
-                        fontFamily: 'sans-serif',
-                        fontStyle: 'normal',
-                        fontVariantLigatures: 'normal',
-                        fontVariantCaps: 'normal',
-                        fontWeight: 400,
-                        letterSpacing: 'normal',
-                        orphans: 2,
-                        textAlign: 'justify',
-                        textIndent: '-22.05pt',
-                        textTransform: 'none',
-                        whiteSpace: 'normal',
-                        widows: 2,
-                        wordSpacing: '0px',
-                        WebkitTextStrokeWidth: '0px',
-                        backgroundColor: 'rgb(255, 255, 255)',
-                        textDecorationStyle: 'initial',
-                        textDecorationColor: 'initial',
-                        color: 'rgb(89, 89, 89)',
-                      }}
-                    >
-                      <span
-                        className="block-container forloop"
-                        data-type="forloop"
-                        id="19beb913-5a5e-2b51-51f9-8600a8eb26c3"
-                        style={{ display: 'inline' }}
-                      >
-                        <span
-                          data-type="conditional-block"
-                          style={{ display: 'inline' }}
-                        >
-                          <span data-type="body" style={{ display: 'inline' }}>
-                            9
-                          </span>
-                        </span>
-                      </span>
-                    </span>
-                    <span
-                      style={{
-                        fontFamily: 'sans-serif',
-                        fontStyle: 'normal',
-                        fontVariantLigatures: 'normal',
-                        fontVariantCaps: 'normal',
-                        fontWeight: 400,
-                        letterSpacing: 'normal',
-                        orphans: 2,
-                        textAlign: 'justify',
-                        textIndent: '-29.4px',
-                        textTransform: 'none',
-                        whiteSpace: 'normal',
-                        widows: 2,
-                        wordSpacing: '0px',
-                        WebkitTextStrokeWidth: '0px',
-                        backgroundColor: 'rgb(255, 255, 255)',
-                        textDecorationStyle: 'initial',
-                        textDecorationColor: 'initial',
-                        color: 'rgb(89, 89, 89)',
-                      }}
-                    >
-                      . Upload or transmit (or attempt to upload or to transmit)
-                      viruses, Trojan horses, or other material, including
-                      excessive use of capital letters and spamming (continuous
-                      posting of repetitive text), that interferes with any
-                      party’s uninterrupted use and enjoyment of the Site or
-                      modifies, impairs, disrupts, alters, or interferes with
-                      the use, features, functions, operation, or maintenance of
-                      the Site.
-                    </span>
-                  </span>
-                </span>
-              </span>
-            </span>
-          </div>
-          <div
-            className="MsoNormal"
-            data-custom-class="body_text"
-            style={{
-              lineHeight: '1.5',
-              marginLeft: '20px',
-              textAlign: 'left',
-            }}
-          >
-            <span style={{ fontSize: '15px' }}>
-              <span
-                style={{
-                  lineHeight: '16.8667px',
-                  color: 'rgb(89, 89, 89)',
-                }}
-              >
-                <span
-                  style={{
-                    fontFamily: 'sans-serif',
-                    fontStyle: 'normal',
-                    fontVariantLigatures: 'normal',
-                    fontVariantCaps: 'normal',
-                    fontWeight: 400,
-                    letterSpacing: 'normal',
-                    orphans: 2,
-                    textAlign: 'justify',
-                    textIndent: '-29.4px',
-                    textTransform: 'none',
-                    whiteSpace: 'normal',
-                    widows: 2,
-                    wordSpacing: '0px',
-                    WebkitTextStrokeWidth: '0px',
-                    backgroundColor: 'rgb(255, 255, 255)',
-                    textDecorationStyle: 'initial',
-                    textDecorationColor: 'initial',
-                    color: 'rgb(89, 89, 89)',
-                  }}
-                >
-                  <span
-                    style={{
-                      lineHeight: '16.8667px',
-                      color: 'rgb(89, 89, 89)',
-                    }}
-                  >
-                    <span
-                      style={{
-                        fontFamily: 'sans-serif',
-                        fontStyle: 'normal',
-                        fontVariantLigatures: 'normal',
-                        fontVariantCaps: 'normal',
-                        fontWeight: 400,
-                        letterSpacing: 'normal',
-                        orphans: 2,
-                        textAlign: 'justify',
-                        textIndent: '-22.05pt',
-                        textTransform: 'none',
-                        whiteSpace: 'normal',
-                        widows: 2,
-                        wordSpacing: '0px',
-                        WebkitTextStrokeWidth: '0px',
-                        backgroundColor: 'rgb(255, 255, 255)',
-                        textDecorationStyle: 'initial',
-                        textDecorationColor: 'initial',
-                        color: 'rgb(89, 89, 89)',
-                      }}
-                    >
-                      <span
-                        className="block-container forloop"
-                        data-type="forloop"
-                        id="19beb913-5a5e-2b51-51f9-8600a8eb26c3"
-                        style={{ display: 'inline' }}
-                      >
-                        <span
-                          data-type="conditional-block"
-                          style={{ display: 'inline' }}
-                        >
-                          <span data-type="body" style={{ display: 'inline' }}>
-                            10
-                          </span>
-                        </span>
-                      </span>
-                    </span>
-                    <span
-                      style={{
-                        fontFamily: 'sans-serif',
-                        fontStyle: 'normal',
-                        fontVariantLigatures: 'normal',
-                        fontVariantCaps: 'normal',
-                        fontWeight: 400,
-                        letterSpacing: 'normal',
-                        orphans: 2,
-                        textAlign: 'justify',
-                        textIndent: '-29.4px',
-                        textTransform: 'none',
-                        whiteSpace: 'normal',
-                        widows: 2,
-                        wordSpacing: '0px',
-                        WebkitTextStrokeWidth: '0px',
-                        backgroundColor: 'rgb(255, 255, 255)',
-                        textDecorationStyle: 'initial',
-                        textDecorationColor: 'initial',
-                        color: 'rgb(89, 89, 89)',
-                      }}
-                    >
-                      . Engage in any automated use of the system, such as using
-                      scripts to send comments or messages, or using any data
-                      mining, robots, or similar data gathering and extraction
-                      tools.
-                    </span>
-                  </span>
-                </span>
-              </span>
-            </span>
-          </div>
-          <div
-            className="MsoNormal"
-            data-custom-class="body_text"
-            style={{
-              lineHeight: '1.5',
-              marginLeft: '20px',
-              textAlign: 'left',
-            }}
-          >
-            <span style={{ fontSize: '15px' }}>
-              <span
-                style={{
-                  lineHeight: '16.8667px',
-                  color: 'rgb(89, 89, 89)',
-                }}
-              >
-                <span
-                  style={{
-                    fontFamily: 'sans-serif',
-                    fontStyle: 'normal',
-                    fontVariantLigatures: 'normal',
-                    fontVariantCaps: 'normal',
-                    fontWeight: 400,
-                    letterSpacing: 'normal',
-                    orphans: 2,
-                    textAlign: 'justify',
-                    textIndent: '-29.4px',
-                    textTransform: 'none',
-                    whiteSpace: 'normal',
-                    widows: 2,
-                    wordSpacing: '0px',
-                    WebkitTextStrokeWidth: '0px',
-                    backgroundColor: 'rgb(255, 255, 255)',
-                    textDecorationStyle: 'initial',
-                    textDecorationColor: 'initial',
-                    color: 'rgb(89, 89, 89)',
-                  }}
-                >
-                  <span
-                    style={{
-                      lineHeight: '16.8667px',
-                      color: 'rgb(89, 89, 89)',
-                    }}
-                  >
-                    <span
-                      style={{
-                        fontFamily: 'sans-serif',
-                        fontStyle: 'normal',
-                        fontVariantLigatures: 'normal',
-                        fontVariantCaps: 'normal',
-                        fontWeight: 400,
-                        letterSpacing: 'normal',
-                        orphans: 2,
-                        textAlign: 'justify',
-                        textIndent: '-22.05pt',
-                        textTransform: 'none',
-                        whiteSpace: 'normal',
-                        widows: 2,
-                        wordSpacing: '0px',
-                        WebkitTextStrokeWidth: '0px',
-                        backgroundColor: 'rgb(255, 255, 255)',
-                        textDecorationStyle: 'initial',
-                        textDecorationColor: 'initial',
-                        color: 'rgb(89, 89, 89)',
-                      }}
-                    >
-                      <span
-                        className="block-container forloop"
-                        data-type="forloop"
-                        id="19beb913-5a5e-2b51-51f9-8600a8eb26c3"
-                        style={{ display: 'inline' }}
-                      >
-                        <span
-                          data-type="conditional-block"
-                          style={{ display: 'inline' }}
-                        >
-                          <span data-type="body" style={{ display: 'inline' }}>
-                            11
-                          </span>
-                        </span>
-                      </span>
-                    </span>
-                    <span
-                      style={{
-                        fontFamily: 'sans-serif',
-                        fontStyle: 'normal',
-                        fontVariantLigatures: 'normal',
-                        fontVariantCaps: 'normal',
-                        fontWeight: 400,
-                        letterSpacing: 'normal',
-                        orphans: 2,
-                        textAlign: 'justify',
-                        textIndent: '-29.4px',
-                        textTransform: 'none',
-                        whiteSpace: 'normal',
-                        widows: 2,
-                        wordSpacing: '0px',
-                        WebkitTextStrokeWidth: '0px',
-                        backgroundColor: 'rgb(255, 255, 255)',
-                        textDecorationStyle: 'initial',
-                        textDecorationColor: 'initial',
-                        color: 'rgb(89, 89, 89)',
-                      }}
-                    >
-                      . Delete the copyright or other proprietary rights notice
-                      from any Content.
-                    </span>
-                  </span>
-                </span>
-              </span>
-            </span>
-          </div>
-          <div
-            className="MsoNormal"
-            data-custom-class="body_text"
-            style={{
-              lineHeight: '1.5',
-              marginLeft: '20px',
-              textAlign: 'left',
-            }}
-          >
-            <span style={{ fontSize: '15px' }}>
-              <span
-                style={{
-                  lineHeight: '16.8667px',
-                  color: 'rgb(89, 89, 89)',
-                }}
-              >
-                <span
-                  style={{
-                    fontFamily: 'sans-serif',
-                    fontStyle: 'normal',
-                    fontVariantLigatures: 'normal',
-                    fontVariantCaps: 'normal',
-                    fontWeight: 400,
-                    letterSpacing: 'normal',
-                    orphans: 2,
-                    textAlign: 'justify',
-                    textIndent: '-29.4px',
-                    textTransform: 'none',
-                    whiteSpace: 'normal',
-                    widows: 2,
-                    wordSpacing: '0px',
-                    WebkitTextStrokeWidth: '0px',
-                    backgroundColor: 'rgb(255, 255, 255)',
-                    textDecorationStyle: 'initial',
-                    textDecorationColor: 'initial',
-                    color: 'rgb(89, 89, 89)',
-                  }}
-                >
-                  <span
-                    style={{
-                      lineHeight: '16.8667px',
-                      color: 'rgb(89, 89, 89)',
-                    }}
-                  >
-                    <span
-                      style={{
-                        fontFamily: 'sans-serif',
-                        fontStyle: 'normal',
-                        fontVariantLigatures: 'normal',
-                        fontVariantCaps: 'normal',
-                        fontWeight: 400,
-                        letterSpacing: 'normal',
-                        orphans: 2,
-                        textAlign: 'justify',
-                        textIndent: '-22.05pt',
-                        textTransform: 'none',
-                        whiteSpace: 'normal',
-                        widows: 2,
-                        wordSpacing: '0px',
-                        WebkitTextStrokeWidth: '0px',
-                        backgroundColor: 'rgb(255, 255, 255)',
-                        textDecorationStyle: 'initial',
-                        textDecorationColor: 'initial',
-                        color: 'rgb(89, 89, 89)',
-                      }}
-                    >
-                      <span
-                        className="block-container forloop"
-                        data-type="forloop"
-                        id="19beb913-5a5e-2b51-51f9-8600a8eb26c3"
-                        style={{ display: 'inline' }}
-                      >
-                        <span
-                          data-type="conditional-block"
-                          style={{ display: 'inline' }}
-                        >
-                          <span data-type="body" style={{ display: 'inline' }}>
-                            12
-                          </span>
-                        </span>
-                      </span>
-                    </span>
-                    <span
-                      style={{
-                        fontFamily: 'sans-serif',
-                        fontStyle: 'normal',
-                        fontVariantLigatures: 'normal',
-                        fontVariantCaps: 'normal',
-                        fontWeight: 400,
-                        letterSpacing: 'normal',
-                        orphans: 2,
-                        textAlign: 'justify',
-                        textIndent: '-29.4px',
-                        textTransform: 'none',
-                        whiteSpace: 'normal',
-                        widows: 2,
-                        wordSpacing: '0px',
-                        WebkitTextStrokeWidth: '0px',
-                        backgroundColor: 'rgb(255, 255, 255)',
-                        textDecorationStyle: 'initial',
-                        textDecorationColor: 'initial',
-                        color: 'rgb(89, 89, 89)',
-                      }}
-                    >
-                      . Attempt to impersonate another user or person or use the
-                      username of another user.
-                    </span>
-                  </span>
-                </span>
-              </span>
-            </span>
-          </div>
-          <div
-            className="MsoNormal"
-            data-custom-class="body_text"
-            style={{
-              lineHeight: '1.5',
-              marginLeft: '20px',
-              textAlign: 'left',
-            }}
-          >
-            <span style={{ fontSize: '15px' }}>
-              <span
-                style={{
-                  lineHeight: '16.8667px',
-                  color: 'rgb(89, 89, 89)',
-                }}
-              >
-                <span
-                  style={{
-                    fontFamily: 'sans-serif',
-                    fontStyle: 'normal',
-                    fontVariantLigatures: 'normal',
-                    fontVariantCaps: 'normal',
-                    fontWeight: 400,
-                    letterSpacing: 'normal',
-                    orphans: 2,
-                    textAlign: 'justify',
-                    textIndent: '-29.4px',
-                    textTransform: 'none',
-                    whiteSpace: 'normal',
-                    widows: 2,
-                    wordSpacing: '0px',
-                    WebkitTextStrokeWidth: '0px',
-                    backgroundColor: 'rgb(255, 255, 255)',
-                    textDecorationStyle: 'initial',
-                    textDecorationColor: 'initial',
-                    color: 'rgb(89, 89, 89)',
-                  }}
-                >
-                  <span
-                    style={{
-                      lineHeight: '16.8667px',
-                      color: 'rgb(89, 89, 89)',
-                    }}
-                  >
-                    <span
-                      style={{
-                        fontFamily: 'sans-serif',
-                        fontStyle: 'normal',
-                        fontVariantLigatures: 'normal',
-                        fontVariantCaps: 'normal',
-                        fontWeight: 400,
-                        letterSpacing: 'normal',
-                        orphans: 2,
-                        textAlign: 'justify',
-                        textIndent: '-22.05pt',
-                        textTransform: 'none',
-                        whiteSpace: 'normal',
-                        widows: 2,
-                        wordSpacing: '0px',
-                        WebkitTextStrokeWidth: '0px',
-                        backgroundColor: 'rgb(255, 255, 255)',
-                        textDecorationStyle: 'initial',
-                        textDecorationColor: 'initial',
-                        color: 'rgb(89, 89, 89)',
-                      }}
-                    >
-                      <span
-                        className="block-container forloop"
-                        data-type="forloop"
-                        id="19beb913-5a5e-2b51-51f9-8600a8eb26c3"
-                        style={{ display: 'inline' }}
-                      >
-                        <span
-                          data-type="conditional-block"
-                          style={{ display: 'inline' }}
-                        >
-                          <span data-type="body" style={{ display: 'inline' }}>
-                            13
-                          </span>
-                        </span>
-                      </span>
-                    </span>
-                    <span
-                      style={{
-                        fontFamily: 'sans-serif',
-                        fontStyle: 'normal',
-                        fontVariantLigatures: 'normal',
-                        fontVariantCaps: 'normal',
-                        fontWeight: 400,
-                        letterSpacing: 'normal',
-                        orphans: 2,
-                        textAlign: 'justify',
-                        textIndent: '-29.4px',
-                        textTransform: 'none',
-                        whiteSpace: 'normal',
-                        widows: 2,
-                        wordSpacing: '0px',
-                        WebkitTextStrokeWidth: '0px',
-                        backgroundColor: 'rgb(255, 255, 255)',
-                        textDecorationStyle: 'initial',
-                        textDecorationColor: 'initial',
-                        color: 'rgb(89, 89, 89)',
-                      }}
-                    >
-                      . Upload or transmit (or attempt to upload or to transmit)
-                      any material that acts as a passive or active information
-                      collection or transmission mechanism, including without
-                      limitation, clear graphics interchange formats (“gifs”),
-                      1×1 pixels, web bugs, cookies, or other similar devices
-                      (sometimes referred to as “spyware” or “passive collection
-                      mechanisms” or “pcms”).
-                    </span>
-                  </span>
-                </span>
-              </span>
-            </span>
-          </div>
-          <div
-            className="MsoNormal"
-            data-custom-class="body_text"
-            style={{
-              lineHeight: '1.5',
-              marginLeft: '20px',
-              textAlign: 'left',
-            }}
-          >
-            <span style={{ fontSize: '15px' }}>
-              <span
-                style={{
-                  lineHeight: '16.8667px',
-                  color: 'rgb(89, 89, 89)',
-                }}
-              >
-                <span
-                  style={{
-                    fontFamily: 'sans-serif',
-                    fontStyle: 'normal',
-                    fontVariantLigatures: 'normal',
-                    fontVariantCaps: 'normal',
-                    fontWeight: 400,
-                    letterSpacing: 'normal',
-                    orphans: 2,
-                    textAlign: 'justify',
-                    textIndent: '-29.4px',
-                    textTransform: 'none',
-                    whiteSpace: 'normal',
-                    widows: 2,
-                    wordSpacing: '0px',
-                    WebkitTextStrokeWidth: '0px',
-                    backgroundColor: 'rgb(255, 255, 255)',
-                    textDecorationStyle: 'initial',
-                    textDecorationColor: 'initial',
-                    color: 'rgb(89, 89, 89)',
-                  }}
-                >
-                  <span
-                    style={{
-                      lineHeight: '16.8667px',
-                      color: 'rgb(89, 89, 89)',
-                    }}
-                  >
-                    <span
-                      style={{
-                        fontFamily: 'sans-serif',
-                        fontStyle: 'normal',
-                        fontVariantLigatures: 'normal',
-                        fontVariantCaps: 'normal',
-                        fontWeight: 400,
-                        letterSpacing: 'normal',
-                        orphans: 2,
-                        textAlign: 'justify',
-                        textIndent: '-22.05pt',
-                        textTransform: 'none',
-                        whiteSpace: 'normal',
-                        widows: 2,
-                        wordSpacing: '0px',
-                        WebkitTextStrokeWidth: '0px',
-                        backgroundColor: 'rgb(255, 255, 255)',
-                        textDecorationStyle: 'initial',
-                        textDecorationColor: 'initial',
-                        color: 'rgb(89, 89, 89)',
-                      }}
-                    >
-                      <span
-                        className="block-container forloop"
-                        data-type="forloop"
-                        id="19beb913-5a5e-2b51-51f9-8600a8eb26c3"
-                        style={{ display: 'inline' }}
-                      >
-                        <span
-                          data-type="conditional-block"
-                          style={{ display: 'inline' }}
-                        >
-                          <span data-type="body" style={{ display: 'inline' }}>
-                            14
-                          </span>
-                        </span>
-                      </span>
-                    </span>
-                    <span
-                      style={{
-                        fontFamily: 'sans-serif',
-                        fontStyle: 'normal',
-                        fontVariantLigatures: 'normal',
-                        fontVariantCaps: 'normal',
-                        fontWeight: 400,
-                        letterSpacing: 'normal',
-                        orphans: 2,
-                        textAlign: 'justify',
-                        textIndent: '-29.4px',
-                        textTransform: 'none',
-                        whiteSpace: 'normal',
-                        widows: 2,
-                        wordSpacing: '0px',
-                        WebkitTextStrokeWidth: '0px',
-                        backgroundColor: 'rgb(255, 255, 255)',
-                        textDecorationStyle: 'initial',
-                        textDecorationColor: 'initial',
-                        color: 'rgb(89, 89, 89)',
-                      }}
-                    >
-                      . Interfere with, disrupt, or create an undue burden on
-                      the Site or the networks or services connected to the
-                      Site.
-                    </span>
-                  </span>
-                </span>
-              </span>
-            </span>
-          </div>
-          <div
-            className="MsoNormal"
-            data-custom-class="body_text"
-            style={{
-              lineHeight: '1.5',
-              marginLeft: '20px',
-              textAlign: 'left',
-            }}
-          >
-            <span style={{ fontSize: '15px' }}>
-              <span
-                style={{
-                  lineHeight: '16.8667px',
-                  color: 'rgb(89, 89, 89)',
-                }}
-              >
-                <span
-                  style={{
-                    fontFamily: 'sans-serif',
-                    fontStyle: 'normal',
-                    fontVariantLigatures: 'normal',
-                    fontVariantCaps: 'normal',
-                    fontWeight: 400,
-                    letterSpacing: 'normal',
-                    orphans: 2,
-                    textAlign: 'justify',
-                    textIndent: '-29.4px',
-                    textTransform: 'none',
-                    whiteSpace: 'normal',
-                    widows: 2,
-                    wordSpacing: '0px',
-                    WebkitTextStrokeWidth: '0px',
-                    backgroundColor: 'rgb(255, 255, 255)',
-                    textDecorationStyle: 'initial',
-                    textDecorationColor: 'initial',
-                    color: 'rgb(89, 89, 89)',
-                  }}
-                >
-                  <span
-                    style={{
-                      lineHeight: '16.8667px',
-                      color: 'rgb(89, 89, 89)',
-                    }}
-                  >
-                    <span
-                      style={{
-                        fontFamily: 'sans-serif',
-                        fontStyle: 'normal',
-                        fontVariantLigatures: 'normal',
-                        fontVariantCaps: 'normal',
-                        fontWeight: 400,
-                        letterSpacing: 'normal',
-                        orphans: 2,
-                        textAlign: 'justify',
-                        textIndent: '-22.05pt',
-                        textTransform: 'none',
-                        whiteSpace: 'normal',
-                        widows: 2,
-                        wordSpacing: '0px',
-                        WebkitTextStrokeWidth: '0px',
-                        backgroundColor: 'rgb(255, 255, 255)',
-                        textDecorationStyle: 'initial',
-                        textDecorationColor: 'initial',
-                        color: 'rgb(89, 89, 89)',
-                      }}
-                    >
-                      <span
-                        className="block-container forloop"
-                        data-type="forloop"
-                        id="19beb913-5a5e-2b51-51f9-8600a8eb26c3"
-                        style={{ display: 'inline' }}
-                      >
-                        <span
-                          data-type="conditional-block"
-                          style={{ display: 'inline' }}
-                        >
-                          <span data-type="body" style={{ display: 'inline' }}>
-                            15
-                          </span>
-                        </span>
-                      </span>
-                    </span>
-                    <span
-                      style={{
-                        fontFamily: 'sans-serif',
-                        fontStyle: 'normal',
-                        fontVariantLigatures: 'normal',
-                        fontVariantCaps: 'normal',
-                        fontWeight: 400,
-                        letterSpacing: 'normal',
-                        orphans: 2,
-                        textAlign: 'justify',
-                        textIndent: '-29.4px',
-                        textTransform: 'none',
-                        whiteSpace: 'normal',
-                        widows: 2,
-                        wordSpacing: '0px',
-                        WebkitTextStrokeWidth: '0px',
-                        backgroundColor: 'rgb(255, 255, 255)',
-                        textDecorationStyle: 'initial',
-                        textDecorationColor: 'initial',
-                        color: 'rgb(89, 89, 89)',
-                      }}
-                    >
-                      . Harass, annoy, intimidate, or threaten any of our
-                      employees or agents engaged in providing any portion of
-                      the Site to you.
-                    </span>
-                  </span>
-                </span>
-              </span>
-            </span>
-          </div>
-          <div
-            className="MsoNormal"
-            data-custom-class="body_text"
-            style={{
-              lineHeight: '1.5',
-              marginLeft: '20px',
-              textAlign: 'left',
-            }}
-          >
-            <span style={{ fontSize: '15px' }}>
-              <span
-                style={{
-                  lineHeight: '16.8667px',
-                  color: 'rgb(89, 89, 89)',
-                }}
-              >
-                <span
-                  style={{
-                    fontFamily: 'sans-serif',
-                    fontStyle: 'normal',
-                    fontVariantLigatures: 'normal',
-                    fontVariantCaps: 'normal',
-                    fontWeight: 400,
-                    letterSpacing: 'normal',
-                    orphans: 2,
-                    textAlign: 'justify',
-                    textIndent: '-29.4px',
-                    textTransform: 'none',
-                    whiteSpace: 'normal',
-                    widows: 2,
-                    wordSpacing: '0px',
-                    WebkitTextStrokeWidth: '0px',
-                    backgroundColor: 'rgb(255, 255, 255)',
-                    textDecorationStyle: 'initial',
-                    textDecorationColor: 'initial',
-                    color: 'rgb(89, 89, 89)',
-                  }}
-                >
-                  <span
-                    style={{
-                      lineHeight: '16.8667px',
-                      color: 'rgb(89, 89, 89)',
-                    }}
-                  >
-                    <span
-                      style={{
-                        fontFamily: 'sans-serif',
-                        fontStyle: 'normal',
-                        fontVariantLigatures: 'normal',
-                        fontVariantCaps: 'normal',
-                        fontWeight: 400,
-                        letterSpacing: 'normal',
-                        orphans: 2,
-                        textAlign: 'justify',
-                        textIndent: '-22.05pt',
-                        textTransform: 'none',
-                        whiteSpace: 'normal',
-                        widows: 2,
-                        wordSpacing: '0px',
-                        WebkitTextStrokeWidth: '0px',
-                        backgroundColor: 'rgb(255, 255, 255)',
-                        textDecorationStyle: 'initial',
-                        textDecorationColor: 'initial',
-                        color: 'rgb(89, 89, 89)',
-                      }}
-                    >
-                      <span
-                        className="block-container forloop"
-                        data-type="forloop"
-                        id="19beb913-5a5e-2b51-51f9-8600a8eb26c3"
-                        style={{ display: 'inline' }}
-                      >
-                        <span
-                          data-type="conditional-block"
-                          style={{ display: 'inline' }}
-                        >
-                          <span data-type="body" style={{ display: 'inline' }}>
-                            16
-                          </span>
-                        </span>
-                      </span>
-                    </span>
-                    <span
-                      style={{
-                        fontFamily: 'sans-serif',
-                        fontStyle: 'normal',
-                        fontVariantLigatures: 'normal',
-                        fontVariantCaps: 'normal',
-                        fontWeight: 400,
-                        letterSpacing: 'normal',
-                        orphans: 2,
-                        textAlign: 'justify',
-                        textIndent: '-29.4px',
-                        textTransform: 'none',
-                        whiteSpace: 'normal',
-                        widows: 2,
-                        wordSpacing: '0px',
-                        WebkitTextStrokeWidth: '0px',
-                        backgroundColor: 'rgb(255, 255, 255)',
-                        textDecorationStyle: 'initial',
-                        textDecorationColor: 'initial',
-                        color: 'rgb(89, 89, 89)',
-                      }}
-                    >
-                      . Attempt to bypass any measures of the Site designed to
-                      prevent or restrict access to the Site, or any portion of
-                      the Site.
-                    </span>
-                  </span>
-                </span>
-              </span>
-            </span>
-          </div>
-          <div
-            className="MsoNormal"
-            data-custom-class="body_text"
-            style={{
-              lineHeight: '1.5',
-              marginLeft: '20px',
-              textAlign: 'left',
-            }}
-          >
-            <span style={{ fontSize: '15px' }}>
-              <span
-                style={{
-                  lineHeight: '16.8667px',
-                  color: 'rgb(89, 89, 89)',
-                }}
-              >
-                <span
-                  style={{
-                    fontFamily: 'sans-serif',
-                    fontStyle: 'normal',
-                    fontVariantLigatures: 'normal',
-                    fontVariantCaps: 'normal',
-                    fontWeight: 400,
-                    letterSpacing: 'normal',
-                    orphans: 2,
-                    textAlign: 'justify',
-                    textIndent: '-29.4px',
-                    textTransform: 'none',
-                    whiteSpace: 'normal',
-                    widows: 2,
-                    wordSpacing: '0px',
-                    WebkitTextStrokeWidth: '0px',
-                    backgroundColor: 'rgb(255, 255, 255)',
-                    textDecorationStyle: 'initial',
-                    textDecorationColor: 'initial',
-                    color: 'rgb(89, 89, 89)',
-                  }}
-                >
-                  <span
-                    style={{
-                      lineHeight: '16.8667px',
-                      color: 'rgb(89, 89, 89)',
-                    }}
-                  >
-                    <span
-                      style={{
-                        fontFamily: 'sans-serif',
-                        fontStyle: 'normal',
-                        fontVariantLigatures: 'normal',
-                        fontVariantCaps: 'normal',
-                        fontWeight: 400,
-                        letterSpacing: 'normal',
-                        orphans: 2,
-                        textAlign: 'justify',
-                        textIndent: '-22.05pt',
-                        textTransform: 'none',
-                        whiteSpace: 'normal',
-                        widows: 2,
-                        wordSpacing: '0px',
-                        WebkitTextStrokeWidth: '0px',
-                        backgroundColor: 'rgb(255, 255, 255)',
-                        textDecorationStyle: 'initial',
-                        textDecorationColor: 'initial',
-                        color: 'rgb(89, 89, 89)',
-                      }}
-                    >
-                      <span
-                        className="block-container forloop"
-                        data-type="forloop"
-                        id="19beb913-5a5e-2b51-51f9-8600a8eb26c3"
-                        style={{ display: 'inline' }}
-                      >
-                        <span
-                          data-type="conditional-block"
-                          style={{ display: 'inline' }}
-                        >
-                          <span data-type="body" style={{ display: 'inline' }}>
-                            17
-                          </span>
-                        </span>
-                      </span>
-                    </span>
-                    <span
-                      style={{
-                        fontFamily: 'sans-serif',
-                        fontStyle: 'normal',
-                        fontVariantLigatures: 'normal',
-                        fontVariantCaps: 'normal',
-                        fontWeight: 400,
-                        letterSpacing: 'normal',
-                        orphans: 2,
-                        textAlign: 'justify',
-                        textIndent: '-29.4px',
-                        textTransform: 'none',
-                        whiteSpace: 'normal',
-                        widows: 2,
-                        wordSpacing: '0px',
-                        WebkitTextStrokeWidth: '0px',
-                        backgroundColor: 'rgb(255, 255, 255)',
-                        textDecorationStyle: 'initial',
-                        textDecorationColor: 'initial',
-                        color: 'rgb(89, 89, 89)',
-                      }}
-                    >
-                      . Copy or adapt the Site’s software, including but not
-                      limited to Flash, PHP, HTML, JavaScript, or other code.
-                    </span>
-                  </span>
-                </span>
-              </span>
-            </span>
-          </div>
-          <div
-            className="MsoNormal"
-            data-custom-class="body_text"
-            style={{
-              lineHeight: '1.5',
-              marginLeft: '20px',
-              textAlign: 'left',
-            }}
-          >
-            <span style={{ fontSize: '15px' }}>
-              <span
-                style={{
-                  lineHeight: '16.8667px',
-                  color: 'rgb(89, 89, 89)',
-                }}
-              >
-                <span
-                  style={{
-                    fontFamily: 'sans-serif',
-                    fontStyle: 'normal',
-                    fontVariantLigatures: 'normal',
-                    fontVariantCaps: 'normal',
-                    fontWeight: 400,
-                    letterSpacing: 'normal',
-                    orphans: 2,
-                    textAlign: 'justify',
-                    textIndent: '-29.4px',
-                    textTransform: 'none',
-                    whiteSpace: 'normal',
-                    widows: 2,
-                    wordSpacing: '0px',
-                    WebkitTextStrokeWidth: '0px',
-                    backgroundColor: 'rgb(255, 255, 255)',
-                    textDecorationStyle: 'initial',
-                    textDecorationColor: 'initial',
-                    color: 'rgb(89, 89, 89)',
-                  }}
-                >
-                  <span
-                    style={{
-                      lineHeight: '16.8667px',
-                      color: 'rgb(89, 89, 89)',
-                    }}
-                  >
-                    <span
-                      style={{
-                        fontFamily: 'sans-serif',
-                        fontStyle: 'normal',
-                        fontVariantLigatures: 'normal',
-                        fontVariantCaps: 'normal',
-                        fontWeight: 400,
-                        letterSpacing: 'normal',
-                        orphans: 2,
-                        textAlign: 'justify',
-                        textIndent: '-22.05pt',
-                        textTransform: 'none',
-                        whiteSpace: 'normal',
-                        widows: 2,
-                        wordSpacing: '0px',
-                        WebkitTextStrokeWidth: '0px',
-                        backgroundColor: 'rgb(255, 255, 255)',
-                        textDecorationStyle: 'initial',
-                        textDecorationColor: 'initial',
-                        color: 'rgb(89, 89, 89)',
-                      }}
-                    >
-                      <span
-                        className="block-container forloop"
-                        data-type="forloop"
-                        id="19beb913-5a5e-2b51-51f9-8600a8eb26c3"
-                        style={{ display: 'inline' }}
-                      >
-                        <span
-                          data-type="conditional-block"
-                          style={{ display: 'inline' }}
-                        >
-                          <span data-type="body" style={{ display: 'inline' }}>
-                            18
-                          </span>
-                        </span>
-                      </span>
-                    </span>
-                    <span
-                      style={{
-                        fontFamily: 'sans-serif',
-                        fontStyle: 'normal',
-                        fontVariantLigatures: 'normal',
-                        fontVariantCaps: 'normal',
-                        fontWeight: 400,
-                        letterSpacing: 'normal',
-                        orphans: 2,
-                        textAlign: 'justify',
-                        textIndent: '-29.4px',
-                        textTransform: 'none',
-                        whiteSpace: 'normal',
-                        widows: 2,
-                        wordSpacing: '0px',
-                        WebkitTextStrokeWidth: '0px',
-                        backgroundColor: 'rgb(255, 255, 255)',
-                        textDecorationStyle: 'initial',
-                        textDecorationColor: 'initial',
-                        color: 'rgb(89, 89, 89)',
-                      }}
-                    >
-                      . Except as permitted by applicable law, decipher,
-                      decompile, disassemble, or reverse engineer any of the
-                      software comprising or in any way making up a part of the
-                      Site.
-                    </span>
-                  </span>
-                </span>
-              </span>
-            </span>
-          </div>
-          <div
-            className="MsoNormal"
-            data-custom-class="body_text"
-            style={{
-              lineHeight: '1.5',
-              marginLeft: '20px',
-              textAlign: 'left',
-            }}
-          >
-            <span style={{ fontSize: '15px' }}>
-              <span
-                style={{
-                  lineHeight: '16.8667px',
-                  color: 'rgb(89, 89, 89)',
-                }}
-              >
-                <span
-                  style={{
-                    fontFamily: 'sans-serif',
-                    fontStyle: 'normal',
-                    fontVariantLigatures: 'normal',
-                    fontVariantCaps: 'normal',
-                    fontWeight: 400,
-                    letterSpacing: 'normal',
-                    orphans: 2,
-                    textAlign: 'justify',
-                    textIndent: '-29.4px',
-                    textTransform: 'none',
-                    whiteSpace: 'normal',
-                    widows: 2,
-                    wordSpacing: '0px',
-                    WebkitTextStrokeWidth: '0px',
-                    backgroundColor: 'rgb(255, 255, 255)',
-                    textDecorationStyle: 'initial',
-                    textDecorationColor: 'initial',
-                    color: 'rgb(89, 89, 89)',
-                  }}
-                >
-                  <span
-                    style={{
-                      lineHeight: '16.8667px',
-                      color: 'rgb(89, 89, 89)',
-                    }}
-                  >
-                    <span
-                      style={{
-                        fontFamily: 'sans-serif',
-                        fontStyle: 'normal',
-                        fontVariantLigatures: 'normal',
-                        fontVariantCaps: 'normal',
-                        fontWeight: 400,
-                        letterSpacing: 'normal',
-                        orphans: 2,
-                        textAlign: 'justify',
-                        textIndent: '-22.05pt',
-                        textTransform: 'none',
-                        whiteSpace: 'normal',
-                        widows: 2,
-                        wordSpacing: '0px',
-                        WebkitTextStrokeWidth: '0px',
-                        backgroundColor: 'rgb(255, 255, 255)',
-                        textDecorationStyle: 'initial',
-                        textDecorationColor: 'initial',
-                        color: 'rgb(89, 89, 89)',
-                      }}
-                    >
-                      <span
-                        className="block-container forloop"
-                        data-type="forloop"
-                        id="19beb913-5a5e-2b51-51f9-8600a8eb26c3"
-                        style={{ display: 'inline' }}
-                      >
-                        <span
-                          data-type="conditional-block"
-                          style={{ display: 'inline' }}
-                        >
-                          <span data-type="body" style={{ display: 'inline' }}>
-                            19
-                          </span>
-                        </span>
-                      </span>
-                    </span>
-                    <span
-                      style={{
-                        fontFamily: 'sans-serif',
-                        fontStyle: 'normal',
-                        fontVariantLigatures: 'normal',
-                        fontVariantCaps: 'normal',
-                        fontWeight: 400,
-                        letterSpacing: 'normal',
-                        orphans: 2,
-                        textAlign: 'justify',
-                        textIndent: '-29.4px',
-                        textTransform: 'none',
-                        whiteSpace: 'normal',
-                        widows: 2,
-                        wordSpacing: '0px',
-                        WebkitTextStrokeWidth: '0px',
-                        backgroundColor: 'rgb(255, 255, 255)',
-                        textDecorationStyle: 'initial',
-                        textDecorationColor: 'initial',
-                        color: 'rgb(89, 89, 89)',
-                      }}
-                    >
-                      . Except as may be the result of standard search engine or
-                      Internet browser usage, use, launch, develop, or
-                      distribute any automated system, including without
-                      limitation, any spider, robot, cheat utility, scraper, or
-                      offline reader that accesses the Site, or using or
-                      launching any unauthorized script or other software.
-                    </span>
-                  </span>
-                </span>
-              </span>
-            </span>
-          </div>
-          <div
-            className="MsoNormal"
-            data-custom-class="body_text"
-            style={{
-              lineHeight: '1.5',
-              marginLeft: '20px',
-              textAlign: 'left',
-            }}
-          >
-            <span style={{ fontSize: '15px' }}>
-              <span
-                style={{
-                  lineHeight: '16.8667px',
-                  color: 'rgb(89, 89, 89)',
-                }}
-              >
-                <span
-                  style={{
-                    fontFamily: 'sans-serif',
-                    fontStyle: 'normal',
-                    fontVariantLigatures: 'normal',
-                    fontVariantCaps: 'normal',
-                    fontWeight: 400,
-                    letterSpacing: 'normal',
-                    orphans: 2,
-                    textAlign: 'justify',
-                    textIndent: '-29.4px',
-                    textTransform: 'none',
-                    whiteSpace: 'normal',
-                    widows: 2,
-                    wordSpacing: '0px',
-                    WebkitTextStrokeWidth: '0px',
-                    backgroundColor: 'rgb(255, 255, 255)',
-                    textDecorationStyle: 'initial',
-                    textDecorationColor: 'initial',
-                    color: 'rgb(89, 89, 89)',
-                  }}
-                >
-                  <span
-                    style={{
-                      lineHeight: '16.8667px',
-                      color: 'rgb(89, 89, 89)',
-                    }}
-                  >
-                    <span
-                      style={{
-                        fontFamily: 'sans-serif',
-                        fontStyle: 'normal',
-                        fontVariantLigatures: 'normal',
-                        fontVariantCaps: 'normal',
-                        fontWeight: 400,
-                        letterSpacing: 'normal',
-                        orphans: 2,
-                        textAlign: 'justify',
-                        textIndent: '-22.05pt',
-                        textTransform: 'none',
-                        whiteSpace: 'normal',
-                        widows: 2,
-                        wordSpacing: '0px',
-                        WebkitTextStrokeWidth: '0px',
-                        backgroundColor: 'rgb(255, 255, 255)',
-                        textDecorationStyle: 'initial',
-                        textDecorationColor: 'initial',
-                        color: 'rgb(89, 89, 89)',
-                      }}
-                    >
-                      <span
-                        className="block-container forloop"
-                        data-type="forloop"
-                        id="19beb913-5a5e-2b51-51f9-8600a8eb26c3"
-                        style={{ display: 'inline' }}
-                      >
-                        <span
-                          data-type="conditional-block"
-                          style={{ display: 'inline' }}
-                        >
-                          <span data-type="body" style={{ display: 'inline' }}>
-                            20
-                          </span>
-                        </span>
-                      </span>
-                    </span>
-                    <span
-                      style={{
-                        fontFamily: 'sans-serif',
-                        fontStyle: 'normal',
-                        fontVariantLigatures: 'normal',
-                        fontVariantCaps: 'normal',
-                        fontWeight: 400,
-                        letterSpacing: 'normal',
-                        orphans: 2,
-                        textAlign: 'justify',
-                        textIndent: '-29.4px',
-                        textTransform: 'none',
-                        whiteSpace: 'normal',
-                        widows: 2,
-                        wordSpacing: '0px',
-                        WebkitTextStrokeWidth: '0px',
-                        backgroundColor: 'rgb(255, 255, 255)',
-                        textDecorationStyle: 'initial',
-                        textDecorationColor: 'initial',
-                        color: 'rgb(89, 89, 89)',
-                      }}
-                    >
-                      . Use a buying agent or purchasing agent to make purchases
-                      on the Site.
-                    </span>
-                  </span>
-                </span>
-              </span>
-            </span>
-          </div>
-          <div
-            className="MsoNormal"
-            data-custom-class="body_text"
-            style={{
-              lineHeight: '1.5',
-              marginLeft: '20px',
-              textAlign: 'left',
-            }}
-          >
-            <span style={{ fontSize: '15px' }}>
-              <span
-                style={{
-                  lineHeight: '16.8667px',
-                  color: 'rgb(89, 89, 89)',
-                }}
-              >
-                <span
-                  style={{
-                    fontFamily: 'sans-serif',
-                    fontStyle: 'normal',
-                    fontVariantLigatures: 'normal',
-                    fontVariantCaps: 'normal',
-                    fontWeight: 400,
-                    letterSpacing: 'normal',
-                    orphans: 2,
-                    textAlign: 'justify',
-                    textIndent: '-29.4px',
-                    textTransform: 'none',
-                    whiteSpace: 'normal',
-                    widows: 2,
-                    wordSpacing: '0px',
-                    WebkitTextStrokeWidth: '0px',
-                    backgroundColor: 'rgb(255, 255, 255)',
-                    textDecorationStyle: 'initial',
-                    textDecorationColor: 'initial',
-                    color: 'rgb(89, 89, 89)',
-                  }}
-                >
-                  <span
-                    style={{
-                      lineHeight: '16.8667px',
-                      color: 'rgb(89, 89, 89)',
-                    }}
-                  >
-                    <span
-                      style={{
-                        fontFamily: 'sans-serif',
-                        fontStyle: 'normal',
-                        fontVariantLigatures: 'normal',
-                        fontVariantCaps: 'normal',
-                        fontWeight: 400,
-                        letterSpacing: 'normal',
-                        orphans: 2,
-                        textAlign: 'justify',
-                        textIndent: '-22.05pt',
-                        textTransform: 'none',
-                        whiteSpace: 'normal',
-                        widows: 2,
-                        wordSpacing: '0px',
-                        WebkitTextStrokeWidth: '0px',
-                        backgroundColor: 'rgb(255, 255, 255)',
-                        textDecorationStyle: 'initial',
-                        textDecorationColor: 'initial',
-                        color: 'rgb(89, 89, 89)',
-                      }}
-                    >
-                      <span
-                        className="block-container forloop"
-                        data-type="forloop"
-                        id="19beb913-5a5e-2b51-51f9-8600a8eb26c3"
-                        style={{ display: 'inline' }}
-                      >
-                        <span
-                          data-type="conditional-block"
-                          style={{ display: 'inline' }}
-                        >
-                          <span data-type="body" style={{ display: 'inline' }}>
-                            21
-                          </span>
-                        </span>
-                      </span>
-                    </span>
-                    <span
-                      style={{
-                        fontFamily: 'sans-serif',
-                        fontStyle: 'normal',
-                        fontVariantLigatures: 'normal',
-                        fontVariantCaps: 'normal',
-                        fontWeight: 400,
-                        letterSpacing: 'normal',
-                        orphans: 2,
-                        textAlign: 'justify',
-                        textIndent: '-29.4px',
-                        textTransform: 'none',
-                        whiteSpace: 'normal',
-                        widows: 2,
-                        wordSpacing: '0px',
-                        WebkitTextStrokeWidth: '0px',
-                        backgroundColor: 'rgb(255, 255, 255)',
-                        textDecorationStyle: 'initial',
-                        textDecorationColor: 'initial',
-                        color: 'rgb(89, 89, 89)',
-                      }}
-                    >
-                      . Make any unauthorized use of the Site, including
-                      collecting usernames and/or email addresses of users by
-                      electronic or other means for the purpose of sending
-                      unsolicited email, or creating user accounts by automated
-                      means or under false pretenses.
-                    </span>
-                  </span>
-                </span>
-              </span>
-            </span>
-          </div>
-          <div
-            className="MsoNormal"
-            data-custom-class="body_text"
-            style={{
-              lineHeight: '1.5',
-              marginLeft: '20px',
-              textAlign: 'left',
-            }}
-          >
-            <span style={{ fontSize: '15px' }}>
-              <span
-                style={{
-                  lineHeight: '16.8667px',
-                  color: 'rgb(89, 89, 89)',
-                }}
-              >
-                <span
-                  style={{
-                    fontFamily: 'sans-serif',
-                    fontStyle: 'normal',
-                    fontVariantLigatures: 'normal',
-                    fontVariantCaps: 'normal',
-                    fontWeight: 400,
-                    letterSpacing: 'normal',
-                    orphans: 2,
-                    textAlign: 'justify',
-                    textIndent: '-29.4px',
-                    textTransform: 'none',
-                    whiteSpace: 'normal',
-                    widows: 2,
-                    wordSpacing: '0px',
-                    WebkitTextStrokeWidth: '0px',
-                    backgroundColor: 'rgb(255, 255, 255)',
-                    textDecorationStyle: 'initial',
-                    textDecorationColor: 'initial',
-                    color: 'rgb(89, 89, 89)',
-                  }}
-                >
-                  <span
-                    style={{
-                      lineHeight: '16.8667px',
-                      color: 'rgb(89, 89, 89)',
-                    }}
-                  >
-                    <span
-                      style={{
-                        fontFamily: 'sans-serif',
-                        fontStyle: 'normal',
-                        fontVariantLigatures: 'normal',
-                        fontVariantCaps: 'normal',
-                        fontWeight: 400,
-                        letterSpacing: 'normal',
-                        orphans: 2,
-                        textAlign: 'justify',
-                        textIndent: '-22.05pt',
-                        textTransform: 'none',
-                        whiteSpace: 'normal',
-                        widows: 2,
-                        wordSpacing: '0px',
-                        WebkitTextStrokeWidth: '0px',
-                        backgroundColor: 'rgb(255, 255, 255)',
-                        textDecorationStyle: 'initial',
-                        textDecorationColor: 'initial',
-                        color: 'rgb(89, 89, 89)',
-                      }}
-                    >
-                      <span
-                        className="block-container forloop"
-                        data-type="forloop"
-                        id="19beb913-5a5e-2b51-51f9-8600a8eb26c3"
-                        style={{ display: 'inline' }}
-                      >
-                        <span
-                          data-type="conditional-block"
-                          style={{ display: 'inline' }}
-                        >
-                          <span data-type="body" style={{ display: 'inline' }}>
-                            22
-                          </span>
-                        </span>
-                      </span>
-                    </span>
-                    <span
-                      style={{
-                        fontFamily: 'sans-serif',
-                        fontStyle: 'normal',
-                        fontVariantLigatures: 'normal',
-                        fontVariantCaps: 'normal',
-                        fontWeight: 400,
-                        letterSpacing: 'normal',
-                        orphans: 2,
-                        textAlign: 'justify',
-                        textIndent: '-29.4px',
-                        textTransform: 'none',
-                        whiteSpace: 'normal',
-                        widows: 2,
-                        wordSpacing: '0px',
-                        WebkitTextStrokeWidth: '0px',
-                        backgroundColor: 'rgb(255, 255, 255)',
-                        textDecorationStyle: 'initial',
-                        textDecorationColor: 'initial',
-                        color: 'rgb(89, 89, 89)',
-                      }}
-                    >
-                      . Use the Site as part of any effort to compete with us or
-                      otherwise use the Site and/or the Content for any
-                      revenue-generating endeavor or commercial enterprise.
-                    </span>
-                  </span>
-                </span>
-              </span>
-            </span>
-          </div>
-          <div
-            className="MsoNormal"
-            data-custom-class="body_text"
-            style={{
-              lineHeight: '1.5',
-              marginLeft: '20px',
-              textAlign: 'left',
-            }}
-          >
-            <span
-              style={{
-                fontSize: '15px',
-                lineHeight: '16.8667px',
-                color: 'rgb(89, 89, 89)',
-              }}
-            >
-              <span className="forloop-component" />
-              <span
-                className="block-container forloop"
-                data-type="forloop"
-                id="19beb913-5a5e-2b51-51f9-8600a8eb26c3"
-                style={{
-                  display: 'inline',
-                  color: 'rgb(89, 89, 89)',
-                  fontFamily: 'sans-serif',
-                  fontSize: '15px',
-                  fontStyle: 'normal',
-                  fontVariantLigatures: 'normal',
-                  fontVariantCaps: 'normal',
-                  fontWeight: 400,
-                  letterSpacing: 'normal',
-                  orphans: 2,
-                  textAlign: 'justify',
-                  textIndent: '0px',
-                  textTransform: 'none',
-                  whiteSpace: 'normal',
-                  widows: 2,
-                  wordSpacing: '0px',
-                  WebkitTextStrokeWidth: '0px',
-                  backgroundColor: 'rgb(255, 255, 255)',
-                  textDecorationStyle: 'initial',
-                  textDecorationColor: 'initial',
-                }}
-              >
-                <span
-                  data-type="conditional-block"
-                  style={{ display: 'inline' }}
-                >
-                  <span data-type="body" style={{ display: 'inline' }}>
-                    <span
-                      style={{
-                        fontFamily: 'sans-serif',
-                        fontStyle: 'normal',
-                        fontVariantLigatures: 'normal',
-                        fontVariantCaps: 'normal',
-                        fontWeight: 400,
-                        letterSpacing: 'normal',
-                        orphans: 2,
-                        textAlign: 'justify',
-                        textIndent: '-22.05pt',
-                        textTransform: 'none',
-                        whiteSpace: 'normal',
-                        widows: 2,
-                        wordSpacing: '0px',
-                        WebkitTextStrokeWidth: '0px',
-                        backgroundColor: 'rgb(255, 255, 255)',
-                        textDecorationStyle: 'initial',
-                        textDecorationColor: 'initial',
-                        color: 'rgb(89, 89, 89)',
-                        fontSize: '14.6667px',
-                      }}
-                    >
-                      23
-                    </span>
-                  </span>
-                </span>
-              </span>
-              <span
-                style={{
-                  color: 'rgb(89, 89, 89)',
-                  fontFamily: 'sans-serif',
-                  fontStyle: 'normal',
-                  fontVariantLigatures: 'normal',
-                  fontVariantCaps: 'normal',
-                  fontWeight: 400,
-                  letterSpacing: 'normal',
-                  orphans: 2,
-                  textAlign: 'justify',
-                  textTransform: 'none',
-                  whiteSpace: 'normal',
-                  widows: 2,
-                  wordSpacing: '0px',
-                  WebkitTextStrokeWidth: '0px',
-                  textDecorationStyle: 'initial',
-                  textDecorationColor: 'initial',
-                  textIndent: '-29.4px',
-                  backgroundColor: 'rgb(255, 255, 255)',
-                  fontSize: '14.6667px',
-                }}
-              >
-                .{' '}
-              </span>{' '}
-              <span className="question">
-                Use the Site to advertise or offer to sell goods and services.
-              </span>
-            </span>
-          </div>
-          <div
-            className="MsoNormal"
-            data-custom-class="body_text"
-            style={{
-              lineHeight: '1.5',
-              marginLeft: '20px',
-              textAlign: 'left',
-            }}
-          >
-            <span
-              style={{
-                fontSize: '15px',
-                lineHeight: '16.8667px',
-                color: 'rgb(89, 89, 89)',
-              }}
-            >
-              <span className="forloop-component" />
-              <span
-                className="block-container forloop"
-                data-type="forloop"
-                id="19beb913-5a5e-2b51-51f9-8600a8eb26c3"
-                style={{
-                  display: 'inline',
-                  color: 'rgb(89, 89, 89)',
-                  fontFamily: 'sans-serif',
-                  fontSize: '15px',
-                  fontStyle: 'normal',
-                  fontVariantLigatures: 'normal',
-                  fontVariantCaps: 'normal',
-                  fontWeight: 400,
-                  letterSpacing: 'normal',
-                  orphans: 2,
-                  textAlign: 'justify',
-                  textIndent: '0px',
-                  textTransform: 'none',
-                  whiteSpace: 'normal',
-                  widows: 2,
-                  wordSpacing: '0px',
-                  WebkitTextStrokeWidth: '0px',
-                  backgroundColor: 'rgb(255, 255, 255)',
-                  textDecorationStyle: 'initial',
-                  textDecorationColor: 'initial',
-                }}
-              >
-                <span
-                  data-type="conditional-block"
-                  style={{ display: 'inline' }}
-                >
-                  <span data-type="body" style={{ display: 'inline' }}>
-                    <span
-                      style={{
-                        fontFamily: 'sans-serif',
-                        fontStyle: 'normal',
-                        fontVariantLigatures: 'normal',
-                        fontVariantCaps: 'normal',
-                        fontWeight: 400,
-                        letterSpacing: 'normal',
-                        orphans: 2,
-                        textAlign: 'justify',
-                        textIndent: '-22.05pt',
-                        textTransform: 'none',
-                        whiteSpace: 'normal',
-                        widows: 2,
-                        wordSpacing: '0px',
-                        WebkitTextStrokeWidth: '0px',
-                        backgroundColor: 'rgb(255, 255, 255)',
-                        textDecorationStyle: 'initial',
-                        textDecorationColor: 'initial',
-                        color: 'rgb(89, 89, 89)',
-                        fontSize: '14.6667px',
-                      }}
-                    >
-                      24
-                    </span>
-                  </span>
-                </span>
-              </span>
-              <span
-                style={{
-                  color: 'rgb(89, 89, 89)',
-                  fontFamily: 'sans-serif',
-                  fontStyle: 'normal',
-                  fontVariantLigatures: 'normal',
-                  fontVariantCaps: 'normal',
-                  fontWeight: 400,
-                  letterSpacing: 'normal',
-                  orphans: 2,
-                  textAlign: 'justify',
-                  textTransform: 'none',
-                  whiteSpace: 'normal',
-                  widows: 2,
-                  wordSpacing: '0px',
-                  WebkitTextStrokeWidth: '0px',
-                  textDecorationStyle: 'initial',
-                  textDecorationColor: 'initial',
-                  textIndent: '-29.4px',
-                  backgroundColor: 'rgb(255, 255, 255)',
-                  fontSize: '14.6667px',
-                }}
-              >
-                .{' '}
-              </span>{' '}
-              <span className="question">
-                Sell or otherwise transfer your profile.
-              </span>
-            </span>
-          </div>
-          <div
-            className="MsoNormal"
-            data-custom-class="body_text"
-            style={{
-              lineHeight: '1.5',
-              marginLeft: '20px',
-              textAlign: 'left',
-            }}
-          >
-            <span
-              style={{
-                fontSize: '15px',
-                lineHeight: '16.8667px',
-                color: 'rgb(89, 89, 89)',
-              }}
-            >
-              <span className="forloop-component" />
-            </span>
-          </div>
-        </div>
-        <div className="MsoNormal" style={{ lineHeight: '1.5' }}>
-          <a />
-        </div>
-      </div>
-      <div style={{ textAlign: 'left', lineHeight: '1.5' }}>
-        <br />
-      </div>
-      <div style={{ textAlign: 'left', lineHeight: '1.5' }}>
-        <br />
-      </div>
-      <div style={{ textAlign: 'left', lineHeight: 1 }}>
-        <span className="block-container if" data-type="if">
-          <span data-type="conditional-block">
-            <span data-type="body">
-              <div
-                className="MsoNormal"
-                data-custom-class="heading_1"
-                style={{ lineHeight: '1.5' }}
-              >
-                <strong>
-                  <span
-                    style={{
-                      lineHeight: '115%',
-                      fontFamily: 'Arial',
-                      fontSize: '19px',
-                    }}
-                  >
-                    USER GENERATED CONTRIBUTIONS
-                  </span>
-                </strong>
-              </div>
-            </span>
-          </span>
-        </span>
-      </div>
-      <div style={{ textAlign: 'left', lineHeight: 1 }}>
-        <br />
-      </div>
-      <div style={{ textAlign: 'left', lineHeight: 1 }}>
-        <span className="block-container if" data-type="if">
-          <span data-type="conditional-block">
-            <span data-type="body">
-              <div
-                className="MsoNormal"
-                style={{ textAlign: 'justify', lineHeight: '115%' }}
-              >
-                <div
-                  className="MsoNormal"
-                  data-custom-class="body_text"
-                  style={{ lineHeight: '1.5', textAlign: 'left' }}
-                >
-                  <span
-                    style={{
-                      fontSize: '15px',
-                      lineHeight: '16.8667px',
-                      color: 'rgb(89, 89, 89)',
-                    }}
-                  >
-                    <span
-                      className="block-container if"
-                      data-type="if"
-                      id="24327c5d-a34f-f7e7-88f1-65a2f788484f"
-                    >
-                      <span data-type="conditional-block">
-                        <span
-                          className="block-component"
-                          data-record-question-key="user_post_content_option"
-                          data-type="statement"
-                        >
-                          <span style={{ fontSize: '15px' }} />
-                        </span>
-                      </span>
-                    </span>
-                    The Site may invite you to chat, contribute to, or
-                    participate in blogs, message boards, online forums, and
-                    other functionality, and may provide you with the
-                    opportunity to create, submit, post, display, transmit,
-                    perform, publish, distribute, or broadcast content and
-                    materials to us or on the Site, including but not limited to
-                    text, writings, video, audio, photographs, graphics,
-                    comments, suggestions, or personal information or other
-                    material (collectively, "Contributions"). Contributions may
-                    be viewable by other users of the Site and through
-                    third-party websites. As such, any Contributions you
-                    transmit may be treated as non-confidential and
-                    non-proprietary. When you create or make available any
-                    Contributions, you thereby represent and warrant that:
-                    <span className="else-block" />
-                  </span>
-                </div>
-                <div
-                  className="MsoNormal"
-                  data-custom-class="body_text"
-                  style={{
-                    lineHeight: 1,
-                    marginLeft: '20px',
-                    textAlign: 'left',
-                  }}
-                >
-                  <span style={{ fontSize: '14px', color: 'rgb(89, 89, 89)' }}>
-                    <br />
-                  </span>
-                </div>
-                <div
-                  className="MsoNormal"
-                  data-custom-class="body_text"
-                  style={{
-                    lineHeight: '1.5',
-                    marginLeft: '20px',
-                    textAlign: 'left',
-                  }}
-                >
-                  <span style={{ color: 'rgb(89, 89, 89)' }}>
-                    <span style={{ fontSize: '14px' }}>
-                      1. The creation, distribution, transmission, public
-                      display, or performance, and the accessing, downloading,
-                      or copying of your Contributions do not and will not
-                      infringe the proprietary rights, including but not limited
-                      to the copyright, patent, trademark, trade secret, or
-                      moral rights of any third party.
-                      <br />
-                      2. You are the creator and owner of or have the necessary
-                      licenses, rights, consents, releases, and permissions to
-                      use and to authorize us, the Site, and other users of the
-                      Site to use your Contributions in any manner contemplated
-                      by the Site and these Terms of Use.
-                      <br />
-                      3. You have the written consent, release, and/or
-                      permission of each and every identifiable individual
-                      person in your Contributions to use the name or likeness
-                      of each and every such identifiable individual person to
-                      enable inclusion and use of your Contributions in any
-                      manner contemplated by the Site and these Terms of Use.
-                      <br />
-                      4. Your Contributions are not false, inaccurate, or
-                      misleading.
-                      <br />
-                      5. Your Contributions are not unsolicited or unauthorized
-                      advertising, promotional materials, pyramid schemes, chain
-                      letters, spam, mass mailings, or other forms of
-                      solicitation.
-                      <br />
-                      6. Your Contributions are not obscene, lewd, lascivious,
-                      filthy, violent, harassing, libelous, slanderous, or
-                      otherwise objectionable (as determined by us).
-                      <br />
-                      7. Your Contributions do not ridicule, mock, disparage,
-                      intimidate, or abuse anyone.
-                      <br />
-                      8. Your Contributions are not used to harass or threaten
-                      (in the legal sense of those terms) any other person and
-                      to promote violence against a specific person or class of
-                      people.
-                      <br />
-                      9. Your Contributions do not violate any applicable law,
-                      regulation, or rule.
-                      <br />
-                      10. Your Contributions do not violate the privacy or
-                      publicity rights of any third party.
-                      <br />
-                      11. Your Contributions do not violate any applicable law
-                      concerning child pornography, or otherwise intended to
-                      protect the health or well-being of minors.
-                      <br />
-                      12. Your Contributions do not include any offensive
-                      comments that are connected to race, national origin,
-                      gender, sexual preference, or physical handicap.
-                      <br />
-                      13. Your Contributions do not otherwise violate, or link
-                      to material that violates, any provision of these Terms of
-                      Use, or any applicable law or regulation.
-                    </span>
-                  </span>
-                </div>
-                <div
-                  className="MsoNormal"
-                  data-custom-class="body_text"
-                  style={{
-                    lineHeight: 1,
-                    marginLeft: '20px',
-                    textAlign: 'left',
-                  }}
-                >
-                  <br />
-                </div>
-                <div
-                  className="MsoNormal"
-                  data-custom-class="body_text"
-                  style={{ lineHeight: '1.5', textAlign: 'left' }}
-                >
-                  <span
-                    style={{
-                      fontSize: '15px',
-                      lineHeight: '16.8667px',
-                      color: 'rgb(89, 89, 89)',
-                    }}
-                  >
-                    Any use of the Site in violation of the foregoing violates
-                    these Terms of Use and may result in, among other things,
-                    termination or suspension of your rights to use the Site.
-                  </span>
-                </div>
-              </div>
-            </span>
-          </span>
-        </span>
-      </div>
-      <div style={{ textAlign: 'left', lineHeight: '1.5' }}>
-        <br />
-      </div>
-      <div style={{ textAlign: 'left', lineHeight: '1.5' }}>
-        <br />
-      </div>
-      <div style={{ textAlign: 'left', lineHeight: 1 }}>
-        <span className="block-container if" data-type="if">
-          <span data-type="conditional-block">
-            <span data-type="body">
-              <div
-                className="MsoNormal"
-                data-custom-class="heading_1"
-                style={{ lineHeight: '1.5' }}
-              >
-                <strong>
-                  <span
-                    style={{
-                      lineHeight: '115%',
-                      fontFamily: 'Arial',
-                      fontSize: '19px',
-                    }}
-                  >
-                    CONTRIBUTION LICENSE
-                  </span>
-                </strong>
-              </div>
-            </span>
-          </span>
-        </span>
-      </div>
-      <div style={{ textAlign: 'left', lineHeight: 1 }}>
-        <br />
-      </div>
-      <div style={{ textAlign: 'left', lineHeight: 1 }}>
-        <span className="block-container if" data-type="if">
-          <span data-type="conditional-block">
-            <span data-type="body">
-              <div
-                className="MsoNormal"
-                data-custom-class="body_text"
-                style={{ lineHeight: '1.5' }}
-              >
-                <span
-                  style={{
-                    fontSize: '15px',
-                    lineHeight: '115%',
-                    fontFamily: 'Arial',
-                    color: 'rgb(89, 89, 89)',
-                  }}
-                >
-                  <span
-                    className="block-container if"
-                    data-type="if"
-                    id="a088ddfb-d8c1-9e58-6f21-958c3f4f0709"
-                  >
-                    <span data-type="conditional-block">
-                      <span
-                        className="block-component"
-                        data-record-question-key="user_post_content_option"
-                        data-type="statement"
-                      />
-                    </span>
-                  </span>
-                  By posting your Contributions to any part of the Site
-                  <span
-                    className="block-container if"
-                    data-type="if"
-                    id="19652acc-9a2a-5ffe-6189-9474402fa6cc"
-                  >
-                    <span data-type="conditional-block">
-                      <span
-                        className="block-component"
-                        data-record-question-key="socialnetwork_link_option"
-                        data-type="statement"
-                      />
-                    </span>
-                  </span>
-                  <span
-                    className="block-container if"
-                    data-type="if"
-                    id="19652acc-9a2a-5ffe-6189-9474402fa6cc"
-                  >
-                    <span data-type="conditional-block">
-                      <span data-type="body"> </span>
-                    </span>
-                  </span>
-                  <span
-                    className="block-container if"
-                    data-type="if"
-                    id="19652acc-9a2a-5ffe-6189-9474402fa6cc"
-                  >
-                    <span data-type="conditional-block">
-                      <span data-type="body">
-                        or making Contributions accessible to the Site by
-                        linking your account from the Site to any of your social
-                        networking accounts
-                      </span>
-                    </span>
-                  </span>
-                  <span
-                    className="block-container if"
-                    data-type="if"
-                    id="19652acc-9a2a-5ffe-6189-9474402fa6cc"
-                  >
-                    <span
-                      className="statement-end-if-in-editor"
-                      data-type="close"
-                    />
-                  </span>
-                  , you automatically grant, and you represent and warrant that
-                  you have the right to grant, to us an unrestricted, unlimited,
-                  irrevocable, perpetual, non-exclusive, transferable,
-                  royalty-free, fully-paid, worldwide right, and license to
-                  host, use, copy, reproduce, disclose, sell, resell, publish,
-                  broadcast, retitle, archive, store, cache, publicly perform,
-                  publicly display, reformat, translate, transmit, excerpt (in
-                  whole or in part), and distribute such Contributions
-                  (including, without limitation, your image and voice) for any
-                  purpose, commercial, advertising, or otherwise, and to prepare
-                  derivative works of, or incorporate into other works, such
-                  Contributions, and grant and authorize sublicenses of the
-                  foregoing. The use and distribution may occur in any media
-                  formats and through any media channels.{' '}
-                </span>
-              </div>
-            </span>
-          </span>
-        </span>
-      </div>
-      <div style={{ textAlign: 'left', lineHeight: 1 }}>
-        <br />
-      </div>
-      <div style={{ textAlign: 'left', lineHeight: 1 }}>
-        <span className="block-container if" data-type="if">
-          <span data-type="conditional-block">
-            <span data-type="body">
-              <div
-                className="MsoNormal"
-                data-custom-class="body_text"
-                style={{ lineHeight: '1.5' }}
-              >
-                <span style={{ fontSize: '15px' }}>
-                  <span
-                    style={{
-                      lineHeight: '115%',
-                      fontFamily: 'Arial',
-                      color: 'rgb(89, 89, 89)',
-                    }}
-                  >
-                    This license will apply to any form, media, or technology
-                    now known or hereafter developed, and includes our use of
-                    your name, company name, and franchise name, as applicable,
-                    and any of the trademarks, service marks, trade names,
-                    logos, and personal and commercial images you provide. You
-                    waive all moral rights in your Contributions, and you
-                    warrant that moral rights have not otherwise been asserted
-                    in your Contributions.{' '}
-                  </span>
-                </span>
-              </div>
-            </span>
-          </span>
-        </span>
-      </div>
-      <div style={{ textAlign: 'left', lineHeight: 1 }}>
-        <br />
-      </div>
-      <div style={{ textAlign: 'left', lineHeight: 1 }}>
-        <span className="block-container if" data-type="if">
-          <span data-type="conditional-block">
-            <span data-type="body">
-              <div
-                className="MsoNormal"
-                data-custom-class="body_text"
-                style={{ lineHeight: '1.5' }}
-              >
-                <span style={{ fontSize: '15px' }}>
-                  <span
-                    style={{
-                      lineHeight: '115%',
-                      fontFamily: 'Arial',
-                      color: 'rgb(89, 89, 89)',
-                    }}
-                  >
-                    We do not assert any ownership over your Contributions. You
-                    retain full ownership of all of your Contributions and any
-                    intellectual property rights or other proprietary rights
-                    associated with your Contributions. We are not liable for
-                    any statements or representations in your Contributions
-                    provided by you in any area on the Site. You are solely
-                    responsible for your Contributions to the Site and you
-                    expressly agree to exonerate us from any and all
-                    responsibility and to refrain from any legal action against
-                    us regarding your Contributions.{' '}
-                  </span>
-                </span>
-              </div>
-            </span>
-          </span>
-        </span>
-      </div>
-      <div style={{ textAlign: 'left', lineHeight: 1 }}>
-        <br />
-      </div>
-      <div style={{ textAlign: 'left', lineHeight: 1 }}>
-        <span className="block-container if" data-type="if">
-          <span data-type="conditional-block">
-            <span data-type="body">
-              <div
-                className="MsoNormal"
-                data-custom-class="body_text"
-                style={{ lineHeight: '1.5' }}
-              >
-                <span
-                  style={{
-                    fontSize: '15px',
-                    lineHeight: '115%',
-                    fontFamily: 'Arial',
-                    color: 'rgb(89, 89, 89)',
-                  }}
-                >
-                  We have the right, in our sole and absolute discretion, (1) to
-                  edit, redact, or otherwise change any Contributions; (2) to
-                  re-categorize any Contributions to place them in more
-                  appropriate locations on the Site; and (3) to pre-screen or
-                  delete any Contributions at any time and for any reason,
-                  without notice. We have no obligation to monitor your
-                  Contributions.
-                </span>
-              </div>
-            </span>
-          </span>
-        </span>
-      </div>
-      <div style={{ textAlign: 'left', lineHeight: '1.5' }}>
-        <br />
-      </div>
-      <div style={{ textAlign: 'left', lineHeight: '1.5' }}>
-        <br />
-      </div>
-      <div style={{ textAlign: 'left', lineHeight: '1.5' }}>
-        <span className="else-block" />
-        <span
-          className="block-container if"
-          data-type="if"
-          id="a378120a-96b1-6fa3-279f-63d5b96341d3"
-        >
-          <span data-type="conditional-block">
-            <span
-              className="block-component"
-              data-record-question-key="review_option"
-              data-type="statement"
-            />
-          </span>
-          <span
-            className="block-container if"
-            data-type="if"
-            id="c954892f-02b9-c743-d1e8-faf0d59a4b70"
-          >
-            <span data-type="conditional-block">
-              <span
-                className="block-component"
-                data-record-question-key="mobile_app_option"
-                data-type="statement"
-              />
-            </span>
-            <span
-              className="block-container if"
-              data-type="if"
-              id="e9981d4e-3a93-85dd-654b-7ecdf4bfe7d2"
-            >
-              <span data-type="conditional-block">
-                <span
-                  className="block-component"
-                  data-record-question-key="socialnetwork_link_option"
-                  data-type="statement"
-                />{' '}
-                <span data-type="body">
-                  <div
-                    className="MsoNormal"
-                    data-custom-class="heading_1"
-                    style={{ lineHeight: '1.5' }}
-                  >
-                    <strong>
-                      <span
-                        style={{
-                          lineHeight: '115%',
-                          fontFamily: 'Arial',
-                          fontSize: '19px',
-                        }}
-                      >
-                        SOCIAL MEDIA
-                      </span>
-                    </strong>
-                  </div>
-                </span>
-              </span>
-            </span>
-          </span>
-        </span>
-      </div>
-      <div style={{ textAlign: 'left', lineHeight: 1 }}>
-        <br />
-      </div>
-      <div style={{ textAlign: 'left', lineHeight: 1 }}>
-        <span className="block-container if" data-type="if">
-          <span data-type="conditional-block">
-            <span data-type="body">
-              <div
-                className="MsoNormal"
-                data-custom-class="body_text"
-                style={{ lineHeight: '1.5' }}
-              >
-                <span
-                  style={{
-                    fontSize: '15px',
-                    lineHeight: '115%',
-                    fontFamily: 'Arial',
-                    color: 'rgb(89, 89, 89)',
-                  }}
-                >
-                  As part of the functionality of the Site, you may link your
-                  account with online accounts you have with third-party service
-                  providers (each such account, a “Third-Party Account”) by
-                  either: (1) providing your Third-Party Account login
-                  information through the Site; or (2) allowing us to access
-                  your Third-Party Account, as is permitted under the applicable
-                  terms and conditions that govern your use of each Third-Party
-                  Account. You represent and warrant that you are entitled to
-                  disclose your Third-Party Account login information to us
-                  and/or grant us access to your Third-Party Account, without
-                  breach by you of any of the terms and conditions that govern
-                  your use of the applicable Third-Party Account, and without
-                  obligating us to pay any fees or making us subject to any
-                  usage limitations imposed by the third-party service provider
-                  of the Third-Party Account. By granting us access to any
-                  Third-Party Accounts, you understand that (1) we may access,
-                  make available, and store (if applicable) any content that you
-                  have provided to and stored in your Third-Party Account (the
-                  “Social Network Content”) so that it is available on and
-                  through the Site via your account, including without
-                  limitation any friend lists and (2) we may submit to and
-                  receive from your Third-Party Account additional information
-                  to the extent you are notified when you link your account with
-                  the Third-Party Account. Depending on the Third-Party Accounts
-                  you choose and subject to the privacy settings that you have
-                  set in such Third-Party Accounts, personally identifiable
-                  information that you post to your Third-Party Accounts may be
-                  available on and through your account on the Site. Please note
-                  that if a Third-Party Account or associated service becomes
-                  unavailable or our access to such Third-Party Account is
-                  terminated by the third-party service provider, then Social
-                  Network Content may no longer be available on and through the
-                  Site. You will have the ability to disable the connection
-                  between your account on the Site and your Third-Party Accounts
-                  at any time. PLEASE NOTE THAT YOUR RELATIONSHIP WITH THE
-                  THIRD-PARTY SERVICE PROVIDERS ASSOCIATED WITH YOUR THIRD-PARTY
-                  ACCOUNTS IS GOVERNED SOLELY BY YOUR AGREEMENT(S) WITH SUCH
-                  THIRD-PARTY SERVICE PROVIDERS. We make no effort to review any
-                  Social Network Content for any purpose, including but not
-                  limited to, for accuracy, legality, or non-infringement, and
-                  we are not responsible for any Social Network Content. You
-                  acknowledge and agree that we may access your email address
-                  book associated with a Third-Party Account and your contacts
-                  list stored on your mobile device or tablet computer solely
-                  for purposes of identifying and informing you of those
-                  contacts who have also registered to use the Site. You can
-                  deactivate the connection between the Site and your
-                  Third-Party Account by contacting us using the contact
-                  information below or through your account settings (if
-                  applicable). We will attempt to delete any information stored
-                  on our servers that was obtained through such Third-Party
-                  Account, except the username and profile picture that become
-                  associated with your account.
-                </span>
-              </div>
-            </span>
-          </span>
-        </span>
-      </div>
-      <div style={{ textAlign: 'left', lineHeight: '1.5' }}>
-        <br />
-      </div>
-      <div style={{ textAlign: 'left', lineHeight: '1.5' }}>
-        <br />
-      </div>
-      <div style={{ textAlign: 'left', lineHeight: '1.5' }}>
-        <span className="block-container if" data-type="if">
-          <span className="statement-end-if-in-editor" data-type="close">
-            <span style={{ fontSize: '15px' }} />
-          </span>
-        </span>
-        <div
-          className="MsoNormal"
-          data-custom-class="heading_1"
-          style={{ lineHeight: '1.5' }}
-        >
-          <a />
-          <strong>
-            <span
-              style={{
-                lineHeight: '115%',
-                fontFamily: 'Arial',
-                fontSize: '19px',
-              }}
-            >
-              SUBMISSIONS
-            </span>
-          </strong>
-        </div>
-      </div>
-      <div style={{ textAlign: 'left', lineHeight: 1 }}>
-        <br />
-      </div>
-      <div style={{ textAlign: 'left', lineHeight: '1.5' }}>
-        <div
-          className="MsoNormal"
-          data-custom-class="body_text"
-          style={{ lineHeight: '1.5' }}
-        >
-          <span
-            style={{
-              fontSize: '15px',
-              lineHeight: '115%',
-              fontFamily: 'Arial',
-              color: 'rgb(89, 89, 89)',
-            }}
-          >
-            You acknowledge and agree that any questions, comments, suggestions,
-            ideas, feedback, or other information regarding the Site
-            ("Submissions") provided by you to us are non-confidential and shall
-            become our sole property. We shall own exclusive rights, including
-            all intellectual property rights, and shall be entitled to the
-            unrestricted use and dissemination of these Submissions for any
-            lawful purpose, commercial or otherwise, without acknowledgment or
-            compensation to you. You hereby waive all moral rights to any such
-            Submissions, and you hereby warrant that any such Submissions are
-            original with you or that you have the right to submit such
-            Submissions. You agree there shall be no recourse against us for any
-            alleged or actual infringement or misappropriation of any
-            proprietary right in your Submissions.
+        <div className="MsoNormal" data-custom-class="heading_2">
+          <span>13.6.&nbsp;</span>
+          <u>
+            <span>Marketing References</span>
+          </u>
+          <span>
+            . We may{' '}
+            <a href="https://www.lawinsider.com/clause/reference">
+              <span data-custom-class="link">reference</span>
+            </a>{' '}
+            the commercial relationship with You in{' '}
+            <a href="https://www.lawinsider.com/clause/marketing-materials">
+              <span data-custom-class="link">marketing materials</span>
+            </a>{' '}
+            and Our websites, social media and promotional materials.
           </span>
         </div>
-        <div className="MsoNormal" style={{ lineHeight: '1.5' }}>
-          <br />
-        </div>
-        <div className="MsoNormal" style={{ lineHeight: '1.5' }}>
-          <br />
-        </div>
-        <div className="MsoNormal" style={{ lineHeight: 1 }}>
-          <span
-            className="block-container if"
-            data-type="if"
-            id="36ce5a69-4560-4947-dc72-46e53e2d562a"
-          >
-            <span data-type="conditional-block">
-              <span
-                className="block-component"
-                data-record-question-key="3rd_party_option"
-                data-type="statement"
-              />{' '}
-              <span data-type="body">
-                <div
-                  className="MsoNormal"
-                  data-custom-class="heading_1"
-                  style={{ textAlign: 'left', lineHeight: '1.5' }}
-                >
-                  <strong>
-                    <span
-                      style={{
-                        lineHeight: '115%',
-                        fontFamily: 'Arial',
-                        fontSize: '19px',
-                      }}
-                    >
-                      THIRD-PARTY WEBSITES AND CONTENT
-                    </span>
-                  </strong>
-                </div>
-              </span>
-            </span>
+        <div className="MsoNormal" data-custom-class="heading_2">
+          <span>13.7.&nbsp;</span>
+          <u>
+            <span>Severability</span>
+          </u>
+          <span>
+            . If any term or provision of the Agreement is invalid, illegal, or
+            unenforceable in any jurisdiction, such invalidity, illegality, or
+            unenforceability shall not affect any other term or provision. Upon
+            such determination that any term or other provision is invalid,
+            illegal, or unenforceable, we shall negotiate in good faith to
+            modify the Agreement so as to effect the original intent to the
+            greatest extent possible.
           </span>
         </div>
-        <div className="MsoNormal" style={{ lineHeight: 1 }}>
-          <br />
-        </div>
-        <div className="MsoNormal" style={{ lineHeight: 1 }}>
-          <span className="block-container if" data-type="if">
-            <span data-type="conditional-block">
-              <span data-type="body">
-                <div
-                  className="MsoNormal"
-                  data-custom-class="body_text"
-                  style={{ textAlign: 'left', lineHeight: '1.5' }}
-                >
-                  <span
-                    style={{
-                      fontSize: '15px',
-                      lineHeight: '115%',
-                      fontFamily: 'Arial',
-                      color: 'rgb(89, 89, 89)',
-                    }}
-                  >
-                    The Site may contain (or you may be sent via the Site) links
-                    to other websites ("Third-Party Websites") as well as
-                    articles, photographs, text, graphics, pictures, designs,
-                    music, sound, video, information, applications, software,
-                    and other content or items belonging to or originating from
-                    third parties ("Third-Party Content"). Such Third-Party
-                    Websites and Third-Party Content are not investigated,
-                    monitored, or checked for accuracy, appropriateness, or
-                    completeness by us, and we are not responsible for any
-                    Third-Party Websites accessed through the Site or any
-                    Third-Party Content posted on, available through, or
-                    installed from the Site, including the content, accuracy,
-                    offensiveness, opinions, reliability, privacy practices, or
-                    other policies of or contained in the Third-Party Websites
-                    or the Third-Party Content. Inclusion of, linking to, or
-                    permitting the use or installation of any Third-Party
-                    Websites or any Third-Party Content does not imply approval
-                    or endorsement thereof by us. If you decide to leave the
-                    Site and access the Third-Party Websites or to use or
-                    install any Third-Party Content, you do so at your own risk,
-                    and you should be aware these Terms of Use no longer govern.
-                    You should review the applicable terms and policies,
-                    including privacy and data gathering practices, of any
-                    website to which you navigate from the Site or relating to
-                    any applications you use or install from the Site. Any
-                    purchases you make through Third-Party Websites will be
-                    through other websites and from other companies, and we take
-                    no responsibility whatsoever in relation to such purchases
-                    which are exclusively between you and the applicable third
-                    party. You agree and acknowledge that we do not endorse the
-                    products or services offered on Third-Party Websites and you
-                    shall hold us harmless from any harm caused by your purchase
-                    of such products or services. Additionally, you shall hold
-                    us harmless from any losses sustained by you or harm caused
-                    to you relating to or resulting in any way from any
-                    Third-Party Content or any contact with Third-Party
-                    Websites.
-                  </span>
-                </div>
-              </span>
-            </span>
+        <div className="MsoNormal" data-custom-class="heading_2">
+          <span>13.8.&nbsp;</span>
+          <u>
+            <span>Governing Law; Submission to Jurisdiction</span>
+          </u>
+          <span>
+            . Agreement is governed by and construed in accordance with the
+            internal laws of Czech Republic without giving effect to any choice
+            or conflict of law provision. Any legal suit, action, or proceeding
+            arising out of or related to the Agreement will be instituted
+            exclusively in the courts of the Czech Republic, and each of us
+            irrevocably submits to the exclusive jurisdiction of such courts in
+            any such suit, action, or proceeding.{' '}
           </span>
         </div>
-        <div className="MsoNormal" style={{ lineHeight: '1.5' }}>
-          <br />
-        </div>
-        <div className="MsoNormal" style={{ lineHeight: '1.5' }}>
-          <br />
-        </div>
-        <div className="MsoNormal" style={{ lineHeight: 1 }}>
-          <span className="block-container if" data-type="if">
-            <span className="statement-end-if-in-editor" data-type="close">
-              <span style={{ fontSize: '15px' }} />
-            </span>
-          </span>
-          <span
-            className="block-container if"
-            data-type="if"
-            id="14038561-dad7-be9d-370f-f8aa487b2570"
-          >
-            <span data-type="conditional-block">
-              <span
-                className="block-component"
-                data-record-question-key="advertiser_option"
-                data-type="statement"
-              >
-                <span className="block-component" />
-              </span>
-            </span>
+        <div className="MsoNormal" data-custom-class="heading_2">
+          <span>13.9.&nbsp;</span>
+          <u>
+            <span>Sanctions</span>
+          </u>
+          <span>
+            . Service is offered to users who are not a target of any sanction’s
+            regime, and do not reside in, nor will access the Service from a
+            country from which such access is prohibited under any applicable
+            sanction’s regime or export control laws. By using the Service, you
+            represent that you meet all of the foregoing requirements. If you do
+            not meet these requirements, you must not access or use the
+            Services. We reserve the right to limit the availability of the
+            Service to any person, entity, geographic area, or jurisdiction at
+            any time.
           </span>
         </div>
-        <div
-          className="MsoNormal"
-          style={{ textAlign: 'justify', lineHeight: '115%' }}
-        >
-          <div
-            className="MsoNormal"
-            data-custom-class="heading_1"
-            style={{ textAlign: 'left', lineHeight: '1.5' }}
-          >
-            <strong>
-              <span
-                style={{
-                  lineHeight: '115%',
-                  fontFamily: 'Arial',
-                  fontSize: '19px',
-                }}
-              >
-                U.S. GOVERNMENT RIGHTS
-              </span>
-            </strong>
-          </div>
-        </div>
-        <div
-          className="MsoNormal"
-          style={{ textAlign: 'justify', lineHeight: 1 }}
-        >
-          <br />
-        </div>
-        <div
-          className="MsoNormal"
-          style={{ textAlign: 'justify', lineHeight: '115%' }}
-        >
-          <div
-            className="MsoNormal"
-            data-custom-class="body_text"
-            style={{ lineHeight: '1.5', textAlign: 'left' }}
-          >
-            <span
-              style={{
-                fontSize: '15px',
-                lineHeight: '115%',
-                fontFamily: 'Arial',
-                color: 'rgb(89, 89, 89)',
-                backgroundImage: 'initial',
-                backgroundPosition: 'initial',
-                backgroundSize: 'initial',
-                backgroundRepeat: 'initial',
-                backgroundAttachment: 'initial',
-                backgroundOrigin: 'initial',
-                backgroundClip: 'initial',
-              }}
-            >
-              Our services are “commercial items” as defined in Federal
-              Acquisition Regulation (“FAR”) 2.101. If our services are acquired
-              by or on behalf of any agency not within the Department of Defense
-              (“DOD”), our services are subject to the terms of these Terms of
-              Use in accordance with FAR 12.212 (for computer software) and FAR
-              12.211 (for technical data). If our services are acquired by or on
-              behalf of any agency within the Department of Defense, our
-              services are subject to the terms of these Terms of Use in
-              accordance with Defense Federal Acquisition Regulation (“DFARS”)
-              227.7202
-            </span>
-            <span style={{ fontSize: '15px' }}>
-              <span
-                style={{
-                  lineHeight: '115%',
-                  fontFamily: 'Arial',
-                  color: 'rgb(89, 89, 89)',
-                  backgroundImage: 'initial',
-                  backgroundPosition: 'initial',
-                  backgroundSize: 'initial',
-                  backgroundRepeat: 'initial',
-                  backgroundAttachment: 'initial',
-                  backgroundOrigin: 'initial',
-                  backgroundClip: 'initial',
-                }}
-              >
-                ‑3. In addition, DFARS 252.227‑
-              </span>
-            </span>
-            <span
-              style={{
-                fontSize: '15px',
-                lineHeight: '115%',
-                fontFamily: 'Arial',
-                color: 'rgb(89, 89, 89)',
-                backgroundImage: 'initial',
-                backgroundPosition: 'initial',
-                backgroundSize: 'initial',
-                backgroundRepeat: 'initial',
-                backgroundAttachment: 'initial',
-                backgroundOrigin: 'initial',
-                backgroundClip: 'initial',
-              }}
-            >
-              7015 applies to technical data acquired by the DOD. This U.S.
-              Government Rights clause is in lieu of, and supersedes, any other
-              FAR, DFARS, or other clause or provision that addresses government
-              rights in computer software or technical data under these Terms of
-              Use.
-            </span>
-          </div>
-          <div
-            className="MsoNormal"
-            style={{ lineHeight: '1.5', textAlign: 'left' }}
-          >
-            <br />
-          </div>
-          <div
-            className="MsoNormal"
-            style={{ lineHeight: '1.5', textAlign: 'left' }}
-          >
-            <br />
-          </div>
-          <div
-            className="MsoNormal"
-            style={{ lineHeight: '1.5', textAlign: 'left' }}
-          >
-            <span
-              style={{
-                fontSize: '11.0pt',
-                lineHeight: '115%',
-                color: '#595959',
-              }}
-            >
-              <span
-                className="block-container if"
-                data-type="if"
-                id="14038561-dad7-be9d-370f-f8aa487b2570"
-              >
-                <span className="statement-end-if-in-editor" data-type="close">
-                  <span style={{ fontSize: '15px' }} />
-                </span>
-              </span>
-            </span>
-          </div>
-        </div>
-        <div
-          className="MsoNormal"
-          data-custom-class="heading_1"
-          style={{ lineHeight: '1.5' }}
-        >
-          <a />
-          <strong>
-            <span
-              style={{
-                lineHeight: '115%',
-                fontFamily: 'Arial',
-                fontSize: '19px',
-              }}
-            >
-              SITE MANAGEMENT
-            </span>
-          </strong>
-        </div>
-      </div>
-      <div style={{ textAlign: 'left', lineHeight: 1 }}>
-        <br />
-      </div>
-      <div style={{ textAlign: 'left', lineHeight: '1.5' }}>
-        <div
-          className="MsoNormal"
-          data-custom-class="body_text"
-          style={{ lineHeight: '1.5' }}
-        >
-          <span
-            style={{
-              fontSize: '15px',
-              lineHeight: '115%',
-              fontFamily: 'Arial',
-              color: 'rgb(89, 89, 89)',
-            }}
-          >
-            We reserve the right, but not the obligation, to: (1) monitor the
-            Site for violations of these Terms of Use; (2) take appropriate
-            legal action against anyone who, in our sole discretion, violates
-            the law or these Terms of Use, including without limitation,
-            reporting such user to law enforcement authorities; (3) in our sole
-            discretion and without limitation, refuse, restrict access to, limit
-            the availability of, or disable (to the extent technologically
-            feasible) any of your Contributions or any portion thereof; (4) in
-            our sole discretion and without limitation, notice, or liability, to
-            remove from the Site or otherwise disable all files and content that
-            are excessive in size or are in any way burdensome to our systems;
-            and (5) otherwise manage the Site in a manner designed to protect
-            our rights and property and to facilitate the proper functioning of
-            the Site.
-          </span>
-        </div>
-        <div className="MsoNormal" style={{ lineHeight: '1.5' }}>
-          <a />
-        </div>
-      </div>
-      <div style={{ textAlign: 'left', lineHeight: '1.5' }}>
-        <br />
-      </div>
-      <div style={{ textAlign: 'left', lineHeight: '1.5' }}>
-        <br />
-      </div>
-      <div style={{ textAlign: 'left', lineHeight: 1 }}>
-        <span className="block-container if" data-type="if">
-          <span data-type="conditional-block">
-            <span
-              className="block-component"
-              data-record-question-key="privacy_policy_option"
-              data-type="statement"
-            />
-            <span
-              className="block-container if"
-              data-type="if"
-              id="7371467a-f2b5-2aff-cd0f-3379e970551e"
-            >
-              <span data-type="conditional-block">
-                <span
-                  className="block-component"
-                  data-record-question-key="privacy_policy_followup"
-                  data-type="statement"
-                  style={{ fontSize: '14.6667px' }}
-                />{' '}
-                <span data-type="body">
-                  <div
-                    className="MsoNormal"
-                    style={{ textAlign: 'justify', lineHeight: '17.25px' }}
-                  >
-                    <div
-                      className="MsoNormal"
-                      data-custom-class="heading_1"
-                      style={{ textAlign: 'left', lineHeight: '1.5' }}
-                    >
-                      <strong>
-                        <span
-                          style={{
-                            lineHeight: '115%',
-                            fontFamily: 'Arial',
-                            color: 'black',
-                            backgroundImage: 'initial',
-                            backgroundPosition: 'initial',
-                            backgroundSize: 'initial',
-                            backgroundRepeat: 'initial',
-                            backgroundAttachment: 'initial',
-                            backgroundOrigin: 'initial',
-                            backgroundClip: 'initial',
-                            fontSize: '19px',
-                          }}
-                        >
-                          PRIVACY POLICY
-                        </span>
-                      </strong>
-                    </div>
-                  </div>
-                </span>
-              </span>
-            </span>
-          </span>
-        </span>
-      </div>
-      <div style={{ textAlign: 'left', lineHeight: 1 }}>
-        <br />
-      </div>
-      <div style={{ textAlign: 'left', lineHeight: 1 }}>
-        <span className="block-container if" data-type="if">
-          <span className="block-container if" data-type="if">
-            <span data-type="conditional-block">
-              <span data-type="body">
-                <div
-                  className="MsoNormal"
-                  style={{
-                    fontSize: '14.6667px',
-                    textAlign: 'justify',
-                    lineHeight: '17.25px',
-                  }}
-                >
-                  <div
-                    className="MsoNormal"
-                    data-custom-class="body_text"
-                    style={{
-                      color: 'rgb(10, 54, 90)',
-                      fontSize: '15px',
-                      lineHeight: '1.5',
-                      textAlign: 'left',
-                    }}
-                  >
-                    <span
-                      style={{
-                        fontSize: '15px',
-                        lineHeight: '16.8667px',
-                        color: 'rgb(89, 89, 89)',
-                      }}
-                    >
-                      We care about data privacy and security. By using the
-                      Site, you agree to be bound by our Privacy Policy posted
-                      on the Site, which is incorporated into these Terms of
-                      Use. Please be advised the Site is hosted in{' '}
-                      <span
-                        style={{
-                          fontSize: '15px',
-                          lineHeight: '115%',
-                          fontFamily: 'Arial',
-                          color: 'rgb(89, 89, 89)',
-                        }}
-                      >
-                        <span className="block-component" />
-                        <span className="question">Czechia</span>
-                        <span className="statement-end-if-in-editor" />
-                      </span>
-                      . If you access the Site from any other region of the
-                      world with laws or other requirements governing personal
-                      data collection, use, or disclosure that differ from
-                      applicable laws in{' '}
-                      <span
-                        style={{
-                          fontSize: '15px',
-                          lineHeight: '115%',
-                          fontFamily: 'Arial',
-                          color: 'rgb(89, 89, 89)',
-                        }}
-                      >
-                        <span className="block-component" />
-                        <span className="question">Czechia</span>
-                        <span className="statement-end-if-in-editor" />
-                      </span>
-                      , then through your continued use of the Site, you are
-                      transferring your data to{' '}
-                      <span
-                        style={{
-                          fontSize: '15px',
-                          lineHeight: '115%',
-                          fontFamily: 'Arial',
-                          color: 'rgb(89, 89, 89)',
-                        }}
-                      >
-                        <span className="block-component" />
-                        <span className="question">Czechia</span>
-                        <span className="statement-end-if-in-editor" />
-                      </span>
-                      , and you agree to have your data transferred to and
-                      processed in{' '}
-                      <span
-                        style={{
-                          fontSize: '15px',
-                          lineHeight: '115%',
-                          fontFamily: 'Arial',
-                          color: 'rgb(89, 89, 89)',
-                        }}
-                      >
-                        <span className="block-component" />
-                        <span className="question">Czechia</span>
-                        <span className="statement-end-if-in-editor" />
-                      </span>
-                      . <span className="block-component" />
-                      <span
-                        className="block-container if"
-                        data-type="if"
-                        id="547bb7bb-ecf2-84b9-1cbb-a861dc3e14e7"
-                      >
-                        <span data-type="conditional-block">
-                          <span
-                            className="block-component"
-                            data-record-question-key="user_u13_option"
-                            data-type="statement"
-                          />
-                        </span>
-                      </span>
-                      <span
-                        className="block-container if"
-                        data-type="if"
-                        id="547bb7bb-ecf2-84b9-1cbb-a861dc3e14e7"
-                      >
-                        <span data-type="conditional-block">
-                          <span data-type="body">Further, we</span>
-                        </span>
-                      </span>
-                    </span>
-                    <span
-                      style={{
-                        fontSize: '11pt',
-                        lineHeight: '16.8667px',
-                        color: 'rgb(89, 89, 89)',
-                      }}
-                    >
-                      <span
-                        className="block-container if"
-                        data-type="if"
-                        id="547bb7bb-ecf2-84b9-1cbb-a861dc3e14e7"
-                      >
-                        <span data-type="conditional-block">
-                          <span data-type="body"> </span>
-                        </span>
-                      </span>
-                    </span>
-                    <span
-                      style={{
-                        fontSize: '15px',
-                        lineHeight: '16.8667px',
-                        color: 'rgb(89, 89, 89)',
-                      }}
-                    >
-                      <span
-                        className="block-container if"
-                        data-type="if"
-                        id="547bb7bb-ecf2-84b9-1cbb-a861dc3e14e7"
-                      >
-                        <span data-type="conditional-block">
-                          <span data-type="body">
-                            do not knowingly accept, request, or solicit
-                            information from children or knowingly market to
-                            children. Therefore, in accordance with the U.S.
-                            Children’s Online Privacy Protection Act, if we
-                            receive actual knowledge that anyone under the age
-                            of 13 has provided personal information to us
-                            without the requisite and verifiable parental
-                            consent, we will delete that information from the
-                            Site as quickly as is reasonably practical.
-                          </span>
-                        </span>
-                      </span>
-                      <span
-                        className="block-container if"
-                        data-type="if"
-                        id="547bb7bb-ecf2-84b9-1cbb-a861dc3e14e7"
-                      >
-                        <span
-                          className="statement-end-if-in-editor"
-                          data-type="close"
-                        >
-                          <span
-                            style={{
-                              fontSize: '15px',
-                              lineHeight: '16.8667px',
-                              color: 'rgb(89, 89, 89)',
-                            }}
-                          >
-                            <span className="statement-end-if-in-editor" />
-                          </span>
-                        </span>
-                      </span>
-                    </span>
-                  </div>
-                  <div
-                    className="MsoNormal"
-                    style={{
-                      color: 'rgb(10, 54, 90)',
-                      fontSize: '15px',
-                      lineHeight: '1.5',
-                      textAlign: 'left',
-                    }}
-                  >
-                    <br />
-                  </div>
-                  <div
-                    className="MsoNormal"
-                    style={{
-                      color: 'rgb(10, 54, 90)',
-                      fontSize: '15px',
-                      lineHeight: '1.5',
-                      textAlign: 'left',
-                    }}
-                  >
-                    <br />
-                  </div>
-                </div>
-              </span>
-            </span>
-            <span
-              className="statement-end-if-in-editor"
-              data-type="close"
-              style={{ fontSize: '14.6667px' }}
-            >
-              <span style={{ fontSize: '15px' }}>
-                <span className="block-component" />
-              </span>
-            </span>
-          </span>
-          <span
-            className="block-container if"
-            data-type="if"
-            id="923fc4bc-b171-82ba-b6eb-0a13c12d1b6b"
-          >
-            <span data-type="conditional-block">
-              <span
-                className="block-component"
-                data-record-question-key="copyright_agent_option"
-                data-type="statement"
-              />
-              <span className="statement-end-if-in-editor" data-type="close">
-                <span style={{ fontSize: '15px' }}>
-                  <span className="block-component" />
-                  <span className="block-component" />
-                </span>
-              </span>
-            </span>
-            <span className="block-component" />
-          </span>
-        </span>
-      </div>
-      <div style={{ textAlign: 'left', lineHeight: '1.5' }}>
-        <div
-          className="MsoNormal"
-          data-custom-class="heading_1"
-          style={{ lineHeight: '1.5' }}
-        >
-          <a />
-          <strong>
-            <span
-              style={{
-                lineHeight: '115%',
-                fontFamily: 'Arial',
-                fontSize: '19px',
-              }}
-            >
-              TERM AND TERMINATION
-            </span>
-          </strong>
-        </div>
-      </div>
-      <div style={{ textAlign: 'left', lineHeight: 1 }}>
-        <br />
-      </div>
-      <div style={{ textAlign: 'left', lineHeight: '1.5' }}>
-        <div
-          className="MsoNormal"
-          data-custom-class="body_text"
-          style={{ lineHeight: '1.5' }}
-        >
-          <span
-            style={{
-              fontSize: '15px',
-              lineHeight: '115%',
-              fontFamily: 'Arial',
-              color: 'rgb(89, 89, 89)',
-            }}
-          >
-            These Terms of Use shall remain in full force and effect while you
-            use the Site. WITHOUT LIMITING ANY OTHER PROVISION OF THESE TERMS OF
-            USE, WE RESERVE THE RIGHT TO, IN OUR SOLE DISCRETION AND WITHOUT
-            NOTICE OR LIABILITY, DENY ACCESS TO AND USE OF THE SITE (INCLUDING
-            BLOCKING CERTAIN IP ADDRESSES), TO ANY PERSON FOR ANY REASON OR FOR
-            NO REASON, INCLUDING WITHOUT LIMITATION FOR BREACH OF ANY
-            REPRESENTATION, WARRANTY, OR COVENANT CONTAINED IN THESE TERMS OF
-            USE OR OF ANY APPLICABLE LAW OR REGULATION. WE MAY TERMINATE YOUR
-            USE OR PARTICIPATION IN THE SITE OR DELETE{' '}
-            <span
-              className="block-container if"
-              data-type="if"
-              id="a6e121c2-36b4-5066-bf9f-a0a33512e768"
-            >
-              <span data-type="conditional-block">
-                <span
-                  className="block-component"
-                  data-record-question-key="user_account_option"
-                  data-type="statement"
-                />
-              </span>
-            </span>
-            <span
-              className="block-container if"
-              data-type="if"
-              id="a6e121c2-36b4-5066-bf9f-a0a33512e768"
-            >
-              <span data-type="conditional-block">
-                <span data-type="body">YOUR</span>
-              </span>
-            </span>
-          </span>
-          <span
-            style={{
-              fontSize: '11.0pt',
-              lineHeight: '115%',
-              fontFamily: 'Arial',
-              color: '#595959',
-            }}
-          >
-            <span
-              className="block-container if"
-              data-type="if"
-              id="a6e121c2-36b4-5066-bf9f-a0a33512e768"
-            >
-              <span data-type="conditional-block">
-                <span data-type="body"> </span>
-              </span>
-            </span>
-          </span>
-          <span
-            style={{
-              fontSize: '15px',
-              lineHeight: '115%',
-              fontFamily: 'Arial',
-              color: 'rgb(89, 89, 89)',
-            }}
-          >
-            <span
-              className="block-container if"
-              data-type="if"
-              id="a6e121c2-36b4-5066-bf9f-a0a33512e768"
-            >
-              <span data-type="conditional-block">
-                <span data-type="body">ACCOUNT AND </span>
-              </span>
-            </span>
-            <span
-              className="block-container if"
-              data-type="if"
-              id="a6e121c2-36b4-5066-bf9f-a0a33512e768"
-            >
-              <span className="statement-end-if-in-editor" data-type="close" />
-            </span>
-            ANY CONTENT OR INFORMATION THAT YOU POSTED AT ANY TIME, WITHOUT
-            WARNING, IN OUR SOLE DISCRETION.{' '}
-          </span>
-        </div>
-      </div>
-      <div style={{ textAlign: 'left', lineHeight: 1 }}>
-        <br />
-      </div>
-      <div style={{ textAlign: 'left', lineHeight: '1.5' }}>
-        <div
-          className="MsoNormal"
-          data-custom-class="body_text"
-          style={{ lineHeight: '1.5' }}
-        >
-          <span style={{ fontSize: '15px' }}>
-            <span
-              style={{
-                lineHeight: '115%',
-                fontFamily: 'Arial',
-                color: 'rgb(89, 89, 89)',
-              }}
-            >
-              If we terminate or suspend your account for any reason, you are
-              prohibited from registering and creating a new account under your
-              name, a fake or borrowed name, or the name of any third party,
-              even if you may be acting on behalf of the third party. In
-              addition to terminating or suspending your account, we reserve the
-              right to take appropriate legal action, including without
-              limitation pursuing civil, criminal, and injunctive redress.
-            </span>
-          </span>
-        </div>
-      </div>
-      <div style={{ textAlign: 'left', lineHeight: '1.5' }}>
-        <br />
-      </div>
-      <div style={{ textAlign: 'left', lineHeight: '1.5' }}>
-        <div className="MsoNormal" style={{ lineHeight: '1.5' }}>
-          <br />
-        </div>
-        <div
-          className="MsoNormal"
-          data-custom-class="heading_1"
-          style={{ lineHeight: '1.5' }}
-        >
-          <a />
-          <strong>
-            <span style={{ lineHeight: '115%', fontFamily: 'Arial' }}>
-              <span style={{ fontSize: '19px' }}>
-                MODIFICATIONS AND INTERRUPTIONS
-              </span>
-            </span>
-          </strong>
-        </div>
-      </div>
-      <div style={{ textAlign: 'left', lineHeight: 1 }}>
-        <br />
-      </div>
-      <div style={{ textAlign: 'left', lineHeight: '1.5' }}>
-        <div
-          className="MsoNormal"
-          data-custom-class="body_text"
-          style={{ lineHeight: '1.5' }}
-        >
-          <span
-            style={{
-              fontSize: '15px',
-              lineHeight: '115%',
-              fontFamily: 'Arial',
-              color: 'rgb(89, 89, 89)',
-            }}
-          >
-            We reserve the right to change, modify, or remove the contents of
-            the Site at any time or for any reason at our sole discretion
-            without notice. However, we have no obligation to update any
-            information on our Site. We also reserve the right to modify or
-            discontinue all or part of the Site without notice at any time. We
-            will not be liable to you or any third party for any modification,
-            price change, suspension, or discontinuance of the Site.
-          </span>
-        </div>
-      </div>
-      <div style={{ textAlign: 'left', lineHeight: 1 }}>
-        <br />
-      </div>
-      <div style={{ textAlign: 'left', lineHeight: '1.5' }}>
-        <div
-          className="MsoNormal"
-          data-custom-class="body_text"
-          style={{ lineHeight: '1.5' }}
-        >
-          <span
-            style={{
-              fontSize: '15px',
-              lineHeight: '115%',
-              fontFamily: 'Arial',
-              color: 'rgb(89, 89, 89)',
-            }}
-          >
-            We cannot guarantee the Site will be available at all times. We may
-            experience hardware, software, or other problems or need to perform
-            maintenance related to the Site, resulting in interruptions, delays,
-            or errors. We reserve the right to change, revise, update, suspend,
-            discontinue, or otherwise modify the Site at any time or for any
-            reason without notice to you. You agree that we have no liability
-            whatsoever for any loss, damage, or inconvenience caused by your
-            inability to access or use the Site during any downtime or
-            discontinuance of the Site. Nothing in these Terms of Use will be
-            construed to obligate us to maintain and support the Site or to
-            supply any corrections, updates, or releases in connection
-            therewith.
-          </span>
-        </div>
-      </div>
-      <div style={{ textAlign: 'left', lineHeight: '1.5' }}>
-        <br />
-      </div>
-      <div style={{ textAlign: 'left', lineHeight: '1.5' }}>
-        <div className="MsoNormal" style={{ lineHeight: '1.5' }}>
-          <br />
-        </div>
-        <div
-          className="MsoNormal"
-          data-custom-class="heading_1"
-          style={{ lineHeight: '1.5' }}
-        >
-          <a />
-          <strong>
-            <span style={{ lineHeight: '115%', fontFamily: 'Arial' }}>
-              <span style={{ fontSize: '19px' }}>GOVERNING LAW</span>
-            </span>
-          </strong>
-        </div>
-        <div className="MsoNormal" style={{ lineHeight: 1 }}>
-          <br />
-        </div>
-        <div className="MsoNormal" style={{ lineHeight: '1.5' }}>
-          <span
-            style={{
-              fontSize: '11.0pt',
-              lineHeight: '115%',
-              fontFamily: 'Arial',
-              color: '#595959',
-            }}
-          >
-            <span className="block-component" />
-          </span>
-        </div>
-        <div
-          className="MsoNormal"
-          data-custom-class="body_text"
-          style={{ lineHeight: '1.5' }}
-        >
-          <span style={{ fontSize: '15px' }}>
-            These conditions are governed by and interpreted following the laws
-            of <span className="block-component" />
-            <span className="question">Czechia</span>
-            <span className="statement-end-if-in-editor" />, and the use of the
-            United Nations Convention of Contracts for the International Sale of
-            Goods is expressly excluded. If your habitual residence is in the
-            EU, and you are a consumer, you additionally possess the protection
-            provided to you by obligatory provisions of the law of your country
-            of residence. <span className="question">Tolgee s.r.o.</span> and
-            yourself both agree to submit to the non-exclusive jurisdiction of
-            the courts of <span className="question">Brno</span>, which means
-            that you may make a claim to defend your consumer protection rights
-            in regards to these Conditions of Use in{' '}
-            <span style={{ fontSize: '15px' }}>
-              <span className="block-component" />
-              <span className="question">Czechia</span>
-              <span className="statement-end-if-in-editor" />
-            </span>
-            , or in the EU country in which you reside.
-            <span className="else-block" />
-          </span>
-        </div>
-      </div>
-      <div style={{ textAlign: 'left', lineHeight: '1.5' }}>
-        <br />
-      </div>
-      <div style={{ textAlign: 'left', lineHeight: '1.5' }}>
-        <div className="MsoNormal" style={{ lineHeight: '1.5' }}>
-          <br />
-        </div>
-        <div
-          className="MsoNormal"
-          data-custom-class="heading_1"
-          style={{ lineHeight: '1.5' }}
-        >
-          <a />
-          <strong>
-            <span
-              style={{
-                lineHeight: '115%',
-                fontFamily: 'Arial',
-                fontSize: '19px',
-              }}
-            >
-              DISPUTE RESOLUTION
-            </span>
-          </strong>
-        </div>
-        <div className="MsoNormal" style={{ lineHeight: 1 }}>
-          <br />
-        </div>
-        <div className="MsoNormal" style={{ lineHeight: '1.5' }}>
-          <span className="block-container if" data-type="if">
-            <span data-type="conditional-block">
-              <span className="block-component" />
-            </span>
-          </span>
-        </div>
-      </div>
-      <div className="MsoNormal" style={{ lineHeight: '1.5' }}>
-        <span className="block-container if" data-type="if">
-          <span data-type="conditional-block">
-            <span data-type="body">
-              <div className="MsoNormal" style={{ lineHeight: '1.5' }}>
-                <span className="block-component" />
-              </div>
-            </span>
-          </span>
-        </span>
-      </div>
-      <div className="MsoNormal" style={{ lineHeight: '1.5' }}>
-        <span className="block-container if" data-type="if">
-          <span data-type="conditional-block">
-            <span data-type="body">
-              <div
-                className="MsoNormal"
-                data-custom-class="heading_2"
-                style={{ lineHeight: '1.5' }}
-              >
-                <strong>Informal Negotiations</strong>
-              </div>
-            </span>
-          </span>
-        </span>
-      </div>
-      <div className="MsoNormal" style={{ lineHeight: 1 }}>
-        <br />
-      </div>
-      <div className="MsoNormal" style={{ lineHeight: '1.5' }}>
-        <span className="block-container if" data-type="if">
-          <span data-type="conditional-block">
-            <span data-type="body">
-              <div
-                className="MsoNormal"
-                data-custom-class="body_text"
-                style={{ lineHeight: '1.5' }}
-              >
-                <span style={{ fontSize: '15px' }}>To expedite r</span>
-                <span
-                  style={{
-                    fontSize: '15px',
-                    lineHeight: '16.8667px',
-                    color: 'rgb(89, 89, 89)',
-                  }}
-                >
-                  esolution and control the cost of any dispute, controversy, or
-                  claim related to these Terms of Use (each "Dispute" and
-                  collectively, the “Disputes”) brought by either you or us
-                  (individually, a “Party” and collectively, the “Parties”), the
-                  Parties agree to first attempt to negotiate any Dispute
-                  (except those Disputes expressly provided below) informally
-                  for at least{' '}
-                  <span
-                    className="block-container question question-in-editor"
-                    data-id="33108d82-92fb-fbe9-6ef5-01cac7097351"
-                    data-type="question"
-                  >
-                    thirty (30)
-                  </span>{' '}
-                  days before initiating arbitration. Such informal negotiations
-                  commence upon written notice from one Party to the other
-                  Party.
-                </span>
-              </div>
-            </span>
-          </span>
-        </span>
-      </div>
-      <div className="MsoNormal" style={{ lineHeight: '1.5' }}>
-        <span className="block-container if" data-type="if">
-          <span data-type="conditional-block">
-            <span data-type="body">
-              <div className="MsoNormal" style={{ lineHeight: 1 }}>
-                <br />
-              </div>
-            </span>
-          </span>
-        </span>
-      </div>
-      <div className="MsoNormal" style={{ lineHeight: '1.5' }}>
-        <span className="block-container if" data-type="if">
-          <span data-type="conditional-block">
-            <span data-type="body">
-              <div className="MsoNormal" style={{ lineHeight: '1.5' }}>
-                <span
-                  style={{
-                    fontSize: '15px',
-                    lineHeight: '16.8667px',
-                    color: 'rgb(89, 89, 89)',
-                  }}
-                >
-                  <span className="statement-end-if-in-editor" />
-                </span>
-              </div>
-            </span>
-          </span>
-        </span>
-      </div>
-      <div className="MsoNormal" style={{ lineHeight: '1.5' }}>
-        <span className="block-container if" data-type="if">
-          <span data-type="conditional-block">
-            <span data-type="body">
-              <div
-                className="MsoNormal"
-                data-custom-class="heading_2"
-                style={{ lineHeight: '1.5' }}
-              >
-                <span
-                  style={{
-                    fontSize: '15px',
-                    lineHeight: '16.8667px',
-                    color: 'rgb(89, 89, 89)',
-                  }}
-                >
-                  <strong>Binding Arbitration</strong>
-                </span>
-              </div>
-            </span>
-          </span>
-        </span>
-      </div>
-      <div className="MsoNormal" style={{ lineHeight: 1 }}>
-        <br />
-      </div>
-      <div
-        className="MsoNormal"
-        data-custom-class="body_text"
-        style={{ lineHeight: '1.5' }}
-      >
-        <span className="block-component">
-          <span style={{ fontSize: '15px' }} />
-        </span>
-      </div>
-      <div
-        className="MsoNormal"
-        data-custom-class="body_text"
-        style={{ lineHeight: '1.5' }}
-      >
-        <span style={{ fontSize: '15px' }}>
-          Any dispute arising from the relationships between the Parties to this
-          contract shall be determined by one arbitrator who will be chosen in
-          accordance with the Arbitration and Internal Rules of the European
-          Court of Arbitration being part of the European Centre of Arbitration
-          having its seat in Strasbourg, and which are in force at the time the
-          application for arbitration is filed, and of which adoption of this
-          clause constitutes acceptance. The seat of arbitration shall be{' '}
-          <span className="block-component" />
-          <span className="question">Brno</span>,{' '}
-          <span className="question">Czechia</span>
-          <span className="else-block" />. The language of the proceedings shall
-          be <span className="question">Czech</span>. Applicable rules of
-          substantive law shall be the law of{' '}
-          <span className="block-component" />
-          <span className="question">Czechia</span>
-          <span className="statement-end-if-in-editor" />.
-        </span>
-        <span className="else-block">
-          <span style={{ fontSize: '15px' }} />
-        </span>
-      </div>
-      <div className="MsoNormal" style={{ lineHeight: 1 }}>
-        <br />
-      </div>
-      <div
-        className="MsoNormal"
-        data-custom-class="heading_2"
-        style={{ lineHeight: '1.5' }}
-      >
-        <strong>Restrictions</strong>
-      </div>
-      <div className="MsoNormal" style={{ lineHeight: 1 }}>
-        <br />
-      </div>
-      <div
-        className="MsoNormal"
-        data-custom-class="body_text"
-        style={{ lineHeight: '1.5' }}
-      >
-        <span style={{ fontSize: '15px' }}>
-          The Parties agree that any arbitration shall be limited to the Dispute
-          between the Parties individually. To the full extent permitted by law,
-          (a) no arbitration shall be joined with any other proceeding; (b)
-          there is no right or authority for any Dispute to be arbitrated on a
-          class-action basis or to utilize class action procedures; and (c)
-          there is no right or authority for any Dispute to be brought in a
-          purported representative capacity on behalf of the general public or
-          any other persons.
-        </span>
-      </div>
-      <div className="MsoNormal" style={{ lineHeight: 1 }}>
-        <br />
-      </div>
-      <div
-        className="MsoNormal"
-        data-custom-class="heading_2"
-        style={{ lineHeight: '1.5' }}
-      >
-        <span className="block-component">
-          <span style={{ fontSize: '15px' }}>
-            <strong />
-          </span>
-        </span>
-        <strong>Exceptions to Informal Negotiations and Arbitration</strong>
-        <span className="statement-end-if-in-editor">
-          <strong />
-        </span>
-      </div>
-      <div className="MsoNormal" style={{ lineHeight: 1 }}>
-        <br />
-      </div>
-      <div
-        className="MsoNormal"
-        data-custom-class="body_text"
-        style={{ lineHeight: '1.5' }}
-      >
-        <span style={{ fontSize: '15px' }}>
-          <span className="block-component" />
-          The Parties agree that the following Disputes are not subject to the
-          above provisions concerning informal negotiations and binding
-          arbitration: (a) any Disputes seeking to enforce or protect, or
-          concerning the validity of, any of the intellectual property rights of
-          a Party; (b) any Dispute related to, or arising from, allegations of
-          theft, piracy, invasion of privacy, or unauthorized use; and (c) any
-          claim for injunctive relief. If this provision is found to be illegal
-          or unenforceable, then neither Party will elect to arbitrate any
-          Dispute falling within that portion of this provision found to be
-          illegal or unenforceable and such Dispute shall be decided by a court
-          of competent jurisdiction within the courts listed for jurisdiction
-          above, and the Parties agree to submit to the personal jurisdiction of
-          that court.
-          <span
-            style={{
-              fontSize: '15px',
-              lineHeight: '115%',
-              color: 'rgb(89, 89, 89)',
-            }}
-          >
-            <span className="statement-end-if-in-editor" />
-          </span>
-        </span>
-      </div>
-      <div className="MsoNormal" style={{ lineHeight: '1.5' }}>
-        <span style={{ fontSize: '15px' }}>
-          <span
-            style={{
-              fontSize: '15px',
-              lineHeight: '115%',
-              color: 'rgb(89, 89, 89)',
-            }}
-          >
-            <span
-              style={{
-                fontSize: '15px',
-                lineHeight: '115%',
-                color: 'rgb(89, 89, 89)',
-              }}
-            >
-              <span className="statement-end-if-in-editor">
-                <span style={{ fontSize: '15px' }}>
-                  <span
-                    style={{
-                      fontSize: '15px',
-                      lineHeight: '115%',
-                      color: 'rgb(89, 89, 89)',
-                    }}
-                  >
-                    <span
-                      style={{
-                        fontSize: '15px',
-                        lineHeight: '115%',
-                        color: 'rgb(89, 89, 89)',
-                      }}
-                    >
-                      <span className="statement-end-if-in-editor" />
-                    </span>
-                  </span>
-                </span>
-              </span>
-            </span>
-          </span>
-        </span>
-      </div>
-      <div className="MsoNormal" style={{ lineHeight: '1.5' }}>
-        <br />
-      </div>
-      <div className="MsoNormal" style={{ lineHeight: '1.5' }}>
-        <br />
-      </div>
-      <div
-        className="MsoNormal"
-        data-custom-class="heading_1"
-        style={{ lineHeight: '1.5' }}
-      >
-        <strong>
-          <span style={{ fontSize: '19px' }}>CORRECTIONS</span>
-        </strong>
-      </div>
-      <div className="MsoNormal" style={{ lineHeight: 1 }}>
-        <br />
-      </div>
-      <div
-        className="MsoNormal"
-        data-custom-class="body_text"
-        style={{ lineHeight: '1.5' }}
-      >
-        <span style={{ fontSize: '15px' }}>
-          There may be information on the Site that contains typographical
-          errors, inaccuracies, or omissions, including descriptions, pricing,
-          availability, and various other information. We reserve the right to
-          correct any errors, inaccuracies, or omissions and to change or update
-          the information on the Site at any time, without prior notice.
-        </span>
-      </div>
-      <div className="MsoNormal" style={{ lineHeight: '1.5' }}>
-        <br />
-      </div>
-      <div className="MsoNormal" style={{ lineHeight: '1.5' }}>
-        <br />
-      </div>
-      <div
-        className="MsoNormal"
-        data-custom-class="heading_1"
-        style={{ lineHeight: '1.5' }}
-      >
-        <strong>
-          <span style={{ fontSize: '19px' }}>DISCLAIMER</span>
-        </strong>
-      </div>
-      <div className="MsoNormal" style={{ lineHeight: 1 }}>
-        <br />
-      </div>
-      <div
-        className="MsoNormal"
-        data-custom-class="body_text"
-        style={{ lineHeight: '1.5' }}
-      >
-        <span style={{ fontSize: '15px' }}>
-          THE SITE IS PROVIDED ON AN AS-IS AND AS-AVAILABLE BASIS. YOU AGREE
-          THAT YOUR USE OF THE SITE AND OUR SERVICES WILL BE AT YOUR SOLE RISK.
-          TO THE FULLEST EXTENT PERMITTED BY LAW, WE DISCLAIM ALL WARRANTIES,
-          EXPRESS OR IMPLIED, IN CONNECTION WITH THE SITE AND YOUR USE THEREOF,
-          INCLUDING, WITHOUT LIMITATION, THE IMPLIED WARRANTIES OF
-          MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE, AND
-          NON-INFRINGEMENT. WE MAKE NO WARRANTIES OR REPRESENTATIONS ABOUT THE
-          ACCURACY OR COMPLETENESS OF THE SITE’S CONTENT OR THE CONTENT OF ANY
-          WEBSITES LINKED TO THE SITE AND WE WILL ASSUME NO LIABILITY OR
-          RESPONSIBILITY FOR ANY (1) ERRORS, MISTAKES, OR INACCURACIES OF
-          CONTENT AND MATERIALS, (2) PERSONAL INJURY OR PROPERTY DAMAGE, OF ANY
-          NATURE WHATSOEVER, RESULTING FROM YOUR ACCESS TO AND USE OF THE SITE,
-          (3) ANY UNAUTHORIZED ACCESS TO OR USE OF OUR SECURE SERVERS AND/OR ANY
-          AND ALL PERSONAL INFORMATION AND/OR FINANCIAL INFORMATION STORED
-          THEREIN, (4) ANY INTERRUPTION OR CESSATION OF TRANSMISSION TO OR FROM
-          THE SITE, (5) ANY BUGS, VIRUSES, TROJAN HORSES, OR THE LIKE WHICH MAY
-          BE TRANSMITTED TO OR THROUGH THE SITE BY ANY THIRD PARTY, AND/OR (6)
-          ANY ERRORS OR OMISSIONS IN ANY CONTENT AND MATERIALS OR FOR ANY LOSS
-          OR DAMAGE OF ANY KIND INCURRED AS A RESULT OF THE USE OF ANY CONTENT
-          POSTED, TRANSMITTED, OR OTHERWISE MADE AVAILABLE VIA THE SITE. WE DO
-          NOT WARRANT, ENDORSE, GUARANTEE, OR ASSUME RESPONSIBILITY FOR ANY
-          PRODUCT OR SERVICE ADVERTISED OR OFFERED BY A THIRD PARTY THROUGH THE
-          SITE, ANY HYPERLINKED WEBSITE, OR ANY WEBSITE OR MOBILE APPLICATION
-          FEATURED IN ANY BANNER OR OTHER ADVERTISING, AND WE WILL NOT BE A
-          PARTY TO OR IN ANY WAY BE RESPONSIBLE FOR MONITORING ANY TRANSACTION
-          BETWEEN YOU AND ANY THIRD-PARTY PROVIDERS OF PRODUCTS OR SERVICES. AS
-          WITH THE PURCHASE OF A PRODUCT OR SERVICE THROUGH ANY MEDIUM OR IN ANY
-          ENVIRONMENT, YOU SHOULD USE YOUR BEST JUDGMENT AND EXERCISE CAUTION
-          WHERE APPROPRIATE.
-        </span>
-      </div>
-      <div className="MsoNormal" style={{ lineHeight: '1.5' }}>
-        <br />
-      </div>
-      <div className="MsoNormal" style={{ lineHeight: '1.5' }}>
-        <br />
-      </div>
-      <div
-        className="MsoNormal"
-        data-custom-class="heading_1"
-        style={{ lineHeight: '1.5' }}
-      >
-        <strong>
-          <span style={{ fontSize: '19px' }}>LIMITATIONS OF LIABILITY</span>
-        </strong>
-      </div>
-      <div className="MsoNormal" style={{ lineHeight: 1 }}>
-        <br />
-      </div>
-      <div
-        className="MsoNormal"
-        data-custom-class="body_text"
-        style={{ lineHeight: '1.5' }}
-      >
-        <span style={{ fontSize: '15px' }}>
-          IN{' '}
-          <span
-            style={{
-              fontSize: '15px',
-              lineHeight: '115%',
-              fontFamily: 'Arial',
-              color: 'rgb(89, 89, 89)',
-            }}
-          >
-            NO EVENT WILL WE OR OUR DIRECTORS, EMPLOYEES, OR AGENTS BE LIABLE TO
-            YOU OR ANY THIRD PARTY FOR ANY DIRECT, INDIRECT, CONSEQUENTIAL,
-            EXEMPLARY, INCIDENTAL, SPECIAL, OR PUNITIVE DAMAGES, INCLUDING LOST
-            PROFIT, LOST REVENUE, LOSS OF DATA, OR OTHER DAMAGES ARISING FROM
-            YOUR USE OF THE SITE, EVEN IF WE HAVE BEEN ADVISED OF THE
-            POSSIBILITY OF SUCH DAMAGES.{' '}
-            <span
-              style={{
-                fontSize: '15px',
-                lineHeight: '115%',
-                fontFamily: 'Arial',
-                color: 'rgb(89, 89, 89)',
-              }}
-            >
-              <span
-                className="block-container if"
-                data-type="if"
-                id="3c3071ce-c603-4812-b8ca-ac40b91b9943"
-              >
-                <span data-type="conditional-block">
-                  <span
-                    className="block-component"
-                    data-record-question-key="limitations_liability_option"
-                    data-type="statement"
-                  />
-                </span>
-              </span>
-              <span
-                className="block-container if"
-                data-type="if"
-                id="3c3071ce-c603-4812-b8ca-ac40b91b9943"
-              >
-                <span data-type="conditional-block">
-                  <span data-type="body">NOTWITHSTANDING</span>
-                </span>
-              </span>
-            </span>
-            <span
-              style={{
-                fontSize: '11.0pt',
-                lineHeight: '115%',
-                fontFamily: 'Arial',
-                color: '#595959',
-              }}
-            >
-              <span
-                className="block-container if"
-                data-type="if"
-                id="3c3071ce-c603-4812-b8ca-ac40b91b9943"
-              >
-                <span data-type="conditional-block">
-                  <span data-type="body"> </span>
-                </span>
-              </span>
-            </span>
-            <span
-              style={{
-                fontSize: '15px',
-                lineHeight: '115%',
-                fontFamily: 'Arial',
-                color: 'rgb(89, 89, 89)',
-              }}
-            >
-              <span
-                className="block-container if"
-                data-type="if"
-                id="3c3071ce-c603-4812-b8ca-ac40b91b9943"
-              >
-                <span data-type="conditional-block">
-                  <span data-type="body">
-                    ANYTHING TO THE CONTRARY CONTAINED HEREIN, OUR LIABILITY TO
-                    YOU FOR ANY CAUSE WHATSOEVER AND REGARDLESS OF THE FORM OF
-                    THE ACTION, WILL AT ALL TIMES BE LIMITED TO{' '}
-                    <span
-                      style={{
-                        fontSize: '15px',
-                        lineHeight: '115%',
-                        fontFamily: 'Arial',
-                        color: 'rgb(89, 89, 89)',
-                      }}
-                    >
-                      <span
-                        className="block-container if"
-                        data-type="if"
-                        id="3c3071ce-c603-4812-b8ca-ac40b91b9943"
-                      >
-                        <span data-type="conditional-block">
-                          <span data-type="body">
-                            <span
-                              className="block-container if"
-                              data-type="if"
-                              id="73189d93-ed3a-d597-3efc-15956fa8e04e"
-                            >
-                              <span data-type="conditional-block">
-                                <span
-                                  className="block-component"
-                                  data-record-question-key="limitations_liability_option"
-                                  data-type="statement"
-                                />
-                              </span>
-                            </span>
-                          </span>
-                        </span>
-                      </span>
-                    </span>
-                    <span data-type="if">
-                      <span data-type="conditional-block">
-                        <span data-type="body">
-                          <span data-type="if">
-                            <span data-type="conditional-block">
-                              <span data-type="body">THE AMOUNT PAID,</span>
-                            </span>
-                          </span>
-                        </span>
-                      </span>
-                    </span>
-                    <span data-type="if">
-                      <span data-type="conditional-block">
-                        <span data-type="body">
-                          <span data-type="if">
-                            <span data-type="conditional-block">
-                              <span data-type="body"> </span>
-                            </span>
-                          </span>
-                        </span>
-                      </span>
-                    </span>
-                    <span data-type="if">
-                      <span data-type="conditional-block">
-                        <span data-type="body">
-                          <span data-type="if">
-                            <span data-type="conditional-block">
-                              <span data-type="body">
-                                IF ANY, BY YOU TO US
-                                <span
-                                  style={{
-                                    fontSize: '15px',
-                                    lineHeight: '115%',
-                                    fontFamily: 'Arial',
-                                    color: 'rgb(89, 89, 89)',
-                                  }}
-                                >
-                                  <span
-                                    className="block-container if"
-                                    data-type="if"
-                                    id="3c3071ce-c603-4812-b8ca-ac40b91b9943"
-                                  >
-                                    <span data-type="conditional-block">
-                                      <span data-type="body">
-                                        <span
-                                          className="block-container if"
-                                          data-type="if"
-                                          id="73189d93-ed3a-d597-3efc-15956fa8e04e"
-                                        >
-                                          <span data-type="conditional-block">
-                                            <span data-type="body">
-                                              <span
-                                                className="block-container if"
-                                                data-type="if"
-                                                id="19e172cb-4ccf-1904-7c06-4251800ba748"
-                                              >
-                                                <span data-type="conditional-block">
-                                                  <span
-                                                    className="block-component"
-                                                    data-record-question-key="limilation_liability_time_option"
-                                                    data-type="statement"
-                                                  />
-                                                </span>
-                                              </span>
-                                            </span>
-                                          </span>
-                                        </span>
-                                      </span>
-                                    </span>
-                                  </span>
-                                </span>{' '}
-                                DURING THE{' '}
-                                <span className="question">SIX (6)</span> MONTH
-                                PERIOD PRIOR TO ANY CAUSE OF ACTION ARISING
-                                <span
-                                  style={{
-                                    fontSize: '15px',
-                                    lineHeight: '115%',
-                                    fontFamily: 'Arial',
-                                    color: 'rgb(89, 89, 89)',
-                                  }}
-                                >
-                                  <span
-                                    className="block-container if"
-                                    data-type="if"
-                                    id="3c3071ce-c603-4812-b8ca-ac40b91b9943"
-                                  >
-                                    <span data-type="conditional-block">
-                                      <span data-type="body">
-                                        <span
-                                          className="block-container if"
-                                          data-type="if"
-                                          id="73189d93-ed3a-d597-3efc-15956fa8e04e"
-                                        >
-                                          <span data-type="conditional-block">
-                                            <span data-type="body">
-                                              <span
-                                                className="block-container if"
-                                                data-type="if"
-                                                id="19e172cb-4ccf-1904-7c06-4251800ba748"
-                                              >
-                                                <span
-                                                  className="statement-end-if-in-editor"
-                                                  data-type="close"
-                                                />
-                                              </span>
-                                            </span>
-                                          </span>
-                                        </span>
-                                      </span>
-                                    </span>
-                                  </span>
-                                  <span
-                                    className="block-container if"
-                                    data-type="if"
-                                    id="3c3071ce-c603-4812-b8ca-ac40b91b9943"
-                                  >
-                                    <span data-type="conditional-block">
-                                      <span data-type="body">
-                                        <span
-                                          className="block-container if"
-                                          data-type="if"
-                                          id="73189d93-ed3a-d597-3efc-15956fa8e04e"
-                                        >
-                                          <span data-type="conditional-block">
-                                            <span
-                                              className="block-component"
-                                              data-record-question-key="limitations_liability_option"
-                                              data-type="statement"
-                                            />
-                                          </span>
-                                        </span>
-                                      </span>
-                                    </span>
-                                  </span>
-                                </span>
-                                .{' '}
-                                <span
-                                  style={{
-                                    fontSize: '15px',
-                                    lineHeight: '115%',
-                                    fontFamily: 'Arial',
-                                    color: 'rgb(89, 89, 89)',
-                                  }}
-                                >
-                                  <span
-                                    className="block-container if"
-                                    data-type="if"
-                                    id="3c3071ce-c603-4812-b8ca-ac40b91b9943"
-                                  >
-                                    <span data-type="conditional-block">
-                                      <span data-type="body">
-                                        CERTAIN US STATE LAWS AND INTERNATIONAL
-                                        LAWS DO NOT ALLOW LIMITATIONS ON IMPLIED
-                                        WARRANTIES OR THE EXCLUSION OR
-                                        LIMITATION OF CERTAIN DAMAGES. IF THESE
-                                        LAWS APPLY TO YOU, SOME OR ALL OF THE
-                                        ABOVE DISCLAIMERS OR LIMITATIONS MAY NOT
-                                        APPLY TO YOU, AND YOU MAY HAVE
-                                        ADDITIONAL RIGHTS.
-                                      </span>
-                                    </span>
-                                  </span>
-                                  <span
-                                    className="block-container if"
-                                    data-type="if"
-                                    id="3c3071ce-c603-4812-b8ca-ac40b91b9943"
-                                  >
-                                    <span
-                                      className="statement-end-if-in-editor"
-                                      data-type="close"
-                                    />
-                                  </span>
-                                </span>
-                              </span>
-                            </span>
-                          </span>
-                        </span>
-                      </span>
-                    </span>
-                  </span>
-                </span>
-              </span>
-            </span>
-          </span>
-        </span>
-      </div>
-      <div className="MsoNormal" style={{ lineHeight: '1.5' }}>
-        <br />
-      </div>
-      <div className="MsoNormal" style={{ lineHeight: '1.5' }}>
-        <br />
-      </div>
-      <div
-        className="MsoNormal"
-        data-custom-class="heading_1"
-        style={{ lineHeight: '1.5' }}
-      >
-        <strong>
-          <span style={{ fontSize: '19px' }}>INDEMNIFICATION</span>
-        </strong>
-      </div>
-      <div className="MsoNormal" style={{ lineHeight: 1 }}>
-        <br />
-      </div>
-      <div
-        className="MsoNormal"
-        data-custom-class="body_text"
-        style={{ lineHeight: '1.5' }}
-      >
-        <span style={{ fontSize: '15px' }}>
-          You agree to defend, indemnify, and hold us harmless, including our
-          subsidiaries, affiliates, and all of our respective officers, agents,
-          partners, and employees, from and against any loss, damage, liability,
-          claim, or demand, including reasonable attorneys’ fees and expenses,
-          made by any third party due to or arising out of:{' '}
-          <span
-            style={{
-              fontSize: '15px',
-              lineHeight: '115%',
-              fontFamily: 'Arial',
-              color: 'rgb(89, 89, 89)',
-            }}
-          >
-            <span
-              className="block-container if"
-              data-type="if"
-              id="475fffa5-05ca-def8-ac88-f426b238903c"
-            >
-              <span data-type="conditional-block">
-                <span
-                  className="block-component"
-                  data-record-question-key="user_post_content_option"
-                  data-type="statement"
-                />
-              </span>
-            </span>
-          </span>
-          <span data-type="if">
-            <span data-type="conditional-block">
-              <span data-type="body">(1) your Contributions;</span>
-            </span>
-          </span>
-          <span data-type="if">
-            <span data-type="conditional-block">
-              <span data-type="body"> </span>
-            </span>
-          </span>
-          <span
-            style={{
-              fontSize: '15px',
-              lineHeight: '115%',
-              fontFamily: 'Arial',
-              color: 'rgb(89, 89, 89)',
-            }}
-          >
-            <span
-              className="block-container if"
-              data-type="if"
-              id="475fffa5-05ca-def8-ac88-f426b238903c"
-            >
-              <span className="statement-end-if-in-editor" data-type="close" />
-            </span>
-          </span>
-          (2) use of the Site; (3) breach of these Terms of Use; (4) any breach
-          of your representations and warranties set forth in these Terms of
-          Use; (5) your violation of the rights of a third party, including but
-          not limited to intellectual property rights; or (6) any overt harmful
-          act toward any other user of the Site with whom you connected via the
-          Site. Notwithstanding the foregoing, we reserve the right, at your
-          expense, to assume the exclusive defense and control of any matter for
-          which you are required to indemnify us, and you agree to cooperate, at
-          your expense, with our defense of such claims. We will use reasonable
-          efforts to notify you of any such claim, action, or proceeding which
-          is subject to this indemnification upon becoming aware of it.
-        </span>
-      </div>
-      <div className="MsoNormal" style={{ lineHeight: '1.5' }}>
-        <br />
-      </div>
-      <div className="MsoNormal" style={{ lineHeight: '1.5' }}>
-        <br />
-      </div>
-      <div
-        className="MsoNormal"
-        data-custom-class="heading_1"
-        style={{ lineHeight: '1.5' }}
-      >
-        <strong>
-          <span style={{ fontSize: '19px' }}>USER DATA</span>
-        </strong>
-      </div>
-      <div className="MsoNormal" style={{ lineHeight: 1 }}>
-        <br />
-      </div>
-      <div
-        className="MsoNormal"
-        data-custom-class="body_text"
-        style={{ lineHeight: '1.5' }}
-      >
-        <span style={{ fontSize: '15px' }}>
-          We will maintain certain data that you transmit to the Site for the
-          purpose of managing the performance of the Site, as well as data
-          relating to your use of the Site. Although we perform regular routine
-          backups of data, you are solely responsible for all data that you
-          transmit or that relates to any activity you have undertaken using the
-          Site. You agree that we shall have no liability to you for any loss or
-          corruption of any such data, and you hereby waive any right of action
-          against us arising from any such loss or corruption of such data.
-        </span>
-      </div>
-      <div className="MsoNormal" style={{ lineHeight: '1.5' }}>
-        <br />
-      </div>
-      <div className="MsoNormal" style={{ lineHeight: '1.5' }}>
-        <br />
-      </div>
-      <div
-        className="MsoNormal"
-        data-custom-class="heading_1"
-        style={{ lineHeight: '1.5' }}
-      >
-        <span style={{ fontSize: '19px' }}>
-          <strong>
-            ELECTRONIC COMMUNICATIONS, TRANSACTIONS, AND SIGNATURES
-          </strong>
-        </span>
-      </div>
-      <div className="MsoNormal" style={{ lineHeight: 1 }}>
-        <br />
-      </div>
-      <div
-        className="MsoNormal"
-        data-custom-class="body_text"
-        style={{ lineHeight: '1.5' }}
-      >
-        <span style={{ fontSize: '15px' }}>
-          Visiting{' '}
-          <span
-            style={{
-              lineHeight: '115%',
-              fontFamily: 'Arial',
-              color: 'rgb(89, 89, 89)',
-            }}
-          >
-            the Site, sending us emails, and completing online forms constitute
-            electronic communications. You consent to receive electronic
-            communications, and you agree that all agreements, notices,
-            disclosures, and other communications we provide to you
-            electronically, via email and on the Site, satisfy any legal
-            requirement that such communication be in writing. YOU HEREBY AGREE
-            TO THE USE OF ELECTRONIC SIGNATURES, CONTRACTS, ORDERS, AND OTHER
-            RECORDS, AND TO ELECTRONIC DELIVERY OF NOTICES, POLICIES, AND
-            RECORDS OF TRANSACTIONS INITIATED OR COMPLETED BY US OR VIA THE
-            SITE. You hereby waive any rights or requirements under any
-            statutes, regulations, rules, ordinances, or other laws in any
-            jurisdiction which require an original signature or delivery or
-            retention of non-electronic records, or to payments or the granting
-            of credits by any means other than electronic means.
-          </span>
-        </span>
-      </div>
-      <div className="MsoNormal" style={{ lineHeight: '1.5' }}>
-        <br />
-      </div>
-      <div className="MsoNormal" style={{ lineHeight: '1.5' }}>
-        <br />
-      </div>
-      <div className="MsoNormal" style={{ lineHeight: '1.5' }}>
-        <span className="block-component" />
-      </div>
-      <div
-        className="MsoNormal"
-        data-custom-class="heading_1"
-        style={{ lineHeight: '1.5' }}
-      >
-        <span style={{ fontSize: '19px' }}>
-          <strong>CALIFORNIA USERS AND RESIDENTS</strong>
-        </span>
-      </div>
-      <div className="MsoNormal" style={{ lineHeight: 1 }}>
-        <br />
-      </div>
-      <div
-        className="MsoNormal"
-        data-custom-class="body_text"
-        style={{ lineHeight: '1.5' }}
-      >
-        <span style={{ fontSize: '15px' }}>
-          If any complaint with us is not satisfactorily resolved, you can
-          contact the Complaint Assistance Unit of the Division of Consumer
-          Services of the California Department of Consumer Affairs in writing
-          at 1625 North Market Blvd., Suite N 112, Sacramento, California 95834
-          or by telephone at (800) 952-5210 or (916) 445-1254.
-        </span>
-      </div>
-      <div className="MsoNormal" style={{ lineHeight: '1.5' }}>
-        <br />
-      </div>
-      <div className="MsoNormal" style={{ lineHeight: '1.5' }}>
-        <br />
-      </div>
-      <div className="MsoNormal" style={{ lineHeight: '1.5' }}>
-        <span style={{ fontSize: '15px' }}>
-          <span className="statement-end-if-in-editor" />
-        </span>
-      </div>
-      <div
-        className="MsoNormal"
-        data-custom-class="heading_1"
-        style={{ lineHeight: '1.5' }}
-      >
-        <strong>
-          <span style={{ fontSize: '19px' }}>MISCELLANEOUS</span>
-        </strong>
-      </div>
-      <div className="MsoNormal" style={{ lineHeight: 1 }}>
-        <br />
-      </div>
-      <div
-        className="MsoNormal"
-        data-custom-class="body_text"
-        style={{ lineHeight: '1.5' }}
-      >
-        <span style={{ fontSize: '15px' }}>
-          These Terms of Use and any policies or operating rules posted by us on
-          the Site or in respect to the Site constitute the entire agreement and
-          understanding between you and us. Our failure to exercise or enforce
-          any right or provision of these Terms of Use shall not operate as a
-          waiver of such right or provision. These Terms of Use operate to the
-          fullest extent permissible by law. We may assign any or all of our
-          rights and obligations to others at any time. We shall not be
-          responsible or liable for any loss, damage, delay, or failure to act
-          caused by any cause beyond our reasonable control. If any provision or
-          part of a provision of these Terms of Use is determined to be
-          unlawful, void, or unenforceable, that provision or part of the
-          provision is deemed severable from these Terms of Use and does not
-          affect the validity and enforceability of any remaining provisions.
-          There is no joint venture, partnership, employment or agency
-          relationship created between you and us as a result of these Terms of
-          Use or use of the Site. You agree that these Terms of Use will not be
-          construed against us by virtue of having drafted them. You hereby
-          waive any and all defenses you may have based on the electronic form
-          of these Terms of Use and the lack of signing by the parties hereto to
-          execute these Terms of Use.
-          <span className="block-component" />
-        </span>
-      </div>
-      <div className="MsoNormal" style={{ lineHeight: '1.5' }}>
-        <br />
-      </div>
-      <div className="MsoNormal" style={{ lineHeight: '1.5' }}>
-        <br />
-      </div>
-      <div
-        className="MsoNormal"
-        data-custom-class="heading_1"
-        style={{ lineHeight: '1.5' }}
-      >
-        <span style={{ fontSize: '19px' }}>
-          <strong>CONTACT US</strong>
-        </span>
-      </div>
-      <div className="MsoNormal" style={{ lineHeight: '1.1' }}>
-        <br />
-      </div>
-      <div
-        className="MsoNormal"
-        data-custom-class="body_text"
-        style={{ lineHeight: '1.5' }}
-      >
-        <span style={{ fontSize: '15px' }}>
-          In o
-          <span
-            style={{
-              fontSize: '15px',
-              lineHeight: '115%',
-              fontFamily: 'Arial',
-              color: 'rgb(89, 89, 89)',
-            }}
-          >
-            rder to resolve a complaint regarding the Site or to receive further
-            information regarding use of the Site, please contact us at:
-          </span>
-        </span>
-      </div>
-      <div className="MsoNormal" style={{ lineHeight: 1 }}>
-        <br />
-      </div>
-      <div
-        className="MsoNormal"
-        data-custom-class="body_text"
-        style={{ lineHeight: '1.5' }}
-      >
-        <span style={{ fontSize: '15px' }}>
-          <span
-            style={{
-              fontSize: '15px',
-              lineHeight: '115%',
-              fontFamily: 'Arial',
-              color: 'rgb(89, 89, 89)',
-            }}
-          >
-            <span className="question">
-              <strong>Tolgee s.r.o.</strong>
-            </span>
-          </span>
-        </span>
-      </div>
-      <div
-        className="MsoNormal"
-        data-custom-class="body_text"
-        style={{ lineHeight: '1.5' }}
-      >
-        <span style={{ fontSize: '15px' }}>
-          <span
-            style={{
-              fontSize: '15px',
-              lineHeight: '115%',
-              fontFamily: 'Arial',
-              color: 'rgb(89, 89, 89)',
-            }}
-          >
-            <strong>
-              <span style={{ color: 'rgb(89, 89, 89)' }}>
-                <span className="question">
-                  Letovická 22, 621 00 Brno-Řečkovice a Mokrá Hora, Czechia
-                </span>
-                <strong>
-                  <span style={{ color: 'rgb(89, 89, 89)' }}>
-                    <span style={{ fontSize: '15px' }}>
-                      <span className="block-component" />
-                    </span>
-                  </span>
-                </strong>
-              </span>
-            </strong>
-          </span>
-        </span>
-      </div>
-      <div
-        className="MsoNormal"
-        data-custom-class="body_text"
-        style={{ lineHeight: '1.5' }}
-      >
-        <strong>
-          <span style={{ color: 'rgb(89, 89, 89)' }}>
-            <span style={{ fontSize: '15px' }}>
-              <span className="question">Brno</span>
-              <strong>
-                <span style={{ color: 'rgb(89, 89, 89)' }}>
-                  <span style={{ fontSize: '15px' }}>
-                    <span className="block-component" />,{' '}
-                    <span className="question">Jihomoravský kraj</span>
-                    <span className="statement-end-if-in-editor" />
-                  </span>
-                </span>
-              </strong>
-              <span style={{ fontSize: '15px' }}>
-                <strong>
-                  <span style={{ color: 'rgb(89, 89, 89)' }}>
-                    <span className="block-component" />{' '}
-                    <span className="question">621 00</span>
-                    <span className="statement-end-if-in-editor" />
-                  </span>
-                </strong>
-                <strong>
-                  <span style={{ color: 'rgb(89, 89, 89)' }}>
-                    <span className="block-component" />
-                    <span className="block-component" />
-                  </span>
-                </strong>
-              </span>
-            </span>
-          </span>
-        </strong>
-      </div>
-      <div
-        className="MsoNormal"
-        data-custom-class="body_text"
-        style={{ lineHeight: '1.5' }}
-      >
-        <strong>
-          <span className="block-component">
-            <strong>
-              <span style={{ fontSize: '15px' }} />
-            </strong>
-          </span>
-          <strong>
-            <span className="question">Czechia</span>
-          </strong>
-          <span className="statement-end-if-in-editor">
-            <strong>
-              <span style={{ fontSize: '15px' }}>
-                <span className="statement-end-if-in-editor">
-                  <strong />
-                </span>
-                <span className="statement-end-if-in-editor">
-                  <strong />
-                </span>
-              </span>
-            </strong>
-          </span>
-        </strong>
-      </div>
-      <div
-        className="MsoNormal"
-        data-custom-class="body_text"
-        style={{ lineHeight: '1.5' }}
-      >
-        <strong>
-          <span style={{ fontSize: '15px' }}>
-            Phone: <span className="question">(+420)731259489</span>
-          </span>
-        </strong>
-      </div>
-      <div
-        className="MsoNormal"
-        data-custom-class="body_text"
-        style={{ lineHeight: '1.5' }}
-      >
-        <strong>
-          <span style={{ fontSize: '15px' }}>
-            <span className="block-component" />
-          </span>
-        </strong>
-      </div>
-      <div
-        className="MsoNormal"
-        data-custom-class="body_text"
-        style={{ lineHeight: '1.5' }}
-      >
-        <span className="question">
-          <strong>
-            <span style={{ fontSize: '15px' }}>info@tolgee.io</span>
-          </strong>
-        </span>
+        <p className="MsoNormal">
+          <span style={{ fontSize: '10.0pt', color: 'black' }}>&nbsp;</span>
+        </p>
       </div>
     </div>
-    <style
-      dangerouslySetInnerHTML={{
-        __html:
-          '\n     ul {\n       list-style-type: square;\n     }\n     ul > li > ul {\n       list-style-type: circle;\n     }\n     ul > li > ul > li > ul {\n       list-style-type: square;\n     }\n     ol li {\n       font-family: Arial ;\n     }\n   ',
-      }}
-    />
   </div>
 );
