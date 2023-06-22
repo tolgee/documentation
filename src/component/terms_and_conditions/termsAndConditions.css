@@ -8,6 +8,7 @@
   font-family: Arial !important;
   font-size: 26px !important;
   color: var(--ifm-hero-text-color) !important;
+  margin-top: 40px;
 }
 
 [data-custom-class='subtitle'],
@@ -22,6 +23,8 @@
   font-family: Arial !important;
   font-size: 19px !important;
   color: var(--ifm-hero-text-color) !important;
+  font-weight: bold;
+  margin-top: 40px;
 }
 
 [data-custom-class='heading_2'],
@@ -29,6 +32,14 @@
   font-family: Arial !important;
   font-size: 17px !important;
   color: var(--ifm-hero-text-color) !important;
+  margin-top: 10px;
+}
+
+[data-custom-class='heading_3'] {
+  font-family: Arial !important;
+  font-size: 15px !important;
+  color: var(--ifm-hero-text-color) !important;
+  margin-left: 30px;
 }
 
 [data-custom-class='body_text'],
@@ -41,7 +52,6 @@
 [data-custom-class='link'],
 [data-custom-class='link'] * {
   color: var(--ifm-color-primary) !important;
-  font-size: 14px !important;
   font-family: Arial !important;
   word-break: break-word !important;
 }
