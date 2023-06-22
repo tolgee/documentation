@@ -37,6 +37,7 @@ module.exports = {
       items: [
         'translation_process/translation_memory',
         'translation_process/machine_translation',
+        'translation_process/tolgee_translator',
         'translation_process/comments',
         'translation_process/icu_message_format',
       ],

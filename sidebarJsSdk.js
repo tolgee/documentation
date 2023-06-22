@@ -11,6 +11,7 @@ module.exports = {
     'wrapping',
     'providing_static_data',
     'plugins',
+    'tolgee_context',
     {
       label: 'Integrations',
       collapsed: false,

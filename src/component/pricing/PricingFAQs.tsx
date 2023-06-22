@@ -33,7 +33,19 @@ export function PricingFAQs() {
 
         <PricingQuestion question="What are MT credits?">
           MT credits are used for Machine Translation providers (such as Google
-          Translate, AWS, DeepL, etc.). One credit ⋍ 1 translated character.
+          Translate, AWS, DeepL, etc.). One credit ⋍ 1 translated character
+          (except for Tolgee Translator).
+        </PricingQuestion>
+
+        <PricingQuestion question="How is Tolgee Translator priced?">
+          <p>
+            Because Tolgee Translator is using ChatGPT in the background we
+            price it differently based on the number of tokens in the prompt.
+          </p>
+          <p>
+            10 tokens cost 1 MT credit and the average prompt size is about 250
+            tokens (with context its 500 - 1000).
+          </p>
         </PricingQuestion>
 
         <PricingQuestion question="What are seats?">
