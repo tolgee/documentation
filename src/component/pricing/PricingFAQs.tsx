@@ -34,12 +34,12 @@ export function PricingFAQs() {
         <PricingQuestion question="What are MT credits?">
           MT credits are used for Machine Translation providers (such as Google
           Translate, AWS, DeepL, etc.). One credit ⋍ 1 translated character
-          (except for Tolgee Translator).
+          (except for Tolgee AI Translator).
         </PricingQuestion>
 
-        <PricingQuestion question="How is Tolgee Translator priced?">
+        <PricingQuestion question="How is Tolgee AI Translator priced?">
           <p>
-            Because Tolgee Translator is using ChatGPT in the background we
+            Because Tolgee AI Translator is using ChatGPT in the background we
             price it differently based on the number of tokens in the prompt.
           </p>
           <p>
