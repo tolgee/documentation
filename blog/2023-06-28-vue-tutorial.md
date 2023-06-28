@@ -77,7 +77,7 @@ You will be prompted to provide your project's name and other information.
 
 If you already have a project setup, you can skip this step.
 
-```bash
+```
 Vue.js - The Progressive JavaScript Framework
 √ Project name: ... vue-tolgee
 √ Add TypeScript? ... No / Yes
@@ -120,7 +120,7 @@ npm install @tolgee/vue
 
 Create `env.development.local` file if you don’t have one at the root of your project and paste the following code
 
-```bash
+```
 VUE_APP_TOLGEE_API_URL=<host>
 VUE_APP_TOLGEE_API_KEY=<Only new key can be revealed>
 ```
@@ -140,7 +140,7 @@ Once your API key is ready, you can now add it to your env file.
 
 Update your `main.ts` found at the root of your project with the following code:
 
-```tsx
+```
 import './assets/main.css';
 import { createApp } from 'vue';
 import App from './App.vue';
@@ -170,7 +170,7 @@ app.mount('#app');
 
 Then wrap your code in `src/app.vue` in `TolgeeProvider` tag like below:
 
-```tsx
+```
 <template>
   <TolgeeProvider>
     <header>
@@ -210,7 +210,7 @@ Repeat this process until all translations are added. In the end, you should see
 
 The select component will help you easily switch from one language to another. In your `src/components` created `selector.vue` file and add the following code:
 
-```tsx
+```
 <script setup>
 import { useTolgee } from '@tolgee/vue'
 const tolgee = useTolgee(['language'])
@@ -252,7 +252,7 @@ Now let’s give some style to the select tag with the following code in `src/as
 
 This is the last step which consists of adding translation keynames. A typical translation looks like this:
 
-```tsx
+```
 import { T } from '@tolgee/vue';
 
 <T keyName="documentation" defaultValue="Documentation" />;
