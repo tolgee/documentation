@@ -23,6 +23,7 @@ const config = {
       apiKey: '22a72d1546c01b9b386c0257604f2a38',
       indexName: 'tolgee',
       searchParameters: {}, // Optional (if provided by Algolia)
+      searchPagePath: false,
     },
     prism: {
       additionalLanguages: ['icu-message-format'],

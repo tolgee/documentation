@@ -376,21 +376,21 @@ function writeConfigFormatsDocs(docsStream: fs.WriteStream, json: Data[]) {
     switch (format.value) {
       case 'env':
         docsStream.write(
-          'import ExampleEnvConfig from "./shared/exampleEnvConfig.mdx";'
+          'import ExampleEnvConfig from "./shared/_exampleEnvConfig.mdx";'
         );
         docsStream.write('\n\n');
         docsStream.write('<ExampleEnvConfig />');
         break;
       case 'properties':
         docsStream.write(
-          'import ExamplePropertiesConfig from "./shared/examplePropertiesConfig.mdx";'
+          'import ExamplePropertiesConfig from "./shared/_examplePropertiesConfig.mdx";'
         );
         docsStream.write('\n\n');
         docsStream.write('<ExamplePropertiesConfig />');
         break;
       case 'yaml':
         docsStream.write(
-          'import ExampleYamlConfig from "./shared/exampleYamlConfig.mdx";'
+          'import ExampleYamlConfig from "./shared/_exampleYamlConfig.mdx";'
         );
         docsStream.write('\n\n');
         docsStream.write('<ExampleYamlConfig />');
