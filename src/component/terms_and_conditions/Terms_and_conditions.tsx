@@ -84,8 +84,8 @@ export const TermsAndConditions = () => (
             Pronouns “<b>you</b>” and “<b>your</b>” refer to you as a customer
             of Tolgee (the "<b>Services</b>") including any content and services
             offered through{' '}
-            <a data-custom-class="link" href="http://www.tolgee.io">
-              <span>www.tolgee.io</span>
+            <a data-custom-class="link" href="https://tolgee.io">
+              <span>https://tolgee.io</span>
             </a>{' '}
             (the "<b>Website</b>"). If you are using the Service on behalf of a
             legal entity, then you, as an individual, represent that you have

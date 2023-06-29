@@ -3,7 +3,7 @@ id: running_with_java
 title: Running with Java
 sidebar_label: Running with Java
 slug: /self_hosting/running_with_java
-description: "Learn how to self-host Tolgee with Java. To run Tolgee server using Java download the latest release from github."
+description: 'Learn how to self-host Tolgee with Java. To run Tolgee server using Java download the latest release from github.'
 ---
 
 To run Tolgee server using Java, download the latest release from [GitHub](https://github.com/tolgee/tolgee-platform/releases).
@@ -18,11 +18,13 @@ it enabled, Docker is required to run Tolgee.
 :::
 
 Then you can run it with:
+
 ```
 java -jar tolgee-<version>.jar
 ```
 
 By default, server is exposed on port 8080. To change this you can set `server.port` to different value.
+
 ```
 java -jar tolgee-<version>.jar --server.port=80
 ```
@@ -34,7 +36,7 @@ will be automatically loaded from it, which is more convenient than specifying e
 
 To provide a configuration, add following application.properties file.
 
-import ExamplePropertiesConfig from "./shared/examplePropertiesConfig.mdx";
+import ExamplePropertiesConfig from './shared/_examplePropertiesConfig.mdx';
 
 <ExamplePropertiesConfig />
 

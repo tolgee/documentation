@@ -11,6 +11,7 @@ Since v2, Tolgee runs PostgreSQL database in its container by default. To disabl
 :::
 
 ## Running Tolgee in single container (recommended)
+
 To run server locally you should be fine just with running simple Docker image with mounted data volume.
 Tolgee has embedded PostgresSQL database, so you don't have to manually set it.
 
@@ -19,16 +20,19 @@ docker run -v tolgee_data:/data/ -p 8085:8080 tolgee/tolgee{{dockerTagVersion}}
 ```
 
 This will:
- - mount tolgee_data volume into it's directory inside the container
- - expose tolgee container port on port 8085
- - run the image!
+
+- mount tolgee_data volume into it's directory inside the container
+- expose tolgee container port on port 8085
+- run the image!
 
 Now you should be able to access Tolgee web application on [http://localhost:8085](http://localhost:8085)
 
 ## Running with compose
+
 To run it on company infrastructure it is better to use some more optimized database system. Tolgee supports PostgreSQL.
 You can run it using docker-compose.
 To start let's create and enter a folder to store Tolgee related files:
+
 ```
 mkdir tolgee && cd tolgee
 ```
@@ -44,10 +48,12 @@ services:
     volumes:
       - ./data:/data
     ports:
-      - "25432:25432" # if you would like to access the DB
-      - "8080:8080"
+      - '25432:25432' # if you would like to access the DB
+      - '8080:8080'
 ```
+
 ### Configuring using configuration file
+
 The recommended way of configuring the application is using configuration file.
 
 To do so, you have to create the `config.yaml` file containing configuration properties in the same directory as `docker-compose.yaml`.
@@ -63,17 +69,18 @@ services:
       - ./data:/data
       - ./config.yaml:/config.yaml # <--- this line
     ports:
-      - "25432:25432"
-      - "8080:8080"
+      - '25432:25432'
+      - '8080:8080'
     environment:
       spring.config.additional-location: file:///config.yaml # <--- this line
 ```
 
-import ExampleYamlConfig from "./shared/exampleYamlConfig.mdx";
+import ExampleYamlConfig from './shared/_exampleYamlConfig.mdx';
 
 <ExampleYamlConfig />
 
 ### Configuring using environmental variables
+
 You can provide the configuration variables using environment variables or using `.env` file.
 
 ```yaml title=docker-compose.yaml
@@ -86,15 +93,15 @@ services:
       - ./data:/data
       - ./config.yaml:/config.yaml
     ports:
-      - "25432:25432"
-      - "8080:8080"
+      - '25432:25432'
+      - '8080:8080'
     env_file:
       - .env
 ```
 
 To provide a configuration, add following .env file.
 
-import ExampleEnvConfig from "./shared/exampleEnvConfig.mdx";
+import ExampleEnvConfig from './shared/_exampleEnvConfig.mdx';
 
 <ExampleEnvConfig />
 
@@ -102,6 +109,7 @@ Similarly, you can define other [configuration properties](configuration?config-
 
 Your initial username is `admin`. Initial password is automatically generated and stored in /data/initial.pwd file in the
 Tolgee container. You can print it by executing this:
+
 ```
 cat data/initial.pwd
 ```

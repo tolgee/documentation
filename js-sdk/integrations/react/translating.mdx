@@ -4,8 +4,8 @@ title: Translating (React)
 sidebar_label: Translating
 description: 'Learn about several ways how to translate a text using Tolgee React integration: T-component or useTranslate hook.'
 ---
-import MessageFormat from '../../shared/MessageFormat.mdx'
 
+import MessageFormat from '../../shared/_MessageFormat.mdx';
 
 There are several ways how to translate a text using our React integration.
 
@@ -19,9 +19,7 @@ import { useTranslate } from '@tolgee/react';
 function Component() {
   const { t } = useTranslate();
 
-  return (
-    <div title={t('key_to_translate')}>...</div>
-  );
+  return <div title={t('key_to_translate')}>...</div>;
 }
 ```
 
