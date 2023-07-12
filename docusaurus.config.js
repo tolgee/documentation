@@ -87,6 +87,7 @@ const config = {
   stylesheets: ['/font.css'],
   customFields: {
     googleTrackingId: process.env.DOCUSAURUS_GOOGLE_TRACKING_ID,
+    utmCookieDomain: process.env.UTM_COOKIE_DOMAIN || 'tolgee.io',
     chatwootToken: process.env.DOCUSAURUS_CHATWOOT_TOKEN,
     hotjarId: process.env.DOCUSAURUS_HOTJAR_ID,
   },

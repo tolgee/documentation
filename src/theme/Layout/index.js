@@ -12,6 +12,7 @@ import ErrorPageContent from '@theme/ErrorPageContent';
 import styles from './styles.module.css';
 import { CookieConsent } from '../../component/cookieConsent/CookieConsent';
 import { LayoutContent } from '../LayoutContent';
+import { UtmToCookie } from '../../component/UtmToCookie';
 
 export default function Layout(props) {
   const {
@@ -52,6 +53,7 @@ export default function Layout(props) {
         {!noFooter && <Footer />}
       </LayoutProvider>
       <CookieConsent />
+      <UtmToCookie />
     </div>
   );
 }
