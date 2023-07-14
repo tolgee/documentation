@@ -52,7 +52,7 @@ export default function Layout(props) {
 
         {!noFooter && <Footer />}
       </LayoutProvider>
-      <CookieConsent />
+      {/*<CookieConsent />*/}
       <UtmToCookie />
     </div>
   );
