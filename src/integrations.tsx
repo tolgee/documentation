@@ -102,7 +102,7 @@ export const integrations = [
       'Landing Page': '/integrations/unreal',
       Docs: '/platform/integrations/unreal_plugin/setup',
       'Unreal Marketplace':
-        'https://www.unrealengine.com/marketplace/en-US/store',
+        'https://www.unrealengine.com/marketplace/en-US/product/2757e202f8f3408bbf66f65d26223398',
       'GitHub Repository': 'https://github.com/tolgee/tolgee-unreal',
     },
   },
