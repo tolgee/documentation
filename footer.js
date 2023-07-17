@@ -83,7 +83,7 @@ module.exports.footer = {
           href: '/docs/terms_of_use',
         },
         {
-          html: '<a class="footer__link-item" href="javascript:;" onclick="openCookieSettings()">Cookie settings</a>',
+          html: '<a class="footer__link-item cky-banner-element" href="javascript:;">Cookie settings</a>',
         },
       ],
     },
