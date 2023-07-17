@@ -14,6 +14,7 @@ export const LayoutContent = ({ children }) => {
   const { siteConfig } = useDocusaurusContext();
 
   const trackingId = siteConfig.customFields.googleTrackingId;
+  const cookieYesId = siteConfig.customFields.cookieYesId;
   const chatwootToken = siteConfig.customFields.chatwootToken;
   const hotjarId = siteConfig.customFields.hotjarId;
 
@@ -43,6 +44,13 @@ export const LayoutContent = ({ children }) => {
   return (
     <>
       <Head>
+        {/*{cookieYesId && (*/}
+        {/*  <script*/}
+        {/*    id="cookieyes"*/}
+        {/*    type="text/javascript"*/}
+        {/*    src={`https://cdn-cookieyes.com/client_data/${cookieYesId}/script.js`}*/}
+        {/*  ></script>*/}
+        {/*)}*/}
         {trackingId && (
           <script>{`(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
           new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
