@@ -65,7 +65,7 @@ Name your API key and select the period of time you wish to use it and click on 
 
 This will generate a first-time-only token that you need to save somewhere on your PC because you will use it later.
 
-## Step 4: Add Tolgee to Your Vue application
+## Step 4: Create a Vue application
 
 Navigate to your desired directory and run the following command :
 
@@ -140,7 +140,7 @@ Once your API key is ready, you can now add it to your env file.
 
 Update your `main.ts` found at the root of your project with the following code:
 
-```
+```typescript
 import './assets/main.css';
 import { createApp } from 'vue';
 import App from './App.vue';
@@ -168,9 +168,11 @@ app.use(VueTolgee, { tolgee });
 app.mount('#app');
 ```
 
-Then wrap your code in `src/app.vue` in `TolgeeProvider` tag like below:
+From the code block above, the `BackendFetch()` is a plugin used to fetch translations while the `DevTools()` is a combination of many plugins(ObserverPlugin, ContextUi and DevBackend) that enables in-context translation.
 
-```
+Finally, wrap your code in `src/app.vue` in `TolgeeProvider` tag like below:
+
+```typescript
 <template>
   <TolgeeProvider>
     <header>
@@ -194,32 +196,265 @@ Then wrap your code in `src/app.vue` in `TolgeeProvider` tag like below:
 </template>
 ```
 
-## Step 8: Add Translations
+## Step 8: Add T Components
 
-Now head to your Tolgee server and add some translations. In this tutorial, you will be translating the default Vue 3 starting application so for each text, add a keyname, and add the default English text. Make sure to [conventionally name your translations](https://tolgee.io/blog/naming-translation-keys).
+This is the last step which consists of adding translation keynames. A typical translation looks like this:
 
-![Create new key](/img/blog/vue-tutorial/create_new_key.png)
+```typescript
+import { T } from '@tolgee/vue';
 
-Then click on the French and Spanish input to select a translation from the [machine-generated translations](https://tolgee.io/blog/tolgee-ai-translator) that best describes the text. You can adjust if you feel that the text does not fit its context.
+<T keyName="documentation" defaultValue="Documentation" />;
+```
 
-Repeat this process until all translations are added. In the end, you should see the list of translations below.
+So in your `src/components/TheWelcome.vue` replace your code with the following:
+
+```typescript
+<script>
+import WelcomeItem from './WelcomeItem.vue'
+import DocumentationIcon from './icons/IconDocumentation.vue'
+import ToolingIcon from './icons/IconTooling.vue'
+import EcosystemIcon from './icons/IconEcosystem.vue'
+import CommunityIcon from './icons/IconCommunity.vue'
+import SupportIcon from './icons/IconSupport.vue'
+import { T } from '@tolgee/vue'
+import { defineComponent } from 'vue'
+export default defineComponent({
+  components: {
+    WelcomeItem,
+    CommunityIcon,
+    EcosystemIcon,
+    SupportIcon,
+    ToolingIcon,
+    DocumentationIcon,
+    T
+  }
+})
+</script>
+
+<template>
+  <WelcomeItem>
+    <template #icon>
+      <DocumentationIcon />
+    </template>
+    <template #heading>
+      <h3><T keyName="documentation" defaultValue="Documentation" /></h3>
+    </template>
+    <T
+      keyName="documentation_desc"
+      defaultValue="Vue's official documentation provides you with all information you need to get started."
+    />
+  </WelcomeItem>
+
+  <WelcomeItem>
+    <template #icon>
+      <ToolingIcon />
+    </template>
+    <template #heading>
+      <h3><T keyName="tooling" defaultValue="Tooling" /></h3>
+    </template>
+    <T
+      keyName="tooling_desc"
+      defaultValue="This project is served and bundled with Vite. The recommended IDE setup is VSCode + Volar. If you need to test your components and web pages, check out Cypress and Cypress Component Testing. More instructions are available in README.md."
+    />
+    <br />
+
+    <p><T keyName="readme" defaultValue="More instructions are available in README.md." /></p>
+  </WelcomeItem>
+
+  <WelcomeItem>
+    <template #icon>
+      <EcosystemIcon />
+    </template>
+    <template #heading>
+      <h3><T keyName="ecosystem" defaultValue="Ecosystem" /></h3>
+    </template>
+    <T
+      keyName="ecosystem_desc"
+      defaultValue="Get official tools and libraries for your project: Pinia, Vue Router, Vue Test Utils, and Vue Dev Tools. If you need more resources, we suggest paying Awesome Vue a visit."
+    />
+  </WelcomeItem>
+
+  <WelcomeItem>
+    <template #icon>
+
+
+<CommunityIcon />
+    </template>
+    <template #heading>
+      <h3><T keyName="community" defaultValue="Community" /></h3>
+    </template>
+    <T
+      keyName="community_desc"
+      defaultValue="Got stuck? Ask your question on Vue Land, our official Discord server, or StackOverflow. You should also subscribe to our mailing list and follow the official @vuejs twitter account for latest news in the Vue world."
+    />
+  </WelcomeItem>
+
+  <WelcomeItem>
+    <template #icon>
+      <SupportIcon />
+    </template>
+    <template #heading>
+      <h3><T keyName="support" defaultValue="Support Vue" /></h3>
+    </template>
+    <T
+      keyName="support_desc"
+      defaultValue="As an independent project, Vue relies on community backing for its sustainability. You can help us by becoming a sponsor."
+    />
+  </WelcomeItem>
+</template>
+```
+
+And `src/components/HelloWorld.vue` add:
+
+```typescript
+<script setup lang="ts">
+import { T } from '@tolgee/vue'
+...
+</script>
+
+<template>
+  <div class="greetings">
+   ...
+    <h3>
+      <T keyName="success" defaultValue="You've successfully created a project with Vite + Vue 3" />
+    </h3>
+  </div>
+</template>
+```
+
+Finally, update your App.vue file with the code below:
+
+```typescript
+<script>
+import { TolgeeProvider, T } from '@tolgee/vue'
+import HelloWorld from './components/HelloWorld.vue'
+import TheWelcome from './components/TheWelcome.vue'
+import { defineComponent } from 'vue'
+export default defineComponent({
+  components: { HelloWorld, TheWelcome, TolgeeProvider, T },
+  setup() {}
+})
+</script>
+
+<template>
+  <TolgeeProvider>
+    <header>
+      <img alt="Vue logo" class="logo" src="./assets/logo.svg" width="125" height="125" />
+
+      <div class="wrapper">
+        <HelloWorld :msg="$t('hello')" />
+      </div>
+    </header>
+    <main>
+      <TheWelcome />
+    </main>
+  </TolgeeProvider>
+</template>
+```
+
+In the code block above, we have updated our components imports and added the Selector component we created earlier.
+
+## Step 9: Translation
+
+At this stage, to translate a text on your website, press and hold the `alt` key or `option` key and hover the target text. The text will be highlighted like the screenshot below:
+
+![Text Highlighted](/img/blog/vue-tutorial/alt_click.png)
+
+Then click on the highlighted zone to open the translation dialog.
+
+![Translation dialog](/img/blog/vue-tutorial/translation_dialog.png)
+
+Once you have added your translations, click on the save button to store your translations in the Tolgee Platform.
+
+Equally, you can follow the same process to update your translations.
+Repeat this process for every string you want to translate and with a simple click Tolgee will save your translations. If you open your project in the platform, you should have a list of translated strings reflected in the platform
 
 ![List of translations](/img/blog/vue-tutorial/translation_list.png)
 
-## Step 9: Create a Select Component
+Tolgee also allows you to export your translations in `json` files. In your Tolgee dashboard, click on export in the left menu, then select the languages you want then click on export
+
+![Export translations from Tolgee](/img/blog/vue-tutorial/export_translations.png)
+
+Once you export and extract the files, you should find all your translated strings in each json files.
+
+`en.json`
+
+```json
+{
+  "documentation": "Documentation",
+  "documentation_desc": "Vue’s official documentation provides you with all information you need to get started.",
+  "tooling": "Tooling",
+  "tooling_desc": "This project is served and bundled with Vite. The recommended IDE setup is VSCode + Volar. If you need to test your components and web pages, check out Cypress and Cypress Component Testing. More instructions are available in README.md.",
+  "ecosystem": "Ecosystem",
+  "ecosystem_desc": "Get official tools and libraries for your project: Pinia, Vue Router, Vue Test Utils, and Vue Dev Tools. If you need more resources, we suggest paying Awesome Vue a visit. ",
+  "community": "Community",
+  "community_desc": "Got stuck? Ask your question on Vue Land, our official Discord server, or StackOverflow. You should also subscribe to our mailing list and follow the official @vuejs twitter account for latest news in the Vue world. ",
+  "support Vue": "Support Vue",
+  "support Vue_desc": "As an independent project, Vue relies on community backing for its sustainability. You can help us by becoming a sponsor. ",
+  "readme": "More instructions are available in README.md.",
+  "success": "You’ve successfully created a project with Vite + Vue 3",
+  "hello": "Hello"
+}
+```
+
+`fr.json`
+
+```json
+{
+  "documentation": "Documentación",
+  "documentation_desc": "La documentation officielle de Vue vous fournit toutes les informations dont vous avez besoin pour commencer.",
+  "tooling": "Outillage",
+  "tooling_desc": "Ce projet est servi et groupé avec Vite. La configuration IDE recommandée est VSCode + Volar. Si vous avez besoin de tester vos composants et vos pages Web, consultez Cypress et Cypress Component Testing. Plus d'instructions sont disponibles dans README.md.",
+  "ecosystem": "Écosystème",
+  "ecosystem_desc": "Obtenez des outils et des bibliothèques officiels pour votre projet : Pinia, Vue Router, Vue Test Utils et Vue Dev Tools. Si vous avez besoin de plus de ressources, nous vous suggérons de rendre visite à Awesome Vue.",
+  "community": "Communauté",
+  "community_desc": "Est resté coincé? Posez votre question sur Vue Land, notre serveur Discord officiel, ou StackOverflow. Vous devez également vous inscrire à notre liste de diffusion et suivre le compte Twitter officiel @vuejs pour les dernières nouvelles du monde Vue.",
+  "support Vue": "Soutenir Vue",
+  "support Vue_desc": "En tant que projet indépendant, Vue s'appuie sur le soutien de la communauté pour sa durabilité. Vous pouvez nous aider en devenant parrain.",
+  "readme": "Plus d'instructions sont disponibles dans README.md.",
+  "success": "Vous avez réussi à créer un projet avec Vite + Vue 3",
+  "hello": "Bonjour"
+}
+```
+
+`es.json`
+
+```json
+{
+  "documentation": "Documentación",
+  "documentation_desc": "La documentación oficial de Vue le brinda toda la información que necesita para comenzar.",
+  "tooling": "Estampación",
+  "tooling_desc": "Este proyecto se sirve y se incluye con Vite. La configuración IDE recomendada es VSCode + Volar. Si necesita probar sus componentes y páginas web, consulte Cypress y Cypress Component Testing. Más instrucciones están disponibles en README.md.",
+  "ecosystem": "Ecosistema",
+  "ecosystem_desc": "Obtenga herramientas y bibliotecas oficiales para su proyecto: Pinia, Vue Router, Vue Test Utils y Vue Dev Tools. Si necesita más recursos, le sugerimos que visite Awesome Vue. ",
+  "community": "Comunidad",
+  "community_desc": "¿Quedó atascado? Haga su pregunta en Vue Land, nuestro servidor oficial de Discord o StackOverflow. También debe suscribirse a nuestra lista de correo y seguir la cuenta oficial de Twitter @vuejs para conocer las últimas noticias en el mundo de Vue. ",
+  "support Vue": "Soporte Vue",
+  "support Vue_desc": "Como proyecto independiente, Vue depende del respaldo de la comunidad para su sostenibilidad. Puedes ayudarnos convirtiéndote en patrocinador. ",
+  "readme": "Hay más instrucciones disponibles en README.md.",
+  "success": "Ha creado con éxito un proyecto con Vite + Vue 3",
+  "hello": "Hola"
+}
+```
+
+## Step 10: Create a Select Component
 
 The select component will help you easily switch from one language to another. In your `src/components` created `selector.vue` file and add the following code:
 
-```
+```html
 <script setup>
-import { useTolgee } from '@tolgee/vue'
-const tolgee = useTolgee(['language'])
-const changeLanguage = (e) => {
-  tolgee.value.changeLanguage(e.target.value)
-}
+  import { useTolgee } from '@tolgee/vue';
+  const tolgee = useTolgee(['language']);
+  const changeLanguage = (e) => {
+    tolgee.value.changeLanguage(e.target.value);
+  };
 </script>
 <template>
-  <select :value="tolgee.getLanguage()" v-on:change="changeLanguage" class="selector">
+  <select
+    :value="tolgee.getLanguage()"
+    v-on:change="changeLanguage"
+    class="selector"
+  >
     <option value="en">🇬🇧 English</option>
     <option value="fr">🇫🇷 Français</option>
     <option value="es">🇪🇸 Español</option>
@@ -245,111 +480,25 @@ Now let’s give some style to the select tag with the following code in `src/as
   text-overflow: '';
   cursor: pointer;
   margin-left: 10px;
-
+}
 ```
 
-## Step 10: Add Translation Keynames
+Update your `App.vue` file to include the selector component
 
-This is the last step which consists of adding translation keynames. A typical translation looks like this:
-
-```
-import { T } from '@tolgee/vue';
-
-<T keyName="documentation" defaultValue="Documentation" />;
-```
-
-So in your `src/components/TheWelcome.vue` replace your code with the following:
-
-And `src/components/HelloWorld.vue` add:
-
-```tsx
-<script setup lang="ts">
-import { T } from '@tolgee/vue'
+```typescript
+<script>
 ...
 </script>
 
 <template>
-  <div class="greetings">
+  <TolgeeProvider>
+    <header>
+      ...
+      <Selector />
+    </header>
    ...
-    <h3>
-      <T keyName="success" defaultValue="You’ve successfully created a project with Vite + Vue 3" />
-    </h3>
-  </div>
+  </TolgeeProvider>
 </template>
-```
-
-Finally, update your `App.vue` file with the code below:
-
-In the code block above, we have updated our components imports and added the `Selector` component we created earlier.
-
-But there is one last thing we need to do, which is to add our translation files to the Vue project.
-
-In your Tolgee dashboard, click on export in the left menu, then select the languages you wish to use and click on export.
-
-![Export translations from Tolgee](/img/blog/vue-tutorial/export_translations.png)
-
-Create i18n folder in your Vue application public folder and add the extracted files
-
-![Extracted files](/img/blog/vue-tutorial/extracted_files.png)
-
-`utilis/i18n/en.json`
-
-```json
-{
-  "documentation": "Documentation",
-  "documentation_desc": "Vue’s official documentation provides you with all information you need to get started.",
-  "tooling": "Tooling",
-  "tooling_desc": "This project is served and bundled with Vite. The recommended IDE setup is VSCode + Volar. If you need to test your components and web pages, check out Cypress and Cypress Component Testing. More instructions are available in README.md.",
-  "ecosystem": "Ecosystem",
-  "ecosystem_desc": "Get official tools and libraries for your project: Pinia, Vue Router, Vue Test Utils, and Vue Dev Tools. If you need more resources, we suggest paying Awesome Vue a visit. ",
-  "community": "Community",
-  "community_desc": "Got stuck? Ask your question on Vue Land, our official Discord server, or StackOverflow. You should also subscribe to our mailing list and follow the official @vuejs twitter account for latest news in the Vue world. ",
-  "support Vue": "Support Vue",
-  "support Vue_desc": "As an independent project, Vue relies on community backing for its sustainability. You can help us by becoming a sponsor. "
-	"readme": "More instructions are available in README.md.",
-  "success": "You’ve successfully created a project with Vite + Vue 3",
-  "hello": "Hello"
-}
-```
-
-`utilis/i18n/fr.json`
-
-```json
-{
-  "documentation": "Documentación",
-  "documentation_desc": "La documentation officielle de Vue vous fournit toutes les informations dont vous avez besoin pour commencer.",
-  "tooling": "Outillage",
-  "tooling_desc": "Ce projet est servi et groupé avec Vite. La configuration IDE recommandée est VSCode + Volar. Si vous avez besoin de tester vos composants et vos pages Web, consultez Cypress et Cypress Component Testing. Plus d'instructions sont disponibles dans README.md.",
-  "ecosystem": "Écosystème",
-  "ecosystem_desc": "Obtenez des outils et des bibliothèques officiels pour votre projet : Pinia, Vue Router, Vue Test Utils et Vue Dev Tools. Si vous avez besoin de plus de ressources, nous vous suggérons de rendre visite à Awesome Vue.",
-  "community": "Communauté",
-  "community_desc": "Est resté coincé? Posez votre question sur Vue Land, notre serveur Discord officiel, ou StackOverflow. Vous devez également vous inscrire à notre liste de diffusion et suivre le compte Twitter officiel @vuejs pour les dernières nouvelles du monde Vue.",
-  "support Vue": "Soutenir Vue",
-  "support Vue_desc": "En tant que projet indépendant, Vue s'appuie sur le soutien de la communauté pour sa durabilité. Vous pouvez nous aider en devenant parrain.",
-  "readme": "Plus d'instructions sont disponibles dans README.md.",
-  "success": "Vous avez réussi à créer un projet avec Vite + Vue 3",
-  "hello": "Bonjour"
-}
-```
-
-`utilis/i18n/es.json`
-
-```json
-{
-  "documentation": "Documentación",
-  "documentation_desc": "La documentación oficial de Vue le brinda toda la información que necesita para comenzar.",
-  "tooling": "Estampación",
-  "tooling_desc": "Este proyecto se sirve y se incluye con Vite. La configuración IDE recomendada es VSCode + Volar. Si necesita probar sus componentes y páginas web, consulte Cypress y Cypress Component Testing. Más instrucciones están disponibles en README.md.",
-  "ecosystem": "Ecosistema",
-  "ecosystem_desc": "Obtenga herramientas y bibliotecas oficiales para su proyecto: Pinia, Vue Router, Vue Test Utils y Vue Dev Tools. Si necesita más recursos, le sugerimos que visite Awesome Vue. ",
-  "community": "Comunidad",
-  "community_desc": "¿Quedó atascado? Haga su pregunta en Vue Land, nuestro servidor oficial de Discord o StackOverflow. También debe suscribirse a nuestra lista de correo y seguir la cuenta oficial de Twitter @vuejs para conocer las últimas noticias en el mundo de Vue. ",
-  "support Vue": "Soporte Vue",
-  "support Vue_desc": "Como proyecto independiente, Vue depende del respaldo de la comunidad para su sostenibilidad. Puedes ayudarnos convirtiéndote en patrocinador. ",
-  "readme": "Hay más instrucciones disponibles en README.md.",
-  "success": "Ha creado con éxito un proyecto con Vite + Vue 3",
-  "hello": "Hola"
-}
 ```
 
 If you re-run your application, it should be working perfectly like the screenshot below:
