@@ -94,7 +94,7 @@ Provide a name for your key and choose for how long you wish to use it and Click
 
 Once you hit the save button, it will generate an API key under the Integrate section. Make sure to save the key somewhere. You will be using it later.
 
-## Step 3: Install Tolgee
+## Step 3: Create an Angular Application
 
 Use the command below to create a new Angular project. Make sure your environment is correctly set up to run [an angular project](https://angular.io/guide/setup-local).
 
@@ -125,6 +125,8 @@ The `--open` flag automatically opens your browsers to the `[localhost:4200](htt
 
 This is the basic application we will be translating with Tolgee. We will add a select component that will enable us to switch from one language to another.
 
+## Step 4: Install Tolgee
+
 To translate your angular application we need to install the Tolgee package. Open another terminal window and run the command below in the project’s root directory.
 
 ```bash
@@ -133,7 +135,7 @@ npm i @tolgee/ngx
 
 The command will install all the necessary dependencies.
 
-## Step 4: Add Environment Variables
+## Step 5: Add Environment Variables
 
 In the `src` directory create `environments/environment.local.ts` file and paste the following code:
 
@@ -147,7 +149,7 @@ export const environment = {
 
 Replace `tolgeeApiUrl` with your server URL and `tolgeeApiKey` with the API key you generated earlier. Since this app is not for production, we set this variable to false.
 
-## Step 5: Setup Tolgee NgModule
+## Step 6: Setup Tolgee NgModule
 
 Open your `src/app/app.module.ts` and add the following code:
 
@@ -188,112 +190,13 @@ export class AppModule {}
 
 Add the `NgxTolgeeModule` in the import section and provide a Tolgee instance in the providers. Our default application language is en you can change it to fr or es depending on your preferences. Lastly, we import the environment variable we added earlier which will help us to communicate with the server.
 
-## Step 6: Translate Your Texts and Export the files:
+- The DevTools() is used for in-context translating in dev mode
+- The FormatSimple() enables you to pass variables into translations
+- The BackendFetch() fetches data from the custom backend
 
-Return to the Tolgee dashboard, select the project you created earlier, click on Keys then on the Add button(at the top right corner)
+## Step 7: Translation
 
-![Add translation button](/img/blog/angular-tutorial/addtrans_1.png)
-
-In the dialog that opens, add your translations and save
-
-![Create new key](/img/blog/angular-tutorial/addtrans_2.png)
-
-Make sure to select all the languages you want to add a translation for. In this case, we want translations for our three languages `en`, `fr`, and `es`. Add the key name of your translation in the `Key` field. In the screenshot above the key `welcome` corresponds to the word `Welcome` in English. Once you click on the `French` or `Spanish` field, it automatically suggests you a list of translations to choose from various services like AWS translate or Google Translate and you can easily customize it to fit your context.
-
-![Tranlate text](/img/blog/angular-tutorial/addtrans_3.png)
-
-Repeat the process for every piece of text you want to translate. At the end your translation screen should be close to this:
-
-![Translation list](/img/blog/angular-tutorial/translation_list.png)
-
-## Step 7: Add Translation Files
-
-Once you have added all your translations, the next step consists of adding those translations to your project. To do so, click on the Export menu in your left menu
-
-![Export Translation files](/img/blog/angular-tutorial/export_Trans.png)
-
-We select all the `en`, `fr` and `es` translated and reviewed translations only and export them.
-
-Now, navigate to `src` folder in your angular project and create `i18n` folder. Add the content of the extracted file to this folder.
-
-![Create I18n folder](/img/blog/angular-tutorial/angular_i18n.png)
-
-`en.json:`
-
-```json
-{
-  "welcome": "Welcome",
-  "app_running": "app is running!",
-  "resources": "Resources",
-  "useful_links": "Here are some links to help you get started:",
-  "leanr_angular": "Learn Angular",
-  "cli_doc": "CLI Documentation",
-  "angular_blog": "Angular Blog",
-  "angular_devtools": "Angular DevTools",
-  "next_step": "Next Steps",
-  "what_you_want": "What do you want to do next with your app?",
-  "new_component": "New Component",
-  "angular_material": "Angular Material",
-  "add_pwa_support": "Add PWA Support",
-  "add_dependency": "Add Dependency",
-  "watch_tests": "Run and Watch Tests",
-  "build_prod": "Build for Production",
-  "love_angular": "Love Angular?",
-  "give_star": "Give our repo a star."
-}
-```
-
-`fr.json:`
-
-```json
-{
-  "welcome": "Bienvenue",
-  "app_running": "l'application est en cours d'exécution !",
-  "resources": "Ressources",
-  "useful_links": "Voici quelques liens pour vous aider à démarrer :",
-  "leanr_angular": "Apprendre Angular",
-  "cli_doc": "Documentation CLI",
-  "angular_blog": "Angular Blog",
-  "angular_devtools": "Outils de développement pour Angular",
-  "next_step": "Prochaines étapes",
-  "what_you_want": "Que voulez-vous faire ensuite avec votre application ?",
-  "new_component": "Nouveau composant",
-  "angular_material": "Angular Material",
-  "add_pwa_support": "Ajouter la prise en charge de PWA",
-  "add_dependency": "Ajouter une dépendance",
-  "watch_tests": "Exécuter et observer des tests",
-  "build_prod": "Construire pour la production",
-  "love_angular": "Vous aimez Angular ?",
-  "give_star": "Donnez une étoile à notre dépôt."
-}
-```
-
-`es.json:`
-
-```json
-{
-  "welcome": "Bienvenido",
-  "app_running": "¡la aplicación se está ejecutando!",
-  "resources": "Recursos",
-  "useful_links": "Aquí hay algunos enlaces para ayudarlo a comenzar:",
-  "leanr_angular": "Aprende Angular",
-  "cli_doc": "Documentación de CLI",
-  "angular_blog": "Angular Blog",
-  "angular_devtools": "Herramientas de desarrollo angulares",
-  "next_step": "Próximos pasos",
-  "what_you_want": "¿Qué quieres hacer a continuación con tu aplicación?",
-  "new_component": "¿Nuevo componente?",
-  "angular_material": "Material Angular",
-  "add_pwa_support": "Agregar soporte PWA",
-  "add_dependency": "Agregar dependencia",
-  "watch_tests": "Ejecutar y observar pruebas",
-  "build_prod": "Construir para producción",
-  "love_angular": "¿Te encanta Angular?",
-  "give_star": "Dale a nuestro repositorio una estrella."
-}
-```
-
-We just added translation files in our project, now we need to add the key corresponding to the text like this:
+To translate our app, we need to add the `t` like the example below to every text we want to translate
 
 ```html
 <h1 t key="translate_me" default="Translate me!"></h1>
@@ -493,7 +396,124 @@ Open the `src/app/app.component.html`, then add your key translations:
 ...
 ```
 
-## Step 8: Create a Language Selector Component
+## Step 8: Translation
+
+Once we have added the T components, we can begin translating any part of our website by simply hovering the text and performing `alt+click` or `option+click`.
+
+On `alt` text hover, the text to be translated will be highlighted like in the screenshot below
+
+![alt click](/img/blog/angular-tutorial/alt_click.png)
+
+If you click on the text while still holding the `alt` key, a dialog box will open for you to translate your text.
+
+![Dialog translation](/img/blog/angular-tutorial/angular_quick-trans.png)
+
+Translate your text and click on `create` to save the translation into the Tolgee Platform. Repeat this action for every text you want to translate.
+
+Note that you can also manually add translations to your projects via the Tolgee Platform and export them.
+
+![Add translation button](/img/blog/angular-tutorial/addtrans_1.png)
+
+In the dialog that opens, add your translations and save
+
+![Create new key](/img/blog/angular-tutorial/addtrans_2.png)
+
+Make sure to select all the languages you want to add a translation for. In this case, we want translations for our three languages `en`, `fr`, and `es`. Add the key name of your translation in the `Key` field. In the screenshot above the key `welcome` corresponds to the word `Welcome` in English. Once you click on the `French` or `Spanish` field, it automatically suggests you a list of translations to choose from various services like AWS translate or Google Translate and you can easily customize it to fit your context.
+
+![Tranlate text](/img/blog/angular-tutorial/addtrans_3.png)
+
+Repeat the process for every piece of text you want to translate. At the end your translation screen should be close to this:
+
+![Translation list](/img/blog/angular-tutorial/translation_list.png)
+
+To export your translations, click on the Export menu in your left menu
+
+![Export Translation files](/img/blog/angular-tutorial/export_Trans.png)
+
+Select all the languages you wish to export and click on `export`. This will save a compressed file on your machine.
+
+Now, navigate to `src` folder in your angular project and create `i18n` folder. Add the content of the extracted file to this folder.
+
+![Create I18n folder](/img/blog/angular-tutorial/angular_i18n.png)
+
+`en.json:`
+
+```json
+{
+  "welcome": "Welcome",
+  "app_running": "app is running!",
+  "resources": "Resources",
+  "useful_links": "Here are some links to help you get started:",
+  "leanr_angular": "Learn Angular",
+  "cli_doc": "CLI Documentation",
+  "angular_blog": "Angular Blog",
+  "angular_devtools": "Angular DevTools",
+  "next_step": "Next Steps",
+  "what_you_want": "What do you want to do next with your app?",
+  "new_component": "New Component",
+  "angular_material": "Angular Material",
+  "add_pwa_support": "Add PWA Support",
+  "add_dependency": "Add Dependency",
+  "watch_tests": "Run and Watch Tests",
+  "build_prod": "Build for Production",
+  "love_angular": "Love Angular?",
+  "give_star": "Give our repo a star."
+}
+```
+
+`fr.json:`
+
+```json
+{
+  "welcome": "Bienvenue",
+  "app_running": "l'application est en cours d'exécution !",
+  "resources": "Ressources",
+  "useful_links": "Voici quelques liens pour vous aider à démarrer :",
+  "leanr_angular": "Apprendre Angular",
+  "cli_doc": "Documentation CLI",
+  "angular_blog": "Angular Blog",
+  "angular_devtools": "Outils de développement pour Angular",
+  "next_step": "Prochaines étapes",
+  "what_you_want": "Que voulez-vous faire ensuite avec votre application ?",
+  "new_component": "Nouveau composant",
+  "angular_material": "Angular Material",
+  "add_pwa_support": "Ajouter la prise en charge de PWA",
+  "add_dependency": "Ajouter une dépendance",
+  "watch_tests": "Exécuter et observer des tests",
+  "build_prod": "Construire pour la production",
+  "love_angular": "Vous aimez Angular ?",
+  "give_star": "Donnez une étoile à notre dépôt."
+}
+```
+
+`es.json:`
+
+```json
+{
+  "welcome": "Bienvenido",
+  "app_running": "¡la aplicación se está ejecutando!",
+  "resources": "Recursos",
+  "useful_links": "Aquí hay algunos enlaces para ayudarlo a comenzar:",
+  "leanr_angular": "Aprende Angular",
+  "cli_doc": "Documentación de CLI",
+  "angular_blog": "Angular Blog",
+  "angular_devtools": "Herramientas de desarrollo angulares",
+  "next_step": "Próximos pasos",
+  "what_you_want": "¿Qué quieres hacer a continuación con tu aplicación?",
+  "new_component": "¿Nuevo componente?",
+  "angular_material": "Material Angular",
+  "add_pwa_support": "Agregar soporte PWA",
+  "add_dependency": "Agregar dependencia",
+  "watch_tests": "Ejecutar y observar pruebas",
+  "build_prod": "Construir para producción",
+  "love_angular": "¿Te encanta Angular?",
+  "give_star": "Dale a nuestro repositorio una estrella."
+}
+```
+
+Now that we can easily translate our text, we will like to switch from one language to another.
+
+## Step 9: Create a Language Selector Component
 
 To switch from one language to another, we need to create a selector component.
 
@@ -572,7 +592,7 @@ Finally import the component in your `app.components.html`:
 <app-language-selector></app-language-selector>
 ```
 
-## Step 9: Testing the app
+## Step 10: Testing the app
 
 We are all set up, now it’s time to test the app. Run your application and navigate to `[localhost:4200](http://localhost:4200)` . Hopefully, your application localizes well like in the demo below.
 
