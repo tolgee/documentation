@@ -94,7 +94,7 @@ export default function Unreal() {
             If you have already set up your project, you can directly upload all
             your keys to the Tolgee platform. If you are unfamiliar with the
             localization setup, you can read our step-by-step{' '}
-            <a href="/platform/integrations/unreal_plugin/usage">guide</a> .
+            <a href="/platform/integrations/unreal_plugin/usage">guide</a>.
           </p>
           <p>
             Then open the <strong>Tolgee Dashboard</strong>, and you are now
