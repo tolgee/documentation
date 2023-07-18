@@ -21,33 +21,18 @@ type PeriodData = {
 };
 
 const roadmapData = {
-  '2023/Q2': {
-    active: false,
-    future: true,
+  '2023/Q3': {
+    active: true,
+    future: false,
     items: [
-      {
-        name: 'Permission enhancements',
-        gitHubIssueLink:
-          'https://github.com/tolgee/tolgee-platform/issues/1336',
-        description: (
-          <p>
-            Currently, the permissions are level oriented. You can have MANAGE
-            permission, which enables you to do everything in the project, or
-            EDIT which enables you to manage keys, translations, or screenshots.
-            But what if you want to enable a specific user to only add
-            screenshots? With enhanced permissions users will be able to set
-            granular permissions for each scope like uploading screenshots,
-            adding a key, modifying translations, you name it.
-          </p>
-        ),
-      },
       {
         name: 'Batch operations',
         gitHubIssueLink: 'https://github.com/tolgee/tolgee-platform/issues/911',
         description: (
           <p>
-            Select as many keys as you want and then tag them, find and replace
-            in them, auto-translate, or change their state.
+            Select as many keys as you want and then tag them, mark them as
+            "Reviewed" or "Translated", auto-translate them, or change their
+            state.
           </p>
         ),
       },
@@ -74,6 +59,48 @@ const roadmapData = {
             You will be also able to configure your S3-compatible bucket, so the
             data stay with you.
           </p>
+        ),
+      },
+    ],
+  },
+  '2023/Q4': {
+    active: false,
+    future: true,
+    items: [
+      {
+        name: 'All format support',
+        gitHubIssueLink:
+          'https://github.com/tolgee/tolgee-platform/issues/1547',
+        description: (
+          <p>
+            Tolgee currently works fine with ICU message format and you can
+            import data in .po format. However, there are many more formats we
+            want to support. In this task, we would like to create a universal
+            solution for format support, so we will be able to support any
+            format in the future.
+          </p>
+        ),
+      },
+      {
+        name: 'Visual editor',
+        gitHubIssueLink:
+          'https://github.com/tolgee/tolgee-platform/issues/1547',
+        description: (
+          <>
+            <p>
+              The current editor helps you with ICU syntax but doesn&apos;t help
+              you with placeholders or HTML tags. For many, this is not an issue
+              but it&apos;s problematic for example in the Arabic language,
+              where it&apos;s hard to mix HTML and Arabic characters.
+            </p>
+            <p>
+              By visual editor, we mean a nice environment, where tags and
+              parameter placeholders are represented visually, so translators
+              don&apos;t have to worry about them. The plurals are also visually
+              represented, so users can edit them without understanding the
+              message formatting language.
+            </p>
+          </>
         ),
       },
       {
@@ -117,6 +144,35 @@ const roadmapData = {
         ),
       },
       {
+        name: 'In-context support for mobile apps',
+        gitHubIssueLink:
+          'https://github.com/tolgee/tolgee-platform/issues/1545',
+        description: (
+          <p>
+            The in-context translating works great with web apps, and we would
+            like to provide the same comfort to mobile developers.
+          </p>
+        ),
+      },
+      {
+        name: 'QA Checks',
+        gitHubIssueLink:
+          'https://github.com/tolgee/tolgee-platform/issues/1546',
+        description: (
+          <p>
+            Even translators make mistakes, but some of these mistakes can be
+            detected, and translators can be notified. No more mistakes like
+            missing tags, missing parameters, or missing punctuation marks.
+          </p>
+        ),
+      },
+    ],
+  },
+  '2024/Q1': {
+    active: false,
+    future: true,
+    items: [
+      {
         name: 'Backups and data export',
         gitHubIssueLink:
           'https://github.com/tolgee/tolgee-platform/issues/1540',
@@ -128,61 +184,6 @@ const roadmapData = {
             export all project data including metadata and screenshots and
             import them later.
           </p>
-        ),
-      },
-      {
-        name: 'Tolgee AI Translator (experimental)',
-        gitHubIssueLink:
-          'https://github.com/tolgee/tolgee-platform/issues/1543',
-        description: (
-          <p>
-            Tolgee's very own AI Translator, which uses open-source projects
-            data to provide the best possible results. For enterprise customers,
-            it will use their specific data to deliver results reflecting their
-            particular context and terminology.
-          </p>
-        ),
-      },
-    ],
-  },
-  '2023/Q3-Q4': {
-    active: false,
-    future: true,
-    items: [
-      {
-        name: 'All format support',
-        gitHubIssueLink:
-          'https://github.com/tolgee/tolgee-platform/issues/1547',
-        description: (
-          <p>
-            Tolgee currently works fine with ICU message format and you can
-            import data in .po format. However, there are many more formats we
-            want to support. In this task, we would like to create a universal
-            solution for format support, so we will be able to support any
-            format in the future.
-          </p>
-        ),
-      },
-      {
-        name: 'Visual editor',
-        gitHubIssueLink:
-          'https://github.com/tolgee/tolgee-platform/issues/1547',
-        description: (
-          <>
-            <p>
-              The current editor helps you with ICU syntax but doesn&apos;t help
-              you with placeholders or HTML tags. For many, this is not an issue
-              but it&apos;s problematic for example in the Arabic language,
-              where it&apos;s hard to mix HTML and Arabic characters.
-            </p>
-            <p>
-              By visual editor, we mean a nice environment, where tags and
-              parameter placeholders are represented visually, so translators
-              don&apos;t have to worry about them. The plurals are also visually
-              represented, so users can edit them without understanding the
-              message formatting language.
-            </p>
-          </>
         ),
       },
       {
@@ -239,6 +240,24 @@ const roadmapData = {
           </p>
         ),
       },
+    ],
+  },
+  '2024/Q2': {
+    active: false,
+    future: true,
+    items: [
+      {
+        name: 'Translation proxy',
+        gitHubIssueLink:
+          'https://github.com/tolgee/tolgee-platform/issues/1687',
+        description: (
+          <p>
+            Translation proxy will be a service enabling translation of any
+            website without modifying it's sources or content. It will be
+            especially useful for static websites.
+          </p>
+        ),
+      },
       {
         name: 'Document formats support',
         gitHubIssueLink:
@@ -263,35 +282,6 @@ const roadmapData = {
         ),
       },
       {
-        name: 'In-context support for mobile apps',
-        gitHubIssueLink:
-          'https://github.com/tolgee/tolgee-platform/issues/1545',
-        description: (
-          <p>
-            The in-context translating works great with web apps, and we would
-            like to provide the same comfort to mobile developers.
-          </p>
-        ),
-      },
-      {
-        name: 'QA Checks',
-        gitHubIssueLink:
-          'https://github.com/tolgee/tolgee-platform/issues/1546',
-        description: (
-          <p>
-            Even translators make mistakes, but some of these mistakes can be
-            detected, and translators can be notified. No more mistakes like
-            missing tags, missing parameters, or missing punctuation marks.
-          </p>
-        ),
-      },
-    ],
-  },
-  '2024/Q1-Q2': {
-    active: false,
-    future: true,
-    items: [
-      {
         name: 'Branching',
         gitHubIssueLink:
           'https://github.com/tolgee/tolgee-platform/issues/1550',
@@ -300,6 +290,67 @@ const roadmapData = {
             Sometimes you need to maintain multiple versions of your software,
             so you’ll need to have multiple versions of your localization data
             stored in Tolgee as well.
+          </p>
+        ),
+      },
+    ],
+  },
+  '2023/Q2': {
+    active: false,
+    future: false,
+    items: [
+      {
+        name: 'Tolgee AI Translator',
+        done: true,
+        gitHubIssueLink:
+          'https://github.com/tolgee/tolgee-platform/issues/1543',
+        description: (
+          <p>
+            Tolgee's very own AI Translator, which will be able to translate
+            your content automatically. If used with Tolgee SDK, it will
+            translate more accurately thanks to the context provided by the SDK.
+          </p>
+        ),
+      },
+      {
+        name: 'Granular permissions',
+        done: true,
+        gitHubIssueLink:
+          'https://github.com/tolgee/tolgee-platform/issues/1336',
+        description: (
+          <p>
+            Currently, the permissions are level oriented. You can have MANAGE
+            permission, which enables you to do everything in the project, or
+            EDIT which enables you to manage keys, translations, or screenshots.
+            But what if you want to enable a specific user to only add
+            screenshots? With enhanced permissions users will be able to set
+            granular permissions for each scope like uploading screenshots,
+            adding a key, modifying translations, you name it.
+          </p>
+        ),
+      },
+      {
+        name: 'Pricing update',
+        done: true,
+        gitHubIssueLink:
+          'https://github.com/tolgee/tolgee-platform/issues/1609',
+        description: (
+          <p>
+            Current cloud pricing model is far from ideal. We are going to:
+            <ul>
+              <li>
+                charge users by translated strings amount, not by translations
+                slots (including untranslated values)
+              </li>
+              <li>
+                introduce Pay as you go model, so users won't be charge for what
+                they actually use without the need for buying a package
+              </li>
+              <li>
+                lower the free translation limit to 1000. For current users we
+                keep the current pricing. So don't worry.
+              </li>
+            </ul>
           </p>
         ),
       },
