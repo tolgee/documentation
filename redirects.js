@@ -122,6 +122,14 @@ module.exports.redirects = {
       to: '/platform/integrations/figma_plugin/usage',
     },
     {
+      from: '/platform/unreal-plugin/setup',
+      to: '/platform/integrations/unreal_plugin/setup',
+    },
+    {
+      from: '/platform/unreal-plugin/usage',
+      to: '/platform/integrations/unreal_plugin/usage',
+    },
+    {
       from: '/platform/exporting_translations',
       to: '/platform/projects_and_organizations/export',
     },
