@@ -21,7 +21,7 @@ using [Tolgee CLI](/tolgee-cli/push-pull-strings).
 :::
 
 ## How the import actually works?
-When you upload a file to the Tolgee Platform. It creates an Import entity, and for each language found in uploaded files, it creates an "import language" containing the imported data. When this entity is created, you can still add more files to it, remove the "import languages" prepared to import, and configure other import settings. When you're done with this, you can finally apply the import, which actually imports the data to your project.
+When you upload a file to the Tolgee platform, it creates an Import entity, and for each language found in uploaded files, it creates an "import language" containing the imported data. When this entity is created, you can still add more files to it, remove the "import languages" prepared to import, and configure other import settings. When you're done with this, you can finally apply the import, which actually imports the data to your project.
 
 Importing data to Tolgee is separated into 4 steps.
 
