@@ -7,7 +7,7 @@ description: 'Learn how to import data to Tolgee using Axios'
 tags: [ import, javascript, axios ]
 ---
 
-Sometimes you might want to import the localization i18n data to Tolgee manually using the API and your custom script. In this
+Sometimes you might want to import the localization i18n data to Tolgee using the API and your custom script. In this
 tutorial, I am going to show you how to do that using Axios.
 
 
