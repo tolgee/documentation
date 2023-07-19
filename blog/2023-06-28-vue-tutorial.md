@@ -366,8 +366,18 @@ Then click on the highlighted zone to open the translation dialog.
 
 Once you have added your translations, click on the save button to store your translations in the Tolgee Platform.
 
+You can add [screenshots](https://tolgee.io/js-sdk/) at the same time and Tolgee automatically collects context of the translations for usage with the [Tolgee translator](https://tolgee.io/blog/tolgee-ai-translator).
+
+This aproach is great because:
+
+- It's faster than to edit the localization `json` file or add it to the platform manually
+- To fix such key, you have just to click the string. Any team member with the Tolgee chrome plugin can do it
+- You can generate screenshots by clicking the camera. This way future translators will know the context and will translate the string correctly
+
 Equally, you can follow the same process to update your translations.
 Repeat this process for every string you want to translate and with a simple click Tolgee will save your translations. If you open your project in the platform, you should have a list of translated strings reflected in the platform
+
+NB: If you wish to import a lot of translations from large codebases, there is the [CLI extract command](<(https://tolgee.io/tolgee-cli/extraction/syncing-strings)>). (Right now, it works only for React, but other implementations will be available soon)
 
 ![List of translations](/img/blog/vue-tutorial/translation_list.png)
 
@@ -436,6 +446,8 @@ Once you export and extract the files, you should find all your translated strin
   "hello": "Hola"
 }
 ```
+
+This process can equally be done automatically in CI/CD tool via REST API or [Tolgee CLI](https://tolgee.io/tolgee-cli).
 
 ## Step 10: Create a Select Component
 
