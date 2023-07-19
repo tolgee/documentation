@@ -27,7 +27,7 @@ There are 2 main things we focused on when it comes to this plugin:
 
 - 🔗 **Seamless integration**: Getting started with the Tolgee Unreal Plugin is a breeze. **After completing the localization setup** for your project, you can **upload all your keys with just two clicks**, making the entire process quick and painless. Best of all, this plugin is **designed to work with your existing setup**. So, if your game already supports English and German, you can easily add French support without disrupting your current workflow.
 
-## How to get started with the Unreal plugin
+## How to get started with the Unreal plugin?
 
 Getting started with the Tolgee Unreal plugin is easy. Here’s how:
 
@@ -37,6 +37,6 @@ Getting started with the Tolgee Unreal plugin is easy. Here’s how:
 
 ## Conclusion
 
-In conclusion, the Tolgee Unreal Plugin offers a **game-changing solution for developers** seeking a streamlined and efficient localization process. With its runtime translation capabilities and seamless integration, developers can **save time, enhance collaboration, and keep the content up-to-date** effortlessly, revolutionizing how translations are handled in Unreal projects.
+In conclusion, the Tolgee Unreal Plugin offers a **game-changing solution for game developers** seeking a streamlined and efficient localization process. With its runtime translation capabilities and seamless integration, developers can **save time, enhance collaboration, and keep the content up-to-date** effortlessly, revolutionizing how translations are handled in Unreal projects.
 
 💡 For more information, please visit the [plugin documentation](/platform/integrations/unreal_plugin/usage) and the [GitHub repository](https://github.com/tolgee/tolgee-unreal). If you have any questions, feel free to **[join our Slack community](https://tolg.ee/slack) to discuss them with us!**
