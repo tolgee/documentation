@@ -410,6 +410,8 @@ If you click on the text while still holding the `alt` key, a dialog box will op
 
 Translate your text and click on `create` to save the translation into the Tolgee Platform. Repeat this action for every text you want to translate.
 
+This approach is faster than to edit the localization `json` file or add it to the platform manually. To fix such key, you just have to click the string and any team member can do that with Tolgee chrome plugin, not only developers. You can [generate screenshots](https://tolgee.io/js-sdk#automated-screenshots-generation) by clicking the camera. This way future translators will know the context and will translate the string correctly
+
 Note that you can also manually add translations to your projects via the Tolgee Platform and export them.
 
 ![Add translation button](/img/blog/angular-tutorial/addtrans_1.png)
@@ -425,6 +427,8 @@ Make sure to select all the languages you want to add a translation for. In this
 Repeat the process for every piece of text you want to translate. At the end your translation screen should be close to this:
 
 ![Translation list](/img/blog/angular-tutorial/translation_list.png)
+
+In case you have a lot of translations from large codebase, you can use the [CLI extract command](https://tolgee.io/tolgee-cli/extraction/syncing-strings). (It works only for React now, but we are working on Vue and Angular implementations)
 
 To export your translations, click on the Export menu in your left menu
 
@@ -510,6 +514,8 @@ Now, navigate to `src` folder in your angular project and create `i18n` folder. 
   "give_star": "Dale a nuestro repositorio una estrella."
 }
 ```
+
+This task can also be done automatically in CI/CD tool via REST API or [Tolgee CLI](https://tolgee.io/tolgee-cli).
 
 Now that we can easily translate our text, we will like to switch from one language to another.
 
