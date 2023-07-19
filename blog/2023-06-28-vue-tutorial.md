@@ -371,7 +371,7 @@ You can add [screenshots](https://tolgee.io/js-sdk/) at the same time and Tolgee
 This aproach is great because:
 
 - It's faster than to edit the localization `json` file or add it to the platform manually
-- To fix such key, you have just to click the string. Any team member with the Tolgee chrome plugin can do it
+- To fix such key, you just have to click the string. Any team member with the Tolgee chrome plugin can do it
 - You can generate screenshots by clicking the camera. This way future translators will know the context and will translate the string correctly
 
 Equally, you can follow the same process to update your translations.
