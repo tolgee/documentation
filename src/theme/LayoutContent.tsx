@@ -14,7 +14,7 @@ export const LayoutContent = ({ children }) => {
   const { siteConfig } = useDocusaurusContext();
 
   const trackingId = siteConfig.customFields.googleTrackingId;
-  const cookieYesId = siteConfig.customFields.cookieYesId;
+  //const cookieYesId = siteConfig.customFields.cookieYesId;
   const chatwootToken = siteConfig.customFields.chatwootToken;
   const hotjarId = siteConfig.customFields.hotjarId;
 

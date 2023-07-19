@@ -197,7 +197,7 @@ html[data-theme='dark'] .pricing__option-button:hover {
 .pricing__option-button--contained:hover {
   background: var(--ifm-color-primary-dark) !important;
   border-color: var(--ifm-color-primary-dark) !important;
-  color: var(--cc-btn-primary-text) !important;
+  color: var(--ifm-color-emphasis-0) !important;
 }
 
 .pricing__option-button--grey,

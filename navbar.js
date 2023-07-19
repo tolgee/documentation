@@ -83,6 +83,10 @@ module.exports.navbar = {
           label: 'Figma',
         },
         {
+          to: 'integrations/unreal',
+          label: 'Unreal',
+        },
+        {
           to: 'integrations',
           label: 'more...',
         },

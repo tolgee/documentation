@@ -19,6 +19,7 @@ type Props = {
   additionalDocs?: {
     label: string;
     link: string;
+    icon?: JSX.Element;
   };
   exampleApp?: string;
 };
@@ -36,7 +37,11 @@ export const LandingPageActions: React.FC<Props> = ({
         <CoolButton component={Link} to={additionalDocs.link} primary={primary}>
           <CoolButtonText>{additionalDocs.label}</CoolButtonText>
           <CoolButtonImage>
-            <DocsImage className="max-h-5" />
+            {additionalDocs.icon ? (
+              <div className="h-5 w-5 -mt-1">{additionalDocs.icon}</div>
+            ) : (
+              <DocsImage className="max-h-5" />
+            )}
           </CoolButtonImage>
         </CoolButton>
       )}

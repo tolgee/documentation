@@ -1,4 +1,5 @@
 import NextLogo from '../static/img/technologies/logo-next.svg';
+import UnrealLogo from '../static/img/technologies/logo-unreal-engine.svg';
 import React from 'react';
 
 export const integrations = [
@@ -92,6 +93,17 @@ export const integrations = [
       'GitHub Repository':
         'https://github.com/tolgee/tolgee-js/tree/main/packages/core',
       'Example App': 'https://github.com/tolgee/window-example',
+    },
+  },
+  {
+    label: 'Unreal Engine',
+    logo: <UnrealLogo />,
+    links: {
+      'Landing Page': '/integrations/unreal',
+      Docs: '/platform/integrations/unreal_plugin/setup',
+      'Unreal Marketplace':
+        'https://www.unrealengine.com/marketplace/en-US/product/2757e202f8f3408bbf66f65d26223398',
+      'GitHub Repository': 'https://github.com/tolgee/tolgee-unreal',
     },
   },
   {

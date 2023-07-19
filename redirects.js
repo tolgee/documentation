@@ -73,6 +73,14 @@ module.exports.redirects = {
       to: '/js-sdk/integrations/react/installation',
     },
     {
+      from: '/docs/web/using_with_vue/installation',
+      to: '/js-sdk/integrations/vue/installation',
+    },
+    {
+      from: '/docs/web/using_with_svelte/installation',
+      to: '/js-sdk/integrations/svelte/installation',
+    },
+    {
       from: '/blog/let-this-script-type-instead-of-you-when-you-record-your-browser',
       to: '/blog/let-this-script-type-instead-of-you',
     },
@@ -80,10 +88,22 @@ module.exports.redirects = {
       from: '/docs/web/get_started/preparing_for_production',
       to: '/js-sdk/providing-static-data',
     },
-    { from: '/docs/web/get_started/hello_world', to: '/js-sdk/' },
+    { from: '/docs/web/get_started/hello_world', to: '/js-sdk/initialization' },
+    {
+      from: '/docs/web/using_with_npm/installation',
+      to: '/js-sdk/initialization',
+    },
     {
       from: '/docs/web/using_with_react/ssr/ssr',
       to: '/js-sdk/integrations/react/ssr/',
+    },
+    {
+      from: '/docs/web/using_with_react/ssr/using_with_next',
+      to: '/js-sdk/integrations/react/ssr/next',
+    },
+    {
+      from: '/docs/web/using_with_react/ssr/using_with_gatsby',
+      to: '/js-sdk/integrations/react/ssr/gatsby',
     },
     {
       from: '/platform/integration',
@@ -120,6 +140,14 @@ module.exports.redirects = {
     {
       from: '/platform/figma-plugin/usage',
       to: '/platform/integrations/figma_plugin/usage',
+    },
+    {
+      from: '/platform/unreal-plugin/setup',
+      to: '/platform/integrations/unreal_plugin/setup',
+    },
+    {
+      from: '/platform/unreal-plugin/usage',
+      to: '/platform/integrations/unreal_plugin/usage',
     },
     {
       from: '/platform/exporting_translations',
