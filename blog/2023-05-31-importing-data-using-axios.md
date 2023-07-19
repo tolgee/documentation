@@ -199,7 +199,7 @@ This is possible using the [`Select namespace`](https://tolgee.io/api#tag/Import
 There is much more you can do with the import endpoints. All the endpoints are documented in the
 [import section of the API docs](/api#tag/Import).
 
-Its operations like
+There are endpoints like
 - Deleting the whole import
 - Deleting the import language
 - Getting file issues
