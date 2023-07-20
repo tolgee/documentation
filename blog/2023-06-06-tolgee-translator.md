@@ -45,7 +45,7 @@ To enhance user experience, **we also provide a description of the context how i
 
 ### What about reliability?
 
-Our **primary intention** behind releasing the Tolgee Translator **is to assist human translators**. Therefore, the tool is designed to support them in the translation process, **requiring their review and input**. However, this setup allows us to gradually empower AI and potentially reduce the need for extensive human interaction in the future.
+Our **primary intention** behind releasing the Tolgee AI Translator **is to assist human translators**. Therefore, the tool is designed to support them in the translation process, **requiring their review and input**. However, this setup allows us to gradually empower AI and potentially reduce the need for extensive human interaction in the future.
 
 ## Cool, how can I try this?
 
