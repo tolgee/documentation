@@ -1,0 +1,16 @@
+.footerLogoSection { 
+  margin-top: 20px;
+  margin-bottom: 40px;
+}
+
+.footerLogoImage {
+  min-width: 120px;
+  max-width: 200px;
+}
+
+.textDescription {
+  max-width: 600px;
+  margin: 0 auto;
+  font-size: 12px;
+  color: var(--home-text)
+}
