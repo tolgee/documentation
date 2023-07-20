@@ -9,7 +9,7 @@ tags: [translation, ai, chatgpt, in-context, sdk, i18n]
 
 Do you think that AI will replace human translators? AI has made its way into various aspects of our lives, including localization, where it demonstrates exceptional capabilities. Yet, two significant challenges hinder the complete adoption of AI for software translation: reliability and context. Tolgee AI Translator aims to tackle these challenges head-on to provide contextually tailored translations of superior quality.
 
-![Tolgee AI translator](/img/blog/tolgee-translator/post-ai.png)
+![Tolgee Translator](/img/blog/tolgee-translator/post-ai.png)
 
 <!-- truncate -->
 
@@ -39,13 +39,13 @@ To enhance our tool, the latest version of Tolgee SDK collects data from your ap
 
 When utilizing the Tolgee AI Translator, we **identify the most relevant keys** and present them to ChatGPT, **along with Translation Memory data** (similar to how a human translator would work).
 
-![Tolgee AI translator](/img/blog/tolgee-translator/tolgee_translator.png)
+![Tolgee Translator](/img/blog/tolgee-translator/tolgee_translator.png)
 
 To enhance user experience, **we also provide a description of the context how its understood** by Tolgee AI Translator. That way you can see if it got it right or not.
 
 ### What about reliability?
 
-Our **primary intention** behind releasing the Tolgee AI Translator **is to assist human translators**. Therefore, the tool is designed to support them in the translation process, **requiring their review and input**. However, this setup allows us to gradually empower AI and potentially reduce the need for extensive human interaction in the future.
+Our **primary intention** behind releasing the Tolgee Translator **is to assist human translators**. Therefore, the tool is designed to support them in the translation process, **requiring their review and input**. However, this setup allows us to gradually empower AI and potentially reduce the need for extensive human interaction in the future.
 
 ## Cool, how can I try this?
 
@@ -53,4 +53,4 @@ Sign in to Tolgee platform and setup a project. Use Tolgee SDK (Tolgee Context i
 
 ![Tolgee Context](/img/blog/tolgee-translator/tolgee_translator_context.png)
 
-> If you like Tolgee platform help us out by giving us a [GitHub star](https://github.com/tolgee/tolgee-platform). For any questions don't hesitate to contact us on our [Community slack](https://tolg.ee/slack).
+> If you like Tolgee platform help us out by giving us a [GitHub star](https://github.com/tolgee/tolgee-platform). For any questions don't hesitate to contact us on our [community Slack channel](https://tolg.ee/slack).
