@@ -18,6 +18,11 @@ tutorial, I am going to show you how to do that using Axios.
 :::info
 Before you start hacking the script, you should also consider
 using [Tolgee CLI](/tolgee-cli/push-pull-strings).
+
+There are other ways to and new keys and translations in Tolgee. For less complex workflows, you can use
+basic endpoints described in [API section of docs](/api).
+
+This tutorial is for real geeks. 🤓
 :::
 
 ## How the import actually works?
@@ -213,6 +218,6 @@ There are endpoints like
   - Assign existing languages manually if needed.
   - Resolve conflicts between imported and existing translations.
   - Apply the import using the "Apply" endpoint.
-- Additional features:
+  - Additional features:
   - Work with namespaces using the "Select namespace" endpoint.
   - Explore more options in the import section of the API documentation.
