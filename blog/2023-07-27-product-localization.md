@@ -1,6 +1,6 @@
 ---
 slug: product-localization
-title: 'Stay local while going global: Product localization playbook'
+title: 'Stay Local While Going Global: Product Localization Playbook'
 authors: [mchrastek]
 description: 'Discover the ultimate playbook for successful product localization and going global. Resonate with local audiences and unlock new business opportunities.'
 tags: [product localization, guide, translation, localization, i18n, product]
