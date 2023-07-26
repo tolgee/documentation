@@ -33,7 +33,7 @@ Host your own server to have full control over your work. You can run it with Do
 
 ### Automated Translation
 
-Tolgee can help you automate your translation process. It has a platform that integrates with machine translation services, such as Google Translate and AWS, to automatically translate your content. This ensures that your translations are accurate and consistent.
+Tolgee can help you automate your translation process. It has a platform that integrates with [machine translation services](https://tolgee.io/blog/tolgee-ai-translator) making translation almost autonomous, such as Google Translate and AWS, to automatically translate your content. This ensures that your translations are accurate and consistent.
 
 ### Simplified Translation Management
 
@@ -192,9 +192,8 @@ Add the `NgxTolgeeModule` in the import section and provide a Tolgee instance in
 
 - The DevTools() is used for in-context translating in dev mode
 - The FormatSimple() enables you to pass variables into translations
-- The BackendFetch() fetches data from the custom backend
 
-## Step 7: Translation
+## Step 7: Adding the t Component
 
 To translate our app, we need to add the `t` like the example below to every text we want to translate
 
@@ -428,98 +427,9 @@ Repeat the process for every piece of text you want to translate. At the end you
 
 ![Translation list](/img/blog/angular-tutorial/translation_list.png)
 
-In case you have a lot of translations from large codebase, you can use the [CLI extract command](https://tolgee.io/tolgee-cli/extraction/syncing-strings). (It works only for React now, but we are working on Vue and Angular implementations)
-
-To export your translations, click on the Export menu in your left menu
-
-![Export Translation files](/img/blog/angular-tutorial/export_Trans.png)
-
-Select all the languages you wish to export and click on `export`. This will save a compressed file on your machine.
-
-Now, navigate to `src` folder in your angular project and create `i18n` folder. Add the content of the extracted file to this folder.
-
-![Create I18n folder](/img/blog/angular-tutorial/angular_i18n.png)
-
-`en.json:`
-
-```json
-{
-  "welcome": "Welcome",
-  "app_running": "app is running!",
-  "resources": "Resources",
-  "useful_links": "Here are some links to help you get started:",
-  "leanr_angular": "Learn Angular",
-  "cli_doc": "CLI Documentation",
-  "angular_blog": "Angular Blog",
-  "angular_devtools": "Angular DevTools",
-  "next_step": "Next Steps",
-  "what_you_want": "What do you want to do next with your app?",
-  "new_component": "New Component",
-  "angular_material": "Angular Material",
-  "add_pwa_support": "Add PWA Support",
-  "add_dependency": "Add Dependency",
-  "watch_tests": "Run and Watch Tests",
-  "build_prod": "Build for Production",
-  "love_angular": "Love Angular?",
-  "give_star": "Give our repo a star."
-}
-```
-
-`fr.json:`
-
-```json
-{
-  "welcome": "Bienvenue",
-  "app_running": "l'application est en cours d'exécution !",
-  "resources": "Ressources",
-  "useful_links": "Voici quelques liens pour vous aider à démarrer :",
-  "leanr_angular": "Apprendre Angular",
-  "cli_doc": "Documentation CLI",
-  "angular_blog": "Angular Blog",
-  "angular_devtools": "Outils de développement pour Angular",
-  "next_step": "Prochaines étapes",
-  "what_you_want": "Que voulez-vous faire ensuite avec votre application ?",
-  "new_component": "Nouveau composant",
-  "angular_material": "Angular Material",
-  "add_pwa_support": "Ajouter la prise en charge de PWA",
-  "add_dependency": "Ajouter une dépendance",
-  "watch_tests": "Exécuter et observer des tests",
-  "build_prod": "Construire pour la production",
-  "love_angular": "Vous aimez Angular ?",
-  "give_star": "Donnez une étoile à notre dépôt."
-}
-```
-
-`es.json:`
-
-```json
-{
-  "welcome": "Bienvenido",
-  "app_running": "¡la aplicación se está ejecutando!",
-  "resources": "Recursos",
-  "useful_links": "Aquí hay algunos enlaces para ayudarlo a comenzar:",
-  "leanr_angular": "Aprende Angular",
-  "cli_doc": "Documentación de CLI",
-  "angular_blog": "Angular Blog",
-  "angular_devtools": "Herramientas de desarrollo angulares",
-  "next_step": "Próximos pasos",
-  "what_you_want": "¿Qué quieres hacer a continuación con tu aplicación?",
-  "new_component": "¿Nuevo componente?",
-  "angular_material": "Material Angular",
-  "add_pwa_support": "Agregar soporte PWA",
-  "add_dependency": "Agregar dependencia",
-  "watch_tests": "Ejecutar y observar pruebas",
-  "build_prod": "Construir para producción",
-  "love_angular": "¿Te encanta Angular?",
-  "give_star": "Dale a nuestro repositorio una estrella."
-}
-```
-
-This task can also be done automatically in CI/CD tool via REST API or [Tolgee CLI](https://tolgee.io/tolgee-cli).
-
-Now that we can easily translate our text, we will like to switch from one language to another.
-
 ## Step 9: Create a Language Selector Component
+
+Since we can easily translate our text, we will like to switch from one language to another.
 
 To switch from one language to another, we need to create a selector component.
 
@@ -598,7 +508,49 @@ Finally import the component in your `app.components.html`:
 <app-language-selector></app-language-selector>
 ```
 
-## Step 10: Testing the app
+## Step 10: Preparing For Production
+
+When preparing for production never use localization data from Tolgee REST API and never as well as leaking your API key. Always use data exported from the platform.
+
+To export your translations, click on the Export menu in your left menu
+
+![Export Translation files](/img/blog/angular-tutorial/export_Trans.png)
+
+Select all the languages you wish to export and click on `export`. This will save a compressed file on your machine.
+
+Once you have extracted your data, you can provide it as a [static data configuration](https://tolgee.io/js-sdk/providing-static-data) property in `app.module.ts`
+
+Navigate to `src` folder in your angular project and create `i18n` folder. Add the content of the extracted file to this folder.
+![Create I18n folder](/img/blog/angular-tutorial/angular_i18n.png)
+
+Add the following code in `app.module.ts`
+
+```typescript
+providers: [
+    {
+      ...
+      useFactory: () => {
+        return Tolgee()
+          ...
+          .init({
+            language: 'en',
+            availableLanguages: ['en', 'fr', 'es'],
+            staticData: {
+              en: () => import('../i18n/en.json'),
+              fr: () => import('../i18n/es.json'),
+              es: () => import('../i18n/es.json'),
+            },
+            fallbackLanguage: 'en',
+            defaultLanguage: 'en',
+          });
+      },
+    },
+  ],
+```
+
+In case you have a lot of translations from large codebase, you can use the [CLI extract command](https://tolgee.io/tolgee-cli/extraction/syncing-strings). (It works only for React now, but we are working on Vue and Angular implementations)
+
+## Step 11: Testing the app
 
 We are all set up, now it’s time to test the app. Run your application and navigate to `[localhost:4200](http://localhost:4200)` . Hopefully, your application localizes well like in the demo below.
 
