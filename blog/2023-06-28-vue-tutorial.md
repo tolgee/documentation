@@ -144,18 +144,11 @@ Update your `main.ts` found at the root of your project with the following code:
 import './assets/main.css';
 import { createApp } from 'vue';
 import App from './App.vue';
-import {
-  BackendFetch,
-  DevTools,
-  Tolgee,
-  FormatSimple,
-  VueTolgee,
-} from '@tolgee/vue';
+import { DevTools, Tolgee, FormatSimple, VueTolgee } from '@tolgee/vue';
 
 const tolgee = Tolgee()
   .use(DevTools())
   .use(FormatSimple())
-  .use(BackendFetch())
   .init({
     language: 'en',
     apiUrl: import.meta.env.VITE_TOLGEE_API_URL,
@@ -168,7 +161,7 @@ app.use(VueTolgee, { tolgee });
 app.mount('#app');
 ```
 
-From the code block above, the `BackendFetch()` is a plugin used to fetch translations while the `DevTools()` is a combination of many plugins(ObserverPlugin, ContextUi and DevBackend) that enables in-context translation.
+From the code block above, the `DevTools()` is a combination of many plugins(ObserverPlugin, ContextUi and DevBackend) that enables in-context translation.
 
 Finally, wrap your code in `src/app.vue` in `TolgeeProvider` tag like below:
 
@@ -377,78 +370,6 @@ This aproach is great because:
 Equally, you can follow the same process to update your translations.
 Repeat this process for every string you want to translate and with a simple click Tolgee will save your translations. If you open your project in the platform, you should have a list of translated strings reflected in the platform
 
-NB: If you wish to import a lot of translations from large codebases, there is the [CLI extract command](<(https://tolgee.io/tolgee-cli/extraction/syncing-strings)>). (Right now, it works only for React, but other implementations will be available soon)
-
-![List of translations](/img/blog/vue-tutorial/translation_list.png)
-
-Tolgee also allows you to export your translations in `json` files. In your Tolgee dashboard, click on export in the left menu, then select the languages you want then click on export
-
-![Export translations from Tolgee](/img/blog/vue-tutorial/export_translations.png)
-
-Once you export and extract the files, you should find all your translated strings in each json files.
-
-`en.json`
-
-```json
-{
-  "documentation": "Documentation",
-  "documentation_desc": "Vue’s official documentation provides you with all information you need to get started.",
-  "tooling": "Tooling",
-  "tooling_desc": "This project is served and bundled with Vite. The recommended IDE setup is VSCode + Volar. If you need to test your components and web pages, check out Cypress and Cypress Component Testing. More instructions are available in README.md.",
-  "ecosystem": "Ecosystem",
-  "ecosystem_desc": "Get official tools and libraries for your project: Pinia, Vue Router, Vue Test Utils, and Vue Dev Tools. If you need more resources, we suggest paying Awesome Vue a visit. ",
-  "community": "Community",
-  "community_desc": "Got stuck? Ask your question on Vue Land, our official Discord server, or StackOverflow. You should also subscribe to our mailing list and follow the official @vuejs twitter account for latest news in the Vue world. ",
-  "support Vue": "Support Vue",
-  "support Vue_desc": "As an independent project, Vue relies on community backing for its sustainability. You can help us by becoming a sponsor. ",
-  "readme": "More instructions are available in README.md.",
-  "success": "You’ve successfully created a project with Vite + Vue 3",
-  "hello": "Hello"
-}
-```
-
-`fr.json`
-
-```json
-{
-  "documentation": "Documentación",
-  "documentation_desc": "La documentation officielle de Vue vous fournit toutes les informations dont vous avez besoin pour commencer.",
-  "tooling": "Outillage",
-  "tooling_desc": "Ce projet est servi et groupé avec Vite. La configuration IDE recommandée est VSCode + Volar. Si vous avez besoin de tester vos composants et vos pages Web, consultez Cypress et Cypress Component Testing. Plus d'instructions sont disponibles dans README.md.",
-  "ecosystem": "Écosystème",
-  "ecosystem_desc": "Obtenez des outils et des bibliothèques officiels pour votre projet : Pinia, Vue Router, Vue Test Utils et Vue Dev Tools. Si vous avez besoin de plus de ressources, nous vous suggérons de rendre visite à Awesome Vue.",
-  "community": "Communauté",
-  "community_desc": "Est resté coincé? Posez votre question sur Vue Land, notre serveur Discord officiel, ou StackOverflow. Vous devez également vous inscrire à notre liste de diffusion et suivre le compte Twitter officiel @vuejs pour les dernières nouvelles du monde Vue.",
-  "support Vue": "Soutenir Vue",
-  "support Vue_desc": "En tant que projet indépendant, Vue s'appuie sur le soutien de la communauté pour sa durabilité. Vous pouvez nous aider en devenant parrain.",
-  "readme": "Plus d'instructions sont disponibles dans README.md.",
-  "success": "Vous avez réussi à créer un projet avec Vite + Vue 3",
-  "hello": "Bonjour"
-}
-```
-
-`es.json`
-
-```json
-{
-  "documentation": "Documentación",
-  "documentation_desc": "La documentación oficial de Vue le brinda toda la información que necesita para comenzar.",
-  "tooling": "Estampación",
-  "tooling_desc": "Este proyecto se sirve y se incluye con Vite. La configuración IDE recomendada es VSCode + Volar. Si necesita probar sus componentes y páginas web, consulte Cypress y Cypress Component Testing. Más instrucciones están disponibles en README.md.",
-  "ecosystem": "Ecosistema",
-  "ecosystem_desc": "Obtenga herramientas y bibliotecas oficiales para su proyecto: Pinia, Vue Router, Vue Test Utils y Vue Dev Tools. Si necesita más recursos, le sugerimos que visite Awesome Vue. ",
-  "community": "Comunidad",
-  "community_desc": "¿Quedó atascado? Haga su pregunta en Vue Land, nuestro servidor oficial de Discord o StackOverflow. También debe suscribirse a nuestra lista de correo y seguir la cuenta oficial de Twitter @vuejs para conocer las últimas noticias en el mundo de Vue. ",
-  "support Vue": "Soporte Vue",
-  "support Vue_desc": "Como proyecto independiente, Vue depende del respaldo de la comunidad para su sostenibilidad. Puedes ayudarnos convirtiéndote en patrocinador. ",
-  "readme": "Hay más instrucciones disponibles en README.md.",
-  "success": "Ha creado con éxito un proyecto con Vite + Vue 3",
-  "hello": "Hola"
-}
-```
-
-This process can equally be done automatically in CI/CD tool via REST API or [Tolgee CLI](https://tolgee.io/tolgee-cli).
-
 ## Step 10: Create a Select Component
 
 The select component will help you easily switch from one language to another. In your `src/components` created `selector.vue` file and add the following code:
@@ -511,6 +432,37 @@ Update your `App.vue` file to include the selector component
    ...
   </TolgeeProvider>
 </template>
+```
+
+## Step 10: Preparing for Production
+
+Never use localization data from Tolgee REST API and never leak your API key in [production mode](https://tolgee.io/js-sdk/integrations/angular/installation#preparing-for-production), instead export them and add to your application.
+
+Tolgee also allows you to export your translations in `json` files. In your Tolgee dashboard, click on export in the left menu, then select the languages you want then proceed to the exportation.
+
+![Export translations from Tolgee](/img/blog/vue-tutorial/export_translations.png)
+
+Once you export and extract the files, you should find all your translated strings in each json files.
+
+Create `i18n` folder in your Vue application public folder and add the extracted files
+
+![i18n folder](/img/blog/vue-tutorial/extracted_files.png)
+
+This process could equally be automatically be done in CI/CD tool via REST API or [Tolgee CLI](https://tolgee.io/tolgee-cli).
+
+Finally open your `src/main.ts` and add your [static data](https://tolgee.io/js-sdk/providing-static-data)
+
+```typescript
+const tolgee = Tolgee()
+ ...
+  .init({
+   ...
+    staticData: {
+      en: () => import('../public/i18n/en.json'),
+      fr: () => import('../public/i18n/fr.json'),
+      es: () => import('../public/i18n/es.json')
+    }
+  })
 ```
 
 If you re-run your application, it should be working perfectly like the screenshot below:
