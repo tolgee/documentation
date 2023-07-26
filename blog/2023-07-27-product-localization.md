@@ -12,7 +12,7 @@ Are you thinking about launching your product in a new market? Or do you perhaps
 
 <!--truncate-->
 
-## Introduction
+## Entering new markets: Launch essentials
 
 Launching your product in **a new market might be intimidating**. There are many things to consider, and it’s easy to get lost in the process. However, **with the right strategy and tools, you can successfully launch your product** in a new market and reach new customers. Before you begin localizing your product, consider asking yourself the following questions:
 
@@ -23,7 +23,7 @@ Launching your product in **a new market might be intimidating**. There are many
 - **What** parts of my product should be localized, **and how**?
 - What is my **budget and timeline** for localization?
 
-These (and many more) questions will **help you define your localization strategy** and set the right goals for your localization project. Remember, localization goes far beyond simple translation; it involves adapting your product or service to **meet a specific target market’s linguistic, cultural and regulatory demands**. The ultimate goal is to deeply resonate with the local audience, align with their preferences, and exceed their expectations.
+These (and many more) questions will **help you define your localization strategy** and set the right goals for your localization project. Remember, [localization](https://tolgee.io/blog/localization-basics-S01E01) goes far beyond simple translation; it involves adapting your product or service to **meet a specific target market’s linguistic, cultural and regulatory demands**. The ultimate goal is to deeply resonate with the local audience, align with their preferences, and exceed their expectations.
 
 ## Why does localization matter?
 
@@ -47,7 +47,9 @@ It empowers you to **make informed decisions**, refine your approach, and **tail
 
 Building and maintaining a consistent brand identity and tone of voice across different markets is critical to successful product localization. **Brand identity** refers to **unique characteristics, values and attributes** distinguishing a brand from competitors. **Tone of voice**, on the other hand, pertains to the **communication style and language** used to convey the brand’s personality and values.
 
+:::info Example
 A perfect illustration of a brand that has successfully maintained its identity and tone of voice across different markets is Coca-Cola with its [“Share a Coke” campaign](https://www.coca-colacompany.com/au/news/local-idea-goes-global-share-a-coke). The campaign was launched in Australia in 2011 when the company printed 150 of Australia’s most popular names on Coca-Cola bottles. **In China**, for example, the bottles included phrases like **“classmate” and “close friend” instead of names**. **Chinese naming conventions can be complex**, and using generic phrases ensures cultural sensitivity and avoids potential misinterpretations or unintended meanings.
+:::
 
 Here are some considerations for maintaining brand identity and tone of voice during product localization:
 
@@ -59,7 +61,9 @@ Here are some considerations for maintaining brand identity and tone of voice du
 
 In addition to the technical and operational aspects of product localization, addressing the legal regulations and requirements while entering new markets is crucial. **Ignoring** legal considerations can lead to **compliance issues, potential lawsuits and damage to your brand reputation**.
 
+:::info Example
 One recent example – in 2021, [TikTok was fined](https://edpb.europa.eu/news/national-news/2021/dutch-dpa-tiktok-fined-violating-childrens-privacy_en) €750,000 by the Dutch Data Protection Authority **for a missing Dutch translation of their Privacy Policy**, violating the GDPR.
+:::
 
 Let’s take a closer look at some crucial legal considerations:
 
@@ -72,7 +76,9 @@ Let’s take a closer look at some crucial legal considerations:
 
 You should also consider the cultural differences of the new market. Cultural nuances play a **significant role in shaping consumer behavior, preferences and expectations**. Ignoring or overlooking these differences can lead to misunderstandings, offense, and even the failure of your product in a new market.
 
+:::info Example
 A great example is the [UK telecom company Orange campaign from 1994](https://www.youtube.com/watch?v=5o5DoNvtsY0). The campaign launched with the slogan “The future’s bright… the future’s Orange”. However, this didn’t resonate well in **Northern Ireland**, where orange represents the Orange Order, a Protestant fraternal organization. This **suggested that the future is Protestant — in a country where the majority is Catholic**.
+:::
 
 You should keep in mind the following aspects when addressing cultural differences in your product localization strategy:
 
@@ -91,7 +97,7 @@ Once you have done your market research and defined your brand identity and tone
 4. Assign **roles and responsibilities** in the localization process.
 5. Define your localization **tools and processes**.
 
-### What and how to localize
+### 1. What and how to localize
 
 First and foremost, you should decide **what parts of your product should be localized**. Some parts of your product may not need to be localized; it depends on your product and target market. For instance, you might need to localize the following:
 
@@ -101,12 +107,12 @@ First and foremost, you should decide **what parts of your product should be loc
 - **Legal documents**
 - **Customer support**
 
-Once you have decided what to localize, you should **define how to localize the content**. There are two main approaches to localization: **human translation and machine translation**. Human translation means translating content exclusively with the help of a human translator – it might be more accurate but expensive. Machine translation means translating content by a machine with an optional additional step of post-editing conducted by a human translator – it might be cheaper but less accurate. **Both approaches have pros and cons**; some content is more suitable for human translation, e.g. website content, while others are more suitable for machine translation, namely documentation and user-generated content. The following diagram shows typical **content types and their suitability for human and machine translation**:
+Once you have decided what to localize, you should **define how to localize the content**. There are two main approaches to localization: **human translation and machine translation**. Human translation means translating content exclusively with the help of a human translator – it might be more accurate but expensive. [Machine translation](https://tolgee.io/blog/software-localization-machine-translation) means translating content by a machine with an optional additional step of post-editing conducted by a human translator – it might be cheaper but less accurate. **Both approaches have pros and cons**; some content is more suitable for human translation, e.g. website content, while others are more suitable for machine translation, namely documentation and user-generated content. The following diagram shows typical **content types and their suitability for human and machine translation**:
 
 ![Translation human-machine mix](/img/blog/product-localization/translation-human-machine-mix.png)
 _Source: [CSA Research](https://insights.csa-research.com/reportaction/305013109/Marketing), edited_
 
-### Budget and timeline
+### 2. Budget and timeline
 
 Creating a comprehensive localization strategy involves defining a clear budget and timeline for your project. Your **budget will determine the scope of localization and the resources** you can allocate to the process. Remember that localization is an investment in expanding your market reach and enhancing customer satisfaction in foreign markets.
 
@@ -116,7 +122,7 @@ The timeline is equally crucial, as it sets the pace for your product’s entry 
 
 Remember, **effective localization takes time and effort**, but with careful planning and resource allocation, you can ensure a successful launch of your product in new markets.
 
-### Metrics and KPIs
+### 3. Metrics and KPIs
 
 Metrics and KPIs in localization are essential because they help you measure the success of your localization process. On the other hand, **measuring the success** of your localization process could be **challenging as localization doesn’t generate revenue directly** but indirectly through increased sales and customer satisfaction. It’s always best to use those KPIs that make sense for your project. Consider these examples of localization metrics and KPIs:
 
@@ -127,7 +133,7 @@ Metrics and KPIs in localization are essential because they help you measure the
 - **Cost** metrics: The metrics can give you valuable insight into how much money you spend on localization. You can use, for example, the cost per word to measure the cost of your localization process.
 - **Website** metrics: Website metrics are a great way to see how your localized website is performing. You can use, for example, the bounce rate to measure how many visitors leave your website without taking any action and compare this number with the bounce rate of your original website.
 
-### Roles and responsibilities
+### 4. Roles and responsibilities
 
 Roles and responsibilities **can make or break your localization** process. You should assign roles and responsibilities to your localization team and ensure everyone knows their responsibility. In an ideal world, you should have a **localization manager** responsible for the localization process and a team of localization and language specialists responsible for the localization itself.
 
@@ -135,7 +141,7 @@ The responsibilities of the localization team could range from **localizing cont
 
 As localization heavily depends on the **source content**, you should also assign roles and responsibilities to your **content team**. The localization manager should then work closely with the content team to ensure the source content is suitable for localization.
 
-### Tools and processes
+### 5. Tools and processes
 
 **Selecting the appropriate tools and processes** for your localization project is crucial based on the localization strategy you have defined in the previous steps.
 
@@ -159,7 +165,9 @@ Uber is an excellent example of a company offering genuinely local services. In 
 
 Slack has localized its product into more than 10 languages while maintaining a consistent brand identity and tone of voice. In their blog post, [How we localize Slack](https://slack.com/blog/collaboration/how-we-localize-slack), they show examples of how they localized (not just translated) messages and icons in their product. For example, the message displayed when you’ve read everything in your “Unreads” section, ”You’re all caught up. Here’s a pony”, does not make sense in Spanish. So in Spanish, they localized it as “Has leído todo. Aquí tienes un caramelo de regalo”, meaning “You’ve read everything. Here’s a candy gift” – the accompanying icon was also changed to a candy.
 
-## Conclusion
+![Slack localization example](/img/blog/product-localization/slack-localization-example.png)
+
+## Conclusion: Product localization for global expansion
 
 In conclusion, effective **product localization is vital for expanding into new markets** and connecting with diverse audiences worldwide. It goes beyond translation, encompassing **cultural understanding and language adaptation**. By considering market research, brand identity and tone of voice, businesses can create a strong localization strategy that resonates deeply with local consumers, fostering meaningful relationships and driving sales.
 
