@@ -29,6 +29,7 @@ module.exports = {
         'translation_keys/tags',
         'translation_keys/namespaces',
         'translation_keys/screenshots',
+        'translation_keys/batch_operations',
       ],
     },
     {

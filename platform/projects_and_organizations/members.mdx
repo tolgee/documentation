@@ -24,6 +24,7 @@ You can choose the permissions that you want to give to the member. The permissi
 - **Translate** – The member can change the translations in the selected language(s).
 - **Review** – The member can change the translations and mark them as reviewed in the selected language(s).
 - **Edit** – The member can change the translations, mark them as reviewed, and add new keys.
+  The member can also view all recent batch operations in the Editor and start the "Pre-translate by TM" and "Machine translation" batch operations.
 - **Manage** – The member can manage the project. The member can add and remove members, change the project settings, including languages, and delete the project.
 
 ![Member permissions](/img/docs/platform/member_permissions.png)
@@ -47,28 +48,72 @@ Or you can give a member permission to view and add screenshots but not delete t
 ![Granular permissions](/img/docs/platform/member_granular_permissions.png)
 
 Here is a **list of all the granular permissions** and what they do:
-- **Admin** – Enabling this permission gives the member **all the permissions for the project**.
-  - **Keys** – Enabling this permission gives the member **all the permissions related to keys** below.
-    - **View** – The member can view all existing keys.
-    - **Create** – The member can create new keys.
-    - **Edit** – The member can edit existing keys.
-    - **Delete** – The member can delete existing keys.
-  - **Translations** – Enabling this permission gives the member **all the permissions related to translations** below.
-    - **View** – The member can view the translations in the selected languages.
-    - **Edit** – The member can edit the translations in the selected languages.
-    - **Change state** – The member can change the state of the translations in the selected languages (mark the translations as "Reviewed").
-    - **Comments** – Enabling this permission gives the member **all the permissions related to comments** in the languages selected in the "View" permission below.
-      - **Add** – The member can add comments to the translations in the languages selected in the "View" permission.
-      - **Edit** – The member can edit and delete comments in the languages selected in the "View" permission.
-        The member **can always edit and delete their comment** even if this permission is disabled.
-      - **Resolve** – The member can resolve comments in the languages selected in the "View" permission.
-  - **Screenshots** – Enabling this permission gives the member **all the permissions related to screenshots** below.
-    - **View** – The member can view existing screenshots on keys.
-    - **Add** – The member can add screenshots on keys.
-    - **Delete** – The member can delete existing screenshots on keys.
-  - **Members** – Enabling this permission gives the member **all the permissions related to members** below.
-    - **View** – The member can view the project members.
-    - **Edit** – The member can add and remove project members and change their permissions.
-  - **Edit project** – The member can change project settings, including **changing the base language**.
-  - **View activity** – The member can view the project activity.
-  - **Edit languages** – The member can add and remove project languages.
+
+<h3 id="granular-permissions-admin">Admin</h3>
+
+Enabling this permission gives the member **all the permissions for the project**.
+
+<h3 id="granular-permissions-keys">Keys</h3>
+
+Enabling this permission gives the member **all the permissions related to keys** below:
+
+- **View** – The member can view all existing keys.
+- **Create** – The member can create new keys.
+- **Edit** – The member can edit existing keys.
+- **Delete** – The member can delete existing keys.
+
+<h3 id="granular-permissions-translations">Translations</h3>
+
+Enabling this permission gives the member **all the permissions related to translations** below:
+
+- **View** – The member can view the translations in the selected languages.
+- **Edit** – The member can edit the translations in the selected languages.
+- **Change state** – The member can change the state of the translations in the selected languages (mark the translations as "Reviewed").
+- **Comments** – Enabling this permission gives the member **all the permissions related to comments** in the languages selected in the "View" permission below:
+  - **Add** – The member can add comments to the translations in the languages selected in the "View" permission.
+  - **Edit** – The member can edit and delete comments in the languages selected in the "View" permission.
+    The member **can always edit and delete their comment** even if this permission is disabled.
+  - **Resolve** – The member can resolve comments in the languages selected in the "View" permission.
+
+<h3 id="granular-permissions-screenshots">Screenshots</h3>
+
+Enabling this permission gives the member **all the permissions related to screenshots** below:
+
+- **View** – The member can view existing screenshots on keys.
+- **Add** – The member can add screenshots on keys.
+- **Delete** – The member can delete existing screenshots on keys.
+
+<h3 id="granular-permissions-batch-operations">Batch operations</h3>
+
+:::info
+By default, members can start batch operations for the operations they have permission for.
+For example, only if a member has the "[Keys](#granular-permissions-keys)" – "Edit" permission can they start the "Add tags" batch operation, which adds tags to selected keys.
+:::
+
+Enabling this permission gives the member **all the permissions related to batch operations** below:
+
+- **View** – The member can view all recent batch operations in the Editor.
+  By default, members can only view recent batch operations they have started.
+- **Cancel** – The member can cancel any batch operation that is running or queued that was started by any member.
+  By default, members can only cancel the batch operations they have started.
+- **Pre-translate by TM** – The member can start the "Pre-translate by TM" batch operation.
+- **Machine translation** – The member can start the "Machine translation" batch operation.
+
+<h3 id="granular-permissions-members">Members</h3>
+
+Enabling this permission gives the member **all the permissions related to members** below:
+
+- **View** – The member can view the project members.
+- **Edit** – The member can add and remove project members and change their permissions.
+
+<h3 id="granular-permissions-edit-project">Edit project</h3>
+
+The member can change project settings, including **changing the base language**.
+
+<h3 id="granular-permissions-view-activity">View activity</h3>
+
+The member can view the project activity.
+
+<h3 id="granular-permissions-edit-languages">Edit languages</h3>
+
+The member can add and remove project languages.

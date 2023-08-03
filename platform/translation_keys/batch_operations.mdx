@@ -1,0 +1,44 @@
+---
+id: batch_operations
+title: Batch Operations
+sidebar_label: Batch Operations
+---
+
+Batch operations allow you to perform one operation on multiple keys at once.
+This is useful for performing operations on a many keys, such as deleting all keys in a namespace or machine translating all keys in a project.
+
+## Selecting keys
+
+First, select the keys you want to perform the batch operation on. You can do this by **selecting the checkbox next to the keys** you want to select.
+
+You can also **select all keys** by clicking the "Select all" checkbox next to the batch operation dropdown list. When using the "Select all" checkbox after performing a search or applying filters, it will only select all the keys that match the search query or filter conditions.
+
+Next, you can select the batch operation you want to perform from the dropdown list.
+
+![Select all keys](/img/docs/platform/batch_select_all_keys.png)
+
+## Available batch operations
+
+- **Machine translation** – When you pick this operation, you will be prompted to select languages to translate into.
+  The [primary Machine translation providers](/platform/projects_and_organizations/languages#machine-translation-settings) chosen for the languages will be used to translate the keys.
+
+- **Pre-translate by TM** – When you pick this operation, you will be asked to select what languages to pre-translate.
+  Currently, this operation only supports pre-translating with 100% matches from the translation memory.
+
+- **Mark as translated** – When you want to mark "reviewed" translations as "translated", you can use this operation.
+  You will be asked to select the languages to be marked as translated.
+
+- **Mark as reviewed** – When you want to mark "translated" translations as "reviewed", you can use this operation.
+  You will be asked to select the languages to be marked as reviewed.
+
+- **Copy translations** – This operation allows you to copy translations from one language into other languages. You will be asked to select the source language and target languages.
+
+- **Clear translations** – This batch operation clears translations for selected languages in selected keys.
+
+- **Add tags** – With this operation, you can add one or multiple tags to selected keys.
+
+- **Remove tags** – This operation removes one or multiple tags from selected keys if they have them.
+
+- **Change namespace** – This operation enables you to change the namespace of selected keys.
+
+- **Delete keys** – When you choose this operation, you will be asked to confirm the deletion of the selected keys.
