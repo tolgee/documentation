@@ -14,7 +14,8 @@
     "generate-platform-config": "ts-node scripts/generatePlatformConfigurationProps.ts",
     "prettier": "prettier --write ./src --write ./scripts",
     "prettier-check": "prettier --check ./src --check ./scripts",
-    "eslint": "eslint --ext .ts --ext .tsx --max-warnings 0 --report-unused-disable-directives ."
+    "eslint": "eslint --ext .ts --ext .tsx --max-warnings 0 --report-unused-disable-directives .",
+    "oss": "ts-node scripts/downloadOssData.ts"
   },
   "dependencies": {
     "@docusaurus/core": "^2.3.1",

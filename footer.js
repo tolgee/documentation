@@ -53,6 +53,7 @@ module.exports.footer = {
           label: 'Npm',
           href: 'https://www.npmjs.com/org/tolgee',
         },
+        { label: 'OSS Friends', href: '/oss-friends' },
       ],
     },
     {
