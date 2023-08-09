@@ -34,3 +34,4 @@ jobs:
           title: 'Oss friends update'
           body: 'This is an automated daily update.'
           branch: oss-friends-update
+          base: main
