@@ -1,7 +1,11 @@
 name: Update oss friends
 
 on:
-  pull_request:
+  push:
+    branches:
+      - main
+  schedule:
+    - cron: '0 0 * * *'
 
 jobs:
   update-file:
@@ -34,4 +38,3 @@ jobs:
           title: 'Oss friends update'
           body: 'This is an automated daily update.'
           branch: oss-friends-update
-          base: main
