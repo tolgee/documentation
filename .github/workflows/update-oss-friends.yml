@@ -2,9 +2,6 @@ name: Update oss friends
 
 on:
   pull_request:
-    types:
-      - opened
-      - synchronize
 
 jobs:
   update-file:
@@ -14,9 +11,10 @@ jobs:
       - name: Check out code
         uses: actions/checkout@v2
 
+      - run: npm install
+
       - name: Run your script to update the file
-        run: |
-          npm run oss
+        run: npm run oss
 
       - name: Set git globals
         run: |
