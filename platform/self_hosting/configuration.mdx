@@ -690,22 +690,22 @@ server:
   port: 8080
 spring:
   datasource:
-    url: 
-    username: 
-    password: 
+    url:
+    username:
+    password:
 tolgee:
-  file-storage-url: 
-  front-end-url: 
+  file-storage-url:
+  front-end-url:
   max-screenshots-per-key: 20
   max-translation-text-length: 10000
   max-upload-file-size: 51200
   authentication:
     create-initial-user: true
     enabled: true
-    initial-password: 
+    initial-password:
     initial-username: admin
     jwt-expiration: 604800000
-    jwt-secret: 
+    jwt-secret:
     jwt-super-expiration: 3600000
     native-enabled: true
     needs-email-verification: false
@@ -715,30 +715,30 @@ tolgee:
     user-can-create-organizations: true
     github:
       authorization-url: https://github.com/login/oauth/access_token
-      client-id: 
-      client-secret: 
+      client-id:
+      client-secret:
       user-url: https://api.github.com/user
     google:
       authorization-url: https://oauth2.googleapis.com/token
-      client-id: 
-      client-secret: 
+      client-id:
+      client-secret:
       user-url: https://www.googleapis.com/oauth2/v3/userinfo
-      workspace-domain: 
+      workspace-domain:
     ldap:
-      base-dn: 
+      base-dn:
       enabled: false
-      port: 
-      principal-password: 
-      security-principal: 
-      urls: 
-      user-dn-pattern: 
+      port:
+      principal-password:
+      security-principal:
+      urls:
+      user-dn-pattern:
     oauth2:
-      authorization-url: 
-      client-id: 
-      client-secret: 
+      authorization-url:
+      client-id:
+      client-secret:
       scopes: []
-      token-url: 
-      user-url: 
+      token-url:
+      user-url:
   cache:
     caffeine-max-size: -1
     default-ttl: 7200000
@@ -747,43 +747,43 @@ tolgee:
   file-storage:
     fs-data-path: ~/.tolgee/
     s3:
-      access-key: 
-      bucket-name: 
+      access-key:
+      bucket-name:
       enabled: false
-      endpoint: 
-      secret-key: 
-      signing-region: 
+      endpoint:
+      secret-key:
+      signing-region:
   import:
     base-language-tag: en
     create-implicit-api-key: false
-    dir: 
+    dir:
   machine-translation:
     free-credits-amount: -1
     aws:
-      access-key: 
+      access-key:
       default-enabled: true
       default-primary: false
-      enabled: 
+      enabled:
       region: eu-central-1
-      secret-key: 
+      secret-key:
     azure:
-      auth-key: 
+      auth-key:
       default-enabled: true
       default-primary: false
-      region: 
+      region:
     baidu:
       action: false
-      app-id: 
-      app-secret: 
+      app-id:
+      app-secret:
       default-enabled: true
       default-primary: false
     deepl:
-      auth-key: 
+      auth-key:
       default-enabled: true
       default-primary: false
       formality: default
     google:
-      api-key: 
+      api-key:
       default-enabled: true
       default-primary: true
   postgres-autostart:
@@ -797,22 +797,22 @@ tolgee:
   rate-limits:
     enabled: true
   recaptcha:
-    secret-key: 
-    site-key: 
+    secret-key:
+    site-key:
   sentry:
-    client-dsn: 
-    server-dsn: 
-    traces-sample-rate: 
+    client-dsn:
+    server-dsn:
+    traces-sample-rate:
   smtp:
     auth: false
-    from: 
-    host: 
-    password: 
+    from:
+    host:
+    password:
     port: 25
     ssl-enabled: false
     tls-enabled: false
     tls-required: false
-    username: 
+    username:
   telemetry:
     enabled: true
   websocket:
@@ -2283,20 +2283,20 @@ Configuration specific to the use of Websocket.
 
 ```properties title="application.properties"
 server.port = 8080
-spring.datasource.url = 
-spring.datasource.username = 
-spring.datasource.password = 
-tolgee.file-storage-url = 
-tolgee.front-end-url = 
+spring.datasource.url =
+spring.datasource.username =
+spring.datasource.password =
+tolgee.file-storage-url =
+tolgee.front-end-url =
 tolgee.max-screenshots-per-key = 20
 tolgee.max-translation-text-length = 10000
 tolgee.max-upload-file-size = 51200
 tolgee.authentication.create-initial-user = true
 tolgee.authentication.enabled = true
-tolgee.authentication.initial-password = 
+tolgee.authentication.initial-password =
 tolgee.authentication.initial-username = admin
 tolgee.authentication.jwt-expiration = 604800000
-tolgee.authentication.jwt-secret = 
+tolgee.authentication.jwt-secret =
 tolgee.authentication.jwt-super-expiration = 3600000
 tolgee.authentication.native-enabled = true
 tolgee.authentication.needs-email-verification = false
@@ -2305,62 +2305,62 @@ tolgee.authentication.secured-image-retrieval = false
 tolgee.authentication.secured-image-timestamp-max-age = 600000
 tolgee.authentication.user-can-create-organizations = true
 tolgee.authentication.github.authorization-url = https://github.com/login/oauth/access_token
-tolgee.authentication.github.client-id = 
-tolgee.authentication.github.client-secret = 
+tolgee.authentication.github.client-id =
+tolgee.authentication.github.client-secret =
 tolgee.authentication.github.user-url = https://api.github.com/user
 tolgee.authentication.google.authorization-url = https://oauth2.googleapis.com/token
-tolgee.authentication.google.client-id = 
-tolgee.authentication.google.client-secret = 
+tolgee.authentication.google.client-id =
+tolgee.authentication.google.client-secret =
 tolgee.authentication.google.user-url = https://www.googleapis.com/oauth2/v3/userinfo
-tolgee.authentication.google.workspace-domain = 
-tolgee.authentication.ldap.base-dn = 
+tolgee.authentication.google.workspace-domain =
+tolgee.authentication.ldap.base-dn =
 tolgee.authentication.ldap.enabled = false
-tolgee.authentication.ldap.port = 
-tolgee.authentication.ldap.principal-password = 
-tolgee.authentication.ldap.security-principal = 
-tolgee.authentication.ldap.urls = 
-tolgee.authentication.ldap.user-dn-pattern = 
-tolgee.authentication.oauth2.authorization-url = 
-tolgee.authentication.oauth2.client-id = 
-tolgee.authentication.oauth2.client-secret = 
+tolgee.authentication.ldap.port =
+tolgee.authentication.ldap.principal-password =
+tolgee.authentication.ldap.security-principal =
+tolgee.authentication.ldap.urls =
+tolgee.authentication.ldap.user-dn-pattern =
+tolgee.authentication.oauth2.authorization-url =
+tolgee.authentication.oauth2.client-id =
+tolgee.authentication.oauth2.client-secret =
 tolgee.authentication.oauth2.scopes = []
-tolgee.authentication.oauth2.token-url = 
-tolgee.authentication.oauth2.user-url = 
+tolgee.authentication.oauth2.token-url =
+tolgee.authentication.oauth2.user-url =
 tolgee.cache.caffeine-max-size = -1
 tolgee.cache.default-ttl = 7200000
 tolgee.cache.enabled = false
 tolgee.cache.use-redis = false
 tolgee.file-storage.fs-data-path = ~/.tolgee/
-tolgee.file-storage.s3.access-key = 
-tolgee.file-storage.s3.bucket-name = 
+tolgee.file-storage.s3.access-key =
+tolgee.file-storage.s3.bucket-name =
 tolgee.file-storage.s3.enabled = false
-tolgee.file-storage.s3.endpoint = 
-tolgee.file-storage.s3.secret-key = 
-tolgee.file-storage.s3.signing-region = 
+tolgee.file-storage.s3.endpoint =
+tolgee.file-storage.s3.secret-key =
+tolgee.file-storage.s3.signing-region =
 tolgee.import.base-language-tag = en
 tolgee.import.create-implicit-api-key = false
-tolgee.import.dir = 
+tolgee.import.dir =
 tolgee.machine-translation.free-credits-amount = -1
-tolgee.machine-translation.aws.access-key = 
+tolgee.machine-translation.aws.access-key =
 tolgee.machine-translation.aws.default-enabled = true
 tolgee.machine-translation.aws.default-primary = false
-tolgee.machine-translation.aws.enabled = 
+tolgee.machine-translation.aws.enabled =
 tolgee.machine-translation.aws.region = eu-central-1
-tolgee.machine-translation.aws.secret-key = 
-tolgee.machine-translation.azure.auth-key = 
+tolgee.machine-translation.aws.secret-key =
+tolgee.machine-translation.azure.auth-key =
 tolgee.machine-translation.azure.default-enabled = true
 tolgee.machine-translation.azure.default-primary = false
-tolgee.machine-translation.azure.region = 
+tolgee.machine-translation.azure.region =
 tolgee.machine-translation.baidu.action = false
-tolgee.machine-translation.baidu.app-id = 
-tolgee.machine-translation.baidu.app-secret = 
+tolgee.machine-translation.baidu.app-id =
+tolgee.machine-translation.baidu.app-secret =
 tolgee.machine-translation.baidu.default-enabled = true
 tolgee.machine-translation.baidu.default-primary = false
-tolgee.machine-translation.deepl.auth-key = 
+tolgee.machine-translation.deepl.auth-key =
 tolgee.machine-translation.deepl.default-enabled = true
 tolgee.machine-translation.deepl.default-primary = false
 tolgee.machine-translation.deepl.formality = default
-tolgee.machine-translation.google.api-key = 
+tolgee.machine-translation.google.api-key =
 tolgee.machine-translation.google.default-enabled = true
 tolgee.machine-translation.google.default-primary = true
 tolgee.postgres-autostart.container-name = tolgee_postgres
@@ -2371,20 +2371,20 @@ tolgee.postgres-autostart.password = postgres
 tolgee.postgres-autostart.port = 25432
 tolgee.postgres-autostart.user = postgres
 tolgee.rate-limits.enabled = true
-tolgee.recaptcha.secret-key = 
-tolgee.recaptcha.site-key = 
-tolgee.sentry.client-dsn = 
-tolgee.sentry.server-dsn = 
-tolgee.sentry.traces-sample-rate = 
+tolgee.recaptcha.secret-key =
+tolgee.recaptcha.site-key =
+tolgee.sentry.client-dsn =
+tolgee.sentry.server-dsn =
+tolgee.sentry.traces-sample-rate =
 tolgee.smtp.auth = false
-tolgee.smtp.from = 
-tolgee.smtp.host = 
-tolgee.smtp.password = 
+tolgee.smtp.from =
+tolgee.smtp.host =
+tolgee.smtp.password =
 tolgee.smtp.port = 25
 tolgee.smtp.ssl-enabled = false
 tolgee.smtp.tls-enabled = false
 tolgee.smtp.tls-required = false
-tolgee.smtp.username = 
+tolgee.smtp.username =
 tolgee.telemetry.enabled = true
 tolgee.websocket.use-redis = false
 ```

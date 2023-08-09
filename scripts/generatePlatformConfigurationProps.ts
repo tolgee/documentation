@@ -42,8 +42,8 @@ const definition: Definition = {
   ],
 };
 
-downloadProps().then(() => {
-  generateDocsMdx();
+downloadProps().then((data) => {
+  generateDocsMdx(data);
 });
 
 function camelCaseToKebabCase(str: string): string {
@@ -270,7 +270,9 @@ function writeFullPropertiesConfig(
       }
     } else {
       stream.write(
-        `${prefix ? `${prefix}.` : ''}${name} = ${item.defaultValue ?? ''}`
+        `${prefix ? `${prefix}.` : ''}${name} =${
+          item.defaultValue ? ` ${item.defaultValue}` : ''
+        }`
       );
       stream.write('\n');
     }
@@ -325,8 +327,8 @@ function writeFullYamlConfig(
       }
     } else {
       stream.write(
-        `${' '.repeat(level * 2)}${name}: ${
-          item.defaultValue ? item.defaultValue : ''
+        `${' '.repeat(level * 2)}${name}:${
+          item.defaultValue ? ` ${item.defaultValue}` : ''
         }`
       );
       stream.write('\n');
@@ -334,20 +336,7 @@ function writeFullYamlConfig(
   });
 }
 
-async function generateDocsMdx() {
-  const json = JSON.parse(
-    fs.readFileSync(
-      Path.resolve(
-        __dirname,
-        '..',
-        'platform',
-        'generated',
-        definition.filename
-      ),
-      'utf8'
-    )
-  ) as Data[];
-
+async function generateDocsMdx(data: Data[]) {
   const docsStream = fs.createWriteStream(
     Path.resolve(
       __dirname,
@@ -360,14 +349,14 @@ async function generateDocsMdx() {
 
   writeDocsStart(docsStream);
 
-  writeConfigFormatsDocs(docsStream, json);
+  writeConfigFormatsDocs(docsStream, data);
 
   docsStream.write('</Tabs>');
 
   docsStream.close();
 }
 
-function writeConfigFormatsDocs(docsStream: fs.WriteStream, json: Data[]) {
+function writeConfigFormatsDocs(docsStream: fs.WriteStream, data: Data[]) {
   for (let i = 0; i < definition.configFormats.length; i++) {
     const format = definition.configFormats[i];
     docsStream.write(`<TabItem value="${format.value}">`);
@@ -399,9 +388,9 @@ function writeConfigFormatsDocs(docsStream: fs.WriteStream, json: Data[]) {
 
     docsStream.write('\n\n');
 
-    writeItems(json, docsStream, i);
+    writeItems(data, docsStream, i);
 
-    writeFullConfig(json, docsStream, i);
+    writeFullConfig(data, docsStream, i);
 
     docsStream.write('</TabItem>');
     docsStream.write('\n\n');
@@ -439,19 +428,11 @@ async function downloadProps() {
         Accept: 'application/json',
       },
     });
-    const data = await response.text();
-    fs.writeFileSync(
-      Path.resolve(
-        __dirname,
-        '..',
-        'platform',
-        'generated',
-        definition.filename
-      ),
-      data
-    );
+    const data: Data[] = await response.json();
+    return data;
   } catch (e) {
     // eslint-disable-next-line no-console
     console.error('Cannot fetch data.', e);
+    process.exit(1);
   }
 }
