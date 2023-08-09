@@ -1,0 +1,38 @@
+name: Update oss friends
+
+on:
+  pull_request:
+    types:
+      - opened
+      - synchronize
+
+jobs:
+  update-file:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Check out code
+        uses: actions/checkout@v2
+
+      - name: Run your script to update the file
+        run: |
+          npm run oss
+
+      - name: Set git globals
+        run: |
+          git config --local user.email "machine@tolgee.io"
+          git config --local user.name "Tolgee Machine"
+
+      - name: Commit and push changes
+        run: |
+          git add .
+          git diff --quiet && git diff --staged --quiet || git commit -m "Update oss friends"
+
+      - name: Create or update pull request
+        uses: peter-evans/create-pull-request@v3
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
+          commit-message: 'Updating file'
+          title: 'Oss friends update'
+          body: 'This is an automated daily update.'
+          branch: oss-friends-update
