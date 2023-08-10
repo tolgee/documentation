@@ -5,7 +5,7 @@ title: 'Learn How to Easily Translate Your Angular App with Tolgee'
 
 authors: [knzapdi]
 
-image: '/img/blog/angular-tutorial/angular_tolgee.jpg'
+image: '/img/blog/angular-tutorial/angular_tolgee.png'
 
 description: 'In this tutorial, you will learn how to painlessly translate an Angular application in many languages using Tolgee, a powerful open-source Localization engine.
 '
@@ -15,7 +15,7 @@ tags: [Angular, localization, i18n, tutorial]
 
 In this tutorial, you will learn how to painlessly translate an Angular application in many languages using Tolgee, a powerful open-source Localization engine
 
-![Angular Tolgee](/img/blog/angular-tutorial/angular_tolgee.jpg)
+![Angular Tolgee](/img/blog/angular-tutorial/angular_tolgee.png)
 
 <!--truncate-->
 
