@@ -434,7 +434,7 @@ Update your `App.vue` file to include the selector component
 </template>
 ```
 
-## Step 10: Preparing for Production
+## Step 11: Preparing for Production
 
 Never use localization data from Tolgee REST API and never leak your API key in [production mode](https://tolgee.io/js-sdk/integrations/angular/installation#preparing-for-production), instead export them and add to your application.
 
