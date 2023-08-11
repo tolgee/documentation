@@ -2,19 +2,21 @@
 slug: tolgee-with-nextjs-app-router
 title: 'Tolgee with Next.js app router'
 authors: [sgranat]
-description: 'Setting up Tolgee with Next.js new app router and server components.'
+description: 'Unlocking in-context localization on the server: A Guide to Integrate Tolgee with Next.js' New App Router and Server Components'
 tags: [next.js, server components, react]
 ---
 
 With the introduction of Next.js 13 and the app router featuring React server components, there has been a strong push to enable Tolgee to work within this new paradigm.
 
-Until now, Tolgee was designed to function with regular React components. However, we now face the challenge of making in-context translation work with server components. Let's delve into the details.
+Server components are a stripped-down version of regular components without React hooks but with async capabilities. Let's see, how we can set them up with Tolgee.
+
+Considering the app router is still in beta and Next.js API adjustments might occur, I opted for this article (instead of creating a package) to explain how Tolgee can work with the server.
 
 <!--truncate-->
 
 > #### How Tolgee In-Context Works
 >
-> Tolgee's unique method of enabling users to directly edit translations within the app is based on inserting invisible characters next to the actual translations. This creates a kind of `watermark` for each translation, making it detectable in the DOM and allowing precise localization.
+> Tolgee's unique method of enabling users to directly edit translations within the app is based on inserting [invisible characters](https://tolgee.io/js-sdk/wrapping) next to the actual translations. This creates a kind of `watermark` for each translation, making it detectable in the DOM and allowing precise localization.
 > This approach offers a non-intrusive way to empower users to translate in the context of their app.
 
 ### The General Plan
@@ -252,7 +254,7 @@ This is an equivalent of `getInitialProps` (or its related methods) because this
 
 > If you want to provide each page with different namespace, you can move the provider to the page files, however this example provides the translations globally
 
-## The Action
+## How to use it
 
 Let's see how we can localize server components:
 
@@ -336,11 +338,11 @@ If you encounter any issues making it work, you can clone [the example app](http
 
 Although in-context translation works with server components, there are some limitations compared to client components. Since the Tolgee cache on the server is separate, Tolgee can't automatically change the translation when creating a screenshot (unlike with client components, which swap the content if you've modified it in a dialog).
 
-Furthermore, if you're using the Tolgee plugin, it won't affect the server's transition to dev mode. As a result, only the client switches, leaving server components non-editable in this mode.
+Furthermore, if you're using the [Tolgee plugin](https://chrome.google.com/webstore/detail/tolgee-tools/hacnbapajkkfohnonhbmegojnddagfnj), it won't affect the server's transition to dev mode. As a result, only the client switches, leaving server components non-editable in this mode.
 
 ## Conclusion and future steps
 
-Given that server components exist in a completely distinct environment, I might create a separate next.js package in the future. Yet, considering the app router is still in beta and Next.js API adjustments might occur, I opted for this article instead to explain how Tolgee can work with the server.
+Given that server components exist in a completely distinct environment, I might create a separate next.js package in the future.
 
 Moreover, the standard usage of Server components is yet to be fully determined. It's possible they might only be utilized for data fetching, but the future holds the answer.
 
