@@ -2,65 +2,44 @@
 slug: tolgee-with-nextjs-app-router
 title: 'Tolgee with Next.js app router'
 authors: [sgranat]
-description: 'How to setup Tolgee with Next.js new app router and server components.'
+description: 'Setting up Tolgee with Next.js new app router and server components.'
 tags: [next.js, server components, react]
 ---
 
-As next.js 13 brought app router with react server components. We've received quite a push to make Tolgee work with this new paradigm.
+With the introduction of Next.js 13 and the app router featuring React server components, there has been a strong push to enable Tolgee to work within this new paradigm.
 
-In the future we probable will release a dedicated package for Next.js, but as the API is still in early stages and most of the users will probably be enthusiasts like me. I've decided that it will be better to show a tutorial how to set it up yourself and show you our technology on a deeper level.
+Until now, Tolgee was designed to function with regular React components. However, we now face the challenge of making in-context translation work with server components. Let's delve into the details.
 
 <!--truncate-->
 
-> #### How tolgee in-context works?
+> #### How Tolgee In-Context Works
 >
-> Tolgee unique way of allowing the user to click-and-edit every translation directly in your app, is based on inserting an invisible charactars next to the actual translations, so that each translation has kind of `watermark`, which is detectable in the DOM and we know where it is.
->
-> This way we have a very non-invasive way how to enable users to translate **in the context** of their app.
+> Tolgee's unique method of enabling users to directly edit translations within the app is based on inserting invisible characters next to the actual translations. This creates a kind of `watermark` for each translation, making it detectable in the DOM and allowing precise localization.
+> This approach offers a non-intrusive way to empower users to translate in the context of their app.
 
-## Bringing the in-context to the server
+### The General Plan
 
-Our dilemma was that currently, we don't encode the whole key in the `watermark`, we assign each key a number and only that number is encoded into the invisible characters. The SDK keeps an internal record of the key numbering so that we can reverse this process when we are searching the DOM. The downside of this approach is that it is dependant on the internal information about the keys numbering and we can't easily decouple the rendering from the dom search.
+For server components, the approach involves including a complete key name within the invisible `watermark` characters. Additionally, the development translation files need to be loaded on the server to facilitate rendering. On the client side, the SDK will recognize the server-rendered `watermarks` and enable the in-context translation functionality.
 
-> All this is done, because the `watermark` is using unicode zero-length characters for binary encoding the text. This means that resulting text is about 20 times longer than regular text and so it might have an performance penalty if we would have to encode/decode it on each render.
+# Setting Up the Configuration
 
-### The SSR way
+To initiate a new project, we will create a fresh Next.js 13 project (with the app directory enabled):
 
-This was a potential issue with the SSR, but it was possible to simply shift the rendering of the `watermarks` to the client, so the first render is without the watermarks (both on the server and client) and only on the second render we add the watermarks (which happens only on the client). Also, Tolgee dev-mode is only activated on the client, so the development translation files are only loaded from client and replace the production ones once loaded.
-
-### Server components
-
-React server components have one fundamental challenge - they are rendered only on the server. This is a different approach from SSR, where each component is "pre-rendered" on the server and then hydrated and re-rendered on the client.
-
-So we can't use our SSR trick here. However, we can use the fact, that the server components are not re-rendered on the client so we can encode the whole key into the `watermark` because it will be encoded and decoded much less frequently than in client components and it allows us to split the process. So rendering is done on the server and then we search the dom on the client.
-
-Also since server components can do async operations, we can completely switch Tolgee to `dev-mode` on the server which means loading the live translations from Tolgee platform already on the server.
-
-### So to summarize it ...
-
-For server components, we need to include a complete key name into the `watermark` and also load the dev translation files on the server so we can render them. On the client side, the SDK will pick up the server-rendered `watermarks` and enables the in-context functionality.
-
-This has a small implication for user comfort - the translations can't be updated in-place locally, which is done when you edit the translation and you want to create a screenshot before it is saved to the platform. This is one of the tradeoffs with server-only rendering, which we can't simply overcome.
-
-# Ok, let's set it up
-
-To setup new project we'll create a new next.js 13 project (with app directory enabled):
-
-```
+```bash
 npx create-next-app@latest
 ```
 
-The support for i18n is currently very poor for the app directory, so we'll have to use an external library `next-intl` to help us with routing and locale management.
+As the i18n support is currently limited for the app directory, we'll use an external library called next-intl to assist with routing and locale management.
 
-Currently, we need to install a beta version (this version is up-to-date with the date of writing) + latest version of `@tolgee/react`
+For now, we need to install a beta version (updated as of the writing date) and the latest version of @tolgee/react:
 
 ```
 npm install next-intl@3.0.0-beta.9 @tolgee/react
 ```
 
-### Set up `next-intl`
+### Configuring `next-intl`
 
-Now we will have to adjust the folder structure to look something like this:
+The folder structure needs to be adjusted to resemble the following:
 
 ```
 ├── next.config.js
@@ -78,10 +57,9 @@ Now we will have to adjust the folder structure to look something like this:
         └── page.tsx
 ```
 
-The app structure and the middleware are part of the `next-intl` setup.
-The `tolgee` folder will serve for client and server setup with shared properties and in the i18n folder we will have our static files (exported from Tolgee platform or empty for now).
+The app structure and middleware play essential roles in the next-intl setup. The Tolgee folder serves for both client and server configurations with shared properties. The i18n folder contains the static files (exported from the Tolgee platform or left empty for now).
 
-This is how we setup the `middleware` file:
+Below is the configuration for the `middleware` file:
 
 ```tsx
 // middleware.ts
@@ -99,9 +77,9 @@ export const config = {
 };
 ```
 
-> To get a full picture how next-intl works, check [their docs](https://next-intl-docs.vercel.app/docs/getting-started/app-router-server-components). We are using only their setup required for proper routing, so we don't need all the setup listed there.
+> To gain a comprehensive understanding of how `next-intl` operates, check [their docs](https://next-intl-docs.vercel.app/docs/getting-started/app-router-server-components). We are only utilizing the necessary setup for proper routing, hence not all the listed configurations are required.
 
-Now let's create a shared configuration, which will apply to both client and server.
+Now, let's establish a shared configuration that will apply to both the client and server.
 
 > For this to work, create a project in tolgee platform, get the api key in integration section. Also I assume you have your exported language files in `i18n` folder (as is visible in the file structure above).
 
@@ -130,7 +108,7 @@ export function TolgeeBase() {
     Tolgee()
       .use(FormatSimple())
       .use(DevTools())
-      // pre-set shared settings
+      // Preset shared settings
       .updateDefaults({
         apiKey,
         apiUrl,
@@ -139,7 +117,7 @@ export function TolgeeBase() {
 }
 ```
 
-The client part is essentially the same as it was with `pages` directory. It serves for translating client components but enables in-context functionality for server-rendered components as well.
+The client part remains largely unchanged from the `pages` directory setup. It serves the purpose of translating client components and also enables in-context functionality for server-rendered components.
 
 ```tsx
 // client.tsx
@@ -160,15 +138,14 @@ type Props = {
 const tolgee = TolgeeBase().init();
 
 export const TolgeeNextProvider = ({ locale, locales, children }: Props) => {
-  // this will synchronize tolgee for server and client first render
-  // and ensures that tolgee is properly initialized (with language and cache)
-  const tolgeeSSR = useTolgeeSSR(tolgee, locale, locales);
+  // This synchronizes Tolgee for the server and client's initial render,
+  // ensuring proper initialization with language and cache  const tolgeeSSR = useTolgeeSSR(tolgee, locale, locales);
   const router = useRouter();
 
   useEffect(() => {
     const { unsubscribe } = tolgeeSSR.on('permanentChange', () => {
-      // this ensures server components refresh after
-      // translation modification with in-context
+      // This ensures that server components refresh after
+      // translation modifications using in-context
       router.refresh();
     });
 
@@ -183,9 +160,9 @@ export const TolgeeNextProvider = ({ locale, locales, children }: Props) => {
 };
 ```
 
-The only thing we do differently is the listener for `permanentChange`, this event occurs when a translation is updated through an in-context dialog and we can refresh server components with the `router.refresh`.
+The only significant change is the listener for the `permanentChange` event. This event triggers when a translation is updated through an in-context dialog, allowing for a server component refresh with `router.refresh`.
 
-Ok, now the server part. As server components don't support React hooks, we need to re-create similar abstractions as are in `@tolgee/react` ourselves. Fortunately, it's quite simple, we can basically use vanilla Tolgee, we just need to correctly cache the instance.
+Now, let's proceed to the server part. As server components don't support React hooks, we need to recreate similar abstractions to those found in `@tolgee/react` ourselves. Fortunately, this process is relatively straightforward; we can essentially utilize vanilla Tolgee, with proper configuration and caching of the instance.
 
 ```tsx
 // server.tsx
@@ -201,6 +178,7 @@ export const getTolgeeInstance = cache(async (locale: string) => {
     staticData: await getStaticData(ALL_LOCALES),
     observerOptions: {
       // include full information about the key into the watermark
+      // make sure you have newest SDK for this feature
       fullKeyEncode: true,
     },
     // locale is already detected by next-intl package
@@ -230,7 +208,7 @@ export const getTranslate = async () => {
 
 > Re-creation of `T` component is a bit more complicated, because we need to copy some code from `@tolgee/react`, but you check how to do it in the [example repo](https://github.com/tolgee/next-app-example).
 
-### Let's setup the provider
+### Let's set up the provider
 
 Here is how we apply the `TolgeeNextProvider` in the `layout.tsx`
 
@@ -274,7 +252,7 @@ This is an equivalent of `getInitialProps` (or its related methods) because this
 
 > If you want to provide each page with different namespace, you can move the provider to the page files, however this example provides the translations globally
 
-## Ok, now the action
+## The Action
 
 Let's see how we can localize server components:
 
@@ -299,9 +277,9 @@ export default async function IndexPage() {
 }
 ```
 
-If everything is set up correctly, the 'page-example-title' would be `alt + click`able. Make sure you've defined your project credentials in `.env.development.local` file.
+If everything is set up correctly, the 'page-example-title' should be `alt + click`able. Make sure you've defined your project credentials in the `.env.development.local` file.
 
-In client components we can use regular `react` integration:
+For client components, you can use the regular `React` integration:
 
 ```tsx
 'use client';
@@ -319,9 +297,9 @@ export const ExampleClientComponent = () => {
 };
 ```
 
-### Switching languages
+### Switching Languages
 
-For switching locales use the following code:
+For switching languages use the following code:
 
 ```tsx
 'use client';
@@ -352,18 +330,18 @@ export const LangSelector: React.FC = () => {
 };
 ```
 
-Ok, that's it. If you have issues with making it work, you can clone the [example app](https://github.com/tolgee/next-app-example) and start from there.
+If you encounter any issues making it work, you can clone [the example app](https://github.com/tolgee/next-app-example) and kickstart your journey from there.
 
-## Limitations of server components
+## Limitations of Server Components
 
-Even though we can make in-context translating work with server components it has some limitations compared to client components. Because the Tolgee cache on a server is separated, Tolgee can't automatically change translation when creating a screenshot (with client components it swaps the content of the translation if you've already modified it in the dialog).
+Although in-context translation works with server components, there are some limitations compared to client components. Since the Tolgee cache on the server is separate, Tolgee can't automatically change the translation when creating a screenshot (unlike with client components, which swap the content if you've modified it in a dialog).
 
-Also if you use the Tolgee plugin, it won't influence the server in switching to dev mode, so only the client will be switched and therefore server components will not be editable in this mode.
+Furthermore, if you're using the Tolgee plugin, it won't affect the server's transition to dev mode. As a result, only the client switches, leaving server components non-editable in this mode.
 
 ## Conclusion and future steps
 
-Because server components exist in a completely different environment I'll probably create a separate next.js package in the future. However, the app router is still in beta and the next.js API may change. I've decided to create this article instead, to explain how can Tolgee work on the server.
+Given that server components exist in a completely distinct environment, I might create a separate next.js package in the future. Yet, considering the app router is still in beta and Next.js API adjustments might occur, I opted for this article instead to explain how Tolgee can work with the server.
 
-It is also not entirely clear what will be the standard usage of Server components, it might as well be, that they will only be used for data fetching, but who knows?
+Moreover, the standard usage of Server components is yet to be fully determined. It's possible they might only be utilized for data fetching, but the future holds the answer.
 
-> If you have any suggestions or ideas for improvements I'll be happy if you express them in our [slack](https://tolg.ee/slack) or create a Github issue. If you like Tolgee give us [Github star](https://github.com/tolgee/tolgee-platform).
+> If you've got any suggestions or ideas for improvements, feel free to share them on our [slack](https://tolg.ee/slack) or open a Github issue. And if you're fond of Tolgee, don't forget to give us a [Github star](https://github.com/tolgee/tolgee-platform).
