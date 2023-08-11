@@ -1,6 +1,6 @@
 ---
-slug: tolgee-with-nextjs-app-router
-title: 'Tolgee with Next.js app router'
+slug: how-to-setup-tolgee-with-nextjs-app-router
+title: 'How to setup Tolgee with Next.js App Router'
 authors: [sgranat]
 description: 'Unlocking in-context localization on the server: A Guide to Integrate Tolgee with Next.js' New App Router and Server Components'
 tags: [next.js, server components, react]
@@ -10,7 +10,7 @@ With the introduction of Next.js 13 and the app router featuring React server co
 
 Server components are a stripped-down version of regular components without React hooks but with async capabilities. Let's see, how we can set them up with Tolgee.
 
-Considering the app router is still in beta and Next.js API adjustments might occur, we opted for this article (instead of creating a package) to explain how Tolgee can work with the server.
+Considering the app router is still in beta and Next.js API adjustments might occur, we opted for this article (instead of creating an npm package right away) to explain how Tolgee can work with the server.
 
 <!--truncate-->
 
