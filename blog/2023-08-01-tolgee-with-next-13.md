@@ -10,7 +10,7 @@ With the introduction of Next.js 13 and the app router featuring React server co
 
 Server components are a stripped-down version of regular components without React hooks but with async capabilities. Let's see, how we can set them up with Tolgee.
 
-Considering the app router is still in beta and Next.js API adjustments might occur, I opted for this article (instead of creating a package) to explain how Tolgee can work with the server.
+Considering the app router is still in beta and Next.js API adjustments might occur, we opted for this article (instead of creating a package) to explain how Tolgee can work with the server.
 
 <!--truncate-->
 
