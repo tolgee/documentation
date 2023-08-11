@@ -2,7 +2,7 @@
 slug: how-to-setup-tolgee-with-nextjs-app-router
 title: 'How to setup Tolgee with Next.js App Router'
 authors: [sgranat]
-description: 'Unlocking in-context localization on the server: A Guide to Integrate Tolgee with Next.js' New App Router and Server Components'
+description: "Unlocking in-context localization on the server: A Guide to Integrate Tolgee with Next.js' New App Router and Server Components"
 tags: [next.js, server components, react]
 ---
 
