@@ -13,6 +13,8 @@ import NextLogo from '../../../static/img/technologies/logo-next.svg';
 import { LandingPageActions } from '../../component/landingPages/LandingPageActions';
 import { MoreIntegrations } from '../../component/landingPages/LandingPageMoreIntegrations';
 import Head from '@docusaurus/Head';
+import { Alert } from '@mui/material';
+import Link from '@docusaurus/Link';
 
 const DocsLinks = ({ primary }: { primary?: boolean }) => (
   <LandingPageActions
@@ -47,6 +49,14 @@ export default function Next() {
       >
         <DocsLinks />
       </LandingPageHeadline>
+      <div className="container integration">
+        <Alert severity="info">
+          Read about Next.js App router on{' '}
+          <Link href="/blog/how-to-setup-tolgee-with-nextjs-app-router">
+            our blog
+          </Link>
+        </Alert>
+      </div>
       <LandingPageDescription installationCommand="npm i @tolgee/react">
         <p>
           To use Tolgee with your Next application, use React integration
