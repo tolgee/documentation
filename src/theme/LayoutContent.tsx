@@ -34,6 +34,7 @@ export const LayoutContent = ({ children }) => {
   const theme = useMemo(() => {
     return createTheme({
       palette: {
+        mode: isDarkTheme ? 'dark' : 'light',
         primary: {
           main: isDarkTheme ? 'rgb(255, 105, 149)' : '#822B55',
         },
