@@ -5,9 +5,25 @@ import useDocusaurusContext from '@docusaurus/useDocusaurusContext';
 import { getChatwootScript } from '../component/externalScripts/getChatwootScript';
 import { getGtagScript } from '../component/externalScripts/getGtagScript';
 import websiteSchema from '../info/website';
-import { createTheme, ThemeProvider as MuiThemeProvider } from '@mui/material';
+import {
+  createTheme,
+  Experimental_CssVarsProvider,
+  ThemeProvider as MuiThemeProvider,
+  useColorScheme,
+} from '@mui/material';
 import { useDarkMode } from '../utils';
 import { getHotjarScript } from '../component/externalScripts/getHotjarScript';
+
+const MuiThemeSynchronizer = () => {
+  const isDarkTheme = useDarkMode();
+  const { setMode } = useColorScheme();
+
+  useEffect(() => {
+    setMode(isDarkTheme ? 'dark' : 'light');
+  }, [isDarkTheme]);
+
+  return null;
+};
 
 export const LayoutContent = ({ children }) => {
   const isDarkTheme = useDarkMode();
@@ -34,7 +50,6 @@ export const LayoutContent = ({ children }) => {
   const theme = useMemo(() => {
     return createTheme({
       palette: {
-        mode: isDarkTheme ? 'dark' : 'light',
         primary: {
           main: isDarkTheme ? 'rgb(255, 105, 149)' : '#822B55',
         },
@@ -84,7 +99,12 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
           }}
         ></div>
       )}
-      <MuiThemeProvider theme={theme}>{children}</MuiThemeProvider>
+      <Experimental_CssVarsProvider>
+        <MuiThemeProvider theme={theme}>
+          <MuiThemeSynchronizer />
+          <>{children}</>
+        </MuiThemeProvider>
+      </Experimental_CssVarsProvider>
     </>
   );
 };
