@@ -23,6 +23,8 @@ Server components are a stripped-down version of regular components without Reac
 
 For server components, the approach involves including a complete key name within the invisible `watermark` characters. Additionally, the development translation files need to be loaded on the server to facilitate rendering. On the client side, the SDK will recognize the server-rendered `watermarks` and enable the in-context translation functionality.
 
+In Development mode, data will be fetched directly from Tolgee platform with each request to the server. In Production mode, we'll include the locale data directly into the bundle, so no fetching is necessary.
+
 # Setting Up the Configuration
 
 To initiate a new project, we will create a fresh Next.js 13 project (with the app directory enabled):
@@ -39,7 +41,7 @@ For now, we need to install a beta version (updated as of the writing date) and 
 npm install next-intl@3.0.0-beta.9 @tolgee/react
 ```
 
-### Configuring `next-intl`
+### Configuring `next-intl` and Tolgee
 
 The folder structure needs to be adjusted to resemble the following:
 
@@ -174,6 +176,8 @@ import { useLocale } from 'next-intl';
 
 import { TolgeeBase, ALL_LOCALES, getStaticData } from './shared';
 
+// wrapping in `cache` function will ensure
+// that we are sharing the instance within a single request
 export const getTolgeeInstance = cache(async (locale: string) => {
   const tolgee = TolgeeBase().init({
     // include all static data on the server, as the bundle size is not a concern here
@@ -262,10 +266,6 @@ Let's see how we can localize server components:
 // page.tsx
 
 import { getTranslate } from 'tolgee/server';
-import { Todos } from './Todos';
-import Link from 'next-intl/link';
-
-import { Navbar } from 'components/Navbar';
 
 export default async function IndexPage() {
   // because this is server component, use `getTranslate`
