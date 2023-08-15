@@ -278,6 +278,16 @@ This enables the integration of a wide range of authorization providers into tol
 
   Whether regular users are allowed to create projects. When disabled, only administrators can create projects (default: `true`)
 
+### Batch operations
+
+Prefix: `tolgee.batch`
+
+Configuration of batch operations.
+
+- ##### `concurrency` {#concurrency}
+
+  How many parallel jobs can be run at once on single Tolgee instance (default: `1`)
+
 ### Cache
 
 Prefix: `tolgee.cache`
@@ -739,6 +749,8 @@ tolgee:
       scopes: []
       token-url:
       user-url:
+  batch:
+    concurrency: 1
   cache:
     caffeine-max-size: -1
     default-ttl: 7200000
@@ -1088,6 +1100,16 @@ This enables the integration of a wide range of authorization providers into tol
   **Removed in:** 2.33.0
 
   Whether regular users are allowed to create projects. When disabled, only administrators can create projects (default: `true`)
+
+<h3 id="batch-operations">Batch operations</h3>
+
+Prefix: `TOLGEE_BATCH`
+
+Configuration of batch operations.
+
+- <h5 id="concurrency"><code>CONCURRENCY</code></h5>
+
+  How many parallel jobs can be run at once on single Tolgee instance (default: `1`)
 
 <h3 id="cache">Cache</h3>
 
@@ -1541,6 +1563,7 @@ TOLGEE_AUTHENTICATION_OAUTH2_CLIENT_SECRET=
 TOLGEE_AUTHENTICATION_OAUTH2_SCOPES=[]
 TOLGEE_AUTHENTICATION_OAUTH2_TOKEN_URL=
 TOLGEE_AUTHENTICATION_OAUTH2_USER_URL=
+TOLGEE_BATCH_CONCURRENCY=1
 TOLGEE_CACHE_CAFFEINE_MAX_SIZE=-1
 TOLGEE_CACHE_DEFAULT_TTL=7200000
 TOLGEE_CACHE_ENABLED=false
@@ -1873,6 +1896,16 @@ This enables the integration of a wide range of authorization providers into tol
   **Removed in:** 2.33.0
 
   Whether regular users are allowed to create projects. When disabled, only administrators can create projects (default: `true`)
+
+<h3 id="batch-operations">Batch operations</h3>
+
+Prefix: `tolgee.batch`
+
+Configuration of batch operations.
+
+- <h5 id="concurrency"><code>concurrency</code></h5>
+
+  How many parallel jobs can be run at once on single Tolgee instance (default: `1`)
 
 <h3 id="cache">Cache</h3>
 
@@ -2326,6 +2359,7 @@ tolgee.authentication.oauth2.client-secret =
 tolgee.authentication.oauth2.scopes = []
 tolgee.authentication.oauth2.token-url =
 tolgee.authentication.oauth2.user-url =
+tolgee.batch.concurrency = 1
 tolgee.cache.caffeine-max-size = -1
 tolgee.cache.default-ttl = 7200000
 tolgee.cache.enabled = false
