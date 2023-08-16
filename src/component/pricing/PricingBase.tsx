@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 
 import DecoratedLayout from '../../theme/DecoratedLayout';
 import { PageHeader } from '../pageComponents/header/PageHeader';
@@ -7,8 +7,24 @@ import { PageHeaderTitle } from '../pageComponents/header/PageHeaderTitle';
 import { PricingFAQs } from './PricingFAQs';
 import { GradientText } from '../GradientText';
 import { PageHeaderSubtitle } from '../pageComponents/header/PageHeaderSubtitle';
+import { FeaturesToggle } from './featuresTable/FeaturesToggle';
+import {
+  FeaturesTable,
+  FeaturesTableProps,
+} from './featuresTable/FeaturesTable';
 
-export const PricingBase: React.FC = ({ children }) => {
+type Props = {
+  children: React.ReactNode;
+  features: FeaturesTableProps;
+};
+
+export const PricingBase = ({ children, features }: Props) => {
+  const [featuresHidden, setFeaturesHidden] = useState(true);
+
+  function toggleFeaturesHidden() {
+    setFeaturesHidden((val) => !val);
+  }
+
   return (
     <div className="text-home-text">
       <DecoratedLayout title={`Pricing`}>
@@ -25,8 +41,24 @@ export const PricingBase: React.FC = ({ children }) => {
           </PageHeaderSubtitle>
         </PageHeader>
 
-        <div className="flex flex-col justify-center items-center pb-20">
+        <div className="flex flex-col justify-center items-center">
           <div className="pricing__container xl:max-w-[1200px]">{children}</div>
+        </div>
+        <div className="pricing__features-wrapper">
+          {!featuresHidden && (
+            <div className="pricing__features-wrapper--scroll">
+              <div className="pricing__features-content">
+                <h3 className="pricing__features-main-title">
+                  Detail plan comparison
+                </h3>
+                <FeaturesTable {...features} />
+              </div>
+            </div>
+          )}
+          <FeaturesToggle
+            hidden={featuresHidden}
+            onToggle={toggleFeaturesHidden}
+          />
         </div>
 
         <PricingFAQs />

@@ -5,6 +5,7 @@ import { PricingBase } from '../../component/pricing/PricingBase';
 import Link from '@docusaurus/Link';
 import Head from '@docusaurus/Head';
 import { PricingPlan } from '../../component/pricing/pricingPlan/PricingPlan';
+import { featuresSelfHosted } from '../../component/pricing/featuresTable/featuresSelfHosted';
 
 export default function SelfHosted() {
   const [billing, setBilling] = useState<'monthly' | 'annually'>('annually');
@@ -14,7 +15,7 @@ export default function SelfHosted() {
   };
 
   return (
-    <PricingBase>
+    <PricingBase features={featuresSelfHosted}>
       <div className="pricing__toggle">
         <PricingToggle value="self-hosted" />
         <Head>

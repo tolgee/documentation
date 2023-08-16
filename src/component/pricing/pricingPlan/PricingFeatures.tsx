@@ -1,33 +1,6 @@
 import React, { ReactNode } from 'react';
-import { PricingCheckMark } from './PricingCheckMark';
-import { PricingInDevelopment } from './PricingInDevelopment';
-import { Tooltip } from '@mui/material';
-
-function Ready({ children }) {
-  return (
-    <>
-      <span className="pricing__features-option--checkmark">
-        <PricingCheckMark />
-      </span>
-      {children}
-    </>
-  );
-}
-
-function InDevelopment({ children }) {
-  return (
-    <>
-      <Tooltip title="Feature is in development" disableInteractive>
-        <span className="pricing__with-hint">
-          <span className="pricing__features-option--checkmark">
-            <PricingInDevelopment />
-          </span>
-          <span>{children}</span>
-        </span>
-      </Tooltip>
-    </>
-  );
-}
+import { Ready } from '../progressSymbols/Ready';
+import { InDevelopment } from '../progressSymbols/InDevelopment';
 
 const FEATURES_MAP = {
   'in-context-translating': <Ready>In-context translating</Ready>,

@@ -8,6 +8,7 @@ import {
   PricingPlan,
 } from '../../component/pricing/pricingPlan/PricingPlan';
 import Head from '@docusaurus/Head';
+import { featuresCloud } from '../../component/pricing/featuresTable/featuresCloud';
 
 const MIN_PLAN_HEIGHTS: MinHeights = {
   content: 360,
@@ -21,7 +22,7 @@ export default function Pricing() {
   };
 
   return (
-    <PricingBase>
+    <PricingBase features={featuresCloud}>
       <Head>
         <meta
           name="description"
