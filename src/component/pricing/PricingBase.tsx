@@ -49,7 +49,7 @@ export const PricingBase = ({ children, features }: Props) => {
             <div className="pricing__features-wrapper--scroll">
               <div className="pricing__features-content">
                 <h3 className="pricing__features-main-title">
-                  Detail plan comparison
+                  Detailed plan comparison
                 </h3>
                 <FeaturesTable {...features} />
               </div>

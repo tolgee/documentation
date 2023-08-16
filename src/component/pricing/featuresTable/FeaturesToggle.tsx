@@ -13,7 +13,7 @@ export const FeaturesToggle = ({ hidden, onToggle }: Props) => {
         className="pricing__features-toggle--button"
         onClick={() => onToggle()}
       >
-        {hidden ? 'Compare plan features' : 'Hide plan features'}
+        {hidden ? 'Detailed plan comparison' : 'Hide plans details'}
       </div>
     </div>
   );

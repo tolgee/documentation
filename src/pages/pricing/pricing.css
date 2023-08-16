@@ -163,7 +163,7 @@ html[data-theme='dark'] .pricing__option-button:hover {
   grid-auto-flow: column;
 }
 
-@container option-vertical (max-width: 700px) {
+@media (max-width: 989px) {
   .pricing__option-highlights--vertical {
     grid-auto-flow: row;
   }
@@ -188,7 +188,6 @@ html[data-theme='dark'] .pricing__option-button:hover {
 /* Pricing option vertical */
 
 .pricing__option-vertical {
-  container: option-vertical / inline-size;
   display: grid;
   grid-column: 1 / -1;
   margin: 10px 0px;
@@ -204,7 +203,7 @@ html[data-theme='dark'] .pricing__option-button:hover {
   gap: 30px 40px;
 }
 
-@container option-vertical (max-width: 400px) {
+@media (max-width: 665px) {
   .pricing__option-vertical--container {
     grid-template-columns: 1fr;
   }
@@ -221,7 +220,7 @@ html[data-theme='dark'] .pricing__option-button:hover {
   margin-bottom: 10px;
 }
 
-@container option-vertical (max-width: 400px) {
+@media (max-width: 665px) {
   .pricing__option-vertical--title {
     text-align: center;
   }

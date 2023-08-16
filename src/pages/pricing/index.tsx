@@ -36,7 +36,13 @@ export default function Pricing() {
       <div className="pricing__options-wrapper">
         <PricingPlanVertical
           name="Free"
-          description="The Free plan comes with the same features as the Pay as you go plan. You can easily upgrade to it."
+          description={
+            <span>
+              The Free plan comes with the same features as the Pay as you go
+              plan. <br />
+              You can easily upgrade to it.
+            </span>
+          }
           free
           limits={{ strings: 1_000, mtCredits: 10_000, seats: Infinity }}
           action={
@@ -106,9 +112,7 @@ export default function Pricing() {
           ]}
           billingType={billing}
           toggleBillingType={toggleBilling}
-          featuresShortuct={
-            <span className="pricing__underlined">All from Pay as you go</span>
-          }
+          featuresShortuct="All from Pay as you go"
           features={[
             'granular-permissions',
             'prioritized-feature-requests',
@@ -135,9 +139,7 @@ export default function Pricing() {
             mtCredits: Infinity,
             seats: Infinity,
           }}
-          featuresShortuct={
-            <span className="pricing__underlined">All from Business plan</span>
-          }
+          featuresShortuct="All from Business plan"
           features={[
             'account-manager',
             'premium-support',
