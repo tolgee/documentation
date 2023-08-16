@@ -28,7 +28,7 @@ export const PricingBase = ({ children, features }: Props) => {
   return (
     <div className="text-home-text">
       <DecoratedLayout title={`Pricing`}>
-        <PageHeader className="mb-[100px]">
+        <PageHeader className="mb-[40px]">
           <PageHeaderTitle h1 className="md:text-[50px] mb-8">
             Flexible <GradientText>Pay as you go</GradientText> Localization
           </PageHeaderTitle>

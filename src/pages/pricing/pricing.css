@@ -255,7 +255,7 @@ html[data-theme='dark'] .pricing__option-button:hover {
 .pricing__toggle {
   display: flex;
   justify-content: center;
-  margin-bottom: 40px;
+  margin-bottom: 20px;
   scroll-margin-top: 120px;
 }
 
