@@ -18,14 +18,13 @@ function PricingQuestion({ question, children }: Props) {
 export function PricingFAQs() {
   return (
     <section className="bg-surface flex flex-col items-center pb-14">
-      <h2
-        className="mt-12 mb-0 text-primary pricing-details__scroll-target"
-        id="pricing-details"
-      >
-        Frequently asked questions
-      </h2>
-
       <div className="pricing-details__table max-w-[800px]">
+        <h2
+          className="mt-12 mb-0 text-primary pricing-details__scroll-target text-center pb-8"
+          id="pricing-details"
+        >
+          Frequently asked questions
+        </h2>
         <PricingQuestion question="What are strings?">
           The total amount of localization strings stored in your cloud
           organization, including strings in the base language.
