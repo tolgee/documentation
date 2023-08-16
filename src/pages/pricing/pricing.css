@@ -408,7 +408,7 @@ html[data-theme='dark'] .pricing__option-button:hover {
 
 .pricing__features-table-row:hover
   > :not(.pricing__features-table-grid--separator) {
-  background: var(--ifm-background-surface-color);
+  background: rgba(125, 125, 125, 0.05);
   transition: background 0.1s ease-in;
 }
 
