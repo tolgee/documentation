@@ -1,4 +1,6 @@
+import React from 'react';
 import { FeaturesTableItem } from './FeaturesTable';
+import { PricingDetailsLink } from '../pricingPlan/PricingDetailsLink';
 
 export const featuresCloud = {
   plans: ['Free', 'Pay as you go', 'Business', 'Enterprise'],
@@ -26,7 +28,11 @@ export const featuresCloud = {
     },
     {
       type: 'item',
-      label: 'Included strings',
+      label: (
+        <span>
+          Included <PricingDetailsLink>strings</PricingDetailsLink>
+        </span>
+      ),
       items: [
         (1000).toLocaleString(),
         (1000).toLocaleString(),
@@ -36,7 +42,11 @@ export const featuresCloud = {
     },
     {
       type: 'item',
-      label: 'Included MT credits',
+      label: (
+        <span>
+          Included <PricingDetailsLink>MT credits</PricingDetailsLink>
+        </span>
+      ),
       items: [
         (10000).toLocaleString(),
         (10000).toLocaleString(),
@@ -46,12 +56,20 @@ export const featuresCloud = {
     },
     {
       type: 'item',
-      label: 'Included seats',
+      label: (
+        <span>
+          Included <PricingDetailsLink>seats</PricingDetailsLink>
+        </span>
+      ),
       items: ['Unlimited', 'Unlimited', 'Unlimited', 'Unlimited'],
     },
     {
       type: 'item',
-      label: 'Extra 1000 strings',
+      label: (
+        <span>
+          Extra 1000 <PricingDetailsLink>strings</PricingDetailsLink>
+        </span>
+      ),
       items: [
         'n',
         `€${(10).toLocaleString()}/month`,
@@ -61,7 +79,11 @@ export const featuresCloud = {
     },
     {
       type: 'item',
-      label: 'Extra 1000 MT credits',
+      label: (
+        <span>
+          Extra 1000 <PricingDetailsLink>MT credits</PricingDetailsLink>
+        </span>
+      ),
       items: [
         'n',
         `€${(0.2).toLocaleString()}`,

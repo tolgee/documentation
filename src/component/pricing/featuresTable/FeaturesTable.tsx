@@ -5,7 +5,7 @@ import { ProgressSymbol, RowValues } from './RowValues';
 export type FeaturesTableItem =
   | {
       type: 'item';
-      label: string;
+      label: React.ReactNode;
       items: ProgressSymbol[];
     }
   | { type: 'title'; label: string };
