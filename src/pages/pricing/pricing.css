@@ -233,7 +233,7 @@ html[data-theme='dark'] .pricing__option-button:hover {
   margin-bottom: 21px;
 }
 
-@container option-vertical (max-width: 400px) {
+@media (max-width: 665px) {
   .pricing__option-vertical--description {
     text-align: center;
   }
