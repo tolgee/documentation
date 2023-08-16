@@ -8,7 +8,7 @@ export const featuresCloud = {
     { type: 'title', label: 'Basic parameters' },
     {
       type: 'item',
-      label: 'Monthly price (Annual billing)',
+      label: 'Monthly price (annual billing)',
       items: [
         '€0/month',
         '$0/month',
@@ -18,7 +18,7 @@ export const featuresCloud = {
     },
     {
       type: 'item',
-      label: 'Monthly price (Monthly billing)',
+      label: 'Monthly price (monthly billing)',
       items: [
         '€0/month',
         '$0/month',
