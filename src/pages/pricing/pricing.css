@@ -32,6 +32,17 @@
   display: grid;
 }
 
+.pricing__option--secondary-prices-wrapper {
+  margin-top: 10px;
+  display: grid;
+  padding: 0px 17px;
+}
+
+.pricing__option--price-wrapper {
+  margin-top: 10px;
+  display: grid;
+}
+
 .pricing__option--content {
   display: grid;
   align-content: space-between;
@@ -64,7 +75,6 @@
   text-align: center;
   font-size: 24px;
   color: var(--ifm-color-primary);
-  margin-bottom: 21px;
 }
 
 .pricing__option-price > span {
@@ -114,7 +124,6 @@
   color: var(--ifm-color-primary);
   z-index: 5;
   transition: filter 0.2s ease-in-out;
-  margin-top: 20px;
 }
 
 html[data-theme='dark'] .pricing__option-button,
@@ -147,17 +156,17 @@ html[data-theme='dark'] .pricing__option-button:hover {
 }
 
 .pricing__option-highlights {
-  padding-left: 18px;
-  margin-bottom: 0px;
+  display: grid;
 }
 
-.pricing__option-highlights--no-list-style {
-  list-style: none;
-  padding-left: 0;
+.pricing__option-highlights--vertical {
+  grid-auto-flow: column;
 }
 
-.pricing__option-highlights .li {
-  padding: 0;
+@container option-vertical (max-width: 700px) {
+  .pricing__option-highlights--vertical {
+    grid-auto-flow: row;
+  }
 }
 
 .pricing__with-hint {
@@ -174,6 +183,72 @@ html[data-theme='dark'] .pricing__option-button:hover {
   text-underline-position: under;
   text-decoration-thickness: from-font;
   color: var(--home-text);
+}
+
+/* Pricing option vertical */
+
+.pricing__option-vertical {
+  container: option-vertical / inline-size;
+  display: grid;
+  grid-column: 1 / -1;
+  margin: 10px 0px;
+}
+
+.pricing__option-vertical--container {
+  background-color: var(--ifm-background-color);
+  padding: 23px 17px 21px 17px;
+  display: grid;
+  grid-template-columns: 1fr 250px;
+  border-radius: 24px;
+  border: 1px solid var(--ifm-color-emphasis-200);
+  gap: 30px 40px;
+}
+
+@container option-vertical (max-width: 400px) {
+  .pricing__option-vertical--container {
+    grid-template-columns: 1fr;
+  }
+}
+
+.pricing__option-vertical--left {
+  display: grid;
+}
+
+.pricing__option-vertical--title {
+  font-size: 24px;
+  font-weight: normal;
+  color: var(--ifm-color-primary);
+  margin-bottom: 10px;
+}
+
+@container option-vertical (max-width: 400px) {
+  .pricing__option-vertical--title {
+    text-align: center;
+  }
+}
+
+.pricing__option-vertical--description {
+  font-size: 16px;
+  max-width: 520px;
+  line-height: normal;
+  margin-bottom: 21px;
+}
+
+@container option-vertical (max-width: 400px) {
+  .pricing__option-vertical--description {
+    text-align: center;
+  }
+}
+
+.pricing__option-vertical--right {
+  align-content: center;
+  display: grid;
+}
+
+.pricing__option-vertical--price-note {
+  text-align: center;
+  font-size: 14px;
+  margin-top: 3px;
 }
 
 /* Pricing toggle */

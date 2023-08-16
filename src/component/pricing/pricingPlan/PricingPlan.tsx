@@ -59,7 +59,7 @@ export const PricingPlan: React.FC<Props> = ({
 
           {freeForOpensource && <OpensourceLink />}
 
-          <PlanLimits {...limits} />
+          <PlanLimits limits={limits || {}} />
         </div>
       </div>
 
@@ -72,9 +72,11 @@ export const PricingPlan: React.FC<Props> = ({
         )}
 
         <Price free={free} billing={billing} billingType={billingType} />
-        <SecondaryPrices secondaryPrices={secondaryPrices} />
+        <div className="pricing__option--secondary-prices-wrapper">
+          <SecondaryPrices secondaryPrices={secondaryPrices} />
+        </div>
 
-        {action}
+        <div className="pricing__option--price-wrapper">{action}</div>
       </div>
     </div>
   );

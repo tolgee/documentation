@@ -1,5 +1,6 @@
 import React from 'react';
 import { PricingDetailsLink } from './PricingDetailsLink';
+import clsx from 'clsx';
 
 export type Limits = {
   strings?: number;
@@ -7,33 +8,45 @@ export type Limits = {
   seats?: number;
 };
 
-export const PlanLimits = ({ strings, mtCredits, seats }: Limits) => {
+type Props = {
+  limits: Limits;
+  vertical?: boolean;
+};
+
+export const PlanLimits = ({
+  vertical,
+  limits: { strings, mtCredits, seats },
+}: Props) => {
   return (
-    <ul className="pricing__option-highlights pricing__option-highlights--no-list-style">
+    <div
+      className={clsx('pricing__option-highlights', {
+        'pricing__option-highlights--vertical': vertical,
+      })}
+    >
       {strings !== undefined && (
-        <li>
+        <div>
           <span className="pricing__option-value">
             {strings !== Infinity ? strings.toLocaleString() : 'Unlimited'}
           </span>{' '}
           <PricingDetailsLink>strings</PricingDetailsLink> included
-        </li>
+        </div>
       )}
       {mtCredits !== undefined && (
-        <li>
+        <div>
           <span className="pricing__option-value">
             {mtCredits !== Infinity ? mtCredits.toLocaleString() : 'Unlimited'}
           </span>{' '}
           <PricingDetailsLink>MT credits</PricingDetailsLink> included
-        </li>
+        </div>
       )}
       {seats !== undefined && (
-        <li>
+        <div>
           <span className="pricing__option-value">
             {seats !== Infinity ? seats.toLocaleString() : 'Unlimited'}
           </span>{' '}
           <PricingDetailsLink>seats</PricingDetailsLink> included
-        </li>
+        </div>
       )}
-    </ul>
+    </div>
   );
 };

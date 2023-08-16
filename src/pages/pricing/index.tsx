@@ -9,6 +9,7 @@ import {
 } from '../../component/pricing/pricingPlan/PricingPlan';
 import Head from '@docusaurus/Head';
 import { featuresCloud } from '../../component/pricing/featuresTable/featuresCloud';
+import { PricingPlanVertical } from '../../component/pricing/pricingPlan/PricingPlanVertical';
 
 const MIN_PLAN_HEIGHTS: MinHeights = {
   content: 360,
@@ -33,6 +34,21 @@ export default function Pricing() {
         <PricingToggle value="cloud" />
       </div>
       <div className="pricing__options-wrapper">
+        <PricingPlanVertical
+          name="Free"
+          description="The Free plan comes with the same features as the Pay as you go plan. You can easily upgrade to it."
+          free
+          limits={{ strings: 1_000, mtCredits: 10_000, seats: Infinity }}
+          action={
+            <Link
+              className="pricing__option-button pricing__option-button--contained"
+              to="https://app.tolgee.io"
+            >
+              Get started
+            </Link>
+          }
+          note="No credit card required"
+        />
         <PricingPlan
           name="Pay as you go"
           description="For individuals and hobby projects."
