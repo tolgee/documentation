@@ -1,8 +1,9 @@
 ---
 slug: autonomous-localization
 title: 'Say hi to Autonomous Localization (i18n) of your app'
+image: /img/blog/2023-08-21-autonomous-localization/cover.png
 authors: [jcizmar]
-description: "Autonomous localization with Tolgee you to translate your app reliably in seconds"
+description: "Discover the future of app localization with Tolgee's Autonomous Localization. Our AI-powered translator understands context, providing reliable translations quickly and cost-effectively. Works seamlessly with major frameworks like React, Angular, Vue.js, Svelte, or JavaScript."
 tags: [localization, web, typescript, javascript, AI]
 ---
 
@@ -10,17 +11,26 @@ It's the year 2023, and most of the companies developing localized apps spend a 
 localization. For the uninitiated, localization might look simple. But it's not. Until now, the results of machine translators
 were not good enough to be used in public-facing apps. But that's about to change.
 
+![Cover](/img/blog/2023-08-21-autonomous-localization/cover.png)
+
 <!--truncate-->
 
 In the past months, we worked hard to release the Batch Operations feature. The last piece of the puzzle to enabling software
 developing teams to translate their apps without the need to work with human translators or at least reduce the need
 for them.
 Say hi to **Autonomous Localization**. With the new batch operations feature, users can let their imported strings be
-translated by machine translators, including Tolgee Translator; the translator who understands the context
+translated by machine translators, including [Tolgee Translator](/blog/tolgee-ai-translator); the translator who understands the context
 of the strings used in your app.
 
+## The benefits of autonomous localization
+The most important benefit is definitely **translation cost reduction**. Working with translators might become very expensive, and in many cases, the quality is not even higher because many language service providers don't work with context either, and you have to rely on their knowledge of the scope, which is often insufficient.
+
+Another significant benefit is the **speed of translation**. Working with translators is a complicated process with too many steps. Without
+human translators, you can get your translations done in seconds.
+
 ## Why is machine translation with Tolgee so reliable?
-The simple answer would be "Because it uses the context." The missing context was the core reason why translating apps with machine
+The simple answer would be **"Because it uses the context."** The [missing context](/blog/context-gamechanger-localization)
+was the core reason why translating apps with machine
 translators like Google Translator or DeepL is so unreliable. For example, if you translate the label of the "save" button with any legacy
 translator, the translator doesn't know the actual context, and the different meanings of the word can be translated
 differently in a foreign language. So "save" can mean "Save data," "Save money," or "save animals." The same thing happens with the word "close."
@@ -30,60 +40,56 @@ If the translator knows that the Save button is under some data form or that the
 they translate correctly. And that's exactly what Tolgee does.
 
 ## Where the context comes from?
-One of the most essential benefits of Tolgee is that it has its native JS SDKs. 
-These SDKs provide the [in-context dialog](http://localhost:3000/js-sdk/in-context),
+One of the most essential benefits of Tolgee is that it has its **native JS SDKs**. 
+These SDKs provide the [in-context dialog](/js-sdk/in-context),
 where developers, translators or other team members can edit their strings.
 
 This way, Tolgee collects the context every time you hit the update button.
 
 ![Editor](/img/blog/2023-08-21-autonomous-localization/editor.png)
 
-If the context is available, you can see the "flash" indicator in the translations section of the Tolgee platform.
+If the context is available, you can see the ⚡ indicator in the translations section of the Tolgee platform.
 
 ![Platform](/img/blog/2023-08-21-autonomous-localization/platform.png)
 
-Note a context description in the suggestions section in the screenshot.
+Note a **context description** in the suggestions section in the screenshot.
 It describes how the context was understood by the Tolgee Translator.
 
-You can read more about the Tolgee translator and Tolgee Context [here](http://localhost:3000/blog/tolgee-ai-translator).
+You can read more about the Tolgee translator and Tolgee Context [here](/blog/tolgee-ai-translator).
 
-## So, how can I get my strings translated?
+## How can I get my strings translated?
 To get your strings translated, you basically have 2 options.
 
-1st option is to enable [auto-translation in Language settings](http://localhost:3000/blog/tolgee-ai-translator).
+First option is to enable [auto-translation in Language settings](/blog/tolgee-ai-translator).
 When auto-translation is enabled, Tolgee will automatically translate all new keys created in the Tolgee platform.
 
-2ns option is to use the batch operations feature. You can select all your untranslated keys and translate them in one click.
+Second option is to use the **batch operations feature**. You can select all your untranslated keys and translate them in one click.
 
 <video controls>
   <source src="/img/blog/2023-08-21-autonomous-localization/batch-video.webm" type="video/webm" />
   Your browser does not support the video tag.
 </video>
 
-## The benefits of autonomous localization
-The most important benefit is definitely cost reduction. Working with translators might become very expensive, and in many cases, the quality is not even higher because many language service providers don't work with context either, and you have to rely on their knowledge of the scope, which is often insufficient.
-
-Another significant benefit is the speed. Working with translators is a complicated process with too many steps. Without
-humans, you can get your translations done in seconds.
-
 ## Do I need human translators at all?
-Well, most projects can replace the first translation with machine translation with a Tolgee translator when the context is correctly provided. However, we still recommend some QA checks against the localized app by native speakers to check everything fits. Sometimes the tone of voice or some other details can be slightly off. It's always a good idea to check whether translations haven't broken the layout of the app.
+Well, most projects can replace the first translation with machine translation with the Tolgee Translator when the context is correctly provided. 
+However, **we still recommend some QA checks** against the localized app by native speakers to check everything fits. Sometimes the tone of voice or some other details can be slightly off. It's always a good idea to check whether translations haven't broken the layout of the app.
 
 However, we see the future of localization in autonomous localization. Maybe next year, maybe later, the autonomous
 translation would be sufficient to translate most of the apps on the market.
 
 ## What is the recommended way to localize my app with Tolgee Autonomous Localization?
-To get maximum from Tolgee Autonomous Localization, you have to use [Tolgee SDKs](http://localhost:3000/js-sdk). Otherwise, the context is not extracted
+To get maximum from Tolgee Autonomous Localization, you have to use [Tolgee SDKs](/js-sdk). Otherwise, the context is not extracted
 from your app. The SDKs are available for all major framework like **React**, **Angular** **Vue.js**, **Svelte** or **plain JavaScript**.
 
-The recommended way is to make developers add the keys to the Tolgee Platform via the [in-context dialog](http://localhost:3000/js-sdk/in-context).
+The recommended way is to make developers add the keys to the Tolgee Platform via the [in-context dialog](/js-sdk/in-context).
 So they add the key in the source code and add the translation to the Tolgee Platform by `Alt + Clicking` in the app.
 That way, the context is provided, and the translation can be done with the so important context.
 
-You can also add the context "manually" by hitting the update button in the [in-context editor](http://localhost:3000/js-sdk/in-context) of any key in your app. However,
-we know that is not optimal, so we plan to add some "Context gathering mode," so the context will be gathered automatically.
+You can also add the context "manually" by hitting the update button in the [in-context editor](/js-sdk/in-context) of any key in your app.
 
-We also plan to gather context using the [CLI](http://localhost:3000/tolgee-cli) and [Figma Plugin](http://localhost:3000/integrations/figma), so even if you don't use Tolgee SDKs, you still will be
+Tolgee knows where the translations are located, we plan to add an auto-context-gathering mode, which will update the context automatically.
+
+We also plan to gather context using the [CLI](/tolgee-cli) and [Figma Plugin](/integrations/figma), so even if you don't use Tolgee SDKs, you still will be
 able to use all the power of Tolgee Autonomous Localization.
 
 <video controls>
@@ -101,7 +107,7 @@ To see the progress of other features, check out our [roadmap](https://tolgee.io
 
 - Autonomous Localization allows software development teams to autonomously translate their apps with machine translators.
 - The Tolgee Machine translator understands the context of the strings used in apps, leading to reliable translations.
-- Context is gathered through Tolgee's native JS SDKs that provide [in-context dialogs](http://localhost:3000/js-sdk/in-context).
+- Context is gathered through Tolgee's native JS SDKs that provide [in-context dialogs](/js-sdk/in-context).
 - Translation can be automated in Language settings or done manually using the batch operations feature.
 - Benefits of this approach include significant cost reduction and faster translation speed.
 - While the initial translation can be done by machine translators, QA checks by native speakers are still recommended.
