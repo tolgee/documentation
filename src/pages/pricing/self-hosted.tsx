@@ -15,7 +15,12 @@ export default function SelfHosted() {
   };
 
   return (
-    <PricingBase features={featuresSelfHosted}>
+    <PricingBase
+      features={{
+        title: 'Detailed self-hosted plan comparison',
+        ...featuresSelfHosted,
+      }}
+    >
       <div className="pricing__toggle">
         <PricingToggle value="self-hosted" />
         <Head>
@@ -32,7 +37,8 @@ export default function SelfHosted() {
           free
           description={
             <>
-              Tolgee is open-source, self-hosting will be <b>free forever</b>.
+              Tolgee is open-source,
+              <br /> self-hosting will be <b>free forever</b>
             </>
           }
           features={[
@@ -56,7 +62,12 @@ export default function SelfHosted() {
 
         <PricingPlan
           name="Business"
-          description="For individuals and teams for one or just a few apps"
+          description={
+            <>
+              For individuals and teams
+              <br /> for one or just a few apps
+            </>
+          }
           billing={{ monthly: 300, annually: 250 }}
           billingType={billing}
           toggleBillingType={toggleBilling}
@@ -64,9 +75,7 @@ export default function SelfHosted() {
             strings: Infinity,
             seats: 10,
           }}
-          featuresShortuct={
-            <span className="pricing__underlined">All from Free</span>
-          }
+          featuresShortuct="All from Free"
           features={[
             'granular-permissions',
             'prioritized-feature-requests',
@@ -92,16 +101,19 @@ export default function SelfHosted() {
 
         <PricingPlan
           name="Enterprise"
-          description="For enterprise organizations and very large teams"
+          description={
+            <>
+              For enterprise organizations
+              <br /> and very large teams
+            </>
+          }
           billingType={billing}
           toggleBillingType={toggleBilling}
           limits={{
             strings: Infinity,
             seats: Infinity,
           }}
-          featuresShortuct={
-            <span className="pricing__underlined">All from Business</span>
-          }
+          featuresShortuct="All from Business"
           features={[
             'account-manager',
             'premium-support',

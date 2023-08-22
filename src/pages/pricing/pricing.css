@@ -64,7 +64,6 @@
   text-align: center;
   align-self: center;
   font-size: 16px;
-  max-width: 200px;
   line-height: normal;
   margin-bottom: 21px;
   height: 38px;
@@ -369,6 +368,7 @@ html[data-theme='dark'] .pricing__option-button:hover {
   overflow-x: auto;
   width: 100vw;
   margin: 10px 0px;
+  scroll-padding-top: 60px;
 }
 
 .pricing__features-wrapper--scroll {

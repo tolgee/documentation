@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 
 import DecoratedLayout from '../../theme/DecoratedLayout';
 import { PageHeader } from '../pageComponents/header/PageHeader';
@@ -9,9 +9,12 @@ import { GradientText } from '../GradientText';
 import { PageHeaderSubtitle } from '../pageComponents/header/PageHeaderSubtitle';
 import { FeaturesToggle } from './featuresTable/FeaturesToggle';
 import {
+  FEATURES_TABLE_HASH,
   FeaturesTable,
   FeaturesTableProps,
 } from './featuresTable/FeaturesTable';
+import { useLocation } from '@docusaurus/router';
+import { ScrollAnchor } from '../ScrollAnchor';
 
 type Props = {
   children: React.ReactNode;
@@ -19,10 +22,38 @@ type Props = {
 };
 
 export const PricingBase = ({ children, features }: Props) => {
+  const router = useLocation();
+
   const [featuresHidden, setFeaturesHidden] = useState(true);
 
+  useEffect(() => {
+    setFeaturesHidden(router.hash !== `#${FEATURES_TABLE_HASH}`);
+  }, []);
+
+  useEffect(() => {
+    if (!featuresHidden) {
+      document
+        .querySelector(`#${FEATURES_TABLE_HASH}`)
+        .scrollIntoView({ behavior: 'smooth' });
+    }
+  }, [featuresHidden]);
+
   function toggleFeaturesHidden() {
-    setFeaturesHidden((val) => !val);
+    if (featuresHidden) {
+      setFeaturesHidden(false);
+      if (history.replaceState) {
+        history.replaceState(null, null, `#${FEATURES_TABLE_HASH}`);
+      } else {
+        window.location.hash = FEATURES_TABLE_HASH;
+      }
+    } else {
+      setFeaturesHidden(true);
+      if (history.replaceState) {
+        history.replaceState('', '', `${location.pathname}${location.search}`);
+      } else {
+        window.location.href = window.location.href.split('#')[0];
+      }
+    }
   }
 
   return (
@@ -44,12 +75,13 @@ export const PricingBase = ({ children, features }: Props) => {
         <div className="flex flex-col justify-center items-center">
           <div className="pricing__container xl:max-w-[1200px]">{children}</div>
         </div>
+        <ScrollAnchor id={FEATURES_TABLE_HASH} />
         <div className="pricing__features-wrapper">
           {!featuresHidden && (
             <div className="pricing__features-wrapper--scroll">
               <div className="pricing__features-content">
                 <h3 className="pricing__features-main-title">
-                  Detailed plan comparison
+                  {features.title}
                 </h3>
                 <FeaturesTable {...features} />
               </div>
@@ -58,6 +90,7 @@ export const PricingBase = ({ children, features }: Props) => {
           <FeaturesToggle
             hidden={featuresHidden}
             onToggle={toggleFeaturesHidden}
+            openTitle={features.title}
           />
         </div>
 

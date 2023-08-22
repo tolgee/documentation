@@ -1,9 +1,41 @@
+import React from 'react';
 import { FeaturesTableItem } from './FeaturesTable';
+import { PricingDetailsLink } from '../pricingPlan/PricingDetailsLink';
 
 export const featuresSelfHosted = {
   plans: ['Free', 'Business', 'Enterprise'],
   items: [
-    { type: 'title', label: 'Main features' },
+    { type: 'title', label: 'Basic parameters' },
+    {
+      type: 'item',
+      label: 'Monthly price (annual billing)',
+      items: ['€0/month', `€${(250).toLocaleString()}/month`, 'Negotiable'],
+    },
+    {
+      type: 'item',
+      label: 'Monthly price (monthly billing)',
+      items: ['€0/month', `€${(300).toLocaleString()}/month`, 'Negotiable'],
+    },
+    {
+      type: 'item',
+      label: (
+        <span>
+          Included <PricingDetailsLink>seats</PricingDetailsLink>
+        </span>
+      ),
+      items: ['Unlimited', 10, 'Unlimited'],
+    },
+    {
+      type: 'item',
+      label: (
+        <span>
+          Extra <PricingDetailsLink>seat</PricingDetailsLink>
+        </span>
+      ),
+      items: ['n', `€${(20).toLocaleString()}/month`, 'n'],
+    },
+
+    { type: 'title', label: 'Features' },
     {
       type: 'item',
       label: 'In-context translating',
@@ -25,6 +57,12 @@ export const featuresSelfHosted = {
       items: ['y', 'y', 'y'],
     },
     { type: 'item', label: 'Activity log', items: ['y', 'y', 'y'] },
+    { type: 'item', label: 'Tolgee CLI', items: ['y', 'y', 'y'] },
+    {
+      type: 'item',
+      label: 'Tolgee Chrome plugin',
+      items: ['y', 'y', 'y'],
+    },
     {
       type: 'item',
       label: 'One-click screenshots',

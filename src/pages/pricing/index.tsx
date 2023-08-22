@@ -23,7 +23,9 @@ export default function Pricing() {
   };
 
   return (
-    <PricingBase features={featuresCloud}>
+    <PricingBase
+      features={{ title: 'Detailed cloud plan comparison', ...featuresCloud }}
+    >
       <Head>
         <meta
           name="description"
@@ -39,8 +41,7 @@ export default function Pricing() {
           description={
             <span>
               The Free plan comes with the same features as the Pay as you go
-              plan. <br />
-              You can easily upgrade to it.
+              plan.
             </span>
           }
           free
@@ -57,7 +58,11 @@ export default function Pricing() {
         />
         <PricingPlan
           name="Pay as you go"
-          description="For individuals and hobby projects."
+          description={
+            <>
+              For individuals <br /> and hobby projects
+            </>
+          }
           limits={{ strings: 1_000, mtCredits: 10_000, seats: Infinity }}
           free
           secondaryPrices={[
@@ -67,7 +72,9 @@ export default function Pricing() {
             },
             {
               label: 'extra 1000 MT credits',
-              value: `€${(0.2).toLocaleString()}`,
+              value: `€${(0.2).toLocaleString(undefined, {
+                minimumFractionDigits: 2,
+              })}`,
             },
           ]}
           features={[
@@ -93,7 +100,12 @@ export default function Pricing() {
         <PricingPlan
           name="Business"
           freeForOpensource
-          description="For individuals and teams for one or just a few apps"
+          description={
+            <>
+              For individuals and teams
+              <br /> for one or just a few apps
+            </>
+          }
           limits={{
             strings: 20_000,
             mtCredits: 1_000_000,
@@ -107,7 +119,9 @@ export default function Pricing() {
             },
             {
               label: 'extra 1000 MT credits',
-              value: `€${(0.15).toLocaleString()}`,
+              value: `€${(0.15).toLocaleString(undefined, {
+                minimumFractionDigits: 2,
+              })}`,
             },
           ]}
           billingType={billing}
@@ -133,7 +147,12 @@ export default function Pricing() {
 
         <PricingPlan
           name="Enterprise"
-          description="For enterprise organizations and very large teams"
+          description={
+            <>
+              For enterprise organizations
+              <br /> and very large teams
+            </>
+          }
           limits={{
             strings: Infinity,
             mtCredits: Infinity,

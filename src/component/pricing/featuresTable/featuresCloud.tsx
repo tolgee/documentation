@@ -86,8 +86,8 @@ export const featuresCloud = {
       ),
       items: [
         'n',
-        `€${(0.2).toLocaleString()}`,
-        `€${(0.15).toLocaleString()}`,
+        `€${(0.2).toLocaleString(undefined, { minimumFractionDigits: 2 })}`,
+        `€${(0.15).toLocaleString(undefined, { minimumFractionDigits: 2 })}`,
         'n',
       ],
     },
@@ -110,10 +110,21 @@ export const featuresCloud = {
     },
     {
       type: 'item',
+      label: 'Tolgee translator',
+      items: ['y', 'y', 'y', 'y'],
+    },
+    {
+      type: 'item',
       label: 'Auto translation',
       items: ['y', 'y', 'y', 'y'],
     },
     { type: 'item', label: 'Activity log', items: ['y', 'y', 'y', 'y'] },
+    { type: 'item', label: 'Tolgee CLI', items: ['y', 'y', 'y', 'y'] },
+    {
+      type: 'item',
+      label: 'Tolgee Chrome plugin',
+      items: ['y', 'y', 'y', 'y'],
+    },
     {
       type: 'item',
       label: 'One-click screenshots',

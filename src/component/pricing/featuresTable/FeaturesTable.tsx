@@ -2,6 +2,8 @@ import clsx from 'clsx';
 import React from 'react';
 import { ProgressSymbol, RowValues } from './RowValues';
 
+export const FEATURES_TABLE_HASH = 'features-table';
+
 export type FeaturesTableItem =
   | {
       type: 'item';
@@ -13,6 +15,7 @@ export type FeaturesTableItem =
 export type FeaturesTableProps = {
   plans: string[];
   items: FeaturesTableItem[];
+  title: string;
 };
 
 export const FeaturesTable = ({ plans, items }: FeaturesTableProps) => {
