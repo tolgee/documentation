@@ -18,14 +18,13 @@ function PricingQuestion({ question, children }: Props) {
 export function PricingFAQs() {
   return (
     <section className="bg-surface flex flex-col items-center pb-14">
-      <h2
-        className="mt-12 mb-0 text-primary pricing-details__scroll-target"
-        id="pricing-details"
-      >
-        Frequently asked questions
-      </h2>
-
       <div className="pricing-details__table max-w-[800px]">
+        <h2
+          className="mt-12 mb-0 text-primary pricing-details__scroll-target text-center pb-8"
+          id="pricing-details"
+        >
+          Frequently asked questions
+        </h2>
         <PricingQuestion question="What are strings?">
           The total amount of localization strings stored in your cloud
           organization, including strings in the base language.
@@ -38,14 +37,12 @@ export function PricingFAQs() {
         </PricingQuestion>
 
         <PricingQuestion question="How is Tolgee Translator priced?">
-          <p>
-            Because Tolgee Translator is using ChatGPT in the background we
-            price it differently based on the number of tokens in the prompt.
-          </p>
-          <p>
-            10 tokens cost 1 MT credit and the average prompt size is about 250
-            tokens (with context its 500 - 1000).
-          </p>
+          Because Tolgee Translator is using ChatGPT in the background we price
+          it differently based on the number of tokens in the prompt.
+          <br />
+          <br />
+          10 tokens cost 1 MT credit and the average prompt size is about 250
+          tokens (with context its 500 - 1000).
         </PricingQuestion>
 
         <PricingQuestion question="What are seats?">
@@ -60,16 +57,14 @@ export function PricingFAQs() {
         </PricingQuestion>
 
         <PricingQuestion question="What happens when I exceed seat or string limits?">
-          <p>
-            If you have provided your credit card details, you will be charged
-            extra every month. The cost of seats and strings will be determined
-            by their weighted average.
-          </p>
-          <p>
-            To illustrate, suppose you add an extra seat for half of the month.
-            In this case, you will be charged only half the cost of the extra
-            seat since the price is weighted by time.
-          </p>
+          If you have provided your credit card details, you will be charged
+          extra every month. The cost of seats and strings will be determined by
+          their weighted average.
+          <br />
+          <br />
+          To illustrate, suppose you add an extra seat for half of the month. In
+          this case, you will be charged only half the cost of the extra seat
+          since the price is weighted by time.
         </PricingQuestion>
 
         <PricingQuestion question="How do I pay for exceeding limits if I pay annually?">
@@ -78,22 +73,20 @@ export function PricingFAQs() {
         </PricingQuestion>
 
         <PricingQuestion question="Does pricing change affect users who already use legacy plans?">
-          <p>No. If you are using a legacy plan, you can continue to use it.</p>
-          <p>This also applies to legacy free plans.</p>
+          No. If you are using a legacy plan, you can continue to use it.
+          <br />
+          <br />
+          This also applies to legacy-free plans.
         </PricingQuestion>
 
         <PricingQuestion question="What are the seats/strings limitations for the Free self-hosted plan?">
-          <p>
-            None. The Free self-hosted plan does not have seats or string
-            limitations. However, you must subscribe to a paid plan to use
-            advanced features like Granular permissions, CDN, or Webhooks.
-          </p>
+          None. The Free self-hosted plan does not have seats or string
+          limitations. However, you must subscribe to a paid plan to use
+          advanced features like Granular permissions, CDN, or Webhooks.
         </PricingQuestion>
         <PricingQuestion question="What is the string limit for the self-hosted plans?">
-          <p>
-            None. We are not limiting the number of strings in the self-hosted
-            instances.
-          </p>
+          None. We are not limiting the number of strings in the self-hosted
+          instances.
         </PricingQuestion>
       </div>
     </section>

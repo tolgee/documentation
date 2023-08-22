@@ -11,7 +11,7 @@ export const PageHeaderSubtitle: FC<{
   return (
     <Header
       className={clsx(
-        'text-2xl text-home-text font-[600] mb-0',
+        'text-lg sm:text-2xl text-home-text font-[600] mb-0',
         props.className
       )}
     >

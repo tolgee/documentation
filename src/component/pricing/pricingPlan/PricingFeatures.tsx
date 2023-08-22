@@ -1,33 +1,6 @@
-import React from 'react';
-import { PricingCheckMark } from './PricingCheckMark';
-import { PricingInDevelopment } from './PricingInDevelopment';
-import { Tooltip } from '@mui/material';
-
-function Ready({ children }) {
-  return (
-    <>
-      <span className="pricing__features-option--checkmark">
-        <PricingCheckMark />
-      </span>
-      {children}
-    </>
-  );
-}
-
-function InDevelopment({ children }) {
-  return (
-    <>
-      <Tooltip title="Feature is in development" disableInteractive>
-        <span className="pricing__with-hint">
-          <span className="pricing__features-option--checkmark">
-            <PricingInDevelopment />
-          </span>
-          <span>{children}</span>
-        </span>
-      </Tooltip>
-    </>
-  );
-}
+import React, { ReactNode } from 'react';
+import { Ready } from '../progressSymbols/Ready';
+import { InDevelopment } from '../progressSymbols/InDevelopment';
 
 const FEATURES_MAP = {
   'in-context-translating': <Ready>In-context translating</Ready>,
@@ -51,23 +24,43 @@ const FEATURES_MAP = {
   'backup-configuration': <Ready>Backup configuration</Ready>,
   'team-training': <Ready>Team training</Ready>,
   'account-manager': <Ready>Account manager</Ready>,
-
-  'all-from-business': <Ready>{'All from "Business"'}</Ready>,
-  'all-from-free': <Ready>{'All from "Free"'}</Ready>,
 };
 
 export type Feature = keyof typeof FEATURES_MAP;
 
 type Props = {
   features: Feature[];
+  featuresShortuct?: ReactNode;
+  onMore?: () => void;
 };
 
-export const PricingFeatures = ({ features }: Props) => {
+export const PricingFeatures = ({
+  features,
+  featuresShortuct,
+  onMore,
+}: Props) => {
   return (
     <ul className="pricing__features-list">
+      {featuresShortuct && (
+        <li className="pricing__features-list--shortcut">
+          <Ready>{featuresShortuct}</Ready>
+        </li>
+      )}
       {features.map((feature) => (
         <li key={feature}>{FEATURES_MAP[feature]}</li>
       ))}
+      {onMore && (
+        <li>
+          and{' '}
+          <span
+            className="pricing__with-hint cursor-pointer"
+            role="button"
+            onClick={() => onMore()}
+          >
+            much more
+          </span>
+        </li>
+      )}
     </ul>
   );
 };
