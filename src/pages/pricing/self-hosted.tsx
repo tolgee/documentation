@@ -21,118 +21,123 @@ export default function SelfHosted() {
         ...featuresSelfHosted,
       }}
     >
-      <div className="pricing__toggle">
-        <PricingToggle value="self-hosted" />
-        <Head>
-          <meta
-            name="description"
-            content="Pricing options for self-hosted Tolgee version. Support option for businesses that need high reliability and require professional support."
-          />
-        </Head>
-      </div>
+      {({ openFeaturesTable }) => (
+        <>
+          <div className="pricing__toggle">
+            <PricingToggle value="self-hosted" />
+            <Head>
+              <meta
+                name="description"
+                content="Pricing options for self-hosted Tolgee version. Support option for businesses that need high reliability and require professional support."
+              />
+            </Head>
+          </div>
 
-      <div className="pricing__options-wrapper">
-        <PricingPlan
-          name="Free"
-          free
-          description={
-            <>
-              Tolgee is open-source,
-              <br /> self-hosting will be <b>free forever</b>
-            </>
-          }
-          features={[
-            'in-context-translating',
-            'translation-memory',
-            'machine-translations',
-            'auto-translation',
-            'activity-log',
-            'one-click-screenshots',
-            'figma-plugin',
-          ]}
-          action={
-            <Link
-              className="pricing__option-button pricing__option-button--grey"
-              to="/platform/self_hosting/running_with_docker"
-            >
-              Docs
-            </Link>
-          }
-        />
+          <div className="pricing__options-wrapper">
+            <PricingPlan
+              name="Free"
+              free
+              description={
+                <>
+                  Tolgee is open-source,
+                  <br /> self-hosting will be <b>free forever</b>
+                </>
+              }
+              features={[
+                'in-context-translating',
+                'translation-memory',
+                'machine-translations',
+                'auto-translation',
+                'activity-log',
+                'one-click-screenshots',
+                'figma-plugin',
+              ]}
+              action={
+                <Link
+                  className="pricing__option-button pricing__option-button--grey"
+                  to="/platform/self_hosting/running_with_docker"
+                >
+                  Docs
+                </Link>
+              }
+              onMore={openFeaturesTable}
+            />
 
-        <PricingPlan
-          name="Business"
-          description={
-            <>
-              For individuals and teams
-              <br /> for one or just a few apps
-            </>
-          }
-          billing={{ monthly: 300, annually: 250 }}
-          billingType={billing}
-          toggleBillingType={toggleBilling}
-          limits={{
-            strings: Infinity,
-            seats: 10,
-          }}
-          featuresShortuct="All from Free"
-          features={[
-            'granular-permissions',
-            'prioritized-feature-requests',
-            'standard-support',
-            'cdn',
-            'webhooks',
-          ]}
-          secondaryPrices={[
-            {
-              label: 'extra seat',
-              value: `€${(20).toLocaleString()}/mo`,
-            },
-          ]}
-          action={
-            <Link
-              className="pricing__option-button pricing__option-button--contained"
-              to="https://app.tolgee.io/billing-self-hosted"
-            >
-              Subscribe
-            </Link>
-          }
-        />
+            <PricingPlan
+              name="Business"
+              description={
+                <>
+                  For individuals and teams
+                  <br /> for one or just a few apps
+                </>
+              }
+              billing={{ monthly: 300, annually: 250 }}
+              billingType={billing}
+              toggleBillingType={toggleBilling}
+              limits={{
+                strings: Infinity,
+                seats: 10,
+              }}
+              featuresShortuct="All from Free"
+              features={[
+                'granular-permissions',
+                'prioritized-feature-requests',
+                'standard-support',
+                'cdn',
+                'webhooks',
+              ]}
+              secondaryPrices={[
+                {
+                  label: 'extra seat',
+                  value: `€${(20).toLocaleString()}/mo`,
+                },
+              ]}
+              action={
+                <Link
+                  className="pricing__option-button pricing__option-button--contained"
+                  to="https://app.tolgee.io/billing-self-hosted"
+                >
+                  Subscribe
+                </Link>
+              }
+            />
 
-        <PricingPlan
-          name="Enterprise"
-          description={
-            <>
-              For enterprise organizations
-              <br /> and very large teams
-            </>
-          }
-          billingType={billing}
-          toggleBillingType={toggleBilling}
-          limits={{
-            strings: Infinity,
-            seats: Infinity,
-          }}
-          featuresShortuct="All from Business"
-          features={[
-            'account-manager',
-            'premium-support',
-            'dedicated-slack-channel',
-            'deployment-assistance',
-            'assisted-updates',
-            'backup-configuration',
-            'team-training',
-          ]}
-          action={
-            <Link
-              className="pricing__option-button pricing__option-button--grey"
-              to="mailto:info@tolgee.io"
-            >
-              Contact us
-            </Link>
-          }
-        />
-      </div>
+            <PricingPlan
+              name="Enterprise"
+              description={
+                <>
+                  For enterprise organizations
+                  <br /> and very large teams
+                </>
+              }
+              billingType={billing}
+              toggleBillingType={toggleBilling}
+              limits={{
+                strings: Infinity,
+                seats: Infinity,
+              }}
+              featuresShortuct="All from Business"
+              features={[
+                'account-manager',
+                'premium-support',
+                'dedicated-slack-channel',
+                'deployment-assistance',
+                'assisted-updates',
+                'backup-configuration',
+                'team-training',
+              ]}
+              action={
+                <Link
+                  className="pricing__option-button pricing__option-button--grey"
+                  to="mailto:info@tolgee.io"
+                >
+                  Contact us
+                </Link>
+              }
+            />
+          </div>
+        </>
+      )}
     </PricingBase>
   );
 }

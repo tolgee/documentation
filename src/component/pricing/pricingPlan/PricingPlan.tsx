@@ -24,6 +24,7 @@ type Props = {
   features?: Feature[];
   featuresShortuct?: ReactNode;
   minHeights?: MinHeights;
+  onMore?: () => void;
 };
 
 export const PricingPlan: React.FC<Props> = ({
@@ -40,6 +41,7 @@ export const PricingPlan: React.FC<Props> = ({
   features,
   featuresShortuct,
   minHeights,
+  onMore,
 }) => {
   return (
     <div className="pricing__option">
@@ -55,6 +57,7 @@ export const PricingPlan: React.FC<Props> = ({
           <PricingFeatures
             features={features}
             featuresShortuct={featuresShortuct}
+            onMore={onMore}
           />
 
           {freeForOpensource && <OpensourceLink />}

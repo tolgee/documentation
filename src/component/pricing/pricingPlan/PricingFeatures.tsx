@@ -31,9 +31,14 @@ export type Feature = keyof typeof FEATURES_MAP;
 type Props = {
   features: Feature[];
   featuresShortuct?: ReactNode;
+  onMore?: () => void;
 };
 
-export const PricingFeatures = ({ features, featuresShortuct }: Props) => {
+export const PricingFeatures = ({
+  features,
+  featuresShortuct,
+  onMore,
+}: Props) => {
   return (
     <ul className="pricing__features-list">
       {featuresShortuct && (
@@ -44,6 +49,18 @@ export const PricingFeatures = ({ features, featuresShortuct }: Props) => {
       {features.map((feature) => (
         <li key={feature}>{FEATURES_MAP[feature]}</li>
       ))}
+      {onMore && (
+        <li>
+          and{' '}
+          <span
+            className="pricing__with-hint cursor-pointer"
+            role="button"
+            onClick={() => onMore()}
+          >
+            much more
+          </span>
+        </li>
+      )}
     </ul>
   );
 };

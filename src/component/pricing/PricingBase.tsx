@@ -17,14 +17,29 @@ import { useLocation } from '@docusaurus/router';
 import { ScrollAnchor } from '../ScrollAnchor';
 
 type Props = {
-  children: React.ReactNode;
+  children: (props: { openFeaturesTable: () => void }) => React.ReactNode;
   features: FeaturesTableProps;
 };
 
 export const PricingBase = ({ children, features }: Props) => {
   const router = useLocation();
 
+  function scrollToTable() {
+    document
+      .querySelector(`#${FEATURES_TABLE_HASH}`)
+      .scrollIntoView({ behavior: 'smooth' });
+  }
+
   const [featuresHidden, setFeaturesHidden] = useState(true);
+
+  function openFeaturesTable() {
+    setFeaturesHidden(false);
+    if (!featuresHidden) {
+      scrollToTable();
+    } else {
+      toggleFeaturesHidden();
+    }
+  }
 
   useEffect(() => {
     setFeaturesHidden(router.hash !== `#${FEATURES_TABLE_HASH}`);
@@ -32,9 +47,7 @@ export const PricingBase = ({ children, features }: Props) => {
 
   useEffect(() => {
     if (!featuresHidden) {
-      document
-        .querySelector(`#${FEATURES_TABLE_HASH}`)
-        .scrollIntoView({ behavior: 'smooth' });
+      scrollToTable();
     }
   }, [featuresHidden]);
 
@@ -73,7 +86,9 @@ export const PricingBase = ({ children, features }: Props) => {
         </PageHeader>
 
         <div className="flex flex-col justify-center items-center">
-          <div className="pricing__container xl:max-w-[1200px]">{children}</div>
+          <div className="pricing__container xl:max-w-[1200px]">
+            {children({ openFeaturesTable })}
+          </div>
         </div>
         <ScrollAnchor id={FEATURES_TABLE_HASH} />
         <div className="pricing__features-wrapper">

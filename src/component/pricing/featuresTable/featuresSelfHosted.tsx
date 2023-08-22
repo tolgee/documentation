@@ -8,16 +8,6 @@ export const featuresSelfHosted = {
     { type: 'title', label: 'Basic parameters' },
     {
       type: 'item',
-      label: 'Monthly price (annual billing)',
-      items: ['€0/month', `€${(250).toLocaleString()}/month`, 'Negotiable'],
-    },
-    {
-      type: 'item',
-      label: 'Monthly price (monthly billing)',
-      items: ['€0/month', `€${(300).toLocaleString()}/month`, 'Negotiable'],
-    },
-    {
-      type: 'item',
       label: (
         <span>
           Included <PricingDetailsLink>seats</PricingDetailsLink>
@@ -33,6 +23,16 @@ export const featuresSelfHosted = {
         </span>
       ),
       items: ['n', `€${(20).toLocaleString()}/month`, 'n'],
+    },
+    {
+      type: 'item',
+      label: 'Monthly price (annual billing)',
+      items: ['€0/month', `€${(250).toLocaleString()}/month`, 'Negotiable'],
+    },
+    {
+      type: 'item',
+      label: 'Monthly price (monthly billing)',
+      items: ['€0/month', `€${(300).toLocaleString()}/month`, 'Negotiable'],
     },
 
     { type: 'title', label: 'Features' },

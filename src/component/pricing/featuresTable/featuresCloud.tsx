@@ -8,26 +8,6 @@ export const featuresCloud = {
     { type: 'title', label: 'Basic parameters' },
     {
       type: 'item',
-      label: 'Monthly price (annual billing)',
-      items: [
-        '€0/month',
-        '$0/month',
-        `€${(84).toLocaleString()}/month`,
-        'Negotiable',
-      ],
-    },
-    {
-      type: 'item',
-      label: 'Monthly price (monthly billing)',
-      items: [
-        '€0/month',
-        '$0/month',
-        `€${(100).toLocaleString()}/month`,
-        'Negotiable',
-      ],
-    },
-    {
-      type: 'item',
       label: (
         <span>
           Included <PricingDetailsLink>strings</PricingDetailsLink>
@@ -62,6 +42,26 @@ export const featuresCloud = {
         </span>
       ),
       items: ['Unlimited', 'Unlimited', 'Unlimited', 'Unlimited'],
+    },
+    {
+      type: 'item',
+      label: 'Monthly price (annual billing)',
+      items: [
+        '€0/month',
+        '$0/month',
+        `€${(84).toLocaleString()}/month`,
+        'Negotiable',
+      ],
+    },
+    {
+      type: 'item',
+      label: 'Monthly price (monthly billing)',
+      items: [
+        '€0/month',
+        '$0/month',
+        `€${(100).toLocaleString()}/month`,
+        'Negotiable',
+      ],
     },
     {
       type: 'item',
