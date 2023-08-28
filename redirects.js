@@ -157,6 +157,10 @@ module.exports.redirects = {
       from: '/docs/web/using_with_angular/installation',
       to: '/js-sdk/integrations/angular/installation',
     },
+    {
+      from: '/self_hosting/getting_started',
+      to: '/platform/self_hosting/getting_started',
+    },
   ],
   createRedirects(existingPath) {
     if (existingPath.indexOf('/js-sdk/5.x.x') === 0) {
