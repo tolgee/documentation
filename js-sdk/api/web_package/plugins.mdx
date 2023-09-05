@@ -25,6 +25,10 @@ Plugin for storing current language in `localStorage`. It remembers the language
 tolgee.use(LanguageStorage());
 ```
 
+:::info
+Don't use [`language`](https://tolgee.io/js-sdk/api/core_package/options#language) property with this plugin, as it will hard-override the languge. Instead use [`defaultLanguage`](https://tolgee.io/js-sdk/api/core_package/options#defaultlanguage).
+:::
+
 ## `LanguageDetector`
 
 Plugin for language detection from the user's browser locale. It requires `staticData` or `availableLanguages` to be defined in Tolgee options, as it matches the locale with it.
@@ -32,6 +36,10 @@ Plugin for language detection from the user's browser locale. It requires `stati
 ```ts
 tolgee.use(LanguageDetector());
 ```
+
+:::info
+Don't use [`language`](https://tolgee.io/js-sdk/api/core_package/options#language) property with this plugin, as it will hard-override the languge. Instead use [`defaultLanguage`](https://tolgee.io/js-sdk/api/core_package/options#defaultlanguage).
+:::
 
 ## `BackendFetch`
 
