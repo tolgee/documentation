@@ -6,6 +6,21 @@ slug: providing-static-data
 
 Provide static localization data in production mode or if you want to use it [without Tolgee platform](./usage-without-platform).
 
+## Exporting translation files from Tolgee platform
+
+Easiest way is through [`@tolgee/cli`](/tolgee-cli) package:
+
+```bash
+# install Tolgee cli
+npm i -g @tolgee/cli
+
+# login to tolgee platform
+tolgee login <Your-Personal-Access-Token>
+
+# pull translation files to your local folder
+tolgee pull ./i18n
+```
+
 ## Providing data using dynamic import
 
 To provide your localization data using dynamic import you will need to add providers for every supported language to [`staticData`](./api/core_package/options#staticdata).
