@@ -75,7 +75,7 @@ You can use this menu to access all the functionality available to you:
 
 ![Unreal Engine Integration Menu](/img/docs/platform/unreal-plugin/integration-menu.png)
 
-## Pushing texts from Unreal into Tolgee
+### Pushing texts from Unreal into Tolgee
 
 One of the first actions you should perform is **Upload missing keys**. This will evaluate all the translation keys used in your project and upload them to the Tolgee Platform so you can start translating them.
 
@@ -83,13 +83,13 @@ One of the first actions you should perform is **Upload missing keys**. This wil
 
 After the operation is complete, you can see all your namespaces and keys inside your Tolgee Dashboard.
 
-## Purging unused texts from Tolgee
+### Purging unused texts from Tolgee
 
 As the project grows, it's common for keys to get deleted locally without having their linked key deleted from the project.
 
 We added the **Purge unused keys** button to simplify the maintenance process. This will verify what keys from your Tolgee project are no longer used in your Unreal project and delete them.
 
-## Tolgee Dashboard – hover to translate
+### Tolgee Dashboard – hover to translate
 
 The best part of the Tolgee plugin is the **Tolgee Dashboard**. To open this window, press the **Translation Dashboard** button from your [Integration Menu](#tolgee-menu).
 
@@ -100,3 +100,11 @@ When this window is opened, it will highlight every TextBlock you hover in the U
 After entering your desired translation, press Save, and the text will directly update at **runtime**.
 
 **Note**: To use this functionality, you are required to log into your Tolgee account inside Unreal's browser.
+
+## Tolgee settings
+
+### Offline Translation Data
+
+Our recommended approach is to embed the translation data in your final executable. To do so you will need to uncheck `Live Translation Updates` **BEFORE** starting the packaging process.
+
+![Unreal Engine Live Translation Settings](/img/docs/platform/unreal-plugin/settings-offline-mode.png)
