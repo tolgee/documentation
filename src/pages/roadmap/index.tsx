@@ -22,12 +22,13 @@ type PeriodData = {
 
 const roadmapData = {
   '2023/Q3': {
-    active: true,
+    active: false,
     future: false,
     items: [
       {
         name: 'Batch operations',
         gitHubIssueLink: 'https://github.com/tolgee/tolgee-platform/issues/911',
+        done: true,
         description: (
           <p>
             Select as many keys as you want and then tag them, mark them as
@@ -36,6 +37,12 @@ const roadmapData = {
           </p>
         ),
       },
+    ],
+  },
+  '2023/Q4': {
+    active: false,
+    future: true,
+    items: [
       {
         name: 'Webhooks',
         gitHubIssueLink:
@@ -59,48 +66,6 @@ const roadmapData = {
             You will be also able to configure your S3-compatible bucket, so the
             data stay with you.
           </p>
-        ),
-      },
-    ],
-  },
-  '2023/Q4': {
-    active: false,
-    future: true,
-    items: [
-      {
-        name: 'All format support',
-        gitHubIssueLink:
-          'https://github.com/tolgee/tolgee-platform/issues/1547',
-        description: (
-          <p>
-            Tolgee currently works fine with ICU message format and you can
-            import data in .po format. However, there are many more formats we
-            want to support. In this task, we would like to create a universal
-            solution for format support, so we will be able to support any
-            format in the future.
-          </p>
-        ),
-      },
-      {
-        name: 'Visual editor',
-        gitHubIssueLink:
-          'https://github.com/tolgee/tolgee-platform/issues/1547',
-        description: (
-          <>
-            <p>
-              The current editor helps you with ICU syntax but doesn&apos;t help
-              you with placeholders or HTML tags. For many, this is not an issue
-              but it&apos;s problematic for example in the Arabic language,
-              where it&apos;s hard to mix HTML and Arabic characters.
-            </p>
-            <p>
-              By visual editor, we mean a nice environment, where tags and
-              parameter placeholders are represented visually, so translators
-              don&apos;t have to worry about them. The plurals are also visually
-              represented, so users can edit them without understanding the
-              message formatting language.
-            </p>
-          </>
         ),
       },
       {
@@ -143,6 +108,48 @@ const roadmapData = {
           </p>
         ),
       },
+    ],
+  },
+  '2024/Q1': {
+    active: false,
+    future: true,
+    items: [
+      {
+        name: 'All format support',
+        gitHubIssueLink:
+          'https://github.com/tolgee/tolgee-platform/issues/1547',
+        description: (
+          <p>
+            Tolgee currently works fine with ICU message format and you can
+            import data in .po format. However, there are many more formats we
+            want to support. In this task, we would like to create a universal
+            solution for format support, so we will be able to support any
+            format in the future.
+          </p>
+        ),
+      },
+      {
+        name: 'Visual editor',
+        gitHubIssueLink:
+          'https://github.com/tolgee/tolgee-platform/issues/1547',
+        description: (
+          <>
+            <p>
+              The current editor helps you with ICU syntax but doesn&apos;t help
+              you with placeholders or HTML tags. For many, this is not an issue
+              but it&apos;s problematic for example in the Arabic language,
+              where it&apos;s hard to mix HTML and Arabic characters.
+            </p>
+            <p>
+              By visual editor, we mean a nice environment, where tags and
+              parameter placeholders are represented visually, so translators
+              don&apos;t have to worry about them. The plurals are also visually
+              represented, so users can edit them without understanding the
+              message formatting language.
+            </p>
+          </>
+        ),
+      },
       {
         name: 'In-context support for mobile apps',
         gitHubIssueLink:
@@ -166,12 +173,6 @@ const roadmapData = {
           </p>
         ),
       },
-    ],
-  },
-  '2024/Q1': {
-    active: false,
-    future: true,
-    items: [
       {
         name: 'Backups and data export',
         gitHubIssueLink:
