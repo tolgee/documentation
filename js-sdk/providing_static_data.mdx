@@ -23,6 +23,12 @@ const tolgee = Tolgee().init({
 })
 ```
 
+:::info
+For some build systems you'll need to use <br/>
+`en: () => import('./i18n/en.json').then(m => m.default)`
+:::
+
+
 Using this approach data will be fetched just when it's needed, so you will save some network traffic.
 
 ## Using imported object
