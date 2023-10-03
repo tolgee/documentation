@@ -32,26 +32,31 @@ Number of machine translations that you can use is limited by credits which are 
 
 Currently, we support the following machine translation providers:
 
+- Tolgee AI translator based on ChatGPT
 - Google Translate
 - Amazon Translate (AWS)
 - DeepL
 - Microsoft Azure Translator (Azure Cognitive)
 
 You can selectively **enable or disable machine translation suggestions** for each language and each MT provider.
-When you set a "primary" MT provider, it will be displayed first in the suggestions list and will be used for [automatic translation](#automatic-translation).
+When you set a "primary" MT provider, it will be displayed first in the suggestions list and will be used for [automatic translation](#automatic-translation) and for [batch machine translations](/platform/translation_keys/batch_operations#available-batch-operations).
 
-![Machine translation settings](/img/docs/platform/languages_mt_settings.png)
+Some providers support formality selection (for certain languages), you can adjust that with the formality select.
+
+![Machine translation settings](/img/docs/platform/languages-mt-settings.png)
 
 To enable machine translation when self-hosting, please check out the [configuration](/platform/self_hosting/configuration#machine-translation).
 
-## Automatic translation
+> TIP: You can adjust default settings that will be used for all languages, or you can edit settings for individual languages, which will override the default.
+
+### Automatic translation
 
 Automatic translation is a feature that allows you to translate base text automatically when a new string is added.
 
-You can enable whether Tolgee should automatically translate new strings by looking for **100% translation memory matches** or by using **machine translation** with the selected primary MT provider.
+You can enable whether Tolgee should automatically translate new strings by looking for **100% translation memory matches** or by using **machine translation** with the selected primary MT provider. You can also enable automatic translation when there are **new keys imported** by the CLI, Import UI or any REST API endpoint importing multiple keys. 
 
-![Automatic translation settings](/img/docs/platform/languages_automatic_translation.png)
+Auto translation is also triggered when base language value is changed from empty to non-empty. 
 
-Translations that were translated automatically (and not edited by human) are marked by provider icon or translation memory icon.
+Translations that were translated automatically (and not edited by humans) are marked by a provider indicator or translation memory indicator. You can clear this indicator by hitting the remove button displayed while hovering the indicator icon. Until you touch the value manually or clear the indicator, the translated value will be automatically updated as the base language translation is updated.
 
 ![Automatic translation](/img/docs/platform/auto_translation.png)
