@@ -53,7 +53,9 @@ To enable machine translation when self-hosting, please check out the [configura
 
 Automatic translation is a feature that allows you to translate base text automatically when a new string is added.
 
-You can enable whether Tolgee should automatically translate new strings by looking for **100% translation memory matches** or by using **machine translation** with the selected primary MT provider. You can also enable automatic translation when there are **new keys imported**.
+You can enable whether Tolgee should automatically translate new strings by looking for **100% translation memory matches** or by using **machine translation** with the selected primary MT provider. You can also enable automatic translation when there are **new keys imported** by the CLI, Import UI or any REST API endpoint importing multiple keys. 
+
+Auto translation is also triggered when base language value is changed from empty to non-empty. 
 
 Translations that were translated automatically (and not edited by human) are marked by provider icon or translation memory icon.
 
