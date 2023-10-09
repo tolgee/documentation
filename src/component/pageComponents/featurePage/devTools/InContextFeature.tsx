@@ -11,6 +11,7 @@ import { ImageColumn } from '../../twoColumnSection/ImageColumn';
 import { GradientText } from '../../../GradientText';
 import { FeatureHeader } from '../FeatureHeader';
 import { IN_CONTEXT } from '../hashLinks';
+import { ReviewAuthor } from '../../../reviewAuthor/ReviewAuthor';
 
 export const InContextFeature = () => {
   return (
@@ -61,6 +62,15 @@ export const InContextFeature = () => {
             just words, strings, and phrases without knowing how they relate,
             what order they should be in, or where are they located in the app.
           </TextColumnText>
+          <ReviewAuthor
+            author={{
+              imageURL: '/img/reviewers/nico.jpeg',
+              name: 'Nico H.',
+              title: 'Lead Frontend Developer',
+            }}
+            description="I really like the in context editing feature of Tolgee. This way our clients have an easy to use way to edit translations of the platforms we build."
+            capterraReview="https://www.capterra.com/p/10002120/Tolgee/reviews/4344266/"
+          />
         </TextColumn>
       </TwoColumnSection>
     </>

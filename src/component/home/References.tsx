@@ -137,7 +137,7 @@ export const References = () => {
                             rel="noreferrer noopener"
                             className="text-lg"
                           >
-                            Read the Case study
+                            Read case study
                           </a>
                         )}
                         {reference.link && (

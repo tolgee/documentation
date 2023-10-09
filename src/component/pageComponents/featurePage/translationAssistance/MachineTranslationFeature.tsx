@@ -11,6 +11,7 @@ import { ImageColumn } from '../../twoColumnSection/ImageColumn';
 import { GradientText } from '../../../GradientText';
 import { FeatureHeader } from '../FeatureHeader';
 import { MACHINE_TRANSLATION } from '../hashLinks';
+import { ReviewAuthor } from '../../../reviewAuthor/ReviewAuthor';
 
 export const MachineTranslationFeature = () => {
   return (
@@ -41,6 +42,15 @@ export const MachineTranslationFeature = () => {
             just use translation suggestions provided by third-party machine
             translation services.
           </TextColumnText>
+          <ReviewAuthor
+            author={{
+              imageURL: '/img/reviewers/eunice.jpeg',
+              name: 'Eunice H.',
+              title: 'Data Scientist',
+            }}
+            description="What I like the most is the automated translation which is very accurate and help me translate everything in a very short period of time. It is a real gain of time."
+            capterraReview="https://www.capterra.com/p/10002120/Tolgee/reviews/4453333/"
+          />
         </TextColumn>
       </TwoColumnSection>
     </>

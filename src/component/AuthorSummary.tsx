@@ -1,8 +1,8 @@
 import React from 'react';
 import Author from '@theme/BlogPostItem/Header/Author';
 
-type Author = {
-  description?: string;
+export type AuthorType = {
+  description?: React.ReactNode;
   imageURL: string;
   key?: string;
   name: string;
@@ -11,7 +11,7 @@ type Author = {
 };
 
 type Props = {
-  author: Author;
+  author: AuthorType;
 };
 
 export const AuthorSummary = ({ author }: Props) => {

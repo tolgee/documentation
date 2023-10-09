@@ -11,6 +11,7 @@ import { ImageColumn } from '../../twoColumnSection/ImageColumn';
 import { GradientText } from '../../../GradientText';
 import { FeatureHeader } from '../FeatureHeader';
 import { COMMENTS } from '../hashLinks';
+import { ReviewAuthor } from '../../../reviewAuthor/ReviewAuthor';
 
 export const CommentsFeature = () => {
   return (
@@ -24,6 +25,15 @@ export const CommentsFeature = () => {
             comment <GradientText>every translation</GradientText> on Tolgee
             platform.
           </TextColumnText>
+          <ReviewAuthor
+            author={{
+              imageURL: '/img/reviewers/marek.jpg',
+              name: 'Marek L.',
+              title: 'Product Owner',
+            }}
+            description="Very intuitive and user-friendly interface that makes it easy to navigate and use, even for those who are new. Collaboration with others is great. I invited a colleague and she was able to understand so quickly what to do."
+            capterraReview="https://www.capterra.com/p/10002120/Tolgee/reviews/4637915/"
+          />
         </TextColumn>
         <ImageColumn className="row-start-1 col-start-1 md:col-start-2">
           <ThemedImage
