@@ -9,10 +9,21 @@ type Reference = {
   logoDark: string;
   quote: string;
   link: string | undefined;
+  caseStudy?: string;
   webp: boolean;
 };
 
 const references: Reference[] = [
+  {
+    name: 'Fluent Search',
+    logoLight: '/logos/fluentsearchLight.png',
+    logoDark: '/logos/fluentsearchDark.png',
+    link: 'https://fluentsearch.net/',
+    quote:
+      'Localizing Fluent Search using Tolgee couldn’t have been smoother, with over 1800 keys that update every week I needed something easy to use and modern from both the developer and translator standpoints.',
+    caseStudy: '/blog/case-study-fluent-search',
+    webp: true,
+  },
   {
     name: 'Phonexia',
     logoLight: '/logos/phonexiaLight.png',
@@ -49,15 +60,6 @@ const references: Reference[] = [
       'I have been now using Tolgee for some time and it’s been great. I am now able to collaborate with people around the world to be able to translate ElevenClock to more than 30 languages. Also, Tolgee’s API integrations allowed us to automate retrieving new translations from the platform.',
     webp: true,
   },
-  {
-    name: 'Fluent Search',
-    logoLight: '/logos/fluentsearchLight.png',
-    logoDark: '/logos/fluentsearchDark.png',
-    link: 'https://fluentsearch.net/',
-    quote:
-      'Localizing Fluent Search using Tolgee couldn’t have been smoother, with over 1800 keys that update every week I needed something easy to use and modern from both the developer and translator standpoints.',
-    webp: true,
-  },
 ];
 
 export const References = () => {
@@ -92,7 +94,7 @@ export const References = () => {
       />
       <div className="py-20 md:mx-12 references flex flex-col flex-grow items-center relative z-10 overflow-hidden">
         <h2 className="mb-12 text-gradient text-3xl text-center relative z-30">
-          Satisfied users all around the world.
+          Used by more than 6500 users worldwide.
         </h2>
         <div className="w-full">
           <div
@@ -127,7 +129,17 @@ export const References = () => {
                         {reference.quote}
                       </div>
 
-                      <div className="flex justify-center mt-6">
+                      <div className="flex justify-center mt-6 gap-10">
+                        {reference.caseStudy && (
+                          <a
+                            href={reference.caseStudy}
+                            target="_blank"
+                            rel="noreferrer noopener"
+                            className="text-lg"
+                          >
+                            Read the Case study
+                          </a>
+                        )}
                         {reference.link && (
                           <a
                             href={reference.link}
