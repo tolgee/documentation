@@ -4,10 +4,10 @@ import Author from '@theme/BlogPostItem/Header/Author';
 type Author = {
   description?: string;
   imageURL: string;
-  key: string;
+  key?: string;
   name: string;
   title: string;
-  url: string;
+  url?: string;
 };
 
 type Props = {

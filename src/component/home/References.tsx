@@ -171,6 +171,19 @@ export const References = () => {
             />
           ))}
         </div>
+
+        <div className="mt-14">
+          <a
+            href="https://www.capterra.com/reviews/278005/Tolgee?utm_source=vendor&utm_medium=badge&utm_campaign=capterra_reviews_badge"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            <img
+              src="https://assets.capterra.com/badge/7da1869535ec85f42df2a7cc09e8d270.svg?v=2225987&p=278005"
+              className="h-[49px]"
+            />
+          </a>
+        </div>
       </div>
       <button
         className="references__nav references__nav--right"
