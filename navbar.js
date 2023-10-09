@@ -43,12 +43,13 @@ module.exports.navbar = {
     },
     {
       type: 'dropdown',
-      label: 'Development',
+      label: 'Integrations',
       position: 'right',
       items: [
         {
-          type: 'html',
-          value: '#Integrations',
+          to: 'integrations',
+          label: 'All integrations',
+          activeBaseRegex: 'integrations$',
         },
         {
           to: 'integrations/react',
@@ -86,18 +87,6 @@ module.exports.navbar = {
           to: 'integrations/unreal',
           label: 'Unreal',
         },
-        {
-          to: 'integrations',
-          label: 'more...',
-        },
-        {
-          type: 'html',
-          value: '#API',
-        },
-        {
-          to: 'api',
-          label: 'REST API docs',
-        },
       ],
     },
     {
@@ -117,6 +106,10 @@ module.exports.navbar = {
         {
           to: 'tolgee-cli',
           label: 'Tolgee CLI',
+        },
+        {
+          to: 'api',
+          label: 'REST API',
         },
       ],
     },

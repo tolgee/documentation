@@ -30,18 +30,23 @@ export default function Integrations() {
         </PageHeader>
 
         <div className="md:max-w-[1000px] mx-auto sm:max-w-[650px] max-w-[400px]">
-          <div className="mb-20 px-6 text-lg">
+          <div className="mb-20 px-6 text-lg font-medium">
             <p>
-              Become unbeatable in localization with Tolgee! Our JavaScript
-              integrations empower you to:
+              Become unbeatable in app localization with Tolgee! Our native
+              JavaScript integrations empower you to:
             </p>
-
             <ul>
-              <li>Edit translations directly in your app</li>
-              <li>Create one-click screenshot of your app for translators</li>
               <li>
-                Enhance Machine translation quality as context is gathered from
-                your app
+                Edit translations directly in your app. No developer knowledge
+                needed for anyone to make changes.
+              </li>
+              <li>
+                Create one-click screenshots for translators to give them extra
+                context for accurate translations.
+              </li>
+              <li>
+                Significantly enhance machine translation quality as Tolgee
+                gathers context from your app.
               </li>
             </ul>
           </div>
