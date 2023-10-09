@@ -5,6 +5,7 @@ import { TranslatingOnProductionFeature } from '../../component/pageComponents/f
 import { TrueIntegrationsFeature } from '../../component/pageComponents/featurePage/devTools/TrueIntegrationsFeature';
 import { BaseFeaturePage } from '../../component/pageComponents/featurePage/BaseFeaturePage';
 import { ConnectingArrow } from '../../component/pageComponents/featurePage/ConnectingArrow';
+import { BottomSignUp } from '../../component/pageComponents/featurePage/BottomSignUp';
 
 // noinspection JSUnusedGlobalSymbols
 export default function DevTools() {
@@ -33,6 +34,7 @@ export default function DevTools() {
       <div>
         <TranslatingOnProductionFeature />
         <TrueIntegrationsFeature />
+        <BottomSignUp label="Ready, Set, Localize!" />
       </div>
     </BaseFeaturePage>
   );

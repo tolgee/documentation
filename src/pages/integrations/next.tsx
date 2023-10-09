@@ -15,6 +15,7 @@ import { MoreIntegrations } from '../../component/landingPages/LandingPageMoreIn
 import Head from '@docusaurus/Head';
 import { Alert } from '@mui/material';
 import Link from '@docusaurus/Link';
+import { LandingPageBottomSignUp } from '../../component/landingPages/LandingPageBottomSignup';
 
 const DocsLinks = ({ primary }: { primary?: boolean }) => (
   <LandingPageActions
@@ -94,6 +95,7 @@ export default function Next() {
             <DocsLinks primary />
           </div>
         </LandingPageInstallationStep>
+        <LandingPageBottomSignUp label="Localize your Next app" />
       </LandingPageInstallation>
       <MoreIntegrations />
     </LandingPage>

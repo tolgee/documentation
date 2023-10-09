@@ -3,6 +3,7 @@ import { CommentsFeature } from '../../component/pageComponents/featurePage/coll
 import { ActivityLogFeature } from '../../component/pageComponents/featurePage/collaboration/ActivityLogFeature';
 import { TranslationHistoryFeature } from '../../component/pageComponents/featurePage/collaboration/TranslationHistoryFeature';
 import { BaseFeaturePage } from '../../component/pageComponents/featurePage/BaseFeaturePage';
+import { BottomSignUp } from '../../component/pageComponents/featurePage/BottomSignUp';
 
 export default function Collaboration() {
   return (
@@ -10,6 +11,7 @@ export default function Collaboration() {
       <ActivityLogFeature />
       <CommentsFeature />
       <TranslationHistoryFeature />
+      <BottomSignUp label="Localize Like a Pro" />
     </BaseFeaturePage>
   );
 }

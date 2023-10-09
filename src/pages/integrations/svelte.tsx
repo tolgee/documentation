@@ -9,6 +9,7 @@ import SvelteLogo from '../../../static/img/technologies/logo-svelte.svg';
 import { LandingPageActions } from '../../component/landingPages/LandingPageActions';
 import { MoreIntegrations } from '../../component/landingPages/LandingPageMoreIntegrations';
 import Head from '@docusaurus/Head';
+import { LandingPageBottomSignUp } from '../../component/landingPages/LandingPageBottomSignup';
 
 const DocsLinks = ({ primary }: { primary?: boolean }) => (
   <LandingPageActions
@@ -87,6 +88,7 @@ export default function Svelte() {
             <DocsLinks primary />
           </div>
         </LandingPageInstallationStep>
+        <LandingPageBottomSignUp label="Localize your Svelte app" />
       </LandingPageInstallation>
       <MoreIntegrations />
     </LandingPage>

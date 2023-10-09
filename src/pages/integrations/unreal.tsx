@@ -8,6 +8,7 @@ import UnrealLogo from '../../../static/img/technologies/logo-unreal-engine.svg'
 import { LandingPageActions } from '../../component/landingPages/LandingPageActions';
 import { MoreIntegrations } from '../../component/landingPages/LandingPageMoreIntegrations';
 import Head from '@docusaurus/Head';
+import { LandingPageBottomSignUp } from '../../component/landingPages/LandingPageBottomSignup';
 
 const DocsLinks = ({ primary }: { primary?: boolean }) => (
   <LandingPageActions
@@ -108,6 +109,7 @@ export default function Unreal() {
             <DocsLinks primary />
           </div>
         </LandingPageInstallationStep>
+        <LandingPageBottomSignUp label="Localize your Unreal app" />
       </LandingPageInstallation>
       <MoreIntegrations />
     </LandingPage>

@@ -30,6 +30,12 @@ export const NotConvincedYet = () => {
           </a>{' '}
           or <Link href="/platform/">docs</Link>.
         </p>
+        <a
+          className="button--primary mt-8"
+          href="https://app.tolgee.io/sign_up"
+        >
+          Book a demo
+        </a>
       </div>
     </section>
   );
