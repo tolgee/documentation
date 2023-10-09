@@ -94,7 +94,7 @@ export const References = () => {
       />
       <div className="py-20 md:mx-12 references flex flex-col flex-grow items-center relative z-10 overflow-hidden">
         <h2 className="mb-12 text-gradient text-3xl text-center relative z-30">
-          Used by more than 6500 users worldwide.
+          Used by 6500+ users worldwide.
         </h2>
         <div className="w-full">
           <div
