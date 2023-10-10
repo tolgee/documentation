@@ -27,7 +27,7 @@ export const MachineTranslationFeature = () => {
             }}
           />
         </ImageColumn>
-        <TextColumn>
+        <TextColumn className="mb-[-80px]">
           <TextColumnTitle>Select your service.</TextColumnTitle>
           <TextColumnText>
             We support <GradientText>DeepL</GradientText>,{' '}

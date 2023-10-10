@@ -18,7 +18,7 @@ export const CommentsFeature = () => {
     <>
       <FeatureHeader title="Comment on translations" id={COMMENTS} />
       <TwoColumnSection>
-        <TextColumn className="row-start-2 col-start-1 md:row-start-1">
+        <TextColumn className="row-start-2 col-start-1 md:row-start-1 mb-[-80px]">
           <TextColumnTitle>Say what you think.</TextColumnTitle>
           <TextColumnText>
             Something look off? Tell others what you would change. You can
