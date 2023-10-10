@@ -19,7 +19,7 @@ export const ReviewAuthor = ({
   capterraReview,
 }: Props) => {
   return (
-    <div className="pt-6">
+    <div className="pt-6 text-left">
       <StyledContainer>
         <AuthorSummary
           author={{
