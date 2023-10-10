@@ -10,6 +10,7 @@ import GitHubIcon from '../../../../static/img/github.svg';
 import { Sections } from '../featurePage/sections/Sections';
 import { useMediaQuery, useTheme } from '@mui/material';
 import clsx from 'clsx';
+import { ScrollDownArrow } from './ScrollDownArrow';
 
 export const EmphasisPageHeader = (props: {
   title: ReactNode;
@@ -22,7 +23,7 @@ export const EmphasisPageHeader = (props: {
   return (
     <PageHeader
       className={clsx(
-        'pt-[120px] sm:mb-[0px] sm:pb-[60px]',
+        'pt-[120px] sm:mb-[0px] sm:pb-[60px] relative',
         isLarge && 'min-h-[100vh]'
       )}
       noPadding
@@ -56,6 +57,7 @@ export const EmphasisPageHeader = (props: {
           <GitHubIcon className="ml-2" />
         </Link>
       </div>
+      <ScrollDownArrow />
     </PageHeader>
   );
 };
