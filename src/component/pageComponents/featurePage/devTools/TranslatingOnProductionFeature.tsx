@@ -10,6 +10,7 @@ import {
 import { ImageColumn } from '../../twoColumnSection/ImageColumn';
 import { FeatureHeader } from '../FeatureHeader';
 import { TRANSLATING_ON_PRODUCTION } from '../hashLinks';
+import { ReviewAuthor } from '../../../reviewAuthor/ReviewAuthor';
 
 export const TranslatingOnProductionFeature = () => {
   return (
@@ -27,6 +28,15 @@ export const TranslatingOnProductionFeature = () => {
             simply provide your API key and start translating. This enables
             anybody without developer knowledge to translate your app.
           </TextColumnText>
+          <ReviewAuthor
+            author={{
+              imageURL: '/img/reviewers/diogo.jpeg',
+              name: 'Diogo M.',
+              title: 'Fullstack Developer',
+            }}
+            description="The tools to edit the translation from the browser are very useful for the clients to manage the translations. Easy to use and to integrate."
+            capterraReview="https://www.capterra.com/p/10002120/Tolgee/reviews/4961521/"
+          />
         </TextColumn>
         <ImageColumn>
           <ThemedImage

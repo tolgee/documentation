@@ -1,5 +1,6 @@
 import React from 'react';
 import Link from '@docusaurus/Link';
+import { AuthorSummary } from '../AuthorSummary';
 
 export const NotConvincedYet = () => {
   return (
@@ -30,6 +31,26 @@ export const NotConvincedYet = () => {
           </a>{' '}
           or <Link href="/platform/">docs</Link>.
         </p>
+
+        <div className="flex justify-between items-center mt-8 flex-wrap">
+          <AuthorSummary
+            author={{
+              name: 'Marketa Chalupnikova',
+              imageURL: '/img/blog/profile-photos/marketa.png',
+              title: 'Co-founder & COO',
+            }}
+          />
+          <div>
+            <a
+              href="https://calendly.com/tolgee/30min"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="button--primary block button--small whitespace-nowrap ml-4"
+            >
+              Book a demo
+            </a>
+          </div>
+        </div>
       </div>
     </section>
   );

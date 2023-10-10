@@ -25,8 +25,12 @@ module.exports.footer = {
           to: '/integrations',
         },
         {
-          label: 'Chrome plugin',
+          label: 'Chrome localization plugin',
           href: 'https://chrome.google.com/webstore/detail/tolgee-tools/hacnbapajkkfohnonhbmegojnddagfnj',
+        },
+        {
+          label: 'Figma localization plugin',
+          href: 'https://www.figma.com/community/plugin/1212381421658754793/tolgee-localization',
         },
       ],
     },

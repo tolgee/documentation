@@ -9,6 +9,7 @@ import { LandingPageDescription } from '../../component/landingPages/LandingPage
 import { LandingPageActions } from '../../component/landingPages/LandingPageActions';
 import { MoreIntegrations } from '../../component/landingPages/LandingPageMoreIntegrations';
 import Head from '@docusaurus/Head';
+import { LandingPageBottomSignUp } from '../../component/landingPages/LandingPageBottomSignup';
 
 const DocsLinks = ({ primary }: { primary?: boolean }) => (
   <LandingPageActions
@@ -84,6 +85,8 @@ export default function Angular() {
             <DocsLinks primary />
           </div>
         </LandingPageInstallationStep>
+
+        <LandingPageBottomSignUp label="Localize your Angular app" />
       </LandingPageInstallation>
       <MoreIntegrations />
     </LandingPage>

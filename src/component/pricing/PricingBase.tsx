@@ -19,9 +19,10 @@ import { ScrollAnchor } from '../ScrollAnchor';
 type Props = {
   children: (props: { openFeaturesTable: () => void }) => React.ReactNode;
   features: FeaturesTableProps;
+  review: React.ReactNode;
 };
 
-export const PricingBase = ({ children, features }: Props) => {
+export const PricingBase = ({ children, features, review }: Props) => {
   const router = useLocation();
 
   function scrollToTable() {
@@ -107,6 +108,7 @@ export const PricingBase = ({ children, features }: Props) => {
             onToggle={toggleFeaturesHidden}
             openTitle={features.title}
           />
+          <div className="mb-20">{review}</div>
         </div>
 
         <PricingFAQs />

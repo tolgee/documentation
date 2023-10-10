@@ -6,6 +6,7 @@ import { PageHeaderTitle } from '../../component/pageComponents/header/PageHeade
 import { PageHeaderSubtitle } from '../../component/pageComponents/header/PageHeaderSubtitle';
 import { GradientText } from '../../component/GradientText';
 import Head from '@docusaurus/Head';
+import { ReviewAuthor } from '../../component/reviewAuthor/ReviewAuthor';
 
 export default function WhyOpensource() {
   return (
@@ -82,6 +83,20 @@ export default function WhyOpensource() {
             We plan to create a place where you can find IT&#x2011;experienced
             translators to translate your projects fast.
           </p>
+
+          <div className="flex justify-center mt-16">
+            <div className="max-w-[500px]">
+              <ReviewAuthor
+                author={{
+                  imageURL: '/img/reviewers/anze.png',
+                  name: 'Anze M.',
+                  title: 'Tech Lead',
+                }}
+                description="When choosing our internal localization platform we had 2 main criteria: open-source and support for standard localization formats (XLIFF). Tolgee covers both of them well and also offer great tech/customer support on their Slack channel."
+                capterraReview="https://www.capterra.com/p/10002120/Tolgee/reviews/4345670/"
+              />
+            </div>
+          </div>
         </div>
       </DecoratedLayout>
     </div>

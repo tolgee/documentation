@@ -13,6 +13,7 @@ import GatsbyLogo from '../../../static/img/technologies/logo-gatsby.svg';
 import { LandingPageActions } from '../../component/landingPages/LandingPageActions';
 import { MoreIntegrations } from '../../component/landingPages/LandingPageMoreIntegrations';
 import Head from '@docusaurus/Head';
+import { LandingPageBottomSignUp } from '../../component/landingPages/LandingPageBottomSignup';
 
 const DocsLinks = ({ primary }: { primary?: boolean }) => (
   <LandingPageActions
@@ -83,6 +84,7 @@ export default function Gatsby() {
             <DocsLinks primary />
           </div>
         </LandingPageInstallationStep>
+        <LandingPageBottomSignUp label="Localize your Gatsby app" />
       </LandingPageInstallation>
       <MoreIntegrations />
     </LandingPage>

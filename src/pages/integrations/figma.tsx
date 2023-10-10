@@ -8,6 +8,7 @@ import FigmaLogo from '../../../static/img/technologies/logo-figma.svg';
 import { LandingPageActions } from '../../component/landingPages/LandingPageActions';
 import { MoreIntegrations } from '../../component/landingPages/LandingPageMoreIntegrations';
 import Head from '@docusaurus/Head';
+import { LandingPageBottomSignUp } from '../../component/landingPages/LandingPageBottomSignup';
 
 const DocsLinks = ({ primary }: { primary?: boolean }) => (
   <LandingPageActions
@@ -104,6 +105,8 @@ export default function Figma() {
             <DocsLinks primary />
           </div>
         </LandingPageInstallationStep>
+
+        <LandingPageBottomSignUp label="Simplify Localization Process!" />
       </LandingPageInstallation>
       <MoreIntegrations />
     </LandingPage>

@@ -10,6 +10,7 @@ import {
 import Head from '@docusaurus/Head';
 import { featuresCloud } from '../../component/pricing/featuresTable/featuresCloud';
 import { PricingPlanVertical } from '../../component/pricing/pricingPlan/PricingPlanVertical';
+import { ReviewAuthor } from '../../component/reviewAuthor/ReviewAuthor';
 
 const MIN_PLAN_HEIGHTS: MinHeights = {
   content: 370,
@@ -25,6 +26,21 @@ export default function Pricing() {
   return (
     <PricingBase
       features={{ title: 'Detailed cloud plan comparison', ...featuresCloud }}
+      review={
+        <div className="flex justify-center px-12">
+          <div className="max-w-[600px]">
+            <ReviewAuthor
+              author={{
+                imageURL: '/img/reviewers/armen.jpeg',
+                name: 'Armen D.',
+                title: 'IT Manager',
+              }}
+              description="Tolgee is fully-featured, well designed, modern and slick translation management system. It had every handy feature we needed out of the box. It's also open source and very easy to deploy and configure."
+              capterraReview="https://www.capterra.com/p/10002120/Tolgee/reviews/4612131/"
+            />
+          </div>
+        </div>
+      }
     >
       {({ openFeaturesTable }) => (
         <>

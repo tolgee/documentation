@@ -6,6 +6,7 @@ import Link from '@docusaurus/Link';
 import Head from '@docusaurus/Head';
 import { PricingPlan } from '../../component/pricing/pricingPlan/PricingPlan';
 import { featuresSelfHosted } from '../../component/pricing/featuresTable/featuresSelfHosted';
+import { ReviewAuthor } from '../../component/reviewAuthor/ReviewAuthor';
 
 export default function SelfHosted() {
   const [billing, setBilling] = useState<'monthly' | 'annually'>('annually');
@@ -20,6 +21,21 @@ export default function SelfHosted() {
         title: 'Detailed self-hosted plan comparison',
         ...featuresSelfHosted,
       }}
+      review={
+        <div className="flex justify-center px-12">
+          <div className="max-w-[600px]">
+            <ReviewAuthor
+              author={{
+                imageURL: '/img/reviewers/bjornar.jpg',
+                name: 'Bjørnar H.',
+                title: 'CEO',
+              }}
+              description="Tolgee is a really great tool for localization. It enabled high productivity and feels very intuitive to use. I love that you can self-host it, a must-have for some bigger projects."
+              capterraReview="https://www.capterra.com/p/10002120/Tolgee/reviews/4342941/"
+            />
+          </div>
+        </div>
+      }
     >
       {({ openFeaturesTable }) => (
         <>

@@ -14,7 +14,8 @@ export const BaseFeaturePage: FC<{ title: string; title2: string }> = (
     </Head>
     <DecoratedLayout title={props.title} description={baseSchema.description}>
       <FeaturesPageHeader title={props.title} title2={props.title2} />
-      <div className="mb-36">{props.children}</div>
+      <div className="mb-24">{props.children}</div>
+
       <MoreSections />
     </DecoratedLayout>
   </div>

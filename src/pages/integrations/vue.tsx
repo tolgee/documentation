@@ -10,6 +10,7 @@ import VueLogo from '../../../static/img/technologies/logo-vue.svg';
 import { LandingPageActions } from '../../component/landingPages/LandingPageActions';
 import { MoreIntegrations } from '../../component/landingPages/LandingPageMoreIntegrations';
 import Head from '@docusaurus/Head';
+import { LandingPageBottomSignUp } from '../../component/landingPages/LandingPageBottomSignup';
 
 const DocsLinks = ({ primary }: { primary?: boolean }) => (
   <LandingPageActions
@@ -89,6 +90,7 @@ export default function Vue() {
             <DocsLinks primary />
           </div>
         </LandingPageInstallationStep>
+        <LandingPageBottomSignUp label="Localize your Vue app" />
       </LandingPageInstallation>
       <MoreIntegrations />
     </LandingPage>
