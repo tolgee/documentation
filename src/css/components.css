@@ -232,7 +232,7 @@
 }
 
 .login-button {
-  @apply ml-[10px] desktop:ml-[20px];
+  @apply ml-[10px] mt-[10px] desktop:mt-0;
   border: 1px solid var(--ifm-link-color);
   color: var(--ifm-link-color);
   border-radius: 8px;
@@ -268,4 +268,16 @@
   border: 1px solid var(--ifm-link-color);
   padding: var(--ifm-navbar-item-padding-vertical)
     var(--ifm-navbar-item-padding-horizontal) !important;
+}
+
+.book-demo-button {
+  @apply ml-[10px] desktop:ml-[20px];
+  border: 1px solid var(--ifm-link-color);
+  color: var(--ifm-link-color);
+  border-radius: 8px;
+  position: relative;
+  overflow: hidden;
+  z-index: 2;
+  padding: var(--ifm-navbar-item-padding-vertical)
+    var(--ifm-navbar-item-padding-horizontal);
 }
