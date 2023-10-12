@@ -4,7 +4,7 @@ import './ScrollDownArrow.css';
 
 export const ScrollDownArrow = () => {
   return (
-    <div className="absolute bottom-10 right-10 left-10 flex justify-end">
+    <div className="absolute bottom-10 right-10 left-10 flex justify-start">
       <ThemedImage
         alt="Swing arrow"
         className="ScrollDownArrow--image"
