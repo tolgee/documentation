@@ -131,6 +131,16 @@ onFormatError: string
 onFormatError(error: string, info: TranslationInfo): string
 ```
 
+### onTranslationMissing
+
+Is called every time translation is missing.
+If no orEmpty or defaultValue are defined, return value is rendered. (function is called regardless)
+
+```ts
+onTranslationMissing(info: TranslationInfo): string
+```
+
+
 ### observerType
 
 Switches between invisible and text observer if present. (Default: "invisible")
