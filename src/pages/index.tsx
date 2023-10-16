@@ -19,6 +19,14 @@ function Home() {
           name="description"
           content="Open-source localization platform developers enjoy working with. Set up in seconds & speed up the translation process. Sign up for free. No credit card required."
         />
+        <meta
+          property="og:image"
+          content="/assets/images/post-ai-6d514962f3af26e527cf4e4bfbef2ef6.png"
+        />
+        <meta
+          property="twitter:image"
+          content="/assets/images/post-ai-6d514962f3af26e527cf4e4bfbef2ef6.png"
+        />
         <script type="application/ld+json">{JSON.stringify(baseSchema)}</script>
       </Head>
       <DecoratedLayout
