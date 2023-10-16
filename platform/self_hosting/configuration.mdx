@@ -84,45 +84,43 @@ Configuration specific to Tolgee.
 
   Maximum size of uploaded files (in kilobytes). (default: `51200` ≈ 50MB)
 
-### Authentication
+### authentication
 
 Prefix: `tolgee.authentication`
 
-Configuration of Tolgee's authentication.
-
-- ##### `create-initial-user` {#create-initial-user}
-
-  If true, Tolgee creates initial user on first start-up. (default: `true`)
-
 - ##### `enabled` {#enabled}
 
-  Whether authentication is enabled. If not, Tolgee will create implicit user on first startup and will automatically log you in. No login page shows, no permissions are managed. This is very useful, when you want to use Tolgee on your local machine, or you just want to test it. (default: `true`)
+  Whether authentication is enabled.When authentication is disabled, there are no login screen and no permission control.Users get automatically logged in as the administrator account of the Tolgee instance.This is very useful, when you want to use Tolgee on your local machine, or you just want to test it. (default: `true` when running with Java directly, `false` when running via Docker.)
 
 - ##### `initial-password` {#initial-password}
 
-  Password of initial user. If unspecified, a random password will be generated and stored in the `initial.pwd` file,
-  located at the root of Tolgee's data path.
+  Password of initial user. If unspecified, a random password will be generated and stored in the `initial.pwd` file, located at the root of Tolgee's data path.
 
 - ##### `initial-username` {#initial-username}
 
-  Username of initial user. (default: `admin`)
+  Username of initial user.
+  :::tipTolgee will ask for an email instead of a username - don't worry, just give it the username specified here.::: (default: `admin`)
 
 - ##### `jwt-expiration` {#jwt-expiration}
 
-  Expiration time of generated JWT tokens in milliseconds. (default: `604800000` ≈ 7 days)
+  Expiration time of generated JWT tokens in milliseconds. (default: `604800000` = 7 days)
 
 - ##### `jwt-secret` {#jwt-secret}
 
   Secret used to sign JWT authentication tokens with. It will be generated automatically, if not provided. You will be fine with 64 characters long random string.
-  Generated automatically, if not provided. If running multiple replicas, it's required to set it or otherwise you will be constantly logged out.
+  
+  :::warning
+  If running multiple replicas, it's required to set it or otherwise you will be constantly logged out.
+  :::
 
 - ##### `jwt-super-expiration` {#jwt-super-expiration}
 
-  Expiration time of generated JWT tokens for superuser in milliseconds. (default: `3600000` ≈ 1 hour)
+  Expiration time of generated JWT tokens for superuser in milliseconds. (default: `3600000` = 1 hour)
 
 - ##### `native-enabled` {#native-enabled}
 
-  Whether user credentials are stored in Tolgee's database. If you would like to use LDAP, set this to `false`. (default: `true`)
+  Whether to enable Tolgee-native authentication and registration.
+  When set to `false`, users will only be able to register and login via third-party SSO options (e.g. OAuth). (default: `true`)
 
 - ##### `needs-email-verification` {#needs-email-verification}
 
@@ -130,16 +128,17 @@ Configuration of Tolgee's authentication.
 
 - ##### `registrations-allowed` {#registrations-allowed}
 
-  Enable/disable sign ups into Tolgee. (default: `false`)
+  Whether users are allowed to register on Tolgee.
+  When set to `false`, existing users must send invites to projects to new users for them to be able to register. (default: `false`)
 
 - ##### `secured-image-retrieval` {#secured-image-retrieval}
 
-  Whether image assets should be protected by Tolgee. When enabled, all images are served with a secure token valid for
+  Whether image assets should be protected by Tolgee. When enabled, all images are served with an access token valid for
   a set period of time to prevent unauthorized access to images. (default: `false`)
 
 - ##### `secured-image-timestamp-max-age` {#secured-image-timestamp-max-age}
 
-  Expiration time of a generated image access token in seconds. (default: `600000` ≈ one week)
+  Expiration time of a generated image access token in milliseconds. (default: `600000` = 10 minutes)
 
 - ##### `user-can-create-organizations` {#user-can-create-organizations}
 
@@ -151,7 +150,7 @@ Configuration of Tolgee's authentication.
 Prefix: `tolgee.authentication.github`
 
 :::info
-GitHub authentication can be used in combination with LDAP or native authentication.
+GitHub authentication can be used in combination with native authentication.
 :::
 
 - ##### `authorization-url` {#authorization-url}
@@ -196,49 +195,6 @@ The following instructions explain how to set up Google OAuth. [Setting up OAuth
 
   The registration can be limited to users of a Google Workspace domain. If nothing is set, anyone can log in with their Google account.
 
-#### LDAP
-
-Prefix: `tolgee.authentication.ldap`
-
-:::warning
-This feature is experimental!
-:::
-
-:::info
-LDAP authentication can be used in combination with GitHub or native authentication.
-:::
-
-Tolgee can use a LDAP server to authenticate users. This is very useful if you already use LDAP as a primary mean of
-authentication for other services.
-
-- ##### `base-dn` {#base-dn}
-
-  LDAP base DN. For example `dc=example,dc=com`
-
-- ##### `enabled` {#enabled}
-
-  Whether LDAP authentication is enabled. If enabled, you need to set all remaining properties below. (default: `false`)
-
-- ##### `port` {#port}
-
-  LDAP server host
-
-- ##### `principal-password` {#principal-password}
-
-  LDAP password for the manager DN
-
-- ##### `security-principal` {#security-principal}
-
-  LDAP manager DN. For example `cn=admin,dc=example,dc=com`
-
-- ##### `urls` {#urls}
-
-  LDAP server URLs. For example `ldap://localhost:389`
-
-- ##### `user-dn-pattern` {#user-dn-pattern}
-
-  LDAP user search filter. For example `(uid={0})`
-
 #### OAuth2
 
 Prefix: `tolgee.authentication.oauth2`
@@ -277,6 +233,18 @@ This enables the integration of a wide range of authorization providers into tol
   **Removed in:** 2.33.0
 
   Whether regular users are allowed to create projects. When disabled, only administrators can create projects (default: `true`)
+
+- ##### ~~`create-initial-user`~~ {#create-initial-user}
+
+  **Removed in:** 3.31.0
+
+  If true, Tolgee creates initial user on first start-up. (default: `true`)
+
+- ##### ~~`ldap.*`~~ {#ldap.*}
+
+  **Removed in:** 3.31.0
+
+  LDAP-related settings.
 
 ### Batch operations
 
@@ -492,11 +460,6 @@ See [DeepL's](https://www.deepl.com/) page for more information and applicable p
 
   Whether to use DeepL as a primary translation engine. (default: `false`)
 
-- ##### `formality` {#formality}
-
-  Whether the translated text should lean towards formal or informal language.
-  See [DeepL's documentation](https://www.deepl.com/docs-api/translating-text/request/) for supported languages and details. (default: `default`)
-
 #### Google Cloud Translation
 
 Prefix: `tolgee.machine-translation.google`
@@ -559,16 +522,53 @@ Defines whether and how is PostgreSQL started on Tolgee startup.
 
 Prefix: `tolgee.rate-limits`
 
-Configuration of rate limits.
-By default Tolgee Platform limits requests to endpoints according to these rules:
+Configuration of the rate limit behavior of the server.
+Rate limits are used to protect against server overload and/or abuse, and are enabled by default.
 
-1. Single IP is not allowed to request more than 20 000 times in 5 minutes
-2. Single IP is not allowed to request public endpoints (authentication, sign-ups) more than 1000 times per hour
-3. Single authenticated user cannot do more than 400 requests per minute
+You can disable global, per-endpoint and auth-related rate limits, or configure global rate limits.
+Per-endpoint and auth-related rate limits are fixed and cannot be configured.
+
+
+
+- ##### `authentication-limits` {#authentication-limits}
+
+  Control whether per-endpoint limits on authentication-related endpoints are enabled or not.
+  :::warning
+  It is **strongly** recommended to keep these limits enabled. They act as a protection layer against
+  brute-force attacks on the login (and register) prompt.::: (default: `true`)
 
 - ##### `enabled` {#enabled}
 
-  To turn these rate limits off, set this value to `false`. (default: `true`)
+  To turn all rate limits off, set this value to `false`.
+  
+  :::dangerThis field is **deprecated** and will be removed with Tolgee 4. If set to `false`, it will take priority
+  over the more granular `global-limits`, `endpoint-limits` and `authentication-limits` and all limits
+  will be disabled.::: (default: `true`)
+
+- ##### `endpoint-limits` {#endpoint-limits}
+
+  Control whether per-endpoint limits on the API are enabled or not.
+  Does not affect authentication-related endpoints, these are controlled by `authentication-limits`. (default: `true`)
+
+- ##### `global-limits` {#global-limits}
+
+  Control whether global limits on the API are enabled or not. (default: `true`)
+
+- ##### `ip-request-limit` {#ip-request-limit}
+
+  Amount of requests an IP address can do in a single time window. (default: `20000`)
+
+- ##### `ip-request-window` {#ip-request-window}
+
+  Size, in milliseconds, of the time window for IP-based limiting. (default: `300000` = 5 minutes)
+
+- ##### `user-request-limit` {#user-request-limit}
+
+  Amount of requests a user can do in a single time window. (default: `400`)
+
+- ##### `user-request-window` {#user-request-window}
+
+  Size, in milliseconds, of the time window for user-based limiting. (default: `300000` = 1 minute)
 
 ### reCAPTCHA
 
@@ -710,7 +710,6 @@ tolgee:
   max-translation-text-length: 10000
   max-upload-file-size: 51200
   authentication:
-    create-initial-user: true
     enabled: true
     initial-password:
     initial-username: admin
@@ -734,14 +733,6 @@ tolgee:
       client-secret:
       user-url: https://www.googleapis.com/oauth2/v3/userinfo
       workspace-domain:
-    ldap:
-      base-dn:
-      enabled: false
-      port:
-      principal-password:
-      security-principal:
-      urls:
-      user-dn-pattern:
     oauth2:
       authorization-url:
       client-id:
@@ -793,7 +784,6 @@ tolgee:
       auth-key:
       default-enabled: true
       default-primary: false
-      formality: default
     google:
       api-key:
       default-enabled: true
@@ -806,8 +796,15 @@ tolgee:
     password: postgres
     port: 25432
     user: postgres
-  rate-limits:
+  rate-limit:
+    authentication-limits: true
     enabled: true
+    endpoint-limits: true
+    global-limits: true
+    ip-request-limit: 20000
+    ip-request-window: 300000
+    user-request-limit: 400
+    user-request-window: 300000
   recaptcha:
     secret-key:
     site-key:
@@ -907,45 +904,43 @@ Configuration specific to Tolgee.
 
   Maximum size of uploaded files (in kilobytes). (default: `51200` ≈ 50MB)
 
-<h3 id="authentication">Authentication</h3>
+<h3 id="authentication">AUTHENTICATION</h3>
 
 Prefix: `TOLGEE_AUTHENTICATION`
 
-Configuration of Tolgee's authentication.
-
-- <h5 id="create-initial-user"><code>CREATE_INITIAL_USER</code></h5>
-
-  If true, Tolgee creates initial user on first start-up. (default: `true`)
-
 - <h5 id="enabled"><code>ENABLED</code></h5>
 
-  Whether authentication is enabled. If not, Tolgee will create implicit user on first startup and will automatically log you in. No login page shows, no permissions are managed. This is very useful, when you want to use Tolgee on your local machine, or you just want to test it. (default: `true`)
+  Whether authentication is enabled.When authentication is disabled, there are no login screen and no permission control.Users get automatically logged in as the administrator account of the Tolgee instance.This is very useful, when you want to use Tolgee on your local machine, or you just want to test it. (default: `true` when running with Java directly, `false` when running via Docker.)
 
 - <h5 id="initial-password"><code>INITIAL_PASSWORD</code></h5>
 
-  Password of initial user. If unspecified, a random password will be generated and stored in the `initial.pwd` file,
-  located at the root of Tolgee's data path.
+  Password of initial user. If unspecified, a random password will be generated and stored in the `initial.pwd` file, located at the root of Tolgee's data path.
 
 - <h5 id="initial-username"><code>INITIAL_USERNAME</code></h5>
 
-  Username of initial user. (default: `admin`)
+  Username of initial user.
+  :::tipTolgee will ask for an email instead of a username - don't worry, just give it the username specified here.::: (default: `admin`)
 
 - <h5 id="jwt-expiration"><code>JWT_EXPIRATION</code></h5>
 
-  Expiration time of generated JWT tokens in milliseconds. (default: `604800000` ≈ 7 days)
+  Expiration time of generated JWT tokens in milliseconds. (default: `604800000` = 7 days)
 
 - <h5 id="jwt-secret"><code>JWT_SECRET</code></h5>
 
   Secret used to sign JWT authentication tokens with. It will be generated automatically, if not provided. You will be fine with 64 characters long random string.
-  Generated automatically, if not provided. If running multiple replicas, it's required to set it or otherwise you will be constantly logged out.
+  
+  :::warning
+  If running multiple replicas, it's required to set it or otherwise you will be constantly logged out.
+  :::
 
 - <h5 id="jwt-super-expiration"><code>JWT_SUPER_EXPIRATION</code></h5>
 
-  Expiration time of generated JWT tokens for superuser in milliseconds. (default: `3600000` ≈ 1 hour)
+  Expiration time of generated JWT tokens for superuser in milliseconds. (default: `3600000` = 1 hour)
 
 - <h5 id="native-enabled"><code>NATIVE_ENABLED</code></h5>
 
-  Whether user credentials are stored in Tolgee's database. If you would like to use LDAP, set this to `false`. (default: `true`)
+  Whether to enable Tolgee-native authentication and registration.
+  When set to `false`, users will only be able to register and login via third-party SSO options (e.g. OAuth). (default: `true`)
 
 - <h5 id="needs-email-verification"><code>NEEDS_EMAIL_VERIFICATION</code></h5>
 
@@ -953,16 +948,17 @@ Configuration of Tolgee's authentication.
 
 - <h5 id="registrations-allowed"><code>REGISTRATIONS_ALLOWED</code></h5>
 
-  Enable/disable sign ups into Tolgee. (default: `false`)
+  Whether users are allowed to register on Tolgee.
+  When set to `false`, existing users must send invites to projects to new users for them to be able to register. (default: `false`)
 
 - <h5 id="secured-image-retrieval"><code>SECURED_IMAGE_RETRIEVAL</code></h5>
 
-  Whether image assets should be protected by Tolgee. When enabled, all images are served with a secure token valid for
+  Whether image assets should be protected by Tolgee. When enabled, all images are served with an access token valid for
   a set period of time to prevent unauthorized access to images. (default: `false`)
 
 - <h5 id="secured-image-timestamp-max-age"><code>SECURED_IMAGE_TIMESTAMP_MAX_AGE</code></h5>
 
-  Expiration time of a generated image access token in seconds. (default: `600000` ≈ one week)
+  Expiration time of a generated image access token in milliseconds. (default: `600000` = 10 minutes)
 
 - <h5 id="user-can-create-organizations"><code>USER_CAN_CREATE_ORGANIZATIONS</code></h5>
 
@@ -974,7 +970,7 @@ Configuration of Tolgee's authentication.
 Prefix: `TOLGEE_AUTHENTICATION_GITHUB`
 
 :::info
-GitHub authentication can be used in combination with LDAP or native authentication.
+GitHub authentication can be used in combination with native authentication.
 :::
 
 - <h5 id="authorization-url"><code>AUTHORIZATION_URL</code></h5>
@@ -1019,49 +1015,6 @@ The following instructions explain how to set up Google OAuth. [Setting up OAuth
 
   The registration can be limited to users of a Google Workspace domain. If nothing is set, anyone can log in with their Google account.
 
-<h4 id="ldap">LDAP</h4>
-
-Prefix: `TOLGEE_AUTHENTICATION_LDAP`
-
-:::warning
-This feature is experimental!
-:::
-
-:::info
-LDAP authentication can be used in combination with GitHub or native authentication.
-:::
-
-Tolgee can use a LDAP server to authenticate users. This is very useful if you already use LDAP as a primary mean of
-authentication for other services.
-
-- <h5 id="base-dn"><code>BASE_DN</code></h5>
-
-  LDAP base DN. For example `dc=example,dc=com`
-
-- <h5 id="enabled"><code>ENABLED</code></h5>
-
-  Whether LDAP authentication is enabled. If enabled, you need to set all remaining properties below. (default: `false`)
-
-- <h5 id="port"><code>PORT</code></h5>
-
-  LDAP server host
-
-- <h5 id="principal-password"><code>PRINCIPAL_PASSWORD</code></h5>
-
-  LDAP password for the manager DN
-
-- <h5 id="security-principal"><code>SECURITY_PRINCIPAL</code></h5>
-
-  LDAP manager DN. For example `cn=admin,dc=example,dc=com`
-
-- <h5 id="urls"><code>URLS</code></h5>
-
-  LDAP server URLs. For example `ldap://localhost:389`
-
-- <h5 id="user-dn-pattern"><code>USER_DN_PATTERN</code></h5>
-
-  LDAP user search filter. For example `(uid={0})`
-
 <h4 id="oauth2">OAuth2</h4>
 
 Prefix: `TOLGEE_AUTHENTICATION_OAUTH2`
@@ -1100,6 +1053,18 @@ This enables the integration of a wide range of authorization providers into tol
   **Removed in:** 2.33.0
 
   Whether regular users are allowed to create projects. When disabled, only administrators can create projects (default: `true`)
+
+- <h5 id="create-initial-user"><del><code>CREATE_INITIAL_USER</code></del></h5>
+
+  **Removed in:** 3.31.0
+
+  If true, Tolgee creates initial user on first start-up. (default: `true`)
+
+- <h5 id="ldap.*"><del><code>LDAP_*</code></del></h5>
+
+  **Removed in:** 3.31.0
+
+  LDAP-related settings.
 
 <h3 id="batch-operations">Batch operations</h3>
 
@@ -1315,11 +1280,6 @@ See [DeepL's](https://www.deepl.com/) page for more information and applicable p
 
   Whether to use DeepL as a primary translation engine. (default: `false`)
 
-- <h5 id="formality"><code>FORMALITY</code></h5>
-
-  Whether the translated text should lean towards formal or informal language.
-  See [DeepL's documentation](https://www.deepl.com/docs-api/translating-text/request/) for supported languages and details. (default: `default`)
-
 <h4 id="google-cloud-translation">Google Cloud Translation</h4>
 
 Prefix: `TOLGEE_MACHINE_TRANSLATION_GOOGLE`
@@ -1382,16 +1342,53 @@ Defines whether and how is PostgreSQL started on Tolgee startup.
 
 Prefix: `TOLGEE_RATE_LIMITS`
 
-Configuration of rate limits.
-By default Tolgee Platform limits requests to endpoints according to these rules:
+Configuration of the rate limit behavior of the server.
+Rate limits are used to protect against server overload and/or abuse, and are enabled by default.
 
-1. Single IP is not allowed to request more than 20 000 times in 5 minutes
-2. Single IP is not allowed to request public endpoints (authentication, sign-ups) more than 1000 times per hour
-3. Single authenticated user cannot do more than 400 requests per minute
+You can disable global, per-endpoint and auth-related rate limits, or configure global rate limits.
+Per-endpoint and auth-related rate limits are fixed and cannot be configured.
+
+
+
+- <h5 id="authentication-limits"><code>AUTHENTICATION_LIMITS</code></h5>
+
+  Control whether per-endpoint limits on authentication-related endpoints are enabled or not.
+  :::warning
+  It is **strongly** recommended to keep these limits enabled. They act as a protection layer against
+  brute-force attacks on the login (and register) prompt.::: (default: `true`)
 
 - <h5 id="enabled"><code>ENABLED</code></h5>
 
-  To turn these rate limits off, set this value to `false`. (default: `true`)
+  To turn all rate limits off, set this value to `false`.
+  
+  :::dangerThis field is **deprecated** and will be removed with Tolgee 4. If set to `false`, it will take priority
+  over the more granular `global-limits`, `endpoint-limits` and `authentication-limits` and all limits
+  will be disabled.::: (default: `true`)
+
+- <h5 id="endpoint-limits"><code>ENDPOINT_LIMITS</code></h5>
+
+  Control whether per-endpoint limits on the API are enabled or not.
+  Does not affect authentication-related endpoints, these are controlled by `authentication-limits`. (default: `true`)
+
+- <h5 id="global-limits"><code>GLOBAL_LIMITS</code></h5>
+
+  Control whether global limits on the API are enabled or not. (default: `true`)
+
+- <h5 id="ip-request-limit"><code>IP_REQUEST_LIMIT</code></h5>
+
+  Amount of requests an IP address can do in a single time window. (default: `20000`)
+
+- <h5 id="ip-request-window"><code>IP_REQUEST_WINDOW</code></h5>
+
+  Size, in milliseconds, of the time window for IP-based limiting. (default: `300000` = 5 minutes)
+
+- <h5 id="user-request-limit"><code>USER_REQUEST_LIMIT</code></h5>
+
+  Amount of requests a user can do in a single time window. (default: `400`)
+
+- <h5 id="user-request-window"><code>USER_REQUEST_WINDOW</code></h5>
+
+  Size, in milliseconds, of the time window for user-based limiting. (default: `300000` = 1 minute)
 
 <h3 id="recaptcha">reCAPTCHA</h3>
 
@@ -1528,7 +1525,6 @@ TOLGEE_FRONT_END_URL=
 TOLGEE_MAX_SCREENSHOTS_PER_KEY=20
 TOLGEE_MAX_TRANSLATION_TEXT_LENGTH=10000
 TOLGEE_MAX_UPLOAD_FILE_SIZE=51200
-TOLGEE_AUTHENTICATION_CREATE_INITIAL_USER=true
 TOLGEE_AUTHENTICATION_ENABLED=true
 TOLGEE_AUTHENTICATION_INITIAL_PASSWORD=
 TOLGEE_AUTHENTICATION_INITIAL_USERNAME=admin
@@ -1550,13 +1546,6 @@ TOLGEE_AUTHENTICATION_GOOGLE_CLIENT_ID=
 TOLGEE_AUTHENTICATION_GOOGLE_CLIENT_SECRET=
 TOLGEE_AUTHENTICATION_GOOGLE_USER_URL=https://www.googleapis.com/oauth2/v3/userinfo
 TOLGEE_AUTHENTICATION_GOOGLE_WORKSPACE_DOMAIN=
-TOLGEE_AUTHENTICATION_LDAP_BASE_DN=
-TOLGEE_AUTHENTICATION_LDAP_ENABLED=false
-TOLGEE_AUTHENTICATION_LDAP_PORT=
-TOLGEE_AUTHENTICATION_LDAP_PRINCIPAL_PASSWORD=
-TOLGEE_AUTHENTICATION_LDAP_SECURITY_PRINCIPAL=
-TOLGEE_AUTHENTICATION_LDAP_URLS=
-TOLGEE_AUTHENTICATION_LDAP_USER_DN_PATTERN=
 TOLGEE_AUTHENTICATION_OAUTH2_AUTHORIZATION_URL=
 TOLGEE_AUTHENTICATION_OAUTH2_CLIENT_ID=
 TOLGEE_AUTHENTICATION_OAUTH2_CLIENT_SECRET=
@@ -1597,7 +1586,6 @@ TOLGEE_MACHINE_TRANSLATION_BAIDU_DEFAULT_PRIMARY=false
 TOLGEE_MACHINE_TRANSLATION_DEEPL_AUTH_KEY=
 TOLGEE_MACHINE_TRANSLATION_DEEPL_DEFAULT_ENABLED=true
 TOLGEE_MACHINE_TRANSLATION_DEEPL_DEFAULT_PRIMARY=false
-TOLGEE_MACHINE_TRANSLATION_DEEPL_FORMALITY=default
 TOLGEE_MACHINE_TRANSLATION_GOOGLE_API_KEY=
 TOLGEE_MACHINE_TRANSLATION_GOOGLE_DEFAULT_ENABLED=true
 TOLGEE_MACHINE_TRANSLATION_GOOGLE_DEFAULT_PRIMARY=true
@@ -1608,7 +1596,14 @@ TOLGEE_POSTGRES_AUTOSTART_MODE=DOCKER
 TOLGEE_POSTGRES_AUTOSTART_PASSWORD=postgres
 TOLGEE_POSTGRES_AUTOSTART_PORT=25432
 TOLGEE_POSTGRES_AUTOSTART_USER=postgres
-TOLGEE_RATE_LIMITS_ENABLED=true
+TOLGEE_RATE_LIMIT_AUTHENTICATION_LIMITS=true
+TOLGEE_RATE_LIMIT_ENABLED=true
+TOLGEE_RATE_LIMIT_ENDPOINT_LIMITS=true
+TOLGEE_RATE_LIMIT_GLOBAL_LIMITS=true
+TOLGEE_RATE_LIMIT_IP_REQUEST_LIMIT=20000
+TOLGEE_RATE_LIMIT_IP_REQUEST_WINDOW=300000
+TOLGEE_RATE_LIMIT_USER_REQUEST_LIMIT=400
+TOLGEE_RATE_LIMIT_USER_REQUEST_WINDOW=300000
 TOLGEE_RECAPTCHA_SECRET_KEY=
 TOLGEE_RECAPTCHA_SITE_KEY=
 TOLGEE_SENTRY_CLIENT_DSN=
@@ -1703,45 +1698,43 @@ Configuration specific to Tolgee.
 
   Maximum size of uploaded files (in kilobytes). (default: `51200` ≈ 50MB)
 
-<h3 id="authentication">Authentication</h3>
+<h3 id="authentication">authentication</h3>
 
 Prefix: `tolgee.authentication`
 
-Configuration of Tolgee's authentication.
-
-- <h5 id="create-initial-user"><code>create-initial-user</code></h5>
-
-  If true, Tolgee creates initial user on first start-up. (default: `true`)
-
 - <h5 id="enabled"><code>enabled</code></h5>
 
-  Whether authentication is enabled. If not, Tolgee will create implicit user on first startup and will automatically log you in. No login page shows, no permissions are managed. This is very useful, when you want to use Tolgee on your local machine, or you just want to test it. (default: `true`)
+  Whether authentication is enabled.When authentication is disabled, there are no login screen and no permission control.Users get automatically logged in as the administrator account of the Tolgee instance.This is very useful, when you want to use Tolgee on your local machine, or you just want to test it. (default: `true` when running with Java directly, `false` when running via Docker.)
 
 - <h5 id="initial-password"><code>initial-password</code></h5>
 
-  Password of initial user. If unspecified, a random password will be generated and stored in the `initial.pwd` file,
-  located at the root of Tolgee's data path.
+  Password of initial user. If unspecified, a random password will be generated and stored in the `initial.pwd` file, located at the root of Tolgee's data path.
 
 - <h5 id="initial-username"><code>initial-username</code></h5>
 
-  Username of initial user. (default: `admin`)
+  Username of initial user.
+  :::tipTolgee will ask for an email instead of a username - don't worry, just give it the username specified here.::: (default: `admin`)
 
 - <h5 id="jwt-expiration"><code>jwt-expiration</code></h5>
 
-  Expiration time of generated JWT tokens in milliseconds. (default: `604800000` ≈ 7 days)
+  Expiration time of generated JWT tokens in milliseconds. (default: `604800000` = 7 days)
 
 - <h5 id="jwt-secret"><code>jwt-secret</code></h5>
 
   Secret used to sign JWT authentication tokens with. It will be generated automatically, if not provided. You will be fine with 64 characters long random string.
-  Generated automatically, if not provided. If running multiple replicas, it's required to set it or otherwise you will be constantly logged out.
+  
+  :::warning
+  If running multiple replicas, it's required to set it or otherwise you will be constantly logged out.
+  :::
 
 - <h5 id="jwt-super-expiration"><code>jwt-super-expiration</code></h5>
 
-  Expiration time of generated JWT tokens for superuser in milliseconds. (default: `3600000` ≈ 1 hour)
+  Expiration time of generated JWT tokens for superuser in milliseconds. (default: `3600000` = 1 hour)
 
 - <h5 id="native-enabled"><code>native-enabled</code></h5>
 
-  Whether user credentials are stored in Tolgee's database. If you would like to use LDAP, set this to `false`. (default: `true`)
+  Whether to enable Tolgee-native authentication and registration.
+  When set to `false`, users will only be able to register and login via third-party SSO options (e.g. OAuth). (default: `true`)
 
 - <h5 id="needs-email-verification"><code>needs-email-verification</code></h5>
 
@@ -1749,16 +1742,17 @@ Configuration of Tolgee's authentication.
 
 - <h5 id="registrations-allowed"><code>registrations-allowed</code></h5>
 
-  Enable/disable sign ups into Tolgee. (default: `false`)
+  Whether users are allowed to register on Tolgee.
+  When set to `false`, existing users must send invites to projects to new users for them to be able to register. (default: `false`)
 
 - <h5 id="secured-image-retrieval"><code>secured-image-retrieval</code></h5>
 
-  Whether image assets should be protected by Tolgee. When enabled, all images are served with a secure token valid for
+  Whether image assets should be protected by Tolgee. When enabled, all images are served with an access token valid for
   a set period of time to prevent unauthorized access to images. (default: `false`)
 
 - <h5 id="secured-image-timestamp-max-age"><code>secured-image-timestamp-max-age</code></h5>
 
-  Expiration time of a generated image access token in seconds. (default: `600000` ≈ one week)
+  Expiration time of a generated image access token in milliseconds. (default: `600000` = 10 minutes)
 
 - <h5 id="user-can-create-organizations"><code>user-can-create-organizations</code></h5>
 
@@ -1770,7 +1764,7 @@ Configuration of Tolgee's authentication.
 Prefix: `tolgee.authentication.github`
 
 :::info
-GitHub authentication can be used in combination with LDAP or native authentication.
+GitHub authentication can be used in combination with native authentication.
 :::
 
 - <h5 id="authorization-url"><code>authorization-url</code></h5>
@@ -1815,49 +1809,6 @@ The following instructions explain how to set up Google OAuth. [Setting up OAuth
 
   The registration can be limited to users of a Google Workspace domain. If nothing is set, anyone can log in with their Google account.
 
-<h4 id="ldap">LDAP</h4>
-
-Prefix: `tolgee.authentication.ldap`
-
-:::warning
-This feature is experimental!
-:::
-
-:::info
-LDAP authentication can be used in combination with GitHub or native authentication.
-:::
-
-Tolgee can use a LDAP server to authenticate users. This is very useful if you already use LDAP as a primary mean of
-authentication for other services.
-
-- <h5 id="base-dn"><code>base-dn</code></h5>
-
-  LDAP base DN. For example `dc=example,dc=com`
-
-- <h5 id="enabled"><code>enabled</code></h5>
-
-  Whether LDAP authentication is enabled. If enabled, you need to set all remaining properties below. (default: `false`)
-
-- <h5 id="port"><code>port</code></h5>
-
-  LDAP server host
-
-- <h5 id="principal-password"><code>principal-password</code></h5>
-
-  LDAP password for the manager DN
-
-- <h5 id="security-principal"><code>security-principal</code></h5>
-
-  LDAP manager DN. For example `cn=admin,dc=example,dc=com`
-
-- <h5 id="urls"><code>urls</code></h5>
-
-  LDAP server URLs. For example `ldap://localhost:389`
-
-- <h5 id="user-dn-pattern"><code>user-dn-pattern</code></h5>
-
-  LDAP user search filter. For example `(uid={0})`
-
 <h4 id="oauth2">OAuth2</h4>
 
 Prefix: `tolgee.authentication.oauth2`
@@ -1896,6 +1847,18 @@ This enables the integration of a wide range of authorization providers into tol
   **Removed in:** 2.33.0
 
   Whether regular users are allowed to create projects. When disabled, only administrators can create projects (default: `true`)
+
+- <h5 id="create-initial-user"><del><code>create-initial-user</code></del></h5>
+
+  **Removed in:** 3.31.0
+
+  If true, Tolgee creates initial user on first start-up. (default: `true`)
+
+- <h5 id="ldap.*"><del><code>ldap.*</code></del></h5>
+
+  **Removed in:** 3.31.0
+
+  LDAP-related settings.
 
 <h3 id="batch-operations">Batch operations</h3>
 
@@ -2111,11 +2074,6 @@ See [DeepL's](https://www.deepl.com/) page for more information and applicable p
 
   Whether to use DeepL as a primary translation engine. (default: `false`)
 
-- <h5 id="formality"><code>formality</code></h5>
-
-  Whether the translated text should lean towards formal or informal language.
-  See [DeepL's documentation](https://www.deepl.com/docs-api/translating-text/request/) for supported languages and details. (default: `default`)
-
 <h4 id="google-cloud-translation">Google Cloud Translation</h4>
 
 Prefix: `tolgee.machine-translation.google`
@@ -2178,16 +2136,53 @@ Defines whether and how is PostgreSQL started on Tolgee startup.
 
 Prefix: `tolgee.rate-limits`
 
-Configuration of rate limits.
-By default Tolgee Platform limits requests to endpoints according to these rules:
+Configuration of the rate limit behavior of the server.
+Rate limits are used to protect against server overload and/or abuse, and are enabled by default.
 
-1. Single IP is not allowed to request more than 20 000 times in 5 minutes
-2. Single IP is not allowed to request public endpoints (authentication, sign-ups) more than 1000 times per hour
-3. Single authenticated user cannot do more than 400 requests per minute
+You can disable global, per-endpoint and auth-related rate limits, or configure global rate limits.
+Per-endpoint and auth-related rate limits are fixed and cannot be configured.
+
+
+
+- <h5 id="authentication-limits"><code>authentication-limits</code></h5>
+
+  Control whether per-endpoint limits on authentication-related endpoints are enabled or not.
+  :::warning
+  It is **strongly** recommended to keep these limits enabled. They act as a protection layer against
+  brute-force attacks on the login (and register) prompt.::: (default: `true`)
 
 - <h5 id="enabled"><code>enabled</code></h5>
 
-  To turn these rate limits off, set this value to `false`. (default: `true`)
+  To turn all rate limits off, set this value to `false`.
+  
+  :::dangerThis field is **deprecated** and will be removed with Tolgee 4. If set to `false`, it will take priority
+  over the more granular `global-limits`, `endpoint-limits` and `authentication-limits` and all limits
+  will be disabled.::: (default: `true`)
+
+- <h5 id="endpoint-limits"><code>endpoint-limits</code></h5>
+
+  Control whether per-endpoint limits on the API are enabled or not.
+  Does not affect authentication-related endpoints, these are controlled by `authentication-limits`. (default: `true`)
+
+- <h5 id="global-limits"><code>global-limits</code></h5>
+
+  Control whether global limits on the API are enabled or not. (default: `true`)
+
+- <h5 id="ip-request-limit"><code>ip-request-limit</code></h5>
+
+  Amount of requests an IP address can do in a single time window. (default: `20000`)
+
+- <h5 id="ip-request-window"><code>ip-request-window</code></h5>
+
+  Size, in milliseconds, of the time window for IP-based limiting. (default: `300000` = 5 minutes)
+
+- <h5 id="user-request-limit"><code>user-request-limit</code></h5>
+
+  Amount of requests a user can do in a single time window. (default: `400`)
+
+- <h5 id="user-request-window"><code>user-request-window</code></h5>
+
+  Size, in milliseconds, of the time window for user-based limiting. (default: `300000` = 1 minute)
 
 <h3 id="recaptcha">reCAPTCHA</h3>
 
@@ -2324,7 +2319,6 @@ tolgee.front-end-url =
 tolgee.max-screenshots-per-key = 20
 tolgee.max-translation-text-length = 10000
 tolgee.max-upload-file-size = 51200
-tolgee.authentication.create-initial-user = true
 tolgee.authentication.enabled = true
 tolgee.authentication.initial-password =
 tolgee.authentication.initial-username = admin
@@ -2346,13 +2340,6 @@ tolgee.authentication.google.client-id =
 tolgee.authentication.google.client-secret =
 tolgee.authentication.google.user-url = https://www.googleapis.com/oauth2/v3/userinfo
 tolgee.authentication.google.workspace-domain =
-tolgee.authentication.ldap.base-dn =
-tolgee.authentication.ldap.enabled = false
-tolgee.authentication.ldap.port =
-tolgee.authentication.ldap.principal-password =
-tolgee.authentication.ldap.security-principal =
-tolgee.authentication.ldap.urls =
-tolgee.authentication.ldap.user-dn-pattern =
 tolgee.authentication.oauth2.authorization-url =
 tolgee.authentication.oauth2.client-id =
 tolgee.authentication.oauth2.client-secret =
@@ -2393,7 +2380,6 @@ tolgee.machine-translation.baidu.default-primary = false
 tolgee.machine-translation.deepl.auth-key =
 tolgee.machine-translation.deepl.default-enabled = true
 tolgee.machine-translation.deepl.default-primary = false
-tolgee.machine-translation.deepl.formality = default
 tolgee.machine-translation.google.api-key =
 tolgee.machine-translation.google.default-enabled = true
 tolgee.machine-translation.google.default-primary = true
@@ -2404,7 +2390,14 @@ tolgee.postgres-autostart.mode = DOCKER
 tolgee.postgres-autostart.password = postgres
 tolgee.postgres-autostart.port = 25432
 tolgee.postgres-autostart.user = postgres
-tolgee.rate-limits.enabled = true
+tolgee.rate-limit.authentication-limits = true
+tolgee.rate-limit.enabled = true
+tolgee.rate-limit.endpoint-limits = true
+tolgee.rate-limit.global-limits = true
+tolgee.rate-limit.ip-request-limit = 20000
+tolgee.rate-limit.ip-request-window = 300000
+tolgee.rate-limit.user-request-limit = 400
+tolgee.rate-limit.user-request-window = 300000
 tolgee.recaptcha.secret-key =
 tolgee.recaptcha.site-key =
 tolgee.sentry.client-dsn =
