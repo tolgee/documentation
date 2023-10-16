@@ -34,7 +34,7 @@ export const AiContext = () => {
             it like other translators. That’s why Tolgee can provide the best
             results ever.
           </TextColumnText>
-          <TextColumnTitle>Automated context extraction.</TextColumnTitle>
+          <TextColumnTitle>Auto context extraction.</TextColumnTitle>
           <TextColumnText>
             Tolgee integrations extract context from your App automatically. You
             don’t have to bother developers or designers by asking them to

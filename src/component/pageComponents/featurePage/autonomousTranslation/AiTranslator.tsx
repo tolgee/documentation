@@ -24,7 +24,7 @@ export const AiTranslator = () => {
             technology. Tolgee translator provides great results in much less
             time and is way cheaper than human translators.
           </TextColumnText>
-          <TextColumnTitle>Your App localized immediately.</TextColumnTitle>
+          <TextColumnTitle>App localized immediately.</TextColumnTitle>
           <TextColumnText>
             With the auto-translation feature, you just add the strings to the
             Tolgee Platform. And boom! It’s reliably translated with Tolgee
