@@ -41,7 +41,7 @@ export const Sections: React.FC<Props> = ({ withImg }) => {
   const path = useRouteMatch();
 
   return (
-    <div className="flex gap-1 sm:gap-8 sm:text-xl flex-wrap justify-center">
+    <div className="grid gap-1 sm:gap-8 sm:text-xl justify-center grid-cols-2 xl:grid-cols-4">
       {sections.map((section) => {
         const link = `/features/${section.slug}`;
         const isActive = path.path == link;
