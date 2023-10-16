@@ -10,7 +10,7 @@ export default function TranslationAssistance() {
   return (
     <BaseFeaturePage
       title="Translation assistance"
-      title2="Tolgee helps as much as it can."
+      title2="Make your job easier."
     >
       <AutoTranslationFeature />
       <MachineTranslationFeature />
