@@ -15,8 +15,8 @@ function TechnologyIncubation() {
         <img
           src={
             isDarkTheme
-              ? '/img/technology-incubation-light.png'
-              : '/img/technology-incubation-dark.png'
+              ? '/img/technology-incubation-light.webp'
+              : '/img/technology-incubation-dark.webp'
           }
           alt="CzechInvest Technology Incubation"
           className={styles.footerLogoImage}
