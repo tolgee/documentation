@@ -103,6 +103,8 @@ Configuration of Tolgee's authentication.
   
   If you set this field to something else, the initial user's password will be updated **unless the password was updated once via the Tolgee web UI**.
   :::
+  
+  
 
 - ##### `initial-username` {#initial-username}
 
@@ -110,7 +112,9 @@ Configuration of Tolgee's authentication.
   
   :::tip
   Tolgee will ask for an email instead of a username - don't worry, just give it the username specified here.
-  ::: (default: `admin`)
+  :::
+  
+   (default: `admin`)
 
 - ##### `jwt-expiration` {#jwt-expiration}
 
@@ -123,6 +127,8 @@ Configuration of Tolgee's authentication.
   :::warning
   When running multiple replicas, it is required to set it, or you will be constantly logged out otherwise.
   :::
+  
+  
 
 - ##### `jwt-super-expiration` {#jwt-super-expiration}
 
@@ -163,6 +169,8 @@ Prefix: `tolgee.authentication.github`
 :::info
 GitHub authentication can be used in combination with native authentication.
 :::
+
+
 
 - ##### `authorization-url` {#authorization-url}
 
@@ -298,7 +306,9 @@ data it needs faster. Cache is also used to track certain states, such as rate l
   
   :::info
   Tolgee uses [Redisson](https://github.com/redisson/redisson) to interface with the Redis server. You can find the properties Redisson expects [here](https://github.com/redisson/redisson/tree/56ea7f5/redisson-spring-boot-starter#2-add-settings-into-applicationsettings-file).
-  ::: (default: `false`)
+  :::
+  
+   (default: `false`)
 
 ### File storage
 
@@ -358,7 +368,9 @@ Bulk-imports exported json files in the database during startup. Useful to quick
   
   :::danger
   While this is useful for tests, make sure to keep this **disabled** if you're importing projects on a production server as trying this predictable key may be the first thing an attacker will attempt to gain unauthorized access!
-  ::: (default: `false`)
+  :::
+  
+   (default: `false`)
 
 - ##### `dir` {#dir}
 
@@ -547,7 +559,9 @@ Per-endpoint and auth-related rate limits are fixed and cannot be configured.
   :::warning
   It is **strongly** recommended to keep these limits enabled. They act as a protection layer against
   brute-force attacks on the login (and register) prompt.
-  ::: (default: `true`)
+  :::
+  
+   (default: `true`)
 
 - ##### `enabled` {#enabled}
 
@@ -557,7 +571,9 @@ Per-endpoint and auth-related rate limits are fixed and cannot be configured.
   This field is **deprecated** and will be removed with Tolgee 4. If set to `false`, it will take priority
   over the more granular `global-limits`, `endpoint-limits` and `authentication-limits` and all limits
   will be disabled.
-  ::: (default: `true`)
+  :::
+  
+   (default: `true`)
 
 - ##### `endpoint-limits` {#endpoint-limits}
 
@@ -937,6 +953,8 @@ Configuration of Tolgee's authentication.
   
   If you set this field to something else, the initial user's password will be updated **unless the password was updated once via the Tolgee web UI**.
   :::
+  
+  
 
 - <h5 id="initial-username"><code>INITIAL_USERNAME</code></h5>
 
@@ -944,7 +962,9 @@ Configuration of Tolgee's authentication.
   
   :::tip
   Tolgee will ask for an email instead of a username - don't worry, just give it the username specified here.
-  ::: (default: `admin`)
+  :::
+  
+   (default: `admin`)
 
 - <h5 id="jwt-expiration"><code>JWT_EXPIRATION</code></h5>
 
@@ -957,6 +977,8 @@ Configuration of Tolgee's authentication.
   :::warning
   When running multiple replicas, it is required to set it, or you will be constantly logged out otherwise.
   :::
+  
+  
 
 - <h5 id="jwt-super-expiration"><code>JWT_SUPER_EXPIRATION</code></h5>
 
@@ -997,6 +1019,8 @@ Prefix: `TOLGEE_AUTHENTICATION_GITHUB`
 :::info
 GitHub authentication can be used in combination with native authentication.
 :::
+
+
 
 - <h5 id="authorization-url"><code>AUTHORIZATION_URL</code></h5>
 
@@ -1132,7 +1156,9 @@ data it needs faster. Cache is also used to track certain states, such as rate l
   
   :::info
   Tolgee uses [Redisson](https://github.com/redisson/redisson) to interface with the Redis server. You can find the properties Redisson expects [here](https://github.com/redisson/redisson/tree/56ea7f5/redisson-spring-boot-starter#2-add-settings-into-applicationsettings-file).
-  ::: (default: `false`)
+  :::
+  
+   (default: `false`)
 
 <h3 id="file-storage">File storage</h3>
 
@@ -1192,7 +1218,9 @@ Bulk-imports exported json files in the database during startup. Useful to quick
   
   :::danger
   While this is useful for tests, make sure to keep this **disabled** if you're importing projects on a production server as trying this predictable key may be the first thing an attacker will attempt to gain unauthorized access!
-  ::: (default: `false`)
+  :::
+  
+   (default: `false`)
 
 - <h5 id="dir"><code>DIR</code></h5>
 
@@ -1381,7 +1409,9 @@ Per-endpoint and auth-related rate limits are fixed and cannot be configured.
   :::warning
   It is **strongly** recommended to keep these limits enabled. They act as a protection layer against
   brute-force attacks on the login (and register) prompt.
-  ::: (default: `true`)
+  :::
+  
+   (default: `true`)
 
 - <h5 id="enabled"><code>ENABLED</code></h5>
 
@@ -1391,7 +1421,9 @@ Per-endpoint and auth-related rate limits are fixed and cannot be configured.
   This field is **deprecated** and will be removed with Tolgee 4. If set to `false`, it will take priority
   over the more granular `global-limits`, `endpoint-limits` and `authentication-limits` and all limits
   will be disabled.
-  ::: (default: `true`)
+  :::
+  
+   (default: `true`)
 
 - <h5 id="endpoint-limits"><code>ENDPOINT_LIMITS</code></h5>
 
@@ -1745,6 +1777,8 @@ Configuration of Tolgee's authentication.
   
   If you set this field to something else, the initial user's password will be updated **unless the password was updated once via the Tolgee web UI**.
   :::
+  
+  
 
 - <h5 id="initial-username"><code>initial-username</code></h5>
 
@@ -1752,7 +1786,9 @@ Configuration of Tolgee's authentication.
   
   :::tip
   Tolgee will ask for an email instead of a username - don't worry, just give it the username specified here.
-  ::: (default: `admin`)
+  :::
+  
+   (default: `admin`)
 
 - <h5 id="jwt-expiration"><code>jwt-expiration</code></h5>
 
@@ -1765,6 +1801,8 @@ Configuration of Tolgee's authentication.
   :::warning
   When running multiple replicas, it is required to set it, or you will be constantly logged out otherwise.
   :::
+  
+  
 
 - <h5 id="jwt-super-expiration"><code>jwt-super-expiration</code></h5>
 
@@ -1805,6 +1843,8 @@ Prefix: `tolgee.authentication.github`
 :::info
 GitHub authentication can be used in combination with native authentication.
 :::
+
+
 
 - <h5 id="authorization-url"><code>authorization-url</code></h5>
 
@@ -1940,7 +1980,9 @@ data it needs faster. Cache is also used to track certain states, such as rate l
   
   :::info
   Tolgee uses [Redisson](https://github.com/redisson/redisson) to interface with the Redis server. You can find the properties Redisson expects [here](https://github.com/redisson/redisson/tree/56ea7f5/redisson-spring-boot-starter#2-add-settings-into-applicationsettings-file).
-  ::: (default: `false`)
+  :::
+  
+   (default: `false`)
 
 <h3 id="file-storage">File storage</h3>
 
@@ -2000,7 +2042,9 @@ Bulk-imports exported json files in the database during startup. Useful to quick
   
   :::danger
   While this is useful for tests, make sure to keep this **disabled** if you're importing projects on a production server as trying this predictable key may be the first thing an attacker will attempt to gain unauthorized access!
-  ::: (default: `false`)
+  :::
+  
+   (default: `false`)
 
 - <h5 id="dir"><code>dir</code></h5>
 
@@ -2189,7 +2233,9 @@ Per-endpoint and auth-related rate limits are fixed and cannot be configured.
   :::warning
   It is **strongly** recommended to keep these limits enabled. They act as a protection layer against
   brute-force attacks on the login (and register) prompt.
-  ::: (default: `true`)
+  :::
+  
+   (default: `true`)
 
 - <h5 id="enabled"><code>enabled</code></h5>
 
@@ -2199,7 +2245,9 @@ Per-endpoint and auth-related rate limits are fixed and cannot be configured.
   This field is **deprecated** and will be removed with Tolgee 4. If set to `false`, it will take priority
   over the more granular `global-limits`, `endpoint-limits` and `authentication-limits` and all limits
   will be disabled.
-  ::: (default: `true`)
+  :::
+  
+   (default: `true`)
 
 - <h5 id="endpoint-limits"><code>endpoint-limits</code></h5>
 
