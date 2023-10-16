@@ -21,7 +21,7 @@ export const Section: FC<Props> = ({ isActive, section, withImg }) => {
       to={`/features/${section.slug}`}
     >
       {withImg && (
-        <div className="flex items-center mt-auto basis-[94px] w-[110px] sm:w-[150px] p-1 sm:p-2">
+        <div className="flex items-center mt-auto basis-[94px] w-[110px] sm:w-[150px] md:w-[200px] p-1 sm:p-2">
           {section.image}
         </div>
       )}
@@ -30,6 +30,8 @@ export const Section: FC<Props> = ({ isActive, section, withImg }) => {
           'text-sm',
           'xs:text-lg',
           'sm:text-xl',
+          'lg:text-lg',
+          'xl:text-xl',
           'border-0',
           'border-b',
           'border-solid',
