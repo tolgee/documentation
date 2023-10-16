@@ -127,9 +127,8 @@ module.exports.navbar = {
     },
     {
       to: 'https://calendly.com/tolgee/30min',
-      label: 'Book a demo',
+      label: 'Book a Demo',
       position: 'right',
-      className: 'book-demo-button',
     },
     {
       to: 'https://app.tolgee.io',
