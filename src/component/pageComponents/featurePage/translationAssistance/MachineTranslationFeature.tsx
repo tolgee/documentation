@@ -12,6 +12,7 @@ import { GradientText } from '../../../GradientText';
 import { FeatureHeader } from '../FeatureHeader';
 import { MACHINE_TRANSLATION } from '../hashLinks';
 import { ReviewAuthor } from '../../../reviewAuthor/ReviewAuthor';
+import Link from '@docusaurus/Link';
 
 export const MachineTranslationFeature = () => {
   return (
@@ -30,7 +31,11 @@ export const MachineTranslationFeature = () => {
         <TextColumn className="mb-[-80px]">
           <TextColumnTitle>Select your service.</TextColumnTitle>
           <TextColumnText>
-            We support <GradientText>DeepL</GradientText>,{' '}
+            We support{' '}
+            <Link to="/features/autonomous-translation">
+              Tolgee AI Translator
+            </Link>
+            , <GradientText>DeepL</GradientText>,{' '}
             <GradientText>Google Translate</GradientText>, and{' '}
             <GradientText>AWS Translate</GradientText>. Select which services
             you want to use in the settings section.

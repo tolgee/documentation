@@ -8,3 +8,5 @@ export const COMMENTS = 'comments';
 export const TRANSLATION_HISTORY = 'translation-history';
 export const TRANSLATING_ON_PRODUCTION = 'translating-on-production';
 export const TRUE_INTEGRATIONS = 'true-integrations';
+export const AI_TRANSLATOR = 'ai-translator';
+export const AI_CONTEXT = 'ai-context';

@@ -2,7 +2,7 @@ import React from 'react';
 
 export const FeatureHeader = (props: {
   title: string;
-  id: string;
+  id?: string;
   gridRow?: string;
 }) => {
   return (

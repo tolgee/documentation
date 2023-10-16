@@ -3,6 +3,8 @@ import React, { ReactNode } from 'react';
 import DevTools from './DevTools.svg';
 import TranslationAssistance from './TranslationAssistance.svg';
 import Collaboration from './Collaboration.svg';
+import AutonomousTranslation from './AutonomousTranslation.svg';
+
 import { useRouteMatch } from 'react-router-dom';
 import { Section } from './Section';
 
@@ -18,6 +20,11 @@ export const sections = [
     name: 'Translation Assistance',
     slug: 'translation-assistance',
     image: <TranslationAssistance />,
+  },
+  {
+    name: 'Autonomous translation',
+    slug: 'autonomous-translation',
+    image: <AutonomousTranslation />,
   },
   {
     name: 'Collaboration',
