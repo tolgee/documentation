@@ -47,7 +47,7 @@ export const NotConvincedYet = () => {
               rel="noopener noreferrer"
               className="button--primary block button--small whitespace-nowrap ml-4"
             >
-              Book a demo
+              Book a Demo
             </a>
           </div>
         </div>

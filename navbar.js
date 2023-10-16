@@ -126,6 +126,11 @@ module.exports.navbar = {
       position: 'right',
     },
     {
+      to: 'https://calendly.com/tolgee/30min',
+      label: 'Book a Demo',
+      position: 'right',
+    },
+    {
       to: 'https://app.tolgee.io',
       label: 'Login',
       position: 'right',
