@@ -15,6 +15,7 @@
     "prettier": "prettier --write ./src --write ./scripts",
     "prettier-check": "prettier --check ./src --check ./scripts",
     "eslint": "eslint --ext .ts --ext .tsx --max-warnings 0 --report-unused-disable-directives .",
+    "tsc": "tsc --noEmit",
     "oss": "ts-node scripts/downloadOssData.ts"
   },
   "dependencies": {
