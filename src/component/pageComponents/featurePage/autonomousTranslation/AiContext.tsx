@@ -41,7 +41,7 @@ export const AiContext = () => {
             don’t have to bother developers or designers by asking them to
             provide the description or to take screenshots for every key. Tolgee
             does this for you.{' '}
-            <Link to="/blog/tolgee-ai-translator#so-whats-new-in-tolgee">
+            <Link to="/blog/autonomous-localization#where-the-context-comes-from">
               Read more here
             </Link>
             .
