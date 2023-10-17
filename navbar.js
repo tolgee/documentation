@@ -24,6 +24,10 @@ module.exports.navbar = {
           label: 'Translation assistance',
         },
         {
+          to: 'features/autonomous-translation',
+          label: 'Autonomous translation',
+        },
+        {
           to: 'features/collaboration',
           label: 'Collaboration',
         },
