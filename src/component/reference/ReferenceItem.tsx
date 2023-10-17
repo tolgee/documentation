@@ -19,7 +19,6 @@ type Props = {
   logoDark: string;
   onClick: () => void;
   selected: boolean;
-  webp: boolean;
 };
 
 export const ReferenceItem: React.FC<Props> = ({
@@ -27,7 +26,6 @@ export const ReferenceItem: React.FC<Props> = ({
   logoDark,
   onClick,
   selected,
-  webp,
 }) => {
   return (
     <div onClick={onClick} className="cursor-pointer flex items-center">
@@ -35,7 +33,6 @@ export const ReferenceItem: React.FC<Props> = ({
         sources={{ light: logoLight, dark: logoDark }}
         style={{ opacity: selected ? 1 : undefined }}
         draggable="false"
-        webp={webp}
       />
     </div>
   );
