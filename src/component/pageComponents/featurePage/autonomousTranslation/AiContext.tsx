@@ -10,6 +10,7 @@ import {
 import { ImageColumn } from '../../twoColumnSection/ImageColumn';
 import { FeatureHeader } from '../FeatureHeader';
 import { AI_TRANSLATOR } from '../hashLinks';
+import Link from '@docusaurus/Link';
 
 export const AiContext = () => {
   return (
@@ -31,15 +32,19 @@ export const AiContext = () => {
           <TextColumnText>
             With Tolgee’s contextual technology, strings are translated with
             their context. And context is king. Tolgee Translator doesn’t ignore
-            it like other translators. That’s why Tolgee can provide the best
-            results ever.
+            it like other machine translators. That’s why Tolgee can provide the
+            best results ever.
           </TextColumnText>
           <TextColumnTitle>Auto context extraction.</TextColumnTitle>
           <TextColumnText>
             Tolgee integrations extract context from your App automatically. You
             don’t have to bother developers or designers by asking them to
             provide the description or to take screenshots for every key. Tolgee
-            does this for you. Read more here.
+            does this for you.{' '}
+            <Link to="/blog/tolgee-ai-translator#so-whats-new-in-tolgee">
+              Read more here
+            </Link>
+            .
           </TextColumnText>
         </TextColumn>
       </TwoColumnSection>
