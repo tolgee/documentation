@@ -7,7 +7,7 @@ export const integrations = [
     label: 'React',
     logo: '/img/technologies/logo-react.svg',
     links: {
-      'Landing Page': '/integrations/react',
+      'Quick start': '/integrations/react',
       Docs: '/js-sdk/integrations/react/installation',
       'GitHub Repository':
         'https://github.com/tolgee/tolgee-js/tree/main/packages/react',
@@ -18,7 +18,7 @@ export const integrations = [
     label: 'Angular',
     logo: '/img/technologies/logo-angular.svg',
     links: {
-      'Landing Page': '/integrations/angular',
+      'Quick start': '/integrations/angular',
       Docs: '/js-sdk/integrations/angular/installation',
       'GitHub Repository':
         'https://github.com/tolgee/tolgee-js/tree/main/packages/ngx',
@@ -29,7 +29,7 @@ export const integrations = [
     label: 'Vue',
     logo: '/img/technologies/logo-vue.svg',
     links: {
-      'Landing Page': '/integrations/vue',
+      'Quick start': '/integrations/vue',
       Docs: '/js-sdk/integrations/vue/installation',
       'GitHub Repository':
         'https://github.com/tolgee/tolgee-js/tree/main/packages/vue',
@@ -40,7 +40,7 @@ export const integrations = [
     label: 'Svelte',
     logo: '/img/technologies/logo-svelte.svg',
     links: {
-      'Landing Page': '/integrations/svelte',
+      'Quick start': '/integrations/svelte',
       Docs: '/js-sdk/integrations/svelte/installation',
       'GitHub Repository':
         'https://github.com/tolgee/tolgee-js/tree/main/packages/svelte',
@@ -51,7 +51,7 @@ export const integrations = [
     label: 'Next.js',
     logo: <NextLogo />,
     links: {
-      'Landing Page': '/integrations/next',
+      'Quick start': '/integrations/next',
       Docs: '/js-sdk/integrations/react/ssr/next',
       'Example App': 'https://github.com/tolgee/next-example',
     },
@@ -60,7 +60,7 @@ export const integrations = [
     label: 'Gatsby',
     logo: '/img/technologies/logo-gatsby.svg',
     links: {
-      'Landing Page': '/integrations/gatsby',
+      'Quick start': '/integrations/gatsby',
       Docs: '/js-sdk/integrations/react/ssr/gatsby',
       'Example App': 'https://github.com/tolgee/gatsby-example',
     },
@@ -69,7 +69,7 @@ export const integrations = [
     label: 'Figma plugin',
     logo: '/img/technologies/logo-figma.svg',
     links: {
-      'Landing Page': '/integrations/figma',
+      'Quick start': '/integrations/figma',
       Docs: '/platform/integrations/figma_plugin/setup',
       'GitHub Repository': 'https://github.com/tolgee/figma-plugin',
     },
@@ -99,7 +99,7 @@ export const integrations = [
     label: 'Unreal Engine',
     logo: <UnrealLogo />,
     links: {
-      'Landing Page': '/integrations/unreal',
+      'Quick start': '/integrations/unreal',
       Docs: '/platform/integrations/unreal_plugin/setup',
       'Unreal Marketplace':
         'https://www.unrealengine.com/marketplace/en-US/product/2757e202f8f3408bbf66f65d26223398',
