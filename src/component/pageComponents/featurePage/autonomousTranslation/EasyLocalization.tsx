@@ -23,7 +23,9 @@ export const EasyLocalization = () => {
             paddingTop: 80,
           }}
         />
-        <TextColumnTitle>The localization was never easier.</TextColumnTitle>
+        <TextColumnTitle>
+          The localization has naver been easier.
+        </TextColumnTitle>
         <TextColumnText>
           Add the keys to the Tolgee In-context editor and get all translated
           automatically. It’s that simple. Right after that, you can ship your
