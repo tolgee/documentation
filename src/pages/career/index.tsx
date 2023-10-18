@@ -1,3 +1,4 @@
+/* eslint-disable react/no-unescaped-entities */
 import Head from '@docusaurus/Head';
 import React from 'react';
 
