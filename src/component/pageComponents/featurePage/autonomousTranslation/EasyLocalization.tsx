@@ -24,7 +24,7 @@ export const EasyLocalization = () => {
           }}
         />
         <TextColumnTitle>
-          The localization has naver been easier.
+          The localization has never been easier.
         </TextColumnTitle>
         <TextColumnText>
           Add the keys to the Tolgee In-context editor and get all translated
