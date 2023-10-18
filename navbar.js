@@ -43,6 +43,10 @@ module.exports.navbar = {
           to: 'opensource',
           label: 'Why Open-source?',
         },
+        {
+          to: 'career',
+          label: 'We are hiring!',
+        },
       ],
     },
     {
