@@ -27,7 +27,6 @@ export default function Career() {
         </Head>
 
         <div className="container career__container">
-          <p>🛠️ Building the Future of Software Localization 🛠️</p>
           <p>
             We're always open to meeting talented individuals who share our
             passion for making software localization easier. If you have skills
@@ -37,7 +36,7 @@ export default function Career() {
             what you bring to the table, and we can explore how you can be a
             part of our exciting journey. 🚀
           </p>
-          <h2>
+          <h2 className="mt-[30px]">
             <GradientText>Currently open positions</GradientText>
           </h2>
           <h3>Developer Relations (Dev Rel)</h3>
@@ -53,7 +52,9 @@ export default function Career() {
             thrilling journey with Tolgee? We're a startup that offers a unique
             experience, challenging the status quo of software localization.
           </p>
-          <h3>Prefer to start small?</h3>
+          <h2 className="mt-[30px] mb-[50px]">
+            <GradientText>Prefer to start small?</GradientText>
+          </h2>
           <p>
             Join and contribute to the Tolgee Open-Source Community on{' '}
             <a href="https://github.com/tolgee/tolgee-platform">GitHub</a> and

@@ -5,8 +5,9 @@
 }
 
 .opensource__container {
-  max-width: 800px !important;
+  max-width: 880px !important;
   margin-bottom: 100px;
+  padding: 0px 40px;
 }
 
 .opensource__container p {
