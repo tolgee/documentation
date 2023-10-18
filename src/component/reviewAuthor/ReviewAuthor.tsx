@@ -10,7 +10,7 @@ const StyledContainer = styled('div')`
 type Props = {
   author: AuthorType;
   description: string;
-  capterraReview: string;
+  capterraReview?: string;
 };
 
 export const ReviewAuthor = ({
@@ -27,14 +27,16 @@ export const ReviewAuthor = ({
             description: (
               <span className="italic">
                 {description}
-                <a
-                  style={{ float: 'right' }}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  href={capterraReview}
-                >
-                  See review
-                </a>
+                {capterraReview && (
+                  <a
+                    style={{ float: 'right' }}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    href={capterraReview}
+                  >
+                    See review
+                  </a>
+                )}
               </span>
             ),
           }}
