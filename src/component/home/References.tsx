@@ -23,6 +23,15 @@ const references: Reference[] = [
     caseStudy: '/blog/case-study-fluent-search',
   },
   {
+    name: 'Whatspot',
+    logoLight: '/logos/whatspotLight.svg',
+    logoDark: '/logos/whatspotDark.svg',
+    link: 'https://www.whatspot.app',
+    quote:
+      'Very intuitive and user-friendly interface that makes it easy to navigate and use, even for those who are new. Collaboration with others is great. I invited a colleague, and she was able to understand so quickly what to do. Fast and easy integration process. Great support! Just love it.',
+    caseStudy: '/blog/case-study-whatspot',
+  },
+  {
     name: 'Phonexia',
     logoLight: '/logos/phonexiaLight.webp',
     logoDark: '/logos/phonexiaDark.webp',
