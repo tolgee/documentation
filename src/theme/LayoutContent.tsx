@@ -51,7 +51,7 @@ export const LayoutContent = ({ children }) => {
     return createTheme({
       palette: {
         primary: {
-          main: isDarkTheme ? 'rgb(255, 105, 149)' : '#822B55',
+          main: isDarkTheme ? 'rgb(255, 105, 149)' : '#EC407A',
         },
       },
     });

@@ -2,9 +2,9 @@
   <g filter="url(#filter0_d_2173_2174)">
     <circle cx="75" cy="75.8752" r="65" fill="white" />
   </g>
-  <path d="M49.5713 63.0181L66.7141 80.1609L101 45.8752" stroke="#822B55" stroke-width="8"
+  <path d="M49.5713 63.0181L66.7141 80.1609L101 45.8752" stroke="#EC407A" stroke-width="8"
     stroke-linecap="round" stroke-linejoin="round" />
-  <path d="M49 89.3037L66.1428 106.447L100.428 72.1609" stroke="#822B55" stroke-width="8"
+  <path d="M49 89.3037L66.1428 106.447L100.428 72.1609" stroke="#EC407A" stroke-width="8"
     stroke-linecap="round" stroke-linejoin="round" />
   <defs>
     <filter id="filter0_d_2173_2174" x="0" y="0.875244" width="150" height="150"
