@@ -183,6 +183,12 @@ h6 {
   color: inherit;
 }
 
+.navbar__title {
+  font-family: Righteous, Arial, sans-serif;
+  font-weight: 500;
+  font-size: 18px;
+}
+
 .navbar .dropdown__menu {
   display: grid;
   grid-auto-flow: column;
