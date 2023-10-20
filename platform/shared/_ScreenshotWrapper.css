@@ -7,14 +7,16 @@
 }
 
 .screenshot-wrapper--header {
-  background: #b4b4b4;
+  background: #f8f9f9;
   opacity: 0.9;
-  padding: 2px 12px;
+  padding: 2px 0px 0px 12px;
   border-radius: 7px 7px 0px 0px;
+  border-bottom: 1px solid #dadddd;
 }
 
 html[data-theme='dark'] .screenshot-wrapper--header {
   background: #34414b;
+  border-bottom: 1px solid #2c2c2c;
 }
 
 html[data-theme='dark'] .screenshot-wrapper--header .screenshot-wrapper--dot {
@@ -25,7 +27,7 @@ html[data-theme='dark'] .screenshot-wrapper--header .screenshot-wrapper--dot {
   display: inline-block;
   width: 10px;
   height: 10px;
-  background: #f9f9f9;
+  background: #d2d6d6;
   border-radius: 50%;
   margin: 0 6px 0 0;
 }
