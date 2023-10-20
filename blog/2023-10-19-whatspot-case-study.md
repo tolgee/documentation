@@ -38,7 +38,7 @@ Whatspot’s development team may be small, with only six dedicated members, som
 They serve over 500 organizations and companies worldwide, with countless individual end-users, and they continue growing fast.
 From day one, Marek believed in the global potential of the product, so they launched it in English right from the start.
 
-## Lost in Spreadsheet Translation: The Lessons of Whatspot's Early Days
+## Why Spreadsheets Fail in App Localization
 
 In the beginning, Whatspot's journey through software localization was quite a rollercoaster. They decided to go with a seemingly
 simple solution - shared Google Sheets. While it might seem like an easy tool to use, this method presented significant challenges
@@ -70,7 +70,7 @@ on a quest for a better solution to do the work finally right.
 
 ![whatspot app](/img/blog/whatspot-casestudy/whatspot-app.png)
 
-## From Chaos to Clarity: Whatspot's Multilingual Strategy
+## Transforming Translation Chaos into Clarity
 
 Whatspot registered to Tolgee this year in February and is using it to translate their website and app. What was the driving force
 behind this shift to Tolgee? The primary goals were straightforward for Whatspot:
