@@ -1,0 +1,31 @@
+.screenshot-wrapper--container {
+  box-shadow: 0 8px 20px 4px rgba(0, 0, 0, 0.36);
+  margin-bottom: 30px;
+  border-radius: 7px;
+  display: grid;
+  overflow: hidden;
+}
+
+.screenshot-wrapper--header {
+  background: #b4b4b4;
+  opacity: 0.9;
+  padding: 2px 12px;
+  border-radius: 7px 7px 0px 0px;
+}
+
+html[data-theme='dark'] .screenshot-wrapper--header {
+  background: #34414b;
+}
+
+html[data-theme='dark'] .screenshot-wrapper--header .screenshot-wrapper--dot {
+  background: #576d79;
+}
+
+.screenshot-wrapper--dot {
+  display: inline-block;
+  width: 10px;
+  height: 10px;
+  background: #f9f9f9;
+  border-radius: 50%;
+  margin: 0 6px 0 0;
+}
