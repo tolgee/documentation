@@ -49,7 +49,7 @@ for their app localization. They soon realized this journey was not as straightf
 Spreadsheets are still, unfortunately, often used for software localization. Even using basic spreadsheets like Excel, Numbers, or
 Google Sheets may seem the most straightforward way to prepare your strings for translation, the opposite is true. Unfortunately,
 this way, you lose all the essential context while translating only in table rows of spreadsheets. You can read
-more [here](https://tolgee.io/blog/context-gamechanger-localization).
+more [here](/blog/context-gamechanger-localization).
 
 :::
 
