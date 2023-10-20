@@ -6,6 +6,7 @@ const StyledContainer = styled('div')`
   border: 1px solid var(--ifm-color-gray-300);
   border-radius: 8px;
   max-width: 500px;
+  margin: 18px 0px;
 `;
 
 type Props = {
@@ -20,7 +21,7 @@ export const ReviewAuthor = ({
   capterraReview,
 }: Props) => {
   return (
-    <div className="pt-6 grid justify-center">
+    <div className="grid justify-center">
       <StyledContainer>
         <AuthorSummary
           author={{

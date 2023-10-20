@@ -173,3 +173,12 @@ body {
     url('./fonts/roboto-v30-latin-900italic.ttf') format('truetype'), /* Safari, Android, iOS */
     url('./fonts/roboto-v30-latin-900italic.svg#Roboto') format('svg'); /* Legacy iOS */
 }
+
+/* righteous-500 - latin */
+@font-face {
+    font-family: 'Righteous';
+    font-style: normal;
+    font-weight: 500;
+    src: local(''),
+    url('./fonts/righteous-latin.woff2') format('woff2'), /* Super Modern Browsers */
+}

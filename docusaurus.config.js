@@ -65,7 +65,7 @@ const config = {
           },
         ],
         theme: {
-          primaryColor: '#a94676',
+          primaryColor: '#EC407A',
         },
       },
     ],

@@ -11,16 +11,15 @@
 
 /* You can override the default Infima variables here. */
 :root {
-  --ifm-color-primary: #822b55;
-  --ifm-color-primary-dark: #822b55;
-  --ifm-color-primary-darker: #4d2139;
-  --ifm-color-primary-darkest: #4e012a;
-  --ifm-color-primary-light: #9f3367;
-  --ifm-color-primary-lighter: #ad2c65;
-  --ifm-color-primary-lightest: #d94c78;
+  --ifm-color-primary: #ec407a;
+  --ifm-color-primary-dark: #ec407a;
+  --ifm-color-primary-darker: #da3c71;
+  --ifm-color-primary-darkest: #cc3467;
+  --ifm-color-primary-light: #ec477e;
+  --ifm-color-primary-lighter: #ec5286;
+  --ifm-color-primary-lightest: #ef5f8f;
   --ifm-code-font-size: 95%;
   --ifm-font-family-base: Roboto, Arial, sans-serif;
-  --header-image-background: rgb(105, 16, 53);
   --gradient-start-color: var(--ifm-color-emphasis-200);
   --gradient-main-color: var(--ifm-background-color);
   --ifm-background-color: rgb(255, 255, 255);
@@ -53,7 +52,6 @@ html[data-theme='dark'] {
   --ifm-color-primary-lightest: #ec84a3;
   --ifm-background-color: #182230;
   --ifm-background-surface-color: #1f2d40;
-  --header-image-background: rgb(56, 8, 28);
   --gradient-start-color: #1f2d40;
   --gradient-main-color: #182230;
   --overlay-background: rgba(0, 0, 0, 0.9);
@@ -183,6 +181,13 @@ h6 {
 
 .navbar__brand:hover {
   color: inherit;
+}
+
+.navbar__title {
+  font-family: Righteous, Arial, sans-serif;
+  font-weight: 500;
+  font-size: 18px;
+  color: #2c3c52;
 }
 
 .navbar .dropdown__menu {
