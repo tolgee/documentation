@@ -190,6 +190,10 @@ h6 {
   color: #2c3c52;
 }
 
+html[data-theme='dark'] .navbar__title {
+  color: unset;
+}
+
 .navbar .dropdown__menu {
   display: grid;
   grid-auto-flow: column;
