@@ -78,7 +78,7 @@ export default function Pricing() {
               name="Pay as you go"
               description={
                 <>
-                  For individuals <br /> and hobby projects
+                  For individuals <br /> and small projects
                 </>
               }
               limits={{ strings: 1_000, mtCredits: 10_000, seats: Infinity }}
