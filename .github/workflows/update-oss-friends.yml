@@ -1,7 +1,9 @@
 name: Update oss friends
 
 on:
-  pull_request:
+  push:
+    branches:
+      - '**'
   # push:
   #   branches:
   #     - main
