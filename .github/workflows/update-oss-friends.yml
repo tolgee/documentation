@@ -3,12 +3,9 @@ name: Update oss friends
 on:
   push:
     branches:
-      - '**'
-  # push:
-  #   branches:
-  #     - main
-  # schedule:
-  #   - cron: '0 0 * * *'
+      - main
+  schedule:
+    - cron: '0 0 * * *'
 
 jobs:
   update-file:
@@ -33,18 +30,11 @@ jobs:
           git add .
           git diff --quiet && git diff --staged --quiet || git commit -m "Update oss friends"
 
-      - name: Create or update pull request
-        id: cpr
-        uses: peter-evans/create-pull-request@v3
-        with:
-          token: ${{ secrets.GITHUB_TOKEN }}
-          commit-message: 'Updating file'
-          title: 'Oss friends update'
-          body: 'This is an automated daily update.'
-          branch: oss-friends-update
-          base: main
+      - run: npm run eslint
+      - run: npm run prettier-check
 
-      - name: Enable Pull Request Automerge
-        run: gh pr merge --merge --auto {{ steps.cpr.outputs.pull-request-number }}}
+      - run: npm run build
+
+      - run: git push
         env:
-          GH_TOKEN: ${{ secrets.TOLGEE_MACHINE_PAT }}
+          GITHUB_TOKEN: ${{ secrets.TOLGEE_MACHINE_PAT }}
