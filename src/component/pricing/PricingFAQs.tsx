@@ -26,11 +26,11 @@ export function PricingFAQs() {
           Frequently asked questions
         </h2>
         <PricingQuestion question="What are strings?">
-          A "string" is a piece of text in an app, such as "Hello, world!" or
+          {`A "string" is a piece of text in an app, such as "Hello, world!" or
           its translation. If you have 5 keys to translate into 5 languages,
           you'd have a total of 25 strings. Each key, whether in the original
           language or translated, is considered a separate "string" in the
-          app. Note: we do not charge you for untranslated emply strings.
+          app. Note: we do not charge you for untranslated emply strings.`}
         </PricingQuestion>
 
         <PricingQuestion question="What are MT credits?">
