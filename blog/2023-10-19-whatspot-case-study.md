@@ -32,7 +32,7 @@ platform and sharing it with the world. At that time, Ergotep was thriving, whic
 partner companies. They started with a humble website and launched the tool on Capterra. Even though the reservation system was quite an
 MVP (minimum viable product), it gained rapid popularity.
 
-![whatspot page](/img/blog/whatspot-casestudy/whatspot-page.png)
+![whatspot page](/img/blog/whatspot-casestudy/page-whatspot.webp)
 
 Whatspot’s development team may be small, with only six dedicated members, some working only part-time, but their vision is big.
 They serve over 500 organizations and companies worldwide, with countless individual end-users, and they continue growing fast.

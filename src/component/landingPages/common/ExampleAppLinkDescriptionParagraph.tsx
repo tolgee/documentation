@@ -6,7 +6,7 @@ export const ExampleAppLinkDescriptionParagraph: FC<{
 }> = (props) => {
   return (
     <p>
-      To see Next with {props.technologyName} in action, check{' '}
+      To see {props.technologyName} with Tolgee in action, check{' '}
       <a href={`https://github.com/tolgee/${props.repoName}`}>
         this example app
       </a>
