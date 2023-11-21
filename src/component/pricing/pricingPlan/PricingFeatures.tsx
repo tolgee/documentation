@@ -11,7 +11,11 @@ const FEATURES_MAP = {
   'one-click-screenshots': <Ready>One-click screenshots</Ready>,
   'figma-plugin': <Ready>Figma plugin</Ready>,
 
-  'granular-permissions': <Ready>Granular permissions</Ready>,
+  'granular-permissions': (
+    <Ready link="/platform/projects_and_organizations/members#granular-permissions">
+      Granular permissions
+    </Ready>
+  ),
   'prioritized-feature-requests': <Ready>Prioritized feature requests</Ready>,
   'standard-support': <Ready>Standard support</Ready>,
   cdn: <InDevelopment>CDN</InDevelopment>,
