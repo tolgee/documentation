@@ -8,7 +8,7 @@ Provide static localization data in production mode or if you want to use it [wi
 
 ## Load translations directly from Tolgee
 
-Easiest way to get to your localization files on production is to [setup Tolgee Content Delivery](/platform/projects_and_organizations/content_delivery) and fetch the translations directly from there.
+The easiest way to get to your localization files on production is to set up [Tolgee Content Delivery](/platform/projects_and_organizations/content_delivery) and fetch the translations directly from there.
 
 ```ts
 import { BackendFetch } from '@tolgee/react';
@@ -19,7 +19,12 @@ const tolgee = Tolgee()
   ...
 ```
 
-## Exporting translation files from Tolgee platform
+## Use localization files directly
+
+Other option is to export localization files Tolgee platform manually and bundle them directly with your application.
+
+### Export with CLI
+
 
 Install [`@tolgee/cli`](/tolgee-cli) package:
 
