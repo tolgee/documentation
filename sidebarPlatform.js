@@ -17,6 +17,7 @@ module.exports = {
         'projects_and_organizations/languages',
         'projects_and_organizations/members',
         'projects_and_organizations/import',
+        'projects_and_organizations/content_delivery',
         'projects_and_organizations/export',
         'projects_and_organizations/organization_settings',
       ],

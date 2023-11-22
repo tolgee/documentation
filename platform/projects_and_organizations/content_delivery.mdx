@@ -1,0 +1,109 @@
+---
+id: content_delivery
+title: Content Delivery
+sidebar_label: Content Delivery
+---
+
+import { ScreenshotWrapper } from '../shared/_ScreenshotWrapper';
+
+
+## Set up the Content Delivery
+
+Content Delivery will deploy your localization files to a reliable and fast cloud storage, so you can confidently use them in your application. This way, the updates in your localization files can be reflected without changes to your code.
+
+
+### Go to Developer Settings
+
+<ScreenshotWrapper src="/img/docs/platform/content-delivery/developer-settings.png" alt="Developer Settings" />
+
+### Add new Content Delivery
+
+You can have multiple content deliveries if you need multiple targets in different formats. So name this one accordingly and then adjust your export settings.
+
+By default, you can leave your Content Delivery to be published automatically after a change happens in your application. But you can also choose to do this manually.
+
+<ScreenshotWrapper src="/img/docs/platform/content-delivery/add-content-delivery.png" alt="Add Content Delivery" />
+
+
+### Use the Content Delivery link
+
+Copy the link to your Content Delivery.
+
+<ScreenshotWrapper src="/img/docs/platform/content-delivery/content-delivery-link.png" alt="Content Delivery link" />
+
+The easiest way to connect Content Delivery with Tolgee SDK is through `BackendFetch` plugin.
+
+```tsx
+const tolgee = Tolgee()
+    ...
+    .use(BackendFetch({ prefix: 'https://cdndev.tolg.ee/i18n/b53fb7fb98a57fd1f2ffc85ef5ee7b03' }))
+    ...
+```
+
+
+This way your localization files are stored outside your application, so you can update them independently from your release cycle.
+
+:::info
+Content delivery is made to be rapidly available all around the world, so we prioritize caching and using CDN over fast deployment. This means it can take up to 15 minutes (usually faster) for your changes to be published.
+:::
+
+> Read more about [providing Tolgee SDK with static data](/js-sdk/providing-static-data).
+
+### Manual publishing
+
+If you opted out of automatic publishing, you can do so manually in the list of content deliveries by `Publish` button.
+
+<ScreenshotWrapper src="/img/docs/platform/content-delivery/manual-publish.png" alt="Manual publish" />
+
+
+### Storage file structure
+
+Your localization files are simply named by the language tags in the root folder of your storage link with the file extension (depending on your settings):
+
+```
+├── <your Content Delivery link>
+│   ├── cs.json
+│   └── en.json
+```
+
+If you use namespaces, it should look like this:
+
+```
+├── <your Content Delivery link>
+│   └── common
+│       ├── en.json
+│       └── de.json
+```
+
+## Using custom storage
+
+You can also connect Tolgee to your custom storage.
+
+### Open Content Storage settings
+
+<ScreenshotWrapper src="/img/docs/platform/content-delivery/content-storage.png" alt="Content Storage" />
+
+### Add new storage
+
+Tolgee supports S3 buckets and Azure blob storage. Fill in the settings that you obtain from your provider.
+
+You can also test if your configuration is valid with the `Test` button.
+
+<ScreenshotWrapper src="/img/docs/platform/content-delivery/add-content-storage.png" alt="Add Content Storage" />
+
+### Select the storage in the Content Delivery
+
+After you create custom storage the `Storage` field will appear in Content Delivery settings, so you can select your Storage over the default one.
+
+<ScreenshotWrapper src="/img/docs/platform/content-delivery/content-storage-select.png" alt="Content Storage select" />
+
+
+
+
+
+
+
+
+
+
+
