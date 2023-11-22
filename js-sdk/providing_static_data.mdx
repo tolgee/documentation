@@ -6,9 +6,22 @@ slug: providing-static-data
 
 Provide static localization data in production mode or if you want to use it [without Tolgee platform](./usage-without-platform).
 
+## Load translations directly from Tolgee
+
+Easiest way to get to your localization files on production is to [setup Tolgee Content Delivery](/platform/projects_and_organizations/content_delivery) and fetch the translations directly from there.
+
+```ts
+import { BackendFetch } from '@tolgee/react';
+
+const tolgee = Tolgee()
+  ...
+  .use(BackendFetch({ prefix: '<your content storage link>'}))
+  ...
+```
+
 ## Exporting translation files from Tolgee platform
 
-Easiest way is through [`@tolgee/cli`](/tolgee-cli) package:
+Install [`@tolgee/cli`](/tolgee-cli) package:
 
 ```bash
 # install Tolgee cli
@@ -21,7 +34,7 @@ tolgee login <Your-Personal-Access-Token>
 tolgee pull ./i18n
 ```
 
-## Providing data using dynamic import
+### Providing data using dynamic import
 
 To provide your localization data using dynamic import you will need to add providers for every supported language to [`staticData`](./api/core_package/options#staticdata).
 
@@ -46,7 +59,7 @@ For some build systems you'll need to use <br/>
 
 Using this approach data will be fetched just when it's needed, so you will save some network traffic.
 
-## Using imported object
+### Using imported object
 
 ```jsx
 import * as localeEn from 'i18n/en.json';
@@ -70,7 +83,7 @@ const tolgee = Tolgee().init({
 
 Using this approach, all localization data are bundled with your application. Don't use it, if our translations files are large. This approach is useful on SSR, when you need the translations to be available for initial render.
 
-## Providing data using backend plugin
+### Providing data using backend plugin
 
 ```jsx
 import { BackendFetch } from '@tolgee/react';
