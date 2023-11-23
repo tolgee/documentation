@@ -6,26 +6,37 @@ sidebar_label: Content Delivery
 
 import { ScreenshotWrapper } from '../shared/_ScreenshotWrapper';
 
+Content Delivery will deploy your localization files to reliable and fast cloud storage so you can confidently use them in your application. This way, the updates in your localization files can be reflected without changes to your code or rebuilding the application.
 
-## Set up the Content Delivery
+:::info Feature availability
+In the free and pay-as-you-go plans, you can use only one content delivery configuration,
+and you cannot use custom storage.
 
-Content Delivery will deploy your localization files to a reliable and fast cloud storage, so you can confidently use them in your application. This way, the updates in your localization files can be reflected without changes to your code.
+Multiple content delivery configurations and custom storages are introduced in the business and enterprise plans. [Upgrade your plan](/pricing) to use this feature.
 
+If you use the self-hosted version, you need to [set up the license](/platform/self_hosting/licensing) to use this feature.
+:::
 
-### Go to Developer Settings
+## Setting up the Content Delivery
+
+You can set up Content Delivery in the `Developer settings` section of the Tolgee platform.
+
+1. Go to Developer Settings
 
 <ScreenshotWrapper src="/img/docs/platform/content-delivery/developer-settings.png" alt="Developer Settings" />
 
-### Add new Content Delivery
+2. Click the `+ Conent delivery button`
 
-You can have multiple content deliveries if you need multiple targets in different formats. So name this one accordingly and then adjust your export settings.
+You'll have to provide a name to the content delivery config and export settings. The content delivery uses the same export
+settings as described is the [export section](/platform/projects_and_organizations/export)
 
-By default, you can leave your Content Delivery to be published automatically after a change happens in your application. But you can also choose to do this manually.
+When the `Publish automatically` option is enabled, your localization files will be published automatically after every
+change in your localization data. If you deselect the checkbox, you will have to publish your localization files
+manually.
 
 <ScreenshotWrapper src="/img/docs/platform/content-delivery/add-content-delivery.png" alt="Add Content Delivery" />
 
-
-### Use the Content Delivery link
+3. Use the Content Delivery link
 
 Copy the link to your Content Delivery.
 
@@ -41,7 +52,7 @@ const tolgee = Tolgee()
 ```
 
 
-This way your localization files are stored outside your application, so you can update them independently from your release cycle.
+This way, your localization files are stored outside your application, so you can update them independently from your release cycle.
 
 :::info
 Content delivery is made to be rapidly available all around the world, so we prioritize caching and using CDN over fast deployment. This means it can take up to 15 minutes (usually faster) for your changes to be published.
@@ -49,41 +60,47 @@ Content delivery is made to be rapidly available all around the world, so we pri
 
 > Read more about [providing Tolgee SDK with static data](/js-sdk/providing-static-data).
 
-### Manual publishing
+## Manual publishing
 
 If you opted out of automatic publishing, you can do so manually in the list of content deliveries by `Publish` button.
 
 <ScreenshotWrapper src="/img/docs/platform/content-delivery/manual-publish.png" alt="Manual publish" />
 
 
-### Storage file structure
+## Storage file structure
 
 Your localization files are simply named by the language tags in the root folder of your storage link with the file extension (depending on your settings):
 
 ```
 ├── <your Content Delivery link>
-│   ├── cs.json
-│   └── en.json
+│   ├── cs.json
+│   └── en.json
 ```
 
 If you use namespaces, it should look like this:
 
 ```
 ├── <your Content Delivery link>
-│   └── common
-│       ├── en.json
-│       └── de.json
+│   └── common
+│       ├── en.json
+│       └── de.json
 ```
 
 ## Using custom storage
+:::info Feature availability
 
-You can also connect Tolgee to your custom storage.
+Custom delivery storages are available in the Business and Enterprise plans. [Upgrade your plan](/pricing) to use this feature.
 
-### Open Content Storage settings
+If you use the self-hosted version, you need to [set up the license](/platform/self_hosting/licensing) to use this feature.
+:::
+
+You can also connect the content delivery to your custom storage.
+
+1. Open Content Storage settings
 
 <ScreenshotWrapper src="/img/docs/platform/content-delivery/content-storage.png" alt="Content Storage" />
 
-### Add new storage
+2. Add new storage
 
 Tolgee supports S3 buckets and Azure blob storage. Fill in the settings that you obtain from your provider.
 
@@ -91,19 +108,8 @@ You can also test if your configuration is valid with the `Test` button.
 
 <ScreenshotWrapper src="/img/docs/platform/content-delivery/add-content-storage.png" alt="Add Content Storage" />
 
-### Select the storage in the Content Delivery
+3. Select the storage in the Content Delivery
 
-After you create custom storage the `Storage` field will appear in Content Delivery settings, so you can select your Storage over the default one.
+After you create custom storage, the `Storage` field will appear in Content Delivery settings, so you can select your storage over the default one.
 
 <ScreenshotWrapper src="/img/docs/platform/content-delivery/content-storage-select.png" alt="Content Storage select" />
-
-
-
-
-
-
-
-
-
-
-
