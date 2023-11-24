@@ -1,6 +1,6 @@
 import React, { ReactNode } from 'react';
 import { Ready } from '../progressSymbols/Ready';
-import { InDevelopment } from '../progressSymbols/InDevelopment';
+import { PricingDetailsLink } from './PricingDetailsLink';
 
 const FEATURES_MAP = {
   'in-context-translating': <Ready>In-context translating</Ready>,
@@ -10,12 +10,26 @@ const FEATURES_MAP = {
   'activity-log': <Ready>Activity log</Ready>,
   'one-click-screenshots': <Ready>One-click screenshots</Ready>,
   'figma-plugin': <Ready>Figma plugin</Ready>,
+  'single-content-delivery': (
+    <Ready>
+      <PricingDetailsLink>Single Content Delivery</PricingDetailsLink>
+    </Ready>
+  ),
 
   'granular-permissions': <Ready>Granular permissions</Ready>,
   'prioritized-feature-requests': <Ready>Prioritized feature requests</Ready>,
   'standard-support': <Ready>Standard support</Ready>,
-  cdn: <InDevelopment>CDN</InDevelopment>,
-  webhooks: <InDevelopment>Webhooks</InDevelopment>,
+  'multiple-content-deliveries': (
+    <Ready>
+      <PricingDetailsLink>Multiple Content Deliveries</PricingDetailsLink>
+    </Ready>
+  ),
+  webhooks: <Ready>Webhooks</Ready>,
+  'custom-content-storage': (
+    <Ready>
+      <PricingDetailsLink>Custom Content Storage</PricingDetailsLink>
+    </Ready>
+  ),
 
   'premium-support': <Ready>Premium support</Ready>,
   'dedicated-slack-channel': <Ready>Dedicated Slack channel</Ready>,

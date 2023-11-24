@@ -66,6 +66,7 @@ export default function SelfHosted() {
                 'auto-translation',
                 'activity-log',
                 'one-click-screenshots',
+                'single-content-delivery',
                 'figma-plugin',
               ]}
               action={
@@ -99,8 +100,9 @@ export default function SelfHosted() {
                 'granular-permissions',
                 'prioritized-feature-requests',
                 'standard-support',
-                'cdn',
                 'webhooks',
+                'multiple-content-deliveries',
+                'custom-content-storage',
               ]}
               secondaryPrices={[
                 {
