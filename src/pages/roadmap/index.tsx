@@ -56,7 +56,7 @@ const roadmapData = {
         ),
       },
       {
-        name: 'CDN',
+        name: 'Content delivery',
         gitHubIssueLink:
           'https://github.com/tolgee/tolgee-platform/issues/1538',
         description: (

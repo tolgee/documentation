@@ -42,6 +42,11 @@ export function PricingFAQs() {
           (except for Tolgee Translator).
         </PricingQuestion>
 
+        <PricingQuestion question="What are seats?">
+          The number of active users (disabled accounts are not included). When
+          self-hosting, the number of users is reported to the Tolgee cloud.
+        </PricingQuestion>
+
         <PricingQuestion question="What is Content Delivery?">
           Content Delivery allows you to set up an automated export to a
           reliable Cloud storage. You can use this storage to load translations
@@ -68,11 +73,6 @@ export function PricingFAQs() {
           <br />
           10 tokens cost 1 MT credit and the average prompt size is about 250
           tokens (with context it's 500 - 1000).
-        </PricingQuestion>
-
-        <PricingQuestion question="What are seats?">
-          The number of active users (disabled accounts are not included). When
-          self-hosting, the number of users is reported to the Tolgee cloud.
         </PricingQuestion>
 
         <PricingQuestion question="Do you offer a completely free cloud plan?">
