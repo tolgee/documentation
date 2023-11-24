@@ -42,13 +42,32 @@ export function PricingFAQs() {
           (except for Tolgee Translator).
         </PricingQuestion>
 
+        <PricingQuestion question="What is Content Delivery?">
+          Content Delivery allows you to set up an automated export to a
+          reliable Cloud storage. You can use this storage to load translations
+          directly to your application and therefore ensure that the translation
+          fixes and updates will get to your users without the necessity to
+          release a new version of your app.
+          <br />
+          <br />
+          In Business and Enterprise plans you can set multiple Content Delivery
+          configurations, which is useful, if you need different formats for
+          different use cases.
+        </PricingQuestion>
+
+        <PricingQuestion question="What is Custom Content Storage?">
+          Custom storage allows you to configure a custom place where the
+          localization files will be deployed. Currently, we support AWS S3
+          buckets and Azure blob storage.
+        </PricingQuestion>
+
         <PricingQuestion question="How is Tolgee Translator priced?">
           Because Tolgee Translator is using ChatGPT in the background we price
           it differently based on the number of tokens in the prompt.
           <br />
           <br />
           10 tokens cost 1 MT credit and the average prompt size is about 250
-          tokens (with context its 500 - 1000).
+          tokens (with context it's 500 - 1000).
         </PricingQuestion>
 
         <PricingQuestion question="What are seats?">
