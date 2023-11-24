@@ -2,7 +2,7 @@
   box-shadow: 0 8px 20px 4px rgba(0, 0, 0, 0.36);
   margin-bottom: 30px;
   border-radius: 7px;
-  display: grid;
+  display: inline-grid;
   overflow: hidden;
 }
 

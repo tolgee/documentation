@@ -325,7 +325,6 @@ html[data-theme='dark'] .pricing__option-button:hover {
   display: grid;
   margin: 20px 50px;
   grid-template-columns: 1fr;
-  gap: 8px 40px;
 }
 
 @media (max-width: 500px) {
@@ -344,7 +343,21 @@ html[data-theme='dark'] .pricing__option-button:hover {
   display: none;
 }
 .pricing-details__name {
+  scroll-margin-top: 90px;
+  display: flex;
   font-weight: bold;
+  justify-content: space-between;
+  cursor: pointer;
+}
+
+.pricing-details__description {
+  overflow: hidden;
+  transition: height 0.2s ease-in-out;
+  padding-right: 30px;
+}
+
+.pricing-details__description--inner {
+  padding: 16px 0px;
 }
 
 .pricing-details__scroll-target {

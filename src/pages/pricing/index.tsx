@@ -102,6 +102,7 @@ export default function Pricing() {
                 'auto-translation',
                 'activity-log',
                 'one-click-screenshots',
+                'single-content-delivery',
                 'figma-plugin',
               ]}
               onMore={openFeaturesTable}
@@ -150,8 +151,9 @@ export default function Pricing() {
                 'granular-permissions',
                 'prioritized-feature-requests',
                 'standard-support',
-                'cdn',
                 'webhooks',
+                'multiple-content-deliveries',
+                'custom-content-storage',
               ]}
               minHeights={MIN_PLAN_HEIGHTS}
               action={
