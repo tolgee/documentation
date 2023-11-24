@@ -71,8 +71,8 @@ export function PricingFAQs() {
           it differently based on the number of tokens in the prompt.
           <br />
           <br />
-          10 tokens cost 1 MT credit and the average prompt size is about 250
-          tokens (with context it's 500 - 1000).
+          {`10 tokens cost 1 MT credit and the average prompt size is about 250
+          tokens (with context it's 500 - 1000).`}
         </PricingQuestion>
 
         <PricingQuestion question="Do you offer a completely free cloud plan?">
