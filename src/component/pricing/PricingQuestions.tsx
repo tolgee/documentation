@@ -1,5 +1,5 @@
 import { UnfoldLess, UnfoldMore } from '@mui/icons-material';
-import React, { useRef } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import { useLocation } from 'react-router-dom';
 
 export type Question = {
@@ -17,17 +17,26 @@ export function PricingQuestion({
 }: PricingQuestionProps) {
   const router = useLocation();
   const contentRef = useRef<HTMLDivElement>(null);
+  const [open, setOpen] = useState(false);
 
   const hash = `pricing-question-${id}`;
 
-  const open = router.hash === '#' + hash;
+  useEffect(() => {
+    setOpen(router.hash === `#${hash}`);
+  }, [router.hash]);
 
   return (
     <>
       <div
         className="pricing-details__name"
         onClick={() => {
-          window.location.hash = hash;
+          if (open) {
+            history.replaceState(null, null, ' ');
+            setOpen(false);
+          } else {
+            window.location.hash = hash;
+            setOpen(true);
+          }
         }}
       >
         <div>{title}</div>
