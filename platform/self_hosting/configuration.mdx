@@ -310,6 +310,42 @@ data it needs faster. Cache is also used to track certain states, such as rate l
   
    (default: `false`)
 
+### Content Delivery
+
+Prefix: `tolgee.content-delivery`
+
+These properties are used to configure default server content delivery storage.
+
+- ##### `public-url-prefix` {#public-url-prefix}
+
+  The root path where the content is accessible by the public. If this property is not null. Content delivery will be enabled on your server.
+
+#### storage
+
+Prefix: `tolgee.content-delivery.storage`
+
+##### azure
+
+Prefix: `tolgee.content-delivery.storage.azure`
+
+- ##### `connection-string` {#connection-string}
+
+- ##### `container-name` {#container-name}
+
+##### s3
+
+Prefix: `tolgee.content-delivery.storage.s3`
+
+- ##### `access-key` {#access-key}
+
+- ##### `bucket-name` {#bucket-name}
+
+- ##### `endpoint` {#endpoint}
+
+- ##### `secret-key` {#secret-key}
+
+- ##### `signing-region` {#signing-region}
+
 ### File storage
 
 Prefix: `tolgee.file-storage`
@@ -598,7 +634,7 @@ Per-endpoint and auth-related rate limits are fixed and cannot be configured.
 
 - ##### `user-request-window` {#user-request-window}
 
-  Size, in milliseconds, of the time window for user-based limiting. (default: `300000` = 1 minute)
+  Size, in milliseconds, of the time window for user-based limiting. (default: `60000` = 1 minute)
 
 ### reCAPTCHA
 
@@ -777,6 +813,18 @@ tolgee:
     default-ttl: 7200000
     enabled: false
     use-redis: false
+  content-delivery:
+    public-url-prefix:
+    storage:
+      azure:
+        connection-string:
+        container-name:
+      s3:
+        access-key:
+        bucket-name:
+        endpoint:
+        secret-key:
+        signing-region:
   file-storage:
     fs-data-path: ~/.tolgee/
     s3:
@@ -834,7 +882,7 @@ tolgee:
     ip-request-limit: 20000
     ip-request-window: 300000
     user-request-limit: 400
-    user-request-window: 300000
+    user-request-window: 60000
   recaptcha:
     secret-key:
     site-key:
@@ -1160,6 +1208,42 @@ data it needs faster. Cache is also used to track certain states, such as rate l
   
    (default: `false`)
 
+<h3 id="content-delivery">Content Delivery</h3>
+
+Prefix: `TOLGEE_CONTENT_DELIVERY`
+
+These properties are used to configure default server content delivery storage.
+
+- <h5 id="public-url-prefix"><code>PUBLIC_URL_PREFIX</code></h5>
+
+  The root path where the content is accessible by the public. If this property is not null. Content delivery will be enabled on your server.
+
+<h4 id="storage">STORAGE</h4>
+
+Prefix: `TOLGEE_CONTENT_DELIVERY_STORAGE`
+
+<h5 id="azure">AZURE</h5>
+
+Prefix: `TOLGEE_CONTENT_DELIVERY_STORAGE_AZURE`
+
+- <h5 id="connection-string"><code>CONNECTION_STRING</code></h5>
+
+- <h5 id="container-name"><code>CONTAINER_NAME</code></h5>
+
+<h5 id="s3">S3</h5>
+
+Prefix: `TOLGEE_CONTENT_DELIVERY_STORAGE_S3`
+
+- <h5 id="access-key"><code>ACCESS_KEY</code></h5>
+
+- <h5 id="bucket-name"><code>BUCKET_NAME</code></h5>
+
+- <h5 id="endpoint"><code>ENDPOINT</code></h5>
+
+- <h5 id="secret-key"><code>SECRET_KEY</code></h5>
+
+- <h5 id="signing-region"><code>SIGNING_REGION</code></h5>
+
 <h3 id="file-storage">File storage</h3>
 
 Prefix: `TOLGEE_FILE_STORAGE`
@@ -1448,7 +1532,7 @@ Per-endpoint and auth-related rate limits are fixed and cannot be configured.
 
 - <h5 id="user-request-window"><code>USER_REQUEST_WINDOW</code></h5>
 
-  Size, in milliseconds, of the time window for user-based limiting. (default: `300000` = 1 minute)
+  Size, in milliseconds, of the time window for user-based limiting. (default: `60000` = 1 minute)
 
 <h3 id="recaptcha">reCAPTCHA</h3>
 
@@ -1617,6 +1701,14 @@ TOLGEE_CACHE_CAFFEINE_MAX_SIZE=-1
 TOLGEE_CACHE_DEFAULT_TTL=7200000
 TOLGEE_CACHE_ENABLED=false
 TOLGEE_CACHE_USE_REDIS=false
+TOLGEE_CONTENT_DELIVERY_PUBLIC_URL_PREFIX=
+TOLGEE_CONTENT_DELIVERY_STORAGE_AZURE_CONNECTION_STRING=
+TOLGEE_CONTENT_DELIVERY_STORAGE_AZURE_CONTAINER_NAME=
+TOLGEE_CONTENT_DELIVERY_STORAGE_S3_ACCESS_KEY=
+TOLGEE_CONTENT_DELIVERY_STORAGE_S3_BUCKET_NAME=
+TOLGEE_CONTENT_DELIVERY_STORAGE_S3_ENDPOINT=
+TOLGEE_CONTENT_DELIVERY_STORAGE_S3_SECRET_KEY=
+TOLGEE_CONTENT_DELIVERY_STORAGE_S3_SIGNING_REGION=
 TOLGEE_FILE_STORAGE_FS_DATA_PATH=~/.tolgee/
 TOLGEE_FILE_STORAGE_S3_ACCESS_KEY=
 TOLGEE_FILE_STORAGE_S3_BUCKET_NAME=
@@ -1663,7 +1755,7 @@ TOLGEE_RATE_LIMIT_GLOBAL_LIMITS=true
 TOLGEE_RATE_LIMIT_IP_REQUEST_LIMIT=20000
 TOLGEE_RATE_LIMIT_IP_REQUEST_WINDOW=300000
 TOLGEE_RATE_LIMIT_USER_REQUEST_LIMIT=400
-TOLGEE_RATE_LIMIT_USER_REQUEST_WINDOW=300000
+TOLGEE_RATE_LIMIT_USER_REQUEST_WINDOW=60000
 TOLGEE_RECAPTCHA_SECRET_KEY=
 TOLGEE_RECAPTCHA_SITE_KEY=
 TOLGEE_SENTRY_CLIENT_DSN=
@@ -1984,6 +2076,42 @@ data it needs faster. Cache is also used to track certain states, such as rate l
   
    (default: `false`)
 
+<h3 id="content-delivery">Content Delivery</h3>
+
+Prefix: `tolgee.content-delivery`
+
+These properties are used to configure default server content delivery storage.
+
+- <h5 id="public-url-prefix"><code>public-url-prefix</code></h5>
+
+  The root path where the content is accessible by the public. If this property is not null. Content delivery will be enabled on your server.
+
+<h4 id="storage">storage</h4>
+
+Prefix: `tolgee.content-delivery.storage`
+
+<h5 id="azure">azure</h5>
+
+Prefix: `tolgee.content-delivery.storage.azure`
+
+- <h5 id="connection-string"><code>connection-string</code></h5>
+
+- <h5 id="container-name"><code>container-name</code></h5>
+
+<h5 id="s3">s3</h5>
+
+Prefix: `tolgee.content-delivery.storage.s3`
+
+- <h5 id="access-key"><code>access-key</code></h5>
+
+- <h5 id="bucket-name"><code>bucket-name</code></h5>
+
+- <h5 id="endpoint"><code>endpoint</code></h5>
+
+- <h5 id="secret-key"><code>secret-key</code></h5>
+
+- <h5 id="signing-region"><code>signing-region</code></h5>
+
 <h3 id="file-storage">File storage</h3>
 
 Prefix: `tolgee.file-storage`
@@ -2272,7 +2400,7 @@ Per-endpoint and auth-related rate limits are fixed and cannot be configured.
 
 - <h5 id="user-request-window"><code>user-request-window</code></h5>
 
-  Size, in milliseconds, of the time window for user-based limiting. (default: `300000` = 1 minute)
+  Size, in milliseconds, of the time window for user-based limiting. (default: `60000` = 1 minute)
 
 <h3 id="recaptcha">reCAPTCHA</h3>
 
@@ -2441,6 +2569,14 @@ tolgee.cache.caffeine-max-size = -1
 tolgee.cache.default-ttl = 7200000
 tolgee.cache.enabled = false
 tolgee.cache.use-redis = false
+tolgee.content-delivery.public-url-prefix =
+tolgee.content-delivery.storage.azure.connection-string =
+tolgee.content-delivery.storage.azure.container-name =
+tolgee.content-delivery.storage.s3.access-key =
+tolgee.content-delivery.storage.s3.bucket-name =
+tolgee.content-delivery.storage.s3.endpoint =
+tolgee.content-delivery.storage.s3.secret-key =
+tolgee.content-delivery.storage.s3.signing-region =
 tolgee.file-storage.fs-data-path = ~/.tolgee/
 tolgee.file-storage.s3.access-key =
 tolgee.file-storage.s3.bucket-name =
@@ -2487,7 +2623,7 @@ tolgee.rate-limit.global-limits = true
 tolgee.rate-limit.ip-request-limit = 20000
 tolgee.rate-limit.ip-request-window = 300000
 tolgee.rate-limit.user-request-limit = 400
-tolgee.rate-limit.user-request-window = 300000
+tolgee.rate-limit.user-request-window = 60000
 tolgee.recaptcha.secret-key =
 tolgee.recaptcha.site-key =
 tolgee.sentry.client-dsn =
