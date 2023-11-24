@@ -10,7 +10,8 @@ export const featuresSelfHosted = {
       type: 'item',
       label: (
         <span>
-          Included <PricingDetailsLink>seats</PricingDetailsLink>
+          Included{' '}
+          <PricingDetailsLink item="what-are-seats">seats</PricingDetailsLink>
         </span>
       ),
       items: ['Unlimited', 10, 'Unlimited'],
@@ -19,7 +20,8 @@ export const featuresSelfHosted = {
       type: 'item',
       label: (
         <span>
-          Extra <PricingDetailsLink>seat</PricingDetailsLink>
+          Extra{' '}
+          <PricingDetailsLink item="what-are-seats">seat</PricingDetailsLink>
         </span>
       ),
       items: ['n', `€${(20).toLocaleString()}/month`, 'n'],
@@ -70,7 +72,11 @@ export const featuresSelfHosted = {
     },
     {
       type: 'item',
-      label: <PricingDetailsLink>Single Content Delivery</PricingDetailsLink>,
+      label: (
+        <PricingDetailsLink item="what-is-content-delivery">
+          Single Content Delivery
+        </PricingDetailsLink>
+      ),
       items: ['y', 'y', 'y'],
     },
     { type: 'item', label: 'Figma plugin', items: ['y', 'y', 'y', 'y'] },
@@ -83,13 +89,19 @@ export const featuresSelfHosted = {
     {
       type: 'item',
       label: (
-        <PricingDetailsLink>Multiple Content Deliveries</PricingDetailsLink>
+        <PricingDetailsLink item="what-is-content-delivery">
+          Multiple Content Deliveries
+        </PricingDetailsLink>
       ),
       items: ['n', 'y', 'y'],
     },
     {
       type: 'item',
-      label: <PricingDetailsLink>Custom Content Storage</PricingDetailsLink>,
+      label: (
+        <PricingDetailsLink item="what-is-custom-content-storage">
+          Custom Content Storage
+        </PricingDetailsLink>
+      ),
       items: ['n', 'y', 'y'],
     },
 

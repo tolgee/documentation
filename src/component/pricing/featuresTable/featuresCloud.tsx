@@ -10,7 +10,10 @@ export const featuresCloud = {
       type: 'item',
       label: (
         <span>
-          Included <PricingDetailsLink>strings</PricingDetailsLink>
+          Included{' '}
+          <PricingDetailsLink item="what-are-strings">
+            strings
+          </PricingDetailsLink>
         </span>
       ),
       items: [
@@ -24,7 +27,10 @@ export const featuresCloud = {
       type: 'item',
       label: (
         <span>
-          Included <PricingDetailsLink>MT credits</PricingDetailsLink>
+          Included{' '}
+          <PricingDetailsLink item="what-are-mt-credits">
+            MT credits
+          </PricingDetailsLink>
         </span>
       ),
       items: [
@@ -38,7 +44,8 @@ export const featuresCloud = {
       type: 'item',
       label: (
         <span>
-          Included <PricingDetailsLink>seats</PricingDetailsLink>
+          Included{' '}
+          <PricingDetailsLink item="what-are-seats">seats</PricingDetailsLink>
         </span>
       ),
       items: ['Unlimited', 'Unlimited', 'Unlimited', 'Unlimited'],
@@ -67,7 +74,10 @@ export const featuresCloud = {
       type: 'item',
       label: (
         <span>
-          Extra 1000 <PricingDetailsLink>strings</PricingDetailsLink>
+          Extra 1000{' '}
+          <PricingDetailsLink item="what-are-strings">
+            strings
+          </PricingDetailsLink>
         </span>
       ),
       items: [
@@ -81,7 +91,10 @@ export const featuresCloud = {
       type: 'item',
       label: (
         <span>
-          Extra 1000 <PricingDetailsLink>MT credits</PricingDetailsLink>
+          Extra 1000{' '}
+          <PricingDetailsLink item="what-are-mt-credits">
+            MT credits
+          </PricingDetailsLink>
         </span>
       ),
       items: [
@@ -132,7 +145,11 @@ export const featuresCloud = {
     },
     {
       type: 'item',
-      label: <PricingDetailsLink>Single Content Delivery</PricingDetailsLink>,
+      label: (
+        <PricingDetailsLink item="what-is-content-delivery">
+          Single Content Delivery
+        </PricingDetailsLink>
+      ),
       items: ['y', 'y', 'y', 'y'],
     },
     { type: 'item', label: 'Figma plugin', items: ['y', 'y', 'y', 'y'] },
@@ -145,13 +162,19 @@ export const featuresCloud = {
     {
       type: 'item',
       label: (
-        <PricingDetailsLink>Multiple Content Deliveries</PricingDetailsLink>
+        <PricingDetailsLink item="what-is-content-delivery">
+          Multiple Content Deliveries
+        </PricingDetailsLink>
       ),
       items: ['n', 'n', 'y', 'y'],
     },
     {
       type: 'item',
-      label: <PricingDetailsLink>Custom Content Storage</PricingDetailsLink>,
+      label: (
+        <PricingDetailsLink item="what-is-custom-content-storage">
+          Custom Content Storage
+        </PricingDetailsLink>
+      ),
       items: ['n', 'n', 'y', 'y'],
     },
 

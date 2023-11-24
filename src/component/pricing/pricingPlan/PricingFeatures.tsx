@@ -12,7 +12,9 @@ const FEATURES_MAP = {
   'figma-plugin': <Ready>Figma plugin</Ready>,
   'single-content-delivery': (
     <Ready>
-      <PricingDetailsLink>Single Content Delivery</PricingDetailsLink>
+      <PricingDetailsLink item="what-is-content-delivery">
+        Single Content Delivery
+      </PricingDetailsLink>
     </Ready>
   ),
 
@@ -25,13 +27,17 @@ const FEATURES_MAP = {
   'standard-support': <Ready>Standard support</Ready>,
   'multiple-content-deliveries': (
     <Ready>
-      <PricingDetailsLink>Multiple Content Deliveries</PricingDetailsLink>
+      <PricingDetailsLink item="what-is-content-delivery">
+        Multiple Content Deliveries
+      </PricingDetailsLink>
     </Ready>
   ),
   webhooks: <Ready>Webhooks</Ready>,
   'custom-content-storage': (
     <Ready>
-      <PricingDetailsLink>Custom Content Storage</PricingDetailsLink>
+      <PricingDetailsLink item="what-is-custom-content-storage">
+        Custom Content Storage
+      </PricingDetailsLink>
     </Ready>
   ),
 
