@@ -130,14 +130,30 @@ export const featuresCloud = {
       label: 'One-click screenshots',
       items: ['y', 'y', 'y', 'y'],
     },
+    {
+      type: 'item',
+      label: <PricingDetailsLink>Single Content Delivery</PricingDetailsLink>,
+      items: ['y', 'y', 'y', 'y'],
+    },
     { type: 'item', label: 'Figma plugin', items: ['y', 'y', 'y', 'y'] },
     {
       type: 'item',
       label: 'Granular permissions',
       items: ['n', 'n', 'y', 'y'],
     },
-    { type: 'item', label: 'CDN', items: ['n', 'n', 'd', 'd'] },
-    { type: 'item', label: 'Webhooks', items: ['n', 'n', 'd', 'd'] },
+    { type: 'item', label: 'Webhooks', items: ['n', 'n', 'y', 'y'] },
+    {
+      type: 'item',
+      label: (
+        <PricingDetailsLink>Multiple Content Deliveries</PricingDetailsLink>
+      ),
+      items: ['n', 'n', 'y', 'y'],
+    },
+    {
+      type: 'item',
+      label: <PricingDetailsLink>Custom Content Storage</PricingDetailsLink>,
+      items: ['n', 'n', 'y', 'y'],
+    },
 
     { type: 'title', label: 'Assistance' },
     {

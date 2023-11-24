@@ -107,7 +107,8 @@ export function PricingFAQs() {
         <PricingQuestion question="What are the seats/strings limitations for the Free self-hosted plan?">
           None. The Free self-hosted plan does not have seats or string
           limitations. However, you must subscribe to a paid plan to use
-          advanced features like Granular permissions, CDN, or Webhooks.
+          advanced features like Granular permissions, Content Delivery, or
+          Webhooks.
         </PricingQuestion>
         <PricingQuestion question="What is the string limit for the self-hosted plans?">
           None. We are not limiting the number of strings in the self-hosted
