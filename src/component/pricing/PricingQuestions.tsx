@@ -1,5 +1,5 @@
 import { UnfoldLess, UnfoldMore } from '@mui/icons-material';
-import React, { useEffect, useRef, useState } from 'react';
+import React, { useRef } from 'react';
 import { useLocation } from 'react-router-dom';
 
 export type Question = {
@@ -48,7 +48,7 @@ export function PricingQuestion({
 }
 
 type Props = {
-  questions: Question[];
+  questions: readonly Question[];
 };
 
 export function PricingQuestions({ questions }: Props) {
