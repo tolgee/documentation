@@ -1,0 +1,161 @@
+---
+id: webhooks
+title: Webhooks
+sidebar_label: Webhooks
+---
+:::info Feature availability
+Webhooks are introduced in the business and enterprise plans. [Upgrade your plan](/pricing) to use this feature.
+
+If you use the self-hosted version, you need to [set up the license](/platform/self_hosting/licensing) to use this feature.
+:::
+
+import { ScreenshotWrapper } from '../shared/_ScreenshotWrapper';
+
+Webhooks are very useful when you want to react to events that happen in your Tolgee project.
+Every modifying activity triggers a webhook. The most common scenario is reacting to translation keys being added
+or translations being updated.
+
+<ScreenshotWrapper src="/img/docs/platform/webhooks/webhooks.png" alt="Webhooks" />
+
+## Creating a webhook
+
+You can set up the Webhooks in the `Developer settings` section of the Tolgee platform under the `Webhooks` tab.
+
+To create a webhook, click the `+ Webhook` button.
+
+The only thing you need to provide is the target URL of your webhook.
+
+<ScreenshotWrapper src="/img/docs/platform/webhooks/create_form.png" alt="Create webbhook form" />
+
+When a webhook is created, you can also test it by clicking the `Test` button in the list.
+
+## Using the secret
+
+Every webhook has a generated secret. This secret can be used to verify that the webhook was sent by Tolgee.
+The webhook requests contain a header, `Tolgee-Signature`. The value of this header is JSON containing the
+timestamp and the signature.
+
+You can get the secret by hitting the `Show secret` button in the list.
+
+The signature is an HMAC SHA256 hash of the timestamp and the request body using the secret as a key. You should also
+verify that the timestamp is not too old (5 minutes - 300 000 ms) should be fine.
+
+You can check this javascript (node.js) code to see how to verify the signature:
+
+```javascript
+function verifyWebhookSignatureHeader(req, secret) {
+  const header = JSON.parse(req.headers["tolgee-signature"])
+  const timestamp = header["timestamp"]
+  const signature = header["signature"]
+
+  if (header["timestamp"] <= 0) {
+    return false
+  }
+
+  const signedPayload = `${timestamp}.${req.body}`; // req.body has to be string!!
+  const expectedSignature = crypto.createHmac('sha256', secret).update(signedPayload).digest('hex');
+  if (expectedSignature !== signature) {
+    return false;
+  }
+
+  if (timestamp < Date.now() - 300000) {
+    return false;
+  }
+
+  return true;
+}
+```
+
+## Using the webhook data
+The webhook endpoint contains the data about the event in the request body.
+
+```
+{
+   "webhookConfigId":1000044001,
+   "eventType":"PROJECT_ACTIVITY",
+   "activityData":{
+      ...
+   }
+}
+```
+
+- webhookConfigId: This is a unique identifier for the webhook configuration.
+- eventType: This indicates the type of event that triggers the webhook. `PROJECT_ACTIVITY` or `TEST`.
+- activityData: This is an object containing data related to the activity.
+
+To provide the activity data, we use the same structure as in the
+[project activity endpoint](/api#tag/Projects/operation/getActivity_1).
+
+### activityData
+This item contains data about the activity that triggered the webhook.
+
+It contains this fields:
+
+- revisionId: A unique identifier for the revision.
+- timestamp: The time when the activity happened.
+- type: The type of activity. `UNKNOWN`, `SET_TRANSLATION_STATE`, `SET_TRANSLATIONS`,
+`DISMISS_AUTO_TRANSLATED_STATE`, `SET_OUTDATED_FLAG`, `TRANSLATION_COMMENT_ADD`, `TRANSLATION_COMMENT_DELETE`, `TRANSLATION_COMMENT_EDIT`, `TRANSLATION_COMMENT_SET_STATE`, `SCREENSHOT_DELETE`, `SCREENSHOT_ADD`, `KEY_TAGS_EDIT`, `KEY_NAME_EDIT`, `KEY_DELETE`, `CREATE_KEY`, `COMPLEX_EDIT`, `IMPORT`, `CREATE_LANGUAGE`, `EDIT_LANGUAGE`, `DELETE_LANGUAGE`, `CREATE_PROJECT`, `EDIT_PROJECT`, `NAMESPACE_EDIT`, `BATCH_PRE_TRANSLATE_BY_TM`, `BATCH_MACHINE_TRANSLATE`, `AUTO_TRANSLATE`, `BATCH_CLEAR_TRANSLATIONS`, `BATCH_COPY_TRANSLATIONS`, `BATCH_SET_TRANSLATION_STATE`, `BATCH_TAG_KEYS`, `BATCH_UNTAG_KEYS`, `BATCH_SET_KEYS_NAMESPACE`
+- author: An object containing information about the author.
+- modifiedEntities: An object containing information about the entities that were modified.
+
+The most important field would probably be the `modifiedEntities`. There is the information about what exactly changed.
+
+It contains a map of entity types to list of modifications. For example if someone changes a translation in your project,
+it leads to a `SET_TRANSLATIONS` activity. The `modifiedEntities` would contain this:
+
+```
+"Translation":[
+  {
+     "entityId":1000049001,
+     "description":{
+
+     },
+     "modifications":{
+        "text":{
+           "old":"Hello!",
+           "new":"Hi!"
+        }
+     },
+     "relations":{
+        "key":{
+           "entityClass":"Key",
+           "entityId":1000048001,
+           "data":{
+              "name":"asda"
+           },
+           "relations":{
+
+           },
+           "exists":true
+        },
+        "language":{
+           "entityClass":"Language",
+           "entityId":1000041001,
+           "data":{
+              "tag":"en",
+              "name":"English",
+              "flagEmoji":"🇬🇧"
+           },
+           "relations":{
+
+           },
+           "exists":true
+        }
+     },
+     "exists":null
+  }
+]
+```
+
+These operations don't provide all the information about modifications since the amount of changes might be extremely large. You will have to handle such events differently.
+
+`KEY_DELETE`, `IMPORT`, `DELETE_LANGUAGE`, `BATCH_PRE_TRANSLATE_BY_TM`, `BATCH_MACHINE_TRANSLATE`, `AUTO_TRANSLATE`, `BATCH_CLEAR_TRANSLATIONS
+BATCH_COPY_TRANSLATIONS`, `BATCH_SET_TRANSLATION_STATE`, `BATCH_TAG_KEYS`, `BATCH_UNTAG_KEYS`, `BATCH_SET_KEYS_NAMESPACE`, `AUTOMATION`
+
+## Failing webhooks
+When the execution fails, the webhook is retried several times. Because of this, it is a good idea to check the timestamp
+of the webhooks so you don't use outdated data.
+
+If the webhook fails, you can see a `failing` marker in the list.
+
+<ScreenshotWrapper src="/img/docs/platform/webhooks/failing.png" alt="Webhook failing" />
