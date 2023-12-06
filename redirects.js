@@ -99,11 +99,11 @@ module.exports.redirects = {
     },
     {
       from: '/docs/web/using_with_react/ssr/using_with_next',
-      to: '/js-sdk/integrations/react/next/pages_router',
+      to: '/js-sdk/integrations/react/next/pages-router',
     },
     {
       from: '/js-sdk/integrations/react/ssr/next',
-      to: '/js-sdk/integrations/react/next/pages_router',
+      to: '/js-sdk/integrations/react/next/pages-router',
     },
     {
       from: '/js-sdk/integrations/react/ssr/gatsby',
