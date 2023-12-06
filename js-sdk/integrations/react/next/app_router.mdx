@@ -1,0 +1,347 @@
+---
+id: app-router
+sidebar_label: App router
+title: Next.js with app router
+description: 'Learn how to integrate Tolgee with Next.js and app router, while still use in-context translating and dev tools.'
+---
+
+To see the full working code, check the [Example app](https://github.com/tolgee/next-example).
+
+## Installation
+
+Next app router doesn't have native support for i18n as the Page router, but we can use `next-intl` library, for routing and locale detection.
+
+Install `next-intl` and `@tolgee/react`
+
+```
+npm install next-intl @tolgee/react
+```
+
+:::info
+Use `@tolgee/react` version `5.17.0` and higher
+:::
+
+## General folder structure
+
+The folder structure needs to be adjusted to resemble the following:
+
+```
+├── middleware.ts
+├── navigation.ts
+├── i18n
+│   ├── en.json
+│   └── de.json
+├── tolgee
+│   ├── shared.ts
+│   ├── client.tsx
+│   └── server.tsx
+└── app
+    └── [locale]
+        ├── layout.tsx
+        └── page.tsx
+```
+
+## Tolgee setup
+
+We need a bit different setup for server and client.
+
+### Shared
+
+Let's start with shared configuration:
+
+```tsx
+// shared.ts
+
+import { DevTools, Tolgee, FormatSimple } from '@tolgee/web';
+
+export const ALL_LOCALES = ['en', 'de'];
+
+export const DEFAULT_LOCALE = 'en';
+
+const apiKey = process.env.NEXT_PUBLIC_TOLGEE_API_KEY;
+const apiUrl = process.env.NEXT_PUBLIC_TOLGEE_API_URL;
+
+export async function getStaticData(languages: string[]) {
+  const result: Record<string, any> = {};
+  for (const lang of languages) {
+    result[lang] = (await import(`../i18n/${lang}.json`)).default;
+  }
+  return result;
+}
+
+export function TolgeeBase() {
+  return (
+    Tolgee()
+      .use(FormatSimple())
+      .use(DevTools())
+      // Preset shared settings
+      .updateDefaults({
+        apiKey,
+        apiUrl,
+      })
+  );
+}
+```
+
+Setup Tolgee environment variables (check [Integration](/platform/integrations/about_integrations)):
+
+```bash
+# .env.development.local
+
+NEXT_PUBLIC_TOLGEE_API_KEY=<your api key>
+NEXT_PUBLIC_TOLGEE_API_URL=https://app.tolgee.io
+```
+
+### Client
+
+The client part is very similar to [pages router setup](./pages-router). It serves the purpose of translating client components and also enables in-context functionality for server-rendered components.
+
+```tsx
+// client.tsx
+
+'use client';
+
+import { TolgeeBase } from './shared';
+import { TolgeeProvider, useTolgeeSSR } from '@tolgee/react';
+import { useRouter } from 'next/navigation';
+import { useEffect } from 'react';
+
+type Props = {
+  locales: any;
+  locale: string;
+  children: React.ReactNode;
+};
+
+const tolgee = TolgeeBase().init();
+
+export const TolgeeNextProvider = ({ locale, locales, children }: Props) => {
+  // synchronize SSR and client first render
+  const tolgeeSSR = useTolgeeSSR(tolgee, locale, locales);
+  const router = useRouter();
+
+  useEffect(() => {
+    const { unsubscribe } = tolgeeSSR.on('permanentChange', () => {
+      // refresh page when there is a translation update
+      router.refresh();
+    });
+
+    return () => unsubscribe();
+  }, [tolgeeSSR, router]);
+
+  return (
+    <TolgeeProvider tolgee={tolgeeSSR} options={{ useSuspense: false }}>
+      {children}
+    </TolgeeProvider>
+  );
+};
+```
+
+### Server
+
+Finally, let's prepare the server part. We utilize react server cache for sharing Tolgee instance across components in the single render. So you can use it anywhere in your server components.
+
+One important difference from the client setup is the utilization of [`fullKeyEncode`](../../../api/core_package/observer-options#fullkeyencode). Which ensures, that translations rendered on the server are correctly picked up and interactive for in-context mode.
+
+```tsx
+// server.tsx
+
+import { useLocale } from 'next-intl';
+
+import { TolgeeBase, ALL_LOCALES, getStaticData } from './shared';
+import { createServerInstance } from '@tolgee/react/server';
+
+export const { getTolgee, getTranslate, T } = createServerInstance({
+  getLocale: useLocale,
+  createTolgee: async (locale) =>
+    TolgeeBase().init({
+      // load all languages on the server
+      staticData: await getStaticData(ALL_LOCALES),
+      observerOptions: {
+        fullKeyEncode: true,
+      },
+      language: locale,
+      // using custom fetch to avoid aggressive caching
+      fetch: async (input, init) => {
+        const data = await fetch(input, { ...init, next: { revalidate: 0 } });
+        return data;
+      },
+    }),
+});
+```
+
+### Context provider
+
+Here is how we apply the `TolgeeNextProvider` in the `layout.tsx`
+
+```tsx
+// layout.tsx
+
+import { notFound } from 'next/navigation';
+import { ReactNode } from 'react';
+import { TolgeeNextProvider } from '@/tolgee/client';
+import { ALL_LOCALES, getStaticData } from '@/tolgee/shared';
+
+type Props = {
+  children: ReactNode;
+  params: { locale: string };
+};
+
+export default async function LocaleLayout({
+  children,
+  params: { locale },
+}: Props) {
+  if (!ALL_LOCALES.includes(locale)) {
+    notFound()
+  };
+
+  const locales = await getStaticData([locale]);
+
+  return (
+    <html lang={locale}>
+      <body>
+        <TolgeeNextProvider locale={locale} locales={locales}>
+          {children}
+        </TolgeeNextProvider>
+      </body>
+    </html>
+  );
+}
+```
+
+This is the place where we load relevant locale already on the server and supply it to the client component through the props.
+
+> If you want to provide each page with a different namespace, you can move the provider to the page files, this example provides the translations globally
+
+
+## `next-intl` setup
+
+We use `next-intl` for routing and language detection.
+
+Let's set `middleware` and `navigation` according to [docs](https://next-intl-docs.vercel.app/docs/getting-started/app-router):
+
+```tsx
+// middleware.ts
+
+import createMiddleware from 'next-intl/middleware';
+import { ALL_LOCALES, DEFAULT_LOCALE } from '@/tolgee/shared';
+
+export default createMiddleware({
+  locales: ALL_LOCALES,
+  defaultLocale: DEFAULT_LOCALE,
+  localePrefix: 'as-needed',
+});
+
+export const config = {
+  // Skip all paths that should not be internationalized
+  matcher: ['/((?!api|_next|.*\\..*).*)'],
+};
+```
+
+We'll use these navigation components for localized routing:
+
+```tsx
+// navigation.ts
+
+import { createSharedPathnamesNavigation } from 'next-intl/navigation';
+import { ALL_LOCALES } from './tolgee/shared';
+
+// read more about next-intl library
+// https://next-intl-docs.vercel.app
+export const { Link, redirect, usePathname, useRouter } =
+  createSharedPathnamesNavigation({ locales: ALL_LOCALES });
+```
+
+> To gain a comprehensive understanding of how `next-intl` operates, check [their docs](https://next-intl-docs.vercel.app/docs/getting-started/app-router-server-components). We are only utilizing the necessary setup for proper routing, hence not all the listed configurations are required.
+
+
+## How to use it
+
+Let's see how we can localize server components:
+
+```tsx
+// page.tsx
+
+import { getTranslate } from '@/tolgee/server';
+
+export default async function IndexPage() {
+  // because this is server component, use `getTranslate`
+  // not useTranslate from '@tolgee/react'
+  const t = await getTranslate();
+  return (
+    <main>
+      <h1>{t('page-example-title')}</h1>
+    </main>
+  );
+}
+```
+
+If everything is set up correctly, the 'page-example-title' should be `alt + click`able. Make sure you've defined your project credentials in the `.env.development.local` file.
+
+For client components, you can use the regular `React` integration:
+
+```tsx
+'use client';
+
+import { useTranslate } from '@tolgee/react';
+
+export const ExampleClientComponent = () => {
+  const { t } = useTranslate();
+
+  return (
+    <section>
+      <span>{t('example-key-in-client-component')}</span>
+    </section>
+  );
+};
+```
+
+:::info
+Make sure to use `@/tolgee/server` in server components and `@tolgee/react` in client components.
+:::
+
+### Switching Languages
+
+For switching languages we use `next-intl` router helpers.
+
+```tsx
+'use client';
+
+import React, { ChangeEvent, useTransition } from 'react';
+import { usePathname, useRouter } from '@/navigation';
+import { useTolgee } from '@tolgee/react';
+
+export const LangSelector: React.FC = () => {
+  const tolgee = useTolgee(['language']);
+  const locale = tolgee.getLanguage();
+  const router = useRouter();
+  const pathname = usePathname();
+  const [isPending, startTransition] = useTransition();
+
+  function onSelectChange(event: ChangeEvent<HTMLSelectElement>) {
+    const newLocale = event.target.value;
+    startTransition(() => {
+      router.replace(pathname, { locale: newLocale });
+    });
+  }
+  return (
+    <select onChange={onSelectChange} value={locale}>
+      <option value="en">🇬🇧 English</option>
+      <option value="de">🇩🇪 Deutsch</option>
+    </select>
+  );
+};
+```
+:::info
+Make sure you use navigation-related components from `@/navigation` instead of next.js native, as they need to consider the locale.
+:::
+
+If you encounter any issues making it work, you can clone [the example app](https://github.com/tolgee/next-app-example) and kickstart your journey from there.
+
+
+## Limitations of Server Components
+
+Although in-context translation works with server components, there are some limitations compared to client components. Since the Tolgee cache on the server is separate, Tolgee can't automatically change the translation when creating a screenshot (unlike with client components, which swap the content if you've modified it in a dialog).
+
+Furthermore, if you're using the [Tolgee plugin](https://chrome.google.com/webstore/detail/tolgee-tools/hacnbapajkkfohnonhbmegojnddagfnj), it won't affect the server's transition to dev mode. As a result, only the client switches, leaving server components non-editable in this mode.
+
+> To get more information read [React docs](../installation), [Tolgee general docs](../../../) or check the [Example app](https://github.com/tolgee/next-example).

@@ -52,17 +52,8 @@ export const integrations = [
     logo: <NextLogo />,
     links: {
       'Quick start': '/integrations/next',
-      Docs: '/js-sdk/integrations/react/ssr/next',
+      Docs: '/js-sdk/integrations/react/next/introduction',
       'Example App': 'https://github.com/tolgee/next-example',
-    },
-  },
-  {
-    label: 'Gatsby',
-    logo: '/img/technologies/logo-gatsby.svg',
-    links: {
-      'Quick start': '/integrations/gatsby',
-      Docs: '/js-sdk/integrations/react/ssr/gatsby',
-      'Example App': 'https://github.com/tolgee/gatsby-example',
     },
   },
   {

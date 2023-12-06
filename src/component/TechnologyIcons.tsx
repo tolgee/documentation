@@ -1,7 +1,6 @@
 import LogoAngular from '../../static/img/technologies/logo-angular.svg';
 import LogoSvelte from '../../static/img/technologies/logo-svelte.svg';
 import LogoVue from '../../static/img/technologies/logo-vue.svg';
-import LogoGatsby from '../../static/img/technologies/logo-gatsby.svg';
 import LogoNext from '../../static/img/technologies/logo-next.svg';
 import LogoReact from '../../static/img/technologies/logo-react.svg';
 import React, { FC } from 'react';
@@ -37,9 +36,6 @@ export const TechnologyIcons: FC<{ className?: string }> = ({ className }) => (
       </TechnologyLink>
       <TechnologyLink to="/integrations/svelte">
         <LogoSvelte />
-      </TechnologyLink>
-      <TechnologyLink to="/integrations/gatsby">
-        <LogoGatsby />
       </TechnologyLink>
     </div>
   </div>

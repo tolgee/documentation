@@ -17,6 +17,15 @@ targetElement: HTMLElement;
 
 Default: `document.body`
 
+### fullKeyEncode
+
+Encode full key info into the wrapped translation (read more about [wrapping](/js-sdk/wrapping)). This option allows you to wrap translations on the server and then unwrap on the client. The option is important for the wrapping side (server), the unwrapping side can handle both cases.
+
+> By default Tolgee encodes only key indexes and that requires the usage of the same instance for wrapping and unwrapping.
+
+Default: `false`
+
+
 ### tagAttributes
 
 Tolgee is able to watch also for wrapped localization strings in attributes of DOM elements.

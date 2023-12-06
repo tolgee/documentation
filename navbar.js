@@ -80,10 +80,6 @@ module.exports.navbar = {
           label: 'Next.js',
         },
         {
-          to: 'integrations/gatsby',
-          label: 'Gatsby',
-        },
-        {
           to: 'js-sdk/integrations/react/react_native',
           label: 'React Native',
         },
