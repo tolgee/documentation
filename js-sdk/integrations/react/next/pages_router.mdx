@@ -1,12 +1,9 @@
 ---
-id: next
-title: Using with Next.js
+id: pages_router
+sidebar_label: Pages router
+title: Next.js with pages router
 description: 'Learn how to translate your strings directly in your application, and enjoy the features of Next.js in the same time.'
 ---
-
-:::info
-Read about Next.js App router on [our blog](/blog/how-to-setup-tolgee-with-nextjs-app-router)
-:::
 
 To use localize your Next.js app you can use the Next.js [i18n-routing feature](https://nextjs.org/docs/advanced-features/i18n-routing).
 
@@ -28,7 +25,6 @@ module.exports = {
   reactStrictMode: true,
   i18n: {
     locales: ['en', 'cs'],
-    localeDetection: true,
     defaultLocale: 'en',
   },
 };
@@ -67,6 +63,10 @@ import { useRouter } from 'next/router';
 import { TolgeeProvider, DevTools, Tolgee, useTolgeeSSR } from '@tolgee/react';
 
 const tolgee = Tolgee().use(DevTools()).use(FormatSimple()).init({
+  staticData: {
+    en: enLocale,
+    cs: csLocale,
+  },
   defaultLanguage: 'en',
   apiKey: process.env.NEXT_PUBLIC_TOLGEE_API_KEY,
   apiUrl: process.env.NEXT_PUBLIC_TOLGEE_API_URL,

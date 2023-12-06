@@ -26,13 +26,17 @@ module.exports = {
             'integrations/react/tags_interpolation',
             'integrations/react/switching_language',
             {
-              label: 'Server Side Rendering (SSR)',
+              label: 'Next.js',
               type: 'category',
               items: [
-                'integrations/react/ssr/ssr',
-                'integrations/react/ssr/next',
-                'integrations/react/ssr/gatsby',
+                'integrations/react/next/pages_router',
+                'integrations/react/next/app_router',
               ],
+            },
+            {
+              label: 'Server Side Rendering (SSR)',
+              type: 'category',
+              items: ['integrations/react/ssr/ssr'],
             },
             'integrations/react/react_native',
             'integrations/react/api',
