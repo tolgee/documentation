@@ -12,6 +12,10 @@ Considering the app router is still in beta and Next.js API adjustments might oc
 
 <!--truncate-->
 
+:::info
+This article is outdated in technical details, read the [new documentation](/js-sdk/integrations/react/next/app-router).
+:::
+
 Server components are a stripped-down version of regular components without React hooks but with async capabilities. Let's see, how we can set them up with Tolgee.
 
 > #### How Tolgee In-Context Works
