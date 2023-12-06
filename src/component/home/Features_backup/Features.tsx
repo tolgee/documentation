@@ -3,7 +3,6 @@ import Link from '@docusaurus/Link';
 import useBaseUrl from '@docusaurus/useBaseUrl';
 import './Features.css';
 import LogoAngular from '../../../../static/img/technologies/logo-angular.svg';
-import LogoGatsby from '../../../../static/img/technologies/logo-gatsby.svg';
 import LogoNext from '../../../../static/img/technologies/logo-next.svg';
 import LogoReact from '../../../../static/img/technologies/logo-react.svg';
 import LogoVue from '../../../../static/img/technologies/logo-vue.svg';
