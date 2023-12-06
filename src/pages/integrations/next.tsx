@@ -21,7 +21,7 @@ const DocsLinks = ({ primary }: { primary?: boolean }) => (
   <LandingPageActions
     docs={{
       label: 'Next Docs',
-      link: '/js-sdk/integrations/react/ssr/next',
+      link: '/js-sdk/integrations/react/next/introduction',
     }}
     exampleApp="next-example"
     additionalDocs={{

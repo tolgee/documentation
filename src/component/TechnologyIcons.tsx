@@ -38,9 +38,6 @@ export const TechnologyIcons: FC<{ className?: string }> = ({ className }) => (
       <TechnologyLink to="/integrations/svelte">
         <LogoSvelte />
       </TechnologyLink>
-      <TechnologyLink to="/integrations/gatsby">
-        <LogoGatsby />
-      </TechnologyLink>
     </div>
   </div>
 );

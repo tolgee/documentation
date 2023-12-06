@@ -5,9 +5,7 @@ title: Next.js with app router
 description: 'Learn how to translate your strings directly in your application, and enjoy the features of Next.js in the same time.'
 ---
 
-:::info
-Use `@tolgee/react` version `5.17.0` and higher
-:::
+To see the full working code, check the [Example app](https://github.com/tolgee/next-example).
 
 ## Installation
 
@@ -18,6 +16,10 @@ Install `next-intl` and `@tolgee/react`
 ```
 npm install next-intl @tolgee/react
 ```
+
+:::info
+Use `@tolgee/react` version `5.17.0` and higher
+:::
 
 ## General folder structure
 
@@ -79,6 +81,15 @@ export function TolgeeBase() {
       })
   );
 }
+```
+
+Setup Tolgee environment variables (check [Integration](/platform/integrations/about_integrations)):
+
+```bash
+# .env.development.local
+
+NEXT_PUBLIC_TOLGEE_API_KEY=<your api key>
+NEXT_PUBLIC_TOLGEE_API_URL=https://app.tolgee.io
 ```
 
 ### Client
@@ -284,9 +295,13 @@ export const ExampleClientComponent = () => {
 };
 ```
 
+:::info
+Make sure to use `@/tolgee/server` in server components and `@tolgee/react` in client components.
+:::
+
 ### Switching Languages
 
-For switching languages use the following code:
+For switching languages we use `next-intl` router helpers.
 
 ```tsx
 'use client';
@@ -328,3 +343,5 @@ If you encounter any issues making it work, you can clone [the example app](http
 Although in-context translation works with server components, there are some limitations compared to client components. Since the Tolgee cache on the server is separate, Tolgee can't automatically change the translation when creating a screenshot (unlike with client components, which swap the content if you've modified it in a dialog).
 
 Furthermore, if you're using the [Tolgee plugin](https://chrome.google.com/webstore/detail/tolgee-tools/hacnbapajkkfohnonhbmegojnddagfnj), it won't affect the server's transition to dev mode. As a result, only the client switches, leaving server components non-editable in this mode.
+
+> To get more information read [React docs](../installation), [Tolgee general docs](../../../) or check the [Example app](https://github.com/tolgee/next-example).

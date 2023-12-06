@@ -37,9 +37,6 @@ export const Features = () => {
               <Link to="integrations/vue">
                 <LogoVue className="technology__smaller" />
               </Link>
-              <Link to="integrations/gatsby">
-                <LogoGatsby className="technology__smaller" />
-              </Link>
               <Link to="integrations/next">
                 <LogoNext className="technology__smaller" />
               </Link>

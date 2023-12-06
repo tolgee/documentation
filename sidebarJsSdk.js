@@ -25,18 +25,15 @@ module.exports = {
             'integrations/react/translating',
             'integrations/react/tags_interpolation',
             'integrations/react/switching_language',
+            'integrations/react/ssr',
             {
               label: 'Next.js',
               type: 'category',
               items: [
+                'integrations/react/next/introduction',
                 'integrations/react/next/pages_router',
                 'integrations/react/next/app_router',
               ],
-            },
-            {
-              label: 'Server Side Rendering (SSR)',
-              type: 'category',
-              items: ['integrations/react/ssr/ssr'],
             },
             'integrations/react/react_native',
             'integrations/react/api',
