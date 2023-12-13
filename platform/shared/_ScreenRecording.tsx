@@ -7,16 +7,15 @@ type Props = React.DetailedHTMLProps<
   HTMLVideoElement
 >;
 
-export const ScreenRecording = ({ style, width = '100%', ...props }: Props) => {
+export const ScreenRecording = ({ style, ...props }: Props) => {
   const [visible, setVisible] = useState(false);
   return (
     <ScreenWrapper style={{ opacity: visible ? 1 : 0 }}>
       <video
+        style={{ maxWidth: '100%', margin: '0 auto', ...style }}
         loop
         autoPlay
         muted
-        style={{ maxWidth: '100%', margin: '0 auto', ...style }}
-        width={width}
         {...props}
         onLoadedData={() => {
           setVisible(true);
