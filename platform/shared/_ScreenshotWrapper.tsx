@@ -1,6 +1,5 @@
 import React from 'react';
-
-import './_ScreenshotWrapper.css';
+import { ScreenWrapper } from './_ScreenWrapper';
 
 type Props = React.DetailedHTMLProps<
   React.ImgHTMLAttributes<HTMLImageElement>,
@@ -9,13 +8,8 @@ type Props = React.DetailedHTMLProps<
 
 export const ScreenshotWrapper = (props: Props) => {
   return (
-    <div className="screenshot-wrapper--container">
-      <div className="screenshot-wrapper--header">
-        <div className="screenshot-wrapper--dot" />
-        <div className="screenshot-wrapper--dot" />
-        <div className="screenshot-wrapper--dot" />
-      </div>
+    <ScreenWrapper>
       <img {...props} />
-    </div>
+    </ScreenWrapper>
   );
 };

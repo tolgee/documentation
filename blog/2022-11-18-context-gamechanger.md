@@ -70,7 +70,7 @@ The in-context translating feature is, at the same time, also an excellent tool 
 
 <video loop autoPlay muted style={{ maxWidth: "100%", margin: "0 auto" }}>
 
-  <source src="/in-context-translating.mov"></source>
+  <source src="/img/blog/context-gamechanger/in-context-translating.mov"></source>
 </video>
 
 ## Conclusion

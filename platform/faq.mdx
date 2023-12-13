@@ -4,6 +4,9 @@ title: FAQs
 sidebar_label: FAQs
 ---
 
+import { ScreenWrapper } from './shared/_ScreenWrapper';
+import { ScreenshotWrapper } from './shared/_ScreenshotWrapper';
+
 Tolgee is a localization platform that also provides its native integration libraries. In addition, it provides many great features making the app localization a piece of cake.
 
 Localization used to be just so ineffective. The whole management process of creating, managing, and fixing localization strings
@@ -12,7 +15,7 @@ is sometimes very complicated and involves developers much more than is actually
 Tolgee aims to reshape the process of software localization with a different approach, which saves time and
 the effort of everyone involved, such as developers, translators, and others.
 
-![Tolgee Platform](/img/tolgee-platform.png)
+<ScreenshotWrapper src="/img/tolgee-platform.png" />
 
 ### Why are there wrong translations on the Internet?
 
@@ -34,9 +37,11 @@ It also enables developers to provide screenshots from the App in one click, so 
 
 And much more.
 
-<video loop autoPlay muted style={{ maxWidth: '100%', margin: '0 auto' }}>
-  <source src="/assistance.webm"></source>
-</video>
+<ScreenWrapper>
+  <video loop autoPlay muted style={{ maxWidth: '100%', margin: '0 auto' }}>
+    <source src="/assistance.mov"></source>
+  </video>
+</ScreenWrapper>
 
 ### How does Tolgee help me to have my App perfectly translated?
 
@@ -46,9 +51,11 @@ The operation of providing context has to be easy. Otherwise, developers won't d
 
 There are various dev Tools for various things. You have React Dev tools. There are Angular dev tools. There are dev tools for state management libraries, etc. Tolgee brings dev tools for localization. When you click a translation string in your App with the ALT key, Tolgee dev tools open, and you can translate your string. You never have to edit a .json/.po or other localization data files. The only thing you have to do is ALT + Click the string.
 
-<video loop autoPlay muted style={{ maxWidth: '100%', margin: '0 auto' }}>
-  <source src="/alt-click-magic.mov"></source>
-</video>
+<ScreenWrapper>
+  <video loop autoPlay muted style={{ maxWidth: '100%', margin: '0 auto' }}>
+    <source src="/alt-click-magic.mov"></source>
+  </video>
+</ScreenWrapper>
 
 ### Cool. But how does it work?
 
