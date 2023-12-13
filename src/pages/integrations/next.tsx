@@ -8,7 +8,7 @@ import { LandingPageInstallationCode } from '../../component/landingPages/Landin
 import { ExampleAppLinkDescriptionParagraph } from '../../component/landingPages/common/ExampleAppLinkDescriptionParagraph';
 import { InstallationStepCreateProjectInTolgeePlatform } from '../../component/landingPages/common/InstallationStepCreateProjectInTolgeePlatform';
 import { ReactBaseParagraph } from '../../component/landingPages/ReactBaseParagraph';
-import { ReactInstallationStepUseTComponent } from '../../component/landingPages/js/TeactInstallationStepUseTComponent';
+import { ReactInstallationStepUseTComponent } from '../../component/landingPages/js/ReactInstallationStepUseTComponent';
 import NextLogo from '../../../static/img/technologies/logo-next.svg';
 import { LandingPageActions } from '../../component/landingPages/LandingPageActions';
 import { MoreIntegrations } from '../../component/landingPages/LandingPageMoreIntegrations';
