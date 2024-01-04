@@ -41,7 +41,7 @@ const roadmapData = {
   },
   '2023/Q4': {
     active: false,
-    future: true,
+    future: false,
     items: [
       {
         name: 'Webhooks',
@@ -68,6 +68,12 @@ const roadmapData = {
           </p>
         ),
       },
+    ],
+  },
+  '2024/Q1': {
+    active: false,
+    future: true,
+    items: [
       {
         name: 'Tasks',
         gitHubIssueLink:
@@ -108,12 +114,6 @@ const roadmapData = {
           </p>
         ),
       },
-    ],
-  },
-  '2024/Q1': {
-    active: false,
-    future: true,
-    items: [
       {
         name: 'All format support',
         gitHubIssueLink:
@@ -151,6 +151,24 @@ const roadmapData = {
         ),
       },
       {
+        name: 'Ordering professional translation',
+        gitHubIssueLink:
+          'https://github.com/tolgee/tolgee-platform/issues/1561',
+        description: (
+          <p>
+            Looking for a way to localize your product into foreign markets
+            Tolgee will help you with that. With Tolgee, you will easily find
+            the ideal professional translator for your needs.
+          </p>
+        ),
+      },
+    ],
+  },
+  '2024/Q2': {
+    active: false,
+    future: true,
+    items: [
+      {
         name: 'In-context support for mobile apps',
         gitHubIssueLink:
           'https://github.com/tolgee/tolgee-platform/issues/1545',
@@ -170,20 +188,6 @@ const roadmapData = {
             Even translators make mistakes, but some of these mistakes can be
             detected, and translators can be notified. No more mistakes like
             missing tags, missing parameters, or missing punctuation marks.
-          </p>
-        ),
-      },
-      {
-        name: 'Backups and data export',
-        gitHubIssueLink:
-          'https://github.com/tolgee/tolgee-platform/issues/1540',
-        description: (
-          <p>
-            For our subscribers, we would like to provide an automated backups
-            feature, which will enable users to restore their project data to a
-            specific state when something goes wrong. Users will be also able to
-            export all project data including metadata and screenshots and
-            import them later.
           </p>
         ),
       },
@@ -229,21 +233,9 @@ const roadmapData = {
           </p>
         ),
       },
-      {
-        name: 'Ordering professional translation',
-        gitHubIssueLink:
-          'https://github.com/tolgee/tolgee-platform/issues/1561',
-        description: (
-          <p>
-            Looking for a way to localize your product into foreign markets
-            Tolgee will help you with that. With Tolgee, you will easily find
-            the ideal professional translator for your needs.
-          </p>
-        ),
-      },
     ],
   },
-  '2024/Q2': {
+  '2024/Q3': {
     active: false,
     future: true,
     items: [
@@ -291,6 +283,20 @@ const roadmapData = {
             Sometimes you need to maintain multiple versions of your software,
             so you’ll need to have multiple versions of your localization data
             stored in Tolgee as well.
+          </p>
+        ),
+      },
+      {
+        name: 'Backups and data export',
+        gitHubIssueLink:
+          'https://github.com/tolgee/tolgee-platform/issues/1540',
+        description: (
+          <p>
+            For our subscribers, we would like to provide an automated backups
+            feature, which will enable users to restore their project data to a
+            specific state when something goes wrong. Users will be also able to
+            export all project data including metadata and screenshots and
+            import them later.
           </p>
         ),
       },
