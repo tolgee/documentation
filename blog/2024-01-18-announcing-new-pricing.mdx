@@ -33,33 +33,43 @@ project more robust. We must reflect these company and product developments into
  - We are making the Tolgee AI Translator available also on self-hosted instances
  - We are limiting the number of seats in the self-hosted free plan
  - We are making machine translation credits way cheaper
- - The new plans will be available by **26th January 2024**
+
+The new plans will be available by **26th January 2024**.
 
 ## What is changing in Cloud pricing
 
 Until now, we have considered the re-selling of
 machine translation as one of our core revenue streams. The experience showed us that this wasn't the right decision.
-We want to keep machine translation accessible for all our customers, and we don't want to discourage new customers
-with high machine translation prices. At the same time, we would like to focus on improving the Tolgee AI translator
-so it's used by as many customers as possible because we see unlimited opportunities in AI. The new price
-of 1000 machine translation credits will be unified at €0.035 per 1000 machine translation credits in all the plans,
-including the self-hosted ones. We will also charge one machine translation credit per character for the Tolgee AI translator.
+We want to **keep machine translation accessible** for all our customers, and we don't want to discourage new customers
+with high machine translation prices. At the same time, we would like to focus on **improving the [Tolgee AI translator](/platform/translation_process/tolgee_translator)**
+so it's used by as many customers as possible because we see unlimited opportunities in the AI in software localization.
+The new price of 1000 machine translation credits will be unified at €0.035 per 1000 machine translation credits in all the plans,
+including the self-hosted ones. We will also charge one machine translation credit per character for the [Tolgee AI translator](/platform/translation_process/tolgee_translator).
 While before, we were charging you 10 MT credits per OpenAI token,
-which made our pricing more complex than required. Overall,
-we are making our pricing simpler to understand and more straightforward.
+which made our pricing more complex than required. Overall, we are making our pricing more straightforward.
 
-We are also completely redesigning the pay-as-you-go plan. The past year showed us that providing the plan,
+We are also completely **redesigning the pay-as-you-go plan**. The past year showed us that providing the plan,
 starting at 0€ and charging only for what's consumed, isn't cost-effective for us. For many pay-as-you-go customers,
 the payment processing and related costs are higher than the actual revenue. So the new plan will start at €30, which
-we consider a fair minimal price for the service. The new plan will contain new features such as the Webhooks
-and Custom Content Delivery Storage.
+we consider a fair minimal price for the service. The new plan will contain new features such as the
+<a href="/platform/projects_and_organizations/webhooks">Webhooks</a> and <a
+  href="/platform/projects_and_organizations/content_delivery#using-custom-storage">Custom Content Delivery Storage</a>.
 
 ### The Pay-as-you-go plan changes
 
 <PricingChanges data={[
   { item: "Plan price", oldValue: "€0", newValue: "€30", isNumber: true },
   { item: "Price per 1000 MT credits", oldValue: "€0.20", newValue: "€0.035", isNumber: true },
-  { item: "Additional features", oldValue: "N/A", newValue: "Webhooks, Custom Content Delivery Storage" },
+  {
+    item: "Additional features",
+    oldValue: "N/A",
+    newValue: <>
+      <a href="/platform/projects_and_organizations/webhooks">Webhooks</a>,{' '}
+      <a href="/platform/projects_and_organizations/content_delivery#using-custom-storage">
+        Custom Content Delivery Storage
+      </a>
+    </>
+  },
   {
     item: "Tolgee AI Translator pricing model",
     oldValue: "1 MT credit per 10 OpenAI tokens",
@@ -89,7 +99,7 @@ the bottom of this post.
 
 ### For open-source projects
 
-As an open-source project, you don't have to worry; we still provide the free business plan on the Tolgee Cloud.
+As an open-source project, you don't have to worry; we still provide the free business plan on the Tolgee Cloud. **Just reach us out at info@tolgee.io**
 
 ## What is changing in self-hosted pricing
 
@@ -97,13 +107,14 @@ We discovered that Tolgee provides great value for many companies that use Tolge
 of them actually subscribed to our "Bussiness" plan. According to our analysis, the free plan is also sufficient for
 larger teams of 10+ developers, and the price of the business plan is too high while not bringing much more value.
 
-Because of this, we decided to make the Tolgee AI translator available also to customers who purchased a license
+Because of this, we decided to make the [Tolgee AI translator](/platform/translation_process/tolgee_translator) available also to customers who purchased a license
 for any of the self-hosted plans. This way, the self-hosted license brings significant benefits in comparison
-to the free plan. We are also adding a new, more cost-effective "Team" plan. At the same time, we decided to <b>limit the
+to the free plan. We are also adding a new, more cost-effective "Team" plan. At the same time, we decided to <b>limit
+the
 number of seats in the free plan to 10</b>. This change won't affect the users on older Tolgee Platform versions, so
 the users staying with such versions are fine with continuing with the previous unlimited free plan.
 
-The new version of the Tolgee platform with limited free users will be released by January 26th.
+The new version of the Tolgee platform with limited free users will be released by **January 26th**.
 
 ### The new Team plan on Self-hosted
 
@@ -111,7 +122,8 @@ The new version of the Tolgee platform with limited free users will be released 
   { item: "Price per seat", oldValue: "N/A", newValue: "10€" },
   {
     item: <>
-      Price per 1000 MT credits <br />(Only or Tolgee Translator services, for other services, you can provide your
+      Price per 1000 MT credits <br />(Only for <a href="/platform/translation_process/tolgee_translator">Tolgee
+      AI translator</a> services, for other services, you can provide your
       own API key)
     </>,
     oldValue: "N/A",
@@ -120,7 +132,11 @@ The new version of the Tolgee platform with limited free users will be released 
   {
     item: "Additional features",
     oldValue: "N/A",
-    newValue: "Webhooks, Multiple content delivery configs, Tolgee AI translator"
+    newValue: <><a href="/platform/projects_and_organizations/webhooks">Webhooks</a>, <a
+      href="/platform/projects_and_organizations/content_delivery">Multiple content delivery
+      configs</a>, <a
+      href="/platform/translation_process/tolgee_translator">Tolgee
+      AI translator</a></>
   },
 ]} />
 
@@ -129,7 +145,8 @@ The new version of the Tolgee platform with limited free users will be released 
 <PricingChanges data={[
   {
     item: <>
-      Price per 1000 MT credits <br />(Only or Tolgee Translator services, for other services, you can provide your
+      Price per 1000 MT credits <br />(Only for <a href="/platform/translation_process/tolgee_translator">Tolgee
+      AI translator</a> services, for other services, you can provide your
       own API key)
     </>,
     oldValue: "N/A",
@@ -138,15 +155,16 @@ The new version of the Tolgee platform with limited free users will be released 
   {
     item: "Additional features",
     oldValue: "N/A",
-    newValue: "Tolgee AI translator"
+    newValue: <a href="/platform/translation_process/tolgee_translator">Tolgee
+      AI translator</a>
   },
 ]} />
 
 We understand that this change might be hard to accept for many companies using Tolgee for free on self-hosted instances.
-We apologize for the inconvenience you may encounter. However, we need to focus on making the company stable
+We apologize for the inconvenience you may encounter. However, we need to focus on making the Tolgee company stable
 and cost-effective, and we want to assure you that additional revenues from this change will be used
-for future product development, bringing you great new features like GitHub/GitLab integrations, Visual Editor,
-Universal Format Support, Mobile SDKs, Document translations and much more. We thank you in advance for understanding.
+for future product development, bringing you **great new features like GitHub/GitLab integrations, Visual Editor,
+Universal Format Support, Mobile SDKs, Document translations and [much more](/roadmap)**. We thank you in advance for understanding.
 
 ## Few more words to advocate the changes
 
