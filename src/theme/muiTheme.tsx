@@ -1,4 +1,4 @@
-import { CustomThemeColors, darkThemeColors, lightThemeColors } from './colors';
+import { darkThemeColors, lightThemeColors } from './colors';
 import { createTheme as muiCreateTheme } from '@mui/material/styles';
 
 export const createTheme = (isDarkTheme: boolean) => {
