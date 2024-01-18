@@ -6,13 +6,13 @@ import { getChatwootScript } from '../component/externalScripts/getChatwootScrip
 import { getGtagScript } from '../component/externalScripts/getGtagScript';
 import websiteSchema from '../info/website';
 import {
-  createTheme,
   Experimental_CssVarsProvider,
   ThemeProvider as MuiThemeProvider,
   useColorScheme,
 } from '@mui/material';
 import { useDarkMode } from '../utils';
 import { getHotjarScript } from '../component/externalScripts/getHotjarScript';
+import { createTheme } from './muiTheme';
 
 const MuiThemeSynchronizer = () => {
   const isDarkTheme = useDarkMode();
@@ -48,25 +48,12 @@ export const LayoutContent = ({ children }) => {
   }, [isDarkTheme]);
 
   const theme = useMemo(() => {
-    return createTheme({
-      palette: {
-        primary: {
-          main: isDarkTheme ? 'rgb(255, 105, 149)' : '#EC407A',
-        },
-      },
-    });
+    return createTheme(isDarkTheme);
   }, [isDarkTheme]);
 
   return (
     <>
       <Head>
-        {/*{cookieYesId && (*/}
-        {/*  <script*/}
-        {/*    id="cookieyes"*/}
-        {/*    type="text/javascript"*/}
-        {/*    src={`https://cdn-cookieyes.com/client_data/${cookieYesId}/script.js`}*/}
-        {/*  ></script>*/}
-        {/*)}*/}
         {trackingId && (
           <script>{`(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
           new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
