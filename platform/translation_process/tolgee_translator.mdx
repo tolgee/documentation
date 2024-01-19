@@ -3,26 +3,38 @@ id: tolgee_translator
 title: Tolgee Translator
 ---
 
+Tolgee Translator is based on ChatGPT and can translate with included [Tolgee Context](/js-sdk/tolgee_context),
+key description, project description, language notes and results from the translation memory.
+
+## Tolgee Translator with context
+
 :::info
 This functionality is available only in the Cloud version with SDK 5.9.0 and higher.
 :::
 
-Tolgee Translator is based on ChatGPT and can translate with included [Tolgee Context](/js-sdk/tolgee_context). Tolgee Context is a statistic about relations between the keys based on how they are laid out in your application. Context is gathered by Tolgee SDK ([read more](/js-sdk/tolgee_context)).
+Tolgee Context is a statistic about relations between the keys based on how they are laid out in your application.
+Context is gathered by Tolgee SDK. [Read more.](/js-sdk/tolgee_context)
 
 ![Tolgee Translator](/img/docs/platform/tolgee_translator.png)
 
 _With [Tolgee Context](/js-sdk/tolgee_context), ambiguous translations can be improved radically._
 
-The presence of context for the given key is indicated at the bottom left corner of the key cell and at the Tolgee Translator icon with a little ⚡ icon.
+The presence of context for the given key is indicated at the bottom left corner of the key cell and at the Tolgee
+Translator icon with a little ⚡ icon. By clicking on the icon, you can see the context.
 
 ## Tolgee Translator without context
 
-Tolgee Translator can improve the quality of translation even without the [Tolgee Context](/js-sdk/tolgee_context). It knows that you are translating a software product, and it gets access to the translation memory. So if there are similar translations, it will keep it consistent.
-
-It also knows the translation key, which can also contribute to better translation.
+Tolgee Translator can improve the quality of translation even without the [Tolgee Context](/js-sdk/tolgee_context).
+It knows the key name, it can be enhanced with key description, project descriptions and language notes.
+Also, it gets access to the translation memory, so if there are similar translations, it will keep it consistent.
 
 ![Tolgee Translator](/img/docs/platform/tolgee_translator_no_context.png)
 
 _Tolgee Translator can help maintain consistency with other translations if translation memory is available._
 
 It can essentially see the same information as a human translator (when screenshots are replaced by [Tolgee Context](/js-sdk/tolgee_context)).
+
+## Tolgee Translator customization
+
+You can customize the Tolgee Translator to your needs. Read more about that in the
+[AI Translator Customization section](/platform/projects_and_organizations/ai-translation-customization).

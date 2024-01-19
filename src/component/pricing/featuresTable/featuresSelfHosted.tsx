@@ -45,6 +45,11 @@ export const featuresSelfHosted = {
     },
     {
       type: 'item',
+      label: 'AI Customization',
+      items: ['n', 'y', 'y'],
+    },
+    {
+      type: 'item',
       label: 'Translation memory',
       items: ['y', 'y', 'y'],
     },

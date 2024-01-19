@@ -154,6 +154,7 @@ export default function Pricing() {
                 'webhooks',
                 'multiple-content-deliveries',
                 'custom-content-storage',
+                'ai-prompt-customization',
               ]}
               minHeights={MIN_PLAN_HEIGHTS}
               action={

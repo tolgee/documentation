@@ -1,0 +1,67 @@
+---
+id: ai-translation-customization
+title: AI Translation Customization
+sidebar_label: AI Translation Customization
+---
+
+import { ScreenshotWrapper } from "../shared/_ScreenshotWrapper";
+
+:::info
+This feature is only available with a Business subscription or higher on Tolgee cloud and on Subscribed Self-hosted
+instances with Tolgee AI translator enabled as the translation provider.
+:::
+
+If you wish to enhance the results from the Tolgee AI translator, you can customize it according to your needs.
+Tolgee enables you to input key descriptions, project descriptions, or language notes.
+This information is provided along with the actual string that requires translation.
+
+## Providing project description
+
+Project descriptions are beneficial when you have a project in a specific domain.
+You can also specify your overall tone of voice.
+For instance, if you're translating an app for golf players, you can provide a description like the following:
+
+```text title="Example"
+This is an app for golf players.
+Please use golf terminology.
+We are trying to be friendly and funny.
+We are motivating the players to get better.
+```
+
+To provide the project description,
+- Select `Languages` in the project menu.
+- Select `AI Customization`.
+- Click the `+ Description` button in the `Project description` section.
+
+<ScreenshotWrapper
+  className="max-w-[900px]"
+  alt="Providing project description"
+  src="/img/docs/platform/ai-customization/language-notes.webp"
+></ScreenshotWrapper>
+
+## Providing Language Notes
+
+Language notes are useful to specify your conventions for a specific language. You can also use it to specify common terminology.
+Sometimes, you might also want to specify the tone of voice for a specific language
+if you wish to communicate differently to different cultures.
+
+```text title="Example for Japanese"
+In Japanese, we are using polite language. Japanese Golf players are very polite.
+Always translate "Golf Club" as ゴルフクラブ, referring to the equipment used to hit the ball, not a group of players.
+```
+
+To provide the language description,
+ - Select `Languages` in the project menu
+ - Select `AI Customization`
+ - Click the `+` on the language you want to customize
+
+<ScreenshotWrapper
+  className="max-w-[900px]"
+  alt="Providing language notes"
+  src="/img/docs/platform/ai-customization/language-notes.webp"
+></ScreenshotWrapper>
+
+## Providing key description
+
+You can read more about providing key descriptions [here](/platform/translation_keys/keys#key-description).
+Tolgee uses the same key description for AI translation as visible in the Translation editor.

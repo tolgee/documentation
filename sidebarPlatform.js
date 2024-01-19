@@ -15,6 +15,8 @@ module.exports = {
       items: [
         'projects_and_organizations/project_settings',
         'projects_and_organizations/languages',
+        'projects_and_organizations/machine-translation-settings',
+        'projects_and_organizations/ai-translation-customization',
         'projects_and_organizations/members',
         'projects_and_organizations/import',
         'projects_and_organizations/export',

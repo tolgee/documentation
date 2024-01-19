@@ -48,6 +48,7 @@ const FEATURES_MAP = {
   'backup-configuration': <Ready>Backup configuration</Ready>,
   'team-training': <Ready>Team training</Ready>,
   'account-manager': <Ready>Account manager</Ready>,
+  'ai-prompt-customization': <Ready>AI Customization</Ready>,
 };
 
 export type Feature = keyof typeof FEATURES_MAP;
