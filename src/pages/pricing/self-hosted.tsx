@@ -103,6 +103,7 @@ export default function SelfHosted() {
                 'webhooks',
                 'multiple-content-deliveries',
                 'custom-content-storage',
+                'ai-prompt-customization',
               ]}
               secondaryPrices={[
                 {

@@ -3,6 +3,7 @@ id: keys
 title: Keys
 sidebar_label: Keys
 ---
+import { ScreenshotWrapper } from "../shared/_ScreenshotWrapper";
 
 Translation keys are used to identify a string or text that is displayed to the user.
 They are used in the translation files to translate the text to the user's language. They are also used in the code to display the text to the user.
@@ -27,18 +28,24 @@ To add new translation keys to Tolgee, you have a few options:
 
 To create a new translation key, click the `+ Add` button on the project's Translations view.
 
-![Add key button](/img/docs/platform/add_key_button.png)
+<ScreenshotWrapper
+  alt="Add key button"
+  src="/img/docs/platform/add_key_button.webp"
+/>
 
 When adding a new key, you can specify the following options:
 
 - **Key name**: The name of the key. This name is used to identify the key in the translation files and in the code. The name must be unique within a project.
 - **Namespace**: The namespace of the key. This is an optional field that can be used to structure keys into different "buckets" – namespaces separate translation keys to separate files.
-  It can be useful in large projects, we recommend it for projects with more than ~1000 keys. You can learn more on the [Namespaces](namespaces) page.
+It can be useful in large projects, we recommend it for projects with more than ~1000 keys. You can learn more on the [Namespaces](namespaces) page.
 - **Tags**: Tags can be used to group keys together. You can select multiple tags. You can learn more on the [Tags](tags) page.
 - **Language text(s)**: The text that should be displayed to the user in each language. You can specify the text for one or more languages.
-  You can select which languages to show here by selecting them in the dropdown at the top. If you don't specify the text for a language, the key will be marked as "Untranslated" for that language.
+You can select which languages to show here by selecting them in the dropdown at the top. If you don't specify the text for a language, the key will be marked as "Untranslated" for that language.
 
-![Create key form](/img/docs/platform/create_key_form.png)
+<ScreenshotWrapper
+  alt="Create key form"
+  src="/img/docs/platform/create_key_form.webp"
+/>
 
 ## Naming conventions
 
@@ -46,12 +53,12 @@ When it comes to naming conventions for translation keys, there are no hard and 
 However, it is generally advisable to use naming conventions that are easy to understand and follow a consistent format. Here are some common naming conventions that can be used for translation keys:
 
 1. **Meaningful names**: Translation keys should be named based on the meaning or purpose of the content they represent.
-   For example, a translation key for a button that says `Save` could be named `save_button`.
+For example, a translation key for a button that says `Save` could be named `save_button`.
 2. **Descriptive names**: It's also helpful to use descriptive names that provide additional information about the content, such as the location of the content or its function.
-   For example, a translation key for a header that appears on the homepage could be named `homepage_header`.
+For example, a translation key for a header that appears on the homepage could be named `homepage_header`.
 3. **Consistent naming**: To ensure consistency across translation keys, it's recommended to follow a standard naming convention.
 4. **Short and memorable**: Translation keys should be short and easy to remember.
-   Avoid using long, complicated names that are difficult to type or remember.
+Avoid using long, complicated names that are difficult to type or remember.
 
 Overall, the most important factor is to choose a naming convention that makes sense for your specific project or organization, and to use it consistently throughout the translation process.
 This can help to ensure that translation keys are easy to manage and understand, and that translations are accurate and consistent.
@@ -59,3 +66,16 @@ This can help to ensure that translation keys are easy to manage and understand,
 :::tip
 If you want to learn more about naming translation keys, check out our [blog post](/blog/naming-translation-keys) on the topic.
 :::
+
+
+## Key description
+Key descriptions can help translators to understand the context of the key. It's also provided to the
+[Tolgee AI translator](/platform/translation_process/tolgee_translator) to help it understand the key.
+
+You can see the description in the editor directly under the key name.
+
+<ScreenshotWrapper
+  alt="Key description"
+  src="/img/docs/platform/key_description.webp" />
+
+To modify the description, you can do so in the key editing dialog by clicking the key name or description.

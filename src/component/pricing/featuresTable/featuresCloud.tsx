@@ -113,6 +113,11 @@ export const featuresCloud = {
     },
     {
       type: 'item',
+      label: 'AI Customization',
+      items: ['n', 'n', 'y', 'y'],
+    },
+    {
+      type: 'item',
       label: 'Translation memory',
       items: ['y', 'y', 'y', 'y'],
     },
