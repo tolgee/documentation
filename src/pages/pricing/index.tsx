@@ -81,8 +81,8 @@ export default function Pricing() {
                   For individuals <br /> and small projects
                 </>
               }
-              limits={{ strings: 1_000, mtCredits: 10_000, seats: Infinity }}
-              free
+              limits={{ strings: 4000, mtCredits: 10_000, seats: Infinity }}
+              billing={{ monthly: 30, annually: 25 }}
               secondaryPrices={[
                 {
                   label: 'extra 1000 strings',
@@ -90,7 +90,7 @@ export default function Pricing() {
                 },
                 {
                   label: 'extra 1000 MT credits',
-                  value: `€${(0.2).toLocaleString(undefined, {
+                  value: `€${(0.035).toLocaleString(undefined, {
                     minimumFractionDigits: 2,
                   })}`,
                 },
@@ -104,6 +104,9 @@ export default function Pricing() {
                 'one-click-screenshots',
                 'single-content-delivery',
                 'figma-plugin',
+                'webhooks',
+                'custom-content-storage',
+                'ai-prompt-customization',
               ]}
               onMore={openFeaturesTable}
               minHeights={MIN_PLAN_HEIGHTS}
@@ -139,7 +142,7 @@ export default function Pricing() {
                 },
                 {
                   label: 'extra 1000 MT credits',
-                  value: `€${(0.15).toLocaleString(undefined, {
+                  value: `€${(0.035).toLocaleString(undefined, {
                     minimumFractionDigits: 2,
                   })}`,
                 },

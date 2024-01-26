@@ -52,12 +52,13 @@ We are also completely **redesigning the pay-as-you-go plan**. The past year sho
 starting at 0€ and charging only for what's consumed, isn't cost-effective for us. For many pay-as-you-go customers,
 the payment processing and related costs are higher than the actual revenue. So the new plan will start at €30, which
 we consider a fair minimal price for the service. The new plan will contain new features such as the <a href="/platform/projects_and_organizations/webhooks">Webhooks</a> and <a
-  href="/platform/projects_and_organizations/content_delivery#using-custom-storage">Custom Content Delivery Storage</a>.
+href="/platform/projects_and_organizations/content_delivery#using-custom-storage">Custom Content Delivery Storage</a>.
 
 ### The Pay-as-you-go plan changes
 
 <PricingChanges data={[
-  { item: "Plan price", oldValue: "€0", newValue: "€30", isNumber: true },
+  { item: <>Plan price (billed <b>annually</b>)</>, oldValue: "€0", newValue: "€25/mo (300/year)", isNumber: true },
+  { item: <>Plan price (billed <b>monthly</b>)</>, oldValue: "€0", newValue: "€30/mo", isNumber: true },
   { item: "Price per 1000 MT credits", oldValue: "€0.20", newValue: "€0.035", isNumber: true },
   { item: "Included strings", oldValue: "1000", newValue: "4000", isNumber: true },
   {
@@ -67,6 +68,9 @@ we consider a fair minimal price for the service. The new plan will contain new 
       <a href="/platform/projects_and_organizations/webhooks">Webhooks</a>,{' '}
       <a href="/platform/projects_and_organizations/content_delivery#using-custom-storage">
         Custom Content Delivery Storage
+      </a>,{' '}
+      <a href="/platform/projects_and_organizations/ai-translation-customization">
+        AI Translation Customization
       </a>
     </>
   },
@@ -94,7 +98,17 @@ the bottom of this post.
     item: "Tolgee AI Translator pricing model",
     oldValue: "1 MT credit per 10 OpenAI tokens",
     newValue: "1 MT credit per character"
-  }
+  },
+  {
+    item: "Additional features",
+    oldValue: "N/A",
+    newValue:
+      <>
+        <a href="/platform/projects_and_organizations/ai-translation-customization">
+          AI Translation Customization
+        </a>
+      </>
+  },
 ]} />
 
 ### For open-source projects
@@ -132,11 +146,19 @@ The new version of the Tolgee platform with limited free users will be released 
   {
     item: "Additional features",
     oldValue: "N/A",
-    newValue: <><a href="/platform/projects_and_organizations/webhooks">Webhooks</a>, <a
-      href="/platform/projects_and_organizations/content_delivery">Multiple content delivery
-      configs</a>, <a
-      href="/platform/translation_process/tolgee_translator">Tolgee
-      AI translator</a></>
+    newValue: <>
+      <a href="/platform/projects_and_organizations/webhooks">Webhooks</a>,{' '}
+      <a
+        href="/platform/projects_and_organizations/content_delivery">Multiple content delivery
+        configs</a>,{' '}
+      <a
+        href="/platform/translation_process/tolgee_translator">Tolgee
+        AI translator
+      </a>,{' '}
+      <a href="/platform/projects_and_organizations/ai-translation-customization">
+        AI Translation Customization
+      </a>
+    </>
   },
 ]} />
 
@@ -155,8 +177,12 @@ The new version of the Tolgee platform with limited free users will be released 
   {
     item: "Additional features",
     oldValue: "N/A",
-    newValue: <a href="/platform/translation_process/tolgee_translator">Tolgee
-      AI translator</a>
+    newValue: <>
+      <a href="/platform/translation_process/tolgee_translator">Tolgee AI translator</a>
+      <a href="/platform/projects_and_organizations/ai-translation-customization">
+        AI Translation Customization
+      </a>
+    </>
   },
 ]} />
 

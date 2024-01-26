@@ -18,7 +18,7 @@ export const featuresCloud = {
       ),
       items: [
         (1000).toLocaleString(),
-        (1000).toLocaleString(),
+        (4000).toLocaleString(),
         (20000).toLocaleString(),
         'Unlimited',
       ],
@@ -55,7 +55,7 @@ export const featuresCloud = {
       label: 'Monthly price (annual billing)',
       items: [
         '€0/month',
-        '$0/month',
+        '$25/month',
         `€${(84).toLocaleString()}/month`,
         'Negotiable',
       ],
@@ -65,7 +65,7 @@ export const featuresCloud = {
       label: 'Monthly price (monthly billing)',
       items: [
         '€0/month',
-        '$0/month',
+        '$30/month',
         `€${(100).toLocaleString()}/month`,
         'Negotiable',
       ],
@@ -99,9 +99,9 @@ export const featuresCloud = {
       ),
       items: [
         'n',
-        `€${(0.2).toLocaleString(undefined, { minimumFractionDigits: 2 })}`,
-        `€${(0.15).toLocaleString(undefined, { minimumFractionDigits: 2 })}`,
-        'n',
+        `€${(0.035).toLocaleString(undefined, { minimumFractionDigits: 2 })}`,
+        `€${(0.035).toLocaleString(undefined, { minimumFractionDigits: 2 })}`,
+        'Negotiable',
       ],
     },
 
@@ -113,8 +113,12 @@ export const featuresCloud = {
     },
     {
       type: 'item',
-      label: 'AI Customization',
-      items: ['n', 'n', 'y', 'y'],
+      label: (
+        <PricingDetailsLink item="what-is-ai-customization">
+          AI Customization
+        </PricingDetailsLink>
+      ),
+      items: ['n', 'y', 'y', 'y'],
     },
     {
       type: 'item',
@@ -163,7 +167,7 @@ export const featuresCloud = {
       label: 'Granular permissions',
       items: ['n', 'n', 'y', 'y'],
     },
-    { type: 'item', label: 'Webhooks', items: ['n', 'n', 'y', 'y'] },
+    { type: 'item', label: 'Webhooks', items: ['n', 'y', 'y', 'y'] },
     {
       type: 'item',
       label: (
@@ -180,7 +184,7 @@ export const featuresCloud = {
           Custom Content Storage
         </PricingDetailsLink>
       ),
-      items: ['n', 'n', 'y', 'y'],
+      items: ['n', 'y', 'y', 'y'],
     },
 
     { type: 'title', label: 'Assistance' },
@@ -192,7 +196,7 @@ export const featuresCloud = {
     {
       type: 'item',
       label: 'Standard support',
-      items: ['n', 'n', 'y', 'y'],
+      items: ['n', 'y', 'y', 'y'],
     },
     { type: 'item', label: 'Premium support', items: ['n', 'n', 'n', 'y'] },
     { type: 'item', label: 'Account manager', items: ['n', 'n', 'n', 'y'] },

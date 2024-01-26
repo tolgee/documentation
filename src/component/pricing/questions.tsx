@@ -39,6 +39,19 @@ export const questions = [
     ),
   },
   {
+    id: 'what-is-ai-customization',
+    title: 'What is AI Customization?',
+    content: (
+      <>
+        AI customization allows you to specify project description and language
+        level notes, so you get better results from the Tolgee AI Translator.{' '}
+        <a href="/platform/projects_and_organizations/ai-translation-customization">
+          Read more
+        </a>
+      </>
+    ),
+  },
+  {
     id: 'what-is-content-delivery',
     title: 'What is Content Delivery?',
     content: (

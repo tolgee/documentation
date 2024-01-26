@@ -7,6 +7,7 @@ import Head from '@docusaurus/Head';
 import { PricingPlan } from '../../component/pricing/pricingPlan/PricingPlan';
 import { featuresSelfHosted } from '../../component/pricing/featuresTable/featuresSelfHosted';
 import { ReviewAuthor } from '../../component/reviewAuthor/ReviewAuthor';
+import { PricingPlanVertical } from '../../component/pricing/pricingPlan/PricingPlanVertical';
 
 export default function SelfHosted() {
   const [billing, setBilling] = useState<'monthly' | 'annually'>('annually');
@@ -50,7 +51,7 @@ export default function SelfHosted() {
           </div>
 
           <div className="pricing__options-wrapper">
-            <PricingPlan
+            <PricingPlanVertical
               name="Free"
               free
               description={
@@ -77,7 +78,48 @@ export default function SelfHosted() {
                   Docs
                 </Link>
               }
-              onMore={openFeaturesTable}
+              // onMore={openFeaturesTable}
+              note={''}
+              limits={{
+                seats: 10,
+              }}
+            />
+
+            <PricingPlan
+              name="Team"
+              description={
+                <>
+                  For individuals and teams
+                  <br /> for one or just a few apps
+                </>
+              }
+              billing={{ monthly: 0, annually: 0 }}
+              billingType={billing}
+              toggleBillingType={toggleBilling}
+              limits={{
+                strings: Infinity,
+              }}
+              featuresShortuct="All from Free"
+              features={[
+                'standard-support',
+                'webhooks',
+                'multiple-content-deliveries',
+                'ai-prompt-customization',
+              ]}
+              secondaryPrices={[
+                {
+                  label: 'seat',
+                  value: `€${(10).toLocaleString()}/mo`,
+                },
+              ]}
+              action={
+                <Link
+                  className="pricing__option-button pricing__option-button--contained"
+                  to="https://app.tolgee.io/billing-self-hosted"
+                >
+                  Subscribe
+                </Link>
+              }
             />
 
             <PricingPlan
@@ -95,15 +137,12 @@ export default function SelfHosted() {
                 strings: Infinity,
                 seats: 10,
               }}
-              featuresShortuct="All from Free"
+              featuresShortuct="All from Team"
               features={[
                 'granular-permissions',
                 'prioritized-feature-requests',
-                'standard-support',
                 'webhooks',
-                'multiple-content-deliveries',
                 'custom-content-storage',
-                'ai-prompt-customization',
               ]}
               secondaryPrices={[
                 {

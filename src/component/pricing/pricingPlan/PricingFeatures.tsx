@@ -28,7 +28,7 @@ const FEATURES_MAP = {
   'multiple-content-deliveries': (
     <Ready>
       <PricingDetailsLink item="what-is-content-delivery">
-        Multiple Content Deliveries
+        More Content Delivery configs
       </PricingDetailsLink>
     </Ready>
   ),
@@ -48,7 +48,14 @@ const FEATURES_MAP = {
   'backup-configuration': <Ready>Backup configuration</Ready>,
   'team-training': <Ready>Team training</Ready>,
   'account-manager': <Ready>Account manager</Ready>,
-  'ai-prompt-customization': <Ready>AI Customization</Ready>,
+  'ai-prompt-customization': (
+    <Ready>
+      {' '}
+      <PricingDetailsLink item="what-is-ai-customization">
+        AI Customization
+      </PricingDetailsLink>
+    </Ready>
+  ),
 };
 
 export type Feature = keyof typeof FEATURES_MAP;
