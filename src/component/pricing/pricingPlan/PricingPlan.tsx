@@ -22,7 +22,7 @@ type Props = {
   secondaryPrices?: SecondaryPrice[];
   action: React.ReactNode;
   features?: Feature[];
-  featuresShortuct?: ReactNode;
+  featuresShortcut?: ReactNode;
   minHeights?: MinHeights;
   onMore?: () => void;
 };
@@ -39,10 +39,13 @@ export const PricingPlan: React.FC<Props> = ({
   secondaryPrices,
   action,
   features,
-  featuresShortuct,
+  featuresShortcut,
   minHeights,
   onMore,
 }) => {
+  const hasYearlyAndMonthlyPrices =
+    billing?.annually != undefined && billing?.monthly != undefined;
+
   return (
     <div className="pricing__option">
       <div className="pricing__option--top">
@@ -56,7 +59,7 @@ export const PricingPlan: React.FC<Props> = ({
         >
           <PricingFeatures
             features={features}
-            featuresShortuct={featuresShortuct}
+            featuresShortcut={featuresShortcut}
             onMore={onMore}
           />
 
@@ -67,7 +70,7 @@ export const PricingPlan: React.FC<Props> = ({
       </div>
 
       <div className="pricing__option--bottom">
-        {billing && (
+        {hasYearlyAndMonthlyPrices && (
           <BillingSwitch
             billingType={billingType}
             toggleBillingType={toggleBillingType}

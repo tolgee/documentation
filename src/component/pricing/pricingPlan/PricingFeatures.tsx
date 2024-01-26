@@ -28,7 +28,7 @@ const FEATURES_MAP = {
   'multiple-content-deliveries': (
     <Ready>
       <PricingDetailsLink item="what-is-content-delivery">
-        Multiple Content Deliveries
+        More Content Delivery configs
       </PricingDetailsLink>
     </Ready>
   ),
@@ -40,6 +40,13 @@ const FEATURES_MAP = {
       </PricingDetailsLink>
     </Ready>
   ),
+  'project-level-custom-content-storage': (
+    <Ready>
+      <PricingDetailsLink item="what-is-project-level-custom-content-storage">
+        Project level content storage
+      </PricingDetailsLink>
+    </Ready>
+  ),
 
   'premium-support': <Ready>Premium support</Ready>,
   'dedicated-slack-channel': <Ready>Dedicated Slack channel</Ready>,
@@ -48,27 +55,33 @@ const FEATURES_MAP = {
   'backup-configuration': <Ready>Backup configuration</Ready>,
   'team-training': <Ready>Team training</Ready>,
   'account-manager': <Ready>Account manager</Ready>,
-  'ai-prompt-customization': <Ready>AI Customization</Ready>,
+  'ai-prompt-customization': (
+    <Ready>
+      <PricingDetailsLink item="what-is-ai-customization">
+        AI Customization
+      </PricingDetailsLink>
+    </Ready>
+  ),
 };
 
 export type Feature = keyof typeof FEATURES_MAP;
 
 type Props = {
   features: Feature[];
-  featuresShortuct?: ReactNode;
+  featuresShortcut?: ReactNode;
   onMore?: () => void;
 };
 
 export const PricingFeatures = ({
   features,
-  featuresShortuct,
+  featuresShortcut,
   onMore,
 }: Props) => {
   return (
     <ul className="pricing__features-list">
-      {featuresShortuct && (
+      {featuresShortcut && (
         <li className="pricing__features-list--shortcut">
-          <Ready>{featuresShortuct}</Ready>
+          <Ready>{featuresShortcut}</Ready>
         </li>
       )}
       {features.map((feature) => (
