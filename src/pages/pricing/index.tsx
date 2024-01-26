@@ -154,7 +154,6 @@ export default function Pricing() {
                 'granular-permissions',
                 'prioritized-feature-requests',
                 'standard-support',
-                'webhooks',
                 'multiple-content-deliveries',
                 'custom-content-storage',
                 'ai-prompt-customization',

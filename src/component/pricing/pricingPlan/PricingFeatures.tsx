@@ -50,7 +50,6 @@ const FEATURES_MAP = {
   'account-manager': <Ready>Account manager</Ready>,
   'ai-prompt-customization': (
     <Ready>
-      {' '}
       <PricingDetailsLink item="what-is-ai-customization">
         AI Customization
       </PricingDetailsLink>
