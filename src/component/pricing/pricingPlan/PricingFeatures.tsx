@@ -40,6 +40,13 @@ const FEATURES_MAP = {
       </PricingDetailsLink>
     </Ready>
   ),
+  'project-level-custom-content-storage': (
+    <Ready>
+      <PricingDetailsLink item="what-is-project-level-custom-content-storage">
+        Project level content storage
+      </PricingDetailsLink>
+    </Ready>
+  ),
 
   'premium-support': <Ready>Premium support</Ready>,
   'dedicated-slack-channel': <Ready>Dedicated Slack channel</Ready>,
@@ -61,20 +68,20 @@ export type Feature = keyof typeof FEATURES_MAP;
 
 type Props = {
   features: Feature[];
-  featuresShortuct?: ReactNode;
+  featuresShortcut?: ReactNode;
   onMore?: () => void;
 };
 
 export const PricingFeatures = ({
   features,
-  featuresShortuct,
+  featuresShortcut,
   onMore,
 }: Props) => {
   return (
     <ul className="pricing__features-list">
-      {featuresShortuct && (
+      {featuresShortcut && (
         <li className="pricing__features-list--shortcut">
-          <Ready>{featuresShortuct}</Ready>
+          <Ready>{featuresShortcut}</Ready>
         </li>
       )}
       {features.map((feature) => (

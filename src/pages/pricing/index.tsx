@@ -13,7 +13,7 @@ import { PricingPlanVertical } from '../../component/pricing/pricingPlan/Pricing
 import { ReviewAuthor } from '../../component/reviewAuthor/ReviewAuthor';
 
 const MIN_PLAN_HEIGHTS: MinHeights = {
-  content: 370,
+  content: 400,
 };
 
 export default function Pricing() {
@@ -56,12 +56,7 @@ export default function Pricing() {
           <div className="pricing__options-wrapper">
             <PricingPlanVertical
               name="Free"
-              description={
-                <span>
-                  The Free plan comes with the same features as the Pay as you
-                  go plan.
-                </span>
-              }
+              description={<span>Includes key localization essentials</span>}
               free
               limits={{ strings: 1_000, mtCredits: 10_000, seats: Infinity }}
               action={
@@ -73,6 +68,17 @@ export default function Pricing() {
                 </Link>
               }
               note="No credit card required"
+              features={[
+                'in-context-translating',
+                'translation-memory',
+                'machine-translations',
+                'auto-translation',
+                'activity-log',
+                'one-click-screenshots',
+                'single-content-delivery',
+                'figma-plugin',
+              ]}
+              onMore={openFeaturesTable}
             />
             <PricingPlan
               name="Pay as you go"
@@ -95,15 +101,8 @@ export default function Pricing() {
                   })}`,
                 },
               ]}
+              featuresShortcut={'All from Free'}
               features={[
-                'in-context-translating',
-                'translation-memory',
-                'machine-translations',
-                'auto-translation',
-                'activity-log',
-                'one-click-screenshots',
-                'single-content-delivery',
-                'figma-plugin',
                 'webhooks',
                 'custom-content-storage',
                 'ai-prompt-customization',
@@ -125,8 +124,8 @@ export default function Pricing() {
               freeForOpensource
               description={
                 <>
-                  For individuals and teams
-                  <br /> for one or just a few apps
+                  For mid-size to larger teams, providing advanced features for
+                  growth
                 </>
               }
               limits={{
@@ -149,7 +148,7 @@ export default function Pricing() {
               ]}
               billingType={billing}
               toggleBillingType={toggleBilling}
-              featuresShortuct="All from Pay as you go"
+              featuresShortcut="All from Pay as you go"
               features={[
                 'granular-permissions',
                 'prioritized-feature-requests',
@@ -182,7 +181,7 @@ export default function Pricing() {
                 mtCredits: Infinity,
                 seats: Infinity,
               }}
-              featuresShortuct="All from Business plan"
+              featuresShortcut="All from Business plan"
               features={[
                 'account-manager',
                 'premium-support',

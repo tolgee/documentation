@@ -6,6 +6,7 @@ export type Limits = {
   strings?: number;
   mtCredits?: number;
   seats?: number;
+  payAsYouSit?: boolean;
 };
 
 type Props = {
@@ -15,7 +16,7 @@ type Props = {
 
 export const PlanLimits = ({
   vertical,
-  limits: { strings, mtCredits, seats },
+  limits: { strings, mtCredits, seats, payAsYouSit },
 }: Props) => {
   return (
     <div
@@ -54,6 +55,7 @@ export const PlanLimits = ({
           included
         </div>
       )}
+      {payAsYouSit && <div>Only pay for used seats</div>}
     </div>
   );
 };

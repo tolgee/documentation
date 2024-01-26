@@ -4,7 +4,10 @@ import { PricingToggle } from '../../component/pricing/pricingPlan/PricingToggle
 import { PricingBase } from '../../component/pricing/PricingBase';
 import Link from '@docusaurus/Link';
 import Head from '@docusaurus/Head';
-import { PricingPlan } from '../../component/pricing/pricingPlan/PricingPlan';
+import {
+  MinHeights,
+  PricingPlan,
+} from '../../component/pricing/pricingPlan/PricingPlan';
 import { featuresSelfHosted } from '../../component/pricing/featuresTable/featuresSelfHosted';
 import { ReviewAuthor } from '../../component/reviewAuthor/ReviewAuthor';
 import { PricingPlanVertical } from '../../component/pricing/pricingPlan/PricingPlanVertical';
@@ -14,6 +17,10 @@ export default function SelfHosted() {
 
   const toggleBilling = () => {
     setBilling((val) => (val === 'annually' ? 'monthly' : 'annually'));
+  };
+
+  const MIN_PLAN_HEIGHTS: MinHeights = {
+    content: 360,
   };
 
   return (
@@ -56,8 +63,7 @@ export default function SelfHosted() {
               free
               description={
                 <>
-                  Tolgee is open-source,
-                  <br /> self-hosting will be <b>free forever</b>
+                  Tolgee is <b>open-source</b>, self-hosting is <b>free</b>
                 </>
               }
               features={[
@@ -78,7 +84,7 @@ export default function SelfHosted() {
                   Docs
                 </Link>
               }
-              // onMore={openFeaturesTable}
+              onMore={openFeaturesTable}
               note={''}
               limits={{
                 seats: 10,
@@ -88,18 +94,16 @@ export default function SelfHosted() {
             <PricingPlan
               name="Team"
               description={
-                <>
-                  For individuals and teams
-                  <br /> for one or just a few apps
-                </>
+                <>For small teams, fostering smooth localization management</>
               }
-              billing={{ monthly: 0, annually: 0 }}
+              billing={{ monthly: `€${(10).toLocaleString()}/mo/seat` }}
               billingType={billing}
               toggleBillingType={toggleBilling}
               limits={{
                 strings: Infinity,
+                payAsYouSit: true,
               }}
-              featuresShortuct="All from Free"
+              featuresShortcut="All from Free"
               features={[
                 'standard-support',
                 'webhooks',
@@ -108,8 +112,8 @@ export default function SelfHosted() {
               ]}
               secondaryPrices={[
                 {
-                  label: 'seat',
-                  value: `€${(10).toLocaleString()}/mo`,
+                  label: '',
+                  value: <>&nbsp;</>,
                 },
               ]}
               action={
@@ -120,15 +124,13 @@ export default function SelfHosted() {
                   Subscribe
                 </Link>
               }
+              minHeights={MIN_PLAN_HEIGHTS}
             />
 
             <PricingPlan
               name="Business"
               description={
-                <>
-                  For individuals and teams
-                  <br /> for one or just a few apps
-                </>
+                <>For larger teams, providing advanced features for growth</>
               }
               billing={{ monthly: 300, annually: 250 }}
               billingType={billing}
@@ -137,12 +139,11 @@ export default function SelfHosted() {
                 strings: Infinity,
                 seats: 10,
               }}
-              featuresShortuct="All from Team"
+              featuresShortcut="All from Team"
               features={[
                 'granular-permissions',
                 'prioritized-feature-requests',
-                'webhooks',
-                'custom-content-storage',
+                'project-level-custom-content-storage',
               ]}
               secondaryPrices={[
                 {
@@ -158,15 +159,13 @@ export default function SelfHosted() {
                   Subscribe
                 </Link>
               }
+              minHeights={MIN_PLAN_HEIGHTS}
             />
 
             <PricingPlan
               name="Enterprise"
               description={
-                <>
-                  For enterprise organizations
-                  <br /> and very large teams
-                </>
+                <>For enterprise organizations and very large teams</>
               }
               billingType={billing}
               toggleBillingType={toggleBilling}
@@ -174,7 +173,7 @@ export default function SelfHosted() {
                 strings: Infinity,
                 seats: Infinity,
               }}
-              featuresShortuct="All from Business"
+              featuresShortcut="All from Business"
               features={[
                 'account-manager',
                 'premium-support',
@@ -192,6 +191,7 @@ export default function SelfHosted() {
                   Contact us
                 </Link>
               }
+              minHeights={MIN_PLAN_HEIGHTS}
             />
           </div>
         </>

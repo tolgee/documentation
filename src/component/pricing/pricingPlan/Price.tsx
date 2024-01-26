@@ -2,8 +2,8 @@ import React from 'react';
 import { BillingType } from './BillingSwitch';
 
 export type Billing = {
-  monthly: number;
-  annually: number;
+  monthly?: number | string;
+  annually?: number | string;
 };
 
 type Props = {
@@ -24,15 +24,14 @@ export const Price = ({ billing, free, billingType }: Props) => {
   if (billing) {
     return (
       <div className="pricing__option-price">
-        {billingType === 'monthly' ? (
+        {(billingType === 'monthly' || billing.annually == undefined) &&
+        billing.monthly != undefined ? (
           <div>
-            €{Number(billing.monthly).toLocaleString()}
-            <span>/mo</span>
+            <PriceField value={billing.monthly} />{' '}
           </div>
         ) : (
           <div>
-            €{Number(billing.annually).toLocaleString()}
-            <span>/mo</span>{' '}
+            <PriceField value={billing.annually} />{' '}
             <span className="pricing__option-billing">(annual billing)</span>
           </div>
         )}
@@ -41,4 +40,17 @@ export const Price = ({ billing, free, billingType }: Props) => {
   }
 
   return null;
+};
+
+const PriceField = ({ value }: { value: number | string }) => {
+  if (typeof value === 'string') {
+    return <>{value}</>;
+  }
+
+  return (
+    <>
+      €{Number(value).toLocaleString()}
+      <span>/mo</span>
+    </>
+  );
 };

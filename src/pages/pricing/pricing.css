@@ -302,6 +302,14 @@ html[data-theme='dark'] .pricing__option-button:hover {
  * Pricing features
  */
 
+
+.pricing__option-vertical .pricing__features-list {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  list-style: none;
+  padding-left: 0px;
+}
+
 .pricing__features-list {
   list-style: none;
   padding-left: 0px;

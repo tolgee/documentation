@@ -138,8 +138,8 @@ export const featuresSelfHosted = {
     {
       type: 'item',
       label: (
-        <PricingDetailsLink item="what-is-custom-content-storage">
-          Custom Content Storage
+        <PricingDetailsLink item="what-is-project-level-custom-content-storage">
+          Project level custom Storage
         </PricingDetailsLink>
       ),
       items: ['n', 'n', 'y', 'y'],

@@ -1,7 +1,7 @@
-import React from 'react';
+import React, { ReactNode } from 'react';
 import { Limits, PlanLimits } from './PlanLimits';
 import { Billing, Price } from './Price';
-import { Feature } from './PricingFeatures';
+import { Feature, PricingFeatures } from './PricingFeatures';
 
 type Props = {
   name: string;
@@ -12,7 +12,9 @@ type Props = {
   free?: boolean;
   action: React.ReactNode;
   features?: Feature[];
+  featuresShortcut?: ReactNode;
   note: string;
+  onMore?: () => void;
 };
 
 export const PricingPlanVertical = ({
@@ -23,6 +25,9 @@ export const PricingPlanVertical = ({
   free,
   action,
   note,
+  features,
+  featuresShortcut,
+  onMore,
 }: Props) => {
   return (
     <div className="pricing__option-vertical">
@@ -32,6 +37,11 @@ export const PricingPlanVertical = ({
           <div className="pricing__option-vertical--description">
             {description}
           </div>
+          <PricingFeatures
+            features={features}
+            featuresShortcut={featuresShortcut}
+            onMore={onMore}
+          />
           <PlanLimits limits={limits} vertical />
         </div>
         <div className="pricing__option-vertical--right">
