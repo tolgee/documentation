@@ -178,3 +178,5 @@ In conclusion, accurately naming translation keys is crucial for efficient manag
 When naming translation keys, it's critical to use a **clear and consistent naming convention, meaningful and unambiguous names**, and to keep the naming simple. By following best practices for naming translation keys, developers and localization managers can ensure translations are accurate and consistent, **saving time and effort for both translators and developers**.
 
 💡 Do you have **any questions** regarding the best practices for naming translation keys? Or do you have specific questions related to your project? Feel free to **[join our Slack community](https://tolg.ee/slack) to discuss them with us!**
+
+[![Context banner](/img/blog/blog-banners/banner-context.webp)](https://app.tolgee.io/sign_up)

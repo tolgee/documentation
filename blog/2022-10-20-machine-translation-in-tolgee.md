@@ -84,3 +84,5 @@ The state of the translation is automatically set to Translated (yellow color). 
 Machine translation can save plenty of time for translators. However, it’s still not ready to provide 100% perfect translations, especially for translations of software. Tolgee platform offers a simple yet effective solution for software localization with the machine translation features described in this article.
 
 Would you like to have some other machine translation providers than Google Translate, Amazon Translate, and DeepL in Tolgee? [Let us know](mailto:info@tolgee.io) or create a pull request on [GitHub](https://github.com/tolgee/tolgee-platform).
+
+[![Context banner](/img/blog/blog-banners/banner-context.webp)](https://app.tolgee.io/sign_up)

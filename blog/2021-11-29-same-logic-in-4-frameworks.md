@@ -1,11 +1,11 @@
 ---
 title: Same logic in 4 major FE frameworks, how do they compare?
-description: Real world comparison between 4 major front-end frameworks - React, Angular, Svelte and Vue. Example on Tolgee’s integration libraries. 
+description: Real world comparison between 4 major front-end frameworks - React, Angular, Svelte and Vue. Example on Tolgee’s integration libraries.
 authors: [sgranat, jcizmar]
 tags: [react.js, angular, vue.js, svelte, SDK, i18n]
 ---
 
-In [Tolgee.io](https://tolgee.io) we needed to implement integrations for all major frontend frameworks. 
+In [Tolgee.io](https://tolgee.io) we needed to implement integrations for all major frontend frameworks.
 I'd say, that this is quite a good opportunity to show a real world comparison between them and it will allow us to
 dive into a bit more advanced functionality.
 
@@ -37,7 +37,7 @@ variables, so user can also pass named parameters, which are referenced in trans
 look like `You have {itemsCount} items in your cart`. In ideal scenario we'd like something like this:
 
 ```jsx
-<T keyName="cart_content_key" parameters={{itemsCount: 5}}/>
+<T keyName="cart_content_key" parameters={{ itemsCount: 5 }} />
 ```
 
 > My main working tool is React and so I use React as kind of reference implementation
@@ -65,7 +65,7 @@ In React we use context API to provide Tolgee instance to all children:
 ```jsx
 export const TolgeeProviderContext = React.createContext(null);
 
-export const TolgeeProvider = ({config, children}) => {
+export const TolgeeProvider = ({ config, children }) => {
   const [tolgee] = useState(new Tolgee(config));
 
   useEffect(() => {
@@ -76,7 +76,7 @@ export const TolgeeProvider = ({config, children}) => {
   }, []);
 
   return (
-    <TolgeeProviderContext.Provider value={{tolgee}}>
+    <TolgeeProviderContext.Provider value={{ tolgee }}>
       {children}
     </TolgeeProviderContext.Provider>
   );
@@ -86,9 +86,8 @@ export const TolgeeProvider = ({config, children}) => {
 Now let's look how we can use Tolgee context in `T` component:
 
 ```jsx
-export const T = ({ keyName, parameters }) =>
-{
-  const {tolgee} = useContext(TolgeeProviderContext);
+export const T = ({ keyName, parameters }) => {
+  const { tolgee } = useContext(TolgeeProviderContext);
 
   // get initial value
   const [translated, setTranslated] = useState(
@@ -97,12 +96,11 @@ export const T = ({ keyName, parameters }) =>
 
   useEffect(() => {
     // subscribe to translation changes
-    const subscription =
-      tolgee.onTranslationChange.subscribe((data) => {
-        if (data.key === keyName) {
-          setTranslate(tolgee.instant(keyName, parameters));
-        }
-      });
+    const subscription = tolgee.onTranslationChange.subscribe((data) => {
+      if (data.key === keyName) {
+        setTranslate(tolgee.instant(keyName, parameters));
+      }
+    });
 
     return () => {
       subscription.unsubscribe();
@@ -126,7 +124,7 @@ can connect it to the component lifecycle. Let's look how that can look like.
 
 ```js
 export const useTranslate: () => ReturnFnType = () => {
-  const {tolgee} = useTolgeeContext();
+  const { tolgee } = useTolgeeContext();
 
   // dummy state to force component to re-render
   const [_, setDummyValue] = useState(0);
@@ -141,7 +139,7 @@ export const useTranslate: () => ReturnFnType = () => {
     const subscription = tolgee.onTranslationChange.subscribe((data) => {
       // check if we are using this key
       if (usedKeysRef.current.has(data.key)) {
-        reRender()
+        reRender();
       }
     });
 
@@ -150,9 +148,9 @@ export const useTranslate: () => ReturnFnType = () => {
 
   return (keyName, parameters) => {
     // remember that this key was used
-    usedKeysRef.current.add(keyName)
+    usedKeysRef.current.add(keyName);
 
-    return tolgee.instant(keyName, parameters)
+    return tolgee.instant(keyName, parameters);
   };
 };
 ```
@@ -163,10 +161,10 @@ This hook can be then used in following way:
 
 ```jsx
 export const MyComponent = () => {
-  const t = useTranslate()
+  const t = useTranslate();
 
-  return <div title={t('title_key')}>...</div>
-}
+  return <div title={t('title_key')}>...</div>;
+};
 ```
 
 We basically give user a function and then observe what keys is he using it for. When translation changes, we check if
@@ -186,12 +184,12 @@ Vue.js has also concept of providing a context to it's children. We can do this 
 export const TolgeeProvider = {
   name: 'TolgeeProvider',
   props: {
-    config: {type: Object, required: true},
+    config: { type: Object, required: true },
   },
   created() {
-    const tolgee = new Tolgee({...this.$props.config});
+    const tolgee = new Tolgee({ ...this.$props.config });
     this.tolgeeContext.tolgee = tolgee;
-    tolgee.run()
+    tolgee.run();
   },
   data() {
     return {
@@ -210,7 +208,7 @@ export const TolgeeProvider = {
     this.tolgeeContext.tolgee.stop();
   },
   render() {
-    this.$slots.default()
+    this.$slots.default();
   },
 };
 ```
@@ -228,29 +226,27 @@ export const T = {
   name: 'T',
   inject: ['tolgeeContext'],
   props: {
-    keyName: {type: String, required: true},
+    keyName: { type: String, required: true },
     parameters: Object,
   },
   data() {
     const tolgeeContext = this.tolgeeContext;
     return {
-      translation:
-        tolgeeContext.tolgee.instant(
-          this.$props.keyName,
-          this.$props.parameters
-        )
+      translation: tolgeeContext.tolgee.instant(
+        this.$props.keyName,
+        this.$props.parameters
+      ),
     };
   },
   methods: {
     translate(data) {
       if (data.key === this.$props.keyName) {
-        this.$data.translation =
-          tolgeeContext.tolgee.instant(
-            this.$props.keyName,
-            this.$props.parameters
-          )
+        this.$data.translation = tolgeeContext.tolgee.instant(
+          this.$props.keyName,
+          this.$props.parameters
+        );
       }
-    }
+    },
   },
   created() {
     const tolgeeContext = this.tolgeeContext;
@@ -261,7 +257,7 @@ export const T = {
     this.$options.subscription.unsubscribe();
   },
   render() {
-    return this.$data.translation
+    return this.$data.translation;
   },
 };
 ```
@@ -278,7 +274,7 @@ between components while using it's lifecycle methods.
 export const TolgeeMixin = {
   inject: ['tolgeeContext'],
   beforeCreate() {
-    this.$options.usedKeys = new Set()
+    this.$options.usedKeys = new Set();
   },
   created() {
     const tolgeeContext = this.tolgeeContext;
@@ -291,7 +287,7 @@ export const TolgeeMixin = {
   },
   methods: {
     $t(keyName, params) {
-      this.$options.usedKeys.add(keyName)
+      this.$options.usedKeys.add(keyName);
       const tolgeeContext = this.tolgeeContext;
       return tolgeeContext.tolgee.instant(keyName, params);
     },
@@ -310,9 +306,9 @@ Mixin can then be used following way:
 </template>
 
 <script>
-export const Component = {
-  mixins: [TolgeeMixin],
-};
+  export const Component = {
+    mixins: [TolgeeMixin],
+  };
 </script>
 ```
 
@@ -320,7 +316,7 @@ So here we inject `tolgeeContext`, subscribe into translation changes and add `$
 user. We also maintain a list of keys, which were used and we update the component when they change. Notice that
 Vue has explicit method `$forceUpdate`, which causes re-render of the component.
 
-## Implementation in 
+## Implementation in
 
 > Svelte and Angular sections are written by Jan Cizmar, as he is the author of the integrations
 
@@ -390,8 +386,8 @@ The biggest difference from React integration is in the `getTranslate` method, w
 containing the method to actually translate the key.
 
 ```js
-import {onDestroy, getContext} from 'svelte';
-import {derived, writable} from 'svelte/store';
+import { onDestroy, getContext } from 'svelte';
+import { derived, writable } from 'svelte/store';
 
 export const getTranslate = () => {
   const context = getContext('tolgeeContext');
@@ -409,12 +405,11 @@ export const getTranslate = () => {
     return tolgee.instant(keyName, params);
   };
 
-  const subscription =
-    tolgee.onTranslationChange.subscribe((data) => {
-      if (usedKeys.has(data.key)) {
-        update();
-      }
-    });
+  const subscription = tolgee.onTranslationChange.subscribe((data) => {
+    if (usedKeys.has(data.key)) {
+      update();
+    }
+  });
 
   onDestroy(() => {
     subscription.unsubscribe();
@@ -462,7 +457,7 @@ The most different approach is used in Angular integration. Angular has no conce
 export class NgxTolgeeModule {
   // @dynamic
   static forRoot(options: TolgeeConfig): ModuleWithProviders<NgxTolgeeModule> {
-    options = {filesUrlPrefix: '/assets/i18n/', ...options};
+    options = { filesUrlPrefix: '/assets/i18n/', ...options };
     return {
       ngModule: NgxTolgeeModule,
       providers: [
@@ -476,7 +471,7 @@ export class NgxTolgeeModule {
           deps: [TranslationsProvider, TranslateService],
           multi: true,
         },
-        {provide: TolgeeConfig, useValue: options},
+        { provide: TolgeeConfig, useValue: options },
       ],
     };
   }
@@ -494,15 +489,14 @@ emitter. It enables us to emmit new values until we are done and enables us to u
 exactly what we need for our purpose.
 
 ```typescript
-import {EventEmitter, Injectable, OnDestroy} from '@angular/core';
-import {Observable} from 'rxjs';
-import {Tolgee, TranslationData} from '@tolgee/core';
-import {TolgeeConfig} from './tolgeeConfig';
+import { EventEmitter, Injectable, OnDestroy } from '@angular/core';
+import { Observable } from 'rxjs';
+import { Tolgee, TranslationData } from '@tolgee/core';
+import { TolgeeConfig } from './tolgeeConfig';
 
 @Injectable()
 export class TranslateService implements OnDestroy {
-  constructor(private config: TolgeeConfig) {
-  }
+  constructor(private config: TolgeeConfig) {}
 
   // Logic creating the Instance of Tolgee and lot of other stuff is ommited
   // ...
@@ -513,16 +507,10 @@ export class TranslateService implements OnDestroy {
     return this._tolgee;
   }
 
-  public translate(
-    key: string,
-    params = {},
-  ): Observable<string> {
+  public translate(key: string, params = {}): Observable<string> {
     return new Observable((subscriber) => {
       const translate = () => {
-        const translated = this.tolgee.instant(
-          key,
-          params,
-        );
+        const translated = this.tolgee.instant(key, params);
         subscriber.next(translated);
       };
 
@@ -551,10 +539,10 @@ emitted by Tolgee instance from @tolgee/core library. It also returns function, 
 As an equivalent to `T` component in React, we can use `t` selector, it subscribes to `translate` Observable and changes the result according to the new value.
 
 ```typescript
-import {Component, ElementRef, Input, OnDestroy, OnInit} from '@angular/core';
-import {Subscription} from 'rxjs';
-import {TranslateService} from './translate.service';
-import {TOLGEE_WRAPPED_ONLY_DATA_ATTRIBUTE} from '@tolgee/core';
+import { Component, ElementRef, Input, OnDestroy, OnInit } from '@angular/core';
+import { Subscription } from 'rxjs';
+import { TranslateService } from './translate.service';
+import { TOLGEE_WRAPPED_ONLY_DATA_ATTRIBUTE } from '@tolgee/core';
 
 @Component({
   selector: '[t]',
@@ -568,8 +556,7 @@ export class TComponent implements OnInit, OnDestroy {
   constructor(
     private ref: ElementRef,
     private translateService: TranslateService
-  ) {
-  }
+  ) {}
 
   ngOnInit(): void {
     const element = this.ref.nativeElement as HTMLElement;
@@ -588,16 +575,15 @@ export class TComponent implements OnInit, OnDestroy {
 }
 ```
 
-
 ### The `translate` pipe
 
 Pipe is a feature, which is missing in all the other integrations. It's basically function, which is able to change
 value used in template to some other value.
 
 ```typescript
-import {OnDestroy, Pipe, PipeTransform} from '@angular/core';
-import {TranslateService} from './translate.service';
-import {Subscription} from 'rxjs';
+import { OnDestroy, Pipe, PipeTransform } from '@angular/core';
+import { TranslateService } from './translate.service';
+import { Subscription } from 'rxjs';
 
 @Pipe({
   name: 'translate',
@@ -609,17 +595,13 @@ export class TranslatePipe implements PipeTransform, OnDestroy {
   params: Record<string, any>;
   private subscription: Subscription;
 
-  constructor(protected translateService: TranslateService) {
-  }
+  constructor(protected translateService: TranslateService) {}
 
   ngOnDestroy(): void {
     this.unsubscribe();
   }
 
-  transform(
-    key: any,
-    params?: Record<string, any>
-  ): string {
+  transform(key: any, params?: Record<string, any>): string {
     if (
       this.key === key &&
       JSON.stringify(this.params) === JSON.stringify(params)
@@ -661,3 +643,5 @@ complicated.
 It is interesting, how these frameworks/libraries take inspiration from each other. Svelte being the newest has something from everyone and the code seems very natural and clean. Vue takes inspiration from both Angular and React and is kinda compromise between them. Then you have React, which stands out with hooks and JSX. And Angular taking inspiration from "classic" Model-View-Controller schema, which is familiar to backend developers.
 
 We'll be glad if you let us know how to improve/simplify an implementation in any of these frameworks/libraries. We don't claim that we know all these frameworks that well. I've used Vue seriously for the first time and Jan was learning Svelte from scratch, while he was implementing this (their documentation is outstanding).
+
+[![Developer banner](/img/blog/blog-banners/banner-developer.webp)](https://app.tolgee.io/sign_up)

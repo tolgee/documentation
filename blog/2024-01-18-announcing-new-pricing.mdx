@@ -7,9 +7,9 @@ tags: ['tolgee', 'pricing']
 image: '/img/blog/new-pricing_light.webp'
 ---
 
-import { PricingChanges } from "../src/component/pricing/PricingChanges";
-import ThemedImage from "@theme/ThemedImage";
-import useBaseUrl from "@docusaurus/useBaseUrl";
+import { PricingChanges } from '../src/component/pricing/PricingChanges';
+import ThemedImage from '@theme/ThemedImage';
+import useBaseUrl from '@docusaurus/useBaseUrl';
 
 Dear Tolgee Users,
 
@@ -28,11 +28,11 @@ project more robust. We must reflect these company and product developments into
 
 ## What do we change?
 
- - We are entirely redesigning the pay-as-you-go plan
- - We are adding a new, more accessible "Team" plan for self-hosted instances
- - We are making the Tolgee AI Translator available also on self-hosted instances
- - We are limiting the number of seats in the self-hosted free plan
- - We are making machine translation credits way cheaper
+- We are entirely redesigning the pay-as-you-go plan
+- We are adding a new, more accessible "Team" plan for self-hosted instances
+- We are making the Tolgee AI Translator available also on self-hosted instances
+- We are limiting the number of seats in the self-hosted free plan
+- We are making machine translation credits way cheaper
 
 The new plans will be available by **26th January 2024**.
 
@@ -56,35 +56,68 @@ href="/platform/projects_and_organizations/content_delivery#using-custom-storage
 
 ### The Pay-as-you-go plan changes
 
-<PricingChanges data={[
-  { item: <>Plan price (billed <b>annually</b>)</>, oldValue: "€0", newValue: "€25/mo (300/year)", isNumber: true },
-  { item: <>Plan price (billed <b>monthly</b>)</>, oldValue: "€0", newValue: "€30/mo", isNumber: true },
-  { item: "Price per 1000 MT credits", oldValue: "€0.20", newValue: "€0.035", isNumber: true },
-  { item: "Included strings", oldValue: "1000", newValue: "4000", isNumber: true },
-  {
-    item: "Additional features",
-    oldValue: "N/A",
-    newValue: <>
-      <a href="/platform/projects_and_organizations/webhooks">Webhooks</a>,{' '}
-      <a href="/platform/projects_and_organizations/content_delivery#using-custom-storage">
-        Custom Content Delivery Storage
-      </a>,{' '}
-      <a href="/platform/projects_and_organizations/ai-translation-customization">
-        AI Translation Customization
-      </a>
-    </>
-  },
-  {
-    item: "Tolgee AI Translator pricing model",
-    oldValue: "1 MT credit per 10 OpenAI tokens",
-    newValue: "1 MT credit per character"
-  },
-  {
-    item: "Transfer date of current pay-as-you-go users to the new plan",
-    oldValue: "N/A",
-    newValue: "March 1st, 2024"
-  },
-]} />
+<PricingChanges
+  data={[
+    {
+      item: (
+        <>
+          Plan price (billed <b>annually</b>)
+        </>
+      ),
+      oldValue: '€0',
+      newValue: '€25/mo (300/year)',
+      isNumber: true,
+    },
+    {
+      item: (
+        <>
+          Plan price (billed <b>monthly</b>)
+        </>
+      ),
+      oldValue: '€0',
+      newValue: '€30/mo',
+      isNumber: true,
+    },
+    {
+      item: 'Price per 1000 MT credits',
+      oldValue: '€0.20',
+      newValue: '€0.035',
+      isNumber: true,
+    },
+    {
+      item: 'Included strings',
+      oldValue: '1000',
+      newValue: '4000',
+      isNumber: true,
+    },
+    {
+      item: 'Additional features',
+      oldValue: 'N/A',
+      newValue: (
+        <>
+          <a href="/platform/projects_and_organizations/webhooks">Webhooks</a>,{' '}
+          <a href="/platform/projects_and_organizations/content_delivery#using-custom-storage">
+            Custom Content Delivery Storage
+          </a>
+          ,{' '}
+          <a href="/platform/projects_and_organizations/ai-translation-customization">
+            AI Translation Customization
+          </a>
+        </>
+      ),
+    },
+    {
+      item: 'Tolgee AI Translator pricing model',
+      oldValue: '1 MT credit per 10 OpenAI tokens',
+      newValue: '1 MT credit per character',
+    },
+    {
+      item: 'Transfer date of current pay-as-you-go users to the new plan',
+      oldValue: 'N/A',
+      newValue: 'March 1st, 2024',
+    },
+  ]}
+/>
 
 The current pay-as-you-go plan users will be transferred to the updated pay-as-you-go plan on <b>March 1st</b>.
 Please get in touch with us if you have any concerns about this change using any of the channels described at
@@ -92,24 +125,31 @@ the bottom of this post.
 
 ### The Business plan changes
 
-<PricingChanges data={[
-  { item: "Price per 1000 MT credits", oldValue: "€0.20", newValue: "€0.035" },
-  {
-    item: "Tolgee AI Translator pricing model",
-    oldValue: "1 MT credit per 10 OpenAI tokens",
-    newValue: "1 MT credit per character"
-  },
-  {
-    item: "Additional features",
-    oldValue: "N/A",
-    newValue:
-      <>
-        <a href="/platform/projects_and_organizations/ai-translation-customization">
-          AI Translation Customization
-        </a>
-      </>
-  },
-]} />
+<PricingChanges
+  data={[
+    {
+      item: 'Price per 1000 MT credits',
+      oldValue: '€0.20',
+      newValue: '€0.035',
+    },
+    {
+      item: 'Tolgee AI Translator pricing model',
+      oldValue: '1 MT credit per 10 OpenAI tokens',
+      newValue: '1 MT credit per character',
+    },
+    {
+      item: 'Additional features',
+      oldValue: 'N/A',
+      newValue: (
+        <>
+          <a href="/platform/projects_and_organizations/ai-translation-customization">
+            AI Translation Customization
+          </a>
+        </>
+      ),
+    },
+  ]}
+/>
 
 ### For open-source projects
 
@@ -132,59 +172,76 @@ The new version of the Tolgee platform with limited free users will be released 
 
 ### The new Team plan on Self-hosted
 
-<PricingChanges data={[
-  { item: "Price per seat", oldValue: "N/A", newValue: "10€" },
-  {
-    item: <>
-      Price per 1000 MT credits <br />(Only for <a href="/platform/translation_process/tolgee_translator">Tolgee
-      AI translator</a> services, for other services, you can provide your
-      own API key)
-    </>,
-    oldValue: "N/A",
-    newValue: "€0.035"
-  },
-  {
-    item: "Additional features",
-    oldValue: "N/A",
-    newValue: <>
-      <a href="/platform/projects_and_organizations/webhooks">Webhooks</a>,{' '}
-      <a
-        href="/platform/projects_and_organizations/content_delivery">Multiple content delivery
-        configs</a>,{' '}
-      <a
-        href="/platform/translation_process/tolgee_translator">Tolgee
-        AI translator
-      </a>,{' '}
-      <a href="/platform/projects_and_organizations/ai-translation-customization">
-        AI Translation Customization
-      </a>
-    </>
-  },
-]} />
+<PricingChanges
+  data={[
+    { item: 'Price per seat', oldValue: 'N/A', newValue: '10€' },
+    {
+      item: (
+        <>
+          Price per 1000 MT credits <br />
+          (Only for <a href="/platform/translation_process/tolgee_translator">
+            Tolgee AI translator
+          </a> services, for other services, you can provide your own API key)
+        </>
+      ),
+      oldValue: 'N/A',
+      newValue: '€0.035',
+    },
+    {
+      item: 'Additional features',
+      oldValue: 'N/A',
+      newValue: (
+        <>
+          <a href="/platform/projects_and_organizations/webhooks">Webhooks</a>,{' '}
+          <a href="/platform/projects_and_organizations/content_delivery">
+            Multiple content delivery configs
+          </a>
+          ,{' '}
+          <a href="/platform/translation_process/tolgee_translator">
+            Tolgee AI translator
+          </a>
+          ,{' '}
+          <a href="/platform/projects_and_organizations/ai-translation-customization">
+            AI Translation Customization
+          </a>
+        </>
+      ),
+    },
+  ]}
+/>
 
 ### Changes to Business plan on self-hosted
 
-<PricingChanges data={[
-  {
-    item: <>
-      Price per 1000 MT credits <br />(Only for <a href="/platform/translation_process/tolgee_translator">Tolgee
-      AI translator</a> services, for other services, you can provide your
-      own API key)
-    </>,
-    oldValue: "N/A",
-    newValue: "€0.035"
-  },
-  {
-    item: "Additional features",
-    oldValue: "N/A",
-    newValue: <>
-      <a href="/platform/translation_process/tolgee_translator">Tolgee AI translator</a>
-      <a href="/platform/projects_and_organizations/ai-translation-customization">
-        AI Translation Customization
-      </a>
-    </>
-  },
-]} />
+<PricingChanges
+  data={[
+    {
+      item: (
+        <>
+          Price per 1000 MT credits <br />
+          (Only for <a href="/platform/translation_process/tolgee_translator">
+            Tolgee AI translator
+          </a> services, for other services, you can provide your own API key)
+        </>
+      ),
+      oldValue: 'N/A',
+      newValue: '€0.035',
+    },
+    {
+      item: 'Additional features',
+      oldValue: 'N/A',
+      newValue: (
+        <>
+          <a href="/platform/translation_process/tolgee_translator">
+            Tolgee AI translator
+          </a>
+          <a href="/platform/projects_and_organizations/ai-translation-customization">
+            AI Translation Customization
+          </a>
+        </>
+      ),
+    },
+  ]}
+/>
 
 We understand that this change might be hard to accept for many companies using Tolgee for free on self-hosted instances.
 We apologize for the inconvenience you may encounter. However, we need to focus on making the Tolgee company stable
@@ -214,6 +271,9 @@ If this materially impacts your business, I warmly invite
 you to contact me directly. I am open to having a personal dialogue regarding your concerns, and I am firmly committed
 to exploring potential solutions with you to continue providing a platform that satisfies and comforts your
 experience with us. You can get in touch with me directly
- - at jan@tolgee.io
- - in the Tolgee slack community at https://tolg.ee/slack
- - or book a slot in my Calendly at https://tolg.ee/jan.
+
+- at jan@tolgee.io
+- in the Tolgee slack community at https://tolg.ee/slack
+- or book a slot in my Calendly at https://tolg.ee/jan.
+
+[![Autonomous translation banner](/img/blog/blog-banners/banner-autonomous.webp)](https://app.tolgee.io/sign_up)

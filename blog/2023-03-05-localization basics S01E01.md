@@ -89,3 +89,5 @@ If you're seeking a comprehensive solution for your software localization needs,
 I18n open-source tool and **localization platform** Tolgee is transforming the software localization process with a [novel technique](/features/dev-tools) that intends to reduce time and effort for everyone involved in the process, including developers and translators. Tolgee software localization platform is a [free and open-source online tool](https://tolgee.io/blog/free-software-localization) that helps software developers localize their products for international markets. [Sign up](https://app.tolgee.io/sign_up) and **try it out for free!**
 
 **Join the growing community** of developers and translators who have embraced Tolgee to simplify their localization workflows and deliver exceptional multilingual experiences to users worldwide.
+
+[![Developer banner](/img/blog/blog-banners/banner-developer.webp)](https://app.tolgee.io/sign_up)

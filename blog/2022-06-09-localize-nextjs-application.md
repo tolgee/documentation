@@ -1,16 +1,17 @@
 ---
 slug: how-to-localize-your-nextjs-application-with-tolgee
 
-title: "How to Localize your Next.js Application with Tolgee?"
+title: 'How to Localize your Next.js Application with Tolgee?'
 
 authors: [msurti]
 
-image: "/img/blog/nextjs-tutorial/3.webp"
+image: '/img/blog/nextjs-tutorial/3.webp'
 
-description: "Learn in this tutorial how to translate your Next.js application using localization tool Tolgee. Explore how to integrate Tolgee seamlessly with your app."
+description: 'Learn in this tutorial how to translate your Next.js application using localization tool Tolgee. Explore how to integrate Tolgee seamlessly with your app.'
 
 tags: [localization, i18n, Next.js, tutorial, integration]
 ---
+
 Ever wondered how to translate your web pages into different local languages of visitors visiting your website? That’s where the concept of localization comes into action. [Localization](https://www.w3.org/International/questions/qa-i18n.en#l10n) with reference to web pages is nothing but a process of translating your web pages into the local language of the visitor.
 
 <!--truncate-->
@@ -62,7 +63,6 @@ For now, we will be taking a look at how to create a tolgee project using the to
 
 ![Export translations](/img/blog/nextjs-tutorial/6.webp)
 
-
 It’s time to create the Next JS web application!
 
 ## Creating a Next JS App
@@ -88,7 +88,9 @@ i18n: {
     defaultLocale: 'en',
 },
 ```
+
 Change the locales according to the languages that you have added in your tolgee project.
+
 - Install `@tolgee/react` module from npm
 
 ```
@@ -101,6 +103,7 @@ npm i @tolgee/react
 NEXT_PUBLIC_TOLGEE_API_KEY=<your API key>
 NEXT_PUBLIC_TOLGEE_API_URL=https://app.tolgee.io
 ```
+
 Change `<your API key>` to the API key which we generated from our tolgee project.
 
 - Create a i18n folder and extract the contents of the ZIP file containing the exported translation JSON files inside that folder.
@@ -118,27 +121,27 @@ const apiKey = process.env.NEXT_PUBLIC_TOLGEE_API_KEY;
 const apiUrl = process.env.NEXT_PUBLIC_TOLGEE_API_URL;
 
 function MyApp({ Component, pageProps, locales }: AppProps & { locales: any }) {
+  const router = useRouter();
 
-  const router = useRouter();
-
-  return (
-    <TolgeeProvider
-      forceLanguage={router.locale}
-      apiKey={apiKey}
-      apiUrl={apiUrl}
-      wrapperMode="invisible"
-      staticData={{
-        en: () => import('../i18n/en.json'),
-        hi: () => import('../i18n/hi.json'),
-        ...locales,
-      }}
-      // remove this to enable language auto detection
-      enableLanguageDetection={false}
-      loadingFallback={<div>Loading...</div>}
-    >
-      <Component {...pageProps} />
-    </TolgeeProvider>
-  );
+  return (
+    <TolgeeProvider
+      forceLanguage={router.locale}
+      apiKey={apiKey}
+      apiUrl={apiUrl}
+      wrapperMode="invisible"
+      staticData={{
+        en: () => import('../i18n/en.json'),
+        hi: () => import('../i18n/hi.json'),
+        ...locales,
+      }} // remove this to enable language auto detection
+      enableLanguageDetection={false}
+      loadingFallback={<div>Loading...</div>}
+    >
+            
+      <Component {...pageProps} />
+          
+    </TolgeeProvider>
+  );
 }
 ```
 
@@ -150,14 +153,14 @@ Make sure to change the language codes depending on the languages that you have 
 
 ```jsx
 MyApp.getInitialProps = async (context: any) => {
-  const locale = context.router.locale;
-  const result = {
-    locales: {
-      // get translations for current locale
-      [locale]: await import(`../i18n/${locale}.json`),
-    },
-  };
-  return result;
+  const locale = context.router.locale;
+  const result = {
+    locales: {
+      // get translations for current locale
+      [locale]: await import(`../i18n/${locale}.json`),
+    },
+  };
+  return result;
 };
 
 export default MyApp;
@@ -168,28 +171,31 @@ This will allow us to get the translation file according to the language set in 
 - Now, create a new page Welcome.js and add the following code to it:
 
 ```jsx
-import React from 'react'
-import { T } from "@tolgee/react";
+import React from 'react';
+import { T } from '@tolgee/react';
 import { useRouter } from 'next/router';
 const Welcome = () => {
-  const router = useRouter();
-  const setLanguage = (lang) => {
-    router.replace(router.pathname, undefined, { locale: lang });
-  };
-  return (
-    <div>
-      <select
-        onChange={(e) => setLanguage(e.target.value)}
-        value={router.locale}
-      >
-        <option value="en">English</option>
-        <option value="hi">Hindi</option>
-      </select>
-      <T keyName="title">Hello</T>
-    </div>
-  )
-}
-export default Welcome
+  const router = useRouter();
+  const setLanguage = (lang) => {
+    router.replace(router.pathname, undefined, { locale: lang });
+  };
+  return (
+    <div>
+            
+      <select
+        onChange={(e) => setLanguage(e.target.value)}
+        value={router.locale}
+      >
+                <option value="en">English</option>
+                <option value="hi">Hindi</option>
+              
+      </select>
+            <T keyName="title">Hello</T>
+          
+    </div>
+  );
+};
+export default Welcome;
 ```
 
 Here we have added a dropdown list of supported languages from which the user can choose the language of choice. We are accordingly updating the router parameters as per the selection.
@@ -205,7 +211,7 @@ import type { NextPage } from 'next';
 import Welcome from '../views/Welcome';
 
 const Home: NextPage = () => {
-  return <Welcome />;
+  return <Welcome />;
 };
 
 export default Home;
@@ -229,5 +235,6 @@ The awesome thing about Tolgee is that its open source! It’s an all-in-one loc
 
 At [Aviyel](https://aviyel.com/discussions), we are trying to spread awareness about open-source projects like Tolgee which can help developers and open-source enthusiasts in the best way possible!
 
-
 Original blog post was published at [Aviyel](https://aviyel.com/post/3343/how-to-localize-your-next-js-application-with-tolgee). Feel free to check out some other awesome open-source projects there.
+
+[![Next.js banner](/img/blog/blog-banners/banner-next.webp)](https://app.tolgee.io/sign_up)

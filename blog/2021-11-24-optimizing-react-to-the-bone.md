@@ -1,6 +1,6 @@
 ---
 title: Faster! Optimizing React app to the bone
-description: How to optimize React app and make it faster. How to identify slow components and optimize infinite scrolling in your application. 
+description: How to optimize React app and make it faster. How to identify slow components and optimize infinite scrolling in your application.
 authors: [sgranat]
 tags: [react.js, javascript, typescript, opensource]
 image: '/img/blog/optimizations/thumbnail.png'
@@ -8,16 +8,13 @@ image: '/img/blog/optimizations/thumbnail.png'
 
 ![Thumbnail](/img/blog/optimizations/thumbnail.png)
 
-
 In Tolgee localization platform, we manage translations. So our most important view is a list of translations, every row contains key and related translations in different languages. As this view serves multiple purposes, we have quite a lot of requirements and fulfilling all of them required quite a bit of optimizations, which I'd like to share with you today.
 
 <!--truncate-->
 
-
 ### What are we dealing with
 
 Mainly, a whole view is using infinite scrolling, where we automatically fetch additional data when user scrolls down. Every row needs to have some buttons, so he can edit, select or modify state of translations. We have search and filters, which should work swiftly when applied. Then we have resible columns, which allow user to change whole layout by mouse dragging. We also need to detect overflowing text vertically, which can't be done simply through css, but we need to "test render" it first and then see if it fits. And last but not least (as new features will surely come in the future), everything need to work with focus, so user can controll it through keyboard.
-
 
 ### How to identify problems generally
 
@@ -28,11 +25,9 @@ One might think that if we keep our components small, the amount of rendering sh
 
 > To make sure that my optimizations are actually working I've brought my super old laptop to work, which I've considered the most reliable benchmark of improvement
 
-
 ## One problem at a time
 
 I will now try to ilustrate different situations on the example of our app and offer a way which we choosed as a solution. It is important to understand what exactly is happening, because optimizations are often tradeoffs - you exchange comfort (elegance/convenience/generality) for speed. So if you do incorrect optimizations, you might improve nothing and only ruining your code.
-
 
 ### Optimizing state management
 
@@ -42,13 +37,11 @@ When we simply use Context API for our main state, we end up re-rendering almost
 
 You can solve this by using some state management tool (e.g. Redux, MobX, ...), or you can use context in a clever way, so you minimize re-rendering (check my previous [article](https://dev.to/tolgee_i18n/react-doesnt-need-state-management-tool-i-said-31l4)).
 
-
 ### Large number of children re-render
 
 Clever state management still won't protect us completely against unnecessary re-renders. In some cases the fact the Component update causes all children re-render can be too expensive. You can avoid this by wrapping each child with `React.memo` - React will then render child only when props change. However, make sure that you fully understand how it works in the [docs](https://reactjs.org/docs/react-api.html#reactmemo), and then check that it really helped.
 
 In our case we wrap each row in the list with `React.memo`. Because the row is relying mostly on fetched data, we can save quite a lot of unnecessary re-rendering.
-
 
 ### Infinite scolling
 
@@ -59,7 +52,6 @@ Libraries like these usually require you to specify size of the components upfro
 Nice! So now we decreased an overall number of components displayed from infinity to "it depends on your screen size". However we have another problem ...
 
 ![Slow scrolling](/img/blog/optimizations/scrolling.gif)
-
 
 ### Reducing rows complexity
 
@@ -73,7 +65,6 @@ Another thing was to prevent displaying unnecessary stuff on first render. All o
 
 This solution brought a new problem, that you were not able to use focus with `tab`, as buttons were not actually present. I've solved this by always rendering first and last button (but hiding them with css) and other buttons would render when focus is within the row itself or when mouseover - this way user won't recognize the difference.
 
-
 ## Conclusion
 
 I was quite scared when I realized that our Application is becoming very slow and at the end I've spend one full week with these optimizations, but after some trial and error I've understood weak points and was able to target them. Considering the complexity it works fine even on my super old university laptop and I've learned a lot.
@@ -81,3 +72,5 @@ I was quite scared when I realized that our Application is becoming very slow an
 I'm now proud developer and I spend quite a lot of my working time just scrolling around in our App.
 
 ![Fast scrolling](/img/blog/optimizations/scrolling-fast.gif)
+
+[![React.js banner](/img/blog/blog-banners/banner-react.webp)](https://app.tolgee.io/sign_up)

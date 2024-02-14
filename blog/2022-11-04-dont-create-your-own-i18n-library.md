@@ -36,7 +36,7 @@ to the one below. I am going to use Typescript for code examples. However, it wo
 programming language.
 
 ```typescript
-function translate(key: string, language: string): string
+function translate(key: string, language: string): string;
 ```
 
 We can define the translations inside the function body to keep it simple. Then we will find the value in the
@@ -46,14 +46,14 @@ data of provided language. If the value is not there, let's return the key.
 function translate(key: string, language: string): string {
   const data = {
     en: {
-      hello_world: 'Hello world!'
+      hello_world: 'Hello world!',
     },
     de: {
-      hello_world: 'Hallo Welt!'
-    }
-  }
+      hello_world: 'Hallo Welt!',
+    },
+  };
 
-  return data[language]?.[key] || key
+  return data[language]?.[key] || key;
 }
 ```
 
@@ -66,16 +66,16 @@ to tell which part of the translated string is a placeholder. Let's make everyth
 parameter. So our data now look like this.
 
 ```typescript
-  const data = {
+const data = {
   en: {
     hello_world: 'Hello world!',
-    hello: 'Hello {name}!'
+    hello: 'Hello {name}!',
   },
   de: {
     hello_world: 'Hallo Welt!',
-    hello: 'Hallo {name}!'
-  }
-}
+    hello: 'Hallo {name}!',
+  },
+};
 ```
 
 Now we have to replace the params in our method. I'll leave the implementation to your imagination since I don't want
@@ -113,9 +113,9 @@ statements.
 
 ```typescript
 if (count === 1) {
-  return 'Peter has 1 dog.'
+  return 'Peter has 1 dog.';
 } else {
-  return `Peter has ${count} dog.`
+  return `Peter has ${count} dog.`;
 }
 ```
 
@@ -127,11 +127,11 @@ There are more plural forms in Czech, so the code would look like this.
 
 ```typescript
 if (count === 1) {
-  return 'Peter má jednoho psa.'
+  return 'Peter má jednoho psa.';
 } else if (count >= 2 && count <= 4) {
-  return 'Peter má ${count} psy.'
+  return 'Peter má ${count} psy.';
 } else {
-  return 'Peter má ${count} psů.'
+  return 'Peter má ${count} psů.';
 }
 ```
 
@@ -252,3 +252,5 @@ supported by popular TMS solutions. It makes it simple to get the localization d
 - There are many popular i18n solutions
 - Tolgee can save you a lot of time
 - When choosing your i18n solution, check how it interpolates parameters, what formats it supports ICU message format
+
+[![Developer banner](/img/blog/blog-banners/banner-developer.webp)](https://app.tolgee.io/sign_up)

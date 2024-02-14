@@ -474,3 +474,5 @@ If you re-run your application, it should be working perfectly like the screensh
 You can find the full working code in this [GitHub Repository](https://github.com/Gunkev/vue-tolgee/tree/main).
 
 If you have any questions please visit the [official GitHub repository](https://github.com/tolgee/tolgee-js) and [Documentation](https://tolgee.io/platform) of Tolgee.
+
+[![Developer banner](/img/blog/blog-banners/banner-developer.webp)](https://app.tolgee.io/sign_up)
