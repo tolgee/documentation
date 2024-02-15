@@ -26,31 +26,30 @@ export default function WhyOpensource() {
         </Head>
 
         <div className="container opensource__container">
-          <p>Open-source is just a wonderful thing 😍</p>
+          <p>Open-source is just a wonderful thing.</p>
 
           <p>
-            In Tolgee, we decided to follow the open-source model, and we
-            believe that it is the best to widely distribute the tool.
-            Developers usually prefer open-source solutions, and it is for sure
-            a smart decision for many reasons. That’s also why today
-            open&#x2011;source software is growing more popular and widespread
-            all over the IT world. 🌐
+            In Tolgee, we decided to follow the open-source model, believing it
+            is the best way to distribute the tool widely. Developers usually
+            prefer open-source solutions, and it is for sure a smart decision
+            for many reasons. That’s also why open&#x2011;source software is
+            growing more popular and widespread all over the IT world today.
           </p>
 
           <p>
             However, not everything is for free, even when it comes to
-            open&#x2011;source software. 💸 Tolgee is free to run on your own
-            infrastructure, or you can pay us for cloud storage, computing
-            power, and maintenance of the system. Believe it or not, even with
-            these expenses, our open&#x2011;source solution is way cheaper than
-            other closed&#x2011;source alternatives.
+            open&#x2011;source software. Tolgee is free to run on your own
+            infrastructure in a small team, or you can pay us for cloud storage,
+            computing power, and maintenance of the system. Believe it or not,
+            even with these expenses, our open&#x2011;source solution is way
+            cheaper than other closed&#x2011;source alternatives.
           </p>
 
           <p>
-            We make no secrets about our plan to build a good business with
-            Tolgee. With an open&#x2011;source business model, we believe we can
-            bring high value to companies and to individuals and have a
-            well&#x2011;running company at the same time. 💜 In an ideal world,
+            We have no secrets about our plan to build a good business with
+            Tolgee. With an open&#x2011;core business model, we believe we can
+            bring high value to companies and individuals and have a
+            well&#x2011;running company at the same time. In an ideal world,
             companies could create great localized products without being
             restricted to a single vendor.
           </p>
@@ -59,30 +58,49 @@ export default function WhyOpensource() {
             Tolgee is not all&#x2011;powerful. Not yet, anyway. 😜 But with the
             power of the community, we can collaborate on new integrations and
             features together, making Tolgee accessible to many more users and
-            clearing the way for them for easy localization of their projects.
+            clearing the way for them to easily localize their projects.
           </p>
 
           <h2>
-            <GradientText>So what are Tolgee’s revenue streams?</GradientText>
+            <GradientText>So, what are Tolgee’s revenue streams?</GradientText>
           </h2>
 
           <p>
-            We’re planning multiple ways for how to cover the developing cost of
-            the Tolgee tool. In the near future, it would primarily be:
+            We have different ways of covering the development costs of the
+            Tolgee tool. It primarily is:
           </p>
 
           <p>
             👨‍💻 <GradientText>Software as a Service</GradientText> &#x2011;
             Firstly, paying for the cloud system hosted by Tolgee will save time
             for developers maintaining the system and make the whole process
-            more comfortable.
+            more comfortable. This means fewer headaches and less time spent
+            troubleshooting technical issues, allowing developers to focus their
+            energy on what truly matters - building and improving their
+            applications.
           </p>
 
           <p>
-            🛒 <GradientText>Marketplace of translators</GradientText> &#x2011;
-            We plan to create a place where you can find IT&#x2011;experienced
-            translators to translate your projects fast.
+            🏠 <GradientText>Self-hosted Tolgee for big teams</GradientText>{' '}
+            &#x2011; For larger organizations with specific security and
+            customization needs, Tolgee offers self-hosted plans. This option
+            allows big teams to host Tolgee on their own servers, providing
+            greater control over data privacy and system configuration. With
+            self-hosting, organizations can tailor Tolgee to their unique
+            requirements while ensuring seamless integration within their
+            existing infrastructure.
           </p>
+
+          <p>
+            💼 <GradientText>Enterprise solution</GradientText> &#x2011;
+            Enterprises have the freedom to modify and customize the platform
+            according to their specific needs and requirements, empowering them
+            to tailor the solution to their unique workflows and processes.
+            Being open-source, Tolgee provides the assurance of transparency and
+            flexibility, mitigating the risk of vendor lock-in.
+          </p>
+
+          <p>Join us in shaping the future of localization technology!</p>
 
           <div className="flex justify-center mt-16">
             <div className="max-w-[500px]">
