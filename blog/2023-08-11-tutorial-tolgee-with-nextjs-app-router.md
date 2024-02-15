@@ -351,3 +351,5 @@ Given that server components exist in a completely distinct environment, I might
 Moreover, the standard usage of Server components is yet to be fully determined. It's possible they might only be utilized for data fetching, but the future holds the answer.
 
 > If you've got any suggestions or ideas for improvements, feel free to share them on our [slack](https://tolg.ee/slack) or open a Github issue. And if you're fond of Tolgee, don't forget to give us a [Github star](https://github.com/tolgee/tolgee-platform).
+
+[![Next.js banner](/img/blog/blog-banners/banner-next.webp)](https://app.tolgee.io/sign_up)

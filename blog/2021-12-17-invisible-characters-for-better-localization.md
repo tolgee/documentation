@@ -1,6 +1,6 @@
 ---
 title: Using invisible text for better localization
-description: How to use invisible zero-width unicode characters for better localization with Tolgee tool while supporting in-context translation feature at the same time. 
+description: How to use invisible zero-width unicode characters for better localization with Tolgee tool while supporting in-context translation feature at the same time.
 authors: [sgranat]
 tags: [SDK, i18n, i18next]
 image: '/img/blog/invisible-text/invisible_text.png'
@@ -19,6 +19,7 @@ At Tolgee we are offering localization SDKs, which enable you to insert your tra
 To make this work, our SDKs need to somehow mark where the translations are. We might just search the DOM for occurrences of translations in given language, however that won't cover more advanced cases, when we for example need to support variables in translations. Then the easiest way is to wrap each translation with `span` element and give it some special attribute, so then we can find it. Easy peasy, no? Well there is a catch ... what if user needs to translate texts where you can't use HTML (e.g. element attributes)? Or what if the extra `span` element is not acceptable?
 
 > #### Why is context important?
+>
 > When you translate the app, it's important that you see where exactly is the translation located as pure translation from one language to another can be incorrect in many cases. So we offer in-context translation directly in the App and we want this feature to work everywhere.
 
 ### Text based solution
@@ -54,3 +55,5 @@ We've just shipped Tolgee version 3, where it is as an optional [setting](https:
 ### Conclusion
 
 We hope that this approach could allow us to use third party i18n libraries (e.g. [i18next](https://www.i18next.com/)) as an alternatives to our SDKs, while keeping in-context feature working.
+
+[![Developer banner](/img/blog/blog-banners/banner-developer.webp)](https://app.tolgee.io/sign_up)

@@ -137,3 +137,5 @@ Now you are able to translate your React.js applications with Tolgee. To learn m
 
 - [Tolgee Platform](https://github.com/tolgee/server) ⭐ Tolgee JavaScript libraries monorepo
 - [Tolgee JS](https://github.com/tolgee/tolgee-js) ⭐ Developer & translator friendly web-based localization platform
+
+[![React.js banner](/img/blog/blog-banners/banner-react.webp)](https://app.tolgee.io/sign_up)

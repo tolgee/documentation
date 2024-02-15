@@ -133,3 +133,5 @@ If you like what we do, please star our GitHub projects. 🙏
 
 - [Tolgee Platform](https://github.com/tolgee/server) ⭐
 - [Tolgee JS](https://github.com/tolgee/tolgee-js) ⭐
+
+[![Developer banner](/img/blog/blog-banners/banner-developer.webp)](https://app.tolgee.io/sign_up)

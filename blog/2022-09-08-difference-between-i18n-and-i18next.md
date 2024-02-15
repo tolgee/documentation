@@ -1,13 +1,13 @@
 ---
 slug: difference-between-i18n-and-i18next
 
-title: "What is the difference between i18n and i18next?"
+title: 'What is the difference between i18n and i18next?'
 
 authors: [jcizmar]
 
-image: "/img/blog/i18n-i18next-difference.jpg"
+image: '/img/blog/i18n-i18next-difference.jpg'
 
-description: "This article explains what is the difference between i18n (abbr. internationalization) and i18next (JavaScript framework enabling internationalization)."
+description: 'This article explains what is the difference between i18n (abbr. internationalization) and i18next (JavaScript framework enabling internationalization).'
 
 tags: [localization, internationalization, basics]
 ---
@@ -55,3 +55,5 @@ i18next is not the only solution out there. Different solutions suit different n
 
 - i18n is the abbreviation for internationalization
 - i18next is a JavaScript framework enabling internationalization
+
+[![Developer banner](/img/blog/blog-banners/banner-developer.webp)](https://app.tolgee.io/sign_up)

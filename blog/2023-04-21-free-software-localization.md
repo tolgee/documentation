@@ -92,3 +92,5 @@ The integration is very fast: you can do it in seconds! Follow our integration g
 Localization is essential for success in the global marketplace because it allows you to reach a wider audience and tap into new markets. With Tolgee localization platform and its own integration libraries, you can quickly and easily translate your software into multiple languages, allowing you to reach a truly global market. **If you haven’t tried Tolgee out yet, sign up and test it out for free without any commitment.**
 
 💡 Do you have any suggestions on how to make the localization process with Tolgee better? [Let us know](mailto:info@tolgee.io) or create a pull request on [GitHub](https://github.com/tolgee/tolgee-platform).
+
+[![Developer banner](/img/blog/blog-banners/banner-developer.webp)](https://app.tolgee.io/sign_up)

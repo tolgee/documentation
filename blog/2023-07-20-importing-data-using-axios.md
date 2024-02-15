@@ -1,15 +1,14 @@
 ---
 slug: importing-data-to-tolgee-using-axios
 title: 'Importing data to Tolgee using custom JS and Axios'
-authors: [ jcizmar ]
+authors: [jcizmar]
 image: '/img/blog/importing-data-to-tolgee-using-axios.png'
 description: 'Learn how to import data to Tolgee using Axios'
-tags: [ import, javascript, axios ]
+tags: [import, javascript, axios]
 ---
 
 Sometimes you might want to import the localization i18n data to Tolgee using the API and your custom script. In this
 tutorial, I am going to show you how to do that using Axios.
-
 
 ![Importing data to Tolgee using Axios](/img/blog/importing-data-to-tolgee-using-axios.png)
 
@@ -26,6 +25,7 @@ This tutorial is for real geeks. 🤓
 :::
 
 ## How the import actually works?
+
 When you upload a file to the Tolgee platform, it creates an Import entity, and for each language found in uploaded files, it creates an "import language" containing the imported data. When this entity is created, you can still add more files to it, remove the "import languages" prepared to import, and configure other import settings. When you're done with this, you can finally apply the import, which actually imports the data to your project.
 
 Importing data to Tolgee is separated into 4 steps.
@@ -48,24 +48,28 @@ In the code snippets, I am working with Axios v1.4.0.
 The first step is pretty straightforward. You just have to send a POST request with the files to the Tolgee API.
 
 ```javascript
-import axios from "axios";
+import axios from 'axios';
 import FormData from 'form-data';
 
-const API_KEY = "<YOUR API KEY>"
+const API_KEY = '<YOUR API KEY>';
 
 // You might probably want to read the data from file or something like that
 // For this tutorial I am just using a string
-const content = `{"hey": "hey"}`
+const content = `{"hey": "hey"}`;
 
 const formData = new FormData();
-formData.append("files", content, "en.json");
+formData.append('files', content, 'en.json');
 
-const response = await axios.post("https://app.tolgee.io/v2/projects/import", formData, {
-  headers: {
-    "X-API-Key": API_KEY,
+const response = await axios.post(
+  'https://app.tolgee.io/v2/projects/import',
+  formData,
+  {
+    headers: {
+      'X-API-Key': API_KEY,
+    },
   }
-})
-console.log(response.data.result._embedded)
+);
+console.log(response.data.result._embedded);
 
 // The logged output looks like this:
 // {
@@ -85,7 +89,7 @@ console.log(response.data.result._embedded)
 //       conflictCount: 0,
 //       resolvedCount: 0
 //     },
-//   ]  
+//   ]
 // }
 ```
 
@@ -98,8 +102,8 @@ There are 2 different language entities we are working with here. Let's clarify 
 - **Import language** is the "virtual" language created for import purposes containing the data you imported from the
   uploaded file
 - **Existing language** is the language you already have in your project. It is the language you are importing to.
-:::
 
+:::
 From the output, we know that we have successfully added the file to the Tolgee. We also know that Tolgee has assigned
 this file to the `English` language with id `1015429001`.
 
@@ -111,13 +115,16 @@ language tag, and you have to assign the languages manually. Let's see how to ch
 First, you have to find your language ids. You can do this by hitting the languages endpoint.
 
 ```javascript
-const response = await axios.get("https://app.tolgee.io/v2/projects/languages", {
-  headers: {
-    "X-API-Key": API_KEY
+const response = await axios.get(
+  'https://app.tolgee.io/v2/projects/languages',
+  {
+    headers: {
+      'X-API-Key': API_KEY,
+    },
   }
-});
+);
 
-console.log(response.data._embedded.languages)
+console.log(response.data._embedded.languages);
 
 // The logged output looks like this:
 // [
@@ -145,17 +152,20 @@ assign the "import language" with id `1015429001` to the existing language with 
 ["Pair existing language"](/api#tag/Import/operation/selectExistingLanguage_1) endpoint.
 
 ```javascript
-  const response = await axios.put("https://app.tolgee.io/v2/projects/import/result/languages/1015429001/select-existing/1005650001", null, {
-  headers: {
-    "X-API-Key": API_KEY,
+const response = await axios.put(
+  'https://app.tolgee.io/v2/projects/import/result/languages/1015429001/select-existing/1005650001',
+  null,
+  {
+    headers: {
+      'X-API-Key': API_KEY,
+    },
   }
-})
+);
 ```
 
 When the server responds with 200, the language is assigned.
 
-You can also check this by accessing the [import result endpoint](/api#tag/Import/operation/getImportResult_1). `
-GET https://app.tolgee.io/v2/projects/import/result`
+You can also check this by accessing the [import result endpoint](/api#tag/Import/operation/getImportResult_1). ` GET https://app.tolgee.io/v2/projects/import/result`
 
 ## Step 3 - Resolving conflicts
 
@@ -182,11 +192,11 @@ this in detail.
 To finally apply the import, use the [`Apply` endpoint](/api#tag/Import/operation/applyImport_1).
 
 ```javascript
-await axios.put("https://app.tolgee.io/v2/projects/import/apply", null, {
+await axios.put('https://app.tolgee.io/v2/projects/import/apply', null, {
   headers: {
-    "X-API-Key": API_KEY,
-  }
-})
+    'X-API-Key': API_KEY,
+  },
+});
 ```
 
 When there are still some unresolved conflicts, you can force Tolgee to keep existing data or to override them using `forceMode` query params with possible values `OVERRIDE` or `KEEP`.
@@ -205,14 +215,15 @@ There is much more you can do with the import endpoints. All the endpoints are d
 [import section of the API docs](/api#tag/Import).
 
 There are endpoints like
+
 - Deleting the whole import
 - Deleting the import language
 - Getting file issues
 - Getting import namespaces
 - Resetting existing language assignment
 
-
 ## TL;DR
+
 - You can use Axios to import data to Tolgee.
 - Add files to import using a POST request.
   - Assign existing languages manually if needed.
@@ -221,3 +232,5 @@ There are endpoints like
   - Additional features:
   - Work with namespaces using the "Select namespace" endpoint.
   - Explore more options in the import section of the API documentation.
+
+[![Developer banner](/img/blog/blog-banners/banner-developer.webp)](https://app.tolgee.io/sign_up)

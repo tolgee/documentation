@@ -124,3 +124,5 @@ reach us by email or by DM in our Slack community.
 - [Web](https://fluentsearch.net)
 - [GitHub](https://github.com/adirh3/Fluent-Search/issues)
 - [YouTube](https://www.youtube.com/channel/UCWzWaquwBR2cK4A4dSJ1j3Q)
+
+[![Developer banner](/img/blog/blog-banners/banner-developer.webp)](https://app.tolgee.io/sign_up)

@@ -84,3 +84,5 @@ Now, if you navigate to any website which is using Tolgee, it should change its 
 Now you can use In-context to edit any translation on your website and the changes are sent directly to Tolgee platform.
 
 > Read more in [In-context documentation](/js-sdk/in-context)
+
+[![Context banner](/img/blog/blog-banners/banner-context.webp)](https://app.tolgee.io/sign_up)

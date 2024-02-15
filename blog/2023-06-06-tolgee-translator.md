@@ -54,3 +54,5 @@ Sign in to Tolgee platform and setup a project. Use Tolgee SDK (Tolgee Context i
 ![Tolgee Context](/img/blog/tolgee-translator/tolgee_translator_context.png)
 
 > If you like Tolgee platform help us out by giving us a [GitHub star](https://github.com/tolgee/tolgee-platform). For any questions don't hesitate to contact us on our [community Slack channel](https://tolg.ee/slack).
+
+[![Autonomous translation banner](/img/blog/blog-banners/banner-autonomous.webp)](https://app.tolgee.io/sign_up)
