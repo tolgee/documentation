@@ -89,6 +89,8 @@ export default function Pricing() {
               }
               limits={{ strings: 4000, mtCredits: 10_000, seats: Infinity }}
               billing={{ monthly: 30, annually: 25 }}
+              billingType={billing}
+              toggleBillingType={toggleBilling}
               secondaryPrices={[
                 {
                   label: 'extra 1000 strings',
