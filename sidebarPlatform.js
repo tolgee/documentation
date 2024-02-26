@@ -48,6 +48,11 @@ module.exports = {
       ],
     },
     {
+      label: 'Supported Formats',
+      type: 'category',
+      items: ['formats/supported_formats', 'formats/json'],
+    },
+    {
       label: 'Integrations',
       type: 'category',
       items: [
@@ -89,6 +94,7 @@ module.exports = {
         'self_hosting/configuration',
       ],
     },
+    'tolgee_universal_icu_placeholders',
     'faq',
   ],
 };
