@@ -564,3 +564,5 @@ You can find the full working code in this [Tolgee-ngx git repository](https://g
 ## Conclusion
 
 In this tutorial, we were able to learn how to translate an angular application with Tolgee. We created a Tolgee project, then generated our API key, installed and imported Tolgee Module and finally effectively translated the application into French and Spanish. Should you have any questions regarding Tolgee, check its [Documentation](https://tolgee.io/platform), join the [Slack Community](https://join.slack.com/t/tolgeecommunity/shared_invite/zt-195isb5u8-_RcSRgVJfvgsPpOBIok~IQ) or [Open a discussion on GitHub](https://github.com/tolgee/tolgee-platform/discussions)
+
+[![Developer banner](/img/blog/blog-banners/banner-developer.webp)](https://app.tolgee.io/sign_up)

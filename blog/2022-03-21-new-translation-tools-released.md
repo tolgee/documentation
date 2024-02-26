@@ -7,7 +7,7 @@ description: Tolgee helps to translate your projects more effectively with Machi
 
 authors: [jcizmar]
 
-image: "/img/blog/translation-tools/cover.png"
+image: '/img/blog/translation-tools/cover.png'
 
 tags: [i18n, l10n, translation, tools]
 ---
@@ -74,3 +74,5 @@ indication, by clicking the clear button. The indication is also removed when th
 Tolgee now helps you to translate your projects more effectively by providing Machine Translation suggestions,
 Translation Memory suggestions or Auto Translation of new keys with values provided by Machine Translation, Translation
 Memory or both.
+
+[![Demo banner](/img/blog/blog-banners/banner-demo.webp)](https://calendly.com/tolgee/30min)
