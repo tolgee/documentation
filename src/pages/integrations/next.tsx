@@ -52,9 +52,9 @@ export default function Next() {
       </LandingPageHeadline>
       <div className="container integration">
         <Alert severity="info">
-          Read about Next.js App router on{' '}
-          <Link href="/blog/how-to-setup-tolgee-with-nextjs-app-router">
-            our blog
+          Read about Next.js App router in{' '}
+          <Link href="/js-sdk/integrations/react/next/app-router">
+            our documentation
           </Link>
         </Alert>
       </div>
