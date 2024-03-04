@@ -11,7 +11,7 @@ When the conversion is disabled, the original placeholders like `%llm`, `%@` etc
 The apple documentation about format specifiers can be found
 [here](https://developer.apple.com/library/archive/documentation/Cocoa/Conceptual/Strings/Articles/formatSpecifiers.html).
 
-Only specifiers specified in the table bellow are supported. Tolgee doesn't support additional flags and modifiers and
+Only specifiers specified in the table below are supported. Tolgee doesn't support additional flags and modifiers and
 placeholders using them are not converted.
 
 import { PlaceholderConversion } from "../../src/component/docs/formats/PlaceholderConversions";
@@ -55,3 +55,6 @@ If your placeholder is not supported, you can use `%@` and format the string you
 
 Apple also supports `n$` positional specifiers. There are converted to as well as the zero based argument index. E.g.
 `I am %2$@, and I have %1$lld dogs.` is converted to `I am {1} and I have {0, number} dogs`.
+
+## Exporting
+When exporting the data back to the .po file, the placeholders are converted back to the original format.
