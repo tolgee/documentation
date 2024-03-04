@@ -34,6 +34,7 @@ module.exports = {
         'translation_keys/namespaces',
         'translation_keys/screenshots',
         'translation_keys/batch_operations',
+        'translation_keys/custom_values',
       ],
     },
     {
@@ -57,6 +58,11 @@ module.exports = {
         'formats/xliff',
         'formats/apple_strings',
         'formats/apple_xliff',
+        'formats/android_xml',
+        'formats/flutter_arb',
+        'formats/properties',
+        'formats/php_po',
+        'formats/c_po',
       ],
     },
     {

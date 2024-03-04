@@ -1,0 +1,141 @@
+---
+id: android_xml
+title: Android Resources XML
+sidebar_label: Android Resources XML
+---
+
+Android resource XML files (usually `strings.xml`) store localization (i18n) data for Android applications.
+It supports plurals and arrays. To read more about the Android Localization in general, read the [official
+Android Documentation](https://developer.android.com/guide/topics/resources/localization).
+
+## Example
+```xml
+<resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
+    <string name="user_settings_password_label">
+      Password
+    </string>
+    <plurals name="dogs_count">
+        <item quantity="one">%d dog</item>
+        <item quantity="other">%d dogs</item>
+    </plurals>
+    <string-array name="string_array">
+        <item>First item</item>
+        <item>Second item</item>
+    </string-array>
+    <string name="with_xliff_gs">
+        <b>Hello! <xliff:g>%d</xliff:g></b>
+        <xliff:g>Dont'translate this</xliff:g>
+    </string>
+</resources>
+```
+
+## File structure
+The Android XML file is an XML-based file with these elements:
+
+[//]: # (@formatter:off)
+- **resources**
+  - the root element of the file; It doesn't contain any valuable information.
+- **string**
+  - a simple string value.
+- **plurals**
+  - a string that has different forms based on the quantity
+  - attributes:
+    - **quantity**: the plural keyword
+
+      Possible keywords: `zero`, `one`, `two`, `few`, `many`, `other`.
+
+      Get the full list of the keywords for each language [here](https://www.unicode.org/cldr/charts/44/supplemental/language_plural_rules.html).
+[//]: # (@formatter:on)
+
+## The MessageFormat and placeholder conversion
+When importing data to Tolgee from the Android XML files, you can either enable or disable the
+conversion to the Tolgee Universal ICU placeholders. The conversion is enabled by default. You can also disable the
+conversion globally in project settings by disabling the `Use Tolgee Universal ICU placeholders` option. We recommend
+keeping the conversion enabled, as it brings many benefits.
+[Read more about the benefits of Tolgee Universal ICU placeholders](/platform/icu_plaholders).
+
+When the conversion is disabled, the original placeholders like `%s`, `%d` etc. are preserved.
+
+### Placeholder conversion specification
+
+The Java documentation about format specifiers can be found
+[here](https://docs.oracle.com/javase/8/docs/api/java/util/Formatter.html)
+
+Only specifiers specified in the table below are supported. Tolgee doesn't support additional flags and modifiers and
+placeholders using them are not converted.
+
+import { PlaceholderConversion } from "../../src/component/docs/formats/PlaceholderConversions";
+
+<PlaceholderConversion data={[
+  {
+    specifier: "%",
+    icuType: "N/A",
+    example: "%%",
+    exampleConverted: "%",
+    note: "%% is the way how to render %, in ICU we don't have such concept, so we just add %. When exporting the % is not converted back to %%."
+  },
+  {
+    specifier: "s",
+    icuType: "none",
+    example: "%s",
+    exampleConverted: "{0}",
+  },
+  {
+    specifier: "d",
+    icuType: "number",
+    example: "%d",
+    exampleConverted: "{0, number}",
+  },
+  {
+    specifier: "f",
+    icuType: "number, [precision string]",
+    example: "%f",
+    exampleConverted: "{0, number, 0.000000}",
+    note: "By default %f uses 6 decimal places, that's why we convert it to the number with such precision. " +
+      "%.2 f would be {0, number, 0.00} and so on."
+  },
+  {
+    original: "%e",
+    example: "{0, number, scientific}",
+    note: "%E is not supported"
+  }
+]} originalName="Java placeholder" target="original" />
+
+Java also supports `n$` positional specifiers. They are converted to the zero-based argument index. E.g.
+`I am %2$@, and I have %1$lld dogs.` is converted to `I am {1} and I have {0, number} dogs`.
+
+## Exporting
+When exporting the data back to the .po file, the placeholders are converted back to the original format.
+
+## Array support
+When importing data to Tolgee from the Android XML files, the array elements are converted into flat keys with
+`arrayName[index]` format.
+
+For example, the following XML:
+```xml
+<resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
+ <string-array name="string_array">
+        <item>First item</item>
+        <item>Second item</item>
+ </string-array>
+</resources>
+```
+
+will be imported to Tolgee as
+
+```json
+{
+  "string_array[0]": "First item",
+  "string_array[1]": "Second item"
+}
+```
+
+and vice versa when exporting from Tolgee to the Android XML file.
+
+Since the `[` and `]` characters are not allowed in the key names in the Android XML files,
+there should be no conflicts if you use the Tolgee project only for the Android app. Otherwise, remember that keys named
+with the described syntax are converted to arrays.
+
+import Importing from './generalImporting.mdx';
+
+<Importing />

@@ -95,13 +95,13 @@ To read more about the XLIFF file structure in general, go to the [generic XLIFF
 Xcode exports the data to an Xliff file with multiple file blocks.
 [//]: # (@formatter:off)
 - **en.lproj/Localizable.strings**
-- this file section stores strings from the base `.strings` file and the keys extracted from the code.
-That means that even keys that are not present in the `.strings` file are exported to the Xliff file.
+  - this file section stores strings from the base `.strings` file and the keys extracted from the code.
+    That means that even keys that are not present in the `.strings` file are exported to the Xliff file.
 - **en.lproj/Localizable.stringsdict**
-- this file section stores the `.stringsdict` file. The `.stringsdict` file is a file which is used for pluralization
+  - this file section stores the `.stringsdict` file. The `.stringsdict` file is a file which is used for pluralization
 - **Other**
-- Other file sections are used for exporting the data from the other source files used to translate fields, which
-are usually not specified by the developer but still might be visible to the user in some way.
+  - Other file sections are used for exporting the data from the other source files used to translate fields, which
+    are usually not specified by the developer but still might be visible to the user in some way.
 [//]: # (@formatter:on)
 
 The plural forms are converted into trans units with specific IDs, which are different from the usage with the
