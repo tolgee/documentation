@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<xliff xmlns="urn:oasis:names:tc:xliff:document:1.2" version="1.2">
+  <file datatype="plaintext" original="" source-language="en" target-language="en">
+    <body>
+      <trans-unit id="CFBundleName">
+        <source>   Hey</source>
+        <target>Hey</target>
+      </trans-unit>
+     </body>
+  </file>
+</xliff>

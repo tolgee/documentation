@@ -5,33 +5,69 @@ sidebar_label: List and general info
 slug: /supported_formats
 ---
 
-Tolgee supports various formats, which you can use with different programming languages frameworks or technologies.
-You can import data and export data to formats listed below.
+Tolgee supports various formats, which you can use with different programming languages, frameworks or technologies.
+You can import data and export data to the formats listed below.
 
-Before you start with working with imports and export, you should get familiar with the concept of [Tolgee Universal ICU placeholders](/platform/tolgee_universal_icu_placeholders).
+Before you start working with imports and exports, you should get familiar with the concept of [Tolgee Universal ICU placeholders](/platform/tolgee_universal_icu_placeholders).
+
+:::info
+Support for most of the formats below was added in  **v3.49.0**. If you are using an older version, please update.
+:::
 
 ## Tolgee native JSON
 
-Json format is native for Tolgee [JS SDKs](/js-sdk). In the native JSON, we use ICU message format. When importing to or importing
-from nothing is converted, and the [ICU message format](/platform/translation_process/icu_message_format)
-is usually preserved (except from special plural cases). [Read mode](json).
+JSON format is native for Tolgee [JS SDKs](/js-sdk). In the native JSON, we use the ICU message format. When importing to or importing
+from, nothing is converted, and the [ICU message format](/platform/translation_process/icu_message_format)
+is usually preserved (except in special plural cases). [Read more](./native_json).
+
+## Structured JSON
+
+Structured JSON is also a simple JSON file format with no additional data like comments, but it can be structured, and eventually, you can use it with array support. [Read more](./structured_json).
 
 ## XLIFF
 
-XLIFF format is a standard format for translation exchange. It is widely used in the industry. For XLIFF format
+XLIFF format is a standard format for translation exchange. It is widely used in the industry. For XLIFF format,
 we preserve the [ICU message format](/platform/translation_process/icu_message_format)
 as stored in Tolgee. [Read more](xliff).
 
 ## Apple Strings (.strings, .stringsdict)
 
-## Apple xliff (.xliff)
+Apple strings format is used in Apple platforms. It is used for localization of iOS, macOS, watchOS, and tvOS applications.
+We **recommend using this** since it's currently the most flexible format for Apple platforms. Using `.strings` &
+`.stringsdict`. You can also modify the base translation values. [Read more](apple_strings).
+
+## Apple Xliff (.xliff)
+
+Apple Xliff format is a specific format for translation exchange, and it's convenient for translators using other platforms.
+However, Apple is very strict while importing data from `.xliff` back, so it's not possible to modify the base strings
+with this format. Because of that, we recommend going with `.strings` & `.stringsdict` if you can. [Read more](apple_xliff).
 
 ## Apple String Catalog (.xcstrings)
+We currently don't support importing/exporting String Catalog `.xcstrings` directly, but you can translate String Catalogs via
+`.xliff` import/export. [Read more](apple_xliff).
 
 ## Android resources XML (.xml)
 
+Android resources XML format is used for localization of Android applications.
+We support all the features of the format, including plurals and arrays [Read more](android_resources_xml).
+
 ## Flutter (.arb)
+
+Flutter .arb format is used for localization of Flutter applications. It is a JSON-based format with a specific structure.
+With Tolgee, you're able to import and export .arb files. [Read more](flutter_arb).
 
 ## Gettext (.po)
 
-## Java properties (.properties)
+Tolgee currently supports `.po` files with C/C++, PHP and Python sprintf message formats. Both import/export are supported.
+If enabled, `sprinf` placeholders from such message formats can be converted to
+[Tolgee Universal ICU placeholders](/platform/tolgee_universal_icu_placeholders) and
+vice versa when exporting. [Read more](gettext).
+
+
+## Properties (.properties)
+
+Java properties format is used mostly for the localization of Java applications, especially Spring-based apps.
+It is a simple key-value format. For this format, we preserve the
+[ICU message format](/platform/translation_process/icu_message_format), so you are able to format messages with
+Java [MessageFormat](https://docs.oracle.com/javase/8/docs/api/java/text/MessageFormat.html) class.
+[Read more](java_properties).
