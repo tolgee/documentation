@@ -50,7 +50,14 @@ module.exports = {
     {
       label: 'Supported Formats',
       type: 'category',
-      items: ['formats/supported_formats', 'formats/json'],
+      items: [
+        'formats/supported_formats',
+        'formats/native_json',
+        'formats/structured_json',
+        'formats/xliff',
+        'formats/apple_strings',
+        'formats/apple_xliff',
+      ],
     },
     {
       label: 'Integrations',
