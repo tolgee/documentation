@@ -47,6 +47,7 @@ module.exports = {
         'translation_process/tolgee_translator',
         'translation_process/comments',
         'translation_process/icu_message_format',
+        'translation_process/tolgee_universal_icu_placeholders',
       ],
     },
     {
@@ -108,7 +109,6 @@ module.exports = {
         'self_hosting/configuration',
       ],
     },
-    'tolgee_universal_icu_placeholders',
     'faq',
   ],
 };
