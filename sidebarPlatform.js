@@ -13,6 +13,7 @@ module.exports = {
       label: 'Projects and Organizations',
       type: 'category',
       items: [
+        'projects_and_organizations/editing_translations',
         'projects_and_organizations/project_settings',
         'projects_and_organizations/languages',
         'projects_and_organizations/machine-translation-settings',
