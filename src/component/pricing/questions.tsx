@@ -163,9 +163,9 @@ export const questions = [
       'What are the seats/strings limitations for the Free self-hosted plan?',
     content: (
       <>
-        None. The Free self-hosted plan does not have seats or string
-        limitations. However, you must subscribe to a paid plan to use advanced
-        features like Granular permissions, Content Delivery, or Webhooks.
+        The free self-hosted tier is currently limited to 10 seats. There. If
+        you want to use advanced features like Granular permissions, Content
+        Delivery, or Webhooks, subscribe to some advanced plan.
       </>
     ),
   },
