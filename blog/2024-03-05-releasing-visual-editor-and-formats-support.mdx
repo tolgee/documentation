@@ -7,28 +7,34 @@ tags: ['tolgee', 'android', 'apple', 'ios', 'flutter', 'php', 'po', 'c++']
 image: '/img/blog/visual-editor-and-formats-support/og_image_light.webp'
 ---
 
-import ThemedImage from "@theme/ThemedImage";
-import useBaseUrl from "@docusaurus/useBaseUrl";
+import ThemedImage from '@theme/ThemedImage';
+import useBaseUrl from '@docusaurus/useBaseUrl';
 
 <ThemedImage
   alt="Visual editor and formats support"
   sources={{
-    light: useBaseUrl('/img/blog/visual-editor-and-formats-support/og_image_light.webp'),
-    dark: useBaseUrl('/img/blog/visual-editor-and-formats-support/og_image_dark.webp'),
+    light: useBaseUrl(
+      '/img/blog/visual-editor-and-formats-support/og_image_light.webp'
+    ),
+    dark: useBaseUrl(
+      '/img/blog/visual-editor-and-formats-support/og_image_dark.webp'
+    ),
   }}
 />
 
-We are happy to announce that we finally released tools enabling you to use Tolgee to translate also to iOS, Mac and other Apple platform Apps, Android, Flutter,
-PHP and C++. Also, you can reliably export to generic formats like Structured JSON with support for arrays or XLIFF.
+We are happy to announce that we finally released tools enabling you to use Tolgee to translate also to **iOS, Mac and other Apple platform Apps, Android, Flutter,
+PHP and C++**. Also, you can reliably export to generic formats like **Structured JSON** with support for arrays or **XLIFF**.
 
-To provide a convenient way of editing translations for developers, translators, localization managers, project managers and other stakeholders, we
-made our editor visual, so you can conveniently edit plurals and you can edit strings without the need to understand the
+To provide a convenient way of editing translations for developers, translators, localization managers, project managers and other stakeholders, **we
+made our translation editor visual**, so you can conveniently edit plurals and you can edit strings without the need to understand the
 placeholders or HTML tags syntax.
 
 <!--truncate-->
 
-## The new formats support freshly out of the oven
+## New Formats Support
+
 Tolgee now supports the following formats:
+
 - Tolgee Native JSON
 - Generic Structured JSON (With Arrays Support)
 - Generic XLIFF
@@ -42,7 +48,8 @@ Tolgee now supports the following formats:
 Convenient plurals editing in the visual editor is supported for all formats as well as placeholders visualization as
 described below.
 
-## The visual editor
+## The Visual Editor
+
 There are several issues regarding editing translation messages in different message formats and raw HTML. For
 example this ICU message:
 
@@ -50,14 +57,17 @@ example this ICU message:
 Hello, {name}! You have been promoted to <strong>{position}</strong>
 ```
 
-To edit this message, the translator needs to understand the ICU Message Syntax, so they know the `{name}` and
+To edit this message, the translator needs to understand the **ICU Message Syntax**, so they know the `{name}` and
 `{position}` are placeholders representing the user's name and new position. They need to understand that the `<strong>` is
 an HTML tag they must not translate (e.g., to `<fuerte>` to Spanish). The purpose of a visual editor is to hide the syntax
 from the translators and provide a convenient way to edit such messages.
 
-import { ScreenshotWrapper } from "../platform/shared/_ScreenshotWrapper";
+import { ScreenshotWrapper } from '../platform/shared/_ScreenshotWrapper';
 
-<ScreenshotWrapper src="/img/blog/visual-editor-and-formats-support/visual_editor.webp" alt="Visual editor" />
+<ScreenshotWrapper
+  src="/img/blog/visual-editor-and-formats-support/visual_editor.webp"
+  alt="Visual editor"
+/>
 
 This way, the translator to Spanish only needs to type the actual translated text and add the placeholders by
 clicking the missing placeholders below the input field.
@@ -68,8 +78,9 @@ behavior. When displaying visualized placeholders instead of the raw syntax, the
 naturally, and they don't have to think about the order of opening and closing HTML tags.
 
 ## Tolgee Universal ICU Placeholders
+
 For formats that are not natively using ICU Message Format, Tolgee can convert the placeholders to
-the Tolgee Universal ICU Placeholders when importing, so you can edit them in the visual editor.
+the **Tolgee Universal ICU Placeholders** when importing, so you can edit them in the visual editor.
 These placeholders are then converted back when exporting.
 [Read more about this concept in docs](/platform/translation_process/tolgee_universal_icu_placeholders).
 
@@ -77,10 +88,12 @@ The main benefit of using unified placeholder syntax is that you're able to use 
 target platforms since these placeholders can be converted to every supported format.
 
 ## Convenient Plural Editing
+
 The ICU Message format was always native for Tolgee since it greatly supports plurals and has formatted
 implementations in many programming languages. However, editing such plural messages can be challenging for translators.
 
 E.g., the following ICU message:
+
 ```
 {count, plural, one {You have one message} other {You have {count} messages}}
 ```
@@ -88,19 +101,30 @@ E.g., the following ICU message:
 Using the visual editor, you can easily edit each form separately, which makes the translation much more convenient,
 while hiding the relatively complex ICU syntax from translators.
 
-<ScreenshotWrapper src="/img/blog/visual-editor-and-formats-support/editing_plural_tools.webp" alt="Editing plural" />
+<ScreenshotWrapper
+  src="/img/blog/visual-editor-and-formats-support/editing_plural_tools.webp"
+  alt="Editing plural"
+/>
 
 Also, all the tools like Translation memory or Machine translation show only the single plural form translation.
 
-## Shiny New layout
+## Shiny New Layout
 
-To make the Tolgee Translations view more flexible, we moved the translation tools, the comments and history to the right panel. The right panel provides a single interface for all the views and allows us to add
+To make the Tolgee Translations view more flexible, **we moved the translation tools, the comments and history to the right panel**. The right panel provides a single interface for all the views and allows us to add
 new panels in the future. We also plan to introduce the ability to create custom apps and expose access to this panel in
 the API to give developers a way to create custom tools for their needs.
 
-<ScreenshotWrapper src="/img/blog/visual-editor-and-formats-support/new_layout.webp" alt="New layout" />
+<ScreenshotWrapper
+  src="/img/blog/visual-editor-and-formats-support/new_layout.webp"
+  alt="New layout"
+/>
 
 ## TL;DR
+
 - Our latest release streamlines Tolgee's use across various platforms, including iOS, Mac, Android, Flutter, PHP, and C++.
 - It enables a wider range of formats, a visual editing experience, and a fresh layout for more seamless translation and localization processes.
 - Enhanced placeholder and plural editing simplifies the translation effort, encouraging consistency across formats.
+
+Let us know in the [Tolgee Slack community](https://Tolg.ee/slack) if you have any questions about those new features!
+
+[![Demo banner](/img/blog/blog-banners/banner-demo.webp)](https://calendly.com/tolgee/30min)

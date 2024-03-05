@@ -72,6 +72,7 @@ module.exports = {
       type: 'category',
       items: [
         'integrations/about_integrations',
+
         {
           label: 'Figma plugin',
           type: 'category',
@@ -88,6 +89,7 @@ module.exports = {
             'integrations/unreal_plugin/usage',
           ],
         },
+        'integrations/other_integrations',
       ],
     },
     {
