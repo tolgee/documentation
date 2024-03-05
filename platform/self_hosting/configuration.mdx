@@ -288,6 +288,10 @@ data it needs faster. Cache is also used to track certain states, such as rate l
   This has no effect when Redis cache is used. See
   [Caffeine's documentation about size-based eviction](https://github.com/ben-manes/caffeine/wiki/Eviction#size-based) (default: `-1`)
 
+- ##### `clean-on-startup` {#clean-on-startup}
+
+  Whether to clean the cache on Tolgee startup (default: `true`)
+
 - ##### `default-ttl` {#default-ttl}
 
   TTL of cache data, in milliseconds. (default: `7200000` ≈ 2 hours)
@@ -318,7 +322,7 @@ These properties are used to configure default server content delivery storage.
 
 - ##### `public-url-prefix` {#public-url-prefix}
 
-  The root path where the content is accessible by the public. If this property is not null. Content delivery will be enabled on your server.
+  The root path where the content is accessible by the public. If this property is not null, content delivery will be enabled on your server.
 
 #### storage
 
@@ -390,15 +394,15 @@ Tolgee supports storing its files on an S3-compatible storage server. When enabl
 
 Prefix: `tolgee.import`
 
-Bulk-imports exported json files in the database during startup. Useful to quickly provision a development server, and used for testing.
+Properties for importing data to Tolgee and bulk-imports exported json files in the database during startup. Useful to quickly provision a development server, and used for testing.
 
 - ##### `base-language-tag` {#base-language-tag}
 
-  The language tag of the base language of the imported projects. (default: `en`)
+  The language tag of the base language of the imported project (for importing data on startup). (default: `en`)
 
 - ##### `create-implicit-api-key` {#create-implicit-api-key}
 
-  Whether an implicit API key should be created.
+  Whether an implicit API key should be created when importing data on startup.
   
   The key is built with a predictable format: `${lowercase filename (without extension)}-${initial username}-imported-project-implicit`
   
@@ -410,7 +414,22 @@ Bulk-imports exported json files in the database during startup. Useful to quick
 
 - ##### `dir` {#dir}
 
-  File path of the directory where the file to import are located.
+  File path of the directory where the files to import on startup are located.
+  
+  :::info
+  Your folder structure should look like:
+  importDir
+  └─Project # the foler name is the project name
+    └─validation # the foler name is namespace
+      ├─ en.json # the file name is the target language
+      └─ de.json # second project language
+  :::
+  
+  
+
+- ##### `store-files-for-debugging` {#store-files-for-debugging}
+
+  If true, uploaded files will be stored in configured file storage for future debugging. Such data is not automatically removed after successful import. You have to clean-up manually! (default: `false`)
 
 ### Machine Translation
 
@@ -537,6 +556,14 @@ See [Google Cloud Translation](https://cloud.google.com/translate) page for more
 
   Whether to use Google Cloud Translation as a primary translation engine. (default: `true`)
 
+#### tolgee
+
+Prefix: `tolgee.machine-translation.tolgee`
+
+- ##### `default-enabled` {#default-enabled}
+
+- ##### `default-primary` {#default-primary}
+
 ### Postgres autostart
 
 Prefix: `tolgee.postgres-autostart`
@@ -572,6 +599,10 @@ Defines whether and how is PostgreSQL started on Tolgee startup.
 
   The port of Postgres to listen on host machine.
   This setting is applicable only for `DOCKER` mode. (default: `25432`)
+
+- ##### `stop` {#stop}
+
+  When true, Tolgee will stop the Postgres container on Tolgee shutdown. This setting is applicable only for `DOCKER` mode. (default: `true`)
 
 - ##### `user` {#user}
 
@@ -810,6 +841,7 @@ tolgee:
     concurrency: 1
   cache:
     caffeine-max-size: -1
+    clean-on-startup: true
     default-ttl: 7200000
     enabled: false
     use-redis: false
@@ -838,6 +870,7 @@ tolgee:
     base-language-tag: en
     create-implicit-api-key: false
     dir:
+    store-files-for-debugging: false
   machine-translation:
     free-credits-amount: -1
     aws:
@@ -866,6 +899,9 @@ tolgee:
       api-key:
       default-enabled: true
       default-primary: true
+    tolgee:
+      default-enabled: true
+      default-primary: true
   postgres-autostart:
     container-name: tolgee_postgres
     database-name: postgres
@@ -873,6 +909,7 @@ tolgee:
     mode: DOCKER
     password: postgres
     port: 25432
+    stop: true
     user: postgres
   rate-limit:
     authentication-limits: true
@@ -1186,6 +1223,10 @@ data it needs faster. Cache is also used to track certain states, such as rate l
   This has no effect when Redis cache is used. See
   [Caffeine's documentation about size-based eviction](https://github.com/ben-manes/caffeine/wiki/Eviction#size-based) (default: `-1`)
 
+- <h5 id="clean-on-startup"><code>CLEAN_ON_STARTUP</code></h5>
+
+  Whether to clean the cache on Tolgee startup (default: `true`)
+
 - <h5 id="default-ttl"><code>DEFAULT_TTL</code></h5>
 
   TTL of cache data, in milliseconds. (default: `7200000` ≈ 2 hours)
@@ -1216,7 +1257,7 @@ These properties are used to configure default server content delivery storage.
 
 - <h5 id="public-url-prefix"><code>PUBLIC_URL_PREFIX</code></h5>
 
-  The root path where the content is accessible by the public. If this property is not null. Content delivery will be enabled on your server.
+  The root path where the content is accessible by the public. If this property is not null, content delivery will be enabled on your server.
 
 <h4 id="storage">STORAGE</h4>
 
@@ -1288,15 +1329,15 @@ Tolgee supports storing its files on an S3-compatible storage server. When enabl
 
 Prefix: `TOLGEE_IMPORT`
 
-Bulk-imports exported json files in the database during startup. Useful to quickly provision a development server, and used for testing.
+Properties for importing data to Tolgee and bulk-imports exported json files in the database during startup. Useful to quickly provision a development server, and used for testing.
 
 - <h5 id="base-language-tag"><code>BASE_LANGUAGE_TAG</code></h5>
 
-  The language tag of the base language of the imported projects. (default: `en`)
+  The language tag of the base language of the imported project (for importing data on startup). (default: `en`)
 
 - <h5 id="create-implicit-api-key"><code>CREATE_IMPLICIT_API_KEY</code></h5>
 
-  Whether an implicit API key should be created.
+  Whether an implicit API key should be created when importing data on startup.
   
   The key is built with a predictable format: `${lowercase filename (without extension)}-${initial username}-imported-project-implicit`
   
@@ -1308,7 +1349,22 @@ Bulk-imports exported json files in the database during startup. Useful to quick
 
 - <h5 id="dir"><code>DIR</code></h5>
 
-  File path of the directory where the file to import are located.
+  File path of the directory where the files to import on startup are located.
+  
+  :::info
+  Your folder structure should look like:
+  importDir
+  └─Project # the foler name is the project name
+    └─validation # the foler name is namespace
+      ├─ en.json # the file name is the target language
+      └─ de.json # second project language
+  :::
+  
+  
+
+- <h5 id="store-files-for-debugging"><code>STORE_FILES_FOR_DEBUGGING</code></h5>
+
+  If true, uploaded files will be stored in configured file storage for future debugging. Such data is not automatically removed after successful import. You have to clean-up manually! (default: `false`)
 
 <h3 id="machine-translation">Machine Translation</h3>
 
@@ -1435,6 +1491,14 @@ See [Google Cloud Translation](https://cloud.google.com/translate) page for more
 
   Whether to use Google Cloud Translation as a primary translation engine. (default: `true`)
 
+<h4 id="tolgee">TOLGEE</h4>
+
+Prefix: `TOLGEE_MACHINE_TRANSLATION_TOLGEE`
+
+- <h5 id="default-enabled"><code>DEFAULT_ENABLED</code></h5>
+
+- <h5 id="default-primary"><code>DEFAULT_PRIMARY</code></h5>
+
 <h3 id="postgres-autostart">Postgres autostart</h3>
 
 Prefix: `TOLGEE_POSTGRES_AUTOSTART`
@@ -1470,6 +1534,10 @@ Defines whether and how is PostgreSQL started on Tolgee startup.
 
   The port of Postgres to listen on host machine.
   This setting is applicable only for `DOCKER` mode. (default: `25432`)
+
+- <h5 id="stop"><code>STOP</code></h5>
+
+  When true, Tolgee will stop the Postgres container on Tolgee shutdown. This setting is applicable only for `DOCKER` mode. (default: `true`)
 
 - <h5 id="user"><code>USER</code></h5>
 
@@ -1698,6 +1766,7 @@ TOLGEE_AUTHENTICATION_OAUTH2_TOKEN_URL=
 TOLGEE_AUTHENTICATION_OAUTH2_USER_URL=
 TOLGEE_BATCH_CONCURRENCY=1
 TOLGEE_CACHE_CAFFEINE_MAX_SIZE=-1
+TOLGEE_CACHE_CLEAN_ON_STARTUP=true
 TOLGEE_CACHE_DEFAULT_TTL=7200000
 TOLGEE_CACHE_ENABLED=false
 TOLGEE_CACHE_USE_REDIS=false
@@ -1719,6 +1788,7 @@ TOLGEE_FILE_STORAGE_S3_SIGNING_REGION=
 TOLGEE_IMPORT_BASE_LANGUAGE_TAG=en
 TOLGEE_IMPORT_CREATE_IMPLICIT_API_KEY=false
 TOLGEE_IMPORT_DIR=
+TOLGEE_IMPORT_STORE_FILES_FOR_DEBUGGING=false
 TOLGEE_MACHINE_TRANSLATION_FREE_CREDITS_AMOUNT=-1
 TOLGEE_MACHINE_TRANSLATION_AWS_ACCESS_KEY=
 TOLGEE_MACHINE_TRANSLATION_AWS_DEFAULT_ENABLED=true
@@ -1741,12 +1811,15 @@ TOLGEE_MACHINE_TRANSLATION_DEEPL_DEFAULT_PRIMARY=false
 TOLGEE_MACHINE_TRANSLATION_GOOGLE_API_KEY=
 TOLGEE_MACHINE_TRANSLATION_GOOGLE_DEFAULT_ENABLED=true
 TOLGEE_MACHINE_TRANSLATION_GOOGLE_DEFAULT_PRIMARY=true
+TOLGEE_MACHINE_TRANSLATION_TOLGEE_DEFAULT_ENABLED=true
+TOLGEE_MACHINE_TRANSLATION_TOLGEE_DEFAULT_PRIMARY=true
 TOLGEE_POSTGRES_AUTOSTART_CONTAINER_NAME=tolgee_postgres
 TOLGEE_POSTGRES_AUTOSTART_DATABASE_NAME=postgres
 TOLGEE_POSTGRES_AUTOSTART_ENABLED=true
 TOLGEE_POSTGRES_AUTOSTART_MODE=DOCKER
 TOLGEE_POSTGRES_AUTOSTART_PASSWORD=postgres
 TOLGEE_POSTGRES_AUTOSTART_PORT=25432
+TOLGEE_POSTGRES_AUTOSTART_STOP=true
 TOLGEE_POSTGRES_AUTOSTART_USER=postgres
 TOLGEE_RATE_LIMIT_AUTHENTICATION_LIMITS=true
 TOLGEE_RATE_LIMIT_ENABLED=true
@@ -2054,6 +2127,10 @@ data it needs faster. Cache is also used to track certain states, such as rate l
   This has no effect when Redis cache is used. See
   [Caffeine's documentation about size-based eviction](https://github.com/ben-manes/caffeine/wiki/Eviction#size-based) (default: `-1`)
 
+- <h5 id="clean-on-startup"><code>clean-on-startup</code></h5>
+
+  Whether to clean the cache on Tolgee startup (default: `true`)
+
 - <h5 id="default-ttl"><code>default-ttl</code></h5>
 
   TTL of cache data, in milliseconds. (default: `7200000` ≈ 2 hours)
@@ -2084,7 +2161,7 @@ These properties are used to configure default server content delivery storage.
 
 - <h5 id="public-url-prefix"><code>public-url-prefix</code></h5>
 
-  The root path where the content is accessible by the public. If this property is not null. Content delivery will be enabled on your server.
+  The root path where the content is accessible by the public. If this property is not null, content delivery will be enabled on your server.
 
 <h4 id="storage">storage</h4>
 
@@ -2156,15 +2233,15 @@ Tolgee supports storing its files on an S3-compatible storage server. When enabl
 
 Prefix: `tolgee.import`
 
-Bulk-imports exported json files in the database during startup. Useful to quickly provision a development server, and used for testing.
+Properties for importing data to Tolgee and bulk-imports exported json files in the database during startup. Useful to quickly provision a development server, and used for testing.
 
 - <h5 id="base-language-tag"><code>base-language-tag</code></h5>
 
-  The language tag of the base language of the imported projects. (default: `en`)
+  The language tag of the base language of the imported project (for importing data on startup). (default: `en`)
 
 - <h5 id="create-implicit-api-key"><code>create-implicit-api-key</code></h5>
 
-  Whether an implicit API key should be created.
+  Whether an implicit API key should be created when importing data on startup.
   
   The key is built with a predictable format: `${lowercase filename (without extension)}-${initial username}-imported-project-implicit`
   
@@ -2176,7 +2253,22 @@ Bulk-imports exported json files in the database during startup. Useful to quick
 
 - <h5 id="dir"><code>dir</code></h5>
 
-  File path of the directory where the file to import are located.
+  File path of the directory where the files to import on startup are located.
+  
+  :::info
+  Your folder structure should look like:
+  importDir
+  └─Project # the foler name is the project name
+    └─validation # the foler name is namespace
+      ├─ en.json # the file name is the target language
+      └─ de.json # second project language
+  :::
+  
+  
+
+- <h5 id="store-files-for-debugging"><code>store-files-for-debugging</code></h5>
+
+  If true, uploaded files will be stored in configured file storage for future debugging. Such data is not automatically removed after successful import. You have to clean-up manually! (default: `false`)
 
 <h3 id="machine-translation">Machine Translation</h3>
 
@@ -2303,6 +2395,14 @@ See [Google Cloud Translation](https://cloud.google.com/translate) page for more
 
   Whether to use Google Cloud Translation as a primary translation engine. (default: `true`)
 
+<h4 id="tolgee">tolgee</h4>
+
+Prefix: `tolgee.machine-translation.tolgee`
+
+- <h5 id="default-enabled"><code>default-enabled</code></h5>
+
+- <h5 id="default-primary"><code>default-primary</code></h5>
+
 <h3 id="postgres-autostart">Postgres autostart</h3>
 
 Prefix: `tolgee.postgres-autostart`
@@ -2338,6 +2438,10 @@ Defines whether and how is PostgreSQL started on Tolgee startup.
 
   The port of Postgres to listen on host machine.
   This setting is applicable only for `DOCKER` mode. (default: `25432`)
+
+- <h5 id="stop"><code>stop</code></h5>
+
+  When true, Tolgee will stop the Postgres container on Tolgee shutdown. This setting is applicable only for `DOCKER` mode. (default: `true`)
 
 - <h5 id="user"><code>user</code></h5>
 
@@ -2566,6 +2670,7 @@ tolgee.authentication.oauth2.token-url =
 tolgee.authentication.oauth2.user-url =
 tolgee.batch.concurrency = 1
 tolgee.cache.caffeine-max-size = -1
+tolgee.cache.clean-on-startup = true
 tolgee.cache.default-ttl = 7200000
 tolgee.cache.enabled = false
 tolgee.cache.use-redis = false
@@ -2587,6 +2692,7 @@ tolgee.file-storage.s3.signing-region =
 tolgee.import.base-language-tag = en
 tolgee.import.create-implicit-api-key = false
 tolgee.import.dir =
+tolgee.import.store-files-for-debugging = false
 tolgee.machine-translation.free-credits-amount = -1
 tolgee.machine-translation.aws.access-key =
 tolgee.machine-translation.aws.default-enabled = true
@@ -2609,12 +2715,15 @@ tolgee.machine-translation.deepl.default-primary = false
 tolgee.machine-translation.google.api-key =
 tolgee.machine-translation.google.default-enabled = true
 tolgee.machine-translation.google.default-primary = true
+tolgee.machine-translation.tolgee.default-enabled = true
+tolgee.machine-translation.tolgee.default-primary = true
 tolgee.postgres-autostart.container-name = tolgee_postgres
 tolgee.postgres-autostart.database-name = postgres
 tolgee.postgres-autostart.enabled = true
 tolgee.postgres-autostart.mode = DOCKER
 tolgee.postgres-autostart.password = postgres
 tolgee.postgres-autostart.port = 25432
+tolgee.postgres-autostart.stop = true
 tolgee.postgres-autostart.user = postgres
 tolgee.rate-limit.authentication-limits = true
 tolgee.rate-limit.enabled = true
