@@ -28,6 +28,16 @@ const config = {
     prism: {
       additionalLanguages: ['icu-message-format'],
     },
+    zoom: {
+      selector: '.zoomable-image',
+      background: {
+        light: 'rgb(255, 255, 255)',
+        dark: '#182230',
+      },
+      config: {
+        // options you can specify via https://github.com/francoischalifour/medium-zoom#usage
+      },
+    },
   },
   presets: [
     [
@@ -72,6 +82,7 @@ const config = {
   ],
   plugins: [
     'docusaurus2-dotenv',
+    'docusaurus-plugin-image-zoom',
     ['@docusaurus/plugin-client-redirects', redirects],
     async function tailwind() {
       return {

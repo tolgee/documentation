@@ -3,3 +3,25 @@ id: custom_values
 title: Custom values
 sidebar_label: Custom values
 ---
+
+The translation keys may contain custom values, which can be edited from the `Edit Key` dialog, and custom values, which
+are added by Tolgee when importing data.
+
+The custom values are also available when accessing the data via REST API via the `custom` field on the translation key.
+
+## Editing custom values
+To edit custom values
+1. Go to translations view
+2. Click the key name to open the `Edit Key` dialog
+3. Switch to `Custom Values` tab
+
+import { ScreenshotWrapper } from "../shared/_ScreenshotWrapper";
+
+<ScreenshotWrapper src="/img/docs/platform/translation_keys/custom_values.webp"
+                   alt="ICU Placeholders disabled" />
+
+
+
+## Tolgee internal Custom Values
+The custom values prefixed by the `_` character are used by Tolgee and have special meaning.
+For example, `_flutterArbPlaceholders` is used to store placeholder metadata for Flutter, and it's used when exporting data to flutter arb format.
