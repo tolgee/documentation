@@ -1,0 +1,102 @@
+---
+id: tolgee_universal_icu_placeholders
+title: Tolgee Universal ICU Placeholders
+sidebar_label: Universal ICU Placeholders
+---
+
+The Tolgee platform is able to convert placeholders from various formats to the ICU message format and vice versa.
+This concept helps you export data to different formats and get the desired formatting when using the
+same translations in different applications.
+
+The Tolgee Universal ICU Placeholders are also recognized by the translation editor, and so they're visualized to
+provide convenient translation experience also for right-to-left languages.
+
+## Supported Placeholders
+
+[//]: # (@formatter:off)
+- **Simple** - e.g. `{0}`, `{value}`
+  - Converted to `%s` in most of the "sprintf-like" formats and into `%@` in Apple format.
+- **Number (Integer)** - e.g. `{0, number}`
+  - Converted to `%d` in the most of the "sprintf-like" formats and into `%lld` in Apple format.
+- **Number (float)** - e.g. `{0, number, 0.000000}`
+  - Converted to `%f` in the most of the "sprintf-like" formats. The number of decimal places is determined by the number
+  of `0` characters in the format and converted to `%.nf` in "sprintf-like" formats, where `n` is the number of decimal places.
+- **Scientific** - e.g. `{0, number, scientific}`
+  - Converted to `%e` in the most of the "sprintf-like" formats
+- **#** - special `replace number` placeholder, replacing the number in the plural form. e.g.
+ `{0, plural, one {# item} other {# items}}`
+[//]: # (@formatter:off)
+
+## Order and positioning
+Usually, you can pass arguments into ICU message format as an array or named object/map. Sometimes, you need to swap the
+order of the arguments as rendered in the result. That's why the ICU parameters are named by the zero-based index. e.g. `{0}`.
+A similar concept exists also in "sprinf-like" formats like
+[PHP's `sprintf`](https://www.php.net/manual/en/function.sprintf.php) or
+[`Java Formatter class`](https://docs.oracle.com/javase/8/docs/api/java/util/Formatter.html).
+
+When exporting the `zero-based` indexed ICU placeholders, Tolgee will automatically convert them to the
+`one-based` indexed for such formats, so `{0}` will be converted to `%1$s` in the "sprintf-like" formats.
+
+## Visualization of Universal ICU Placeholders
+The ICU placeholders are visualized in the translation editor to provide a convenient translation experience. When Tolgee
+Universal ICU Placeholders are enabled at the project level; the editor will visualize the placeholders.
+
+import { ScreenshotWrapper } from "../shared/_ScreenshotWrapper";
+
+<ScreenshotWrapper src="/img/docs/platform/icu_placeholders/icu_placeholder_visualization.webp"
+                   alt= "Visualized ICU placeholders"/>
+
+You can also switch the editor to the "code" mode and edit the whole message as text.
+
+<ScreenshotWrapper src="/img/docs/platform/icu_placeholders/icu_placeholder_code.webp" alt="ICU placeholders as code" />
+
+## Importing
+
+When importing translations, Tolgee will automatically convert the placeholders to the Tolgee Universal ICU Placeholders
+when enabled. You can find out how the placeholders are converted in the docs for the [specific format](../formats/index.mdx).
+
+You can control the conversion of the placeholders in the import settings by setting the `Convert placeholders to Tolgee Universal ICU`.
+
+<ScreenshotWrapper src="/img/docs/platform/icu_placeholders/import_controls.webp" alt="Import controls" />
+
+## Disabling support for Universal ICU Placeholders globally
+
+If you never want to use the Tolgee Universal ICU Placeholders, you can disable them in the project settings. In that case,
+Tolgee will never convert your placeholders, and the placeholders won't be visualized in the translation editor.
+
+Also, the placeholders won't be converted when exporting. So you won't be able to export the same keys to
+formats with different placeholder formats.
+
+You can find the `Use Tolgee Universal ICU Placeholders` setting in the `Advanced` tab of project settings.
+
+<ScreenshotWrapper src="/img/docs/platform/icu_placeholders/disabling_icu_placeholders.webp"
+                   alt= "Disabling ICU placeholders"/>
+
+## Escaping
+Since some characters are controlling the ICU message format, you may need to escape them. For example, to use the `{`
+character in the translation, you will have to escape it by using the `'` (apostrophe) character. e.g., `What a '{' bracket`.
+
+The control characters are `{`, `}`, `#`, and `'`. The `#` character is only escaped if present in a plural form.
+
+The ICU message syntax only allows us to start the escaping sequence with the apostrophe character continued by the character
+to be escaped. e.g. `Once you '{ start escaping { this is } all esaped`. Also, the ICU Message syntax doesn't require
+you to escape the apostrophe character itself. e.g. `It's fine to not escape the ' apostrophe character.`
+
+However, once you're in the escaping sequence, you have to escape the apostrophe character to get it into the
+formatted message. e.g., `Now '{ we are escaping. It''s beatiful. { } And we are still escaping.`.
+
+You can read the full documentation about the escaping in the ICU message syntax
+[here](https://unicode-org.github.io/icu/userguide/format_parse/messages/#quotingescaping)
+
+Escaping into the ICU might look complicated and mind-blowing, but it's indeed an edge case when you need to escape
+something. It was designed to require the user to escape as little as possible.
+
+## Escaping in the plural forms
+Tolgee uses ICU to store the Plural forms (even when Tolgee Universal ICU Placeholders are disabled on the project level).
+Because of this, it always requires closed escape sequences in the plural forms; otherwise, it would break the plural
+representation. Because of this, it automatically closes the escape sequence in the plural forms.
+
+For example, when you store `# dogs here '{ that was a curly brace` as plural, it will be saved as
+`# dogs here '{ that was a curly brace'`.
+
+However, this change won't affect the way how these messages will be rendered, so you don't have to worry about it.

@@ -4,6 +4,8 @@ title: Namespaces
 sidebar_label: Namespaces
 ---
 
+import { ScreenshotWrapper } from '../shared/_ScreenshotWrapper';
+
 Especially when managing more extensive projects, storing all keys in a single localization file can be insufficient. That's where namespaces come into play.
 This feature enables you to structure keys into different namespaces. When Tolgee exports a project with namespaces, Tolgee stores the namespace data to separate files.
 
@@ -50,4 +52,7 @@ To delete a namespace, just delete all keys in the namespace.
 
 When exporting keys, you can select which namespaces should be exported. If you don't select any namespace, all keys will be exported.
 
-![Export select namespaces](/img/docs/platform/export_select_namespaces.png)
+<ScreenshotWrapper
+  src="/img/docs/platform/export-namespace.webp"
+  alt="export keys by namespace"
+/>

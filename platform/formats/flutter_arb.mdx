@@ -1,0 +1,77 @@
+---
+id: flutter_arb
+title: Flutter .arb
+sidebar_label: Flutter .arb
+---
+
+Flutter .arb (Application Resource Bundle) file format is the Native format for Flutter applications. It not only stores the localization keys and values
+but also the metadata about the key like `description` and `placeholders`. Flutter's message format is very similar to the
+[ICU Message Format](/platform/translation_process/icu_message_format),
+but it does not store the parameter types in the actual ICU string but in the metadata.
+
+```json title="en.arb"
+{
+  "user_settings_password": "Password",
+  "user_greeting": "Hello, {user_name}!",
+  "@user_greeting": {
+      "placeholders": {
+          "user_name": {
+              "type": "String",
+              "example": "Peter"
+          }
+      }
+  },
+  "dogs_count": "{count, plural, one {I have {count} dogs.} other {I have {count} dogs.}}",
+  "@dogs_count": {
+      "placeholders": {
+          "count": {
+              "type": "int",
+              "format": "compactLong",
+              "example": "1"
+          }
+      }
+  }
+}
+```
+
+As you can see in the above example, the message parameters don't contain the type information, but the metadata does.
+Another important difference to the standard [ICU Message format](/platform/translation_process/icu_message_format)
+is that the `#` symbol in plural form isn't replaced with
+the actual number, so you have to repeat the placeholder again (`{count}` in the example above).
+
+## Metadata Import
+When importing the .arb file, the metadata are stored in the `Custom Values` field of the key.
+e.g. For the `user_greeting` key, the metadata will be stored this way:
+
+```json title="Custom Values"
+{
+  "_flutterArbPlaceholders": {
+    "count": {
+      "type": "int",
+      "format": "compactLong",
+      "example": "1"
+    }
+  }
+}
+```
+import SeeCustom from "./seeCustomValues.mdx";
+
+<SeeCustom />
+
+import { ScreenshotWrapper } from "../shared/_ScreenshotWrapper";
+
+<ScreenshotWrapper src="/img/docs/platform/formats/arb_custom_values.webp" alt="Flutter ARB custom values" />
+
+When exporting, Tolgee exports to the .arb file with this metadata when provided. The parameter types provided directly
+in the ICU Message Format in Tolgee are ignored. For example, translation `Today is {date, date}`, will be exported to
+the .arb file as `Today is {date}`. To provide the parameter type, you need to provide the metadata
+in the `Custom Values`.
+
+## The MessageFormat and placeholder conversion
+Tolgee doesn't convert Flutter placeholders to ICU placeholders because the Flutter Message format is effectively a
+subset of ICU. When exporting to .arb, Tolgee discards the type information from the ICU Message Format, so it's a valid
+string for [Flutter MessageFormat class](https://api.flutter.dev/flutter/message_format/MessageFormat-class.html).
+
+import Importing from './generalImporting.mdx';
+
+<Importing />

@@ -1,0 +1,257 @@
+---
+id: apple_xliff
+title: Apple XLIFF
+sidebar_label: Apple XLIFF
+---
+
+Apple Xliff is a file format you can export and import in the Apple Xcode development environment. It's a native format
+for Apple. However, we recommend using the Apple `.strings` and `.stringsdict`, because of the limitations described
+below.
+
+The Apple Xliff can look differently when exporting localizations from a project using `.strings` and `.stringsdict` files
+and when exporting from project Strings Catalog `.xcstrings`.
+
+To read more about the XLIFF file structure in general, go to the [generic XLIFF specification](./xliff).
+
+## Example with `.strings` and `.stringsdict`
+```xml title="cs.xliff"
+<?xml version="1.0" encoding="UTF-8"?>
+<xliff xmlns="urn:oasis:names:tc:xliff:document:1.2"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" version="1.2"
+    xsi:schemaLocation="urn:oasis:names:tc:xliff:document:1.2 http://docs.oasis-open.org/xliff/v1.2/os/xliff-core-1.2-strict.xsd">
+  <file original="en.lproj/Localizable.strings" source-language="en" target-language="cs" datatype="plaintext">
+    <header>
+      <tool tool-id="com.apple.dt.xcode" tool-name="Xcode" tool-version="15.2" build-num="15C500b"/>
+    </header>
+    <body>
+      <trans-unit id="Dogs %lld" xml:space="preserve">
+        <source>Dogs %lld</source>
+        <note>The count of dogs in the app</note>
+      </trans-unit>
+      <trans-unit id="welcome" xml:space="preserve">
+        <source>Hello!</source>
+        <target>Ahoj!</target>
+        <note>Welcome message</note>
+      </trans-unit>
+    </body>
+  </file>
+  <file original="en.lproj/Localizable.stringsdict" source-language="en" target-language="cs" datatype="plaintext">
+    <header>
+      <tool tool-id="com.apple.dt.xcode" tool-name="Xcode" tool-version="15.2" build-num="15C500b"/>
+    </header>
+    <body>
+      <trans-unit id="/Dogs %lld:dict/NSStringLocalizedFormatKey:dict/:string" xml:space="preserve">
+        <source>%#@dog@</source>
+        <target>%#@dog@</target>
+        <note/>
+      </trans-unit>
+      <trans-unit id="/Dogs %lld:dict/dog:dict/few:dict/:string" xml:space="preserve">
+        <source>%lld dogs here</source>
+        <target>Jsou tu %lld psi</target>
+        <note/>
+      </trans-unit>
+      <trans-unit id="/Dogs %lld:dict/dog:dict/many:dict/:string" xml:space="preserve">
+        <source>%lld dogs here</source>
+        <target>Je tu %lld pss</target>
+        <note/>
+      </trans-unit>
+      <trans-unit id="/Dogs %lld:dict/dog:dict/one:dict/:string" xml:space="preserve">
+        <source>One dog is here!</source>
+        <target>Je tu jeden pes!</target>
+        <note/>
+      </trans-unit>
+      <trans-unit id="/Dogs %lld:dict/dog:dict/other:dict/:string" xml:space="preserve">
+        <source>%lld dogs here</source>
+        <target>Je tu %lld psů</target>
+        <note/>
+      </trans-unit>
+    </body>
+  </file>
+  <file original="Localization test/Localization test-InfoPlist.xcstrings" source-language="en" target-language="cs" datatype="plaintext">
+    <header>
+      <tool tool-id="com.apple.dt.xcode" tool-name="Xcode" tool-version="15.2" build-num="15C500b"/>
+    </header>
+    <body>
+      <trans-unit id="CFBundleName" xml:space="preserve">
+        <source>Localization test</source>
+        <note>Bundle name</note>
+      </trans-unit>
+    </body>
+  </file>
+  <file original="Localization test/Menu.xcstrings" source-language="en" target-language="cs" datatype="plaintext">
+    <header>
+      <tool tool-id="com.apple.dt.xcode" tool-name="Xcode" tool-version="15.2" build-num="15C500b"/>
+    </header>
+    <body>
+      <trans-unit id="menu" xml:space="preserve">
+        <source>menu</source>
+        <note/>
+      </trans-unit>
+    </body>
+  </file>
+</xliff>
+```
+
+Xcode exports the data to an Xliff file with multiple file blocks.
+[//]: # (@formatter:off)
+- **en.lproj/Localizable.strings**
+  - this file section stores strings from the base `.strings` file and the keys extracted from the code.
+    That means that even keys that are not present in the `.strings` file are exported to the Xliff file.
+- **en.lproj/Localizable.stringsdict**
+  - this file section stores the `.stringsdict` file. The `.stringsdict` file is a file which is used for pluralization
+- **Other**
+  - Other file sections are used for exporting the data from the other source files used to translate fields, which
+    are usually not specified by the developer but still might be visible to the user in some way.
+[//]: # (@formatter:on)
+
+The plural forms are converted into trans units with specific IDs, which are different from the usage with the
+`.xcstrings` file. Tolgee is able to convert such IDs into plural forms when importing. However, if you once imported
+the data from the Xliff file originating from `.strings` and `.stringsdict` files, you won't be able to import it later to an
+XCode project using `.xcstrings` files.
+
+## Example with `.xcstrings`
+
+```xml title="cs.xliff"
+<?xml version="1.0" encoding="UTF-8"?>
+<xliff xmlns="urn:oasis:names:tc:xliff:document:1.2"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" version="1.2"
+    xsi:schemaLocation="urn:oasis:names:tc:xliff:document:1.2 http://docs.oasis-open.org/xliff/v1.2/os/xliff-core-1.2-strict.xsd">
+  <file original="apple-xliff-localization-test-InfoPlist.xcstrings" source-language="en" target-language="cs" datatype="plaintext">
+    <header>
+      <tool tool-id="com.apple.dt.xcode" tool-name="Xcode" tool-version="15.2" build-num="15C500b"/>
+    </header>
+    <body>
+      <trans-unit id="CFBundleName" xml:space="preserve">
+        <source>apple-xliff-localization-test</source>
+        <target state="translated">apple-xliff-lokalizace-testu</target>
+        <note>Bundle name</note>
+      </trans-unit>
+    </body>
+  </file>
+  <file original="Localizable.xcstrings" source-language="en" target-language="cs" datatype="plaintext">
+    <header>
+      <tool tool-id="com.apple.dt.xcode" tool-name="Xcode" tool-version="15.2" build-num="15C500b"/>
+    </header>
+    <body>
+      <trans-unit id="dogs_cout_%lld|==|plural.few" xml:space="preserve">
+        <source>%lld dogs</source>
+        <target state="translated">%lld psi</target>
+        <note/>
+      </trans-unit>
+      <trans-unit id="dogs_cout_%lld|==|plural.many" xml:space="preserve">
+        <source>%lld dogs</source>
+        <target state="translated">%lld psů</target>
+        <note/>
+      </trans-unit>
+      <trans-unit id="dogs_cout_%lld|==|plural.one" xml:space="preserve">
+        <source>One dog</source>
+        <target state="translated">Jeden pes</target>
+        <note/>
+      </trans-unit>
+      <trans-unit id="dogs_cout_%lld|==|plural.other" xml:space="preserve">
+        <source>%lld dogs</source>
+        <target state="translated">%lld psů</target>
+        <note/>
+      </trans-unit>
+      <trans-unit id="user-settings.password.label" xml:space="preserve">
+        <source>Pasword</source>
+        <note>Input label for password</note>
+      </trans-unit>
+      <trans-unit id="welcome" xml:space="preserve">
+        <source>welcome</source>
+        <note>Welcome message</note>
+      </trans-unit>
+    </body>
+  </file>
+</xliff>
+```
+
+The `.xcstrigs` file is able to handle the plurals as well. That's why all the developer defined string are stored under
+`Localizable.xcstrings` file section.
+
+In this case, Xcode exports the data to an Xliff file with multiple file blocks.
+[//]: # (@formatter:off)
+- **Localizable.xcstrings**
+- this file section stores strings from the `.xcstrings` file.
+- **Other**
+- Other file sections are used for exporting the data from the other source files used to translate fields, which
+are usually not specified by the developer but still might be visible to the user in some way.
+[//]: # (@formatter:on)
+
+## Importing data from the XCode project to Tolgee
+To export the localization data from Xcode, you can use the following steps:
+1. Click `Product` -> `Export Localizations`
+2. Save the data somewhere
+3. Go to Tolgee Platform -> Select target project -> Select `Import` in the project menu on the left
+4. Drag and drop the exported `<language>.xcloc` (e.g., `en.xcloc`) file to the dropzone
+  - For the `.strings` and `.stringsdict` files, you will also see the `Localizable.strings` and `Localizable.stringsdict`
+files in the dropzone, you can remove them if you want to import the Xliff data
+
+## Importing data from Tolgee to the XCode project
+To import the localization data from Tolgee to Xcode, you can use the following steps:
+1. Go to Tolgee Platform -> Select target project -> Select `Export` in the project menu on the left
+2. Select `Apple Xliff` from `format` dropdown -> Click `Export` button
+3. Unzip the downloaded file
+4. Open XCode and click `Product` -> `Import Localizations` -> Select the desired language file
+
+## Limitations
+
+The Apple Xliff export and import is designed for communication with translators targeting other languages, but you cannot
+modify the base language strings while importing the data. XCode will warn you about such issues.
+The bad thing about this is that **it won't import keys where you modified the base translation**. That's why
+we don't recommend using the Apple Xliff.
+
+## Apple Xliff-specific custom values
+When importing the Apple Xliff file, Tolgee stores some custom values, so it's able to export the data to an identical file,
+which can later be imported to XCode without any issues. You can find these in the `Custom Values` section of `Edit Key`
+dialog.
+
+import { ScreenshotWrapper } from "../shared/_ScreenshotWrapper";
+
+<ScreenshotWrapper src="/img/docs/platform/formats/xliff_custom_values.webp" alt="XLIFF custom values" />
+
+- `_appleXliffFileOriginal` is taken from the key's `<file>` element's `original` attribute.
+- `_appleXliffPropertyName` is taken from the special `NSStringLocalizedFormatKey` `trans-unit`, which apple uses
+under the hood to map the plural forms back to the `.stringsdict` file.
+- `_appleXliffStringsFileOriginal` is stored because all the keys from `.stringsdict` file section are also presented
+in the `.strings` file section, so we need to populate this section as well when exporting so everything matches in XCode
+, and we are able to import the data without warnings.
+
+```xml
+<?xml version="1.0" encoding="UTF-8"?>
+<xliff>
+  <!-- source of _appleXliffStringsFileOriginal-->
+  <file original="en.lproj/Localizable.strings" source-language="en" target-language="es" datatype="plaintext">
+    <body>
+      <trans-unit id="Dogs %lld">
+        <source>Dogs %lld</source>
+      </trans-unit>
+    </body>
+  </file>
+   <!-- source of _appleXliffFileOriginal-->
+  <file original="Localization test/en.lproj/Localizable.stringsdict" source-language="en" target-language="en" datatype="plaintext">
+    <body>
+      <trans-unit id="/Dogs %lld:dict/NSStringLocalizedFormatKey:dict/:string" xml:space="preserve">
+        <!-- source of _appleXliffPropertyName -->
+        <source>%#@dog@</source>
+        <target>%#@dog@</target>
+        <note/>
+      </trans-unit>
+      <trans-unit id="/Dogs %lld:dict/dog:dict/one:dict/:string" xml:space="preserve">
+        <source>One dog is here!</source>
+      </trans-unit>
+      <trans-unit id="/Dogs %lld:dict/dog:dict/other:dict/:string" xml:space="preserve">
+        <source>%lld dogs here</source>
+      </trans-unit>
+    </body>
+  </file>
+</xliff>
+```
+
+import ApplePlaceholders from './applePlaceholders.mdx';
+
+<ApplePlaceholders />
+
+import Importing from './generalImporting.mdx';
+
+<Importing />

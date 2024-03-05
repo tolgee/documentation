@@ -1,0 +1,53 @@
+---
+id: native_json
+title: Tolgee Native JSON
+sidebar_label: Native JSON
+---
+
+Native JSON is a simple JSON format that is native to Tolgee. In this format, we preserve the
+[ICU message format](/platform/translation_process/icu_message_format). This
+format is native to the [Tolgee JavaScript SDKs](/js-sdk), and we recommend using it when possible.
+
+### Example
+
+This is the most common flat .json example.
+
+```json title="en.json"
+{
+  "user-settings.password.save.button": "Save",
+  "interpolated_key": "Hello, {name}!",
+  "plural_key": "You have {count, plural, one {one message} other {# messages}}."
+}
+```
+
+Tolgee native format is simple flat JSON with no nesting or array support. We recommend using this format if you work
+with Tolgee SDKs because there is no space for confusion as with structured JSON. If you need support for nesting
+or arrays, go ahead with [structured json](./structured_json) format.
+
+### Format specification
+In JSON format, we store data as a JSON object. The keys in the JSON are localization keys, e.g.
+`user-settings.password.save.button`, and the values are the
+translated strings, e.g., `Save`, as you can see in the example. Keys, including dots or array indexes, are not converted to
+nested objects.
+
+### Exporting via REST API
+To export to Tolgee Native JSON via REST API, you have to set the following parameters:
+```json
+{
+  "format": "JSON",
+  "supportArrays": "false",
+  "structureDelimiter": ""
+}
+```
+
+Example with CURL:
+```bash
+curl "https://app.tolgee.io/v2/projects/export?\
+format=JSON\
+&structureDelimiter=\
+&supportArrays=false" -H "X-API-Key: <Your Project API key>" --output data.zip
+```
+
+import Importing from './generalImporting.mdx';
+
+<Importing />

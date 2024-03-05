@@ -1,0 +1,169 @@
+---
+id: structured_json
+title: Structured JSON
+sidebar_label: Structured JSON
+---
+
+Structured JSON format is a generic format enabling you to export translations to JSON files with array support.
+In this format, we preserve the [ICU message format](/platform/translation_process/icu_message_format).
+
+In general, we recommend against using structured JSON because it can lead to unexpected behavior, as explained below.
+
+Example of structured JSON:
+
+```json title="en.json"
+{
+  "user": {
+    "settings": {
+      "password": {
+        "save": {
+          "button": "Save"
+        }
+      }
+    }
+  }
+}
+```
+
+When importing such JSON, the nested elements are converted into flat keys. So, the example above will be imported the same way as this one:
+
+```json title="en.json"
+{
+  "user.settings.password.save.button": "Save"
+}
+```
+
+### Support for arrays
+
+In some cases, you might want to use arrays in your JSON. This is useful when you want to have a list of items, for example.
+
+```json title="en.json"
+{
+  "items": [
+    "First item",
+    "Second item",
+    "Third item"
+  ]
+}
+```
+
+When importing such JSON, the array will be converted into flat keys with index suffixes. So, the example above will be imported the same way as this one:
+
+```json title="en.json"
+{
+  "items[0]": "First item",
+  "items[1]": "Second item",
+  "items[2]": "Third item"
+}
+```
+
+### Key naming issues when using structured JSON (import)
+
+Imagine this structured JSON to be imported to Tolgee:
+
+```json title="en.json"
+{
+  "user": {
+    "password": "Password"
+  },
+  "user.password": "Set your password"
+}
+```
+
+Both keys are translated into the same key, `user.password`. In this case, Tolgee will only import the first key and
+ignore the second one while a warning is displayed.
+
+import { ScreenshotWrapper } from "../shared/_ScreenshotWrapper";
+
+<ScreenshotWrapper src="/img/docs/platform/formats/json_import_conflict_warning.webp" alt="Import warning" />
+
+A very similar situation can happen when using arrays:
+
+```json title="en.json"
+{
+  "user": [
+    "Password"
+  ],
+  "user[0]": "Set your password"
+}
+```
+
+Again, the same key `user[0]` is translated into two different values. In this case, Tolgee will only import the first
+one. So the value for `user[0]` will be `Password`.
+
+### Key naming issues when using structured JSON (export)
+
+Very similar issues can happen when exporting structured JSON. Imagine these keys stored in the Tolgee platform:
+
+```json
+{
+ "user.password": "Password",
+ "user": "User"
+}
+```
+
+Tolgee cannot export this to structured JSON because the key `user` is used once as a key for the string value user, and once
+as a key for the nested object.
+
+```json title="INVALID JSON (key user is used twice)"
+{
+ "user": { // <--- This is a problem
+   "password": "Password"
+ },
+ "user": "User" // <--- This is a problem
+}
+```
+
+In such cases, Tolgee joins the last two path elements of the key. So the export will look like this:
+
+```json title="en.json"
+{
+ "user.password": "Password",
+ "user": "User"
+}
+```
+
+While this works perfectly fine for Tolgee JS SKDs, it might be an issue for other tools.
+
+For arrays, this issue is handled differently. When the required array index is already occupied, Tolgee will try to
+use another one.
+
+Let's say you have these keys stored in Tolgee:
+
+```json
+{
+ "item[0]": "Text",
+ "item[0].hey": "Text"
+}
+```
+
+Such results will be exported like this when array support is enabled:
+```json
+{
+  "item" : [ "Text", {
+    "hey" : "Text"
+  } ]
+}
+```
+
+### Exporting via REST API
+To export to Tolgee Native JSON via REST API, you have to set the following parameters:
+```json
+{
+  "format": "JSON",
+  "supportArrays": "true",
+  "structureDelimiter": "."
+}
+```
+
+Example with CURL:
+```bash
+curl "https://app.tolgee.io/v2/projects/export?\
+format=JSON\
+&structureDelimiter=.\
+&supportArrays=true" -H "X-API-Key: <Your Project API key>" --output data.zip
+```
+
+import Importing from './generalImporting.mdx';
+
+<Importing />

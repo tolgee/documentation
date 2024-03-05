@@ -1,0 +1,64 @@
+---
+id: editing_translations
+title: Editing translations
+sidebar_label: Editing translations
+---
+
+For editing translation strings, Tolgee provides an editor, which helps translators translate strings in a
+convenient way.
+
+## The translations view
+The translations view enables you to access translation keys, the translation text in the target languages. It allows you to
+add comments or see the history. When translating, you can also get the results from [machine translation](../translation_process/machine_translation.mdx) providers and
+[translation memory](../translation_process/translation_memory.mdx).
+
+import { ScreenshotWrapper } from "../shared/_ScreenshotWrapper";
+
+<ScreenshotWrapper src="/img/docs/platform/editing_translations/translations_view.webp"
+                   alt="Translations View" />
+
+## Editing the translation
+You can enter translation editing mode by clicking on the translation text. This will open the translation editor.
+When editing translation, translation memory, machine translation, comments and history are displayed in the right panel.
+
+### Editing translation with placeholders
+When translation text contains placeholders, their code is hidden by default. So you don't have to understand the actual
+parameter and HTML tags placeholder syntax.
+
+
+<ScreenshotWrapper src="/img/docs/platform/editing_translations/editing_with_placeholders.webp"
+                   alt="Editing with placeholders" />
+
+To add the placeholder to the translation, you can click on the placeholder in the list of `Missing` placeholders
+below the translation input.
+
+To add a new placeholder, you can just type the placeholder syntax into the translation input. e.g., `{dogsCount}`, and it
+will be automatically visualized. Read more about [Tolgee Universal ICU placeholders here](/platform/translation_process/tolgee_universal_icu_placeholders)
+to know about all the supported placeholder types and syntax.
+
+### Editing placeholders as a code
+Sometimes, you might want to edit the whole message as a code with placeholders and HTML tags. You can do that by switching
+the editor to the code mode in top right of the current language translation editor above the translation input.
+
+<ScreenshotWrapper src="/img/docs/platform/editing_translations/code_mode.webp"
+                   alt="Switching to code mode" />
+
+This way, you can switch between the code and visual mode to edit the translation.
+
+## Editing plurals
+When editing plural translations, each plural form is displayed in a separate input.
+
+<ScreenshotWrapper src="/img/docs/platform/editing_translations/editing_plurals.webp"
+                   alt="Editing Plurals" />
+
+The `#1` and `#10` placeholders shown on the screenshot are special placeholders being replaced by the pluralized number
+when formatting the translation later. The numbers `1` and `10` are examples of such formatted numbers.
+These examples help you to provide the correct translation for each plural form. You know that you've provided the correct
+translation if the sentence reads correctly with the example.
+
+## When Tolgee Universal ICU placeholders here are disabled
+Project managers can disable the Tolgee Universal ICU placeholders in the project settings. In this case, the
+placeholders and HTML tags will never be visualized, and you will always have to edit such translations as code.
+
+<ScreenshotWrapper src="/img/docs/platform/editing_translations/icu_disabled.webp"
+                   alt="ICU Placeholders disabled" />

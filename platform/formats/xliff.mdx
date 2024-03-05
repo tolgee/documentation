@@ -1,0 +1,99 @@
+---
+id: xliff
+title: XLIFF (XML Localization Interchange File Format)
+sidebar_label: XLIFF
+---
+
+import { ScreenshotWrapper } from "../shared/_ScreenshotWrapper";
+
+XLIFF, short for XML Localization Interchange File Format, is probably the most common format for effectively
+communicating with translators in the realm of localization or translation of digital interfaces.
+Introduced by the consortium Oasis, it serves as a universal standard for the exchange of localization
+information, making the process of translation smoother and more streamlined.
+
+The essence of the XLIFF format is its compatibility with a wide range of software systems,
+making it an unmatched interoperable format that globalized companies prefer for
+managing their multi-language projects. Its XML-based structure allows vendors and translators to
+flexibly exchange data while preserving formatting information and metadata that may be
+crucial for the translation process.
+
+Tolgee currently supports two versions of
+XLIFF files. The general XLIFF 1.2 and the Apple-specific XLIFF. To read
+more about Apple XLIFF, see [Apple XLIFF](./apple_xliff). Xliff 2.0 is not supported yet.
+
+Example:
+
+```xml
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<xliff version="1.2" xmlns="urn: Oasis:names:tc:xliff:document:1.2">
+  <file source-language="en" target-language="de" datatype="plaintext" original="ng2.template">
+    <header>
+      <tool tool-id="tolgee.io" tool-name="Tolgee"/>
+    </header>
+    <body>
+      <trans-unit id="user-settings.password.label">
+        <source>Password</source>
+        <target>Passwort</target>
+      </trans-unit>
+      <trans-unit id="user-settings.user.name">
+        <source>Name</source>
+        <target>Name</target>
+      </trans-unit>
+    </body>
+  </file>
+</xliff>
+```
+
+## XML file structure
+
+[//]: # (@formatter:off)
+- **xliff**
+  - root element containing the version attribute
+- **file**
+  - represents a single original file being translated
+  - attributes:
+    - **source-language** - the language of the source file
+    - **target-language** - the language of the target file
+    - **datatype** - the type of the file
+    - **original** - the original file name
+    - **header** - optional header
+- **tool** - optional tool element
+  - attributes:
+    - **tool-id** - the id of the tool (tolgee.io for Tolgee)
+    - **tool-name** - the name of the tool (Tolgee)
+    - **body** - the main body of the file, described below
+[//]: # (@formatter:on)
+
+### Body element
+
+- **trans-unit** - These are individual translation units. Each contains a single item that needs translation. Their `id` attribute, like `user-settings.password.label`, represents the key of the text that needs to be translated.
+- **source** - The 'source' element contains the original text that is to be translated. It is written in the source language that was indicated in the `file` element.
+- **target** - The 'target' element is where the translation of the 'source' text goes. This should be in the target language stated in the 'file' element.
+
+In the example provided above, `trans-unit` `id='user-settings.password.label'` has a `source` text of `Password`, which is then translated in the `target` as `Passwort`.
+
+In general, the XLIFF format is organized to ensure that it captures as much context about the translation as possible, making it easier to carry out the translation process even without interacting with the original system where the text strings came from.
+
+## Message format
+For this file format, we preserve the ICU message format as it is native for Tolgee. Tolgee uses ICU message format
+Natively, so your multiple forms will be exported to the ICU.
+
+## White spaces
+When exporting to XLIFF, Tolgee sets the `xml:space="preserve"` attribute to the `source` and `target` elements to
+keep the whitespaces as they were in the Tolgee platform. While importing `xml:space="preserve"` is respected. That means,
+if the `xml:space="preserve"` is missing or set to `default`, Tolgee will remove the leading and trailing whitespaces.
+
+## XLIFF specifics for importing to Tolgee
+Xliff format stores not only the target language translations but also the source strings. When importing the XLIFF
+file to Tolgee, you will get two language rows for each language. When you intend to import only one of them, you have to
+remove one of the language rows manually.
+
+<ScreenshotWrapper src="/img/docs/platform/formats/xliff_mutiple_langs.webp"
+                   alt="Xliff import leads to multiple language result" />
+
+## Limitations
+Tolgee supports only `source`, `target` and `note` of the `trans-unit` element. Other elements are ignored.
+
+### Importing / Exporting in general
+To read more about importing and exporting with Tolgee continue to [import](/platform/projects_and_organizations/import)
+section or [export](/platform/projects_and_organizations/export) section.

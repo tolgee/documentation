@@ -1,0 +1,61 @@
+---
+id: apple_strings
+title: Apple Strings and Stringsdict
+sidebar_label: Apple Strings & Stringsdict
+---
+
+Apple Strings and Stringsdict are used to localize strings in Apple platforms. The format is currently deprecated.
+However, we still recommend using it in favor of XLIFF since this Strings and Stringsdict gives you
+better control over the strings and their translations.
+
+The `.strings` file is used to store simple strings, while `.stringsdict` is used to store only the plural values.
+
+Example of a Strings file:
+```
+/*
+  Localizable.strings
+*/
+
+/* This is a comment */
+"welcome_header_%@" = "Hello, %@";
+
+/* This is a comment */
+"user_settings_password_label" = "Password";
+```
+
+Example of a Stringsdict file:
+```xml
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+  <dict>
+    <key>what-a-key-plural_%lld</key>
+    <dict>
+      <key>NSStringLocalizedFormatKey</key>
+      <string>%#@format@</string>
+      <key>format</key>
+      <dict>
+        <key>NSStringFormatSpecTypeKey</key>
+        <string>NSStringPluralRuleType</string>
+        <key>NSStringFormatValueTypeKey</key>
+        <string>lld</string>
+        <key>one</key>
+        <string>Peter has one dog</string>
+        <key>other</key>
+        <string>Peter hase %lld dogs</string>
+      </dict>
+    </dict>
+  </dict>
+</plist>
+```
+
+We recommend using the semantic keys format as in the examples above. That enables you to change the base values without
+modifying the actual key and doesn't suggest keeping the keys in sync with the base language translation.
+
+import ApplePlaceholders from './applePlaceholders.mdx';
+
+<ApplePlaceholders />
+
+import Importing from './generalImporting.mdx';
+
+<Importing />

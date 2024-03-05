@@ -13,6 +13,7 @@ module.exports = {
       label: 'Projects and Organizations',
       type: 'category',
       items: [
+        'projects_and_organizations/editing_translations',
         'projects_and_organizations/project_settings',
         'projects_and_organizations/languages',
         'projects_and_organizations/machine-translation-settings',
@@ -34,6 +35,7 @@ module.exports = {
         'translation_keys/namespaces',
         'translation_keys/screenshots',
         'translation_keys/batch_operations',
+        'translation_keys/custom_values',
       ],
     },
     {
@@ -45,6 +47,24 @@ module.exports = {
         'translation_process/tolgee_translator',
         'translation_process/comments',
         'translation_process/icu_message_format',
+        'translation_process/tolgee_universal_icu_placeholders',
+      ],
+    },
+    {
+      label: 'Supported Formats',
+      type: 'category',
+      items: [
+        'formats/supported_formats',
+        'formats/native_json',
+        'formats/structured_json',
+        'formats/xliff',
+        'formats/apple_strings',
+        'formats/apple_xliff',
+        'formats/android_xml',
+        'formats/flutter_arb',
+        'formats/properties',
+        'formats/php_po',
+        'formats/c_po',
       ],
     },
     {
@@ -52,6 +72,7 @@ module.exports = {
       type: 'category',
       items: [
         'integrations/about_integrations',
+
         {
           label: 'Figma plugin',
           type: 'category',
@@ -68,6 +89,7 @@ module.exports = {
             'integrations/unreal_plugin/usage',
           ],
         },
+        'integrations/other_integrations',
       ],
     },
     {
