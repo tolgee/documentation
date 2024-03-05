@@ -34,3 +34,24 @@ You can make this change for all the conflicts at once by clicking on the `Accep
 After resolving the conflicts, you can close this dialog by clicking on the `Close` button and you will be redirected back to the import page.
 
 ![Import conflicts dialog](/img/docs/platform/import_conflicts_dialog.png)
+
+## Importing placeholders
+When importing translations, Tolgee will automatically convert the placeholders to the [Tolgee Universal ICU Placeholders](/platform/translation_process/tolgee_universal_icu_placeholders).
+when enabled. You can find out how the placeholders are converted in the docs for the [specific format](../supported_formats).
+
+You can control the conversion of the placeholders in the import settings by setting the `Convert placeholders to Tolgee Universal ICU`.
+
+import { ScreenshotWrapper } from "../shared/_ScreenshotWrapper";
+
+<ScreenshotWrapper src="/img/docs/platform/icu_placeholders/import_controls.webp" alt="Import controls" />
+
+Read more about the Tolgee Universal ICU placeholders [here](/platform/translation_process/tolgee_universal_icu_placeholders).
+
+## Overriding key descriptions
+You can choose to override the key descriptions when importing translations. This option is disabled by default.
+
+<ScreenshotWrapper src="/img/docs/platform/import/override_key_descriptions.webp" alt="Override key descriptions" />
+
+## Importing plurals
+When importing translations with plural forms, the plural is automatically detected and imported. If existing key is not
+a plural yet. The base language value and the language translations converted to plural as well.

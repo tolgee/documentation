@@ -118,6 +118,7 @@ const roadmapData = {
         name: 'All format support',
         gitHubIssueLink:
           'https://github.com/tolgee/tolgee-platform/issues/1547',
+        done: true,
         description: (
           <p>
             Tolgee currently works fine with ICU message format and you can
@@ -132,6 +133,7 @@ const roadmapData = {
         name: 'Visual editor',
         gitHubIssueLink:
           'https://github.com/tolgee/tolgee-platform/issues/1547',
+        done: true,
         description: (
           <>
             <p>
