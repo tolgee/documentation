@@ -1,9 +1,82 @@
 ---
 slug: releasing-visual-editor-and-formats-support
-title: 'Elevate Your Translations with AI Translation Customization'
-description: 'Enhance your translations effortlessly with Tolgee AI Translation Customization by allowing personalized project descriptions, language notes and key descriptions'
-authors: [mchalupnikova]
-tags: ['tolgee', 'ai', 'tolgee translator']
-image: '/img/blog/ai_customizations.webp'
+title: 'Released visual editor and support for iOS, Android, Flutter, .po and more'
+description: ''
+authors: [jcizmar]
+tags: ['tolgee', 'android' ,'apple', 'ios', 'flutter', 'php', 'po', 'c++']
+image: '/img/blog/visual-editor-and-formats-support/og_image_light.webp'
 ---
 
+import ThemedImage from "@theme/ThemedImage";
+import useBaseUrl from "@docusaurus/useBaseUrl";
+
+<ThemedImage
+  alt="Visual editor and formats support"
+  sources={{
+    light: useBaseUrl('/img/blog/visual-editor-and-formats-support/og_image_light.webp'),
+    dark: useBaseUrl('/img/blog/visual-editor-and-formats-support/og_image_dark.webp'),
+  }}
+/>
+
+We are happy to announce that we finally released tools enabling you to use Tolgee not only with limited set of formats
+like JSON or XLIFF with limited features. Now you translate iOS, Mac and other Apple platform Apps, Android, Flutter,
+PHP and C++. Also, you can reliably export to generic formats like Structured JSON with support for arrays or XLIFF.
+
+To provide convenient way of editing translations for developers, translators, project manager and other stakeholders, we
+made our editor visual, so you can conveniently edit plurals, and you can edit strings without need to understand the
+placeholders or HTML tags syntax.
+
+<!--truncate-->
+
+## The new formats support freshly out of the oven
+Tolgee now supports the following formats:
+- Tolgee Native JSON
+- Generic Structured JSON (With Arrays Support)
+- Generic XLIFF
+- Apple .strings and .stringsdict (for iOS, MacOS and other Apple platforms)
+- Android Resources XML
+- Flutter ARB
+- PHP Gettext .po
+- C/C++ Gettext .po
+- Java (.properties)
+
+Convenient plurals editing in the visual editor is supported for all formats as well as placeholders visualization as
+described below.
+
+## The visual editor
+There are several issues regarding editing translation messages in different message formats and in raw HTML. For
+example this ICU message:
+
+```json
+"Hello, {name}! You have been promoted to <strong>{position}</strong>"
+```
+
+To edit such message, the translator need to understand several the ICU Message Syntax, so they know the `{name}` and
+`{position}` are placeholders representing the user's name and new position. They need to know that the `<strong>` is
+an HTML tag, they must not translate (e.g. to `<fuerte>` to spanish). The purpose of visual editor is hide the syntax
+from the translators and provide convenient way to edit such messages.
+
+import { ScreenshotWrapper } from "../platform/shared/_ScreenshotWrapper";
+
+<ScreenshotWrapper src="/img/blog/visual-editor-and-formats-support/visual_editor.webp" alt="Visual editor" />
+
+This way, the translator to spanish only need to type the text to be actually translator and add the placeholders by
+clicking the missing placeholders below the input field.
+
+Another benefit of the visual editor is the convenience when editing **right-to-left** language translations.
+The placeholders and HTML are still left-to-right and mixing them with right-to-left leads to weird cursor movements and
+behaviour. When displaying visualized placeholders instead of the raw syntax, the translator's cursors always moves
+natural, and they don't have to think about the order of opening and closing HTML tags.
+
+## Tolgee Universal ICU Placeholders
+For formats, which are not natively using ICU Message Format, Tolgee is able to convert the placeholders to
+the Tolgee Universal ICU Placeholders when importing, so you can edit them in the visual editor.
+These placeholders are then converted back when exporting.
+
+The main benefit of using unified placeholder syntax is that you're able to use the same localization data in different
+target platforms, since these placeholders can be converting to every supported format.
+
+## Convenient Plural Editing
+
+
+## Shiny New layout
