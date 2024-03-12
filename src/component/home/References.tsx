@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 
 import { ReferenceItem } from '../reference/ReferenceItem';
 import { OptimizedImage } from '../OptimizedImage';
+import { PlainLogo } from '../reference/PlainLogo';
 
 type Reference = {
   name: string;
@@ -65,6 +66,34 @@ const references: Reference[] = [
   },
 ];
 
+const plainLogos = [
+  {
+    name: 'Celeste',
+    logoLight: '/logos/plain/celesteLight.png',
+    logoDark: '/logos/plain/celesteDark.png',
+  },
+  {
+    name: 'Obi',
+    logoLight: '/logos/plain/obiLight.png',
+    logoDark: '/logos/plain/obiDark.png',
+  },
+  {
+    name: 'AbInBev',
+    logoLight: '/logos/plain/abinbevLight.png',
+    logoDark: '/logos/plain/abinbevDark.png',
+  },
+  {
+    name: 'Waterplan',
+    logoLight: '/logos/plain/waterplanLight.png',
+    logoDark: '/logos/plain/waterplanDark.png',
+  },
+  {
+    name: 'Whalebone',
+    logoLight: '/logos/plain/whaleboneLight.png',
+    logoDark: '/logos/plain/whaleboneDark.png',
+  },
+];
+
 export const References = () => {
   const [currentItemIndex, setCurrentItemIndex] = useState(0);
 
@@ -97,7 +126,7 @@ export const References = () => {
       />
       <div className="py-20 md:mx-12 references flex flex-col flex-grow items-center relative z-10 overflow-hidden">
         <h2 className="mb-12 text-gradient text-3xl text-center relative z-30">
-          Used by 6500+ users worldwide.
+          Used by 8500+ users worldwide.
         </h2>
         <div className="w-full">
           <div
@@ -170,6 +199,12 @@ export const References = () => {
               onClick={() => setCurrentItemIndex(i)}
               selected={i === currentItemIndex}
             />
+          ))}
+        </div>
+
+        <div className="flex gap-6 mt-10 items-stretch flex-wrap justify-center">
+          {plainLogos.map(({ name, logoDark, logoLight }) => (
+            <PlainLogo key={name} logoDark={logoDark} logoLight={logoLight} />
           ))}
         </div>
 
