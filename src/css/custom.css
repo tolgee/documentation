@@ -45,7 +45,7 @@
 }
 
 html[data-theme='dark'] {
-  --ifm-color-primary: rgb(255, 105, 149);
+  --ifm-color-primary: #ff6995;
   --ifm-color-primary-dark: #e55e86;
   --ifm-color-primary-darker: #db5e83;
   --ifm-color-primary-darkest: #c45374;
