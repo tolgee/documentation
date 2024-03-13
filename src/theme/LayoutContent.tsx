@@ -2,7 +2,6 @@ import React, { useEffect, useMemo } from 'react';
 
 import Head from '@docusaurus/Head';
 import useDocusaurusContext from '@docusaurus/useDocusaurusContext';
-import { getChatwootScript } from '../component/externalScripts/getChatwootScript';
 import { getGtagScript } from '../component/externalScripts/getGtagScript';
 import websiteSchema from '../info/website';
 import {
@@ -13,6 +12,7 @@ import {
 import { useDarkMode } from '../utils';
 import { getHotjarScript } from '../component/externalScripts/getHotjarScript';
 import { createTheme } from './muiTheme';
+import { getTypebotScript } from '../component/externalScripts/getTypebotScript';
 
 const MuiThemeSynchronizer = () => {
   const isDarkTheme = useDarkMode();
@@ -31,8 +31,10 @@ export const LayoutContent = ({ children }) => {
 
   const trackingId = siteConfig.customFields.googleTrackingId;
   //const cookieYesId = siteConfig.customFields.cookieYesId;
-  const chatwootToken = siteConfig.customFields.chatwootToken;
   const hotjarId = siteConfig.customFields.hotjarId;
+  const typebotToken = siteConfig.customFields.typebotToken as
+    | string
+    | undefined;
 
   useEffect(() => {
     setTimeout(() => {
@@ -62,10 +64,8 @@ export const LayoutContent = ({ children }) => {
           })(window,document,'script','dataLayer','${trackingId}');`}</script>
         )}
         {trackingId && <script>{getGtagScript(trackingId as string)}</script>}
-        {chatwootToken && (
-          <script>
-            {getChatwootScript(chatwootToken as string, isDarkTheme)}
-          </script>
+        {typebotToken && (
+          <script type="module">{getTypebotScript(typebotToken)}</script>
         )}
         {hotjarId && <script>{getHotjarScript(hotjarId as string)}</script>}
         <script type="application/ld+json">

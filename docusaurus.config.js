@@ -1,4 +1,5 @@
 // @ts-check
+require('dotenv').config();
 
 const { docs } = require('./docs');
 const { redirects } = require('./redirects');
@@ -81,7 +82,6 @@ const config = {
     ],
   ],
   plugins: [
-    'docusaurus2-dotenv',
     'docusaurus-plugin-image-zoom',
     ['@docusaurus/plugin-client-redirects', redirects],
     async function tailwind() {
@@ -103,6 +103,7 @@ const config = {
     utmCookieDomain: process.env.DOCUSAURUS_UTM_COOKIE_DOMAIN || 'tolgee.io',
     chatwootToken: process.env.DOCUSAURUS_CHATWOOT_TOKEN,
     hotjarId: process.env.DOCUSAURUS_HOTJAR_ID,
+    typebotToken: process.env.DOCOSAURUS_TYPEBOT_TOKEN,
   },
   scripts: [
     {
