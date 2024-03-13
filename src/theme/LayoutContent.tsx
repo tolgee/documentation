@@ -31,7 +31,6 @@ export const LayoutContent = ({ children }) => {
 
   const trackingId = siteConfig.customFields.googleTrackingId;
   //const cookieYesId = siteConfig.customFields.cookieYesId;
-  const chatwootToken = siteConfig.customFields.chatwootToken;
   const hotjarId = siteConfig.customFields.hotjarId;
   const typebotToken = siteConfig.customFields.typebotToken as
     | string
