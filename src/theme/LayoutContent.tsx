@@ -76,6 +76,8 @@ export const LayoutContent = ({ children }) => {
           content="boppg6u2f0982xhjbg7jtr9odtchvk"
         />
       </Head>
+      {/** default og image can be overriten in the Head */}
+      <meta property="og:image" content="/img/og-default.svg" />
       {trackingId && (
         <div
           dangerouslySetInnerHTML={{
