@@ -6,6 +6,8 @@ description: 'Learn about several ways how to translate a text using Tolgee Reac
 ---
 
 import MessageFormat from '../../shared/_MessageFormat.mdx';
+import TFunctionHint from '../../shared/_TFunctionHint.mdx';
+
 
 There are several ways how to translate a text using our React integration.
 
@@ -23,7 +25,7 @@ function Component() {
 }
 ```
 
-> `t` function has the same API as [`tolgee.t`](/api/core_package/tolgee.mdx#t).
+<TFunctionHint />
 
 ### Using namespaces
 
@@ -44,7 +46,7 @@ import { T } from "@tolgee/react";
 
 ...
 
-<T keyName="translation_key" />
+<T keyName="translation_key" defaultValue="Default value" params={...} />
 ```
 
 ## Message format
