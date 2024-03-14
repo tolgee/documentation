@@ -106,6 +106,7 @@ export default function Pricing() {
               featuresShortcut={'All from Free'}
               features={[
                 'webhooks',
+                'standard-support',
                 'custom-content-storage',
                 'ai-prompt-customization',
               ]}
@@ -152,9 +153,8 @@ export default function Pricing() {
               toggleBillingType={toggleBilling}
               featuresShortcut="All from Pay as you go"
               features={[
-                'granular-permissions',
                 'prioritized-feature-requests',
-                'standard-support',
+                'granular-permissions',
                 'multiple-content-deliveries',
                 'custom-content-storage',
                 'ai-prompt-customization',
