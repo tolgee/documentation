@@ -108,6 +108,7 @@ export default function Pricing() {
                 'webhooks',
                 'custom-content-storage',
                 'ai-prompt-customization',
+                'standard-support',
               ]}
               onMore={openFeaturesTable}
               minHeights={MIN_PLAN_HEIGHTS}
@@ -154,7 +155,6 @@ export default function Pricing() {
               features={[
                 'granular-permissions',
                 'prioritized-feature-requests',
-                'standard-support',
                 'multiple-content-deliveries',
                 'custom-content-storage',
                 'ai-prompt-customization',
