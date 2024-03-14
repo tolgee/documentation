@@ -70,3 +70,15 @@ except we intercept all events, not just selection.
 ```ts
 tolgee.on('update', handler: ListenerHandler<void>)
 ```
+
+### error
+
+Emitted when there is an error. You can intercept different types of errors, connected to fetching language data, detecting language or loading/storing language, you can filter them by `name` property on the error, which can be:
+ - `RecordFetchError` - error when fetching translations record, you can also read `language` and `namespace` properties, to see which record has failed
+ - `LanguageDetectorError` - error when detecting language through language detector plugin
+ - `LanguageStorageError` - error when loading/saving language through language storage plugin
+
+```ts
+tolgee.on('error', handler: ListenerHandler<TolgeeError>)
+```
+
