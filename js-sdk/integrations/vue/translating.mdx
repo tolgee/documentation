@@ -7,6 +7,9 @@ description: 'Learn how to translate your Vue application with Tolgee localizati
 
 import TFunctionHint from '../../shared/_TFunctionHint.mdx';
 import NamespacesHint from '../../shared/_NamespacesHint.mdx';
+import ExampleBanner from '../../shared/ExampleBanner';
+
+<ExampleBanner framework="Vue" />
 
 There are several ways how to translate with Tolgee.
 
@@ -40,7 +43,7 @@ The other option how to translate is [`useTranslate`](./api#composable-usetransl
 
 ## The `T` component
 
-Another way is to use [`T` component](./api#t-component), which has very similar API to the [`t` function](#t-function). 
+An alternative way is to use [`T` component](./api#t-component), which has a very similar use case and API to the `t` function mentioned above.
 
 ```html
 <template>
@@ -58,7 +61,7 @@ Another way is to use [`T` component](./api#t-component), which has very similar
 
 ## Using namespaces
 
-The [`useTranslate`](./api#composable-usetranslate) composable can be also used for loading additional namespaces.
+The `useTranslate` composable can be also used for loading additional namespaces.
 
 ```ts
 const { t, isLoading } = useTranslate('common');

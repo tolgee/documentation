@@ -5,6 +5,12 @@ sidebar_label: Translating
 description: 'Learn about several ways how to translate a text using Tolgee Svelte integration: T-component and getTranslate method.'
 ---
 
+import TFunctionHint from '../../shared/_TFunctionHint.mdx';
+import NamespacesHint from '../../shared/_NamespacesHint.mdx';
+import ExampleBanner from '../../shared/ExampleBanner';
+
+<ExampleBanner framework="Svelte" />
+
 There are two ways how to translate with Tolgee.
 
 ## `getTranslate` method
@@ -23,29 +29,31 @@ Other option how to translate is using of [`getTranslate`](./api#function-gettra
 {$t('key', 'Default value')}
 ```
 
-import TFunctionHint from '../../shared/_TFunctionHint.mdx';
-
 <TFunctionHint />
-
-
-### Using namespaces
-
-[`getTranslate`](./api#function-gettranslate) function can be also used for loading additional namespaces.
-
-```ts
-const { t, isLoading } = getTranslate('common');
-```
-
-This example will add `common` to [active namespaces](/api/core_package/tolgee.mdx#addactivens). You can then also use `isLoading` store, which will tell you if your data are ready.
 
 ## The `T` component
 
-Another way is to use [`T` component](./api#t-component)
+An alternative way is to use [`T` component](./api#t-component), which has a very similar use case and API to the `t` function mentioned above. 
 
 ```svelte
 <script>
   import { T } from "@tolgee/svelte";
 </script>
 
-<T keyName="this_is_a_key" />
+<T 
+  keyName="translation_key" 
+  defaultValue="User has {count} points"
+  params={{ count: 10 }}
+/>
 ```
+
+### Using namespaces
+
+The `getTranslate` function can be also used for loading additional namespaces.
+
+```ts
+const { t, isLoading } = getTranslate('common');
+```
+
+<NamespacesHint />
+
