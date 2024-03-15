@@ -62,30 +62,14 @@ import {
 })
 export class AppModule {}
 ```
+> Check all [tolgee options](../../api/core_package/options) and [tolgee plugins](../../plugins.mdx).
 
 So you have to:
 
 1. Add `NgxTolgeeModule` to your import section
 2. Add Factory provider for `TOLGEE_INSTANCE` token returning your `Tolgee` instance.
 
-:::info
-This is a minimal configuration example. Tolgee can do much more. Read more in [initialization](/initialization.mdx),
-[options](/api/core_package/options.mdx), or [tolgee plugins](/api/web_package/plugins.mdx).
-:::
-
-In the example, we imported [`FormatSimple`](/formatting.mdx#simple-formatter), which handles simple parameter interpolation.
-If you need advanced formatting, consider using [`FormatICU`](/formatting.mdx#icu-formatter).
-If you don't want to format your messages, you don't have to use any formatter plugin.
-
-You can provide the API key and API URL directly, or you can use
-[angular application environments](https://angular.io/guide/build#configuring-application-environments).
-
-That's it. Now you can use Tolgee for translating your strings.
-
-## Other configuration properties
-
-Configuration properties for all web integrations are similar. They are described in [`options`](/api/core_package/options.mdx)
-section.
+Use [angular application environments](https://angular.io/guide/build#configuring-application-environments) to configure `apiUrl` and `apiKey`.
 
 ## Preparing for production
 

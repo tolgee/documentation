@@ -5,7 +5,7 @@ title: Tolgee Translator
 
 import { ScreenshotWrapper } from '../shared/_ScreenshotWrapper';
 
-Tolgee Translator is based on ChatGPT and can translate with included [Tolgee Context](/js-sdk/tolgee_context),
+Tolgee Translator is based on ChatGPT and can translate with included [Tolgee Context](/js-sdk#automatic-context-collection),
 key description, project description, language notes and results from the translation memory.
 
 ## Tolgee Translator with context
@@ -15,21 +15,21 @@ This functionality is available only in the Cloud version with SDK 5.9.0 and hig
 :::
 
 Tolgee Context is a statistic about relations between the keys based on how they are laid out in your application.
-Context is gathered by Tolgee SDK. [Read more.](/js-sdk/tolgee_context)
+Context is gathered by Tolgee SDK. [Read more.](/js-sdk#automatic-context-collection)
 
 <ScreenshotWrapper
   src="/img/docs/platform/tolgee-translator.webp"
   alt="Tolgee Translator"
 />
 
-_With [Tolgee Context](/js-sdk/tolgee_context), ambiguous translations can be improved radically._
+_With [Tolgee Context](/js-sdk#automatic-context-collection), ambiguous translations can be improved radically._
 
 The presence of context for the given key is indicated at the bottom left corner of the key cell and at the Tolgee
 Translator icon with a little ⚡ icon. By clicking on the icon, you can see the context.
 
 ## Tolgee Translator without context
 
-Tolgee Translator can improve the quality of translation even without the [Tolgee Context](/js-sdk/tolgee_context).
+Tolgee Translator can improve the quality of translation even without the [Tolgee Context](/js-sdk#automatic-context-collection).
 It knows the key name, it can be enhanced with key description, project descriptions and language notes.
 Also, it gets access to the [translation memory](/platform/translation_process/translation_memory),
 so if there are similar translations, it will keep it consistent.
@@ -41,7 +41,7 @@ so if there are similar translations, it will keep it consistent.
 
 _Tolgee Translator can help maintain consistency with other translations if translation memory is available._
 
-It can essentially see the same information as a human translator (when screenshots are replaced by [Tolgee Context](/js-sdk/tolgee_context)).
+It can essentially see the same information as a human translator (when screenshots are replaced by [Tolgee Context](/js-sdk#automatic-context-collection)).
 
 ## Tolgee Translator customization
 

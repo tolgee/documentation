@@ -11,8 +11,7 @@ export default function ExampleBanner({ framework, appName }) {
         }-example`}
       >
         {framework} example application
-      </Link>{' '}
-      to get a complete image of working {framework} integration.
+      </Link>
     </blockquote>
   );
 }

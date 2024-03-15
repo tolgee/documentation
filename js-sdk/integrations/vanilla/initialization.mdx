@@ -25,6 +25,7 @@ const tolgee = Tolgee()
     }
   })
 
+// this part starts loading data
 tolgee.run();
 ```
 
@@ -36,9 +37,9 @@ We use `DevTools` plugin which will provide in-context translating in dev mode. 
 
 > Obtaining Tolgee API key is described in [Integration](/platform/integrations/about_integrations) chapter.
 
-> Check all [tolgee options](./api/core_package/options) and [tolgee plugins](./api/web_package/plugins).
+> Check all [tolgee options](/api/core_package/options.mdx) and [tolgee plugins](/api/web_package/plugins.mdx).
 
-> Tolgee SDK can be used [without connection to Tolgee Platform](./usage-without-platform)
+> Tolgee SDK can be used [without connection to Tolgee Platform](/usage_without_platform.mdx)
 
 ## What does `run` do?
 
@@ -46,6 +47,6 @@ We use `DevTools` plugin which will provide in-context translating in dev mode. 
 In tolgee integrations `run` method is usually called automatically in tolgee provider, it is generally better to hook it into framework lifecycle because of SSR.
 :::
 
-Tolgee [`run`](./api/core_package/tolgee.mdx#run) method will start loading translations data (if necessary) and also activates in-context tools.
+Tolgee [`run`](../../api/core_package/tolgee.mdx#run) method will start loading translations data (if necessary) and also activates in-context tools.
 
-You can use tolgee without running it (e.g. on server with ssr). That way tolgee won't activate in-context tools and will not load anything asynchronously, but you can still use [`tolgee.t`](./api/core_package/tolgee.mdx#t) function with [`staticData`](./api/core_package/options#staticdata).
+You can use tolgee without running it (e.g. on server with ssr). That way tolgee won't activate in-context tools and will not load anything asynchronously, but you can still use [`tolgee.t`](../../api/core_package/tolgee.mdx#t) function with [`staticData`](../../api/core_package/options#staticdata).

@@ -88,10 +88,10 @@ module.exports.redirects = {
       from: '/docs/web/get_started/preparing_for_production',
       to: '/js-sdk/providing-static-data',
     },
-    { from: '/docs/web/get_started/hello_world', to: '/js-sdk/initialization' },
+    { from: '/docs/web/get_started/hello_world', to: '/js-sdk/get_started' },
     {
       from: '/docs/web/using_with_npm/installation',
-      to: '/js-sdk/initialization',
+      to: '/js-sdk/get_started',
     },
     {
       from: '/docs/web/using_with_react/ssr/ssr',

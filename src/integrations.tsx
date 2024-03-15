@@ -80,7 +80,7 @@ export const integrations = [
     label: 'Vanilla JS',
     logo: '/img/technologies/logo-js.svg',
     links: {
-      Docs: '/js-sdk/installation',
+      Docs: '/js-sdk/integrations/vanilla/installation',
       'GitHub Repository':
         'https://github.com/tolgee/tolgee-js/tree/main/packages/core',
       'Example App': 'https://github.com/tolgee/window-example',
