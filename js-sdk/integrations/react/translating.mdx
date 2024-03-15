@@ -5,13 +5,17 @@ sidebar_label: Translating
 description: 'Learn about several ways how to translate a text using Tolgee React integration: T-component or useTranslate hook.'
 ---
 
-import MessageFormat from '../../shared/_MessageFormat.mdx';
+import TFunctionHint from '../../shared/_TFunctionHint.mdx';
+import NamespacesHint from '../../shared/_NamespacesHint.mdx';
+import ExampleBanner from '../../shared/ExampleBanner';
 
-There are several ways how to translate a text using our React integration.
+<ExampleBanner framework="React" />
+
+There are two ways how to translate a text using our React integration.
 
 ## `useTranslate` hook
 
-Other option how to translate is using of [`useTranslate`](./api#hook-usetranslate) hook. You can use it this way:
+The basic way to translate is [`useTranslate`](./api#hook-usetranslate) hook.
 
 ```js
 import { useTranslate } from '@tolgee/react';
@@ -19,34 +23,37 @@ import { useTranslate } from '@tolgee/react';
 function Component() {
   const { t } = useTranslate();
 
-  return <div title={t('key_to_translate')}>...</div>;
+  return <div>{t('key_to_translate')}</div>;
 }
 ```
 
-> `t` function has the same API as [`tolgee.t`](/api/core_package/tolgee.mdx#t).
-
-### Using namespaces
-
-`useTranslate` hook can be also used for loading additional namespaces.
-
-```ts
-const { t, isLoading } = useTranslate('common');
-```
-
-This example will add `common` to [active namespaces](/api/core_package/tolgee.mdx#addactivens). You can then also use `isLoading` property, which will tell you if your data are ready.
+<TFunctionHint />
 
 ## The `T` component
 
-Another way is to use [`T` component](./api#t-component)
+An alternative way is to use [`T` component](./api#t-component), which has a very similar API to the `t` function mentioned above.
+The `T` component can be used in places where you don't have access to React hooks.
+Also it's it's necessary to use `T` component for [Tags interpolation](./tags_interpolation.mdx).
 
 ```jsx
 import { T } from "@tolgee/react";
 
 ...
 
-<T keyName="translation_key" />
+<T 
+  keyName="translation_key" 
+  defaultValue="User has {count} points" 
+  params={{ count: 10 }}
+/>
 ```
 
-## Message format
+### Using namespaces
 
-<MessageFormat />
+The `useTranslate` hook can be also used for loading additional namespaces.
+
+```ts
+const { t, isLoading } = useTranslate('common');
+```
+
+<NamespacesHint />
+

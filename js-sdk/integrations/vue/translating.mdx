@@ -5,7 +5,13 @@ sidebar_label: Translating
 description: 'Learn how to translate your Vue application with Tolgee localization tool: with the T-component or by Imperative translation.'
 ---
 
-There are two ways how to translate with Tolgee.
+import TFunctionHint from '../../shared/_TFunctionHint.mdx';
+import NamespacesHint from '../../shared/_NamespacesHint.mdx';
+import ExampleBanner from '../../shared/ExampleBanner';
+
+<ExampleBanner framework="Vue" />
+
+There are several ways how to translate with Tolgee.
 
 ## Global `$t` function
 
@@ -19,7 +25,7 @@ If you use [`VueTolgee`](./api#vuetolgee-plugin) plugin, you can use `$t` functi
 
 ## `useTranslate` composable
 
-Other option how to translate is using of [`useTranslate`](./api#composable-usetranslate) composable. You can use it this way:
+The other option how to translate is [`useTranslate`](./api#composable-usetranslate) composable.
 
 ```html
 <template>
@@ -33,25 +39,19 @@ Other option how to translate is using of [`useTranslate`](./api#composable-uset
 </script>
 ```
 
-> `t` function has the same API as [`tolgee.t`](/api/core_package/tolgee.mdx#t).
-
-### Using namespaces
-
-[`useTranslate`](./api#composable-usetranslate) composable can be also used for loading additional namespaces.
-
-```ts
-const { t, isLoading } = useTranslate('common');
-```
-
-This example will add `common` to [active namespaces](/api/core_package/tolgee.mdx#addactivens). You can then also use `isLoading` property, which will tell you if your data are ready.
+<TFunctionHint />
 
 ## The `T` component
 
-Another way is to use [`T` component](./api#t-component)
+An alternative way is to use [`T` component](./api#t-component), which has a very similar use case and API to the `t` function mentioned above.
 
 ```html
 <template>
-  <T keyName="translation_key" />
+  <T
+    keyName="translation_key" 
+    defaultValue="User has {count} points"
+    :params="{ count: 10 }"
+ />
 </template>
 
 <script setup>
@@ -59,8 +59,12 @@ Another way is to use [`T` component](./api#t-component)
 </script>
 ```
 
-## Message format
+## Using namespaces
 
-import MessageFormat from '../../shared/_MessageFormat.mdx';
+The `useTranslate` composable can be also used for loading additional namespaces.
 
-<MessageFormat />
+```ts
+const { t, isLoading } = useTranslate('common');
+```
+
+<NamespacesHint />

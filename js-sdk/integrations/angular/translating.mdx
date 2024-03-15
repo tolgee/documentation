@@ -5,7 +5,11 @@ sidebar_label: Translating
 description: 'Learn how to translate with Angular. To translate strings in Angular, you can use pipe, t component, or translation methods.'
 ---
 
-Check our [Angular example application](https://github.com/tolgee/ngx-example) to get a complete image of working Angular integration.
+import TFunctionHint from '../../shared/_TFunctionHint.mdx';
+import NamespacesHint from '../../shared/_NamespacesHint.mdx';
+import ExampleBanner from '../../shared/ExampleBanner';
+
+<ExampleBanner framework="Angular" appName="ngx" />
 
 You can use pipe, t component, or translation methods to translate strings in Angular.
 
@@ -116,9 +120,3 @@ So you can use all its features.
 Don't overuse [`instant`](/integrations/angular/api.mdx#method-instant) method. When possible, use [`translate`](/integrations/angular/api.mdx#method-get) method.
 When the translations are not loaded, [`instant`](/integrations/angular/api.mdx#method-instant) method will not provide a valid result.
 :::
-
-## Message format
-
-import MessageFormat from '../../shared/_MessageFormat.mdx';
-
-<MessageFormat />

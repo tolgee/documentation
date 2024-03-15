@@ -26,6 +26,19 @@ Generate one-click screenshots with in-context and [Tolgee Tools](https://chrome
   <source src="/in-context-screenshot.mov"></source>
 </ScreenRecording>
 
+## Automatic Context Collection
+
+With the introduction of Tolgee Translator, which uses ChatGPT under the hood, we can provide the Tolgee Translator with additional context. To obtain this context, the Tolgee SDK now collects data about the layout of the keys on your pages.
+
+### What data are being collected and when?
+
+Every time you save a translation through In-context tools dialog, Tolgee SDK simply sends a list of keys that are currently present on the page to the Tolgee platform. Tolgee platform then maintains a statistic about relationships between the keys based on the order in which they appear on different pages.
+
+### Is this safe, what about data leaks?
+
+This process is very safe because we are not collecting any additional texts from your page, we are only collecting information about the order of the translations (which are already in the platform), so we know how they are related.
+
+
 ## Review translations
 
 Check how your translations look directly in your app and mark them as reviewed.

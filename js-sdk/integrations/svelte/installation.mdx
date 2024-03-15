@@ -5,9 +5,9 @@ sidebar_label: Installation
 description: 'Learn how to install Tolgee Svelte SDK. To get full image of working Svelte integration, check our Svelte Example Application.'
 ---
 
-:::info
-To get full image of working Svelte integration, check our [Svelte Example Application](https://github.com/tolgee/svelte-example).
-:::
+import ExampleBanner from '../../shared/ExampleBanner';
+
+<ExampleBanner framework="Svelte" />
 
 To install Tolgee Svelte integration library, run:
 
@@ -44,7 +44,7 @@ Init Tolgee and wrap your application in [`TolgeeProvider`](./api#tolgeeprovider
 </TolgeeProvider>
 ```
 
-> Check [Initialization](/initialization.mdx) for more info.
+> Check all [tolgee options](../../api/core_package/options) and [tolgee plugins](../../plugins.mdx).
 
 If you bootstrapped your application with SvelteKit, your `.env.development.local` file should look like this:
 

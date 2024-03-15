@@ -1,17 +1,7 @@
 module.exports = {
   someSidebar: [
     'about',
-    'installation',
-    'initialization',
-    'translating',
-    'formatting',
-    'switching_language',
-    'namespaces',
-    'in_context',
-    'wrapping',
-    'providing_static_data',
-    'plugins',
-    'tolgee_context',
+    'get_started',
     {
       label: 'Integrations',
       collapsed: false,
@@ -81,20 +71,34 @@ module.exports = {
             'integrations/i18next/api',
           ],
         },
+        {
+          label: 'Vanilla JS',
+          type: 'category',
+          items: [
+            'integrations/vanilla/installation',
+            'integrations/vanilla/initialization',
+            'integrations/vanilla/translating',
+          ],
+        },
       ],
     },
     {
-      id: 'text_observer',
-      type: 'doc',
+      label: 'Core concepts',
+      type: 'category',
+      collapsed: false,
+      items: [
+        'formatting',
+        'language',
+        'namespaces',
+        'in_context',
+        'wrapping',
+        'providing_static_data',
+      ],
     },
-    {
-      id: 'typed_keys',
-      type: 'doc',
-    },
-    {
-      id: 'usage_without_platform',
-      type: 'doc',
-    },
+    'plugins',
+    'text_observer',
+    'typed_keys',
+    'usage_without_platform',
     {
       label: 'API',
       type: 'category',

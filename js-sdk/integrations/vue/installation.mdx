@@ -5,13 +5,14 @@ sidebar_label: Installation
 description: 'Learn how to install Tolgee Vue integration library and how to wrap your application with TolgeeProvider component.'
 ---
 
-:::info
-To get full image of working Vue integration, check our [Vue Example Application](https://github.com/tolgee/vue-example).
-:::
+import ExampleBanner from '../../shared/ExampleBanner';
+import { InstallationTabs } from '../../../src/component/InstallationTabs';
+import PreparingForProduction from '../../shared/_PreparingForProduction.mdx';
+
+<ExampleBanner framework="Vue" />
 
 To install Tolgee Vue integration library run:
 
-import { InstallationTabs } from '../../../src/component/InstallationTabs';
 
 <InstallationTabs lib="@tolgee/vue" />
 
@@ -41,7 +42,7 @@ const tolgee = Tolgee()
 app.use(VueTolgee, { tolgee });
 ```
 
-> Check [Initialization](/initialization.mdx) for more info.
+> Check all [tolgee options](../../api/core_package/options) and [tolgee plugins](../../plugins.mdx).
 
 [`VueTolgee`](./api#vuetolgee-plugin) plugin makes `$t` function globally available.
 
@@ -70,7 +71,5 @@ Otherwise, you can set the properties directly, or you can use plugins like [dot
 > Obtaining Tolgee API key is described in [Integration](/platform/integrations/about_integrations) chapter.
 
 ## Preparing for production
-
-import PreparingForProduction from '../../shared/_PreparingForProduction.mdx';
 
 <PreparingForProduction />

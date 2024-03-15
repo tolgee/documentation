@@ -81,11 +81,10 @@ Pass custom headers. Default: `{ Accept: 'application/json' }`
 
 It's a combination [`ObserverPlugin`](./plugins#observerplugin), [`ContextUi`](./tools#contextui) and [`DevBackend`](./plugins#devbackend) in one plugin, intended to enable in-context capabilities. It only applies plugins if there they are not already applied.
 
-:::info
 `DevTools` are automatically omitted in production builds (based on `NODE_ENV` variable).
 
-If you need include in-context tools in your production build check [`InContextTools`](/api/web_package/tools.mdx#incontexttools).
-:::
+If you need include in-context tools in your production build check [`InContextTools`](/api/web_package/tools.mdx#incontexttools), which are completely equivalent to `DevTools`, only without auto-omitting logic.
+
 
 ## `DevBackend`
 

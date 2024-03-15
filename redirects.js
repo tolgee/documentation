@@ -88,10 +88,10 @@ module.exports.redirects = {
       from: '/docs/web/get_started/preparing_for_production',
       to: '/js-sdk/providing-static-data',
     },
-    { from: '/docs/web/get_started/hello_world', to: '/js-sdk/initialization' },
+    { from: '/docs/web/get_started/hello_world', to: '/js-sdk/get_started' },
     {
       from: '/docs/web/using_with_npm/installation',
-      to: '/js-sdk/initialization',
+      to: '/js-sdk/get_started',
     },
     {
       from: '/docs/web/using_with_react/ssr/ssr',
@@ -164,6 +164,22 @@ module.exports.redirects = {
     {
       from: '/self_hosting/getting_started',
       to: '/platform/self_hosting/getting_started',
+    },
+    {
+      from: '/js-sdk/installation',
+      to: '/js-sdk/integrations/vanilla/installation',
+    },
+    {
+      from: '/js-sdk/initialization',
+      to: '/js-sdk/integrations/vanilla/initialization',
+    },
+    {
+      from: '/js-sdk/translating',
+      to: '/js-sdk/integrations/vanilla/translating',
+    },
+    {
+      from: '/js-sdk/tolgee_context',
+      to: '/js-sdk/',
     },
   ],
   createRedirects(existingPath) {
