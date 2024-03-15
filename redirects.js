@@ -165,6 +165,22 @@ module.exports.redirects = {
       from: '/self_hosting/getting_started',
       to: '/platform/self_hosting/getting_started',
     },
+    {
+      from: '/js-sdk/installation',
+      to: '/js-sdk/integrations/vanilla/installation',
+    },
+    {
+      from: '/js-sdk/initialization',
+      to: '/js-sdk/integrations/vanilla/initialization',
+    },
+    {
+      from: '/js-sdk/translating',
+      to: '/js-sdk/integrations/vanilla/translating',
+    },
+    {
+      from: '/js-sdk/tolgee_context',
+      to: '/js-sdk/',
+    },
   ],
   createRedirects(existingPath) {
     if (existingPath.indexOf('/js-sdk/5.x.x') === 0) {
