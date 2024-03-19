@@ -62,7 +62,8 @@ import { PlaceholderConversion } from "../../src/component/docs/formats/Placehol
     icuType: "N/A",
     example: "%%",
     exampleConverted: "%",
-    note: "%% is the way how to render %, in ICU we don't have such concept, so we just add %. When exporting the % is not converted back to %%."
+    note: "%% is the way how to render %, in ICU we don't have such concept, so we just add %. When exporting, the % is " +
+      "converted back to %%."
   },
   {
     specifier: "s",
@@ -91,8 +92,8 @@ import { PlaceholderConversion } from "../../src/component/docs/formats/Placehol
   }
 ]} originalName="C/C++ placeholder" target="original" />
 
-C doesn't support the `n$` positional specifiers. E.g.
-`I am %2$@, and I have %1$lld dogs.` is not converted to `I am {1} and I have {0, number} dogs`.
+C also supports `n$` positional specifiers. They are converted to the zero-based argument index. E.g.
+`I am %2$@, and I have %1$lld dogs.` is converted to `I am {1} and I have {0, number} dogs`.
 
 ## Exporting
 When exporting the data back to the .po file, the placeholders are converted back to the original format.
