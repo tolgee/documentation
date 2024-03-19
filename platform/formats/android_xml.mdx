@@ -72,7 +72,8 @@ import { PlaceholderConversion } from "../../src/component/docs/formats/Placehol
     icuType: "N/A",
     example: "%%",
     exampleConverted: "%",
-    note: "%% is the way how to render %, in ICU we don't have such concept, so we just add %. When exporting the % is not converted back to %%."
+    note: "%% is the way how to render %, in ICU we don't have such concept, so we just add %. When exporting, the % is " +
+      "converted back to %%."
   },
   {
     specifier: "s",
@@ -135,6 +136,61 @@ and vice versa when exporting from Tolgee to the Android XML file.
 Since the `[` and `]` characters are not allowed in the key names in the Android XML files,
 there should be no conflicts if you use the Tolgee project only for the Android app. Otherwise, remember that keys named
 with the described syntax are converted to arrays.
+
+## Strings wrapped with CDATA
+When Tolgee imports the Android XML file, it extracts the strings from the CDATA sections. e.g.
+`<string><![CDATA[Hello]]></string>` is imported as `Hello`. Keys with imported translations with CDATA-wrapped values
+are marked with `_androidWrapWithCdata` [custom value](/platform/translation_keys/custom_values). When exporting,
+keys marked with `_androidWrapWithCdata` are wrapped with CDATA.
+
+This happens because the main goal of Tolgee is to enable users to use the same translation data on multiple platforms
+(e.g., Web, Android, Apple). So we have to strip all the additional syntax, which is removed by the Android parser, so we
+work with a value similar to what Android resource tooling methods return.
+
+However, when Tolgee removes this syntax, without the `androidWrapWithCdata` custom value, it wouldn't be able to build
+Android XML resource file without possibly breaking the Android App.
+
+**What can go wrong?** The Android methods `context.resources.getString` and `context.resources.getText` behave differently. `context.resources.getString` strip all tags and return only the inner text of all nested elements. When we want to use getString together with tags,
+we have to wrap them with CDATA and handle the HTML manually. On the other hand, `context.resources.getText` enables us
+to use [some HTML](https://developer.android.com/guide/topics/resources/string-resource#StylingWithHTML) tags in the string and returns `SpannedString`, which contains information about styling or links.
+
+Now, consider a string `<string><![CDATA[Welcome <b>user</b>]]></string>`. It is wrapped with CDATA and contains a `<b>`
+tag. In our Android app, we use `context.resources.getString` to get the string that returns `Welcome <b>user</b>`, and then
+we use `Html.fromHtml` to parse the HTML.
+
+Tolgee imports this string as `Welcome <b>user</b>`. If we exported this string without the CDATA as
+`<string>Welcome <b>user</b></string>`, the `context.resources.getString` would return `Welcome user`. This means that
+the `user` won't be bold anymore in our app.
+
+## Escaping
+When importing data to Tolgee unescapes escapes quote `\"`, apostrophe `\'`, backslash `\\`, new line `\n` and tab (`\t`) characters are unescaped. When exporting,
+these characters are escaped back. e.g. `\"` is imported as `"` etc. Other characters (e.g. escaped unicode characters like `\u0020`) are not unescaped.
+
+## Multiple spaces and quoting
+Since XML normalizes white spaces when parsing, Android enables us to preserve longer space sequences by wrapping them into
+quotes. e.g. `<string name="long_space">"    "</string>`. When importing data to Tolgee, the quotes are removed, and the
+spaces are preserved.
+
+When exporting the data back to the Android XML file, the longer space sequences are wrapped with quotes **unless the
+string contains XML tags**. To preserve whitespaces in strings with XML tags, you can escape them as Unicode characters
+`\u0020`.
+
+## Importing keys with tags
+Unless the string is wrapped with CDATA, tags unsupported by Android are removed when importing data to Tolgee.
+
+The supported tags are the following as stated in the
+[official Android documentation](https://developer.android.com/guide/topics/resources/string-resource#StylingWithHTML):
+
+`b`, `i`, `cite`, `dfn`, `em`,
+`big`, `small`, `font`,
+`tt`, `s`, `strike`, `del`, `u`,
+`sup`, `sub`, `ul`, `li`,
+`br`, `div`, `p`, `a`
+
+
+
+## Tags and Placeholders
+When the value contains XML tags and placeholders at the same time, it's always wrapped with CDATA when exported.
 
 import Importing from './generalImporting.mdx';
 
