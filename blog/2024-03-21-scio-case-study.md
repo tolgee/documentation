@@ -90,7 +90,7 @@ _A clear process that allows translators to provide their translations in a **CI
 
 ## Tolgee for Open-Source
 
-In Tolgee, as fans of open-source, we would love to support the **open-source ecosystem, so our Business plan is free for all open-source projects like CSO**. To get this offer, reach out to us by [email](mailto:info@tolgee.io) or by DM in our [Slack community](https://Tolg.ee/slack).
+As open-source fans, we would love to support the **open-source ecosystem, so our Business plan is free for all open-source projects like CSO**. To get this offer, reach out to us by [email](mailto:info@tolgee.io) or by DM in our [Slack community](https://Tolg.ee/slack).
 
 <br></br>
 
