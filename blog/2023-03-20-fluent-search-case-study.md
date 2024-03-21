@@ -7,7 +7,7 @@ authors: [mchalupnikova]
 
 image: '/img/blog/fluent-search/fluent_search_testimonial.png'
 
-description: 'In this case study, we explore the incredible journey of Fluent Search, including how Adir has tackled challenges in translating the application into multiple languages and streamlined the localization process with the help of Tolgee API.'
+description: 'Explore how has Fluent Search tackled challenges in translating his app into multiple languages and streamlined the localization process with Tolgee API.'
 
 tags: [case study, localization, i18n, translation]
 ---

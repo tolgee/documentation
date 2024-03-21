@@ -15,14 +15,12 @@ export default function Integrations() {
     <div className="home__container">
       <Head>
         <script type="application/ld+json">{JSON.stringify(baseSchema)}</script>
-        <meta
-          name="description"
-          content="Learn how to install Tolgee integration libraries. With Tolgee i18n libraries you can enjoy all Tolgee i18n features."
-        />
       </Head>
       <DecoratedLayout
         title={baseSchema.slogan}
-        description={baseSchema.description}
+        description={
+          'Learn how to install Tolgee integration libraries. With Tolgee i18n libraries you can enjoy all Tolgee i18n features.'
+        }
       >
         <PageHeader className="mb-[100px]">
           <PageHeaderSubtitle h1>Integrations</PageHeaderSubtitle>

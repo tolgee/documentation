@@ -32,7 +32,7 @@ export default function Unreal() {
       <Head>
         <meta
           name="description"
-          content="Connect your Unreal Engine project with the Tolgee localization platform. This plugin will make the process of localizing your strings faster, easier, and more efficient."
+          content="Connect your Unreal Engine project with the Tolgee localization platform. This plugin will make the process of localizing your strings faster and easier."
         />
       </Head>
       <LandingPageHeadline

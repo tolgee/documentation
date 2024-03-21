@@ -128,7 +128,7 @@ Now you are able to translate your React.js applications with Tolgee. To learn m
 **Tolgee is open-source tool simplifying the process of web based application.** It has these features:
 
 - It's open-source and free localization (i18n) tool
-- You can translate in the [context](https://www.tolgee.io/blog/in-context-production) of your React.js app
+- You can translate in the [context](/features/dev-tools) of your React.js app
 - You can generate screenshots automatically
 - Open-source localization platform included
 - Localize react.js app with Tolgee fast and save time!

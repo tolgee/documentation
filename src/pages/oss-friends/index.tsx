@@ -10,10 +10,10 @@ import { PageHeaderTitle } from '../../component/pageComponents/header/PageHeade
 
 export default function OssFriends() {
   return (
-    <DecoratedLayout title="Oss friends">
-      <Head>
-        <meta name="description" content="Our Open-Source friends." />
-      </Head>
+    <DecoratedLayout
+      title="Oss friends"
+      description="We are proud to promote open-source software from our friends who are just as passionate about open source as we are."
+    >
       <PageHeader className="mb-[100px] md:mb-[220px]">
         <PageHeaderTitle active h1>
           Our OSS friends

@@ -3,7 +3,7 @@ slug: autonomous-localization
 title: 'Say hi to Autonomous Localization (i18n) of your app'
 image: /img/blog/2023-08-21-autonomous-localization/cover.png
 authors: [jcizmar]
-description: "Discover the future of app localization with Tolgee's Autonomous Localization. Our AI-powered translator understands context, providing reliable translations quickly and cost-effectively. Works seamlessly with major frameworks like React, Angular, Vue.js, Svelte, or JavaScript."
+description: "Discover the future of app localization with Tolgee's Autonomous Localization. Our AI translator understands context, providing reliable translations quickly."
 tags: [localization, web, typescript, javascript, AI]
 ---
 

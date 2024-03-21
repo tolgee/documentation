@@ -1,12 +1,10 @@
 ---
 slug: new-pricing-2023-05
 title: 'Introducing New Pricing Options: Pay as You Go, Only for What You Need!'
-authors: [ jcizmar ]
+authors: [jcizmar]
 image: '/img/blog/2023-05-05-new-pricing.png'
-description: 'We are changing our pricing. We are introducing Pay as you go. Pay only for what you use.
- We are also introducing a new metric, which is more fair and easier to understand. 
- We are also introducing new plans for self-hosted instances.'
-tags: [ pricing, pay as you go, self-hosted ]
+description: 'We are introducing new Pay as you go plan: pay only for what you use. We are also introducing new plans for self-hosted instances.'
+tags: [pricing, pay as you go, self-hosted]
 ---
 
 Based on your feedback, we have updated our pricing. Introducing new pay-as-you-go plans, so you only pay for what you
