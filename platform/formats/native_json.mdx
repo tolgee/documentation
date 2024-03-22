@@ -2,6 +2,7 @@
 id: native_json
 title: Tolgee Native JSON
 sidebar_label: Native JSON
+description: Native JSON is a simple JSON format that is native to Tolgee. In this format, we preserve the ICU message format. This format is native to the Tolgee JS SDKs.
 ---
 
 Native JSON is a simple JSON format that is native to Tolgee. In this format, we preserve the
@@ -25,13 +26,16 @@ with Tolgee SDKs because there is no space for confusion as with structured JSON
 or arrays, go ahead with [structured json](./structured_json) format.
 
 ### Format specification
+
 In JSON format, we store data as a JSON object. The keys in the JSON are localization keys, e.g.
 `user-settings.password.save.button`, and the values are the
 translated strings, e.g., `Save`, as you can see in the example. Keys, including dots or array indexes, are not converted to
 nested objects.
 
 ### Exporting via REST API
+
 To export to Tolgee Native JSON via REST API, you have to set the following parameters:
+
 ```json
 {
   "format": "JSON",
@@ -41,6 +45,7 @@ To export to Tolgee Native JSON via REST API, you have to set the following para
 ```
 
 Example with CURL:
+
 ```bash
 curl "https://app.tolgee.io/v2/projects/export?\
 format=JSON\

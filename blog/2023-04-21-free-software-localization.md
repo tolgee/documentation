@@ -7,7 +7,7 @@ authors: [mchalupnikova]
 
 image: '/img/blog/free-localization/painless_localization.png'
 
-description: 'With Tolgee localization platform and its own integration libraries, you can quickly and easily translate your software into multiple languages, allowing you to reach a truly global market.'
+description: 'With Tolgee localization platform and its integration libraries, you can easily translate your software into multiple languages and reach the global market.'
 
 tags: [localization, i18n, translation]
 ---

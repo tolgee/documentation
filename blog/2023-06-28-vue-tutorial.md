@@ -7,7 +7,7 @@ authors: [knzapdi]
 
 image: '/img/blog/vue-tutorial/vue_tolgee.jpg'
 
-description: 'Learn how to integrate Tolgee open-source software localization tool into a Vue.js application with a step-by-step tutorial. Explore how to easily translate your Vue app into various languages'
+description: 'Learn how to integrate Tolgee open-source software localization tool into a Vue.js application with a step-by-step tutorial.'
 
 tags: [Vue.js, localization, i18n, tutorial]
 ---

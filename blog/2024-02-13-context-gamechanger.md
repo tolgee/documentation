@@ -90,7 +90,7 @@ The in-context translating feature is, at the same time, also an excellent tool 
 
 ## 3. Machine translation with context: Tolgee AI Translator
 
-Tolgee [AI Translator](/blog/tolgee-ai-translator) is a game-changer in software localization, providing **contextually tailored translations**. By seamlessly integrating with your application, Tolgee **extracts context automatically**, so you don't have to bother developers or designers by asking them to provide the description or to take screenshots for every key.
+Tolgee [AI Translator](/blog/tolgee-ai-translator) is a game-changer in software localization, providing **contextually tailored translations**. By seamlessly [integrating with your application](/integrations), Tolgee **extracts context automatically**, so you don't have to bother developers or designers by asking them to provide the description or to take screenshots for every key.
 
 Context is gathered through Tolgee's **native JS SDKs** that provide [in-context dialogs](/js-sdk/in-context). The SDKs are available for all major frameworks like React, Angular Vue.js, Svelte or plain JavaScript.
 

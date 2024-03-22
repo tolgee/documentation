@@ -29,7 +29,7 @@ For server components, the approach involves including a complete key name withi
 
 In Development mode, data will be fetched directly from Tolgee platform with each request to the server. In Production mode, we'll include the locale data directly into the bundle, so no fetching is necessary.
 
-# Setting Up the Configuration
+## Setting Up the Configuration
 
 To initiate a new project, we will create a fresh Next.js 13 project (with the app directory enabled):
 
