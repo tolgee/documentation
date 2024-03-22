@@ -1,9 +1,9 @@
 import React from 'react';
-import Head from '@docusaurus/Head';
 import './oss-friends.css';
 import { data } from './data.json';
 
 import DecoratedLayout from '../../theme/DecoratedLayout';
+import { PageHeader } from '../../component/pageComponents/header/PageHeader';
 import { PageHeaderSubtitle } from '../../component/pageComponents/header/PageHeaderSubtitle';
 import { PageHeaderTitle } from '../../component/pageComponents/header/PageHeaderTitle';
 
