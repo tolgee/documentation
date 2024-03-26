@@ -4,6 +4,8 @@ module.exports.navbar = {
     alt: 'Tolgee',
     src: 'img/tolgeeLogo.svg',
     srcDark: 'img/tolgeeLogoDark.svg',
+    width: 32,
+    height: 32,
   },
   items: [
     {
