@@ -52,6 +52,19 @@ const docs = [
       },
     },
   ],
+  [
+    '@docusaurus/plugin-content-docs',
+    {
+      id: 'api',
+      path: 'api',
+      breadcrumbs: true,
+      routeBasePath: 'api',
+      include: ['**/*.md', '**/*.mdx'],
+      sidebarPath: 'rest-api-sidebars.js',
+      docLayoutComponent: '@theme/DocPage',
+      docItemComponent: '@theme/ApiItem', // add @theme/ApiItem here
+    },
+  ],
 ];
 
 module.exports = { docs };

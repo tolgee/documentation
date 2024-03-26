@@ -16,6 +16,7 @@ const config = {
   onBrokenMarkdownLinks: 'warn',
   organizationName: 'Tolgee',
   projectName: 'Tolgee',
+  themes: ['docusaurus-theme-openapi-docs'],
   themeConfig: {
     navbar,
     footer,
@@ -65,21 +66,21 @@ const config = {
         },
       },
     ],
-    [
-      'redocusaurus',
-      {
-        specs: [
-          {
-            specUrl:
-              'https://app.tolgee.io/v3/api-docs/Accessible%20with%20API%20key',
-            routePath: '/api',
-          },
-        ],
-        theme: {
-          primaryColor: '#EC407A',
-        },
-      },
-    ],
+    // [
+    //   'redocusaurus',
+    //   {
+    //     specs: [
+    //       {
+    //         specUrl:
+    //           'https://app.tolgee.io/v3/api-docs/Accessible%20with%20API%20key',
+    //         routePath: '/api',
+    //       },
+    //     ],
+    //     theme: {
+    //       primaryColor: '#EC407A',
+    //     },
+    //   },
+    // ],
   ],
   plugins: [
     'docusaurus-plugin-image-zoom',
@@ -96,6 +97,24 @@ const config = {
         },
       };
     },
+    [
+      'docusaurus-plugin-openapi-docs',
+      {
+        id: 'openapi',
+        docsPluginId: 'rest-api',
+        config: {
+          tolgee: {
+            // "petstore" is considered the <id> that you will reference in the CLI
+            specPath:
+              'http://localhost:8080/v3/api-docs/V2%20Accessible%20with%20API%20key%20V2', // path or URL to the OpenAPI spec
+            outputDir: 'api', // output directory for generated *.mdx and sidebar.js files
+            sidebarOptions: {
+              groupPathsBy: 'tag', // generate a sidebar.js slice that groups operations by tag
+            },
+          },
+        },
+      },
+    ],
     ...docs,
   ],
   customFields: {
