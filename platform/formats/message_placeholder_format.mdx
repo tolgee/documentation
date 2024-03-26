@@ -1,0 +1,45 @@
+---
+id: message_placeholder_format
+title: Message & Placeholders format
+sidebar_label: Message & Placeholders format
+---
+
+For generic formats, Tolgee allows the export of data in various message and placeholder formats. Tolgee uses the ICU
+message format natively and is able to visualize ICU placeholders in the UI. Other message formats can be converted to
+Tolgee Universal ICU when importing. When exporting Tolgee, it can convert such ICU messages to other formats.
+
+For generic formats like `Gettext .po`, `JSON`, `YAML` or `XLIFF`, you can choose from various formats when exporting.
+
+## ICU
+ICU message format is a very powerful format tailored specifically for localization. You can read more about it's
+[features here](/platform/formats/message_placeholder_format). Since the ICU message format is native to Tolgee,
+no conversion is performed when importing data in the ICU message format.
+
+## PHP Sprintf
+import PhpPlaceholders from './components/placeholderConversion/_php.mdx'
+
+<PhpPlaceholders />
+
+## Java String.format
+
+import JavaPlaceholders from './components/placeholderConversion/_java.mdx'
+
+<JavaPlaceholders />
+
+## C Sprintf
+
+import CPlaceholders from './components/placeholderConversion/_c.mdx'
+
+<CPlaceholders />
+
+## Apple Sprintf
+
+import ApplePlaceholders from './components/placeholderConversion/_apple.mdx'
+
+<ApplePlaceholders />
+
+## Ruby Sprintf
+
+import RubyPlaceholders from './components/placeholderConversion/_ruby.mdx'
+
+<RubyPlaceholders />

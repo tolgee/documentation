@@ -181,6 +181,14 @@ module.exports.redirects = {
       from: '/js-sdk/tolgee_context',
       to: '/js-sdk/',
     },
+    {
+      from: '/platform/formats/php_po',
+      to: '/platform/formats/po',
+    },
+    {
+      from: '/platform/formats/c_po',
+      to: '/platform/formats/po',
+    },
   ],
   createRedirects(existingPath) {
     if (existingPath.indexOf('/js-sdk/5.x.x') === 0) {

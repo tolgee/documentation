@@ -1,0 +1,68 @@
+---
+id: flat_yaml
+title: Flat YAML
+sidebar_label: Flat YAML
+description: Flat YAML is a simple key-value format without support for nesting or arrays
+---
+Flat YAML is a simple key-value YAML. When exporting in this format, you can choose from various placeholder & message formats listed below.
+
+import { FormatList } from "../../src/component/docs/formats/FormatLinks";
+
+<FormatList formats={["ICU", "JAVA_STRING_FORMAT", "PHP_SPRINTF", "C_SPRINTF"]} />
+
+Read more about [message & placeholder formats here.](./message_placeholder_format.mdx)
+
+## Example
+
+This is an example of .yaml file.
+
+```yaml title="en.yaml"
+"user-settings.password.save.button": "Save"
+"interpolated_key": "Hello, {name}!"
+"plural_key": "You have {count, plural, one {one message} other {# messages}}."
+```
+
+Flat YAML doesn't support nesting or array support. We recommend using flat YAML in favor of
+Structured YAML because there is no space for confusion as with structured YAML.
+If you need support for nesting or arrays, go ahead with [structured YAML](structured_yaml.mdx).
+
+## Format specification
+
+In flat YAML format, we store data as a flat YAML object, so the keys are not nested and all the keys
+are on the first level of the root YAML object.
+
+The keys in the YAML are localization keys, e.g.
+`user-settings.password.save.button`, and the values are the translated strings, e.g.,
+`Save`, as you can see in the example. Keys, including dots or array indexes, are not converted to nested objects.
+
+## The message format and placeholder conversion
+import {
+  GenericMessageAndPlaceholderConversion
+} from "../../src/component/docs/formats/GenericMessageAndPlaceholderConversion";
+
+<GenericMessageAndPlaceholderConversion formatName="Flat YAML"
+                                        placeholderExamples={<><code>%s</code>, <code>%d</code></>} />
+
+## Exporting via REST API
+
+To export to Tolgee Native YAML via REST API, you have to set the following parameters:
+
+```
+{
+  "format": "YAML",
+  "supportArrays": "false",
+  "structureDelimiter": ""
+}
+```
+
+Example with CURL:
+```
+curl "https://app.tolgee.io/v2/projects/export?\
+format=YAML\
+&structureDelimiter=\
+&supportArrays=false" -H "X-API-Key: <Your Project API key>" --output data.zip
+```
+
+import Importing from './components/_general_importing.mdx';
+
+<Importing />

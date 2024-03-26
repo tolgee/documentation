@@ -9,20 +9,16 @@ import {
 } from '../../table/Table';
 import clsx from 'clsx';
 
-export type PlaceholderConversionData = [
-  {
-    specifier: ReactNode;
-    icuType: ReactNode;
-    example: ReactNode;
-    exampleConverted: ReactNode;
-    note: ReactNode;
-  }
-];
+export type PlaceholderConversionData = {
+  specifier: ReactNode;
+  icuType: ReactNode;
+  example: ReactNode;
+  exampleConverted: ReactNode;
+  note?: ReactNode;
+}[];
 
 export const PlaceholderConversion: FC<{
   data: PlaceholderConversionData;
-  originalName: ReactNode;
-  target: 'original' | 'icu';
 }> = (props) => {
   return (
     <Table>

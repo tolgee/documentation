@@ -21,6 +21,12 @@ Tolgee currently supports two versions of
 XLIFF files. The general XLIFF 1.2 and the Apple-specific XLIFF. To read
 more about Apple XLIFF, see [Apple XLIFF](./apple_xliff). Xliff 2.0 is not supported yet.
 
+You can export and import XLIFF files in message & placeholder formats listed below.
+
+import { FormatList } from "../../src/component/docs/formats/FormatLinks";
+
+<FormatList formats={["ICU", "JAVA_STRING_FORMAT", "PHP_SPRINTF", "C_SPRINTF", "RUBY_SPRINTF"]} />
+
 Example:
 
 ```xml
@@ -74,9 +80,13 @@ In the example provided above, `trans-unit` `id='user-settings.password.label'` 
 
 In general, the XLIFF format is organized to ensure that it captures as much context about the translation as possible, making it easier to carry out the translation process even without interacting with the original system where the text strings came from.
 
-## Message format
-For this file format, we preserve the ICU message format as it is native for Tolgee. Tolgee uses ICU message format
-Natively, so your multiple forms will be exported to the ICU.
+## The message format and placeholder conversion
+import {
+  GenericMessageAndPlaceholderConversion
+} from "../../src/component/docs/formats/GenericMessageAndPlaceholderConversion";
+
+<GenericMessageAndPlaceholderConversion formatName="XLIFF"
+                                        placeholderExamples={<><code>%s</code>, <code>%d</code></>} />
 
 ## White spaces
 When exporting to XLIFF, Tolgee sets the `xml:space="preserve"` attribute to the `source` and `target` elements to
