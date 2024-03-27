@@ -1,5 +1,7 @@
 import React, { useEffect, useState } from 'react';
 
+import '../../static/font.css';
+
 import Layout from './Layout';
 import clsx from 'clsx';
 

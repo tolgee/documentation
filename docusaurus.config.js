@@ -88,15 +88,16 @@ const config = {
       return {
         name: 'docusaurus-tailwindcss',
         configurePostCss(postcssOptions) {
-          postcssOptions.plugins.push(require('tailwindcss'));
-          postcssOptions.plugins.push(require('autoprefixer'));
+          postcssOptions.plugins = [
+            require('tailwindcss'),
+            require('autoprefixer'),
+          ];
           return postcssOptions;
         },
       };
     },
     ...docs,
   ],
-  stylesheets: ['/font.css'],
   customFields: {
     googleTrackingId: process.env.DOCUSAURUS_GOOGLE_TRACKING_ID,
     cookieYesId: process.env.DOCUSAURUS_COOKIE_YES_ID,

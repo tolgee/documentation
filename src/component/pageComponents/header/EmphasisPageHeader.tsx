@@ -8,7 +8,6 @@ import { IWantItButton } from './IWantItButton';
 import Link from '@docusaurus/Link';
 import GitHubIcon from '../../../../static/img/github.svg';
 import { Sections } from '../featurePage/sections/Sections';
-import { useMediaQuery, useTheme } from '@mui/material';
 import clsx from 'clsx';
 import { ScrollDownArrow } from './ScrollDownArrow';
 
@@ -17,14 +16,10 @@ export const EmphasisPageHeader = (props: {
   title2?: string;
   title3?: string;
 }) => {
-  const theme = useTheme();
-  const isLarge = !useMediaQuery(theme.breakpoints.down('sm'));
-
   return (
     <PageHeader
       className={clsx(
-        'pt-[120px] sm:mb-[0px] sm:pb-[60px] relative',
-        isLarge && 'min-h-[100vh]'
+        'pt-[120px] sm:mb-[0px] sm:pb-[60px] relative lg:min-h-[100vh]'
       )}
       noPadding
     >
@@ -33,6 +28,8 @@ export const EmphasisPageHeader = (props: {
         <ThemedImage
           alt="Swing arrow"
           className="w-28 md:w-48 ml-3"
+          width="162"
+          height="87"
           sources={{
             light: '/img/swingArrow.svg',
             dark: '/img/swingArrowDark.svg',
