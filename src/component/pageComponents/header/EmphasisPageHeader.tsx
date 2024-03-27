@@ -8,7 +8,6 @@ import { IWantItButton } from './IWantItButton';
 import Link from '@docusaurus/Link';
 import GitHubIcon from '../../../../static/img/github.svg';
 import { Sections } from '../featurePage/sections/Sections';
-import { useMediaQuery, useTheme } from '@mui/material';
 import clsx from 'clsx';
 import { ScrollDownArrow } from './ScrollDownArrow';
 
