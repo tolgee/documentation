@@ -1,0 +1,34 @@
+The official Apple's string format specifiers documentation can be found
+[here](https://developer.apple.com/library/archive/documentation/Cocoa/Conceptual/Strings/Articles/formatSpecifiers.html).
+
+Only specifiers specified in the table below are supported. Tolgee doesn't support additional flags and modifiers and
+placeholders using them are not converted.
+
+import { PlaceholderConversion } from "../../../../src/component/docs/formats/PlaceholderConversions";
+import {
+  floatSprintfConversionItem,
+  percentSprintfConversionItem, scientificSprintfConversionItem
+} from "../../../../src/component/docs/formats/BaseSprintfPlaceholderConversions";
+
+<PlaceholderConversion data={[
+  percentSprintfConversionItem,
+  {
+    specifier: "@",
+    icuType: "none",
+    example: "%@",
+    exampleConverted: "{0}",
+  },
+  {
+    specifier: "lld",
+    icuType: "number",
+    example: "%lld",
+    exampleConverted: "{0, number}",
+  },
+  floatSprintfConversionItem,
+  scientificSprintfConversionItem
+]} originalName="Apple placeholder" target="original" />
+
+If your placeholder is not supported, you can use `%@` and format the string yourself in the code.
+
+Apple also supports `n$` positional specifiers. There are converted to as well as the zero based argument index. E.g.
+`I am %2$@, and I have %1$lld dogs.` is converted to `I am {1} and I have {0, number} dogs`.

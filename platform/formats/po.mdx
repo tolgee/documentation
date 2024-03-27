@@ -1,0 +1,76 @@
+---
+id: po
+title: Gettext .po
+sidebar_label: Gettext .po
+---
+
+The .po file format, short for Portable Object, is a form of text file used in software development
+to translate interface text. Originating from the GNU Gettext localization method,
+this open-source standard is widely used to make applications available in multiple languages.
+In the .po file, each original text string and its translation are grouped to aid in the automated translation
+of software content.
+
+For .po files, Tolgee fully supports the plurals and uses `extracted comments` as the key descriptions. To read more about
+the .po file format, you can visit the [GNU Gettext documentation](https://www.gnu.org/software/gettext/manual/html_node/PO-Files.html).
+
+You can export and import Gettext (.po) files in message and placeholder formats listed below.
+
+import { FormatList } from "../../src/component/docs/formats/FormatLinks";
+
+<FormatList formats={["ICU", "JAVA_STRING_FORMAT", "PHP_SPRINTF", "C_SPRINTF", "RUBY_SPRINTF"]} />
+
+Read more about [message & placeholder formats here.](./message_placeholder_format.mdx)
+
+## Example of a .po file
+
+```po
+msgid ""
+msgstr ""
+"Project-Id-Version: Tolgee 1.0.1\n"
+"Report-Msgid-Bugs-To: report@example.com \n"
+"Language: de\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+
+#. This is a welcome message
+msgid "Hello, world!"
+msgstr "Hallo, Welt!"
+
+msgid "%d page read."
+msgid_plural "%d pages read."
+msgstr[0] "Eine Seite gelesen wurde."
+msgstr[1] "%d Seiten gelesen wurden."
+```
+
+Tolgee converts the placeholders to the [Tolgee Universal ICU placeholders](/platform/translation_process/tolgee_universal_icu_placeholders)
+when enabled.
+
+## Feature support
+Tolgee supports importing of basic `msgid` and `msgstr` fields, the plural `msgid_plural` and `msgstr[..]` arrays and it
+imports the `extracted comments` (`#.`) as the key descriptions. No other fields are supported.
+
+## The message format and placeholder conversion
+import {
+  GenericMessageAndPlaceholderConversion
+} from "../../src/component/docs/formats/GenericMessageAndPlaceholderConversion";
+
+<GenericMessageAndPlaceholderConversion formatName="Gettext (.po)"
+                                        placeholderExamples={<><code>%s</code>, <code>%d</code></>} />
+
+## Exporting
+When exporting the data back to the .po file, the placeholders are converted back to the original format.
+
+## Plural import and `msgid_plural` field
+When importing the `.po` file, Tolgee always imports the `msgid` as the key. When `msgid_plural` is present, Tolgee
+imports the field as a `_poFileMsgIdPlural` custom value, so it is able to export the plural of the
+the same way it was imported.
+
+import SeeCustom from "./components/_see_custom_values.mdx";
+
+<SeeCustom />
+
+import Importing from './components/_general_importing.mdx';
+
+<Importing />

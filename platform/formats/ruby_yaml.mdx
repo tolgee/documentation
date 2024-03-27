@@ -1,0 +1,53 @@
+---
+id: ruby_yaml
+title: Ruby on Rails .yaml
+sidebar_label: Ruby on Rails .yaml
+---
+
+Structured YAML format is a generic format enabling you to export translations to YAML files with array support.
+When exporting in this format, you can choose from various placeholder & message formats listed below.
+
+Read more in [Ruby in Rails official internationalization docs](https://guides.rubyonrails.org/i18n.html).
+
+## Example of structured YAML
+
+```yaml title="en.yaml"
+en:
+  user:
+    settings:
+      password:
+        save:
+          button: "Save"
+```
+
+When importing such YAML, the nested elements are converted into flat keys. So, the example above will be imported the
+same way as this one:
+```
+"user.settings.password.save.button": "Save"
+```
+
+## Format specification
+Ruby on rails is specific, since it has a
+[language tag](/platform/projects_and_organizations/languages#the-bcp-47-language-tag) in the root. Other that, it has
+the same features and behaves identically to the [generic structured YAML format](/platform/formats/structured_yaml).
+
+
+## The message format and placeholder conversion
+
+import {
+  GenericMessageAndPlaceholderConversion
+} from "../../src/component/docs/formats/GenericMessageAndPlaceholderConversion";
+import RubyPlaceholders from './components/placeholderConversion/_ruby.mdx';
+
+
+<GenericMessageAndPlaceholderConversion formatName="Flat YAML"
+                                        placeholderExamples={<>
+                                          <code>`%{'{'}name{'}'}</code>, <code>%{'<'}count{'>'}d</code></>} />
+
+### Placeholder conversion specification
+
+<RubyPlaceholders />
+
+import Importing from './components/_general_importing.mdx';
+
+<Importing />

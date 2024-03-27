@@ -5,7 +5,13 @@ sidebar_label: Structured JSON
 ---
 
 Structured JSON format is a generic format enabling you to export translations to JSON files with array support.
-In this format, we preserve the [ICU message format](/platform/translation_process/icu_message_format).
+When exporting in this format, you can choose from various placeholder & message formats listed below.
+
+import { FormatList } from "../../src/component/docs/formats/FormatLinks";
+
+<FormatList formats={["ICU", "JAVA_STRING_FORMAT", "PHP_SPRINTF", "C_SPRINTF", "RUBY_SPRINTF"]} />
+
+Read more about [message & placeholder formats here.](./message_placeholder_format.mdx)
 
 In general, we recommend against using structured JSON because it can lead to unexpected behavior, as explained below.
 
@@ -32,6 +38,14 @@ When importing such JSON, the nested elements are converted into flat keys. So, 
   "user.settings.password.save.button": "Save"
 }
 ```
+
+## The message format and placeholder conversion
+import {
+  GenericMessageAndPlaceholderConversion
+} from "../../src/component/docs/formats/GenericMessageAndPlaceholderConversion";
+
+<GenericMessageAndPlaceholderConversion formatName="Structured JSON"
+                                        placeholderExamples={<><code>%s</code>, <code>%d</code></>} />
 
 ### Support for arrays
 

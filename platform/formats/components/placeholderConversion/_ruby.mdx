@@ -1,0 +1,42 @@
+Only specifiers specified in the table below are supported. Tolgee doesn't support additional flags and modifiers and
+placeholders using them are not converted.
+
+import { PlaceholderConversion } from "../../../../src/component/docs/formats/PlaceholderConversions";
+import { percentSprintfConversionItem } from "../../../../src/component/docs/formats/BaseSprintfPlaceholderConversions";
+
+<PlaceholderConversion data={[
+  percentSprintfConversionItem,
+  {
+    specifier: "s",
+    icuType: "none",
+    example: "%s, %<name>s",
+    exampleConverted: "{0}, {name}",
+  },
+  {
+    specifier: "d",
+    icuType: "number",
+    example: "%d, %<count>d",
+    exampleConverted: "{0, number}, {count, number}",
+  },
+  {
+    specifier: "f",
+    icuType: "number, [precision string]",
+    example: "%f, %<value>f",
+    exampleConverted: "{0, number, 0.000000}, {value, number, 0.000000}",
+    note: "By default %f uses 6 decimal places, that's why we convert it to the number with such precision. " +
+      "%.2 f would be {0, number, 0.00} and so on."
+  },
+  {
+    specifier: "e",
+    icuType: "number, scientific",
+    example: "%e, %<value>e",
+    exampleConverted: "{0, number, scientific}, {value, number, scientific}",
+    note: "%E is not supported"
+  }
+]} originalName="Ruby placeholder" target="original" />
+
+Ruby supports named placeholders. Such placeholders are wrapped with curly brackets, e.g., `%{name}`. When also specifying
+the specifier, the name is wrapped in angle brackets, e.g., `%<name>s`. The name is then used to convert to ICU.
+
+Ruby also supports`n$` positional specifiers. They are converted to the zero-based argument index. E.g.
+  `I am %2$@, and I have %1$lld dogs.` is converted to`I am {1} and I have {0, number} dogs`.
