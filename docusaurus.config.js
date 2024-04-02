@@ -104,7 +104,6 @@ const config = {
         docsPluginId: 'rest-api',
         config: {
           tolgee: {
-            // "petstore" is considered the <id> that you will reference in the CLI
             specPath:
               'http://localhost:8080/v3/api-docs/V2%20Accessible%20with%20API%20key%20V2', // path or URL to the OpenAPI spec
             outputDir: 'api', // output directory for generated *.mdx and sidebar.js files

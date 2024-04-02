@@ -1,0 +1,58 @@
+---
+id: delete-5
+title: "Deletes one or multiple keys by their IDs in request body"
+description: "Deletes one or multiple keys by their IDs in request body"
+sidebar_label: "Deletes one or multiple keys by their IDs in request body"
+hide_title: true
+hide_table_of_contents: true
+api: eJy9Vm1vGzcM/isCPxaX2MvSoTigH9IlG4wUW9Fm2AA3MOQTfZajk84S75zLwf+9oHR+yZwNA1IsH5xYIkU+Dx+S6YFkGSCfwkdXSKOfJGlnxQN2Ae4zcDX6eDJRkINCg4Szt5BBLb2skNCzbw9WVgg5yAfIQFvIYd2g7yADhaHwuuYnIIerTxN+WtTetVqhEq2WIpqK/YPn4k9tjJijUFh7LCShEtoKWqJYNNR4PIcMAnWGIy6cr/hrscRKQt4DdTWfB/LalrDNAB9lVUdbKmv5MCurC1U8PnV21ap19ePCPW02ZaVWVbtRpVutnW0fZWWUbS6X+q2pYZvt8f11dvVpcnaL3Q7mEqVC/99wJttz8UUu0IugbYHDWRDSo7CORCDnE9yAvkUvjCvD/433PgOP6wYDfXCq4yCFs4SW+E9Z10YXUROjVWC0/VE27Kc9KhaUVlFCQ4JuvsKCWDmeRUUaAzuwUd5DY/W6wQlhFSAn3+DeT3ovT4U0uQ7CLaJMBTmRhMlFSS/sadGWsHyhQP/kz/RKSo4/XcJ2u82ANEU6r6PRLXbhmly6OsDlnONBqJ0NCdvFeMy/nkf+/ZaLdPnS1QepxOdEPGTHnL8ZvXlO8/OiH9e8L5zC951rZkqrWXAV0lLbcrbxzpZZ6rLwfrq/yES8ud8yoJjY5WlivzkSv7jGqlem5TG4xhc4s45mC35wn5FtjEk5bP9eq8R7EM6icF5UjSFdG0zFm3c8GLQXXFFtxSBcMWflZsAo3WF0xcFFS8hh1F6Mau9Yk2EUp10GqeXSQGu84fYmqvPRyPBoXLpA+bvxu/GJmH5Fy1MS1a5p2Zm7iPvj86GTbnZ0DLKfju+3PEcWLpI3yOzOmRJR8Ag5iTTcfUlh2MTjAj3agqFx8smu/eF8zDKrXaBKxh4dJthryHyWy77ahI80qo3UliNG3vqB5Sm0F6njI8+QwW6vMJl83/dzGfAPb7ZbPk5bg/lXOsi54c5aSBPwJPheht9xp7wI6AG73WJrpWnYINa2lV5zhpBPuYrDIvgOqb9qTfwLhOPddUCS9cP1zymrszt+4WBxMu4PHldFgTUd2fI8YGr2TXd98/Hm7gYymA97pHKKDb3cQBY/c/gKXwH4Hw0OEcdmPO/BSFs2smT7FJh/vgGU/f1h
+sidebar_class_name: "delete api-method"
+info_path: api//tolgee-api
+custom_edit_url: null
+---
+
+import ApiTabs from "@theme/ApiTabs";
+import DiscriminatorTabs from "@theme/DiscriminatorTabs";
+import MethodEndpoint from "@theme/ApiExplorer/MethodEndpoint";
+import SecuritySchemes from "@theme/ApiExplorer/SecuritySchemes";
+import MimeTabs from "@theme/MimeTabs";
+import ParamsItem from "@theme/ParamsItem";
+import ResponseSamples from "@theme/ResponseSamples";
+import SchemaItem from "@theme/SchemaItem";
+import SchemaTabs from "@theme/SchemaTabs";
+import Markdown from "@theme/Markdown";
+import OperationTabs from "@theme/OperationTabs";
+import TabItem from "@theme/TabItem";
+
+<h1 className={"openapi__heading"}>Deletes one or multiple keys by their IDs in request body</h1>
+
+<MethodEndpoint method={"delete"} path={"/v2/projects/keys"}></MethodEndpoint>
+
+
+
+Deletes one or multiple keys by their IDs in request body
+
+## Request
+
+<details style={{"marginBottom":"1rem"}} className={"openapi-markdown__details"} data-collapsed={false} open={true}><summary style={{}}><h3 className={"openapi-markdown__details-summary-header-params"}>Query Parameters</h3></summary><div><ul><ParamsItem className={"paramsItem"} param={{"name":"ak","in":"query","description":"API key provided via query parameter. Will be deprecated in the future.","style":"form","schema":{"type":"string"},"example":"tgpak_gm2dcxzynjvdqm3fozwwgmdjmvwdgojqonvxamldnu4hi5lp"}}></ParamsItem></ul></div></details><details style={{"marginBottom":"1rem"}} className={"openapi-markdown__details"} data-collapsed={false} open={true}><summary style={{}}><h3 className={"openapi-markdown__details-summary-header-params"}>Header Parameters</h3></summary><div><ul><ParamsItem className={"paramsItem"} param={{"name":"X-API-Key","in":"header","description":"API key provided via header. Safer since headers are not stored in server logs.","style":"form","schema":{"type":"string"},"example":"tgpak_gm2dcxzynjvdqm3fozwwgmdjmvwdgojqonvxamldnu4hi5lp"}}></ParamsItem></ul></div></details><MimeTabs className={"openapi-tabs__mime"}><TabItem label={"application/json"} value={"application/json-schema"}><details style={{}} className={"openapi-markdown__details mime"} data-collapsed={false} open={true}><summary style={{}} className={"openapi-markdown__details-summary-mime"}><h3 className={"openapi-markdown__details-summary-header-body"}>Body</h3><strong className={"openapi-schema__required"}>required</strong></summary><div style={{"textAlign":"left","marginLeft":"1rem"}}></div><ul style={{"marginLeft":"1rem"}}><SchemaItem collapsible={false} name={"ids"} required={true} schemaName={"int64[]"} qualifierMessage={undefined} schema={{"uniqueItems":true,"type":"array","description":"IDs of keys to delete","items":{"type":"integer","description":"IDs of keys to delete","format":"int64"}}}></SchemaItem></ul></details></TabItem></MimeTabs><div><div><ApiTabs label={undefined} id={undefined}><TabItem label={"200"} value={"200"}><div>
+
+OK
+
+</div><div></div></TabItem><TabItem label={"400"} value={"400"}><div>
+
+Bad Request
+
+</div><div><MimeTabs className={"openapi-tabs__mime"} schemaType={"response"}><TabItem label={"*/*"} value={"*/*"}><SchemaTabs className={"openapi-tabs__schema"}><TabItem label={"Schema"} value={"Schema"}><details style={{}} className={"openapi-markdown__details response"} data-collapsed={false} open={true}><summary style={{}} className={"openapi-markdown__details-summary-response"}><strong>Schema</strong></summary><div style={{"textAlign":"left","marginLeft":"1rem"}}></div><ul style={{"marginLeft":"1rem"}}><div style={{"marginTop":".5rem","marginBottom":".5rem"}}>
+
+string
+
+</div></ul></details></TabItem></SchemaTabs></TabItem></MimeTabs></div></TabItem><TabItem label={"404"} value={"404"}><div>
+
+Not Found
+
+</div><div><MimeTabs className={"openapi-tabs__mime"} schemaType={"response"}><TabItem label={"*/*"} value={"*/*"}><SchemaTabs className={"openapi-tabs__schema"}><TabItem label={"Schema"} value={"Schema"}><details style={{}} className={"openapi-markdown__details response"} data-collapsed={false} open={true}><summary style={{}} className={"openapi-markdown__details-summary-response"}><strong>Schema</strong></summary><div style={{"textAlign":"left","marginLeft":"1rem"}}></div><ul style={{"marginLeft":"1rem"}}><div style={{"marginTop":".5rem","marginBottom":".5rem"}}>
+
+string
+
+</div></ul></details></TabItem></SchemaTabs></TabItem></MimeTabs></div></TabItem></ApiTabs></div></div>
+      

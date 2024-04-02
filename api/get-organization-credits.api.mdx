@@ -1,0 +1,58 @@
+---
+id: get-organization-credits
+title: "Returns machine translation credit balance for organization"
+description: "Returns machine translation credit balance for organization"
+sidebar_label: "Returns machine translation credit balance for organization"
+hide_title: true
+hide_table_of_contents: true
+api: eJy9VVFv2zYQ/ivEPW0FHXtZVhQC+pAWWxEUXYukQwsEhkGLZ5kxRcrkSbFj6L8PJ8mKXKebhxR7EnR3vPvu4/G7HZDKIiS38EGlS+NQUFAuWkXGO5EG1IYiTCX4AkNjvNKQQIb0MWTKmYfG9raLk1CooHIkDJxzB07lCAn4QeyVBgnGQQKFoiVICLguTUANCYUSJcR0ibmCZAe0Lfi0cYQZBpCw8CFX1JpeXkBdy76EWu3TrksMW5CgMabBFFwTErj8dCVWuBVF8JXRqEVllGhCRY/5THwx1oo5Co1FwFQRamGcoCWKRUllwDOQEGlruSKDgSfgRgrGZVBLwI3KiyaWskKtZll+rtPNw9bdVXqd/7rwD/f3Wa7v8upeZ/5u7V21UbnVrrxYmt9sAYP+vo4uP12N3uN23+YSlW5IOaHPNvZM3KgFBhGNS7GzRaECCudJRPKhbTdiqDAI67P4f/c75XGIhXcRI5c4n0z4c9jix/cgIfWO0BF7X4xf8OcR2ONE3cK8TFdIN+YB+VAzp2+UVS7lf9xQUG8PjFO578vP7zAlnunAw0+mhXSY45QplUMQpx14Athp7wHIUHMDB4c/eI0W6poDLp6i9I3S4hrXJUb6F24PL31457vUa3y99eVMGz2LPkdaGpfN7oN3mWxfWXx92zukaDzTugd2cQzsT0/iD186/UxYAaMvQ4oz52m24IQ9Ilda22Kov31M10hlcFHk39VGMW8ZFgsfxFDmQAL36Tu1bKSRlpDAuDofDwPjeHcoj/W4KzcalBu15UbzfnbbV9rKbBksKwJRkYzH1qfKLn2k5NXk1eRIIN6hYyVHvX/nfJgfnnEL31DZTdBnbzNEwYJylKTz3bQZOCTgAgO20BhXG1f9cjbheS58pFw5Tt/p2fOoPUDT3z7hhsaFVcZxzYaUXUf7LVTnIA8WEa+r5GgzncD9VALTy0l3u7mK+Fewdc3mdvXwjWgT1dyyBC2UjXiEuJ/lH7iYnmRhhdv9dqyULTmgue1KBcMI/yPan647bf1ZfK9iZ1RuO6y5R/IN4fW0lvtV9gN4e9ai+wf+htv3kUa569yXaYoFDXysT8xyLwHvfv8Mdf03NntFfA==
+sidebar_class_name: "get api-method"
+info_path: api//tolgee-api
+custom_edit_url: null
+---
+
+import ApiTabs from "@theme/ApiTabs";
+import DiscriminatorTabs from "@theme/DiscriminatorTabs";
+import MethodEndpoint from "@theme/ApiExplorer/MethodEndpoint";
+import SecuritySchemes from "@theme/ApiExplorer/SecuritySchemes";
+import MimeTabs from "@theme/MimeTabs";
+import ParamsItem from "@theme/ParamsItem";
+import ResponseSamples from "@theme/ResponseSamples";
+import SchemaItem from "@theme/SchemaItem";
+import SchemaTabs from "@theme/SchemaTabs";
+import Markdown from "@theme/Markdown";
+import OperationTabs from "@theme/OperationTabs";
+import TabItem from "@theme/TabItem";
+
+<h1 className={"openapi__heading"}>Returns machine translation credit balance for organization</h1>
+
+<MethodEndpoint method={"get"} path={"/v2/organizations/{organizationId}/machine-translation-credit-balance"}></MethodEndpoint>
+
+
+
+Returns machine translation credit balance for organization
+
+## Request
+
+<details style={{"marginBottom":"1rem"}} className={"openapi-markdown__details"} data-collapsed={false} open={true}><summary style={{}}><h3 className={"openapi-markdown__details-summary-header-params"}>Path Parameters</h3></summary><div><ul><ParamsItem className={"paramsItem"} param={{"name":"organizationId","in":"path","required":true,"schema":{"type":"integer","format":"int64"}}}></ParamsItem></ul></div></details><details style={{"marginBottom":"1rem"}} className={"openapi-markdown__details"} data-collapsed={false} open={true}><summary style={{}}><h3 className={"openapi-markdown__details-summary-header-params"}>Query Parameters</h3></summary><div><ul><ParamsItem className={"paramsItem"} param={{"name":"ak","in":"query","description":"API key provided via query parameter. Will be deprecated in the future.","style":"form","schema":{"type":"string"},"example":"tgpak_gm2dcxzynjvdqm3fozwwgmdjmvwdgojqonvxamldnu4hi5lp"}}></ParamsItem></ul></div></details><details style={{"marginBottom":"1rem"}} className={"openapi-markdown__details"} data-collapsed={false} open={true}><summary style={{}}><h3 className={"openapi-markdown__details-summary-header-params"}>Header Parameters</h3></summary><div><ul><ParamsItem className={"paramsItem"} param={{"name":"X-API-Key","in":"header","description":"API key provided via header. Safer since headers are not stored in server logs.","style":"form","schema":{"type":"string"},"example":"tgpak_gm2dcxzynjvdqm3fozwwgmdjmvwdgojqonvxamldnu4hi5lp"}}></ParamsItem></ul></div></details><div><div><ApiTabs label={undefined} id={undefined}><TabItem label={"200"} value={"200"}><div>
+
+OK
+
+</div><div><MimeTabs className={"openapi-tabs__mime"} schemaType={"response"}><TabItem label={"*/*"} value={"*/*"}><SchemaTabs className={"openapi-tabs__schema"}><TabItem label={"Schema"} value={"Schema"}><details style={{}} className={"openapi-markdown__details response"} data-collapsed={false} open={true}><summary style={{}} className={"openapi-markdown__details-summary-response"}><strong>Schema</strong></summary><div style={{"textAlign":"left","marginLeft":"1rem"}}></div><ul style={{"marginLeft":"1rem"}}><SchemaItem collapsible={false} name={"creditBalance"} required={true} schemaName={"int64"} qualifierMessage={undefined} schema={{"type":"integer","format":"int64"}}></SchemaItem><SchemaItem collapsible={false} name={"bucketSize"} required={true} schemaName={"int64"} qualifierMessage={undefined} schema={{"type":"integer","format":"int64"}}></SchemaItem><SchemaItem collapsible={false} name={"extraCreditBalance"} required={true} schemaName={"int64"} qualifierMessage={undefined} schema={{"type":"integer","format":"int64"}}></SchemaItem></ul></details></TabItem><TabItem label={"Example (from schema)"} value={"Example (from schema)"}><ResponseSamples responseExample={"{\n  \"creditBalance\": 0,\n  \"bucketSize\": 0,\n  \"extraCreditBalance\": 0\n}"} language={"json"}></ResponseSamples></TabItem></SchemaTabs></TabItem></MimeTabs></div></TabItem><TabItem label={"400"} value={"400"}><div>
+
+Bad Request
+
+</div><div><MimeTabs className={"openapi-tabs__mime"} schemaType={"response"}><TabItem label={"*/*"} value={"*/*"}><SchemaTabs className={"openapi-tabs__schema"}><TabItem label={"Schema"} value={"Schema"}><details style={{}} className={"openapi-markdown__details response"} data-collapsed={false} open={true}><summary style={{}} className={"openapi-markdown__details-summary-response"}><strong>Schema</strong></summary><div style={{"textAlign":"left","marginLeft":"1rem"}}></div><ul style={{"marginLeft":"1rem"}}><div style={{"marginTop":".5rem","marginBottom":".5rem"}}>
+
+string
+
+</div></ul></details></TabItem></SchemaTabs></TabItem></MimeTabs></div></TabItem><TabItem label={"404"} value={"404"}><div>
+
+Not Found
+
+</div><div><MimeTabs className={"openapi-tabs__mime"} schemaType={"response"}><TabItem label={"*/*"} value={"*/*"}><SchemaTabs className={"openapi-tabs__schema"}><TabItem label={"Schema"} value={"Schema"}><details style={{}} className={"openapi-markdown__details response"} data-collapsed={false} open={true}><summary style={{}} className={"openapi-markdown__details-summary-response"}><strong>Schema</strong></summary><div style={{"textAlign":"left","marginLeft":"1rem"}}></div><ul style={{"marginLeft":"1rem"}}><div style={{"marginTop":".5rem","marginBottom":".5rem"}}>
+
+string
+
+</div></ul></details></TabItem></SchemaTabs></TabItem></MimeTabs></div></TabItem></ApiTabs></div></div>
+      

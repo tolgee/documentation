@@ -1,0 +1,58 @@
+---
+id: set-outdated-1
+title: "Set's 'outdated' indication"
+description: "Set's 'outdated' indication"
+sidebar_label: "Set's 'outdated' indication"
+hide_title: true
+hide_table_of_contents: true
+api: eJy9Vm1P20gQ/it78+XuKkOAcqfKUnUKIoei8iYCx+loFC3eib1g75rdcSCN/N9PY8eOQ2hp1ar54uzbzDPPvC6AZOwhvIFLJ41PJWlrPIwDsDm6ajVUEIJHOitISUI12YUAculkhoSO3y7AyAwhBFrJGCoIQBsIIZeUQAAOHwrtUEFIrsAAfJRgJiFcAM1zfqwNYYwOAphal0mqt/7ch7IMWg2eJOG3Sr61NkVp1gTJ+0bKQ4FuDgEo9JHTOYOHEPrnQ3GPc5E7O9MKlZhpKaqrorV9W1zrNBW3KBTmDiNmR2gjKEExLahwuA0BeJqnrJGtghfQeXLaxFAGgE8yy6u7FOfyfhJneyp6+jQ3dzP1kL2d2k+Pj3Gm7rLZo4rt3YM1syeZpcoU+4n+I82hY9+/W/3z4dYHnDdmJihVxe5X2Fnf3RYjOUUnvDYRLve8kA6FsSQ8WVeb69HN0InUxv5n2ztm7/vcGo+eVezt7PBn3cSzDxBAZA2hIT5903vDnxWwVQDdgCzIMmUcvnYZ8ZVRHHfjoDHC3t5hRJwIjhOFdK1fqxcDeh3PUAk7FZ1cEQ4j69QLkR8A4RNtkvdcZCd5RfWibCC/+nTE154BggDQFBnzcXV6edE/HR33LweHEMDa4mLwz3BwXf09HI76B8eDQxiXHd42U/C59usEKUEnbqVHkUoTFzLGNW4epRdRIk2MSsgpoROUaL9xpchrlWVQu/ArVMuVFFSi8NrEokvkCWbWzYV14kRGiTbruDjqdYR/scaMzuv0ca/zfZ3oKBHZ5yXW5nhUgqxgW1YoK9M7zjk6Ozs6HkAA/esRO2EwOD/m1X9XF7x70B8eXrHTzo6PBgMYl+UX4saLOqYFZ4rUhtmYybTAltu6tGkvOF/Qc/S3GbwANE0C7O7Uv7dN9MIlv9Je+CJn/62U/sI1GUhTVQU6aE6swhTKko/3X0rqA6nERYvjS9n93B2rqrOIrML3c1tMlFYTbzOkRJt48uisiYO6zvv3N+1BIKqTcdkC298EdmpJ/G0Lo74TlkNvCxfhxFiaTFlgi8gUaVpj2HDoCOlXLz62KfgRhDZKR01asyWWG3peVNWLO2gIvdleL3eW3e97Hff43mKtpZc9j7TVyN6apjLuLao6U3KNrPpAPRAULuWeQ5SHvV5qI5km1lP4bufdzkZGHKHhUQNV00n4MZd2baZ1IjfxYdMYUXDL2qyA9dmolsBXHE7RoYl4XGBc9b3Z7vYOp2xuPWWyitllx3yNujV9rf84wnt5KrVhqZXZiyWtNzDbqztERSwE3fmIl+HzeWmDXb7Uth5mkKUuFlwtr1xalrxdzy9MutJe3qZcd6cy9bgBuQ3HHzjdvEjDPc6bEasqIRBC5dCZdJoRfiPa3y6WDfp38TmNy01p5l2dDZJ1nnlK+onKa/+V3BiXM9gP8NV3TWhf8Fl3bFy5Llgsj/tRhDl1zrissWfbunJ+dQll+T9f2zuf
+sidebar_class_name: "put api-method"
+info_path: api//tolgee-api
+custom_edit_url: null
+---
+
+import ApiTabs from "@theme/ApiTabs";
+import DiscriminatorTabs from "@theme/DiscriminatorTabs";
+import MethodEndpoint from "@theme/ApiExplorer/MethodEndpoint";
+import SecuritySchemes from "@theme/ApiExplorer/SecuritySchemes";
+import MimeTabs from "@theme/MimeTabs";
+import ParamsItem from "@theme/ParamsItem";
+import ResponseSamples from "@theme/ResponseSamples";
+import SchemaItem from "@theme/SchemaItem";
+import SchemaTabs from "@theme/SchemaTabs";
+import Markdown from "@theme/Markdown";
+import OperationTabs from "@theme/OperationTabs";
+import TabItem from "@theme/TabItem";
+
+<h1 className={"openapi__heading"}>Set's 'outdated' indication</h1>
+
+<MethodEndpoint method={"put"} path={"/v2/projects/translations/{translationId}/set-outdated-flag/{state}"}></MethodEndpoint>
+
+
+
+Set's "outdated" indication
+
+## Request
+
+<details style={{"marginBottom":"1rem"}} className={"openapi-markdown__details"} data-collapsed={false} open={true}><summary style={{}}><h3 className={"openapi-markdown__details-summary-header-params"}>Path Parameters</h3></summary><div><ul><ParamsItem className={"paramsItem"} param={{"name":"translationId","in":"path","required":true,"schema":{"type":"integer","format":"int64"}}}></ParamsItem><ParamsItem className={"paramsItem"} param={{"name":"state","in":"path","required":true,"schema":{"type":"boolean"}}}></ParamsItem></ul></div></details><details style={{"marginBottom":"1rem"}} className={"openapi-markdown__details"} data-collapsed={false} open={true}><summary style={{}}><h3 className={"openapi-markdown__details-summary-header-params"}>Query Parameters</h3></summary><div><ul><ParamsItem className={"paramsItem"} param={{"name":"ak","in":"query","description":"API key provided via query parameter. Will be deprecated in the future.","style":"form","schema":{"type":"string"},"example":"tgpak_gm2dcxzynjvdqm3fozwwgmdjmvwdgojqonvxamldnu4hi5lp"}}></ParamsItem></ul></div></details><details style={{"marginBottom":"1rem"}} className={"openapi-markdown__details"} data-collapsed={false} open={true}><summary style={{}}><h3 className={"openapi-markdown__details-summary-header-params"}>Header Parameters</h3></summary><div><ul><ParamsItem className={"paramsItem"} param={{"name":"X-API-Key","in":"header","description":"API key provided via header. Safer since headers are not stored in server logs.","style":"form","schema":{"type":"string"},"example":"tgpak_gm2dcxzynjvdqm3fozwwgmdjmvwdgojqonvxamldnu4hi5lp"}}></ParamsItem></ul></div></details><div><div><ApiTabs label={undefined} id={undefined}><TabItem label={"200"} value={"200"}><div>
+
+OK
+
+</div><div><MimeTabs className={"openapi-tabs__mime"} schemaType={"response"}><TabItem label={"*/*"} value={"*/*"}><SchemaTabs className={"openapi-tabs__schema"}><TabItem label={"Schema"} value={"Schema"}><details style={{}} className={"openapi-markdown__details response"} data-collapsed={false} open={true}><summary style={{}} className={"openapi-markdown__details-summary-response"}><strong>Schema</strong></summary><div style={{"textAlign":"left","marginLeft":"1rem"}}></div><ul style={{"marginLeft":"1rem"}}><SchemaItem collapsible={false} name={"id"} required={true} schemaName={"int64"} qualifierMessage={undefined} schema={{"type":"integer","description":"Id of translation record","format":"int64"}}></SchemaItem><SchemaItem collapsible={false} name={"text"} required={false} schemaName={"string"} qualifierMessage={undefined} schema={{"type":"string","description":"Translation text"}}></SchemaItem><SchemaItem collapsible={false} name={"state"} required={true} schemaName={"string"} qualifierMessage={"**Possible values:** [`UNTRANSLATED`, `TRANSLATED`, `REVIEWED`, `DISABLED`]"} schema={{"type":"string","description":"State of translation","enum":["UNTRANSLATED","TRANSLATED","REVIEWED","DISABLED"]}}></SchemaItem><SchemaItem collapsible={false} name={"outdated"} required={true} schemaName={"boolean"} qualifierMessage={undefined} schema={{"type":"boolean","description":"Whether base language translation was changed after this translation was updated"}}></SchemaItem><SchemaItem collapsible={false} name={"auto"} required={true} schemaName={"boolean"} qualifierMessage={undefined} schema={{"type":"boolean","description":"Was translated using Translation Memory or Machine translation service?"}}></SchemaItem><SchemaItem collapsible={false} name={"mtProvider"} required={false} schemaName={"string"} qualifierMessage={"**Possible values:** [`GOOGLE`, `AWS`, `DEEPL`, `AZURE`, `BAIDU`, `TOLGEE`]"} schema={{"type":"string","description":"Which machine translation service was used to auto translate this","enum":["GOOGLE","AWS","DEEPL","AZURE","BAIDU","TOLGEE"]}}></SchemaItem></ul></details></TabItem><TabItem label={"Example (from schema)"} value={"Example (from schema)"}><ResponseSamples responseExample={"{\n  \"en\": {\n    \"id\": 100000003,\n    \"text\": \"This is super translation!\"\n  }\n}"} language={"json"}></ResponseSamples></TabItem></SchemaTabs></TabItem></MimeTabs></div></TabItem><TabItem label={"400"} value={"400"}><div>
+
+Bad Request
+
+</div><div><MimeTabs className={"openapi-tabs__mime"} schemaType={"response"}><TabItem label={"*/*"} value={"*/*"}><SchemaTabs className={"openapi-tabs__schema"}><TabItem label={"Schema"} value={"Schema"}><details style={{}} className={"openapi-markdown__details response"} data-collapsed={false} open={true}><summary style={{}} className={"openapi-markdown__details-summary-response"}><strong>Schema</strong></summary><div style={{"textAlign":"left","marginLeft":"1rem"}}></div><ul style={{"marginLeft":"1rem"}}><div style={{"marginTop":".5rem","marginBottom":".5rem"}}>
+
+string
+
+</div></ul></details></TabItem></SchemaTabs></TabItem></MimeTabs></div></TabItem><TabItem label={"404"} value={"404"}><div>
+
+Not Found
+
+</div><div><MimeTabs className={"openapi-tabs__mime"} schemaType={"response"}><TabItem label={"*/*"} value={"*/*"}><SchemaTabs className={"openapi-tabs__schema"}><TabItem label={"Schema"} value={"Schema"}><details style={{}} className={"openapi-markdown__details response"} data-collapsed={false} open={true}><summary style={{}} className={"openapi-markdown__details-summary-response"}><strong>Schema</strong></summary><div style={{"textAlign":"left","marginLeft":"1rem"}}></div><ul style={{"marginLeft":"1rem"}}><div style={{"marginTop":".5rem","marginBottom":".5rem"}}>
+
+string
+
+</div></ul></details></TabItem></SchemaTabs></TabItem></MimeTabs></div></TabItem></ApiTabs></div></div>
+      

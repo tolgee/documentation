@@ -55,14 +55,14 @@ const docs = [
   [
     '@docusaurus/plugin-content-docs',
     {
-      id: 'api',
+      id: 'rest-api',
       path: 'api',
       breadcrumbs: true,
       routeBasePath: 'api',
       include: ['**/*.md', '**/*.mdx'],
-      sidebarPath: 'rest-api-sidebars.js',
-      docLayoutComponent: '@theme/DocPage',
-      docItemComponent: '@theme/ApiItem', // add @theme/ApiItem here
+      sidebarPath: require.resolve('./sidebarApi.js'),
+      // docLayoutComponent: '@theme/DocPage',
+      docItemComponent: '@theme/ApiItem',
     },
   ],
 ];

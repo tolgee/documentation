@@ -1,0 +1,62 @@
+---
+id: apply-import-streaming-1
+title: "applyImportStreaming_1"
+description: "Imports the data prepared in previous step. Streams current status."
+sidebar_label: "applyImportStreaming_1"
+hide_title: true
+hide_table_of_contents: true
+api: eJy9Ve9v2zYQ/VeI+1gotpNlQCGgH9ItHYxgTeC064DAMBjxJNGmSJo8yVEN/e/DSbbzs0GHBftkmXfkvXf3+LgFkkWE9AamlXeBYJ6AwpgF7Uk7C+luPQoqUShJUviAXgZUQlv+brSro4iEfiSuKaCsosjqENCSiCSpjiNIwHkMkk+cKkhBem/a4eBhi7bF4hgS8DLICgkDQ9qClRVCCrkLGf7pFEICmjGtawwtPEX6rUQqMQjXYAhaoXBBrBC9kMYICtJG00OIYqOpFLUNGJ1pUInM2dzojCIkEHBd64AK0lyaiAnErMRKQroFaj3DiRS0LfryuawNQQqfLxefLme/nUMCaOuK+3n51/lsNv2dly7Oz68guU+ad11yICdXr7M6u5qKFbbCB9dohUo0Woo+VRy6NRLftDHiFoVCHzCTNIyHZ5bXVAfkGURqza6dFfyYV5cA3snK97lUeLlaFNWJyu6+t3bZqHX1S+6+bzZFpZZVs1GFW66dbe5kZZStT0v9q/HwgN/fR2dX06MLbPc0S5QKw8/xHHJH4lrmGETUNsPdWhQyoLCOReZ2aowYGgzCuCL+33znLJzonY0YucTJZMI/jyleXkACmbOEljjK10BnvSbHd0dWLSOnbZ8jdbdLzAgSIE09zMOtme2KfnSqha7rugROXyr9USoxw3WNkR5jeDd+92LJg8jve7PNnMIPrasXSqtFdBVSyRd3E5wtkkGN8cPNIZCIPjLvDsBOnwP77Eh8crVV/xEW3+U6ZLiwjhY5H3hAZGtjBgxdAozNsQf5mnrDoRJSGDcnYx8cdzmOdW9M496kjuK+06ygXl+DNdXBsJaJfDoeG5dJU7pI6fvJ+8kzaf+Blt0P1V6hvJklo23uenK7sX5xpkAUfBWeHbKLXQ8ncErAHAPajG2RcQ15zfFowpr2LlIlez3tnYYJicF2xUFB4vhpqe39IN7I/XfDI7yjsTdSWwbYd3C7m8ANNCc8jt0M2CuG9yiBp3OYJ8Ct5j3b7a2M+DWYruPlwUB5OkpHeWsemPgPCb7No/EiwRW2Tx6vRpqa83p//HmMb/cEvIKzf4fuAc75T9CMENKbeZfsffvftfftXf0VCg+fmketHsJnWYaeHsRe9F9mfjCJq69foOv+AZKlLU8=
+sidebar_class_name: "put api-method"
+info_path: api//tolgee-api
+custom_edit_url: null
+---
+
+import ApiTabs from "@theme/ApiTabs";
+import DiscriminatorTabs from "@theme/DiscriminatorTabs";
+import MethodEndpoint from "@theme/ApiExplorer/MethodEndpoint";
+import SecuritySchemes from "@theme/ApiExplorer/SecuritySchemes";
+import MimeTabs from "@theme/MimeTabs";
+import ParamsItem from "@theme/ParamsItem";
+import ResponseSamples from "@theme/ResponseSamples";
+import SchemaItem from "@theme/SchemaItem";
+import SchemaTabs from "@theme/SchemaTabs";
+import Markdown from "@theme/Markdown";
+import OperationTabs from "@theme/OperationTabs";
+import TabItem from "@theme/TabItem";
+
+<h1 className={"openapi__heading"}>applyImportStreaming_1</h1>
+
+<MethodEndpoint method={"put"} path={"/v2/projects/import/apply-streaming"}></MethodEndpoint>
+
+
+
+Imports the data prepared in previous step. Streams current status.
+
+## Request
+
+<details style={{"marginBottom":"1rem"}} className={"openapi-markdown__details"} data-collapsed={false} open={true}><summary style={{}}><h3 className={"openapi-markdown__details-summary-header-params"}>Query Parameters</h3></summary><div><ul><ParamsItem className={"paramsItem"} param={{"name":"forceMode","in":"query","description":"Whether override or keep all translations with unresolved conflicts","required":false,"schema":{"type":"string","default":"NO_FORCE","enum":["OVERRIDE","KEEP","NO_FORCE"]}}}></ParamsItem><ParamsItem className={"paramsItem"} param={{"name":"ak","in":"query","description":"API key provided via query parameter. Will be deprecated in the future.","style":"form","schema":{"type":"string"},"example":"tgpak_gm2dcxzynjvdqm3fozwwgmdjmvwdgojqonvxamldnu4hi5lp"}}></ParamsItem></ul></div></details><details style={{"marginBottom":"1rem"}} className={"openapi-markdown__details"} data-collapsed={false} open={true}><summary style={{}}><h3 className={"openapi-markdown__details-summary-header-params"}>Header Parameters</h3></summary><div><ul><ParamsItem className={"paramsItem"} param={{"name":"X-API-Key","in":"header","description":"API key provided via header. Safer since headers are not stored in server logs.","style":"form","schema":{"type":"string"},"example":"tgpak_gm2dcxzynjvdqm3fozwwgmdjmvwdgojqonvxamldnu4hi5lp"}}></ParamsItem></ul></div></details><div><div><ApiTabs label={undefined} id={undefined}><TabItem label={"200"} value={"200"}><div>
+
+OK
+
+</div><div><MimeTabs className={"openapi-tabs__mime"} schemaType={"response"}><TabItem label={"application/x-ndjson"} value={"application/x-ndjson"}><SchemaTabs className={"openapi-tabs__schema"}><TabItem label={"Schema"} value={"Schema"}><details style={{}} className={"openapi-markdown__details response"} data-collapsed={false} open={true}><summary style={{}} className={"openapi-markdown__details-summary-response"}><strong>Schema</strong></summary><div style={{"textAlign":"left","marginLeft":"1rem"}}></div><ul style={{"marginLeft":"1rem"}}><div style={{"marginTop":".5rem","marginBottom":".5rem"}}>
+
+object
+
+</div></ul></details></TabItem><TabItem label={"Example (from schema)"} value={"Example (from schema)"}><ResponseSamples responseExample={"{}"} language={"json"}></ResponseSamples></TabItem></SchemaTabs></TabItem></MimeTabs></div></TabItem><TabItem label={"400"} value={"400"}><div>
+
+Bad Request
+
+</div><div><MimeTabs className={"openapi-tabs__mime"} schemaType={"response"}><TabItem label={"*/*"} value={"*/*"}><SchemaTabs className={"openapi-tabs__schema"}><TabItem label={"Schema"} value={"Schema"}><details style={{}} className={"openapi-markdown__details response"} data-collapsed={false} open={true}><summary style={{}} className={"openapi-markdown__details-summary-response"}><strong>Schema</strong></summary><div style={{"textAlign":"left","marginLeft":"1rem"}}></div><ul style={{"marginLeft":"1rem"}}><div style={{"marginTop":".5rem","marginBottom":".5rem"}}>
+
+string
+
+</div></ul></details></TabItem></SchemaTabs></TabItem></MimeTabs></div></TabItem><TabItem label={"404"} value={"404"}><div>
+
+Not Found
+
+</div><div><MimeTabs className={"openapi-tabs__mime"} schemaType={"response"}><TabItem label={"*/*"} value={"*/*"}><SchemaTabs className={"openapi-tabs__schema"}><TabItem label={"Schema"} value={"Schema"}><details style={{}} className={"openapi-markdown__details response"} data-collapsed={false} open={true}><summary style={{}} className={"openapi-markdown__details-summary-response"}><strong>Schema</strong></summary><div style={{"textAlign":"left","marginLeft":"1rem"}}></div><ul style={{"marginLeft":"1rem"}}><div style={{"marginTop":".5rem","marginBottom":".5rem"}}>
+
+string
+
+</div></ul></details></TabItem></SchemaTabs></TabItem></MimeTabs></div></TabItem></ApiTabs></div></div>
+      
