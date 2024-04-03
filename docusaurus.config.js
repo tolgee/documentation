@@ -66,24 +66,9 @@ const config = {
         },
       },
     ],
-    // [
-    //   'redocusaurus',
-    //   {
-    //     specs: [
-    //       {
-    //         specUrl:
-    //           'https://app.tolgee.io/v3/api-docs/Accessible%20with%20API%20key',
-    //         routePath: '/api',
-    //       },
-    //     ],
-    //     theme: {
-    //       primaryColor: '#EC407A',
-    //     },
-    //   },
-    // ],
   ],
   plugins: [
-    'docusaurus-plugin-image-zoom',
+    // 'docusaurus-plugin-image-zoom',
     ['@docusaurus/plugin-client-redirects', redirects],
     async function tailwind() {
       return {
@@ -105,9 +90,12 @@ const config = {
         config: {
           tolgee: {
             specPath:
-              'http://localhost:8080/v3/api-docs/V2%20Accessible%20with%20API%20key%20V2', // path or URL to the OpenAPI spec
+              'http://localhost:8080/v3/api-docs/Public%20API%20(All)', // path or URL to the OpenAPI spec
             outputDir: 'api', // output directory for generated *.mdx and sidebar.js files
             sidebarOptions: {
+              categoryLinkSource: 'tag',
+              sidebarCollapsible: false,
+              sidebarCollapsed: false,
               groupPathsBy: 'tag', // generate a sidebar.js slice that groups operations by tag
             },
           },

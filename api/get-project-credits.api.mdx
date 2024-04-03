@@ -1,0 +1,66 @@
+---
+id: get-project-credits
+title: "Get credit balance for project"
+description: "Returns machine translation credit balance for specified project"
+sidebar_label: "Get credit balance for project"
+hide_title: true
+hide_table_of_contents: true
+api: eJytVm1v2zYQ/ivX+7KtoOMsC4ZCWAckRROkRbsg8dANhpHS0tlmLZMKeXLqCfrvw1Hyi2KnyNB9sSXeC597dM+RFbKeBkyG+EGnM2MJ2Gsbcs3GWUg9ZYYDjhRmFFJvClnGBG+IS28DLJ4MgrHOtU0JJs5DKCg1E0MZFN59oZRRoSvIx4CrDBOcEl83pjftngoL7fWCmLzgq9DqBWGCbYarDBUawVJonqFCT/el8ZRhwr4khSGd0UJjUiGvCgk0lmlKHhVOnF9obpZ+PcW6Hkl4KJwNFCTi5PhY/ro1//EeFabOMlkWqy6K3KSxhP6XIC7VzqZbOEMcl+mc+Nb8Q5Ih1nfesIMK6St7/aazOFJrzG7cslV44YtNg6+b4zklql0Qzws4AOxZZCpkw7k4dYI/uIxyrGtxOD3E77nO4IbuSwrcJfpl/2WX2xZDYG/sNFKoF0XcsUpdRq9XrrzLTHYX3IJ4Zuz07sE7O1UQOyq8Hm4MCqJlVG+A/bIP7ML5sckyst8Ja9Pxd9bxXUF+YZgp28LaUVE4Eup2cJ3u4/roGC5cabPvxOUpuNKnFGFNJOEGki3zvMFQKwyUlt7wKqrx7PoK3tMKjIUZ6Yw8JsNRrTqG+5L8qkm1tr77NICBm5ONCyOF8iFcOwGi5nmGCfaXJ/1W6KFfbSRf99uB09uhqteooTfeSCqQX66nRulzTHDGXCT9fu5Snc9c4OTV8atjfDzVLsnKF6IMmgwgwQJyXfmtcNpIcKeQDcOyC7aTR97HpH3USPNwsVbKu08DEdhtWZCHbyTqotu6s7iDCbAeMs2QJRsMmyXBptECPMzIQhnIw0wHCMRwcnF2BH+7ElJtwY1ZGwvhUeql0fBZvoFE9qctLb3o1osun4FsVjhj+QjOS4YxQao9Tcr8BTyqq9k5rhXugXx48R84OtBmG5Z0Yd7TCtX6ZPird3Z91WuW4snQRnTTdJpyP1eX8yv+IYB1DJ5St1iQzSgDdsIoSM75Xk4FwcixZzgSPCYI7OQTGQu5m4ajLV49XwON8XF0GjtxEVY7Qgcun1Lcaw9ba7rONcsMhpu3t4MIytOEPDVSEB007sufj46FisIFXujYbS2OS+JDh/b2qO7sW21nzf9xDWj5Z/rK/SLXxgrGKNqqHQZDXJ40J2AcB6gw2b0DPGMijBSK6CVVVY11oD99Xtey3BCfDEcKl9obPRbShxVmJshzhslE54G+QcGPN60Gf4Knqlm3mJX+Wuq8lDdUOKdV5z5Tj2qFm2FatfazNKWCdyL37h2dMXr5doAKdSnM7Xb3PHZ3+yDZD6LalVCzvfzK4D7o/lurq9837o3lyYC2urW38DOq6/pfF+OZdA==
+sidebar_class_name: "get api-method"
+info_path: api//tolgee-api
+custom_edit_url: null
+---
+
+import ApiTabs from "@theme/ApiTabs";
+import DiscriminatorTabs from "@theme/DiscriminatorTabs";
+import MethodEndpoint from "@theme/ApiExplorer/MethodEndpoint";
+import SecuritySchemes from "@theme/ApiExplorer/SecuritySchemes";
+import MimeTabs from "@theme/MimeTabs";
+import ParamsItem from "@theme/ParamsItem";
+import ResponseSamples from "@theme/ResponseSamples";
+import SchemaItem from "@theme/SchemaItem";
+import SchemaTabs from "@theme/SchemaTabs";
+import Markdown from "@theme/Markdown";
+import OperationTabs from "@theme/OperationTabs";
+import TabItem from "@theme/TabItem";
+
+<h1 className={"openapi__heading"}>Get credit balance for project</h1>
+
+<MethodEndpoint method={"get"} path={"/v2/projects/{projectId}/machine-translation-credit-balance"}></MethodEndpoint>
+
+
+
+Returns machine translation credit balance for specified project
+
+## Request
+
+<details style={{"marginBottom":"1rem"}} className={"openapi-markdown__details"} data-collapsed={false} open={true}><summary style={{}}><h3 className={"openapi-markdown__details-summary-header-params"}>Path Parameters</h3></summary><div><ul><ParamsItem className={"paramsItem"} param={{"name":"projectId","in":"path","required":true,"schema":{"type":"integer","format":"int64"}}}></ParamsItem></ul></div></details><div><div><ApiTabs label={undefined} id={undefined}><TabItem label={"200"} value={"200"}><div>
+
+OK
+
+</div><div><MimeTabs className={"openapi-tabs__mime"} schemaType={"response"}><TabItem label={"application/json"} value={"application/json"}><SchemaTabs className={"openapi-tabs__schema"}><TabItem label={"Schema"} value={"Schema"}><details style={{}} className={"openapi-markdown__details response"} data-collapsed={false} open={true}><summary style={{}} className={"openapi-markdown__details-summary-response"}><strong>Schema</strong></summary><div style={{"textAlign":"left","marginLeft":"1rem"}}></div><ul style={{"marginLeft":"1rem"}}><SchemaItem collapsible={false} name={"creditBalance"} required={true} schemaName={"int64"} qualifierMessage={undefined} schema={{"type":"integer","format":"int64"}}></SchemaItem><SchemaItem collapsible={false} name={"bucketSize"} required={true} schemaName={"int64"} qualifierMessage={undefined} schema={{"type":"integer","format":"int64"}}></SchemaItem><SchemaItem collapsible={false} name={"extraCreditBalance"} required={true} schemaName={"int64"} qualifierMessage={undefined} schema={{"type":"integer","format":"int64"}}></SchemaItem></ul></details></TabItem><TabItem label={"Example (from schema)"} value={"Example (from schema)"}><ResponseSamples responseExample={"{\n  \"creditBalance\": 0,\n  \"bucketSize\": 0,\n  \"extraCreditBalance\": 0\n}"} language={"json"}></ResponseSamples></TabItem></SchemaTabs></TabItem></MimeTabs></div></TabItem><TabItem label={"400"} value={"400"}><div>
+
+Bad Request
+
+</div><div><MimeTabs className={"openapi-tabs__mime"} schemaType={"response"}><TabItem label={"*/*"} value={"*/*"}><SchemaTabs className={"openapi-tabs__schema"}><TabItem label={"Schema"} value={"Schema"}><details style={{}} className={"openapi-markdown__details response"} data-collapsed={false} open={true}><summary style={{}} className={"openapi-markdown__details-summary-response"}><strong>Schema</strong></summary><div style={{"textAlign":"left","marginLeft":"1rem"}}></div><ul style={{"marginLeft":"1rem"}}><div style={{"marginTop":".5rem","marginBottom":".5rem"}}>
+
+string
+
+</div></ul></details></TabItem></SchemaTabs></TabItem></MimeTabs></div></TabItem><TabItem label={"403"} value={"403"}><div>
+
+Forbidden
+
+</div><div><MimeTabs className={"openapi-tabs__mime"} schemaType={"response"}><TabItem label={"*/*"} value={"*/*"}><SchemaTabs className={"openapi-tabs__schema"}><TabItem label={"Schema"} value={"Schema"}><details style={{}} className={"openapi-markdown__details response"} data-collapsed={false} open={true}><summary style={{}} className={"openapi-markdown__details-summary-response"}><strong>Schema</strong></summary><div style={{"textAlign":"left","marginLeft":"1rem"}}></div><ul style={{"marginLeft":"1rem"}}><div style={{"marginTop":".5rem","marginBottom":".5rem"}}>
+
+string
+
+</div></ul></details></TabItem></SchemaTabs></TabItem></MimeTabs></div></TabItem><TabItem label={"404"} value={"404"}><div>
+
+Not Found
+
+</div><div><MimeTabs className={"openapi-tabs__mime"} schemaType={"response"}><TabItem label={"*/*"} value={"*/*"}><SchemaTabs className={"openapi-tabs__schema"}><TabItem label={"Schema"} value={"Schema"}><details style={{}} className={"openapi-markdown__details response"} data-collapsed={false} open={true}><summary style={{}} className={"openapi-markdown__details-summary-response"}><strong>Schema</strong></summary><div style={{"textAlign":"left","marginLeft":"1rem"}}></div><ul style={{"marginLeft":"1rem"}}><div style={{"marginTop":".5rem","marginBottom":".5rem"}}>
+
+string
+
+</div></ul></details></TabItem></SchemaTabs></TabItem></MimeTabs></div></TabItem></ApiTabs></div></div>
+      

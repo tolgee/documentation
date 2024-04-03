@@ -1,0 +1,66 @@
+---
+id: resolve-translation-set-keep-existing-2
+title: "Resolve all translation conflicts (keep existing)"
+description: "Resolves all translation conflicts for provided language. The old translations will be kept."
+sidebar_label: "Resolve all translation conflicts (keep existing)"
+hide_title: true
+hide_table_of_contents: true
+api: eJy9Vm1v2zYQ/ivsfVlb0FaWBUMhrANSIBncAGuQuOsGw0hp6WxzpkmVPDkxBP334agX23HSoSi2L5bMe3t4d8+dKiC1CJBOYLQunCeYSsgxZF4XpJ2FFG4wOLPBIJQxgryywSgWiczZudEZBTF3XhTebXSOuTDKLkq1wKEYL1E4k+8bBXGvjREzFCssaAgSXIE+ikY5pOCbYOOdxS3SFWJx8aADabu4OwUJhfJqjYSegVdg1RohhS7wKAcJmqEXipYgweOXUnvMISVfooSQLXGtIK2AtgVbaku4QA8S5s6vFTVHP59BXcvefeHd35jRv3pXxrj7i3VB2z+UKRHSuTLhG6NO2W0onA0Y2OL05IQfh4X5cAW1hLOnRO9ULm7wS4mBQELmLKElVnudvObHEZZAXtsFSMAHtS4MH1WZy/Ht1pV3uc7vglsjLbkA997ZhRSxBuHtpBdIESXTGuq6jsB+OgZ26fxM5zna74TVd82ddXRXoF9rIsx3sPZ7boi5pj1cZ8e4fnckLl1p8+/Exf1b+gwjrDk77CHZ0pgGQy0hYFZ6TdvYv+fXI3GFW6GtWKLK0UM6mXLn7Qm+lOi3jatO+v7TWIzdCm08mErgQjhmUVFSZAktIYVkc5q0vRuSqu/iOtGR8InHUBpKOvaEpNoRqU5aQg6UMUlAGqwQiwG2ZAS+iN90PCy9gRSWREWaJMZlyixdoPTNyZsTeDxVfkPLFcRcNB4EG/Mluszccs6b7t+7aF8BjgItqfj/DJWPXGpeLjtGvf80ZpbclgV68RVHh+h26sTqQgfR0TwOu4A2aNIbFH0jBnG/RCvKgF4sVRABSZxeng/FX64UmbLCzUhpK8Ij1xutxGeuEVsmizYtg6g2iCqfBdq8cNrSULwriYdnpjzOS/NCPLpXEzmeFe4efXjxDTl6og37LKlCX+EWZDcM/xycX48GzVEchq3FoZuDpj32dZjzEf0QhHUkPGZuvUbLy4QcZ1Swz9WRTymCthkKTTHBMxSBHJdIW2HcIgx3eNWqAxrtebCDtnMXYWmKDB47s8AY6whbK7o2inhWi5uL23EE5XGOHm2GIIF50KhvfhyecCoKF2itYre1ONpl+pVd+pIZJjqGvXoMpdqNp/96M7flInygpDBKW75S5HjVzpYJbOI6bqcLSEgPtmTzRRF3WWn4pR8yrHqwr/fmTJwqjyfNVAIPE45ZVTMV8KM3dc3HTUHTyVTCRnmtZlzMSQW5Dvye9wv42Ty+vGm5/Uo8d+2udS337abZ6wASVrg9/PLgwfw/Rt6lu57WEvr1UbXy8yzDgvYseaMd7Irrj2OQoEqu5z5FV5Gi7Qs7fBLI/hxoIvIvJ+FJ9V/a4fBrr95InjVoL9Rpc0qmdV3/A38CqAE=
+sidebar_class_name: "put api-method"
+info_path: api//tolgee-api
+custom_edit_url: null
+---
+
+import ApiTabs from "@theme/ApiTabs";
+import DiscriminatorTabs from "@theme/DiscriminatorTabs";
+import MethodEndpoint from "@theme/ApiExplorer/MethodEndpoint";
+import SecuritySchemes from "@theme/ApiExplorer/SecuritySchemes";
+import MimeTabs from "@theme/MimeTabs";
+import ParamsItem from "@theme/ParamsItem";
+import ResponseSamples from "@theme/ResponseSamples";
+import SchemaItem from "@theme/SchemaItem";
+import SchemaTabs from "@theme/SchemaTabs";
+import Markdown from "@theme/Markdown";
+import OperationTabs from "@theme/OperationTabs";
+import TabItem from "@theme/TabItem";
+
+<h1 className={"openapi__heading"}>Resolve all translation conflicts (keep existing)</h1>
+
+<MethodEndpoint method={"put"} path={"/v2/projects/{projectId}/import/result/languages/{languageId}/resolve-all/set-keep-existing"}></MethodEndpoint>
+
+
+
+Resolves all translation conflicts for provided language. The old translations will be kept.
+
+## Request
+
+<details style={{"marginBottom":"1rem"}} className={"openapi-markdown__details"} data-collapsed={false} open={true}><summary style={{}}><h3 className={"openapi-markdown__details-summary-header-params"}>Path Parameters</h3></summary><div><ul><ParamsItem className={"paramsItem"} param={{"name":"languageId","in":"path","required":true,"schema":{"type":"integer","format":"int64"}}}></ParamsItem><ParamsItem className={"paramsItem"} param={{"name":"projectId","in":"path","required":true,"allowEmptyValue":false,"schema":{"type":"integer","format":"int64"}}}></ParamsItem></ul></div></details><div><div><ApiTabs label={undefined} id={undefined}><TabItem label={"200"} value={"200"}><div>
+
+OK
+
+</div><div></div></TabItem><TabItem label={"400"} value={"400"}><div>
+
+Bad Request
+
+</div><div><MimeTabs className={"openapi-tabs__mime"} schemaType={"response"}><TabItem label={"*/*"} value={"*/*"}><SchemaTabs className={"openapi-tabs__schema"}><TabItem label={"Schema"} value={"Schema"}><details style={{}} className={"openapi-markdown__details response"} data-collapsed={false} open={true}><summary style={{}} className={"openapi-markdown__details-summary-response"}><strong>Schema</strong></summary><div style={{"textAlign":"left","marginLeft":"1rem"}}></div><ul style={{"marginLeft":"1rem"}}><div style={{"marginTop":".5rem","marginBottom":".5rem"}}>
+
+string
+
+</div></ul></details></TabItem></SchemaTabs></TabItem></MimeTabs></div></TabItem><TabItem label={"403"} value={"403"}><div>
+
+Forbidden
+
+</div><div><MimeTabs className={"openapi-tabs__mime"} schemaType={"response"}><TabItem label={"*/*"} value={"*/*"}><SchemaTabs className={"openapi-tabs__schema"}><TabItem label={"Schema"} value={"Schema"}><details style={{}} className={"openapi-markdown__details response"} data-collapsed={false} open={true}><summary style={{}} className={"openapi-markdown__details-summary-response"}><strong>Schema</strong></summary><div style={{"textAlign":"left","marginLeft":"1rem"}}></div><ul style={{"marginLeft":"1rem"}}><div style={{"marginTop":".5rem","marginBottom":".5rem"}}>
+
+string
+
+</div></ul></details></TabItem></SchemaTabs></TabItem></MimeTabs></div></TabItem><TabItem label={"404"} value={"404"}><div>
+
+Not Found
+
+</div><div><MimeTabs className={"openapi-tabs__mime"} schemaType={"response"}><TabItem label={"*/*"} value={"*/*"}><SchemaTabs className={"openapi-tabs__schema"}><TabItem label={"Schema"} value={"Schema"}><details style={{}} className={"openapi-markdown__details response"} data-collapsed={false} open={true}><summary style={{}} className={"openapi-markdown__details-summary-response"}><strong>Schema</strong></summary><div style={{"textAlign":"left","marginLeft":"1rem"}}></div><ul style={{"marginLeft":"1rem"}}><div style={{"marginTop":".5rem","marginBottom":".5rem"}}>
+
+string
+
+</div></ul></details></TabItem></SchemaTabs></TabItem></MimeTabs></div></TabItem></ApiTabs></div></div>
+      

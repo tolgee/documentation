@@ -1,0 +1,66 @@
+---
+id: disable-mfa
+title: "Disables TOTP-based two-factor authentication. Invalidates all previous sessions upon success."
+description: "Disables TOTP-based two-factor authentication. Invalidates all previous sessions upon success."
+sidebar_label: "Disables TOTP-based two-factor authentication. Invalidates all previous sessions upon success."
+hide_title: true
+hide_table_of_contents: true
+api: eJy1Vm1vGzcM/issvwwo5JdlHVAc1gHJkgxp+hIkLrohNVL5jrbV3EmqxLNjGPffB+rOjp0EwYZin3ymKPJ5HpGU1sh6FjG7xk+RAryvSza9U52zC3BY85wsm1yzcRbHCp2nkP6cFZhhYaKelPR+qlFhoO81RT5yxQqzNebOMlmWT+192cUYfIvOii3mc6q0fMk+E6gQCF7HuHShkFS88oQZusk3yhkV+iDJ2VCUXVvPbI2VvntHdsZzzH4dKqyM3fwdbsNEDsbOsGkUsuFSTMJ35NgftywuW/zH7LARt3tcHGpKhuidjW3+g+FQfgqKeTA+yZPhx3NU/5748wR1nlOMI3dLdsd5Q0Mhy8ooWR+t7pB8u+T9U7zsWAjJRuGrp3gc6QI6OfYJvRy8fJJDl1gh3enKp8Tr3BX0ZuXqm8IUN9FVxHNjZzfL4OxMgddBV/HN9XZBQVoZN1tgvzwGdurCxBQF2R+EtS3jG+v4xlOoDDMV97A4aBvL5BL7VBjewfXqMa4PjuHU1bb4QVyBoqtDTgnWVAJuIdm6LFsMjcJIeR0MrzC7XuPbzyPo6uR63IzVA2xdeUcYfRxd9CY6UgG8dL1p2+N6rzr6cGYXujSFZoqgyxJ8oIVxdYRIMYocUHtnIdapPvuoUA7QpXFAJTFJJWtpPhwsDgZ1pDCopnrAjj0K8rCgEBPwOpSY4ZzZZ4NB6XJdzl3k7PXw9RAfsviTrBwZFdBGANksZDdSXInIbevsCLKVXLJI+uSFGU5IBwqouo9TFyrN0i+fR9JdV7WnAM8E2kd3757aEkyEzfiAqQsQyUbDZkGwrbwIyzlZEH1grkVehoPTwz787WrItQU3YW1E6P3QC6Ph61bZWSdLL7n1kstXIFt4Zyz34ahmmBDkOtC0Ll/AA15t5mTzbkkhvvgPGh1enME5rcBYmJMuKOyopL05pxUqtDqF+qt3eHHWa01GFOt27If5XlNYtQX/VKx9zc/4pwjWMQTKXVWRLaSwnSgKEvP2UUwF0dicwHASeEIQ2ckRGQulm6Vi7vDq2w3QtD+NVJngl/eX3Mmmd3cvo50BbezUJRbdJB65ckYJ2iMq3dJFqXnqQgWXJ1ejxCHQlALZXJpK2qZ1X/zcH0oG7yJXOhVnB/t/7/U93NsTYrrjgS+1sQIrtfW6GwLXuDhAhVKsMirSSyGNgrFC6XbxWK8F6adQNo2YW8Wz67HChQ5GCKXJpjZFI7PjllaY4R/trO2le1Dcy7qtmAf3bqM2Ow7znDw/6zveGWnHJ+9ORifSAt2zpnKF7Ap6KU8evcQMv+AXRHkapbZOTxqxr7HUdlbrmfi3kaWK5Ax2pHvQY4nbpu7tagfnb0fJoe3b31F1fFLHYzNumuYfaCNgNQ==
+sidebar_class_name: "delete api-method"
+info_path: api//tolgee-api
+custom_edit_url: null
+---
+
+import ApiTabs from "@theme/ApiTabs";
+import DiscriminatorTabs from "@theme/DiscriminatorTabs";
+import MethodEndpoint from "@theme/ApiExplorer/MethodEndpoint";
+import SecuritySchemes from "@theme/ApiExplorer/SecuritySchemes";
+import MimeTabs from "@theme/MimeTabs";
+import ParamsItem from "@theme/ParamsItem";
+import ResponseSamples from "@theme/ResponseSamples";
+import SchemaItem from "@theme/SchemaItem";
+import SchemaTabs from "@theme/SchemaTabs";
+import Markdown from "@theme/Markdown";
+import OperationTabs from "@theme/OperationTabs";
+import TabItem from "@theme/TabItem";
+
+<h1 className={"openapi__heading"}>Disables TOTP-based two-factor authentication. Invalidates all previous sessions upon success.</h1>
+
+<MethodEndpoint method={"delete"} path={"/v2/user/mfa/totp"}></MethodEndpoint>
+
+
+
+Disables TOTP-based two-factor authentication. Invalidates all previous sessions upon success.
+
+## Request
+
+<MimeTabs className={"openapi-tabs__mime"}><TabItem label={"application/json"} value={"application/json-schema"}><details style={{}} className={"openapi-markdown__details mime"} data-collapsed={false} open={true}><summary style={{}} className={"openapi-markdown__details-summary-mime"}><h3 className={"openapi-markdown__details-summary-header-body"}>Body</h3><strong className={"openapi-schema__required"}>required</strong></summary><div style={{"textAlign":"left","marginLeft":"1rem"}}></div><ul style={{"marginLeft":"1rem"}}><SchemaItem collapsible={false} name={"password"} required={true} schemaName={"string"} qualifierMessage={"**Possible values:** `<= 50 characters`"} schema={{"maxLength":50,"minLength":0,"type":"string"}}></SchemaItem></ul></details></TabItem></MimeTabs><div><div><ApiTabs label={undefined} id={undefined}><TabItem label={"200"} value={"200"}><div>
+
+OK
+
+</div><div><MimeTabs className={"openapi-tabs__mime"} schemaType={"response"}><TabItem label={"application/json"} value={"application/json"}><SchemaTabs className={"openapi-tabs__schema"}><TabItem label={"Schema"} value={"Schema"}><details style={{}} className={"openapi-markdown__details response"} data-collapsed={false} open={true}><summary style={{}} className={"openapi-markdown__details-summary-response"}><strong>Schema</strong></summary><div style={{"textAlign":"left","marginLeft":"1rem"}}></div><ul style={{"marginLeft":"1rem"}}><SchemaItem collapsible={false} name={"accessToken"} required={false} schemaName={"string"} qualifierMessage={undefined} schema={{"type":"string"}}></SchemaItem><SchemaItem collapsible={false} name={"tokenType"} required={false} schemaName={"string"} qualifierMessage={undefined} schema={{"type":"string"}}></SchemaItem></ul></details></TabItem><TabItem label={"Example (from schema)"} value={"Example (from schema)"}><ResponseSamples responseExample={"{\n  \"accessToken\": \"string\",\n  \"tokenType\": \"string\"\n}"} language={"json"}></ResponseSamples></TabItem></SchemaTabs></TabItem></MimeTabs></div></TabItem><TabItem label={"400"} value={"400"}><div>
+
+Bad Request
+
+</div><div><MimeTabs className={"openapi-tabs__mime"} schemaType={"response"}><TabItem label={"*/*"} value={"*/*"}><SchemaTabs className={"openapi-tabs__schema"}><TabItem label={"Schema"} value={"Schema"}><details style={{}} className={"openapi-markdown__details response"} data-collapsed={false} open={true}><summary style={{}} className={"openapi-markdown__details-summary-response"}><strong>Schema</strong></summary><div style={{"textAlign":"left","marginLeft":"1rem"}}></div><ul style={{"marginLeft":"1rem"}}><div style={{"marginTop":".5rem","marginBottom":".5rem"}}>
+
+string
+
+</div></ul></details></TabItem></SchemaTabs></TabItem></MimeTabs></div></TabItem><TabItem label={"403"} value={"403"}><div>
+
+Forbidden
+
+</div><div><MimeTabs className={"openapi-tabs__mime"} schemaType={"response"}><TabItem label={"*/*"} value={"*/*"}><SchemaTabs className={"openapi-tabs__schema"}><TabItem label={"Schema"} value={"Schema"}><details style={{}} className={"openapi-markdown__details response"} data-collapsed={false} open={true}><summary style={{}} className={"openapi-markdown__details-summary-response"}><strong>Schema</strong></summary><div style={{"textAlign":"left","marginLeft":"1rem"}}></div><ul style={{"marginLeft":"1rem"}}><div style={{"marginTop":".5rem","marginBottom":".5rem"}}>
+
+string
+
+</div></ul></details></TabItem></SchemaTabs></TabItem></MimeTabs></div></TabItem><TabItem label={"404"} value={"404"}><div>
+
+Not Found
+
+</div><div><MimeTabs className={"openapi-tabs__mime"} schemaType={"response"}><TabItem label={"*/*"} value={"*/*"}><SchemaTabs className={"openapi-tabs__schema"}><TabItem label={"Schema"} value={"Schema"}><details style={{}} className={"openapi-markdown__details response"} data-collapsed={false} open={true}><summary style={{}} className={"openapi-markdown__details-summary-response"}><strong>Schema</strong></summary><div style={{"textAlign":"left","marginLeft":"1rem"}}></div><ul style={{"marginLeft":"1rem"}}><div style={{"marginTop":".5rem","marginBottom":".5rem"}}>
+
+string
+
+</div></ul></details></TabItem></SchemaTabs></TabItem></MimeTabs></div></TabItem></ApiTabs></div></div>
+      

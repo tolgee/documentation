@@ -1,0 +1,70 @@
+---
+id: get-13
+title: "Get one translation comment"
+description: "Get one translation comment"
+sidebar_label: "Get one translation comment"
+hide_title: true
+hide_table_of_contents: true
+api: eJy9V21v2zYQ/ivsfdlWKHGaFkMhrAPSxSnSbEkRu+0Gw3Bp8WyzkUiVPDk1DP334agXyy9t0BXrl0TgHe8ePvfqNZCce4hHMHTS+FSStkb8YbMMDXkYR2BzdOH0UkEMc6TJk6cQQS6dzJDQ8eU1GJkhxEAbI5cKItAGYsglLSACh58K7VBBTK7ACHyywExCvAZa5XxZG8I5OohgZl0mqTr69RmUZdR6SCpo/5P13NmPmDxsXaapve9nOa3eybRAiGcy9d/odcxmfW6NR883Tk9O+J9CnzidM4UQw80VRJBYQ2iIpTLPU50EgnsfPausO043MEcgC1pYdpw4lITqjPhN/DBPkhAiIPzMZ0Wuavk4amDbKdPAYXYcf9IVRK0OPm0b8qUSdiY6mSDqmAmHiXXqABc1lo1tT06b+Z7pIX4mNl4b5IvVYx68OWC1HVwQAZoiY7Ju+4ObP98OL2+uJ9c3w8l1v3/eP4cI+GMw2UghqlTf9c9hXEYNyTvUK0yRUDV8Fx5dyK//yu8+Xa3JvYeXEXxRIJeS5B7aVLp5SIdFkU2N1OnDOKsrh1xsjOxLWawp5aOzCkkZtVxt1KfWpihN0N8O4luPTtwvrKhTWtAC21zYGB/oLE+Rlc+SxBaG/rIKU3a2KYUHE+ac8+V+gUZoEvfSNz674eC6OSKdYQhJW0bfbru++wXbHd46Tbru0fXbStZ6dqiDvJRK3OKnAj1tt5LHvcfb3WMXNH6WTCTEsE6swhcrW0yUVhNvM6SFNvPJvbNmHokwC/yLUSuIRJCMyxbY031gF9ZNtVJovhNWO6AmxtIkR5dpIlQbWJ2S98eoNHVwPdvHdW1JXNjCqO/E5dDbwiUYYM3YYAvJFGlaYeAOhknhNK3CHD17cymucCW0EQuUCh3EozEPqI7gU4FuVZlqpK/fD8XQ3qEJB+PdhHuFJKzBQ00ZIuCg2Xq4h8lOC4ihtzzt1ePQ99btYCx7XTp7662JX/Zqq763bgd1ySMH3bJZFQqXQgwLojzu9VKbyHRhPcXPT56f7FXKKzQcXFSisiD4Mr+vIW3A4aiaUoeDNjjsBeqxHHoLShdaavVx0VTb6/dDruFBkaMTXzG0M1RadWJ1ob1oGquYWSc8Gq9JL1G0Oeqruuf+LRbSC48kTi/OjsU/thCJNMJOSWoj/I7ppZbiA4eEb/bmNS1HQe0oqHwQaFRutaFj8bIgMUWRSIezIn0kdt5VeQ5nub1H5x99A0cHMrRlSeb6ClfQjCD4++jszeVRdRTWqfrGtpmtfN63tbNd0E9eGFstE5xhiueAZUYF27zbsxkJr02C3GuZ4CkKT5ZDpI1I7dwfb/DKuwZouB9arzYzG2A1Ldimcwy+9teTSvQmlcR9XNz2B8MAyuEMHZqExyzXQaW+fHJ8wlTk1lMmQ7bVOL5er1tOW754g+rlqdQmTCMXJnBVyyNYnlYzPFQzRBB3F91uQbNsd4lvapplm/V7HAHXLVtfr6fS41uXliUfV9zFo3EES+m0nDJvozUo7flbtdvyzkPaZgs/39Zl9IuA6PADmywxnCLLagkHiOAOV3u/Q7hD/kDnG45+sONNUEteTtsBsq7lZ0mCOXVu7v2a4NbajoNX/SFUK+52Wd6Fsqw/2PpBVN3ar9zzX2bkoPpvdUP4vVWvJF+8UL+u0WZ+xmVZ/gv9AQi3
+sidebar_class_name: "get api-method"
+info_path: api//tolgee-api
+custom_edit_url: null
+---
+
+import ApiTabs from "@theme/ApiTabs";
+import DiscriminatorTabs from "@theme/DiscriminatorTabs";
+import MethodEndpoint from "@theme/ApiExplorer/MethodEndpoint";
+import SecuritySchemes from "@theme/ApiExplorer/SecuritySchemes";
+import MimeTabs from "@theme/MimeTabs";
+import ParamsItem from "@theme/ParamsItem";
+import ResponseSamples from "@theme/ResponseSamples";
+import SchemaItem from "@theme/SchemaItem";
+import SchemaTabs from "@theme/SchemaTabs";
+import Markdown from "@theme/Markdown";
+import OperationTabs from "@theme/OperationTabs";
+import TabItem from "@theme/TabItem";
+
+<h1 className={"openapi__heading"}>Get one translation comment</h1>
+
+<MethodEndpoint method={"get"} path={"/v2/projects/{projectId}/translations/{translationId}/comments/{commentId}"}></MethodEndpoint>
+
+
+
+Get one translation comment
+
+## Request
+
+<details style={{"marginBottom":"1rem"}} className={"openapi-markdown__details"} data-collapsed={false} open={true}><summary style={{}}><h3 className={"openapi-markdown__details-summary-header-params"}>Path Parameters</h3></summary><div><ul><ParamsItem className={"paramsItem"} param={{"name":"translationId","in":"path","required":true,"schema":{"type":"integer","format":"int64"}}}></ParamsItem><ParamsItem className={"paramsItem"} param={{"name":"commentId","in":"path","required":true,"schema":{"type":"integer","format":"int64"}}}></ParamsItem><ParamsItem className={"paramsItem"} param={{"name":"projectId","in":"path","required":true,"allowEmptyValue":false,"schema":{"type":"integer","format":"int64"}}}></ParamsItem></ul></div></details><div><div><ApiTabs label={undefined} id={undefined}><TabItem label={"200"} value={"200"}><div>
+
+OK
+
+</div><div><MimeTabs className={"openapi-tabs__mime"} schemaType={"response"}><TabItem label={"application/json"} value={"application/json"}><SchemaTabs className={"openapi-tabs__schema"}><TabItem label={"Schema"} value={"Schema"}><details style={{}} className={"openapi-markdown__details response"} data-collapsed={false} open={true}><summary style={{}} className={"openapi-markdown__details-summary-response"}><strong>Schema</strong></summary><div style={{"textAlign":"left","marginLeft":"1rem"}}></div><ul style={{"marginLeft":"1rem"}}><SchemaItem collapsible={false} name={"id"} required={true} schemaName={"int64"} qualifierMessage={undefined} schema={{"type":"integer","description":"Id of translation comment record","format":"int64"}}></SchemaItem><SchemaItem collapsible={false} name={"text"} required={true} schemaName={"string"} qualifierMessage={undefined} schema={{"type":"string","description":"Text of comment"}}></SchemaItem><SchemaItem collapsible={false} name={"state"} required={true} schemaName={"string"} qualifierMessage={"**Possible values:** [`RESOLUTION_NOT_NEEDED`, `NEEDS_RESOLUTION`, `RESOLVED`]"} schema={{"type":"string","description":"State of translation","enum":["RESOLUTION_NOT_NEEDED","NEEDS_RESOLUTION","RESOLVED"]}}></SchemaItem><SchemaItem collapsible={true} className={"schemaItem"}><details style={{}} className={"openapi-markdown__details"}><summary style={{}}><span className={"openapi-schema__container"}><strong className={"openapi-schema__property"}>author</strong><span className={"openapi-schema__name"}> object</span><span className={"openapi-schema__divider"}></span><span className={"openapi-schema__required"}>required</span></span></summary><div style={{"marginLeft":"1rem"}}><div style={{"marginTop":".5rem","marginBottom":".5rem"}}>
+
+User who created the comment
+
+</div><SchemaItem collapsible={false} name={"id"} required={true} schemaName={"int64"} qualifierMessage={undefined} schema={{"type":"integer","format":"int64"}}></SchemaItem><SchemaItem collapsible={false} name={"username"} required={true} schemaName={"string"} qualifierMessage={undefined} schema={{"type":"string"}}></SchemaItem><SchemaItem collapsible={false} name={"name"} required={false} schemaName={"string"} qualifierMessage={undefined} schema={{"type":"string"}}></SchemaItem><SchemaItem collapsible={true} className={"schemaItem"}><details style={{}} className={"openapi-markdown__details"}><summary style={{}}><span className={"openapi-schema__container"}><strong className={"openapi-schema__property"}>avatar</strong><span className={"openapi-schema__name"}> object</span></span></summary><div style={{"marginLeft":"1rem"}}><SchemaItem collapsible={false} name={"large"} required={true} schemaName={"string"} qualifierMessage={undefined} schema={{"type":"string"}}></SchemaItem><SchemaItem collapsible={false} name={"thumbnail"} required={true} schemaName={"string"} qualifierMessage={undefined} schema={{"type":"string"}}></SchemaItem></div></details></SchemaItem><SchemaItem collapsible={false} name={"deleted"} required={true} schemaName={"boolean"} qualifierMessage={undefined} schema={{"type":"boolean"}}></SchemaItem></div></details></SchemaItem><SchemaItem collapsible={false} name={"createdAt"} required={true} schemaName={"date-time"} qualifierMessage={undefined} schema={{"type":"string","description":"Date when it was created","format":"date-time"}}></SchemaItem><SchemaItem collapsible={false} name={"updatedAt"} required={true} schemaName={"date-time"} qualifierMessage={undefined} schema={{"type":"string","description":"Date when it was updated","format":"date-time"}}></SchemaItem></ul></details></TabItem><TabItem label={"Example (from schema)"} value={"Example (from schema)"}><ResponseSamples responseExample={"{\n  \"id\": 0,\n  \"text\": \"string\",\n  \"state\": \"RESOLUTION_NOT_NEEDED\",\n  \"author\": {\n    \"id\": 0,\n    \"username\": \"string\",\n    \"name\": \"string\",\n    \"avatar\": {\n      \"large\": \"string\",\n      \"thumbnail\": \"string\"\n    },\n    \"deleted\": true\n  },\n  \"createdAt\": \"2024-04-03T15:10:40.900Z\",\n  \"updatedAt\": \"2024-04-03T15:10:40.900Z\"\n}"} language={"json"}></ResponseSamples></TabItem></SchemaTabs></TabItem></MimeTabs></div></TabItem><TabItem label={"400"} value={"400"}><div>
+
+Bad Request
+
+</div><div><MimeTabs className={"openapi-tabs__mime"} schemaType={"response"}><TabItem label={"*/*"} value={"*/*"}><SchemaTabs className={"openapi-tabs__schema"}><TabItem label={"Schema"} value={"Schema"}><details style={{}} className={"openapi-markdown__details response"} data-collapsed={false} open={true}><summary style={{}} className={"openapi-markdown__details-summary-response"}><strong>Schema</strong></summary><div style={{"textAlign":"left","marginLeft":"1rem"}}></div><ul style={{"marginLeft":"1rem"}}><div style={{"marginTop":".5rem","marginBottom":".5rem"}}>
+
+string
+
+</div></ul></details></TabItem></SchemaTabs></TabItem></MimeTabs></div></TabItem><TabItem label={"403"} value={"403"}><div>
+
+Forbidden
+
+</div><div><MimeTabs className={"openapi-tabs__mime"} schemaType={"response"}><TabItem label={"*/*"} value={"*/*"}><SchemaTabs className={"openapi-tabs__schema"}><TabItem label={"Schema"} value={"Schema"}><details style={{}} className={"openapi-markdown__details response"} data-collapsed={false} open={true}><summary style={{}} className={"openapi-markdown__details-summary-response"}><strong>Schema</strong></summary><div style={{"textAlign":"left","marginLeft":"1rem"}}></div><ul style={{"marginLeft":"1rem"}}><div style={{"marginTop":".5rem","marginBottom":".5rem"}}>
+
+string
+
+</div></ul></details></TabItem></SchemaTabs></TabItem></MimeTabs></div></TabItem><TabItem label={"404"} value={"404"}><div>
+
+Not Found
+
+</div><div><MimeTabs className={"openapi-tabs__mime"} schemaType={"response"}><TabItem label={"*/*"} value={"*/*"}><SchemaTabs className={"openapi-tabs__schema"}><TabItem label={"Schema"} value={"Schema"}><details style={{}} className={"openapi-markdown__details response"} data-collapsed={false} open={true}><summary style={{}} className={"openapi-markdown__details-summary-response"}><strong>Schema</strong></summary><div style={{"textAlign":"left","marginLeft":"1rem"}}></div><ul style={{"marginLeft":"1rem"}}><div style={{"marginTop":".5rem","marginBottom":".5rem"}}>
+
+string
+
+</div></ul></details></TabItem></SchemaTabs></TabItem></MimeTabs></div></TabItem></ApiTabs></div></div>
+      

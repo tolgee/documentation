@@ -1,0 +1,66 @@
+---
+id: set-base-permissions-1
+title: "Sets organization base permission"
+description: "Sets organization base permission"
+sidebar_label: "Sets organization base permission"
+hide_title: true
+hide_table_of_contents: true
+api: eJy9Ve9v2zYQ/Veu92VbQcdpFgyFsA5wMKdw0zlB4i4bDMOlpbNNRCYV8uTUM/S/D0fZin8ExYoC+ySJOr57fHePt0bWs4DJEK/9TFvzj2bjbMCRQleQj1+9DBMMxBc60A35hQlBYsZvUGGhvV4QkxeMNVq9IEzQ7WD1MlRoLCZYaJ6jQk+PpfGUYcK+JIUhndNCY7JGXhWy21imGXlUOHV+oble+uUcq0o1KYqGyEB2fWOKwN7YGSokWy7k9P3rfhcV/tnr3qPCwW2nf/exM5Cl2+5msft7b4AK/+j0O++7OKqqkSQKhbOBgmCfnZ7KI6OQelPI2THB6yusFJ6/9OtCZ3BLjyUFRoWps0yWJex1+7U8vsL6i14UuSytU5fRu5Urx5nJxsEtiOfGzsZP3tmZglie8G7Y/FAQ/4wqrKoqEvv5mNil8xOTZWS/k1bTQWPreBwrxkzZMy322oa8brkTygzv8Do/5tV3DJeutNl38vIUXOlTirSmAthQsmWe1xwqhYHS0htexdb+cD+AgXsgi8lwJLXf53ZHHGC372GiA8Fzm6JCqYETMxUlR+/wHBNsL8/auxtDe73vn6odiFsC13qGC+31vgUqFMJ+ubVi6XNMcM5cJO127lKdz13g5O3p21M8JP+erFSKMqgRQDbLGbcK3Im2dZfv6NAoLVlwYzP5npD20cD1y+XWxh/uB+KGu7IgD18BOpC2CWcJBxNga3CYOg+BbDBslgRNwwV4mpOFMpCHuQ4QiOHssnMCf7sSUm3BTVgbC+EAemk0fJaCyM72bCNLK4a1YshnIJsVzlg+gYuSYUKQak/TMn8FB+eqM8e1wj2RD6++QaPOTQ+uaAXGwpx0Rn5HJV2YK1qh2t6Ff7U6N71WvRSvwc2OfZjHkvyq7vOXsPY17/EPAaxj8JS6xYJsRhmwE0VBMB+OMBUEY1MCw1HgCUFgJyUyFnI3CyfPfPXDlmjcL/c6Gjt1kZbh6NSBy2cUcx1x2/y6yTXLgIDb7t0gkvI0JU82lXEgPqjDl29OTkWKwgVe6NhtGx7/xbN7qRvVmL5wu8i1sYIcrbbe+HmIyzNUeyMwoMLkaCa+ZGoJPJhsI4ViXAFeryX+k8+rSpZr8ZLhSOFSe6MnItxwjZkJ8p5hMtV5oKMzNFcn/ni78dFPgOrls23bxEqPLHVeyhcqfKDV8aCX+fw/Zj9QqhpVatv6okMd1ElTKnhnu4wLudua2/jmk8x1XUr1mgof2DMCvsjm14sYUFv+t4ZbvCyEUlX9CzbIMsM=
+sidebar_class_name: "put api-method"
+info_path: api//tolgee-api
+custom_edit_url: null
+---
+
+import ApiTabs from "@theme/ApiTabs";
+import DiscriminatorTabs from "@theme/DiscriminatorTabs";
+import MethodEndpoint from "@theme/ApiExplorer/MethodEndpoint";
+import SecuritySchemes from "@theme/ApiExplorer/SecuritySchemes";
+import MimeTabs from "@theme/MimeTabs";
+import ParamsItem from "@theme/ParamsItem";
+import ResponseSamples from "@theme/ResponseSamples";
+import SchemaItem from "@theme/SchemaItem";
+import SchemaTabs from "@theme/SchemaTabs";
+import Markdown from "@theme/Markdown";
+import OperationTabs from "@theme/OperationTabs";
+import TabItem from "@theme/TabItem";
+
+<h1 className={"openapi__heading"}>Sets organization base permission</h1>
+
+<MethodEndpoint method={"put"} path={"/v2/organizations/{organizationId}/set-base-permissions/{permissionType}"}></MethodEndpoint>
+
+
+
+Sets organization base permission
+
+## Request
+
+<details style={{"marginBottom":"1rem"}} className={"openapi-markdown__details"} data-collapsed={false} open={true}><summary style={{}}><h3 className={"openapi-markdown__details-summary-header-params"}>Path Parameters</h3></summary><div><ul><ParamsItem className={"paramsItem"} param={{"name":"organizationId","in":"path","required":true,"schema":{"type":"integer","format":"int64"}}}></ParamsItem><ParamsItem className={"paramsItem"} param={{"name":"permissionType","in":"path","required":true,"schema":{"type":"string","enum":["NONE","VIEW","TRANSLATE","REVIEW","EDIT","MANAGE"]}}}></ParamsItem></ul></div></details><div><div><ApiTabs label={undefined} id={undefined}><TabItem label={"200"} value={"200"}><div>
+
+OK
+
+</div><div></div></TabItem><TabItem label={"400"} value={"400"}><div>
+
+Bad Request
+
+</div><div><MimeTabs className={"openapi-tabs__mime"} schemaType={"response"}><TabItem label={"*/*"} value={"*/*"}><SchemaTabs className={"openapi-tabs__schema"}><TabItem label={"Schema"} value={"Schema"}><details style={{}} className={"openapi-markdown__details response"} data-collapsed={false} open={true}><summary style={{}} className={"openapi-markdown__details-summary-response"}><strong>Schema</strong></summary><div style={{"textAlign":"left","marginLeft":"1rem"}}></div><ul style={{"marginLeft":"1rem"}}><div style={{"marginTop":".5rem","marginBottom":".5rem"}}>
+
+string
+
+</div></ul></details></TabItem></SchemaTabs></TabItem></MimeTabs></div></TabItem><TabItem label={"403"} value={"403"}><div>
+
+Forbidden
+
+</div><div><MimeTabs className={"openapi-tabs__mime"} schemaType={"response"}><TabItem label={"*/*"} value={"*/*"}><SchemaTabs className={"openapi-tabs__schema"}><TabItem label={"Schema"} value={"Schema"}><details style={{}} className={"openapi-markdown__details response"} data-collapsed={false} open={true}><summary style={{}} className={"openapi-markdown__details-summary-response"}><strong>Schema</strong></summary><div style={{"textAlign":"left","marginLeft":"1rem"}}></div><ul style={{"marginLeft":"1rem"}}><div style={{"marginTop":".5rem","marginBottom":".5rem"}}>
+
+string
+
+</div></ul></details></TabItem></SchemaTabs></TabItem></MimeTabs></div></TabItem><TabItem label={"404"} value={"404"}><div>
+
+Not Found
+
+</div><div><MimeTabs className={"openapi-tabs__mime"} schemaType={"response"}><TabItem label={"*/*"} value={"*/*"}><SchemaTabs className={"openapi-tabs__schema"}><TabItem label={"Schema"} value={"Schema"}><details style={{}} className={"openapi-markdown__details response"} data-collapsed={false} open={true}><summary style={{}} className={"openapi-markdown__details-summary-response"}><strong>Schema</strong></summary><div style={{"textAlign":"left","marginLeft":"1rem"}}></div><ul style={{"marginLeft":"1rem"}}><div style={{"marginTop":".5rem","marginBottom":".5rem"}}>
+
+string
+
+</div></ul></details></TabItem></SchemaTabs></TabItem></MimeTabs></div></TabItem></ApiTabs></div></div>
+      

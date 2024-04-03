@@ -1,0 +1,74 @@
+---
+id: get-machine-translation-settings
+title: "Get machine translation settings"
+description: "Get machine translation settings"
+sidebar_label: "Get machine translation settings"
+hide_title: true
+hide_table_of_contents: true
+api: eJztV21v2zYQ/ivsfVlbKHHWFUMhrAPc1gncJk2QOMu2wEhp6SyzkUiFPDk1DP334agXyy9L39B92pdEJo/H5+6ee+ESSCYOwms4s+YjRuRgHIDJ0UpSRg9jCCFBOpHRTGkcWald6ncukEjpxEEAubQyQ0LLepagZYYQQl7pG8YQgNK8IGkGAVi8K5TFGEKyBQYg09TcD7KcFn/ItEAIpzJ1GICLZphJCJdAi5wVKk2YoIUApsZmkqqlX59DWY5ZrcuNduj4xLODA/4Xo4usyhkuhHD6DgKIjCbUxLsyz1MVeWN6Hx2LLLcvNRM2go207BRS1QU3mE0wjtmKz4mmUieFTPC10VOVuM4Baa1csHcIM7++cs01oJaTFOMLtHMVIbt5Y2Wop4Zj9fDtJG2CdFxjGMY7/bnup6sZaqGLNA2EIiekiHEqi5RE5C0oKmYI7z6MBRmhzWoTY9FY7HaEKthANJJJB5Ijq3TyIxFtAXjv2frfIsityqRd1JH8/O21oCgcxmJqrJAFmUwS39RkpE7E4xhzixGvhywr1u9hwjzxuhupJgVRFxlz7uj09Oh4AAH0ry4ggDeDwdkx//r78pxXX/WHby4hgNHp8dFgAOMtSzwlN3jsqq0RG/hZtnaFd3jl23F6GqaKFg+pPTw9P+mzouH79vPN4LB/eTyCcVluRoWtFXJiChJ1agq3ylZSlPItJ9R1TrmVxgyo0OquwGFVBqqQbJSInXxwzLNJhxauSBJ0u7mwo3rsJkNbjb6Ikz8Gw7cGetu9DSW/1sUPB3dnxf6f6WtMZzXN1vFaD+QonJgYUxbqir02aYoRX+q3HzoVwPNdPf6VjMU53hXoaL3ZP+093dnfV675JLPco1hGJsaXC1PcxCq+cSZDmimd3Nxbo5NA+GnHvbxuNwLhd8ZlC+yXbWCHxk5UHKP+TljtZHajDd3kaDNFhPEKFq1GNLePsaIOrufbuN4bEoem0PF34rLoTGEj9LCmrLCFxG2zbELtMCqsZ+f1EvpnQ/EOF0JpMUMZo4XwelwGaxt3BdpFparZfXs1EiNzi9ovjDfZeoQksmpeFR1vCLeaWDlyph5t/QBLMwihN3/Wq6dW11u282vZq7XtdbTt1Qmw19HKS80QXNgUQpgR5WGvl5pIpjPjKHxx8OJgq9Ycoeag1lmFVvBhtqtx1gWHoaobHdvboPAtUA/M/HuC0vq5rvo4bEawt1cjbkAXRY5WPKBoo9C34sTiQjnRVL2q4KN2itQcRctNJ+55XiocWjGTjj0vnh3298VfphCR1MJMSCot3IbquZLiA0eBT/aS2i17XmzPi3wQqOPcKE374lVB3HkiaXFapI/Ehl3VzX4tN/do3aOv8NEOZq7G9ly9Q+4Y9UPnz73+2XCvWvIPnfrEupo1Hm/r2ii49JPzE6TFyGQZ6rgaKrmJss7bLZ2BcEpHKBR5B09QODIcIqVFahK3v8Irbxug/jxwWqq6TTaVeGTSBP1dW9jqrbNUEvcacT64GHlQFqdoUUcIAXAeVOLzn/cP/MxrHGXSs63G8QV5unZz6zTCT9TLU6k0K/aZtqxz+Brmz6peW71lAwi779AvSuRxAJyrrGy5nEiHlzYtS16u/BVejwOYS6u4E/pkj5XzXbF9u27gbgsrPD6vU+eJgGC3PQ0zNNNiXj2JAQK4xcXaq7rkbt+WzWW9348izKlzcuuVy4WlrX9HgxEEIAv2XZeUt56U9Qdr34mqy/zqev7LJXqn+G91Ovzeilc7/3qgtq6RZv+My7L8B2yQte8=
+sidebar_class_name: "get api-method"
+info_path: api//tolgee-api
+custom_edit_url: null
+---
+
+import ApiTabs from "@theme/ApiTabs";
+import DiscriminatorTabs from "@theme/DiscriminatorTabs";
+import MethodEndpoint from "@theme/ApiExplorer/MethodEndpoint";
+import SecuritySchemes from "@theme/ApiExplorer/SecuritySchemes";
+import MimeTabs from "@theme/MimeTabs";
+import ParamsItem from "@theme/ParamsItem";
+import ResponseSamples from "@theme/ResponseSamples";
+import SchemaItem from "@theme/SchemaItem";
+import SchemaTabs from "@theme/SchemaTabs";
+import Markdown from "@theme/Markdown";
+import OperationTabs from "@theme/OperationTabs";
+import TabItem from "@theme/TabItem";
+
+<h1 className={"openapi__heading"}>Get machine translation settings</h1>
+
+<MethodEndpoint method={"get"} path={"/v2/projects/{projectId}/machine-translation-service-settings"}></MethodEndpoint>
+
+
+
+Get machine translation settings
+
+## Request
+
+<details style={{"marginBottom":"1rem"}} className={"openapi-markdown__details"} data-collapsed={false} open={true}><summary style={{}}><h3 className={"openapi-markdown__details-summary-header-params"}>Path Parameters</h3></summary><div><ul><ParamsItem className={"paramsItem"} param={{"name":"projectId","in":"path","required":true,"allowEmptyValue":false,"schema":{"type":"integer","format":"int64"}}}></ParamsItem></ul></div></details><div><div><ApiTabs label={undefined} id={undefined}><TabItem label={"200"} value={"200"}><div>
+
+OK
+
+</div><div><MimeTabs className={"openapi-tabs__mime"} schemaType={"response"}><TabItem label={"application/json"} value={"application/json"}><SchemaTabs className={"openapi-tabs__schema"}><TabItem label={"Schema"} value={"Schema"}><details style={{}} className={"openapi-markdown__details response"} data-collapsed={false} open={true}><summary style={{}} className={"openapi-markdown__details-summary-response"}><strong>Schema</strong></summary><div style={{"textAlign":"left","marginLeft":"1rem"}}></div><ul style={{"marginLeft":"1rem"}}><SchemaItem collapsible={true} className={"schemaItem"}><details style={{}} className={"openapi-markdown__details"}><summary style={{}}><span className={"openapi-schema__container"}><strong className={"openapi-schema__property"}>_embedded</strong><span className={"openapi-schema__name"}> object</span></span></summary><div style={{"marginLeft":"1rem"}}><SchemaItem collapsible={true} className={"schemaItem"}><details style={{}} className={"openapi-markdown__details"}><summary style={{}}><span className={"openapi-schema__container"}><strong className={"openapi-schema__property"}>languageConfigs</strong><span className={"openapi-schema__name"}> object[]</span></span></summary><div style={{"marginLeft":"1rem"}}><li><div style={{"fontSize":"var(--ifm-code-font-size)","opacity":"0.6","marginLeft":"-.5rem","paddingBottom":".5rem"}}>Array [</div></li><SchemaItem collapsible={false} name={"targetLanguageId"} required={false} schemaName={"int64"} qualifierMessage={undefined} schema={{"type":"integer","description":"When null, its a default configuration applied to not configured languages","format":"int64"}}></SchemaItem><SchemaItem collapsible={false} name={"targetLanguageTag"} required={false} schemaName={"string"} qualifierMessage={undefined} schema={{"type":"string","description":"When null, its a default configuration applied to not configured languages"}}></SchemaItem><SchemaItem collapsible={false} name={"targetLanguageName"} required={false} schemaName={"string"} qualifierMessage={undefined} schema={{"type":"string","description":"When null, its a default configuration applied to not configured languages"}}></SchemaItem><SchemaItem collapsible={false} name={"primaryService"} required={false} schemaName={"string"} qualifierMessage={"**Possible values:** [`GOOGLE`, `AWS`, `DEEPL`, `AZURE`, `BAIDU`, `TOLGEE`]"} schema={{"type":"string","description":"Service used for automated translating (deprecated: use primaryServiceInfo)","deprecated":true,"enum":["GOOGLE","AWS","DEEPL","AZURE","BAIDU","TOLGEE"]}}></SchemaItem><SchemaItem collapsible={true} className={"schemaItem"}><details style={{}} className={"openapi-markdown__details"}><summary style={{}}><span className={"openapi-schema__container"}><strong className={"openapi-schema__property"}>primaryServiceInfo</strong><span className={"openapi-schema__name"}> object</span></span></summary><div style={{"marginLeft":"1rem"}}><div style={{"marginTop":".5rem","marginBottom":".5rem"}}>
+
+Info about enabled services
+
+</div><SchemaItem collapsible={false} name={"serviceType"} required={true} schemaName={"string"} qualifierMessage={"**Possible values:** [`GOOGLE`, `AWS`, `DEEPL`, `AZURE`, `BAIDU`, `TOLGEE`]"} schema={{"type":"string","enum":["GOOGLE","AWS","DEEPL","AZURE","BAIDU","TOLGEE"]}}></SchemaItem><SchemaItem collapsible={false} name={"formality"} required={false} schemaName={"string"} qualifierMessage={"**Possible values:** [`FORMAL`, `INFORMAL`, `DEFAULT`]"} schema={{"type":"string","enum":["FORMAL","INFORMAL","DEFAULT"]}}></SchemaItem></div></details></SchemaItem><SchemaItem collapsible={false} name={"enabledServices"} required={true} schemaName={"string[]"} qualifierMessage={"**Possible values:** [`GOOGLE`, `AWS`, `DEEPL`, `AZURE`, `BAIDU`, `TOLGEE`]"} schema={{"uniqueItems":true,"type":"array","description":"Services to be used for suggesting (deprecated: use enabledServicesInfo)","deprecated":true,"items":{"type":"string","description":"Services to be used for suggesting (deprecated: use enabledServicesInfo)","deprecated":true,"enum":["GOOGLE","AWS","DEEPL","AZURE","BAIDU","TOLGEE"]}}}></SchemaItem><SchemaItem collapsible={true} className={"schemaItem"}><details style={{}} className={"openapi-markdown__details"}><summary style={{}}><span className={"openapi-schema__container"}><strong className={"openapi-schema__property"}>enabledServicesInfo</strong><span className={"openapi-schema__name"}> object[]</span><span className={"openapi-schema__divider"}></span><span className={"openapi-schema__required"}>required</span></span></summary><div style={{"marginLeft":"1rem"}}><div style={{"marginTop":".5rem","marginBottom":".5rem"}}>
+
+Info about enabled services
+
+</div><li><div style={{"fontSize":"var(--ifm-code-font-size)","opacity":"0.6","marginLeft":"-.5rem","paddingBottom":".5rem"}}>Array [</div></li><SchemaItem collapsible={false} name={"serviceType"} required={true} schemaName={"string"} qualifierMessage={"**Possible values:** [`GOOGLE`, `AWS`, `DEEPL`, `AZURE`, `BAIDU`, `TOLGEE`]"} schema={{"type":"string","enum":["GOOGLE","AWS","DEEPL","AZURE","BAIDU","TOLGEE"]}}></SchemaItem><SchemaItem collapsible={false} name={"formality"} required={false} schemaName={"string"} qualifierMessage={"**Possible values:** [`FORMAL`, `INFORMAL`, `DEFAULT`]"} schema={{"type":"string","enum":["FORMAL","INFORMAL","DEFAULT"]}}></SchemaItem><li><div style={{"fontSize":"var(--ifm-code-font-size)","opacity":"0.6","marginLeft":"-.5rem"}}>]</div></li></div></details></SchemaItem><li><div style={{"fontSize":"var(--ifm-code-font-size)","opacity":"0.6","marginLeft":"-.5rem"}}>]</div></li></div></details></SchemaItem></div></details></SchemaItem></ul></details></TabItem><TabItem label={"Example (from schema)"} value={"Example (from schema)"}><ResponseSamples responseExample={"{\n  \"_embedded\": {\n    \"languageConfigs\": [\n      {\n        \"targetLanguageId\": 0,\n        \"targetLanguageTag\": \"string\",\n        \"targetLanguageName\": \"string\",\n        \"primaryServiceInfo\": {\n          \"serviceType\": \"GOOGLE\",\n          \"formality\": \"FORMAL\"\n        },\n        \"enabledServicesInfo\": [\n          {\n            \"serviceType\": \"GOOGLE\",\n            \"formality\": \"FORMAL\"\n          }\n        ]\n      }\n    ]\n  }\n}"} language={"json"}></ResponseSamples></TabItem></SchemaTabs></TabItem></MimeTabs></div></TabItem><TabItem label={"400"} value={"400"}><div>
+
+Bad Request
+
+</div><div><MimeTabs className={"openapi-tabs__mime"} schemaType={"response"}><TabItem label={"*/*"} value={"*/*"}><SchemaTabs className={"openapi-tabs__schema"}><TabItem label={"Schema"} value={"Schema"}><details style={{}} className={"openapi-markdown__details response"} data-collapsed={false} open={true}><summary style={{}} className={"openapi-markdown__details-summary-response"}><strong>Schema</strong></summary><div style={{"textAlign":"left","marginLeft":"1rem"}}></div><ul style={{"marginLeft":"1rem"}}><div style={{"marginTop":".5rem","marginBottom":".5rem"}}>
+
+string
+
+</div></ul></details></TabItem></SchemaTabs></TabItem></MimeTabs></div></TabItem><TabItem label={"403"} value={"403"}><div>
+
+Forbidden
+
+</div><div><MimeTabs className={"openapi-tabs__mime"} schemaType={"response"}><TabItem label={"*/*"} value={"*/*"}><SchemaTabs className={"openapi-tabs__schema"}><TabItem label={"Schema"} value={"Schema"}><details style={{}} className={"openapi-markdown__details response"} data-collapsed={false} open={true}><summary style={{}} className={"openapi-markdown__details-summary-response"}><strong>Schema</strong></summary><div style={{"textAlign":"left","marginLeft":"1rem"}}></div><ul style={{"marginLeft":"1rem"}}><div style={{"marginTop":".5rem","marginBottom":".5rem"}}>
+
+string
+
+</div></ul></details></TabItem></SchemaTabs></TabItem></MimeTabs></div></TabItem><TabItem label={"404"} value={"404"}><div>
+
+Not Found
+
+</div><div><MimeTabs className={"openapi-tabs__mime"} schemaType={"response"}><TabItem label={"*/*"} value={"*/*"}><SchemaTabs className={"openapi-tabs__schema"}><TabItem label={"Schema"} value={"Schema"}><details style={{}} className={"openapi-markdown__details response"} data-collapsed={false} open={true}><summary style={{}} className={"openapi-markdown__details-summary-response"}><strong>Schema</strong></summary><div style={{"textAlign":"left","marginLeft":"1rem"}}></div><ul style={{"marginLeft":"1rem"}}><div style={{"marginTop":".5rem","marginBottom":".5rem"}}>
+
+string
+
+</div></ul></details></TabItem></SchemaTabs></TabItem></MimeTabs></div></TabItem></ApiTabs></div></div>
+      

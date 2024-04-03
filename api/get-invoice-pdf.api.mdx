@@ -1,0 +1,70 @@
+---
+id: get-invoice-pdf
+title: "getInvoicePdf"
+description: "Returns organization invoices"
+sidebar_label: "getInvoicePdf"
+hide_title: true
+hide_table_of_contents: true
+api: eJy9VW1v2zYQ/ivX+7KtYKIsC4ZCWAckQFO4BbYg8dANhpHS4lkmIpMKeXLqGfrvw1GyYsdZhqHDPlk+3svDh/fcbZB1GTGf4IWtKutKnCo0FItga7beYY7XxE1wEXwotbN/ajGDdStvC4qo0NcUknFkMMeSeNSdXZk5Kqx10EtiClJkg04vCXPczTUyqNBKpVrzAhUGum9sIIM5h4YUxmJBS435BnldS7R1TCUFVDj3Yam5M/14hm2rhhI9wv80+1TCY+1dpCgRpycn8rPP168fUWHhHZNjOdV1XdkiXTWrzVxMBzUjB+F+p+TMOh3W2LZtq/DsuToX2sA13TcUeb/g6+z1y0Xoi17WlZg2hTf0du2bW2PNbfRL4oV15e1D8K5UkB4vvp0MBwrSybQdgP1wCOzSh5k1htxXwhoa69Z5vq0pLC0zmUdYHLSLVXKJx2Qs7+A6O8T1i2e49I0zX4krUPRNKCjBmkvCAZJrqqrD0CqMVDTB8jo1/odPYxj7O3KYT6bSSMKo7xWTdMILzDFbnWa74ojZZl8rbTbrhJptJZhthlZvU4NJ5bDaKq4JFea4YK7zLKt8oauFj5y/OXlzgk+l/p6cUE4GugwgwQJ2e5UbIanr/Z0LDZRJFewlJf9npENSUvdxuW3uD5/G2Cq8aWoK8EKifXSP7izuYCNsxQxzHyCSi5btimDonAgPC3LQRAqw0BEiMZxenh/DH76BQjvwM9bWQXySemU1fJa3kMis7Gk5Sm5HyeUzkDO1t46P4aJhmBEUOtC8qV7Bk3t1lZOt9g8U4qt/wdH51Qg+0hqsgwVpQ2GHJV3bj7RGtR15vx+dX42OOlMaeX3Efpr7hsK6a9jncu1zPuJvIjjPEKjwyyU5QwbYC6MgOe8OciqI1hUElhPBM4LIXp7IOqh8GY8f8eq7LdAUL+MbrZv7BMtyktzYVyWlWgfY+qOrSrOMTbh+dzNOoALNKZArCBWKDjr31ffHJ0JF7SMvdeq2HkdJDP3Sgm5r7RXaPE6Lf1yGPZtMXzirK22dVEwS3PQSn+DqVLbmrshRYX6wEnudJ4qG/PnuWhOxTxWKniXvZjPTkX4LVduKueM0n0wVrnSweiZ8TjZobJRvg/lcV5FeuOy31728voO/u9q2e5y0zkpXjfxDhXe0Plzzsp3/x+qPVLXTVm3FIBR05+dFQTXvRD7d1Htj+v27MSrUjbzhoJon4k3JnwX100Vy6AbCzwPENEoEXtv+BfkMQYo=
+sidebar_class_name: "get api-method"
+info_path: api//tolgee-api
+custom_edit_url: null
+---
+
+import ApiTabs from "@theme/ApiTabs";
+import DiscriminatorTabs from "@theme/DiscriminatorTabs";
+import MethodEndpoint from "@theme/ApiExplorer/MethodEndpoint";
+import SecuritySchemes from "@theme/ApiExplorer/SecuritySchemes";
+import MimeTabs from "@theme/MimeTabs";
+import ParamsItem from "@theme/ParamsItem";
+import ResponseSamples from "@theme/ResponseSamples";
+import SchemaItem from "@theme/SchemaItem";
+import SchemaTabs from "@theme/SchemaTabs";
+import Markdown from "@theme/Markdown";
+import OperationTabs from "@theme/OperationTabs";
+import TabItem from "@theme/TabItem";
+
+<h1 className={"openapi__heading"}>getInvoicePdf</h1>
+
+<MethodEndpoint method={"get"} path={"/v2/organizations/{organizationId}/billing/invoices/{invoiceId}/pdf"}></MethodEndpoint>
+
+
+
+Returns organization invoices
+
+## Request
+
+<details style={{"marginBottom":"1rem"}} className={"openapi-markdown__details"} data-collapsed={false} open={true}><summary style={{}}><h3 className={"openapi-markdown__details-summary-header-params"}>Path Parameters</h3></summary><div><ul><ParamsItem className={"paramsItem"} param={{"name":"organizationId","in":"path","required":true,"schema":{"type":"integer","format":"int64"}}}></ParamsItem><ParamsItem className={"paramsItem"} param={{"name":"invoiceId","in":"path","required":true,"schema":{"type":"integer","format":"int64"}}}></ParamsItem></ul></div></details><div><div><ApiTabs label={undefined} id={undefined}><TabItem label={"200"} value={"200"}><div>
+
+OK
+
+</div><div><MimeTabs className={"openapi-tabs__mime"} schemaType={"response"}><TabItem label={"application/pdf"} value={"application/pdf"}><SchemaTabs className={"openapi-tabs__schema"}><TabItem label={"Schema"} value={"Schema"}><details style={{}} className={"openapi-markdown__details response"} data-collapsed={false} open={true}><summary style={{}} className={"openapi-markdown__details-summary-response"}><strong>Schema</strong></summary><div style={{"textAlign":"left","marginLeft":"1rem"}}></div><ul style={{"marginLeft":"1rem"}}><div style={{"marginTop":".5rem","marginBottom":".5rem"}}>
+
+string
+
+</div></ul></details></TabItem></SchemaTabs></TabItem></MimeTabs></div></TabItem><TabItem label={"400"} value={"400"}><div>
+
+Bad Request
+
+</div><div><MimeTabs className={"openapi-tabs__mime"} schemaType={"response"}><TabItem label={"*/*"} value={"*/*"}><SchemaTabs className={"openapi-tabs__schema"}><TabItem label={"Schema"} value={"Schema"}><details style={{}} className={"openapi-markdown__details response"} data-collapsed={false} open={true}><summary style={{}} className={"openapi-markdown__details-summary-response"}><strong>Schema</strong></summary><div style={{"textAlign":"left","marginLeft":"1rem"}}></div><ul style={{"marginLeft":"1rem"}}><div style={{"marginTop":".5rem","marginBottom":".5rem"}}>
+
+string
+
+</div></ul></details></TabItem></SchemaTabs></TabItem></MimeTabs></div></TabItem><TabItem label={"403"} value={"403"}><div>
+
+Forbidden
+
+</div><div><MimeTabs className={"openapi-tabs__mime"} schemaType={"response"}><TabItem label={"*/*"} value={"*/*"}><SchemaTabs className={"openapi-tabs__schema"}><TabItem label={"Schema"} value={"Schema"}><details style={{}} className={"openapi-markdown__details response"} data-collapsed={false} open={true}><summary style={{}} className={"openapi-markdown__details-summary-response"}><strong>Schema</strong></summary><div style={{"textAlign":"left","marginLeft":"1rem"}}></div><ul style={{"marginLeft":"1rem"}}><div style={{"marginTop":".5rem","marginBottom":".5rem"}}>
+
+string
+
+</div></ul></details></TabItem></SchemaTabs></TabItem></MimeTabs></div></TabItem><TabItem label={"404"} value={"404"}><div>
+
+Not Found
+
+</div><div><MimeTabs className={"openapi-tabs__mime"} schemaType={"response"}><TabItem label={"*/*"} value={"*/*"}><SchemaTabs className={"openapi-tabs__schema"}><TabItem label={"Schema"} value={"Schema"}><details style={{}} className={"openapi-markdown__details response"} data-collapsed={false} open={true}><summary style={{}} className={"openapi-markdown__details-summary-response"}><strong>Schema</strong></summary><div style={{"textAlign":"left","marginLeft":"1rem"}}></div><ul style={{"marginLeft":"1rem"}}><div style={{"marginTop":".5rem","marginBottom":".5rem"}}>
+
+string
+
+</div></ul></details></TabItem></SchemaTabs></TabItem></MimeTabs></div></TabItem></ApiTabs></div></div>
+      

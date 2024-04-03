@@ -1,0 +1,66 @@
+---
+id: get-by-name
+title: "Get namespace by name"
+description: "Returns information about a namespace by its name"
+sidebar_label: "Get namespace by name"
+hide_title: true
+hide_table_of_contents: true
+api: eJy9Vm1v2zYQ/ivX+7KtkGM3C4ZAWAckQBKkwdIg8dYNhpHS0tlmI5EqeXJqCPrvw1Evtmtnw1Zg/mDL5L089/CeoypktfAYT/BW5eQLlZDHaYQp+cTpgrU1GOM9cemMB23m1uVKVkHNbMmgwHR+MFuDZh8WMEJbkAuW1ynGuCA+X982O4VyKicmJ3krDPYxtm5a8hWKlxiho8+ldpRizK6kCH2ypFxhXCGvC/Hx7LRZYF1HfZjC2U+U8HX6D7FUltnni7zg9e8qKwnjucr8oRzaMC3IYYRN7c3STydY11MJ6wtrPHnxOB6N5GeXu/c3GGFiDZNh2VVFkekkMDP85MWk2kq6gTlBLTWEsqZRh8bOpDoh0QnBrJvMOj2IeBfJeEmgU7DzzZntVxUhfVF5kRHGb0byOTmtWxR7vG/Z4tLmVKgFyWEgaw6LfU/9alPKsK5l8+QQS+cqhXv6XJLnXbpeD1/vMvQyhCqxKb1d2/Ix1emjtznxUpvF47OzZhFBaDv/dtJvRBB2pnUP7Md9YJfWzXSakvlGWL0cHo3lx4Jcrpkp3cBip4zPgok/olTzFq6TfVy3luHSlib9RlyOvC1dQgHWXAL2kEyZZQ2GOkJPSek0r4Nkz+6u4YbWoA0sSaXkMJ5MRYRbG59LcusmVLf77sMYxvaJTFiYRigHYdvxEAYDLzHG4ep42MrYD6te0PWwb9vBbD2QP8NKvmsUeG7VDZTSZdKQzEU8HGY2UdnSeo5PR6ejPU1ckZFzoRSaCCDOAq2r90GYbES2Bb/nVbJgOzXk/4yUC9JrHi47cb37MMY6woeyIAd/E2gX3cacxRy0h25AwNw68GS8Zr0i6NvLw/OSDJSeHCyVB08Mx5dnR/CnLSFRBuyMlTbgvwq90go+CvPiOVy0tAyC2SCYfAQyaWG14SM4LxlmBIlyNC+zV/BVXU3msFbYZ3L+1b/g6EBz9SypQt/QuhuLMf4xOLu7HjRLYdq3HrthdlpxP9Yu59f8nQdjGRwlNs/JpJQCW2EUJObTXswIvDYJgeZA8IzAs5Uj0gYyu/BHG7zqqQMa/MOwlEs1wGqH5thmCwq59id4s3WXKZaxDfcXD+MAytGcHJkw0EUHjfnqzdFIqCis51yFbmtxXBHvXtzt7buTrtoMlv/0BtDyzPSFh0WmtBEsQZxVK/UJro6buyyIHSOMt+/vPb2LQXchiqYlQlXNlKffXFbXstzwGk+mEa6U02omnE4qTLWX57S/6F8s9fv7VmI/wEtFdB1kpH1WzfsDYoRPtO7eZGTe/Y85N7TV0zrCfipX7f5ZklDBW557ryE78/jqYowRqlIOaVswT0Ew7YNEP4hqW5VNevkWRg6a/9xK9ZfevNl50aGtrrMWfqZ1Xf8Ff/unGA==
+sidebar_class_name: "get api-method"
+info_path: api//tolgee-api
+custom_edit_url: null
+---
+
+import ApiTabs from "@theme/ApiTabs";
+import DiscriminatorTabs from "@theme/DiscriminatorTabs";
+import MethodEndpoint from "@theme/ApiExplorer/MethodEndpoint";
+import SecuritySchemes from "@theme/ApiExplorer/SecuritySchemes";
+import MimeTabs from "@theme/MimeTabs";
+import ParamsItem from "@theme/ParamsItem";
+import ResponseSamples from "@theme/ResponseSamples";
+import SchemaItem from "@theme/SchemaItem";
+import SchemaTabs from "@theme/SchemaTabs";
+import Markdown from "@theme/Markdown";
+import OperationTabs from "@theme/OperationTabs";
+import TabItem from "@theme/TabItem";
+
+<h1 className={"openapi__heading"}>Get namespace by name</h1>
+
+<MethodEndpoint method={"get"} path={"/v2/projects/{projectId}/namespace-by-name/{name}"}></MethodEndpoint>
+
+
+
+Returns information about a namespace by its name
+
+## Request
+
+<details style={{"marginBottom":"1rem"}} className={"openapi-markdown__details"} data-collapsed={false} open={true}><summary style={{}}><h3 className={"openapi-markdown__details-summary-header-params"}>Path Parameters</h3></summary><div><ul><ParamsItem className={"paramsItem"} param={{"name":"name","in":"path","required":true,"schema":{"type":"string"}}}></ParamsItem><ParamsItem className={"paramsItem"} param={{"name":"projectId","in":"path","required":true,"allowEmptyValue":false,"schema":{"type":"integer","format":"int64"}}}></ParamsItem></ul></div></details><div><div><ApiTabs label={undefined} id={undefined}><TabItem label={"200"} value={"200"}><div>
+
+OK
+
+</div><div><MimeTabs className={"openapi-tabs__mime"} schemaType={"response"}><TabItem label={"application/json"} value={"application/json"}><SchemaTabs className={"openapi-tabs__schema"}><TabItem label={"Schema"} value={"Schema"}><details style={{}} className={"openapi-markdown__details response"} data-collapsed={false} open={true}><summary style={{}} className={"openapi-markdown__details-summary-response"}><strong>Schema</strong></summary><div style={{"textAlign":"left","marginLeft":"1rem"}}></div><ul style={{"marginLeft":"1rem"}}><SchemaItem collapsible={false} name={"id"} required={true} schemaName={"int64"} qualifierMessage={undefined} schema={{"type":"integer","description":"The id of namespace","format":"int64","example":10000048}}></SchemaItem><SchemaItem collapsible={false} name={"name"} required={true} schemaName={"string"} qualifierMessage={undefined} schema={{"type":"string","example":"homepage"}}></SchemaItem></ul></details></TabItem><TabItem label={"Example (from schema)"} value={"Example (from schema)"}><ResponseSamples responseExample={"{\n  \"id\": 10000048,\n  \"name\": \"homepage\"\n}"} language={"json"}></ResponseSamples></TabItem></SchemaTabs></TabItem></MimeTabs></div></TabItem><TabItem label={"400"} value={"400"}><div>
+
+Bad Request
+
+</div><div><MimeTabs className={"openapi-tabs__mime"} schemaType={"response"}><TabItem label={"*/*"} value={"*/*"}><SchemaTabs className={"openapi-tabs__schema"}><TabItem label={"Schema"} value={"Schema"}><details style={{}} className={"openapi-markdown__details response"} data-collapsed={false} open={true}><summary style={{}} className={"openapi-markdown__details-summary-response"}><strong>Schema</strong></summary><div style={{"textAlign":"left","marginLeft":"1rem"}}></div><ul style={{"marginLeft":"1rem"}}><div style={{"marginTop":".5rem","marginBottom":".5rem"}}>
+
+string
+
+</div></ul></details></TabItem></SchemaTabs></TabItem></MimeTabs></div></TabItem><TabItem label={"403"} value={"403"}><div>
+
+Forbidden
+
+</div><div><MimeTabs className={"openapi-tabs__mime"} schemaType={"response"}><TabItem label={"*/*"} value={"*/*"}><SchemaTabs className={"openapi-tabs__schema"}><TabItem label={"Schema"} value={"Schema"}><details style={{}} className={"openapi-markdown__details response"} data-collapsed={false} open={true}><summary style={{}} className={"openapi-markdown__details-summary-response"}><strong>Schema</strong></summary><div style={{"textAlign":"left","marginLeft":"1rem"}}></div><ul style={{"marginLeft":"1rem"}}><div style={{"marginTop":".5rem","marginBottom":".5rem"}}>
+
+string
+
+</div></ul></details></TabItem></SchemaTabs></TabItem></MimeTabs></div></TabItem><TabItem label={"404"} value={"404"}><div>
+
+Not Found
+
+</div><div><MimeTabs className={"openapi-tabs__mime"} schemaType={"response"}><TabItem label={"*/*"} value={"*/*"}><SchemaTabs className={"openapi-tabs__schema"}><TabItem label={"Schema"} value={"Schema"}><details style={{}} className={"openapi-markdown__details response"} data-collapsed={false} open={true}><summary style={{}} className={"openapi-markdown__details-summary-response"}><strong>Schema</strong></summary><div style={{"textAlign":"left","marginLeft":"1rem"}}></div><ul style={{"marginLeft":"1rem"}}><div style={{"marginTop":".5rem","marginBottom":".5rem"}}>
+
+string
+
+</div></ul></details></TabItem></SchemaTabs></TabItem></MimeTabs></div></TabItem></ApiTabs></div></div>
+      

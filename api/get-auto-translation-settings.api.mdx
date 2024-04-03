@@ -1,0 +1,70 @@
+---
+id: get-auto-translation-settings
+title: "Get default auto-translation settings for project"
+description: "Returns default auto translation settings for project (deprecated: use per language config with null language id)"
+sidebar_label: "Get default auto-translation settings for project"
+hide_title: true
+hide_table_of_contents: true
+api: eJzFVn9v20YM/SosgWFdodhpVgyFsA5Ii6Zwu25Bkq0bUiM9S7R0zelOvaOcGoa++8CT5B9xsq0osP2TGDoe+fiOfOQKWRUB00s89e4jZRxwmmBOIfO6Zu0spnhG3HgbIKe5agyDatgBe2WDUWICgZi1LQLMnYe68wMPc6o9ZYopT6EJBDV5MMoWjSoIMmfnuoAbzSXYxpjNic6/wwRdTT46n+SYYkF83LC72MQ870NigrXyqiImL2ms0KqKMMUexiTHBLVkUSsuMUFPnxrtKceUfUMJKmPczcuq5uXvyjSE6VyZQAmGrKRKYbpCXtbiUFumgjwmOHe+Utx9+uEJtu1U3Iba2UBBbhwdHsq/XRZ/fYMJZs4yWZZTVddGZzGZ8ccgJqutoBuYl0hWzQydOD+paucZE2yCtsVblZXa0hYpw8nWp7dUOb+UN+3TcDOhRWjzwjHrDvJAv9D9L1K+N9Dm8sw5Q0ow7fIwmUNkHizdwDUtA9xoY2BGsa4qxTpTxizXBUY5LLSCmeKshHVZQIy/U4VVRAA3JVl4fHj4DVTxipaybGy+Bn0Hb/8V6g507XWl/BKqDsitVvILndHonWTx/h6W36Nk1ZVFnoBmYK8pwFZbknyN3XUHRXPtA4+EkNul9QVE6Hijo4G9Lgrye4+0A4hLiuwNDI7e2wmDtplpcgqgTHDRJleseu89iy9+niRwootKJeA8OC7JQyzOLk7oq6ELf03L/voI2zZB1mwko1sK8iIq0FuXk8G2FcMnd7Xtc5XDGX1qKPBu/z4aP9pt2Z64wF7bAhOkz6qqY+RV5nJ6tnTNVa7zq+Aq4lLb4urGO1skEAUsPLtcHyQQT6btGtj3+8BOnJ/pPCf7lbDWr3VlHV/V5CvNLGU1wNoqoDCiXPMWrif7uH5xDCex4b4Ol6fgGp9RhBU7eA1JBkaHoZXyHMbMIOmBssZrXsZxcHw6gTdSERZKUjl5TC+nbbJz8Kkhv+ycD6ev313AhbsmGz9ME5Sncf0sikOHS0xxvDga95MmjFfrmdOORRUOtpg7CJuBJT0+TKvGG0yxZK7T8di4TJnSBU6fHj493Gu9V2TlqSiHzgPIZcE2JHwu5HZ6voV/TbVEwX6yxRYn5aO6dz9OBo1//e5CtOG8kYn9N4520W3MWcxFoYYhFveCQDZo1gva6EPoxLoJ5KFUQfYIODo5HsGfroFMWXAzVtpCuOVaNOGDUC83x0VPy0E0O4gmH4BsXjtteQTPGxadzpSneWMewK28usjxW+1uyIcHX8DRHdW1ZknV+g0tMRk2kj8Ojk8nB92nuJH0N3bd7NTivq9bYszfBrCOwVPmqopsTrmIrqxb4vN6z2cCQdssTgcheEYQ2MkTaQvGFWG0wauuB6DxftRSbecuwuo19cKZgmKsPWz90alRLNsDnL08v4igPM3Jk80IE5Q+6MwXj0eHQkXtAlcqVluP4xXxzup58E+r520oq40O/S+7bP+GTJ95XBulbVxFpPFXvY5c4uKoW8m6FTzBdHt/vV9MpgmKXoiH1WqmAv3mTdvK5+7N0stpggvltYz5KDi5DnFtWC+691L18Kxv3+/gviSG6rRSmotuf0ZM8JqWOyt4O20TXMvvqj8/zjKqeevm3kq8I7yvXl50XJS7jXEdG6P/Id7vRLXdfV14+StSf6f5j31L/rQ2707uvdBnN1gLP9O2bf8C8uSqEg==
+sidebar_class_name: "get api-method"
+info_path: api//tolgee-api
+custom_edit_url: null
+---
+
+import ApiTabs from "@theme/ApiTabs";
+import DiscriminatorTabs from "@theme/DiscriminatorTabs";
+import MethodEndpoint from "@theme/ApiExplorer/MethodEndpoint";
+import SecuritySchemes from "@theme/ApiExplorer/SecuritySchemes";
+import MimeTabs from "@theme/MimeTabs";
+import ParamsItem from "@theme/ParamsItem";
+import ResponseSamples from "@theme/ResponseSamples";
+import SchemaItem from "@theme/SchemaItem";
+import SchemaTabs from "@theme/SchemaTabs";
+import Markdown from "@theme/Markdown";
+import OperationTabs from "@theme/OperationTabs";
+import TabItem from "@theme/TabItem";
+
+<h1 className={"openapi__heading"}>Get default auto-translation settings for project</h1>
+
+<MethodEndpoint method={"get"} path={"/v2/projects/{projectId}/auto-translation-settings"}></MethodEndpoint>
+
+:::caution deprecated
+
+This endpoint has been deprecated and may be replaced or removed in future versions of the API.
+
+:::
+
+Returns default auto translation settings for project (deprecated: use per language config with null language id)
+
+## Request
+
+<details style={{"marginBottom":"1rem"}} className={"openapi-markdown__details"} data-collapsed={false} open={true}><summary style={{}}><h3 className={"openapi-markdown__details-summary-header-params"}>Path Parameters</h3></summary><div><ul><ParamsItem className={"paramsItem"} param={{"name":"projectId","in":"path","required":true,"allowEmptyValue":false,"schema":{"type":"integer","format":"int64"}}}></ParamsItem></ul></div></details><div><div><ApiTabs label={undefined} id={undefined}><TabItem label={"200"} value={"200"}><div>
+
+OK
+
+</div><div><MimeTabs className={"openapi-tabs__mime"} schemaType={"response"}><TabItem label={"application/json"} value={"application/json"}><SchemaTabs className={"openapi-tabs__schema"}><TabItem label={"Schema"} value={"Schema"}><details style={{}} className={"openapi-markdown__details response"} data-collapsed={false} open={true}><summary style={{}} className={"openapi-markdown__details-summary-response"}><strong>Schema</strong></summary><div style={{"textAlign":"left","marginLeft":"1rem"}}></div><ul style={{"marginLeft":"1rem"}}><SchemaItem collapsible={false} name={"languageId"} required={false} schemaName={"int64"} qualifierMessage={undefined} schema={{"type":"integer","format":"int64"}}></SchemaItem><SchemaItem collapsible={false} name={"usingTranslationMemory"} required={true} schemaName={"boolean"} qualifierMessage={undefined} schema={{"type":"boolean","description":"If true, new keys will be automatically translated via batch operation using translation memory when 100% match is found"}}></SchemaItem><SchemaItem collapsible={false} name={"usingMachineTranslation"} required={true} schemaName={"boolean"} qualifierMessage={undefined} schema={{"type":"boolean","description":"If true, new keys will be automatically translated via batch operationusing primary machine translation service.When \"usingTranslationMemory\" is enabled, it tries to translate it with translation memory first."}}></SchemaItem><SchemaItem collapsible={false} name={"enableForImport"} required={true} schemaName={"boolean"} qualifierMessage={undefined} schema={{"type":"boolean","description":"If true, import will trigger batch operation to translate the new new keys.\nIt includes also the data imported via CLI, Figma, or other integrations using batch key import."}}></SchemaItem></ul></details></TabItem><TabItem label={"Example (from schema)"} value={"Example (from schema)"}><ResponseSamples responseExample={"{\n  \"languageId\": 0,\n  \"usingTranslationMemory\": true,\n  \"usingMachineTranslation\": true,\n  \"enableForImport\": true\n}"} language={"json"}></ResponseSamples></TabItem></SchemaTabs></TabItem></MimeTabs></div></TabItem><TabItem label={"400"} value={"400"}><div>
+
+Bad Request
+
+</div><div><MimeTabs className={"openapi-tabs__mime"} schemaType={"response"}><TabItem label={"*/*"} value={"*/*"}><SchemaTabs className={"openapi-tabs__schema"}><TabItem label={"Schema"} value={"Schema"}><details style={{}} className={"openapi-markdown__details response"} data-collapsed={false} open={true}><summary style={{}} className={"openapi-markdown__details-summary-response"}><strong>Schema</strong></summary><div style={{"textAlign":"left","marginLeft":"1rem"}}></div><ul style={{"marginLeft":"1rem"}}><div style={{"marginTop":".5rem","marginBottom":".5rem"}}>
+
+string
+
+</div></ul></details></TabItem></SchemaTabs></TabItem></MimeTabs></div></TabItem><TabItem label={"403"} value={"403"}><div>
+
+Forbidden
+
+</div><div><MimeTabs className={"openapi-tabs__mime"} schemaType={"response"}><TabItem label={"*/*"} value={"*/*"}><SchemaTabs className={"openapi-tabs__schema"}><TabItem label={"Schema"} value={"Schema"}><details style={{}} className={"openapi-markdown__details response"} data-collapsed={false} open={true}><summary style={{}} className={"openapi-markdown__details-summary-response"}><strong>Schema</strong></summary><div style={{"textAlign":"left","marginLeft":"1rem"}}></div><ul style={{"marginLeft":"1rem"}}><div style={{"marginTop":".5rem","marginBottom":".5rem"}}>
+
+string
+
+</div></ul></details></TabItem></SchemaTabs></TabItem></MimeTabs></div></TabItem><TabItem label={"404"} value={"404"}><div>
+
+Not Found
+
+</div><div><MimeTabs className={"openapi-tabs__mime"} schemaType={"response"}><TabItem label={"*/*"} value={"*/*"}><SchemaTabs className={"openapi-tabs__schema"}><TabItem label={"Schema"} value={"Schema"}><details style={{}} className={"openapi-markdown__details response"} data-collapsed={false} open={true}><summary style={{}} className={"openapi-markdown__details-summary-response"}><strong>Schema</strong></summary><div style={{"textAlign":"left","marginLeft":"1rem"}}></div><ul style={{"marginLeft":"1rem"}}><div style={{"marginTop":".5rem","marginBottom":".5rem"}}>
+
+string
+
+</div></ul></details></TabItem></SchemaTabs></TabItem></MimeTabs></div></TabItem></ApiTabs></div></div>
+      

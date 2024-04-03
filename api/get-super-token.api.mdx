@@ -1,0 +1,66 @@
+---
+id: get-super-token
+title: "Generates new JWT token permitted to sensitive operations"
+description: "Generates new JWT token permitted to sensitive operations"
+sidebar_label: "Generates new JWT token permitted to sensitive operations"
+hide_title: true
+hide_table_of_contents: true
+api: eJytVl1vGzcQ/CvMvgQIaEt18xAcmgB2EbeOgdqwFaSFIijUcSUxviMZck+KINx/L5Y8fVmGgcJ9ugO5XM4Md5ZcA6lZhGIInyMGGElwHoMi4+yVhgJmSPeNxzBwD2hBQsAfDUa6cHoFxRpKZwkt8a/yvjJlWtn7Hp3lsVjOsVb8RyuPUICbfMeSQIIPvA8ZjDzryO8FRQrGzkCCxlgG4zklFPCnioKcmKDwwS2MRi2Wc7RicDO4FWjVpEINrQSvYly6oF+Y0TraZW0lkKGKc+3kuMtaQMvTLIwJqKGg0GAaiN7ZmAme9fv8Odz+5hrk/6WgKkuMMZ/SEW9GzzODNHo0u0fu05LOG5qjpQ7IXceCSbYS3j7F40JpsdHigNCb3psnOWyPA3+q2qeN16XT+H7lmrE2ehxdjTQ3djZeBmdnUngVVB3fD7cTUqSZUbsF9usxsEsXJkbrVLgvgbW1xNg6GnsMtSFCvYNFQdlYpZB4itrQHq63x7j+ciQuXWP1C3EFjK4JJSZYU064hWSbqsoYWgkRyyYYWkExXMOnLwPR1clw1I4ee+IPtEwWo7C4FBycSkdsWbNjItpoyCxQbKWJIIHPxnHX8C6Vglc0hwJ6i7NeEzH0Zl3uk8geOqGup0QMCwwxoWtCBQXMiXzR61WuVNXcRSre9d/1j+y7gapFziB4MTPa8L1nJbM/9lhvdeVdePsUBQVMUAUMILufSxdqRWyKLwO2UDK+eCbRIbpdeBbQRLHpEWLqwpMa5vbDWom5iiIiibPL81Pxj2tEqaxwE1LGivgo9cIo8e1Zlb8JtNo7Y+lUXDTELa9UAadN9Uo84pV3TmPeLTHEV/9Bo/PbK3GNK2GsmKPSGPZUUt5c4wokWJVS/X1yfnt1kocMK9atOEzzo8GwylX9VK5Dza/odUyNO2Dp6hqtzvXaRBSc8+EopxTR2BKFoSTwBEUkx0dkrKjcLJ7u8KqHDdC0PvVNbtN3uyvx48ag3ZW2s+7uUtprysZOXSLVdd+Bq2aYkB4x66ZuK0VTF2px9/F+kCgFnGJAWyJIYBfl8MUvp/10F7pItUq12rF4ib8PIG3PgvAn9XyljOUdk4HXnfWHsDgDCVyWIOFJ+48ksMM5dr2eqIifQ9W2PJxVLoYjCQsVDN/EqWXJTaFwv3jAFRTwe26iJ+mC4/CqyVXy6EJt5WbFeVmip2djR3sN7fbmfsBF3z17aqd5TVBLfhKpJRTwFb4C8Ospi1Ws8/gaKmVnjZpxfM7LdaMalmcr4SNXJWabSrerPZS/XaSA7NQPIDs2Wcp21Lbtv7vrYfQ=
+sidebar_class_name: "post api-method"
+info_path: api//tolgee-api
+custom_edit_url: null
+---
+
+import ApiTabs from "@theme/ApiTabs";
+import DiscriminatorTabs from "@theme/DiscriminatorTabs";
+import MethodEndpoint from "@theme/ApiExplorer/MethodEndpoint";
+import SecuritySchemes from "@theme/ApiExplorer/SecuritySchemes";
+import MimeTabs from "@theme/MimeTabs";
+import ParamsItem from "@theme/ParamsItem";
+import ResponseSamples from "@theme/ResponseSamples";
+import SchemaItem from "@theme/SchemaItem";
+import SchemaTabs from "@theme/SchemaTabs";
+import Markdown from "@theme/Markdown";
+import OperationTabs from "@theme/OperationTabs";
+import TabItem from "@theme/TabItem";
+
+<h1 className={"openapi__heading"}>Generates new JWT token permitted to sensitive operations</h1>
+
+<MethodEndpoint method={"post"} path={"/v2/user/generate-super-token"}></MethodEndpoint>
+
+
+
+Generates new JWT token permitted to sensitive operations
+
+## Request
+
+<MimeTabs className={"openapi-tabs__mime"}><TabItem label={"application/json"} value={"application/json-schema"}><details style={{}} className={"openapi-markdown__details mime"} data-collapsed={false} open={true}><summary style={{}} className={"openapi-markdown__details-summary-mime"}><h3 className={"openapi-markdown__details-summary-header-body"}>Body</h3><strong className={"openapi-schema__required"}>required</strong></summary><div style={{"textAlign":"left","marginLeft":"1rem"}}></div><ul style={{"marginLeft":"1rem"}}><SchemaItem collapsible={false} name={"otp"} required={false} schemaName={"string"} qualifierMessage={undefined} schema={{"type":"string","description":"Has to be provided when TOTP enabled"}}></SchemaItem><SchemaItem collapsible={false} name={"password"} required={false} schemaName={"string"} qualifierMessage={undefined} schema={{"type":"string","description":"Has to be provided when TOTP not enabled"}}></SchemaItem></ul></details></TabItem></MimeTabs><div><div><ApiTabs label={undefined} id={undefined}><TabItem label={"200"} value={"200"}><div>
+
+OK
+
+</div><div><MimeTabs className={"openapi-tabs__mime"} schemaType={"response"}><TabItem label={"application/json"} value={"application/json"}><SchemaTabs className={"openapi-tabs__schema"}><TabItem label={"Schema"} value={"Schema"}><details style={{}} className={"openapi-markdown__details response"} data-collapsed={false} open={true}><summary style={{}} className={"openapi-markdown__details-summary-response"}><strong>Schema</strong></summary><div style={{"textAlign":"left","marginLeft":"1rem"}}></div><ul style={{"marginLeft":"1rem"}}><SchemaItem collapsible={false} name={"accessToken"} required={false} schemaName={"string"} qualifierMessage={undefined} schema={{"type":"string"}}></SchemaItem><SchemaItem collapsible={false} name={"tokenType"} required={false} schemaName={"string"} qualifierMessage={undefined} schema={{"type":"string"}}></SchemaItem></ul></details></TabItem><TabItem label={"Example (from schema)"} value={"Example (from schema)"}><ResponseSamples responseExample={"{\n  \"accessToken\": \"string\",\n  \"tokenType\": \"string\"\n}"} language={"json"}></ResponseSamples></TabItem></SchemaTabs></TabItem></MimeTabs></div></TabItem><TabItem label={"400"} value={"400"}><div>
+
+Bad Request
+
+</div><div><MimeTabs className={"openapi-tabs__mime"} schemaType={"response"}><TabItem label={"*/*"} value={"*/*"}><SchemaTabs className={"openapi-tabs__schema"}><TabItem label={"Schema"} value={"Schema"}><details style={{}} className={"openapi-markdown__details response"} data-collapsed={false} open={true}><summary style={{}} className={"openapi-markdown__details-summary-response"}><strong>Schema</strong></summary><div style={{"textAlign":"left","marginLeft":"1rem"}}></div><ul style={{"marginLeft":"1rem"}}><div style={{"marginTop":".5rem","marginBottom":".5rem"}}>
+
+string
+
+</div></ul></details></TabItem></SchemaTabs></TabItem></MimeTabs></div></TabItem><TabItem label={"403"} value={"403"}><div>
+
+Forbidden
+
+</div><div><MimeTabs className={"openapi-tabs__mime"} schemaType={"response"}><TabItem label={"*/*"} value={"*/*"}><SchemaTabs className={"openapi-tabs__schema"}><TabItem label={"Schema"} value={"Schema"}><details style={{}} className={"openapi-markdown__details response"} data-collapsed={false} open={true}><summary style={{}} className={"openapi-markdown__details-summary-response"}><strong>Schema</strong></summary><div style={{"textAlign":"left","marginLeft":"1rem"}}></div><ul style={{"marginLeft":"1rem"}}><div style={{"marginTop":".5rem","marginBottom":".5rem"}}>
+
+string
+
+</div></ul></details></TabItem></SchemaTabs></TabItem></MimeTabs></div></TabItem><TabItem label={"404"} value={"404"}><div>
+
+Not Found
+
+</div><div><MimeTabs className={"openapi-tabs__mime"} schemaType={"response"}><TabItem label={"*/*"} value={"*/*"}><SchemaTabs className={"openapi-tabs__schema"}><TabItem label={"Schema"} value={"Schema"}><details style={{}} className={"openapi-markdown__details response"} data-collapsed={false} open={true}><summary style={{}} className={"openapi-markdown__details-summary-response"}><strong>Schema</strong></summary><div style={{"textAlign":"left","marginLeft":"1rem"}}></div><ul style={{"marginLeft":"1rem"}}><div style={{"marginTop":".5rem","marginBottom":".5rem"}}>
+
+string
+
+</div></ul></details></TabItem></SchemaTabs></TabItem></MimeTabs></div></TabItem></ApiTabs></div></div>
+      

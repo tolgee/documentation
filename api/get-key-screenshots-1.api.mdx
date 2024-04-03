@@ -1,0 +1,66 @@
+---
+id: get-key-screenshots-1
+title: "Get screenshots for key"
+description: "Get screenshots for key"
+sidebar_label: "Get screenshots for key"
+hide_title: true
+hide_table_of_contents: true
+api: eJzNV21v2zYQ/ivX+7IXKHaaFkNhrAPSISnSYF2QeOuG1HBp8WyxlkiVpOwIhv77cNSLX1unKDbsk2XyePfcw3vjCr2YORzc411sibRLjHc4itDkZIVXRl9JHOCM/DWVGyLjpxhhLqzIyJNlBSvUIiMc4JzKK4kRKo0DzIVPMEJLnwplSeLA24IidHFCmcDBCn2Z8yGlPc3IYoRTYzPh66WfnmNVRZ3m3JqPFPuj2kWamuVFlvvyT5EWhIOpSN1XWh2xWpcb7cjxibPTU/6R5GKrciYGB/j7NUYYG+1Je94VeZ6qONDW/+hYZLVv1EzYCabPMsle1QbGlE1ISvbimKjbuKq1sLBWlMyMpyysr2m5x6lK6Q+bsqcqpcBnhIqJnFN5S1OypGNyGKFPimyihUo3v/noKDoCS8lHUbsBYS3uvFV6htEOwZcqJWDRCJaJihPIRAkTAmmWOjVCkoSpNRn4hGDNCnBc9N7r9/pdQhpUJmbkQFgCR3FhSfbgQse2zD1J8Coj50WWg3Ig8pw0a/Um6GyR9gAA3msAhr9m6Cj+YSsaNP3vPGmjYs+PaufuDwnEloQnee4P0dBduhSeThgZH9mOtUeGbltP5lS+5aA5Gof1gceFYm6cqu9q22hCapaw6qWSocY8YITlcdsPR+0+O2O75SPlavOPk20wP0aY71f5lIWuqbzS68p+0xJSrRk/dPvNnstFfFjAWDVTWqRDejgQIV9A8JuRlAaB1NS19KD+f4+Z7RTeaHpgpiGX5sTB2sLfR15teverSVOKWVnYPiQd4fND3eWVkHBLnwpyfrvN/Nj/8WBn6bKPHkSWB+ur2Eh6WZpiLJUcO5ORT5SejZfW6FkEoYO7l/fdRgRhZ1R1wJ7tA7s0dqKkJP2NsLoZY6yNH+dkM+U9yTUsb4V2aRBxPZLKb+B6vo/rrfFwaQotvxGXJWcKG1OANWWFHSRdpGnVXnGowcqXYfo5v7mCaypBaUhISLI4uB/x8LKx8akgW9aq2t0374YwNHPSYWG0G32vyW+0AwdTY5vw4wszzWwWZjHOBuwvzvrNmOT6q25gqvpzKl1/FUpj1d8cINgNu2hnuIKLPSbe54N+n/MvTYzzgxenL073mttr0nx/JKHWAHyYXWh5uWPG67q44WbHP1vBZirj/xMSNuRk/XHZZuabd0NO4rsiJwtfULSTt524Z3HuiW2BDyw60lzpFgRdGDpYcpctHFlIhANHHs4uz3vwtykgFhrMxAulwe2oXigBH5h5PtmfNbScBLGTIPIBSMvcKO178Krw3PhjYWlapE9gx6/acljLzZKse/IVHB0IwnWTzdV1iJxmmv7r5Pzm6qReCtN0c2JbzVbI7uva5vzKf+dAGw+WYpNl3QBSOALWOd/TGYFTOiZQPhA8IXDe8BUpDamZud4ar5i3QMP5UKqVnpoAqym2Q5POKNjaH8XqrZtUeK75cHtxNwygbDuRYIScB7X44mnvtBkQfCZCtDU4Pp+SWwY7rjw9+H6eChV6alFPU3W63uPirB4hQsJihIPNNw7nLK+1E5DbfqJxZrKO1WoiHM9xVcXLNTuD+1GEC2GVmDAz9yuUyvG37J5DO3C7ionf3zaJ8gNgdNiNNg40+72oX1lYQ+6egFze/kOja+aqUej5TRFeNfvncUy53zi591rj2tWV1dcXQ4xQFFtDhshVfdXNB2s/iGozuTpOAiMHxX9uMu6XTrze+eyBxrtWmvkZVVX1D/g5Y64=
+sidebar_class_name: "get api-method"
+info_path: api//tolgee-api
+custom_edit_url: null
+---
+
+import ApiTabs from "@theme/ApiTabs";
+import DiscriminatorTabs from "@theme/DiscriminatorTabs";
+import MethodEndpoint from "@theme/ApiExplorer/MethodEndpoint";
+import SecuritySchemes from "@theme/ApiExplorer/SecuritySchemes";
+import MimeTabs from "@theme/MimeTabs";
+import ParamsItem from "@theme/ParamsItem";
+import ResponseSamples from "@theme/ResponseSamples";
+import SchemaItem from "@theme/SchemaItem";
+import SchemaTabs from "@theme/SchemaTabs";
+import Markdown from "@theme/Markdown";
+import OperationTabs from "@theme/OperationTabs";
+import TabItem from "@theme/TabItem";
+
+<h1 className={"openapi__heading"}>Get screenshots for key</h1>
+
+<MethodEndpoint method={"get"} path={"/v2/projects/{projectId}/keys/{keyId}/screenshots"}></MethodEndpoint>
+
+
+
+Get screenshots for key
+
+## Request
+
+<details style={{"marginBottom":"1rem"}} className={"openapi-markdown__details"} data-collapsed={false} open={true}><summary style={{}}><h3 className={"openapi-markdown__details-summary-header-params"}>Path Parameters</h3></summary><div><ul><ParamsItem className={"paramsItem"} param={{"name":"keyId","in":"path","required":true,"schema":{"type":"integer","format":"int64"}}}></ParamsItem><ParamsItem className={"paramsItem"} param={{"name":"projectId","in":"path","required":true,"allowEmptyValue":false,"schema":{"type":"integer","format":"int64"}}}></ParamsItem></ul></div></details><div><div><ApiTabs label={undefined} id={undefined}><TabItem label={"200"} value={"200"}><div>
+
+OK
+
+</div><div><MimeTabs className={"openapi-tabs__mime"} schemaType={"response"}><TabItem label={"application/json"} value={"application/json"}><SchemaTabs className={"openapi-tabs__schema"}><TabItem label={"Schema"} value={"Schema"}><details style={{}} className={"openapi-markdown__details response"} data-collapsed={false} open={true}><summary style={{}} className={"openapi-markdown__details-summary-response"}><strong>Schema</strong></summary><div style={{"textAlign":"left","marginLeft":"1rem"}}></div><ul style={{"marginLeft":"1rem"}}><SchemaItem collapsible={true} className={"schemaItem"}><details style={{}} className={"openapi-markdown__details"}><summary style={{}}><span className={"openapi-schema__container"}><strong className={"openapi-schema__property"}>_embedded</strong><span className={"openapi-schema__name"}> object</span></span></summary><div style={{"marginLeft":"1rem"}}><SchemaItem collapsible={true} className={"schemaItem"}><details style={{}} className={"openapi-markdown__details"}><summary style={{}}><span className={"openapi-schema__container"}><strong className={"openapi-schema__property"}>screenshots</strong><span className={"openapi-schema__name"}> object[]</span></span></summary><div style={{"marginLeft":"1rem"}}><li><div style={{"fontSize":"var(--ifm-code-font-size)","opacity":"0.6","marginLeft":"-.5rem","paddingBottom":".5rem"}}>Array [</div></li><SchemaItem collapsible={false} name={"id"} required={true} schemaName={"int64"} qualifierMessage={undefined} schema={{"type":"integer","format":"int64"}}></SchemaItem><SchemaItem collapsible={false} name={"filename"} required={true} schemaName={"string"} qualifierMessage={undefined} schema={{"type":"string","description":"File name, which may be downloaded from the screenshot path.\n\nWhen images are secured. Encrypted timestamp is appended to the filename.    \n  "}}></SchemaItem><SchemaItem collapsible={false} name={"thumbnail"} required={true} schemaName={"string"} qualifierMessage={undefined} schema={{"type":"string","description":"Thumbnail file name, which may be downloaded from the screenshot path.\n\nWhen images are secured. Encrypted timestamp is appended to the filename.    \n  "}}></SchemaItem><SchemaItem collapsible={false} name={"fileUrl"} required={true} schemaName={"string"} qualifierMessage={undefined} schema={{"type":"string"}}></SchemaItem><SchemaItem collapsible={false} name={"thumbnailUrl"} required={true} schemaName={"string"} qualifierMessage={undefined} schema={{"type":"string"}}></SchemaItem><SchemaItem collapsible={false} name={"createdAt"} required={false} schemaName={"date-time"} qualifierMessage={undefined} schema={{"type":"string","format":"date-time"}}></SchemaItem><SchemaItem collapsible={true} className={"schemaItem"}><details style={{}} className={"openapi-markdown__details"}><summary style={{}}><span className={"openapi-schema__container"}><strong className={"openapi-schema__property"}>keyReferences</strong><span className={"openapi-schema__name"}> object[]</span><span className={"openapi-schema__divider"}></span><span className={"openapi-schema__required"}>required</span></span></summary><div style={{"marginLeft":"1rem"}}><li><div style={{"fontSize":"var(--ifm-code-font-size)","opacity":"0.6","marginLeft":"-.5rem","paddingBottom":".5rem"}}>Array [</div></li><SchemaItem collapsible={false} name={"keyId"} required={true} schemaName={"int64"} qualifierMessage={undefined} schema={{"type":"integer","format":"int64"}}></SchemaItem><SchemaItem collapsible={true} className={"schemaItem"}><details style={{}} className={"openapi-markdown__details"}><summary style={{}}><span className={"openapi-schema__container"}><strong className={"openapi-schema__property"}>position</strong><span className={"openapi-schema__name"}> object</span></span></summary><div style={{"marginLeft":"1rem"}}><SchemaItem collapsible={false} name={"x"} required={true} schemaName={"int32"} qualifierMessage={undefined} schema={{"type":"integer","format":"int32"}}></SchemaItem><SchemaItem collapsible={false} name={"y"} required={true} schemaName={"int32"} qualifierMessage={undefined} schema={{"type":"integer","format":"int32"}}></SchemaItem><SchemaItem collapsible={false} name={"width"} required={true} schemaName={"int32"} qualifierMessage={undefined} schema={{"type":"integer","format":"int32"}}></SchemaItem><SchemaItem collapsible={false} name={"height"} required={true} schemaName={"int32"} qualifierMessage={undefined} schema={{"type":"integer","format":"int32"}}></SchemaItem></div></details></SchemaItem><SchemaItem collapsible={false} name={"keyName"} required={true} schemaName={"string"} qualifierMessage={undefined} schema={{"type":"string"}}></SchemaItem><SchemaItem collapsible={false} name={"keyNamespace"} required={false} schemaName={"string"} qualifierMessage={undefined} schema={{"type":"string"}}></SchemaItem><SchemaItem collapsible={false} name={"originalText"} required={false} schemaName={"string"} qualifierMessage={undefined} schema={{"type":"string"}}></SchemaItem><li><div style={{"fontSize":"var(--ifm-code-font-size)","opacity":"0.6","marginLeft":"-.5rem"}}>]</div></li></div></details></SchemaItem><SchemaItem collapsible={false} name={"location"} required={false} schemaName={"string"} qualifierMessage={undefined} schema={{"type":"string"}}></SchemaItem><SchemaItem collapsible={false} name={"width"} required={false} schemaName={"int32"} qualifierMessage={undefined} schema={{"type":"integer","format":"int32"}}></SchemaItem><SchemaItem collapsible={false} name={"height"} required={false} schemaName={"int32"} qualifierMessage={undefined} schema={{"type":"integer","format":"int32"}}></SchemaItem><li><div style={{"fontSize":"var(--ifm-code-font-size)","opacity":"0.6","marginLeft":"-.5rem"}}>]</div></li></div></details></SchemaItem></div></details></SchemaItem></ul></details></TabItem><TabItem label={"Example (from schema)"} value={"Example (from schema)"}><ResponseSamples responseExample={"{\n  \"_embedded\": {\n    \"screenshots\": [\n      {\n        \"id\": 0,\n        \"filename\": \"string\",\n        \"thumbnail\": \"string\",\n        \"fileUrl\": \"string\",\n        \"thumbnailUrl\": \"string\",\n        \"createdAt\": \"2024-04-03T15:10:40.929Z\",\n        \"keyReferences\": [\n          {\n            \"keyId\": 0,\n            \"position\": {\n              \"x\": 0,\n              \"y\": 0,\n              \"width\": 0,\n              \"height\": 0\n            },\n            \"keyName\": \"string\",\n            \"keyNamespace\": \"string\",\n            \"originalText\": \"string\"\n          }\n        ],\n        \"location\": \"string\",\n        \"width\": 0,\n        \"height\": 0\n      }\n    ]\n  }\n}"} language={"json"}></ResponseSamples></TabItem></SchemaTabs></TabItem></MimeTabs></div></TabItem><TabItem label={"400"} value={"400"}><div>
+
+Bad Request
+
+</div><div><MimeTabs className={"openapi-tabs__mime"} schemaType={"response"}><TabItem label={"*/*"} value={"*/*"}><SchemaTabs className={"openapi-tabs__schema"}><TabItem label={"Schema"} value={"Schema"}><details style={{}} className={"openapi-markdown__details response"} data-collapsed={false} open={true}><summary style={{}} className={"openapi-markdown__details-summary-response"}><strong>Schema</strong></summary><div style={{"textAlign":"left","marginLeft":"1rem"}}></div><ul style={{"marginLeft":"1rem"}}><div style={{"marginTop":".5rem","marginBottom":".5rem"}}>
+
+string
+
+</div></ul></details></TabItem></SchemaTabs></TabItem></MimeTabs></div></TabItem><TabItem label={"403"} value={"403"}><div>
+
+Forbidden
+
+</div><div><MimeTabs className={"openapi-tabs__mime"} schemaType={"response"}><TabItem label={"*/*"} value={"*/*"}><SchemaTabs className={"openapi-tabs__schema"}><TabItem label={"Schema"} value={"Schema"}><details style={{}} className={"openapi-markdown__details response"} data-collapsed={false} open={true}><summary style={{}} className={"openapi-markdown__details-summary-response"}><strong>Schema</strong></summary><div style={{"textAlign":"left","marginLeft":"1rem"}}></div><ul style={{"marginLeft":"1rem"}}><div style={{"marginTop":".5rem","marginBottom":".5rem"}}>
+
+string
+
+</div></ul></details></TabItem></SchemaTabs></TabItem></MimeTabs></div></TabItem><TabItem label={"404"} value={"404"}><div>
+
+Not Found
+
+</div><div><MimeTabs className={"openapi-tabs__mime"} schemaType={"response"}><TabItem label={"*/*"} value={"*/*"}><SchemaTabs className={"openapi-tabs__schema"}><TabItem label={"Schema"} value={"Schema"}><details style={{}} className={"openapi-markdown__details response"} data-collapsed={false} open={true}><summary style={{}} className={"openapi-markdown__details-summary-response"}><strong>Schema</strong></summary><div style={{"textAlign":"left","marginLeft":"1rem"}}></div><ul style={{"marginLeft":"1rem"}}><div style={{"marginTop":".5rem","marginBottom":".5rem"}}>
+
+string
+
+</div></ul></details></TabItem></SchemaTabs></TabItem></MimeTabs></div></TabItem></ApiTabs></div></div>
+      

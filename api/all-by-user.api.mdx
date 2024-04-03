@@ -1,0 +1,66 @@
+---
+id: all-by-user
+title: "Returns user's api keys"
+description: "Returns user's api keys"
+sidebar_label: "Returns user's api keys"
+hide_title: true
+hide_table_of_contents: true
+api: eJylV21v2zYQ/ivsfelWKHGaBkMhrAMctCncol2QOugGx0hp8WyzlUiFPDn1DP334ShZfpHy0vaTLfLu+NzDe+MKSM48xCPonw/EN1x6GEdgc3SStDUDBTHIND1dXnp0EEEuncyQ0LHOCozMEGLI5QzlJEWIQBuI4aZAt4QIHN4U2qGCmFyBEfhkjpmEeAW0zFnRTr5iQmzX8Zmk0fMu2+PfTBudFRnER9FaQxvCWYAytS6TVC29OIYyAq//21V7/jg162gLk3ROMnhNmPmtdU9OmxmUZRkBaUp57XzteFlGDRtTnRK6c2fZt4G6m5SpTH0XK91g/ziBshyzvs+t8RVTx0dH/KPQJ07nfGUQw9/vIYLEGkITHJN5nuokXGjvq2eR1aOv4hqzCSrFcB8Slbl+zwF0D5Ub30c7mCPQqrLXcFb//8icMkc2xxCb92PQqpPHXX4Gr4WdCpqjqIO+g+k9nf0o2Df5euurjKDw6KpoeEjxspZkRKwl7K1Bt7ZxVqTpx0fZYUnRbWjD6sPU9HPNhDz1otYSg9ed7Gxfz4Pg2lYDOWUE+D3XDn2fHoFtqDP0JLOcXaxvTgQDsoqhNspUerr0qH7ePlsQheeC1HVAHZfxCgqjbwocVJFelbu9LLiTE3SZ9l5bI2pzzIvMci4xI/CJQzR+bskfFnlqpQr5sFlUmCIxPHLS+DTkuT9EpWlPcKHxdl+sXuPKX6mM76x8P+kBjK46fLiC6KrDi7Dc8qMlzKjbos1q480VjHcLdj/UqA9WYcobHMh1r7m/rqxby4MVOgKyJNM3KWZoyP+IDjeTxyqYIpuge1zP2G1XH5CkkiRbGyqw0ibopKvFnEolLvCmQE+7veZZ71lne2liaBMXq8QqfLW0xbXS6trbDGmuzez61lkzi0QYNfyrUbMRibAzLhtgL9rAzqybaKXQ/CKsZgS6NpauQ4ATodrAagXpFq6TNq6PlsSZLYz6RVwOvS1cggHWlA02kEyRphUGLkyYFE7TMoxp7z4PxdB+QwPxaMwzxC62C6TCGR/axlMvZJXXnMTMvOUZcIYhJyTNIYbe4rgnc31QC3l0i/VAWLgUYpgT5XGvl9pEpnPrKX559PKoVT/eomGOUYnKgmBlRrfG/olZqVJiy4OGIz4F6vGJvycoXciA6s/ZOg/efR5yynwqcnTiHkO76DbixOJCe7GeXsTUOuHReE16gaIJFS9u52iq7juXXngkcXzWPxT/2kIk0gg7IamN8HumF1qKL0wqa/ZmNS0HQewgiHwRaFRutaFDcVqQmKBIpMNpkT4Re35VJ4e13N6i809+gCPueu9xKbQRc5Rqp8JU4x1E6zH3n4P++eCgWgoDbq2xayZMvVWEdtnaG8zoqRfGknCY2CxDo1AJssxo05B3bUbCa5Og0BQInqDwZPmKtBGpnfnDDV75bXcS5yzRZmoDrLoODm06w3BWezqots5TSVxhxcWbT8MAyuEUHZqEOzDnQSW+eH54FOYk6ymTIdpqHHdnW/fESfidenkqdTVZcoKt6kwcweIYImhycRwBpxtvrFYT6fHSpWXJy5XLnKFKe36xbJ4fe6c2xQl+u6jj/XcBUTcanp13nn8LmRYsBvweah1VibffRxutMX84HaxxrYrWUcXQK/V+kmBOW1qt5w1baSrX2zdDpqhgvhpO99IgWF+Hpllu2f7zNAhUqfUXrF0ISQnluCzL/wE2yjd1
+sidebar_class_name: "get api-method"
+info_path: api//tolgee-api
+custom_edit_url: null
+---
+
+import ApiTabs from "@theme/ApiTabs";
+import DiscriminatorTabs from "@theme/DiscriminatorTabs";
+import MethodEndpoint from "@theme/ApiExplorer/MethodEndpoint";
+import SecuritySchemes from "@theme/ApiExplorer/SecuritySchemes";
+import MimeTabs from "@theme/MimeTabs";
+import ParamsItem from "@theme/ParamsItem";
+import ResponseSamples from "@theme/ResponseSamples";
+import SchemaItem from "@theme/SchemaItem";
+import SchemaTabs from "@theme/SchemaTabs";
+import Markdown from "@theme/Markdown";
+import OperationTabs from "@theme/OperationTabs";
+import TabItem from "@theme/TabItem";
+
+<h1 className={"openapi__heading"}>Returns user's api keys</h1>
+
+<MethodEndpoint method={"get"} path={"/v2/api-keys"}></MethodEndpoint>
+
+
+
+Returns user's api keys
+
+## Request
+
+<details style={{"marginBottom":"1rem"}} className={"openapi-markdown__details"} data-collapsed={false} open={true}><summary style={{}}><h3 className={"openapi-markdown__details-summary-header-params"}>Query Parameters</h3></summary><div><ul><ParamsItem className={"paramsItem"} param={{"name":"pageable","in":"query","required":true,"schema":{"type":"object","properties":{"page":{"minimum":0,"type":"integer","format":"int32"},"size":{"minimum":1,"type":"integer","format":"int32"},"sort":{"type":"array","items":{"type":"string"}}},"title":"Pageable"}}}></ParamsItem><ParamsItem className={"paramsItem"} param={{"name":"filterProjectId","in":"query","required":false,"schema":{"type":"integer","format":"int64"}}}></ParamsItem></ul></div></details><div><div><ApiTabs label={undefined} id={undefined}><TabItem label={"200"} value={"200"}><div>
+
+OK
+
+</div><div><MimeTabs className={"openapi-tabs__mime"} schemaType={"response"}><TabItem label={"application/json"} value={"application/json"}><SchemaTabs className={"openapi-tabs__schema"}><TabItem label={"Schema"} value={"Schema"}><details style={{}} className={"openapi-markdown__details response"} data-collapsed={false} open={true}><summary style={{}} className={"openapi-markdown__details-summary-response"}><strong>Schema</strong></summary><div style={{"textAlign":"left","marginLeft":"1rem"}}></div><ul style={{"marginLeft":"1rem"}}><SchemaItem collapsible={true} className={"schemaItem"}><details style={{}} className={"openapi-markdown__details"}><summary style={{}}><span className={"openapi-schema__container"}><strong className={"openapi-schema__property"}>_embedded</strong><span className={"openapi-schema__name"}> object</span></span></summary><div style={{"marginLeft":"1rem"}}><SchemaItem collapsible={true} className={"schemaItem"}><details style={{}} className={"openapi-markdown__details"}><summary style={{}}><span className={"openapi-schema__container"}><strong className={"openapi-schema__property"}>apiKeys</strong><span className={"openapi-schema__name"}> object[]</span></span></summary><div style={{"marginLeft":"1rem"}}><li><div style={{"fontSize":"var(--ifm-code-font-size)","opacity":"0.6","marginLeft":"-.5rem","paddingBottom":".5rem"}}>Array [</div></li><SchemaItem collapsible={false} name={"id"} required={true} schemaName={"int64"} qualifierMessage={undefined} schema={{"type":"integer","description":"ID of the API key","format":"int64"}}></SchemaItem><SchemaItem collapsible={false} name={"description"} required={true} schemaName={"string"} qualifierMessage={undefined} schema={{"type":"string","description":"Description"}}></SchemaItem><SchemaItem collapsible={false} name={"username"} required={false} schemaName={"string"} qualifierMessage={undefined} schema={{"type":"string","description":"Username of user owner"}}></SchemaItem><SchemaItem collapsible={false} name={"userFullName"} required={false} schemaName={"string"} qualifierMessage={undefined} schema={{"type":"string","description":"Full name of user owner"}}></SchemaItem><SchemaItem collapsible={false} name={"projectId"} required={true} schemaName={"int64"} qualifierMessage={undefined} schema={{"type":"integer","description":"Api key's project ID","format":"int64"}}></SchemaItem><SchemaItem collapsible={false} name={"projectName"} required={true} schemaName={"string"} qualifierMessage={undefined} schema={{"type":"string","description":"Api key's project name"}}></SchemaItem><SchemaItem collapsible={false} name={"expiresAt"} required={false} schemaName={"int64"} qualifierMessage={undefined} schema={{"type":"integer","description":"Timestamp of API key expiraion","format":"int64"}}></SchemaItem><SchemaItem collapsible={false} name={"lastUsedAt"} required={false} schemaName={"int64"} qualifierMessage={undefined} schema={{"type":"integer","description":"Timestamp of API key last usage","format":"int64"}}></SchemaItem><SchemaItem collapsible={false} name={"scopes"} required={true} schemaName={"string[]"} qualifierMessage={undefined} schema={{"uniqueItems":true,"type":"array","description":"Api key's permission scopes","example":["screenshots.upload","screenshots.delete","translations.edit","screenshots.view","translations.view","keys.edit"],"items":{"type":"string","description":"Api key's permission scopes","example":"[\"screenshots.upload\",\"screenshots.delete\",\"translations.edit\",\"screenshots.view\",\"translations.view\",\"keys.edit\"]"}}}></SchemaItem><li><div style={{"fontSize":"var(--ifm-code-font-size)","opacity":"0.6","marginLeft":"-.5rem"}}>]</div></li></div></details></SchemaItem></div></details></SchemaItem><SchemaItem collapsible={true} className={"schemaItem"}><details style={{}} className={"openapi-markdown__details"}><summary style={{}}><span className={"openapi-schema__container"}><strong className={"openapi-schema__property"}>page</strong><span className={"openapi-schema__name"}> object</span></span></summary><div style={{"marginLeft":"1rem"}}><SchemaItem collapsible={false} name={"size"} required={false} schemaName={"int64"} qualifierMessage={undefined} schema={{"type":"integer","format":"int64"}}></SchemaItem><SchemaItem collapsible={false} name={"totalElements"} required={false} schemaName={"int64"} qualifierMessage={undefined} schema={{"type":"integer","format":"int64"}}></SchemaItem><SchemaItem collapsible={false} name={"totalPages"} required={false} schemaName={"int64"} qualifierMessage={undefined} schema={{"type":"integer","format":"int64"}}></SchemaItem><SchemaItem collapsible={false} name={"number"} required={false} schemaName={"int64"} qualifierMessage={undefined} schema={{"type":"integer","format":"int64"}}></SchemaItem></div></details></SchemaItem></ul></details></TabItem><TabItem label={"Example (from schema)"} value={"Example (from schema)"}><ResponseSamples responseExample={"{\n  \"_embedded\": {\n    \"apiKeys\": [\n      {\n        \"id\": 0,\n        \"description\": \"string\",\n        \"username\": \"string\",\n        \"userFullName\": \"string\",\n        \"projectId\": 0,\n        \"projectName\": \"string\",\n        \"expiresAt\": 0,\n        \"lastUsedAt\": 0,\n        \"scopes\": [\n          \"screenshots.upload\",\n          \"screenshots.delete\",\n          \"translations.edit\",\n          \"screenshots.view\",\n          \"translations.view\",\n          \"keys.edit\"\n        ]\n      }\n    ]\n  },\n  \"page\": {\n    \"size\": 0,\n    \"totalElements\": 0,\n    \"totalPages\": 0,\n    \"number\": 0\n  }\n}"} language={"json"}></ResponseSamples></TabItem></SchemaTabs></TabItem></MimeTabs></div></TabItem><TabItem label={"400"} value={"400"}><div>
+
+Bad Request
+
+</div><div><MimeTabs className={"openapi-tabs__mime"} schemaType={"response"}><TabItem label={"*/*"} value={"*/*"}><SchemaTabs className={"openapi-tabs__schema"}><TabItem label={"Schema"} value={"Schema"}><details style={{}} className={"openapi-markdown__details response"} data-collapsed={false} open={true}><summary style={{}} className={"openapi-markdown__details-summary-response"}><strong>Schema</strong></summary><div style={{"textAlign":"left","marginLeft":"1rem"}}></div><ul style={{"marginLeft":"1rem"}}><div style={{"marginTop":".5rem","marginBottom":".5rem"}}>
+
+string
+
+</div></ul></details></TabItem></SchemaTabs></TabItem></MimeTabs></div></TabItem><TabItem label={"403"} value={"403"}><div>
+
+Forbidden
+
+</div><div><MimeTabs className={"openapi-tabs__mime"} schemaType={"response"}><TabItem label={"*/*"} value={"*/*"}><SchemaTabs className={"openapi-tabs__schema"}><TabItem label={"Schema"} value={"Schema"}><details style={{}} className={"openapi-markdown__details response"} data-collapsed={false} open={true}><summary style={{}} className={"openapi-markdown__details-summary-response"}><strong>Schema</strong></summary><div style={{"textAlign":"left","marginLeft":"1rem"}}></div><ul style={{"marginLeft":"1rem"}}><div style={{"marginTop":".5rem","marginBottom":".5rem"}}>
+
+string
+
+</div></ul></details></TabItem></SchemaTabs></TabItem></MimeTabs></div></TabItem><TabItem label={"404"} value={"404"}><div>
+
+Not Found
+
+</div><div><MimeTabs className={"openapi-tabs__mime"} schemaType={"response"}><TabItem label={"*/*"} value={"*/*"}><SchemaTabs className={"openapi-tabs__schema"}><TabItem label={"Schema"} value={"Schema"}><details style={{}} className={"openapi-markdown__details response"} data-collapsed={false} open={true}><summary style={{}} className={"openapi-markdown__details-summary-response"}><strong>Schema</strong></summary><div style={{"textAlign":"left","marginLeft":"1rem"}}></div><ul style={{"marginLeft":"1rem"}}><div style={{"marginTop":".5rem","marginBottom":".5rem"}}>
+
+string
+
+</div></ul></details></TabItem></SchemaTabs></TabItem></MimeTabs></div></TabItem></ApiTabs></div></div>
+      

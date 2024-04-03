@@ -1,0 +1,66 @@
+---
+id: get-language-prompt-customizations
+title: "Sets project level prompt customization"
+description: "Sets project level prompt customization"
+sidebar_label: "Sets project level prompt customization"
+hide_title: true
+hide_table_of_contents: true
+api: eJylV91uE0cUfpXD3BTQOk7TqEWrguRECQq0EJFQ2oYojHePd4fMziwzZx2M5ZtWFb3pM6De0d71CXrTvkN4Cx6hOrPetR1bJJQb25k5P9985zdjQTLzIj4SvT3YrjzZQr2SpKyB6zs7N8RxJGyJLpzspSIWGdI30mSVzHDf2aKkBSUvIlFKJwskdGx2LIwsUMSidPY5JrSXikgowweSchEJhy8q5TAVMbkKIyG1tmc7RUmj76SuUMQDqT1Gwic5FlLEY0Gjkg0qQ5ihE5EYWFdIqo++3BSTyTGb9aU1Hj1rbKyv81eKPnGqZJwiFg/vi0gk1hAa4ltZllol4RXd555FxstObZ8fwY90TAup2sEJFn1MU37FZaLlKtJmWtI5OWKKCItwPuPnSOgp8RyVD3tZeGpr3JNTJhPRBSYOc4TGNMxdQeUxBWWAcgSogQPlkiBHXXro7QE5abyWZB2QhYEyCFQZBIe+0uRhYB34EhM1UEnrQ0QCX8qi1Ixp1zqQTvbn7iM4Q5AOwVclOgjh1WvQ02dy5BkUA+LPqXOmMIanZl+yeOcOvPv1/K93P53/8dQ8HAxUguHsl3c/n/95/vapEZNoxuQFhvvSMzzFWRoSN+L6uJxvlV4pM6dGL41IU2HA4hwBNJlWPl9gbvsVJjnbZIRXN0kyA5kk1qXKZBy1re192PwKUhwoo4L0vJfEd7Z/ZC/WqUwZqR/8vxdQrvzqDPjnN/z3d1JGspeBltlOYZ+rj3DBOoCsBNLD48Pdzq36zwU379+8fvv+zeu/2UsI88xB31qN0ix5eJIj5ehAeWCNWZHYAUz72byL0KkmHBBFwWWD8FuboharbnpqRRNtxCfzGttWa0za6ysaiMTmqt63JVN4hC8q9LTYBG92b67se20IZnyOE5vi7ZGtTlKVnnhbIOXKZCdnzposgjAF/O2j9iKCcHM8aYF9sQxs17q+SlM0nwirnVknxtJJia5QRJjOYM33jjVMFc3h2lzG9cAS7NrKpJ+Iy6G3lUswwBqwwRaSqbSeNFH3mFRO0ShM0HtPDuHQnqIR8dExD7dFbAdIvklH0DhE3fTqZD4pRCQ4EnY6xMOgplzEojvc6E7VfXfczulJt0n3jlSd2mInuTjsPbphM+krp0UscqIy7na1TaTOraf41vqt9aXSuouGI4Qp1BaAlfltzcsPmNO6uc69v2WYvYjpVhBKGKULLbf+sds03ntPDrngD8Ik+YChC5S24sTi3ACaKVGPNDRekRoitInm4SzHMDId5NKDR4KN3d4a/GArSKQB2yepzHSmzUwPlYRnHALW7GZTWjpBrBNEngGatLTK0BpsVQR9hEQ6HFT6Glx4V+05nJX2DJ2/9hEc9fb34D6OuFnnKFN082tJqe7jqBmKsfi+09vf69RHYZubaiyaeVGhG9X5vcrWIud79JkHYwkcJrYo0KSY8njiec82T5dsRuCVSRAUBYL7CJ6sq1cWbTO/NsMrTxugQT/0YmUGNsCadthDqzMMvpY3pPpqX0vikQ6Pdg4OAyiHA3RoEp5oXAe1+PDztXWmorSeChmybYrj6rW6eoMjfEndUksVtphQcONpHR+J4Ua9l4RKFpGI53fuy4v5OBJcr2xpPOZ599jpyYSPa87io+NIDKVTss98HY1Fqjz/Ttsl/QLotlOK64+m5XMDRLT6MU12GE6NYb37CxGJUxwt/PswOZ5ETboxiPq+lyRY0pzm0jrPzaVtgHd3DkUkZMXEzdaAxfoI1lei+norCNQ1d6fFGKqV8U0m/wGpu6Xp
+sidebar_class_name: "get api-method"
+info_path: api//tolgee-api
+custom_edit_url: null
+---
+
+import ApiTabs from "@theme/ApiTabs";
+import DiscriminatorTabs from "@theme/DiscriminatorTabs";
+import MethodEndpoint from "@theme/ApiExplorer/MethodEndpoint";
+import SecuritySchemes from "@theme/ApiExplorer/SecuritySchemes";
+import MimeTabs from "@theme/MimeTabs";
+import ParamsItem from "@theme/ParamsItem";
+import ResponseSamples from "@theme/ResponseSamples";
+import SchemaItem from "@theme/SchemaItem";
+import SchemaTabs from "@theme/SchemaTabs";
+import Markdown from "@theme/Markdown";
+import OperationTabs from "@theme/OperationTabs";
+import TabItem from "@theme/TabItem";
+
+<h1 className={"openapi__heading"}>Sets project level prompt customization</h1>
+
+<MethodEndpoint method={"get"} path={"/v2/projects/{projectId}/language-ai-prompt-customizations"}></MethodEndpoint>
+
+
+
+Sets project level prompt customization
+
+## Request
+
+<details style={{"marginBottom":"1rem"}} className={"openapi-markdown__details"} data-collapsed={false} open={true}><summary style={{}}><h3 className={"openapi-markdown__details-summary-header-params"}>Path Parameters</h3></summary><div><ul><ParamsItem className={"paramsItem"} param={{"name":"projectId","in":"path","required":true,"allowEmptyValue":false,"schema":{"type":"integer","format":"int64"}}}></ParamsItem></ul></div></details><div><div><ApiTabs label={undefined} id={undefined}><TabItem label={"200"} value={"200"}><div>
+
+OK
+
+</div><div><MimeTabs className={"openapi-tabs__mime"} schemaType={"response"}><TabItem label={"application/json"} value={"application/json"}><SchemaTabs className={"openapi-tabs__schema"}><TabItem label={"Schema"} value={"Schema"}><details style={{}} className={"openapi-markdown__details response"} data-collapsed={false} open={true}><summary style={{}} className={"openapi-markdown__details-summary-response"}><strong>Schema</strong></summary><div style={{"textAlign":"left","marginLeft":"1rem"}}></div><ul style={{"marginLeft":"1rem"}}><SchemaItem collapsible={true} className={"schemaItem"}><details style={{}} className={"openapi-markdown__details"}><summary style={{}}><span className={"openapi-schema__container"}><strong className={"openapi-schema__property"}>_embedded</strong><span className={"openapi-schema__name"}> object</span></span></summary><div style={{"marginLeft":"1rem"}}><SchemaItem collapsible={true} className={"schemaItem"}><details style={{}} className={"openapi-markdown__details"}><summary style={{}}><span className={"openapi-schema__container"}><strong className={"openapi-schema__property"}>promptCustomizations</strong><span className={"openapi-schema__name"}> object[]</span></span></summary><div style={{"marginLeft":"1rem"}}><li><div style={{"fontSize":"var(--ifm-code-font-size)","opacity":"0.6","marginLeft":"-.5rem","paddingBottom":".5rem"}}>Array [</div></li><SchemaItem collapsible={false} name={"description"} required={false} schemaName={"string"} qualifierMessage={undefined} schema={{"type":"string","description":"The language description used in the  prompt that helps AI translator to fine tune results for specific language","example":"For arabic language, we are super formal. Always use these translations: \nPaper -> ورقة\nOffice -> مكتب\n"}}></SchemaItem><SchemaItem collapsible={true} className={"schemaItem"}><details style={{}} className={"openapi-markdown__details"}><summary style={{}}><span className={"openapi-schema__container"}><strong className={"openapi-schema__property"}>language</strong><span className={"openapi-schema__name"}> object</span><span className={"openapi-schema__divider"}></span><span className={"openapi-schema__required"}>required</span></span></summary><div style={{"marginLeft":"1rem"}}><SchemaItem collapsible={false} name={"id"} required={true} schemaName={"int64"} qualifierMessage={undefined} schema={{"type":"integer","format":"int64"}}></SchemaItem><SchemaItem collapsible={false} name={"name"} required={true} schemaName={"string"} qualifierMessage={undefined} schema={{"type":"string","description":"Language name in english","example":"Czech"}}></SchemaItem><SchemaItem collapsible={false} name={"tag"} required={true} schemaName={"string"} qualifierMessage={undefined} schema={{"type":"string","description":"Language tag according to BCP 47 definition","example":"cs-CZ"}}></SchemaItem><SchemaItem collapsible={false} name={"originalName"} required={false} schemaName={"string"} qualifierMessage={undefined} schema={{"type":"string","description":"Language name in this language","example":"čeština"}}></SchemaItem><SchemaItem collapsible={false} name={"flagEmoji"} required={false} schemaName={"string"} qualifierMessage={undefined} schema={{"type":"string","description":"Language flag emoji as UTF-8 emoji","example":"🇨🇿"}}></SchemaItem><SchemaItem collapsible={false} name={"base"} required={true} schemaName={"boolean"} qualifierMessage={undefined} schema={{"type":"boolean","description":"Whether is base language of project","example":false}}></SchemaItem></div></details></SchemaItem><li><div style={{"fontSize":"var(--ifm-code-font-size)","opacity":"0.6","marginLeft":"-.5rem"}}>]</div></li></div></details></SchemaItem></div></details></SchemaItem></ul></details></TabItem><TabItem label={"Example (from schema)"} value={"Example (from schema)"}><ResponseSamples responseExample={"{\n  \"_embedded\": {\n    \"promptCustomizations\": [\n      {\n        \"description\": \"For arabic language, we are super formal. Always use these translations: \\nPaper -> ورقة\\nOffice -> مكتب\\n\",\n        \"language\": {\n          \"id\": 0,\n          \"name\": \"Czech\",\n          \"tag\": \"cs-CZ\",\n          \"originalName\": \"čeština\",\n          \"flagEmoji\": \"🇨🇿\",\n          \"base\": false\n        }\n      }\n    ]\n  }\n}"} language={"json"}></ResponseSamples></TabItem></SchemaTabs></TabItem></MimeTabs></div></TabItem><TabItem label={"400"} value={"400"}><div>
+
+Bad Request
+
+</div><div><MimeTabs className={"openapi-tabs__mime"} schemaType={"response"}><TabItem label={"*/*"} value={"*/*"}><SchemaTabs className={"openapi-tabs__schema"}><TabItem label={"Schema"} value={"Schema"}><details style={{}} className={"openapi-markdown__details response"} data-collapsed={false} open={true}><summary style={{}} className={"openapi-markdown__details-summary-response"}><strong>Schema</strong></summary><div style={{"textAlign":"left","marginLeft":"1rem"}}></div><ul style={{"marginLeft":"1rem"}}><div style={{"marginTop":".5rem","marginBottom":".5rem"}}>
+
+string
+
+</div></ul></details></TabItem></SchemaTabs></TabItem></MimeTabs></div></TabItem><TabItem label={"403"} value={"403"}><div>
+
+Forbidden
+
+</div><div><MimeTabs className={"openapi-tabs__mime"} schemaType={"response"}><TabItem label={"*/*"} value={"*/*"}><SchemaTabs className={"openapi-tabs__schema"}><TabItem label={"Schema"} value={"Schema"}><details style={{}} className={"openapi-markdown__details response"} data-collapsed={false} open={true}><summary style={{}} className={"openapi-markdown__details-summary-response"}><strong>Schema</strong></summary><div style={{"textAlign":"left","marginLeft":"1rem"}}></div><ul style={{"marginLeft":"1rem"}}><div style={{"marginTop":".5rem","marginBottom":".5rem"}}>
+
+string
+
+</div></ul></details></TabItem></SchemaTabs></TabItem></MimeTabs></div></TabItem><TabItem label={"404"} value={"404"}><div>
+
+Not Found
+
+</div><div><MimeTabs className={"openapi-tabs__mime"} schemaType={"response"}><TabItem label={"*/*"} value={"*/*"}><SchemaTabs className={"openapi-tabs__schema"}><TabItem label={"Schema"} value={"Schema"}><details style={{}} className={"openapi-markdown__details response"} data-collapsed={false} open={true}><summary style={{}} className={"openapi-markdown__details-summary-response"}><strong>Schema</strong></summary><div style={{"textAlign":"left","marginLeft":"1rem"}}></div><ul style={{"marginLeft":"1rem"}}><div style={{"marginTop":".5rem","marginBottom":".5rem"}}>
+
+string
+
+</div></ul></details></TabItem></SchemaTabs></TabItem></MimeTabs></div></TabItem></ApiTabs></div></div>
+      
