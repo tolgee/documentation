@@ -21,99 +21,10 @@ type PeriodData = {
 };
 
 const roadmapData = {
-  '2023/Q3': {
-    active: false,
-    future: false,
-    items: [
-      {
-        name: 'Batch operations',
-        gitHubIssueLink: 'https://github.com/tolgee/tolgee-platform/issues/911',
-        done: true,
-        description: (
-          <p>
-            Select as many keys as you want and then tag them, mark them as
-            "Reviewed" or "Translated", auto-translate them, or change their
-            state.
-          </p>
-        ),
-      },
-    ],
-  },
-  '2023/Q4': {
-    active: false,
-    future: false,
-    items: [
-      {
-        name: 'Webhooks',
-        gitHubIssueLink:
-          'https://github.com/tolgee/tolgee-platform/issues/1544',
-        description: (
-          <p>
-            With webhooks, developers would be able to create their custom
-            automation when project data change without periodically calling the
-            REST API. They will be notified by specific events automatically!
-          </p>
-        ),
-      },
-      {
-        name: 'Content delivery',
-        gitHubIssueLink:
-          'https://github.com/tolgee/tolgee-platform/issues/1538',
-        description: (
-          <p>
-            Tolgee will automatically upload the exported localization data
-            after every change, so your translations will be always up to date.
-            You will be also able to configure your S3-compatible bucket, so the
-            data stay with you.
-          </p>
-        ),
-      },
-    ],
-  },
   '2024/Q1': {
     active: false,
-    future: true,
+    future: false,
     items: [
-      {
-        name: 'Tasks',
-        gitHubIssueLink:
-          'https://github.com/tolgee/tolgee-platform/issues/1548',
-        description: (
-          <p>
-            Tasks will enhance project management, improve collaboration, and
-            enable better time management for translators. You will easily break
-            down your large project into smaller, more manageable sections which
-            helps translators to prioritize and work more efficiently.
-          </p>
-        ),
-      },
-      {
-        name: 'Notifications',
-        gitHubIssueLink:
-          'https://github.com/tolgee/tolgee-platform/issues/1539',
-        description: (
-          <p>
-            When something changes in your project, users will be notified, if
-            enabled. So you can get your strings translated asap.
-          </p>
-        ),
-      },
-      {
-        name: 'Community translations',
-        gitHubIssueLink:
-          'https://github.com/tolgee/tolgee-platform/issues/1360',
-        description: (
-          <p>
-            Tolgee is currently used by many open source projects, but Tolgee
-            doesn&apos;t support a safe way of community translating. It can
-            limit translation permissions to specific users, but the user can
-            then modify all the strings in the language. We need to provide a
-            better way, where the community members would be able to only
-            propose changes, which have to be approved and merged by somebody
-            who is permitted to.
-          </p>
-        ),
-      },
       {
         name: 'All format support',
         gitHubIssueLink:
@@ -152,24 +63,95 @@ const roadmapData = {
           </>
         ),
       },
+    ],
+  },
+  '2023/Q4': {
+    active: false,
+    future: false,
+    items: [
       {
-        name: 'Ordering professional translation',
-        gitHubIssueLink:
-          'https://github.com/tolgee/tolgee-platform/issues/1561',
+        name: 'Webhooks',
+        done: true,
         description: (
           <p>
-            Looking for a way to localize your product into foreign markets
-            Tolgee will help you with that. With Tolgee, you will easily find
-            the ideal professional translator for your needs.
+            With webhooks, developers would be able to create their custom
+            automation when project data change without periodically calling the
+            REST API. They will be notified by specific events automatically!
+          </p>
+        ),
+      },
+      {
+        name: 'Content delivery',
+        done: true,
+        description: (
+          <p>
+            Tolgee will automatically upload the exported localization data
+            after every change, so your translations will be always up to date.
+            You will be also able to configure your S3-compatible bucket, so the
+            data stay with you.
+          </p>
+        ),
+      },
+    ],
+  },
+  '2023/Q3': {
+    active: false,
+    future: false,
+    items: [
+      {
+        name: 'Batch operations',
+        gitHubIssueLink: 'https://github.com/tolgee/tolgee-platform/issues/911',
+        done: true,
+        description: (
+          <p>
+            Select as many keys as you want and then tag them, mark them as
+            "Reviewed" or "Translated", auto-translate them, or change their
+            state.
           </p>
         ),
       },
     ],
   },
   '2024/Q2': {
-    active: false,
-    future: true,
+    active: true,
+    future: false,
     items: [
+      {
+        name: 'Tasks',
+        gitHubIssueLink:
+          'https://github.com/tolgee/tolgee-platform/issues/1548',
+        description: (
+          <p>
+            Tasks will enhance project management, improve collaboration, and
+            enable better time management for translators. You will easily break
+            down your large project into smaller, more manageable sections which
+            helps translators to prioritize and work more efficiently.
+          </p>
+        ),
+      },
+      {
+        name: 'Notifications',
+        gitHubIssueLink:
+          'https://github.com/tolgee/tolgee-platform/issues/1539',
+        description: (
+          <p>
+            When something changes in your project, users will be notified, if
+            enabled. So you can get your strings translated asap.
+          </p>
+        ),
+      },
+      {
+        name: 'Slack integration',
+        gitHubIssueLink:
+          'https://github.com/tolgee/tolgee-platform/issues/1384',
+        description: (
+          <p>
+            Users will be able to subscribe to a Tolgee project from a Slack
+            channel, and when permitted, they will be able to modify translated
+            values directly from Slack.
+          </p>
+        ),
+      },
       {
         name: 'In-context support for mobile apps',
         gitHubIssueLink:
@@ -178,6 +160,52 @@ const roadmapData = {
           <p>
             The in-context translating works great with web apps, and we would
             like to provide the same comfort to mobile developers.
+          </p>
+        ),
+      },
+      {
+        name: 'Ordering professional translation',
+        gitHubIssueLink:
+          'https://github.com/tolgee/tolgee-platform/issues/1561',
+        description: (
+          <p>
+            Looking for a way to localize your product for foreign markets?
+            Tolgee can help. With Tolgee, you can easily find the ideal
+            professional translator for your needs.
+          </p>
+        ),
+      },
+    ],
+  },
+  '2024/Q3': {
+    active: false,
+    future: true,
+    items: [
+      {
+        name: 'Translation proxy',
+        gitHubIssueLink:
+          'https://github.com/tolgee/tolgee-platform/issues/1687',
+        description: (
+          <p>
+            Translation proxy will be a service enabling translation of any
+            website without modifying it's sources or content. It will be
+            especially useful for static websites.
+          </p>
+        ),
+      },
+      {
+        name: 'Community translations',
+        gitHubIssueLink:
+          'https://github.com/tolgee/tolgee-platform/issues/1360',
+        description: (
+          <p>
+            Tolgee is currently used by many open source projects, but Tolgee
+            doesn&apos;t support a safe way of community translating. It can
+            limit translation permissions to specific users, but the user can
+            then modify all the strings in the language. We need to provide a
+            better way, where the community members would be able to only
+            propose changes, which have to be approved and merged by somebody
+            who is permitted to.
           </p>
         ),
       },
@@ -237,22 +265,10 @@ const roadmapData = {
       },
     ],
   },
-  '2024/Q3': {
+  '2024/Q4': {
     active: false,
     future: true,
     items: [
-      {
-        name: 'Translation proxy',
-        gitHubIssueLink:
-          'https://github.com/tolgee/tolgee-platform/issues/1687',
-        description: (
-          <p>
-            Translation proxy will be a service enabling translation of any
-            website without modifying it's sources or content. It will be
-            especially useful for static websites.
-          </p>
-        ),
-      },
       {
         name: 'Document formats support',
         gitHubIssueLink:
