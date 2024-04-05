@@ -5,6 +5,8 @@ const { docs } = require('./docs');
 const { redirects } = require('./redirects');
 const { navbar } = require('./navbar');
 const { footer } = require('./footer');
+const openApiPluginConfig = require('./apiSpecGeneration/pluginConfig');
+
 /** @type {import("@docusaurus/types").Config} */
 const config = {
   title: 'Tolgee',
@@ -82,26 +84,7 @@ const config = {
         },
       };
     },
-    [
-      'docusaurus-plugin-openapi-docs',
-      {
-        id: 'openapi',
-        docsPluginId: 'rest-api',
-        config: {
-          tolgee: {
-            specPath:
-              'http://localhost:8080/v3/api-docs/Public%20API%20(All)', // path or URL to the OpenAPI spec
-            outputDir: 'api', // output directory for generated *.mdx and sidebar.js files
-            sidebarOptions: {
-              categoryLinkSource: 'tag',
-              sidebarCollapsible: false,
-              sidebarCollapsed: false,
-              groupPathsBy: 'tag', // generate a sidebar.js slice that groups operations by tag
-            },
-          },
-        },
-      },
-    ],
+    openApiPluginConfig,
     ...docs,
   ],
   customFields: {
@@ -122,3 +105,7 @@ const config = {
 };
 
 module.exports = config;
+
+// function customCreateApiPageMD(meta) {
+//   return 'ahhh';
+// };

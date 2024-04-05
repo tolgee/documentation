@@ -272,3 +272,11 @@ html[data-theme='dark'] .navbar__title {
   list-style: none;
   padding: 0;
 }
+
+.api-docs-badge {
+  @apply rounded-xl border-0 text-gray-600 bg-gray-200 dark:bg-gray-700 dark:text-gray-100 ml-1 px-2 inline-flex items-center;
+}
+
+article .api-docs-badge {
+  @apply mb-2;
+}

@@ -60,7 +60,7 @@ const docs = [
       breadcrumbs: true,
       routeBasePath: 'api',
       include: ['**/*.md', '**/*.mdx'],
-      sidebarPath: require.resolve('./sidebarApi.js'),
+      sidebarPath: require.resolve('./apiSpecGeneration/sidebarApi.js'),
       // docLayoutComponent: '@theme/DocPage',
       docItemComponent: '@theme/ApiItem',
     },
