@@ -23,12 +23,6 @@ jobs:
       - name: Install npm dependencies
         run: npm ci
 
-      - name: Update version
-        run: npm run update-version
-        env:
-          TOLGEE_NEW_VERSION: ${{ github.event.inputs.version }}
-          TOLGEE_UPDATE_VERSION_PATH: './azure/testing/tolgee/values.yaml'
-
       - name: Set git globals
         run: |
           git config --local user.email "machine@tolgee.io"
