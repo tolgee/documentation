@@ -19,7 +19,8 @@
     "oss": "ts-node scripts/downloadOssData.ts",
     "download-api-spec": "ts-node apiSpecGeneration/scripts/downloadApiSpec.ts",
     "enhance-docs": "ts-node apiSpecGeneration/scripts/enhanceDocs.ts",
-    "generate-api-docs": "npm run download-api-spec && npm run docusaurus clean-api-docs tolgee && npm run docusaurus gen-api-docs tolgee && npm run enhance-docs"
+    "generate-api-docs": "npm run download-api-spec && npm run docusaurus clean-api-docs tolgee && npm run docusaurus gen-api-docs tolgee && npm run enhance-docs",
+    "get-version-branch-slug": "node .github/scripts/get-version-branch-slug.js"
   },
   "dependencies": {
     "@docusaurus/core": "^2.4.3",
