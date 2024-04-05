@@ -71,6 +71,7 @@ jobs:
           git push origin update-generated-code-${{ steps.get_branch_name.outputs.tolgee_version }} 
 
       - name: Create pull request
+        if: steps.changes.outputs.changed == '1'
         run: |
           gh pr create -B main \
           -H update-generated-code-${{ steps.get_branch_name.outputs.tolgee_version }} \
