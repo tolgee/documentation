@@ -15,7 +15,9 @@ export function getData() {
       if (operation['x-order'] !== undefined) {
         operations[kebabOperationId] = operation['x-order'];
       }
-      const extensionsFiltered = possibleExtensions.filter((ext) => operation['x-' + ext]);
+      const extensionsFiltered = possibleExtensions.filter(
+        (ext) => operation['x-' + ext]
+      );
       if (extensionsFiltered?.length > 0) {
         extensions[kebabOperationId] = extensionsFiltered;
       }
@@ -31,8 +33,11 @@ export function getData() {
 }
 
 export const possibleExtensions = ['ee', 'cloud', 'self-hosted'] as const;
-type Extension = typeof possibleExtensions[number];
+type Extension = (typeof possibleExtensions)[number];
 
 function convertCamelToKebab(string) {
-  return string.replace(/([a-z0-9]|(?=[A-Z]))([A-Z])/g, '$1-$2').replace('_', '-').toLowerCase();
+  return string
+    .replace(/([a-z0-9]|(?=[A-Z]))([A-Z])/g, '$1-$2')
+    .replace('_', '-')
+    .toLowerCase();
 }

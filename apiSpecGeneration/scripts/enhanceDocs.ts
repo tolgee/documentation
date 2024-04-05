@@ -19,7 +19,7 @@ function enhanceDocs() {
 
   function enhanceDocs() {
     Object.entries(extensions).forEach(([operationId, extensions]) => {
-      let filePath = `${__dirname}/../../api/${operationId}.api.mdx`;
+      const filePath = `${__dirname}/../../api/${operationId}.api.mdx`;
       const file = fs.readFileSync(filePath).toString();
 
       const newContent = file

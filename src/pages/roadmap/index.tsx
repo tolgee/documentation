@@ -612,7 +612,10 @@ export default function Roadmap() {
                               : [item.description]
                             ).map((d, i) =>
                               typeof d === 'string' ? (
-                                <p dangerouslySetInnerHTML={{ __html: d }} />
+                                <p
+                                  key={i}
+                                  dangerouslySetInnerHTML={{ __html: d }}
+                                />
                               ) : (
                                 <React.Fragment key={i}>{d}</React.Fragment>
                               )

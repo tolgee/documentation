@@ -9,13 +9,13 @@ import styles from './styles.module.css';
 import { Badges } from '../../../component/docs/apiDocs/Badges';
 
 export default function DocSidebarItemLink({
-                                             item,
-                                             onItemClick,
-                                             activePath,
-                                             level,
-                                             index,
-                                             ...props
-                                           }) {
+  item,
+  onItemClick,
+  activePath,
+  level,
+  index,
+  ...props
+}) {
   const { href, label, className, autoAddBaseUrl } = item;
   const isActive = isActiveSidebarItem(item, activePath);
   const isInternalLink = isInternalUrl(href);
@@ -25,16 +25,17 @@ export default function DocSidebarItemLink({
         ThemeClassNames.docs.docSidebarItemLink,
         ThemeClassNames.docs.docSidebarItemLinkLevel(level),
         'menu__list-item',
-        className,
+        className
       )}
-      key={label}>
+      key={label}
+    >
       <Link
         className={clsx(
           'menu__link',
           !isInternalLink && styles.menuExternalLink,
           {
             'menu__link--active': isActive,
-          },
+          }
         )}
         autoAddBaseUrl={autoAddBaseUrl}
         aria-current={isActive ? 'page' : undefined}
@@ -42,9 +43,13 @@ export default function DocSidebarItemLink({
         {...(isInternalLink && {
           onClick: onItemClick ? () => onItemClick(item) : undefined,
         })}
-        {...props}>
-        <span>{label}
-          {item.customProps?.apiDocsBadges && <Badges badges={item.customProps?.apiDocsBadges} />}
+        {...props}
+      >
+        <span>
+          {label}
+          {item.customProps?.apiDocsBadges && (
+            <Badges badges={item.customProps?.apiDocsBadges} />
+          )}
           {!isInternalLink && <IconExternalLink />}
         </span>
       </Link>

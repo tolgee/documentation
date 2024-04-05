@@ -5,7 +5,7 @@ import clsx from 'clsx';
 import { integrations } from '../integrations';
 
 type Props = {
-  integration: typeof integrations[number];
+  integration: (typeof integrations)[number];
   className?: string;
 };
 

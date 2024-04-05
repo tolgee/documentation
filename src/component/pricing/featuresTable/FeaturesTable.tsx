@@ -34,7 +34,7 @@ export const FeaturesTable = ({ plans, items }: FeaturesTableProps) => {
       <div />
       {planRows.map((val, i) =>
         val === null ? (
-          <div />
+          <div key={i} />
         ) : (
           <div key={i} className={clsx('pricing__features-table-grid--plan')}>
             {plans[val]}
