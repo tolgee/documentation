@@ -55,7 +55,16 @@ jobs:
           TOLGEE_NEW_VERSION: ${{ github.event.inputs.version }}
           API_SPEC_OVERRIDE_SERVER: https://app.tolgee.io
 
+      - name: Check for changes
+        id: changes
+        run: |
+          git add .
+          git update-index --refresh
+          CHANGED=$(git diff-index --quiet HEAD --; echo $?)
+          echo "changed=${CHANGED}" >> $GITHUB_OUTPUT
+
       - name: Commit and push
+        if: steps.changes.outputs.changed == '1'
         run: |
           git add .
           git commit -m "feat: Update Generated code to platform version ${{ github.event.inputs.version }}"
