@@ -7,6 +7,7 @@ function enhanceDocs() {
 
   enhanceSidebar();
   enhanceDocs();
+  enhanceInfo();
 
   function enhanceSidebar() {
     const result = getEnhancedSidebarItems(sidebar);
@@ -29,6 +30,25 @@ function enhanceDocs() {
         );
       fs.writeFileSync(filePath, newContent);
     });
+  }
+
+  function enhanceInfo() {
+    const filePath = `${__dirname}/../../api/tolgee-api.info.mdx`;
+    const file = fs.readFileSync(filePath).toString();
+    const prepend = fs
+      .readFileSync(`${__dirname}/../introduction-prepend.mdx`)
+      .toString();
+
+    const append = fs
+      .readFileSync(`${__dirname}/../introduction-append.mdx`)
+      .toString();
+
+    const newContent = file
+      .replace(/<h1 .*\n+.*\n/gm, prepend)
+      .replace(/$/, '\n\n' + append)
+      .replace(/(custom_edit_url: null)/, '$1\nslug: /');
+
+    fs.writeFileSync(filePath, newContent);
   }
 
   function sort(array: any[]) {

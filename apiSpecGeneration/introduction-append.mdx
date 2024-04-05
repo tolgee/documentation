@@ -1,0 +1,6 @@
+ - The Bearer Auth (JWT Token) is used internally by the Tolgee Platform frontend. Some of the endpoints require a `Super JWT`
+token, which requires two-factor authentication and is only valid for a short period of time.
+ - The project API endpoints `/v2/projects/:projectId/...` can be accessed with Project API key
+ - The non-project API endpoints have to be accessed with PAT (Personal access token)
+
+The allowed authentication methods are specified for each endpoint.
