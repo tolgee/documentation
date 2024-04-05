@@ -42,7 +42,7 @@ jobs:
           git checkout -b update-generated-code-${{ steps.get_branch_name.outputs.tolgee_version }}
 
       - name: Run the app & wait
-        run:
+        run: |
 #          docker run --rm -d -p8080:8080 ghcr.io/tolgee/tolgee-ee:${{ github.event.inputs.version }}
           docker run --rm -d -p8080:8080 ghhcr.io/tolgee/tolgee-preview:improve-api-docs
           curl --retry 200 --retry-delay 1 -s --retry-all-errors -o /dev/null "http://localhost:8089/swagger-ui/index.html
