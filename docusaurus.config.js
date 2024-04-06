@@ -70,7 +70,7 @@ const config = {
     ],
   ],
   plugins: [
-    // 'docusaurus-plugin-image-zoom',
+    'docusaurus-plugin-image-zoom',
     ['@docusaurus/plugin-client-redirects', redirects],
     async function tailwind() {
       return {
@@ -105,7 +105,3 @@ const config = {
 };
 
 module.exports = config;
-
-// function customCreateApiPageMD(meta) {
-//   return 'ahhh';
-// };
