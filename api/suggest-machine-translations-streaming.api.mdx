@@ -1,0 +1,78 @@
+---
+id: suggest-machine-translations-streaming
+title: "Get machine translation suggestions (streaming)"
+description: "Suggests machine translations from enabled services. The results are streamed to the output in ndjson format. If an error occurs when for any service provider used, the error information is returned as a part of the result item, while the response has 200 status code."
+sidebar_label: "Get machine translation suggestions (streaming)"
+hide_title: true
+hide_table_of_contents: true
+api: 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
+sidebar_class_name: "post api-method"
+info_path: api//tolgee-api
+custom_edit_url: null
+---
+
+import ApiTabs from "@theme/ApiTabs";
+import DiscriminatorTabs from "@theme/DiscriminatorTabs";
+import MethodEndpoint from "@theme/ApiExplorer/MethodEndpoint";
+import SecuritySchemes from "@theme/ApiExplorer/SecuritySchemes";
+import MimeTabs from "@theme/MimeTabs";
+import ParamsItem from "@theme/ParamsItem";
+import ResponseSamples from "@theme/ResponseSamples";
+import SchemaItem from "@theme/SchemaItem";
+import SchemaTabs from "@theme/SchemaTabs";
+import Markdown from "@theme/Markdown";
+import OperationTabs from "@theme/OperationTabs";
+import TabItem from "@theme/TabItem";
+
+<h1 className={"openapi__heading"}>Get machine translation suggestions (streaming)</h1>
+
+<MethodEndpoint method={"post"} path={"/v2/projects/{projectId}/suggest/machine-translations-streaming"}></MethodEndpoint>
+
+
+
+Suggests machine translations from enabled services. The results are streamed to the output in ndjson format. If an error occurs when for any service provider used, the error information is returned as a part of the result item, while the response has 200 status code.
+
+## Request
+
+<details style={{"marginBottom":"1rem"}} className={"openapi-markdown__details"} data-collapsed={false} open={true}><summary style={{}}><h3 className={"openapi-markdown__details-summary-header-params"}>Path Parameters</h3></summary><div><ul><ParamsItem className={"paramsItem"} param={{"name":"projectId","in":"path","required":true,"allowEmptyValue":false,"schema":{"type":"integer","format":"int64"}}}></ParamsItem></ul></div></details><MimeTabs className={"openapi-tabs__mime"}><TabItem label={"application/json"} value={"application/json-schema"}><details style={{}} className={"openapi-markdown__details mime"} data-collapsed={false} open={true}><summary style={{}} className={"openapi-markdown__details-summary-mime"}><h3 className={"openapi-markdown__details-summary-header-body"}>Body</h3><strong className={"openapi-schema__required"}>required</strong></summary><div style={{"textAlign":"left","marginLeft":"1rem"}}></div><ul style={{"marginLeft":"1rem"}}><SchemaItem collapsible={false} name={"keyId"} required={false} schemaName={"int64"} qualifierMessage={undefined} schema={{"type":"integer","description":"Key Id to get results for. Use when key is stored already.","format":"int64"}}></SchemaItem><SchemaItem collapsible={false} name={"targetLanguageId"} required={true} schemaName={"int64"} qualifierMessage={undefined} schema={{"type":"integer","format":"int64"}}></SchemaItem><SchemaItem collapsible={false} name={"baseText"} required={false} schemaName={"string"} qualifierMessage={undefined} schema={{"type":"string","description":"Text value of base translation. Useful, when base translation is not stored yet."}}></SchemaItem><SchemaItem collapsible={false} name={"isPlural"} required={false} schemaName={"boolean"} qualifierMessage={undefined} schema={{"type":"boolean","description":"Whether base text is plural. This value is ignored if baseText is null."}}></SchemaItem><SchemaItem collapsible={false} name={"services"} required={false} schemaName={"string[]"} qualifierMessage={"**Possible values:** [`GOOGLE`, `AWS`, `DEEPL`, `AZURE`, `BAIDU`, `TOLGEE`]"} schema={{"uniqueItems":true,"type":"array","description":"List of services to use. If null, then all enabled services are used.","items":{"type":"string","description":"List of services to use. If null, then all enabled services are used.","enum":["GOOGLE","AWS","DEEPL","AZURE","BAIDU","TOLGEE"]}}}></SchemaItem></ul></details></TabItem></MimeTabs><div><div><ApiTabs label={undefined} id={undefined}><TabItem label={"200"} value={"200"}><div>
+
+OK
+
+</div><div><MimeTabs className={"openapi-tabs__mime"} schemaType={"response"}><TabItem label={"application/x-ndjson"} value={"application/x-ndjson"}><SchemaTabs className={"openapi-tabs__schema"}><TabItem label={"Schema"} value={"Schema"}><details style={{}} className={"openapi-markdown__details response"} data-collapsed={false} open={true}><summary style={{}} className={"openapi-markdown__details-summary-response"}><strong>Schema</strong></summary><div style={{"textAlign":"left","marginLeft":"1rem"}}></div><ul style={{"marginLeft":"1rem"}}><div style={{"marginTop":".5rem","marginBottom":".5rem"}}>
+
+object
+
+</div></ul></details></TabItem><TabItem label={"Example (from schema)"} value={"Example (from schema)"}><ResponseSamples responseExample={"{}"} language={"json"}></ResponseSamples></TabItem></SchemaTabs></TabItem></MimeTabs></div></TabItem><TabItem label={"400"} value={"400"}><div>
+
+Bad Request
+
+</div><div><MimeTabs className={"openapi-tabs__mime"} schemaType={"response"}><TabItem label={"*/*"} value={"*/*"}><SchemaTabs className={"openapi-tabs__schema"}><TabItem label={"Schema"} value={"Schema"}><details style={{}} className={"openapi-markdown__details response"} data-collapsed={false} open={true}><summary style={{}} className={"openapi-markdown__details-summary-response"}><strong>Schema</strong></summary><div style={{"textAlign":"left","marginLeft":"1rem"}}></div><ul style={{"marginLeft":"1rem"}}><div style={{"marginTop":".5rem","marginBottom":".5rem"}}>
+
+string
+
+</div></ul></details></TabItem></SchemaTabs></TabItem></MimeTabs></div></TabItem><TabItem label={"401"} value={"401"}><div>
+
+Unauthorized
+
+</div><div><MimeTabs className={"openapi-tabs__mime"} schemaType={"response"}><TabItem label={"*/*"} value={"*/*"}><SchemaTabs className={"openapi-tabs__schema"}><TabItem label={"Schema"} value={"Schema"}><details style={{}} className={"openapi-markdown__details response"} data-collapsed={false} open={true}><summary style={{}} className={"openapi-markdown__details-summary-response"}><strong>Schema</strong></summary><div style={{"textAlign":"left","marginLeft":"1rem"}}></div><ul style={{"marginLeft":"1rem"}}><div style={{"marginTop":".5rem","marginBottom":".5rem"}}>
+
+string
+
+</div></ul></details></TabItem></SchemaTabs></TabItem></MimeTabs></div></TabItem><TabItem label={"403"} value={"403"}><div>
+
+Forbidden
+
+</div><div><MimeTabs className={"openapi-tabs__mime"} schemaType={"response"}><TabItem label={"*/*"} value={"*/*"}><SchemaTabs className={"openapi-tabs__schema"}><TabItem label={"Schema"} value={"Schema"}><details style={{}} className={"openapi-markdown__details response"} data-collapsed={false} open={true}><summary style={{}} className={"openapi-markdown__details-summary-response"}><strong>Schema</strong></summary><div style={{"textAlign":"left","marginLeft":"1rem"}}></div><ul style={{"marginLeft":"1rem"}}><div style={{"marginTop":".5rem","marginBottom":".5rem"}}>
+
+string
+
+</div></ul></details></TabItem></SchemaTabs></TabItem></MimeTabs></div></TabItem><TabItem label={"404"} value={"404"}><div>
+
+Not Found
+
+</div><div><MimeTabs className={"openapi-tabs__mime"} schemaType={"response"}><TabItem label={"*/*"} value={"*/*"}><SchemaTabs className={"openapi-tabs__schema"}><TabItem label={"Schema"} value={"Schema"}><details style={{}} className={"openapi-markdown__details response"} data-collapsed={false} open={true}><summary style={{}} className={"openapi-markdown__details-summary-response"}><strong>Schema</strong></summary><div style={{"textAlign":"left","marginLeft":"1rem"}}></div><ul style={{"marginLeft":"1rem"}}><div style={{"marginTop":".5rem","marginBottom":".5rem"}}>
+
+string
+
+</div></ul></details></TabItem></SchemaTabs></TabItem></MimeTabs></div></TabItem></ApiTabs></div></div>
+      

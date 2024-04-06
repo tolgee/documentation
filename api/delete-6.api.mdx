@@ -1,0 +1,75 @@
+---
+id: delete-6
+title: "Delete Content Storage"
+description: "Delete Content Storage"
+sidebar_label: "Delete Content Storage"
+hide_title: true
+hide_table_of_contents: true
+api: eJy9VV1vGzcQ/CvMvrQNKMlxjTwckgJOYxeOi9awlaaFICjUcSWxviPP5J5sVbj/HizvQ59pERjoi3Uml7NzczvDNZCaB0hG8LOzhJbEHTmv5hhgLMEV6BUZZ680JKAxQ8LJa5BQKK9yJPR8dA1W5QgJpDVEg3ClQYKxkEChaAESPD6UxqOGhHyJEkK6wFxBsgZaFXzeWMI5epAwcz5XVC+9PoOqkl2Twru/MaX/RFdZ5h4v8oJWf6isREhmKgvf2HXMsKFwNmDgE6cnJ/yjMaTeFCwMJPD7NVQSzo5tvVNa3OJDiYFAtvJw2cvBS/454BLIGzsHCfik8iLjpXXqNL5duXKijZ4ElyMtjJ1PHr2zcynilwhvR92GFHFnXEFVVZHYq0NiH60qaeG8+Qf1M5mVEQotmVQR6k3bHw/bXjo/NVqjfWbPbi4n1tGkQJ8bItQbNcgrG7JYEvqoDW3JcXbI6zdH4tKV9rlaeAyu9ClGWjMG7CjZMstqDpWEgGnpDa2iec5vrsQ1roSxYoFKo4dkNOaB39p4KNGvaqh298OnoRi6e7RxYSzhqYfYDv/u672PxhV7Do/8CW1gkSKTe1xBUuNIWNauYTxG5+lymxSIGUALSGCwPB00ngyDdefOatAI2QtNoAzW+/lQAUvhl22MlD6DBBZERUgGA1UUfXLZHLFvHOy/0y9oeQZQixpB8GEm2mp7x1+ttu2WVN035C7QpAH/P0XlYwjUD5dtFHz4NGR735UFevEvQLvsNuXE5cIE0eaTmDkvAstOZomiG+UgHhdoRRnQi4UKIiCJ08vzvvjLlSJVVrgpKWNF2INeGiU+80fgk4N5I0svlvViyWeBVhfOWOqLdyWJKYpUeZyV2Qux915157hWuEf04cU3aHRkkDuVVGGucQWyTfE/e+c3V716KaZ4c2IXZmfsD7F2Nb+i74KwjoTH1OU5Wo1akGNFBWPeH2BKEYxNURiKAk9R8Kyi5rLMzUN/w1fdt0Tjeb6RwNiZi7QMxQwYxmHlXgfcmq2bTBFfMuL24m4YSXmcoUebRsehD3X58lX/hKUoXKBcxWlreHzVyjv9OqkIn2hQZMpYhov+WjfGHcHylF3cWBckJNtX6757ef/gfh9LWLhADLZeT1XAjz6rKl6uVUpGYw4Sb9SUFRqtQZvAz7q7jvd4d+kL3982hvlBgDz+Pu082NUmrwBkk2MHbDk1/8f+GzWrcSWhy/Y2Z8/TFAvaOsnXzU7Uvr/49WJ4ARL4ht01wH00QPPAmEe5bLusbsp/WYej5W8a6/3Uldc7Xz3QvFNbzaqMq6r6AqRqgKA=
+sidebar_class_name: "delete api-method"
+info_path: api//tolgee-api
+custom_edit_url: null
+---
+
+import ApiTabs from "@theme/ApiTabs";
+import DiscriminatorTabs from "@theme/DiscriminatorTabs";
+import MethodEndpoint from "@theme/ApiExplorer/MethodEndpoint";
+import SecuritySchemes from "@theme/ApiExplorer/SecuritySchemes";
+import MimeTabs from "@theme/MimeTabs";
+import ParamsItem from "@theme/ParamsItem";
+import ResponseSamples from "@theme/ResponseSamples";
+import SchemaItem from "@theme/SchemaItem";
+import SchemaTabs from "@theme/SchemaTabs";
+import Markdown from "@theme/Markdown";
+import OperationTabs from "@theme/OperationTabs";
+import TabItem from "@theme/TabItem";
+import { Badges } from '../src/component/docs/apiDocs/Badges';
+
+<h1 className={"openapi__heading"}>Delete Content Storage</h1><Badges badges={["ee"]} />
+
+<MethodEndpoint method={"delete"} path={"/v2/projects/{projectId}/content-storages/{contentStorageId}"}></MethodEndpoint>
+
+
+
+Delete Content Storage
+
+## Request
+
+<details style={{"marginBottom":"1rem"}} className={"openapi-markdown__details"} data-collapsed={false} open={true}><summary style={{}}><h3 className={"openapi-markdown__details-summary-header-params"}>Path Parameters</h3></summary><div><ul><ParamsItem className={"paramsItem"} param={{"name":"contentStorageId","in":"path","required":true,"schema":{"type":"integer","format":"int64"}}}></ParamsItem><ParamsItem className={"paramsItem"} param={{"name":"projectId","in":"path","required":true,"allowEmptyValue":false,"schema":{"type":"integer","format":"int64"}}}></ParamsItem></ul></div></details><div><div><ApiTabs label={undefined} id={undefined}><TabItem label={"200"} value={"200"}><div>
+
+OK
+
+</div><div></div></TabItem><TabItem label={"400"} value={"400"}><div>
+
+Bad Request
+
+</div><div><MimeTabs className={"openapi-tabs__mime"} schemaType={"response"}><TabItem label={"*/*"} value={"*/*"}><SchemaTabs className={"openapi-tabs__schema"}><TabItem label={"Schema"} value={"Schema"}><details style={{}} className={"openapi-markdown__details response"} data-collapsed={false} open={true}><summary style={{}} className={"openapi-markdown__details-summary-response"}><strong>Schema</strong></summary><div style={{"textAlign":"left","marginLeft":"1rem"}}></div><ul style={{"marginLeft":"1rem"}}><div style={{"marginTop":".5rem","marginBottom":".5rem"}}>
+
+string
+
+</div></ul></details></TabItem></SchemaTabs></TabItem></MimeTabs></div></TabItem><TabItem label={"401"} value={"401"}><div>
+
+Unauthorized
+
+</div><div><MimeTabs className={"openapi-tabs__mime"} schemaType={"response"}><TabItem label={"*/*"} value={"*/*"}><SchemaTabs className={"openapi-tabs__schema"}><TabItem label={"Schema"} value={"Schema"}><details style={{}} className={"openapi-markdown__details response"} data-collapsed={false} open={true}><summary style={{}} className={"openapi-markdown__details-summary-response"}><strong>Schema</strong></summary><div style={{"textAlign":"left","marginLeft":"1rem"}}></div><ul style={{"marginLeft":"1rem"}}><div style={{"marginTop":".5rem","marginBottom":".5rem"}}>
+
+string
+
+</div></ul></details></TabItem></SchemaTabs></TabItem></MimeTabs></div></TabItem><TabItem label={"403"} value={"403"}><div>
+
+Forbidden
+
+</div><div><MimeTabs className={"openapi-tabs__mime"} schemaType={"response"}><TabItem label={"*/*"} value={"*/*"}><SchemaTabs className={"openapi-tabs__schema"}><TabItem label={"Schema"} value={"Schema"}><details style={{}} className={"openapi-markdown__details response"} data-collapsed={false} open={true}><summary style={{}} className={"openapi-markdown__details-summary-response"}><strong>Schema</strong></summary><div style={{"textAlign":"left","marginLeft":"1rem"}}></div><ul style={{"marginLeft":"1rem"}}><div style={{"marginTop":".5rem","marginBottom":".5rem"}}>
+
+string
+
+</div></ul></details></TabItem></SchemaTabs></TabItem></MimeTabs></div></TabItem><TabItem label={"404"} value={"404"}><div>
+
+Not Found
+
+</div><div><MimeTabs className={"openapi-tabs__mime"} schemaType={"response"}><TabItem label={"*/*"} value={"*/*"}><SchemaTabs className={"openapi-tabs__schema"}><TabItem label={"Schema"} value={"Schema"}><details style={{}} className={"openapi-markdown__details response"} data-collapsed={false} open={true}><summary style={{}} className={"openapi-markdown__details-summary-response"}><strong>Schema</strong></summary><div style={{"textAlign":"left","marginLeft":"1rem"}}></div><ul style={{"marginLeft":"1rem"}}><div style={{"marginTop":".5rem","marginBottom":".5rem"}}>
+
+string
+
+</div></ul></details></TabItem></SchemaTabs></TabItem></MimeTabs></div></TabItem></ApiTabs></div></div>
+      

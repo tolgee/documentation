@@ -1,0 +1,74 @@
+---
+id: reset-existing-language
+title: "Reset existing language pairing"
+description: "Resets existing language paired with language to import."
+sidebar_label: "Reset existing language pairing"
+hide_title: true
+hide_table_of_contents: true
+api: eJy9Vttu4zYQ/RXuvLRdMFY2DfogdAtkgaTwpmiDxOm2MIwsLY1tNhKpJYdOXEH/Xgx1cRw7LRYB+mLJ5FwOD+fMqAZSSw/pFMZlZR3BTEKOPnO6Im0NpHCNHskLfNSetFmKQpllUEsUldIOc/GgabVdJCt0DDQCCbZCpzjMOIcUHAc678L80jmAhEo5VSKhYxg1GFUipNBG6c3GOUjQDKdStAIJDr8ETg8puYASfLbCUkFaA22q6G8Il+hAwsK6UlG79MMpNI0cklTO/oUZ/Wd0VRT24bysaPO7KgJCulCF/8qsMw7rK2s8evY4OT7mxy7Zv11CI+H00NYHlYtr/BLQE0jIrCE0xGZvk7f82MPiyWmzBAn4qMqq4KU6szm+39hwl+v8ztsSaaXN8u7BWbOUIt6Efz8dNqSIO7MGmqaJwN7tA7s1KtDKOv035q9EFmIoNKQzRZhv036/n/bCurnOczSvzDkU6Z2xdFehKzUR5ls2yCnji2jiR5hrekLH6T6uXy2JCxvMa7lw6G1wGUZYCw44QDKhKFoMjQSPWXCaNlE8Z1djcYkboY1YocrRQTqdccE/2fgS0G3aUP3ux08TMbH3aOLCTALfv2XRVoGiRGkFKSTrk6STjE/qQTxN0oo1cehDQUnfDHxSP1dxk8QucNR3E2D8bt1rP7gCUlgRVT5NElVVI7LFEnGkLTzvSz+j4YvDXLQRBDsz9p6QG6a61dqT8w3EcxboJMz/56hcVG77ctHr9+OnCWvyJlToxL8E2kW3NSc2F9qLvqmIhXXCo/Ga9BrFUH9ePKzQiODRiZXywiOJk4uzkfjTBpEpI+yclDbCPwu91kp85qthz2TZ0XIUzY6iyWeBJq+sNjQSHwKJOYpMOVyE4o14dq42c1yr7AM6/+YrODpQfQNLqtKXuAHZt94/js6uxkftUmy9ncdumJ1a3Y+1y/mYvvHCWBIOM1uWaHLMeSAFj4Jj3u/FlMJrk6HQFAmeo/Bk+Yq0EYVd+tEWr7rvgUZ/HiOgzcJGWJqicCexWDnXHrZu66pQxJNBXJ/fTCIohwt0aDKehKyD1nz9bnTMVFTWU6litXU44jh+YRq3gtpJXG970GsmeUc84SMlVaG0YXBRrXXXHKawPuFO0bUHkJDuTNf26yLOwFDwy9Al2PTAtH/WKGYSVtYTJ6rrufJ464qm4eX2PtLpTMJaOa3mfBfTGnLt+T0fpvWLxHx73UnzO/HSWfvKM1x26/YjAEDCPW4OfaxwU/0f82+ZbmaNhKH1193+WZZhRU88eRrt9Pmr2wlI4Om7q7P7qLPuhQMeBPJUzG1G/mUSDpr/2Cn8p8G83XnRoTvQQLfhczbNPzP4qYY=
+sidebar_class_name: "put api-method"
+info_path: api//tolgee-api
+custom_edit_url: null
+---
+
+import ApiTabs from "@theme/ApiTabs";
+import DiscriminatorTabs from "@theme/DiscriminatorTabs";
+import MethodEndpoint from "@theme/ApiExplorer/MethodEndpoint";
+import SecuritySchemes from "@theme/ApiExplorer/SecuritySchemes";
+import MimeTabs from "@theme/MimeTabs";
+import ParamsItem from "@theme/ParamsItem";
+import ResponseSamples from "@theme/ResponseSamples";
+import SchemaItem from "@theme/SchemaItem";
+import SchemaTabs from "@theme/SchemaTabs";
+import Markdown from "@theme/Markdown";
+import OperationTabs from "@theme/OperationTabs";
+import TabItem from "@theme/TabItem";
+
+<h1 className={"openapi__heading"}>Reset existing language pairing</h1>
+
+<MethodEndpoint method={"put"} path={"/v2/projects/{projectId}/import/result/languages/{importLanguageId}/reset-existing"}></MethodEndpoint>
+
+
+
+Resets existing language paired with language to import.
+
+## Request
+
+<details style={{"marginBottom":"1rem"}} className={"openapi-markdown__details"} data-collapsed={false} open={true}><summary style={{}}><h3 className={"openapi-markdown__details-summary-header-params"}>Path Parameters</h3></summary><div><ul><ParamsItem className={"paramsItem"} param={{"name":"importLanguageId","in":"path","required":true,"schema":{"type":"integer","format":"int64"}}}></ParamsItem><ParamsItem className={"paramsItem"} param={{"name":"projectId","in":"path","required":true,"allowEmptyValue":false,"schema":{"type":"integer","format":"int64"}}}></ParamsItem></ul></div></details><div><div><ApiTabs label={undefined} id={undefined}><TabItem label={"200"} value={"200"}><div>
+
+OK
+
+</div><div></div></TabItem><TabItem label={"400"} value={"400"}><div>
+
+Bad Request
+
+</div><div><MimeTabs className={"openapi-tabs__mime"} schemaType={"response"}><TabItem label={"*/*"} value={"*/*"}><SchemaTabs className={"openapi-tabs__schema"}><TabItem label={"Schema"} value={"Schema"}><details style={{}} className={"openapi-markdown__details response"} data-collapsed={false} open={true}><summary style={{}} className={"openapi-markdown__details-summary-response"}><strong>Schema</strong></summary><div style={{"textAlign":"left","marginLeft":"1rem"}}></div><ul style={{"marginLeft":"1rem"}}><div style={{"marginTop":".5rem","marginBottom":".5rem"}}>
+
+string
+
+</div></ul></details></TabItem></SchemaTabs></TabItem></MimeTabs></div></TabItem><TabItem label={"401"} value={"401"}><div>
+
+Unauthorized
+
+</div><div><MimeTabs className={"openapi-tabs__mime"} schemaType={"response"}><TabItem label={"*/*"} value={"*/*"}><SchemaTabs className={"openapi-tabs__schema"}><TabItem label={"Schema"} value={"Schema"}><details style={{}} className={"openapi-markdown__details response"} data-collapsed={false} open={true}><summary style={{}} className={"openapi-markdown__details-summary-response"}><strong>Schema</strong></summary><div style={{"textAlign":"left","marginLeft":"1rem"}}></div><ul style={{"marginLeft":"1rem"}}><div style={{"marginTop":".5rem","marginBottom":".5rem"}}>
+
+string
+
+</div></ul></details></TabItem></SchemaTabs></TabItem></MimeTabs></div></TabItem><TabItem label={"403"} value={"403"}><div>
+
+Forbidden
+
+</div><div><MimeTabs className={"openapi-tabs__mime"} schemaType={"response"}><TabItem label={"*/*"} value={"*/*"}><SchemaTabs className={"openapi-tabs__schema"}><TabItem label={"Schema"} value={"Schema"}><details style={{}} className={"openapi-markdown__details response"} data-collapsed={false} open={true}><summary style={{}} className={"openapi-markdown__details-summary-response"}><strong>Schema</strong></summary><div style={{"textAlign":"left","marginLeft":"1rem"}}></div><ul style={{"marginLeft":"1rem"}}><div style={{"marginTop":".5rem","marginBottom":".5rem"}}>
+
+string
+
+</div></ul></details></TabItem></SchemaTabs></TabItem></MimeTabs></div></TabItem><TabItem label={"404"} value={"404"}><div>
+
+Not Found
+
+</div><div><MimeTabs className={"openapi-tabs__mime"} schemaType={"response"}><TabItem label={"*/*"} value={"*/*"}><SchemaTabs className={"openapi-tabs__schema"}><TabItem label={"Schema"} value={"Schema"}><details style={{}} className={"openapi-markdown__details response"} data-collapsed={false} open={true}><summary style={{}} className={"openapi-markdown__details-summary-response"}><strong>Schema</strong></summary><div style={{"textAlign":"left","marginLeft":"1rem"}}></div><ul style={{"marginLeft":"1rem"}}><div style={{"marginTop":".5rem","marginBottom":".5rem"}}>
+
+string
+
+</div></ul></details></TabItem></SchemaTabs></TabItem></MimeTabs></div></TabItem></ApiTabs></div></div>
+      

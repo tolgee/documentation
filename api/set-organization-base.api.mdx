@@ -1,0 +1,74 @@
+---
+id: set-organization-base
+title: "Remove direct project permission"
+description: "Removes user's direct project permission, explicitly set for the project. User will have now base permissions from organization or no permission if they're not organization member."
+sidebar_label: "Remove direct project permission"
+hide_title: true
+hide_table_of_contents: true
+api: eJzVVu9v2zYQ/Veu9yVbQdtpFuyDsBZIgGZIA6xB4qwbDCOlpbPFRSIV8mTHNfS/D0f5txMURYAB+2SZPN49PvK94wJZTwImA7z27h9KOeBQYUYh9aZi4ywmeEOlm1KAOpA/CpAZTylD1cZDRb40IRhnFdBTVZjUcDGHQAxj54FzWoV24S6Qh5kpCsj1lMC6GYx0oK0cAcbeleD8RFvzTQsCcB6s24oBM5a08yMvKXg3uKRyRL6LCl1FPo5dZphgIP68FXeuA6HCSntdEpMXChZodUmYoGz0MkOFRrZfac5RoafH2njKMGFfk8KQ5lRqTBbI80pWGcs0IY8Kx86XmtuhX0+xadQ69ZKK72bXReFmH8uK53/qoiZMxroIP1h1KGlD5WygICtOjo/lZ/dwP19ho/D0ualzncENPdYUGBWmzjJZlrC3vbfyc4AlsDd2ggrpSZdVIUOL1GX0fu7q+8xk98GVxLmxk/uZd3aiIPIf3g/WEwrizLDBpmkisHeHwO6srjl33nyj7JXI6piKLJtUM2Wbsr8clr1wfmSyjOwra64v5r11fB/vNTNlGzbYaxuKGBK6lBneouP0ENcfjuHC1fa1XHgKrvYpRVhjSbiGZOuiaDE0CgOltTc8j5K5rSvy8OlLH/rugSwmg6FcPDlOJ7qrao464xwT7E1PeksFhN5irYWmJ4oLvUUrvKYXiDujeWdb2Ch1/XSl1NoXmGDOXIWk19NV1WVXTIi6xuG+f/1OVginDNoMIIsF5Gojt0JRq5GtjawJkyq4lJ78H5H2UXHtx8VKd5++9EVLB4zsJ9pFtwlnCQcTYGUG0UAD2WDYTAnW9ybALCcb/RhyHaLXnlycdeFvV0OqLbgRa2Mh7KWeGg1f5QxkZW+ypKUTwzox5CuQzSpnLHfhvGYYEaTa07gu3sDevtrKcaxyM/LhzQ9wdHZ9CVc0B2MhJ52R32JJV+aK5qhWlvlX5+z6stMORctcrthN81iTn7fX9blcu5xf8lGIrcNT6sqSbEYZsBNGQXI+HORUEIxNCQxHgkcEgZ0ckbFQuEnobvDqhxXQuF7sH40duwjLcBRcP15WqXWAbTl1XWgWR4ebj7f9CMrTmDzZVPqW6KANn77rHgsVlQtc6njbljjatv1yu96vvNiYx/+15S9PnemJe1WhjRVmolUslhY0wOmJ+NHqsaMw2W7J0YdkcP0EeM6KhgpzF1iyLRaymztfNI0MtyeeDIYKp9obPZLTHiwwM0G+s3Uff5H5n26W4v8ZXtrQ6m5budjT9nmAqPCB5pvHi7w5/sOqGxKbYaNWEpWtt/NnaUoVb62U7rTTKK7v+qhQuvGWfvdsJCZ8Fshv5zGgtaYPa1jR1ARS0/wLo1zCkg==
+sidebar_class_name: "put api-method"
+info_path: api//tolgee-api
+custom_edit_url: null
+---
+
+import ApiTabs from "@theme/ApiTabs";
+import DiscriminatorTabs from "@theme/DiscriminatorTabs";
+import MethodEndpoint from "@theme/ApiExplorer/MethodEndpoint";
+import SecuritySchemes from "@theme/ApiExplorer/SecuritySchemes";
+import MimeTabs from "@theme/MimeTabs";
+import ParamsItem from "@theme/ParamsItem";
+import ResponseSamples from "@theme/ResponseSamples";
+import SchemaItem from "@theme/SchemaItem";
+import SchemaTabs from "@theme/SchemaTabs";
+import Markdown from "@theme/Markdown";
+import OperationTabs from "@theme/OperationTabs";
+import TabItem from "@theme/TabItem";
+
+<h1 className={"openapi__heading"}>Remove direct project permission</h1>
+
+<MethodEndpoint method={"put"} path={"/v2/projects/{projectId}/users/{userId}/set-by-organization"}></MethodEndpoint>
+
+
+
+Removes user's direct project permission, explicitly set for the project. User will have now base permissions from organization or no permission if they're not organization member.
+
+## Request
+
+<details style={{"marginBottom":"1rem"}} className={"openapi-markdown__details"} data-collapsed={false} open={true}><summary style={{}}><h3 className={"openapi-markdown__details-summary-header-params"}>Path Parameters</h3></summary><div><ul><ParamsItem className={"paramsItem"} param={{"name":"userId","in":"path","required":true,"schema":{"type":"integer","format":"int64"}}}></ParamsItem><ParamsItem className={"paramsItem"} param={{"name":"projectId","in":"path","required":true,"allowEmptyValue":false,"schema":{"type":"integer","format":"int64"}}}></ParamsItem></ul></div></details><div><div><ApiTabs label={undefined} id={undefined}><TabItem label={"200"} value={"200"}><div>
+
+OK
+
+</div><div></div></TabItem><TabItem label={"400"} value={"400"}><div>
+
+Bad Request
+
+</div><div><MimeTabs className={"openapi-tabs__mime"} schemaType={"response"}><TabItem label={"*/*"} value={"*/*"}><SchemaTabs className={"openapi-tabs__schema"}><TabItem label={"Schema"} value={"Schema"}><details style={{}} className={"openapi-markdown__details response"} data-collapsed={false} open={true}><summary style={{}} className={"openapi-markdown__details-summary-response"}><strong>Schema</strong></summary><div style={{"textAlign":"left","marginLeft":"1rem"}}></div><ul style={{"marginLeft":"1rem"}}><div style={{"marginTop":".5rem","marginBottom":".5rem"}}>
+
+string
+
+</div></ul></details></TabItem></SchemaTabs></TabItem></MimeTabs></div></TabItem><TabItem label={"401"} value={"401"}><div>
+
+Unauthorized
+
+</div><div><MimeTabs className={"openapi-tabs__mime"} schemaType={"response"}><TabItem label={"*/*"} value={"*/*"}><SchemaTabs className={"openapi-tabs__schema"}><TabItem label={"Schema"} value={"Schema"}><details style={{}} className={"openapi-markdown__details response"} data-collapsed={false} open={true}><summary style={{}} className={"openapi-markdown__details-summary-response"}><strong>Schema</strong></summary><div style={{"textAlign":"left","marginLeft":"1rem"}}></div><ul style={{"marginLeft":"1rem"}}><div style={{"marginTop":".5rem","marginBottom":".5rem"}}>
+
+string
+
+</div></ul></details></TabItem></SchemaTabs></TabItem></MimeTabs></div></TabItem><TabItem label={"403"} value={"403"}><div>
+
+Forbidden
+
+</div><div><MimeTabs className={"openapi-tabs__mime"} schemaType={"response"}><TabItem label={"*/*"} value={"*/*"}><SchemaTabs className={"openapi-tabs__schema"}><TabItem label={"Schema"} value={"Schema"}><details style={{}} className={"openapi-markdown__details response"} data-collapsed={false} open={true}><summary style={{}} className={"openapi-markdown__details-summary-response"}><strong>Schema</strong></summary><div style={{"textAlign":"left","marginLeft":"1rem"}}></div><ul style={{"marginLeft":"1rem"}}><div style={{"marginTop":".5rem","marginBottom":".5rem"}}>
+
+string
+
+</div></ul></details></TabItem></SchemaTabs></TabItem></MimeTabs></div></TabItem><TabItem label={"404"} value={"404"}><div>
+
+Not Found
+
+</div><div><MimeTabs className={"openapi-tabs__mime"} schemaType={"response"}><TabItem label={"*/*"} value={"*/*"}><SchemaTabs className={"openapi-tabs__schema"}><TabItem label={"Schema"} value={"Schema"}><details style={{}} className={"openapi-markdown__details response"} data-collapsed={false} open={true}><summary style={{}} className={"openapi-markdown__details-summary-response"}><strong>Schema</strong></summary><div style={{"textAlign":"left","marginLeft":"1rem"}}></div><ul style={{"marginLeft":"1rem"}}><div style={{"marginTop":".5rem","marginBottom":".5rem"}}>
+
+string
+
+</div></ul></details></TabItem></SchemaTabs></TabItem></MimeTabs></div></TabItem></ApiTabs></div></div>
+      

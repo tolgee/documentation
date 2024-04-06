@@ -1,0 +1,74 @@
+---
+id: set-users-permissions-1
+title: "Set direct permission to user"
+description: "Set direct permission to user"
+sidebar_label: "Set direct permission to user"
+hide_title: true
+hide_table_of_contents: true
+api: eJzNV21v2zYQ/ivsfdlWKHaSBfsgrAOczSncdqmROM2GwHBp6WxzkUiFPDr1DP334ShZfom7pAg25JNtknf38Dk+d+clkJw6iG+gb81fmJCDYQSmQCtJGd1LIQaHdOXQuj7aXDmnjHajI4igkFbmSGjZfgla5ggxeIe2l0IESkMMhaQZRGDxziuLKcRkPUbgkhnmEuIl0KJgK6UJp2ghgomxuaRq6acTKMuocV00AAZs9Y0hHFmlpxABap/zjc8/nnchgk+97jVEMLjonF9+6Ax46aJbL3Z/6w0ggt875523XRhugsmknno5RbfCcefRLraATGTmtpB4re489ghzt4JZg5PWSjZW1d5TeNnAQlZql0nCDy8I1Fzh/UvC40gS/jqTevqiaCoq3T0qGZll5r6bF7T4JDOPexA+HnbIbl1htMMA9PjwkD9SdIlVBQseYvj4HsoITvZtncpUXOCdR0cQQWI0oSY+9rr9mj/+RXNfZF5kvLRMTIpvFsaPUpWOnMmRZkpPR/fW6GkkQlFxb26ajUiEnWHJtAVgRw+BXWnpaWas+hvTZyLzwRVqUokkTNdhf3wY9szYsUpT1M+M2dTbkTY0CmWOCNM1GyuBc+1tYapog46Th7jODYkz4/VzubDojLcJBlgTdthA0j7LKgxlBA4TbxUtQh+49AVa8e56IAbmFjXEN0N+eNsIL5FEqiwmJNZVXZAR3D4gAk6+4eZTeAqthmYQQ3t+3K714trLRjllm61ce1n1nrLtkA7WbvnoVucogSHb+apzeZtBDDOiwsXttiyKFplsithSBnaBv0XNucJUVB4EG/P9VhxcMruVvDY4aLjmKFCrln+PUdpw4+rL2Uqy764HLMMHZO462qG1OU58XCgnVnVETIwVDrVTpOYomifnxP0MdeBdzKQTDkkcn3Va4k/jRSK1MGOSSgu343qupPjMCWHL9rSm5SAcOwhHPgvUaWGUppY49STGKBJpceKzV2LnXlXksFaYe7Tu1Tdw1On3xHtcCKXFDGWKdoMlWaj3yMW5rrZ/HHT6vYNqKVTb2mLbTWgH1Uvf52ub8x5954Q2JCwmJs9Rp5jWL1mwz9sHPiPhlE5QKAoEj1E4MpwipUVmpq61xitvt1sUq03piQmwFAWtDsJj5VgPsNVb/UwSNwNx0b0cBFAWJ2hRJzxFsQ6q4/Oj1iFTURhHuQyvrcbxmF63wjaMEX6hdpFJpdlrkNmy1vINzI9Z2KupM4J4sxMGQfNiM07uaDoYbM+DwwhmxhH7Xi7H0uGVzcqSlyvuWOqpcnKcbTT4W1zsDHPzqr0CcJP+yvm9A9dTDHeHoqfYfGVwWZsO+YdVbLv/kjvZaVoCfH9RV4cfBET7s7Z6/HqxGXOFrU7PXvT/XdSdxP/f0Zt3Wg7LaFVBmPhqv5MkWNCGJfddTlLT1PpX/K+C54wNsexUueBwL5CfT8OBqnL+0sAKNZchleU/25qynw==
+sidebar_class_name: "put api-method"
+info_path: api//tolgee-api
+custom_edit_url: null
+---
+
+import ApiTabs from "@theme/ApiTabs";
+import DiscriminatorTabs from "@theme/DiscriminatorTabs";
+import MethodEndpoint from "@theme/ApiExplorer/MethodEndpoint";
+import SecuritySchemes from "@theme/ApiExplorer/SecuritySchemes";
+import MimeTabs from "@theme/MimeTabs";
+import ParamsItem from "@theme/ParamsItem";
+import ResponseSamples from "@theme/ResponseSamples";
+import SchemaItem from "@theme/SchemaItem";
+import SchemaTabs from "@theme/SchemaTabs";
+import Markdown from "@theme/Markdown";
+import OperationTabs from "@theme/OperationTabs";
+import TabItem from "@theme/TabItem";
+
+<h1 className={"openapi__heading"}>Set direct permission to user</h1>
+
+<MethodEndpoint method={"put"} path={"/v2/projects/{projectId}/users/{userId}/set-permissions/{permissionType}"}></MethodEndpoint>
+
+
+
+Set direct permission to user
+
+## Request
+
+<details style={{"marginBottom":"1rem"}} className={"openapi-markdown__details"} data-collapsed={false} open={true}><summary style={{}}><h3 className={"openapi-markdown__details-summary-header-params"}>Path Parameters</h3></summary><div><ul><ParamsItem className={"paramsItem"} param={{"name":"userId","in":"path","required":true,"schema":{"type":"integer","format":"int64"}}}></ParamsItem><ParamsItem className={"paramsItem"} param={{"name":"permissionType","in":"path","required":true,"schema":{"type":"string","enum":["NONE","VIEW","TRANSLATE","REVIEW","EDIT","MANAGE"]}}}></ParamsItem><ParamsItem className={"paramsItem"} param={{"name":"projectId","in":"path","required":true,"allowEmptyValue":false,"schema":{"type":"integer","format":"int64"}}}></ParamsItem></ul></div></details><details style={{"marginBottom":"1rem"}} className={"openapi-markdown__details"} data-collapsed={false} open={true}><summary style={{}}><h3 className={"openapi-markdown__details-summary-header-params"}>Query Parameters</h3></summary><div><ul><ParamsItem className={"paramsItem"} param={{"name":"languages","in":"query","required":false,"schema":{"uniqueItems":true,"type":"array","items":{"type":"integer","format":"int64"}}}}></ParamsItem><ParamsItem className={"paramsItem"} param={{"name":"translateLanguages","in":"query","required":false,"schema":{"uniqueItems":true,"type":"array","items":{"type":"integer","format":"int64"}}}}></ParamsItem><ParamsItem className={"paramsItem"} param={{"name":"viewLanguages","in":"query","required":false,"schema":{"uniqueItems":true,"type":"array","items":{"type":"integer","format":"int64"}}}}></ParamsItem><ParamsItem className={"paramsItem"} param={{"name":"stateChangeLanguages","in":"query","required":false,"schema":{"uniqueItems":true,"type":"array","items":{"type":"integer","format":"int64"}}}}></ParamsItem></ul></div></details><div><div><ApiTabs label={undefined} id={undefined}><TabItem label={"200"} value={"200"}><div>
+
+OK
+
+</div><div></div></TabItem><TabItem label={"400"} value={"400"}><div>
+
+Bad Request
+
+</div><div><MimeTabs className={"openapi-tabs__mime"} schemaType={"response"}><TabItem label={"*/*"} value={"*/*"}><SchemaTabs className={"openapi-tabs__schema"}><TabItem label={"Schema"} value={"Schema"}><details style={{}} className={"openapi-markdown__details response"} data-collapsed={false} open={true}><summary style={{}} className={"openapi-markdown__details-summary-response"}><strong>Schema</strong></summary><div style={{"textAlign":"left","marginLeft":"1rem"}}></div><ul style={{"marginLeft":"1rem"}}><div style={{"marginTop":".5rem","marginBottom":".5rem"}}>
+
+string
+
+</div></ul></details></TabItem></SchemaTabs></TabItem></MimeTabs></div></TabItem><TabItem label={"401"} value={"401"}><div>
+
+Unauthorized
+
+</div><div><MimeTabs className={"openapi-tabs__mime"} schemaType={"response"}><TabItem label={"*/*"} value={"*/*"}><SchemaTabs className={"openapi-tabs__schema"}><TabItem label={"Schema"} value={"Schema"}><details style={{}} className={"openapi-markdown__details response"} data-collapsed={false} open={true}><summary style={{}} className={"openapi-markdown__details-summary-response"}><strong>Schema</strong></summary><div style={{"textAlign":"left","marginLeft":"1rem"}}></div><ul style={{"marginLeft":"1rem"}}><div style={{"marginTop":".5rem","marginBottom":".5rem"}}>
+
+string
+
+</div></ul></details></TabItem></SchemaTabs></TabItem></MimeTabs></div></TabItem><TabItem label={"403"} value={"403"}><div>
+
+Forbidden
+
+</div><div><MimeTabs className={"openapi-tabs__mime"} schemaType={"response"}><TabItem label={"*/*"} value={"*/*"}><SchemaTabs className={"openapi-tabs__schema"}><TabItem label={"Schema"} value={"Schema"}><details style={{}} className={"openapi-markdown__details response"} data-collapsed={false} open={true}><summary style={{}} className={"openapi-markdown__details-summary-response"}><strong>Schema</strong></summary><div style={{"textAlign":"left","marginLeft":"1rem"}}></div><ul style={{"marginLeft":"1rem"}}><div style={{"marginTop":".5rem","marginBottom":".5rem"}}>
+
+string
+
+</div></ul></details></TabItem></SchemaTabs></TabItem></MimeTabs></div></TabItem><TabItem label={"404"} value={"404"}><div>
+
+Not Found
+
+</div><div><MimeTabs className={"openapi-tabs__mime"} schemaType={"response"}><TabItem label={"*/*"} value={"*/*"}><SchemaTabs className={"openapi-tabs__schema"}><TabItem label={"Schema"} value={"Schema"}><details style={{}} className={"openapi-markdown__details response"} data-collapsed={false} open={true}><summary style={{}} className={"openapi-markdown__details-summary-response"}><strong>Schema</strong></summary><div style={{"textAlign":"left","marginLeft":"1rem"}}></div><ul style={{"marginLeft":"1rem"}}><div style={{"marginTop":".5rem","marginBottom":".5rem"}}>
+
+string
+
+</div></ul></details></TabItem></SchemaTabs></TabItem></MimeTabs></div></TabItem></ApiTabs></div></div>
+      

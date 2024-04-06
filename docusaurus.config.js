@@ -5,6 +5,8 @@ const { docs } = require('./docs');
 const { redirects } = require('./redirects');
 const { navbar } = require('./navbar');
 const { footer } = require('./footer');
+const openApiPluginConfig = require('./apiSpecGeneration/pluginConfig');
+
 /** @type {import("@docusaurus/types").Config} */
 const config = {
   title: 'Tolgee',
@@ -16,6 +18,7 @@ const config = {
   onBrokenMarkdownLinks: 'warn',
   organizationName: 'Tolgee',
   projectName: 'Tolgee',
+  themes: ['docusaurus-theme-openapi-docs'],
   themeConfig: {
     navbar,
     footer,
@@ -65,21 +68,6 @@ const config = {
         },
       },
     ],
-    [
-      'redocusaurus',
-      {
-        specs: [
-          {
-            specUrl:
-              'https://app.tolgee.io/v3/api-docs/Accessible%20with%20API%20key',
-            routePath: '/api',
-          },
-        ],
-        theme: {
-          primaryColor: '#EC407A',
-        },
-      },
-    ],
   ],
   plugins: [
     'docusaurus-plugin-image-zoom',
@@ -96,6 +84,7 @@ const config = {
         },
       };
     },
+    openApiPluginConfig,
     ...docs,
   ],
   customFields: {

@@ -1,0 +1,73 @@
+---
+id: release
+title: "Remove the EE licence key"
+description: "This will remove the licence key from the instance."
+sidebar_label: "Remove the EE licence key"
+hide_title: true
+hide_table_of_contents: true
+api: eJylVU1v2zgQ/SvTuSxQyHaa9iRsF0gAZ5FN0QaJg21hGC4tjS3CEsmQIydeQ/99MZT83ctuTpbJmTePj/OGG2S1CJiOcTiELzojkxFOEswpZF471tZgiqNCB3jRZQmeKrsi4IKgbKNhSWuYe1vFRW0CK5NRHxO0jrwShNscU/RUkgqECXoKzppAAdMNXl5cyM9xvW932CT46Vdb1yqHB3quKTAmmFnDZFjC3g/ey0/ICqqUfPHaEaYY2GuzwATpVVWulKVNZnP6vLb1NNf5NNiKuNBmMX3x1iwScMqrKnwe7zYSiDuTBpumicQ+nBN7Mqrmwnr9D+VvZFZHKDKsM8WU78t+PC97Y/1M5zmZN9bcXdbUWJ468pVmpnyvBntlQhlDQp9yzQdyfDrn9dUy3NjavFULT8HWPqNIay6AO0qmLsuWQ5NgoKz2mteYjjf4WDvy8NffIxjZJRlMx5NmkuBrjwhT9jVJHSYT5DAxY0lrTNuABFeqrLtASZMusNLCrpaec4oLTHGwuhwQ9aILAg269t7+7wmgsPIr8m2J2peYYsHsQjoYKOf6bMsFUV9bPDXcn2TkOiiHFgEkWbhsj/koArYOOjjmTk6pIuVjFKY4I+XJY9J93FhfKcZUcsVpZ3qdAh2z24ezhIMO4Om51p5ymFsPQZRlvSLYdVWAl4IM1IE8FCpAIIbLm6s+/LA1ZMqAnbHSBsIJ9Eor+ClSS+Zg0cnSi2G9GPITyOTOasN9uK4ZZgSZ8jSvy3dwcq62clxz9oV8ePcfNLq6v4U7WoM2UJDKyR+opJy+i/dtVIT63ru6v+21S1oU6zKOYZ5r8uu2mX+Fdaz5Lf8WwFgGT5mtKjI55cBWFAXBXJ5hJhC0zGfNUeAZQWArV6QNlHYR+nu+arklGvNRDKXN3EZamqMdR7FZpdYZt27rvlQ8t76Ch+HjKJLyNCcfn5QExQdt+OpD/0KkcDZwpWK3dTwe9q/LcHj4wJyW3Oxnyv98nDq1mV554EqljTCKFt10Dh/j6lIG0s7T8ek6d/kkwcIGloTNZqYCPfmyaWS5FTMdT2SkeK1mIuR40iTbfthPnqssI8f72RMH5dHwuX8aYYLyMBw0y0nPRsBtH5n1Adzv1zGg9cEfmHRlo4OwmTRN8y8glLxa
+sidebar_class_name: "put api-method"
+info_path: api//tolgee-api
+custom_edit_url: null
+---
+
+import ApiTabs from "@theme/ApiTabs";
+import DiscriminatorTabs from "@theme/DiscriminatorTabs";
+import MethodEndpoint from "@theme/ApiExplorer/MethodEndpoint";
+import SecuritySchemes from "@theme/ApiExplorer/SecuritySchemes";
+import MimeTabs from "@theme/MimeTabs";
+import ParamsItem from "@theme/ParamsItem";
+import ResponseSamples from "@theme/ResponseSamples";
+import SchemaItem from "@theme/SchemaItem";
+import SchemaTabs from "@theme/SchemaTabs";
+import Markdown from "@theme/Markdown";
+import OperationTabs from "@theme/OperationTabs";
+import TabItem from "@theme/TabItem";
+import { Badges } from '../src/component/docs/apiDocs/Badges';
+
+<h1 className={"openapi__heading"}>Remove the EE licence key</h1><Badges badges={["ee"]} />
+
+<MethodEndpoint method={"put"} path={"/v2/ee-license/release-license-key"}></MethodEndpoint>
+
+
+
+This will remove the licence key from the instance.
+
+<div><div><ApiTabs label={undefined} id={undefined}><TabItem label={"200"} value={"200"}><div>
+
+OK
+
+</div><div></div></TabItem><TabItem label={"400"} value={"400"}><div>
+
+Bad Request
+
+</div><div><MimeTabs className={"openapi-tabs__mime"} schemaType={"response"}><TabItem label={"*/*"} value={"*/*"}><SchemaTabs className={"openapi-tabs__schema"}><TabItem label={"Schema"} value={"Schema"}><details style={{}} className={"openapi-markdown__details response"} data-collapsed={false} open={true}><summary style={{}} className={"openapi-markdown__details-summary-response"}><strong>Schema</strong></summary><div style={{"textAlign":"left","marginLeft":"1rem"}}></div><ul style={{"marginLeft":"1rem"}}><div style={{"marginTop":".5rem","marginBottom":".5rem"}}>
+
+string
+
+</div></ul></details></TabItem></SchemaTabs></TabItem></MimeTabs></div></TabItem><TabItem label={"401"} value={"401"}><div>
+
+Unauthorized
+
+</div><div><MimeTabs className={"openapi-tabs__mime"} schemaType={"response"}><TabItem label={"*/*"} value={"*/*"}><SchemaTabs className={"openapi-tabs__schema"}><TabItem label={"Schema"} value={"Schema"}><details style={{}} className={"openapi-markdown__details response"} data-collapsed={false} open={true}><summary style={{}} className={"openapi-markdown__details-summary-response"}><strong>Schema</strong></summary><div style={{"textAlign":"left","marginLeft":"1rem"}}></div><ul style={{"marginLeft":"1rem"}}><div style={{"marginTop":".5rem","marginBottom":".5rem"}}>
+
+string
+
+</div></ul></details></TabItem></SchemaTabs></TabItem></MimeTabs></div></TabItem><TabItem label={"403"} value={"403"}><div>
+
+Forbidden
+
+</div><div><MimeTabs className={"openapi-tabs__mime"} schemaType={"response"}><TabItem label={"*/*"} value={"*/*"}><SchemaTabs className={"openapi-tabs__schema"}><TabItem label={"Schema"} value={"Schema"}><details style={{}} className={"openapi-markdown__details response"} data-collapsed={false} open={true}><summary style={{}} className={"openapi-markdown__details-summary-response"}><strong>Schema</strong></summary><div style={{"textAlign":"left","marginLeft":"1rem"}}></div><ul style={{"marginLeft":"1rem"}}><div style={{"marginTop":".5rem","marginBottom":".5rem"}}>
+
+string
+
+</div></ul></details></TabItem></SchemaTabs></TabItem></MimeTabs></div></TabItem><TabItem label={"404"} value={"404"}><div>
+
+Not Found
+
+</div><div><MimeTabs className={"openapi-tabs__mime"} schemaType={"response"}><TabItem label={"*/*"} value={"*/*"}><SchemaTabs className={"openapi-tabs__schema"}><TabItem label={"Schema"} value={"Schema"}><details style={{}} className={"openapi-markdown__details response"} data-collapsed={false} open={true}><summary style={{}} className={"openapi-markdown__details-summary-response"}><strong>Schema</strong></summary><div style={{"textAlign":"left","marginLeft":"1rem"}}></div><ul style={{"marginLeft":"1rem"}}><div style={{"marginTop":".5rem","marginBottom":".5rem"}}>
+
+string
+
+</div></ul></details></TabItem></SchemaTabs></TabItem></MimeTabs></div></TabItem></ApiTabs></div></div>
+      

@@ -1,0 +1,75 @@
+---
+id: disable-user
+title: "Disable user"
+description: "Disables user account. User will not be able to log in, but their user data will be preserved, so you can enable the user later using the `enable` endpoint."
+sidebar_label: "Disable user"
+hide_title: true
+hide_table_of_contents: true
+api: eJzNVV1P60YQ/Stz56Xt1SbhUtQHq7cSqKXiIrUIgm4rFMHGnsQr7F2zOxtII//3atZOQhJaqeKlT4nX83H2eM6ZFbKeB8zu8Ib8gjycFrWxJrDXbJzFicKCQu5Nkx4z/NkEPa0oQAzkQee5i5aHcCtPz6aqwDqGKYEEATuo3ByMVTCNDFyS8V1ioVl38VOCxlOQ7oWC4GDpIuTaAtmuRkldSqWZJNvYeTp86AIegGzROGN5iApdQx3yiwIzLDqwAg4VNtrrmpi83HeFVteEGUrtiwIVGrleo7lEhZ6eovFUYMY+ksKQl1RrzFbIy0ayjGWap6oz52vN3dEPJ9i2E0kPjbOBgmQcHx3Jzy6Nv19iq/DkrVdnuoBreooUGBXmzjJZlrCPo4/yc4AlsDd2jgrpRddNJUer3BX0eenifWGK++Bq4tLY+f2zd3auIDERPt9tXihIbyYttm2bgH06BHZrdeTSefMXFe9EFlMpsmxyzVRs235/2Pbc+akpCrLv7LkZjXvr+L4hXxtmmbk1G+y1DVUKCUMqDL+i4+QQ12+O4dxF+14uPAUXfU4J1kwKbiDZWFUdhlZhoDx6w8s0vDexIQ9fvo5h7B7JYnY3kcF7GQSqZoPSBd4OL70w2SC3SqmPtMRsL1LhQleRugwpJHPhREJN5CQdLjHD0eJ4pHcMYiTyCaNVp6J21CsOBa74Sdcy+gozLJmbkI1GummG7Ko50dA43DeYX8nKd6ICugogyQJpff8bYbaT1qv7b3iWLtgrVp6npH0SavfnfC3XL1/HIsEDIvcL7aLbhrOEgwmw9gqYOQ9BmGazINiMW4DnkmznYaUOEIjh+Px0CH/2RuemrI2FsFd6YTQ8COOSOZr3tAxS2CCFvLI+OIvJdnPtaRarD7B3r65zOmvcM/nw4T9wdHp1AZe0BGOhJF2Qf8WSbswlLVGt7fSPwenVxaA7So7aZ+yWeYrkl92Uv1Vrl/ML/iakteIpd3VNtqBCVksMBFLz8aCmgmBsTmA4ETwlCOzkExkrCykMt3j14xpoykdRmrEzl2AZTjodp2GVXgfY+ldXlWZZBHD9y804gfI0I082FymIDrrwxafhkVDRuMC1TtPW4+j3ahqT/S6rrb/83/dv/yWZXnjUVNpYuW2S/6o3kTtcHKPCXRtBlfZwQIXZZiGvvWSiUGxKUlerqQ5066u2lePuk2V3E/Evb1K0+E2fWWA201Wgf6Hz2+tevd/BP6FfD6ddbm0SUfU+2qNtJ61aj/rWZE/znBp+lSbLYcder27HQkYUZjY62JNjKvgmih/PUkAn8Z82mJI5CKS2/RsAyWEY
+sidebar_class_name: "put api-method"
+info_path: api//tolgee-api
+custom_edit_url: null
+---
+
+import ApiTabs from "@theme/ApiTabs";
+import DiscriminatorTabs from "@theme/DiscriminatorTabs";
+import MethodEndpoint from "@theme/ApiExplorer/MethodEndpoint";
+import SecuritySchemes from "@theme/ApiExplorer/SecuritySchemes";
+import MimeTabs from "@theme/MimeTabs";
+import ParamsItem from "@theme/ParamsItem";
+import ResponseSamples from "@theme/ResponseSamples";
+import SchemaItem from "@theme/SchemaItem";
+import SchemaTabs from "@theme/SchemaTabs";
+import Markdown from "@theme/Markdown";
+import OperationTabs from "@theme/OperationTabs";
+import TabItem from "@theme/TabItem";
+import { Badges } from '../src/component/docs/apiDocs/Badges';
+
+<h1 className={"openapi__heading"}>Disable user</h1><Badges badges={["self-hosted"]} />
+
+<MethodEndpoint method={"put"} path={"/v2/administration/users/{userId}/disable"}></MethodEndpoint>
+
+
+
+Disables user account. User will not be able to log in, but their user data will be preserved, so you can enable the user later using the `enable` endpoint.
+
+## Request
+
+<details style={{"marginBottom":"1rem"}} className={"openapi-markdown__details"} data-collapsed={false} open={true}><summary style={{}}><h3 className={"openapi-markdown__details-summary-header-params"}>Path Parameters</h3></summary><div><ul><ParamsItem className={"paramsItem"} param={{"name":"userId","in":"path","required":true,"schema":{"type":"integer","format":"int64"}}}></ParamsItem></ul></div></details><div><div><ApiTabs label={undefined} id={undefined}><TabItem label={"200"} value={"200"}><div>
+
+OK
+
+</div><div></div></TabItem><TabItem label={"400"} value={"400"}><div>
+
+Bad Request
+
+</div><div><MimeTabs className={"openapi-tabs__mime"} schemaType={"response"}><TabItem label={"*/*"} value={"*/*"}><SchemaTabs className={"openapi-tabs__schema"}><TabItem label={"Schema"} value={"Schema"}><details style={{}} className={"openapi-markdown__details response"} data-collapsed={false} open={true}><summary style={{}} className={"openapi-markdown__details-summary-response"}><strong>Schema</strong></summary><div style={{"textAlign":"left","marginLeft":"1rem"}}></div><ul style={{"marginLeft":"1rem"}}><div style={{"marginTop":".5rem","marginBottom":".5rem"}}>
+
+string
+
+</div></ul></details></TabItem></SchemaTabs></TabItem></MimeTabs></div></TabItem><TabItem label={"401"} value={"401"}><div>
+
+Unauthorized
+
+</div><div><MimeTabs className={"openapi-tabs__mime"} schemaType={"response"}><TabItem label={"*/*"} value={"*/*"}><SchemaTabs className={"openapi-tabs__schema"}><TabItem label={"Schema"} value={"Schema"}><details style={{}} className={"openapi-markdown__details response"} data-collapsed={false} open={true}><summary style={{}} className={"openapi-markdown__details-summary-response"}><strong>Schema</strong></summary><div style={{"textAlign":"left","marginLeft":"1rem"}}></div><ul style={{"marginLeft":"1rem"}}><div style={{"marginTop":".5rem","marginBottom":".5rem"}}>
+
+string
+
+</div></ul></details></TabItem></SchemaTabs></TabItem></MimeTabs></div></TabItem><TabItem label={"403"} value={"403"}><div>
+
+Forbidden
+
+</div><div><MimeTabs className={"openapi-tabs__mime"} schemaType={"response"}><TabItem label={"*/*"} value={"*/*"}><SchemaTabs className={"openapi-tabs__schema"}><TabItem label={"Schema"} value={"Schema"}><details style={{}} className={"openapi-markdown__details response"} data-collapsed={false} open={true}><summary style={{}} className={"openapi-markdown__details-summary-response"}><strong>Schema</strong></summary><div style={{"textAlign":"left","marginLeft":"1rem"}}></div><ul style={{"marginLeft":"1rem"}}><div style={{"marginTop":".5rem","marginBottom":".5rem"}}>
+
+string
+
+</div></ul></details></TabItem></SchemaTabs></TabItem></MimeTabs></div></TabItem><TabItem label={"404"} value={"404"}><div>
+
+Not Found
+
+</div><div><MimeTabs className={"openapi-tabs__mime"} schemaType={"response"}><TabItem label={"*/*"} value={"*/*"}><SchemaTabs className={"openapi-tabs__schema"}><TabItem label={"Schema"} value={"Schema"}><details style={{}} className={"openapi-markdown__details response"} data-collapsed={false} open={true}><summary style={{}} className={"openapi-markdown__details-summary-response"}><strong>Schema</strong></summary><div style={{"textAlign":"left","marginLeft":"1rem"}}></div><ul style={{"marginLeft":"1rem"}}><div style={{"marginTop":".5rem","marginBottom":".5rem"}}>
+
+string
+
+</div></ul></details></TabItem></SchemaTabs></TabItem></MimeTabs></div></TabItem></ApiTabs></div></div>
+      

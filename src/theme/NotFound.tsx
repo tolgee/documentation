@@ -22,7 +22,7 @@ const variants = [
 ] as const;
 
 export default function NotFound() {
-  const [variant, setVariant] = useState<typeof variants[number]>();
+  const [variant, setVariant] = useState<(typeof variants)[number]>();
 
   useEffect(() => {
     setVariant(variants[Math.floor(Math.random() * variants.length)]);

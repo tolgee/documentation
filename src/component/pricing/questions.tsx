@@ -181,4 +181,4 @@ export const questions = [
   },
 ] as const;
 
-export type QuestionId = typeof questions[number]['id'];
+export type QuestionId = (typeof questions)[number]['id'];

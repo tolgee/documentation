@@ -1,0 +1,74 @@
+---
+id: tag-key
+title: "Tag key"
+description: "Tags a key with tag. If tag with provided name doesn't exist, it is created"
+sidebar_label: "Tag key"
+hide_title: true
+hide_table_of_contents: true
+api: eJy9Vm1v2zYQ/ivsfelWKHaaBfsgrAPSrRnS7CVI3XWDa6S0eJbZSKRKnux4gv77cKQk23XateuwT5ZJ3t1zD3nPXQMkcw/pFCb8O0tAoc+crkhbA2lYFVLc4kasNS0FyXwkLhb8GxcqZ1daoRJGliiURW8eksA77SkRmoT2InMoCRUkYCt0kj1fKEg58iVuIIFKOlkioWMgDbAnSOEWNxdspBlHJWkJCTh8V2uHClJyNSbgsyWWEtIGaFOxkTaEOTpIYGFdKSkufXsKbZsMnitn32JG/+hdFoVdPysr2vwuixohXcjCf2bUWXSLnp5atWGbzBpCQ/wpq6rQWWBk/NYz4c2O8y2caUQ+S/qAds4JMHWOOSWNni1ifg2U8u5nNDktIX18fJxAqU3//3jw4clpkzMxQJoKjLd9iZsfyULLy/t8hAVfWeNjsJPjY/7Zfy+/XULy7zLUfBuflqZWn8R9MvBxmPE9r9wu+JnDHhu/WIUFk9EmcHpfvk+lEtfxfvcTfzR+tJ/rPoYE8E6WVYjTZFbhk42tb5RWN96WSEtt8pu1syZPRKgO/2Q6bCQi7MzaAdjjQ2AvjaxpaZ3+K1TelyCrgys0xBeJahv2m8Ow59bNtVJovjDmoBQ3xtJNha7URKi2bJCTxhfhiB+h0rRDx+khrl8tiXNbmy/lwqG3tcswwFqwwwGSqYsiYmgT8JjVTtMmCNrZ1YW4xI3QRixRKnSQTmesRzsb72p0m+iq333+aiIm9hZNWJglwPdvWTmrOhQFq1YK49XJuFM0P24GbWvHt7jx4ybIaDsOMs+43KrX2doVkMKSqPLpeCyrakS2yBFH2sL7FfITGr4QVCJ6EGzMmPpEXzCFsTx3cA+EchTolJP/z1G6ULTx47wv3eevJly4L+oKnfiIo3102+PEx7np9NIiFtYJj8Zr0isUw7vyYr1EI2qPTiylFx5JnJyfjcSfthaZNMLOSWoj/HuuV1qKN0w5W47zjpajcOwoHHkj0KjKakMj8bQmMUeRSYeLungg3ssrRg5rlV2j8w8+g6N7XtXAkqx0bK1dx/vj6Ozq4iguhY7XWey72XuDh772Ob+gh14YS8JhZssSDQ8BZJlRwT5vD3wmwmuTIU8FTPAchSfLV6SNKGzuR1u88rYHGuyDZHP7uN620md9ZQ5tvZd3tlzYkEGv5OFdM6yDNLqtq0IS9w9x/ezFJOB3uECHJkNIgEsmHl89Hh1zhMp6KqXZiT6Redc/9gLs9Pv/eJjqrofwjsZVIbVhXKGmm04aprA6ic0ziAMkkO6OPqwPvNYPWtRNgEvriY2bZi49vnRF2/JyvIl0OktgJZ2Wc6Z22oDSnr/VMB59MP+vrrui/Fp8CH//5gwTuYpTF0Ssw0jI2vg/Bt1S1s7aBAYFb7r9H2Koowl72dofTD4MO1qcZRlW9NGzu2p/9XLCItCNj6VVbOLkmidWuYYUXsNrCNN1ELYwWPF6A4U0eS1zPh/dch1xM98v7/hsuw9O7F5CdjVkuI6Q1b3Hv+uE5fvheNz5oEFHbH+ar2bWtu3f5dZGTw==
+sidebar_class_name: "put api-method"
+info_path: api//tolgee-api
+custom_edit_url: null
+---
+
+import ApiTabs from "@theme/ApiTabs";
+import DiscriminatorTabs from "@theme/DiscriminatorTabs";
+import MethodEndpoint from "@theme/ApiExplorer/MethodEndpoint";
+import SecuritySchemes from "@theme/ApiExplorer/SecuritySchemes";
+import MimeTabs from "@theme/MimeTabs";
+import ParamsItem from "@theme/ParamsItem";
+import ResponseSamples from "@theme/ResponseSamples";
+import SchemaItem from "@theme/SchemaItem";
+import SchemaTabs from "@theme/SchemaTabs";
+import Markdown from "@theme/Markdown";
+import OperationTabs from "@theme/OperationTabs";
+import TabItem from "@theme/TabItem";
+
+<h1 className={"openapi__heading"}>Tag key</h1>
+
+<MethodEndpoint method={"put"} path={"/v2/projects/{projectId}/keys/{keyId}/tags"}></MethodEndpoint>
+
+
+
+Tags a key with tag. If tag with provided name doesn't exist, it is created
+
+## Request
+
+<details style={{"marginBottom":"1rem"}} className={"openapi-markdown__details"} data-collapsed={false} open={true}><summary style={{}}><h3 className={"openapi-markdown__details-summary-header-params"}>Path Parameters</h3></summary><div><ul><ParamsItem className={"paramsItem"} param={{"name":"keyId","in":"path","required":true,"schema":{"type":"integer","format":"int64"}}}></ParamsItem><ParamsItem className={"paramsItem"} param={{"name":"projectId","in":"path","required":true,"allowEmptyValue":false,"schema":{"type":"integer","format":"int64"}}}></ParamsItem></ul></div></details><MimeTabs className={"openapi-tabs__mime"}><TabItem label={"application/json"} value={"application/json-schema"}><details style={{}} className={"openapi-markdown__details mime"} data-collapsed={false} open={true}><summary style={{}} className={"openapi-markdown__details-summary-mime"}><h3 className={"openapi-markdown__details-summary-header-body"}>Body</h3><strong className={"openapi-schema__required"}>required</strong></summary><div style={{"textAlign":"left","marginLeft":"1rem"}}></div><ul style={{"marginLeft":"1rem"}}><SchemaItem collapsible={false} name={"name"} required={true} schemaName={"string"} qualifierMessage={"**Possible values:** `<= 100 characters`"} schema={{"maxLength":100,"minLength":0,"type":"string"}}></SchemaItem></ul></details></TabItem></MimeTabs><div><div><ApiTabs label={undefined} id={undefined}><TabItem label={"200"} value={"200"}><div>
+
+OK
+
+</div><div><MimeTabs className={"openapi-tabs__mime"} schemaType={"response"}><TabItem label={"application/json"} value={"application/json"}><SchemaTabs className={"openapi-tabs__schema"}><TabItem label={"Schema"} value={"Schema"}><details style={{}} className={"openapi-markdown__details response"} data-collapsed={false} open={true}><summary style={{}} className={"openapi-markdown__details-summary-response"}><strong>Schema</strong></summary><div style={{"textAlign":"left","marginLeft":"1rem"}}></div><ul style={{"marginLeft":"1rem"}}><SchemaItem collapsible={false} name={"id"} required={true} schemaName={"int64"} qualifierMessage={undefined} schema={{"type":"integer","format":"int64"}}></SchemaItem><SchemaItem collapsible={false} name={"name"} required={true} schemaName={"string"} qualifierMessage={undefined} schema={{"type":"string"}}></SchemaItem></ul></details></TabItem><TabItem label={"Example (from schema)"} value={"Example (from schema)"}><ResponseSamples responseExample={"{\n  \"id\": 0,\n  \"name\": \"string\"\n}"} language={"json"}></ResponseSamples></TabItem></SchemaTabs></TabItem></MimeTabs></div></TabItem><TabItem label={"400"} value={"400"}><div>
+
+Bad Request
+
+</div><div><MimeTabs className={"openapi-tabs__mime"} schemaType={"response"}><TabItem label={"*/*"} value={"*/*"}><SchemaTabs className={"openapi-tabs__schema"}><TabItem label={"Schema"} value={"Schema"}><details style={{}} className={"openapi-markdown__details response"} data-collapsed={false} open={true}><summary style={{}} className={"openapi-markdown__details-summary-response"}><strong>Schema</strong></summary><div style={{"textAlign":"left","marginLeft":"1rem"}}></div><ul style={{"marginLeft":"1rem"}}><div style={{"marginTop":".5rem","marginBottom":".5rem"}}>
+
+string
+
+</div></ul></details></TabItem></SchemaTabs></TabItem></MimeTabs></div></TabItem><TabItem label={"401"} value={"401"}><div>
+
+Unauthorized
+
+</div><div><MimeTabs className={"openapi-tabs__mime"} schemaType={"response"}><TabItem label={"*/*"} value={"*/*"}><SchemaTabs className={"openapi-tabs__schema"}><TabItem label={"Schema"} value={"Schema"}><details style={{}} className={"openapi-markdown__details response"} data-collapsed={false} open={true}><summary style={{}} className={"openapi-markdown__details-summary-response"}><strong>Schema</strong></summary><div style={{"textAlign":"left","marginLeft":"1rem"}}></div><ul style={{"marginLeft":"1rem"}}><div style={{"marginTop":".5rem","marginBottom":".5rem"}}>
+
+string
+
+</div></ul></details></TabItem></SchemaTabs></TabItem></MimeTabs></div></TabItem><TabItem label={"403"} value={"403"}><div>
+
+Forbidden
+
+</div><div><MimeTabs className={"openapi-tabs__mime"} schemaType={"response"}><TabItem label={"*/*"} value={"*/*"}><SchemaTabs className={"openapi-tabs__schema"}><TabItem label={"Schema"} value={"Schema"}><details style={{}} className={"openapi-markdown__details response"} data-collapsed={false} open={true}><summary style={{}} className={"openapi-markdown__details-summary-response"}><strong>Schema</strong></summary><div style={{"textAlign":"left","marginLeft":"1rem"}}></div><ul style={{"marginLeft":"1rem"}}><div style={{"marginTop":".5rem","marginBottom":".5rem"}}>
+
+string
+
+</div></ul></details></TabItem></SchemaTabs></TabItem></MimeTabs></div></TabItem><TabItem label={"404"} value={"404"}><div>
+
+Not Found
+
+</div><div><MimeTabs className={"openapi-tabs__mime"} schemaType={"response"}><TabItem label={"*/*"} value={"*/*"}><SchemaTabs className={"openapi-tabs__schema"}><TabItem label={"Schema"} value={"Schema"}><details style={{}} className={"openapi-markdown__details response"} data-collapsed={false} open={true}><summary style={{}} className={"openapi-markdown__details-summary-response"}><strong>Schema</strong></summary><div style={{"textAlign":"left","marginLeft":"1rem"}}></div><ul style={{"marginLeft":"1rem"}}><div style={{"marginTop":".5rem","marginBottom":".5rem"}}>
+
+string
+
+</div></ul></details></TabItem></SchemaTabs></TabItem></MimeTabs></div></TabItem></ApiTabs></div></div>
+      

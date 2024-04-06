@@ -1,0 +1,74 @@
+---
+id: get-organization-credits
+title: "Get credit balance for organization"
+description: "Returns machine translation credit balance for organization"
+sidebar_label: "Get credit balance for organization"
+hide_title: true
+hide_table_of_contents: true
+api: eJylVm1v2zYQ/ivsfelW0HaaBfsgrAOSognSoGuQuGgHw0gp6WyxlkmFPDl1BP334SjZluKkyJAvicx7e/jw7iErIDX3EE3gk0oybVCQU8bnirQ1InGYavIwlZCiT5wueBkiuEIqnfFi+WSQiFWuTIJiZp2wbq6Mvg92kGALdOH7PIUI5kifO/b3bU0JhXJqiYSO8VVg1BIhgm6u8xQkaAZUKMpAgsPbUjtMISJXogSfZLhUEFVA64KjtSGcowMJM+uWipqlP4+grqcc7gtrPHqOODw44H/9jX++AAmJNYSG2KqKItdJADP64dml6hTdwZlAXCYLpGt9j5whbPKkoQgk4E9y6n1vcSo3mG38AxNiQhwzR7rB18/xnC3KLojnBTwC7FlkSiBNOTv1gj/ZFHOoa3Y4eozfE5WKK7wt0VOf6DejN31uWwyenDbzQKFaFqFildgU361teZPq9MbbJVKmzfzmzlkzlyK0lX832RqkCJZpvQX2dh/YF6NKyqzT95i+EFkZUqEhbhxMd2X/2C97al2s0xTNC2tuR+7GWLop0C01EaY7NjoT7Id8Yh06jvZx/WNJnNrSvJQLh96WLsEAa8YJt5BMmecNhlqCx6R0mtZBCY4vz8UFroU2IkOVooNoMq1lz3Bbols3qTbWj1/HYmwXaMLCVAKfv20lKOgNZRDBaHU46oqMH1V9zalHrewNOqQNmnEcxNuZ9uhWG+0qXQ4RZESFj0YjVRRDsvkccagtPNTWMzR8VpiKJoPgYIa74eCa2W00oLOlLddcBVrp498xKheGtPk43Yzqx69jnvDrskAnfpGoj27nTuwutBcblQtS79F4TXqFYttyXtxlaETp0YlMeeGRxOHp8VD8a0uRKCNsTEob4R+kXmklvvNpcORo3tIyCG6D4PJdoEkLqw0NxUlJIkaRKIezMn8lHuyrqRzWCnuHzr/6Hxw90nBbllShL3ANcnM/fRscX54PmqVwNbUR/TS99tzP1ef8nF57YSwJh4ldLtGkmAqyzKjgnIu9nFJ4zZevpkBwjMKT5SPSRuR27oc7vGqxARrig3ZrM7MBVqvh49CsXGsPW2u6zBXxJSCuPlyPAyiHM3TYjALPQeO+ejs8YCoK62mpQre1OM6QnvF06BWvdtLzwhdJyz/hTxoVudKGMYahrVpZmMDqkJ8uXWEACdHec+QZ2jCVkFlPnLSqYuXxi8vrmpebI4gmUwkr5bSKmf5JBan2/J1CNFO5x1/w8NtVO42/i6f2tWk2w522UnnJv0DCAtf776t6WkvYqmzVOh0nCRbUCd97B/X09ezDGCTwrddv9kVo9vaDsz8KrTtRTXn+y4r+qPtf7Zj9vXVvLE8GtLvbeDNJ07qu/wOG6tDE
+sidebar_class_name: "get api-method"
+info_path: api//tolgee-api
+custom_edit_url: null
+---
+
+import ApiTabs from "@theme/ApiTabs";
+import DiscriminatorTabs from "@theme/DiscriminatorTabs";
+import MethodEndpoint from "@theme/ApiExplorer/MethodEndpoint";
+import SecuritySchemes from "@theme/ApiExplorer/SecuritySchemes";
+import MimeTabs from "@theme/MimeTabs";
+import ParamsItem from "@theme/ParamsItem";
+import ResponseSamples from "@theme/ResponseSamples";
+import SchemaItem from "@theme/SchemaItem";
+import SchemaTabs from "@theme/SchemaTabs";
+import Markdown from "@theme/Markdown";
+import OperationTabs from "@theme/OperationTabs";
+import TabItem from "@theme/TabItem";
+
+<h1 className={"openapi__heading"}>Get credit balance for organization</h1>
+
+<MethodEndpoint method={"get"} path={"/v2/organizations/{organizationId}/machine-translation-credit-balance"}></MethodEndpoint>
+
+
+
+Returns machine translation credit balance for organization
+
+## Request
+
+<details style={{"marginBottom":"1rem"}} className={"openapi-markdown__details"} data-collapsed={false} open={true}><summary style={{}}><h3 className={"openapi-markdown__details-summary-header-params"}>Path Parameters</h3></summary><div><ul><ParamsItem className={"paramsItem"} param={{"name":"organizationId","in":"path","required":true,"schema":{"type":"integer","format":"int64"}}}></ParamsItem></ul></div></details><div><div><ApiTabs label={undefined} id={undefined}><TabItem label={"200"} value={"200"}><div>
+
+OK
+
+</div><div><MimeTabs className={"openapi-tabs__mime"} schemaType={"response"}><TabItem label={"application/json"} value={"application/json"}><SchemaTabs className={"openapi-tabs__schema"}><TabItem label={"Schema"} value={"Schema"}><details style={{}} className={"openapi-markdown__details response"} data-collapsed={false} open={true}><summary style={{}} className={"openapi-markdown__details-summary-response"}><strong>Schema</strong></summary><div style={{"textAlign":"left","marginLeft":"1rem"}}></div><ul style={{"marginLeft":"1rem"}}><SchemaItem collapsible={false} name={"creditBalance"} required={true} schemaName={"int64"} qualifierMessage={undefined} schema={{"type":"integer","format":"int64"}}></SchemaItem><SchemaItem collapsible={false} name={"bucketSize"} required={true} schemaName={"int64"} qualifierMessage={undefined} schema={{"type":"integer","format":"int64"}}></SchemaItem><SchemaItem collapsible={false} name={"extraCreditBalance"} required={true} schemaName={"int64"} qualifierMessage={undefined} schema={{"type":"integer","format":"int64"}}></SchemaItem></ul></details></TabItem><TabItem label={"Example (from schema)"} value={"Example (from schema)"}><ResponseSamples responseExample={"{\n  \"creditBalance\": 0,\n  \"bucketSize\": 0,\n  \"extraCreditBalance\": 0\n}"} language={"json"}></ResponseSamples></TabItem></SchemaTabs></TabItem></MimeTabs></div></TabItem><TabItem label={"400"} value={"400"}><div>
+
+Bad Request
+
+</div><div><MimeTabs className={"openapi-tabs__mime"} schemaType={"response"}><TabItem label={"*/*"} value={"*/*"}><SchemaTabs className={"openapi-tabs__schema"}><TabItem label={"Schema"} value={"Schema"}><details style={{}} className={"openapi-markdown__details response"} data-collapsed={false} open={true}><summary style={{}} className={"openapi-markdown__details-summary-response"}><strong>Schema</strong></summary><div style={{"textAlign":"left","marginLeft":"1rem"}}></div><ul style={{"marginLeft":"1rem"}}><div style={{"marginTop":".5rem","marginBottom":".5rem"}}>
+
+string
+
+</div></ul></details></TabItem></SchemaTabs></TabItem></MimeTabs></div></TabItem><TabItem label={"401"} value={"401"}><div>
+
+Unauthorized
+
+</div><div><MimeTabs className={"openapi-tabs__mime"} schemaType={"response"}><TabItem label={"*/*"} value={"*/*"}><SchemaTabs className={"openapi-tabs__schema"}><TabItem label={"Schema"} value={"Schema"}><details style={{}} className={"openapi-markdown__details response"} data-collapsed={false} open={true}><summary style={{}} className={"openapi-markdown__details-summary-response"}><strong>Schema</strong></summary><div style={{"textAlign":"left","marginLeft":"1rem"}}></div><ul style={{"marginLeft":"1rem"}}><div style={{"marginTop":".5rem","marginBottom":".5rem"}}>
+
+string
+
+</div></ul></details></TabItem></SchemaTabs></TabItem></MimeTabs></div></TabItem><TabItem label={"403"} value={"403"}><div>
+
+Forbidden
+
+</div><div><MimeTabs className={"openapi-tabs__mime"} schemaType={"response"}><TabItem label={"*/*"} value={"*/*"}><SchemaTabs className={"openapi-tabs__schema"}><TabItem label={"Schema"} value={"Schema"}><details style={{}} className={"openapi-markdown__details response"} data-collapsed={false} open={true}><summary style={{}} className={"openapi-markdown__details-summary-response"}><strong>Schema</strong></summary><div style={{"textAlign":"left","marginLeft":"1rem"}}></div><ul style={{"marginLeft":"1rem"}}><div style={{"marginTop":".5rem","marginBottom":".5rem"}}>
+
+string
+
+</div></ul></details></TabItem></SchemaTabs></TabItem></MimeTabs></div></TabItem><TabItem label={"404"} value={"404"}><div>
+
+Not Found
+
+</div><div><MimeTabs className={"openapi-tabs__mime"} schemaType={"response"}><TabItem label={"*/*"} value={"*/*"}><SchemaTabs className={"openapi-tabs__schema"}><TabItem label={"Schema"} value={"Schema"}><details style={{}} className={"openapi-markdown__details response"} data-collapsed={false} open={true}><summary style={{}} className={"openapi-markdown__details-summary-response"}><strong>Schema</strong></summary><div style={{"textAlign":"left","marginLeft":"1rem"}}></div><ul style={{"marginLeft":"1rem"}}><div style={{"marginTop":".5rem","marginBottom":".5rem"}}>
+
+string
+
+</div></ul></details></TabItem></SchemaTabs></TabItem></MimeTabs></div></TabItem></ApiTabs></div></div>
+      

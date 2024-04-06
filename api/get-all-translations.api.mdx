@@ -1,0 +1,78 @@
+---
+id: get-all-translations
+title: "Get all translations"
+description: "Returns all translations for specified languages"
+sidebar_label: "Get all translations"
+hide_title: true
+hide_table_of_contents: true
+api: eJzdV81u3DYQfpUJL20DWRu7QQ9CU8Bp4tRJkRqO07TwLhxamt1lTJEyObSzXehBeuwD9CmKvFcx1M9qvRsjTi5FfbAlcTjzzUfON+OlIDnzIjsVJ04aryUpa7yYJKJAnztV8bvIxDFScMaD1BpoYAlT68BXmKupwgK0NLMgZ+hFImyFLhodFiITM6R9rdeCJKKSTpZI6BjBUhhZosjE0Ini4JWkubiJ6EdblnLHI/ugQWjghIAsuAh5Ha0yKfzcuYeFDSAdgrEEFbpSETsiCx4RrpXWcI7glUZDegGFs1WFBUhTxB2NfyxSkQiHl0E5LERGLmAifD7HUopsKYJRlwEPCUvfLdKi4jSlc3LBKTZry+67J6fMTNR1IvC9LCvNH9EkBSZTJ+qk58n0BF0GdIsNhl7KEn0lc1yxsQZ1KrVfw7oBoA/lyYWcgsMnqFWpCN3toXuzyGa3GRz6yhqPkFtDaCiFsRkbTGcpHFgHF7iAsZjbEtM5ygJdSoo0jgVc26AL3h40gTKwbMzGIouP0bh9abdkMBY/odZ2LOq6XmFIOeKbORowQeuk9anMDKZKr05dwlRLYkQ7V1IHBHv+DnNKxwYA4C40MjVTGTSJTKRrpFbOss/D4sY9v3mZpNb2+mlZ0eJXhvLxiMoQzuLRTK0rJTWfvnso6nrCbhvy413be/CA/6yf2i8vRCLao+FVWVVa5bF0Ru88myxvSbO/rEuB0fR6LgkkcyiyXl6wgEioSIQ0luboWoP91Vtfs1iIOhG53/B29OFPvNCy2PDyROoPf/3zN1SdQR1/EvFwW8KPZQHHeBnQ03rm90f3PzFZscxtgY8WNpwVqjjztkSaKzM7u3bWzBKIEucfnfYLCcSVSS06YLubwF4bGWhunfoDiy9EFqIrNMQnicUq7LebYQ+sO1dFgeYLY/bSf2YsnfXSumJjKMopFooGdDzcxPXSEhzYYL6UC4feBpdjhDVlhz0kVoMGQ50Ij3lwihaxK+0fHcILXLDsNEIjstMJl/FgIapg46pbff7mBE7sBZfC6YTr7/2OdXH3LgMjND52QQ7R3N3OIBFNhWS7vI2vjW07aGyZNBeZGF3tjVr98KNlryT1aMjsaNm30lpwVu6qa7XBaZGJOVHls9FIVlVKVs8QU2U3xPwZGmx6bOMBeDND62h6xQfQ6Mog6/44OIpo5Yrfz1G6mGbzcNBp1fM3J1zur0KFDm5xtI5uZU5sDspDJ6DNcMJEk7pC6G+lh2tuAMGjg7n04JFg72A/hd9tgFwasOcklQF/w/WVkvCWmeedo1lLy04024kmbwFNUVnFre1xIO4kuXQ4Dfoe3MiriRy/VfYanb93B4623MmeJVmpF8gtuW0zv+3sHx3uNJ9im2l3rLtZu8GbvtY5P6SvfDsD5bYs0RTN3BQ8Avu82PCZgFcmR1AUCea5iiwfkTKg7cynK7zyYn224IJUZmojLG7u3E3iZeVYG9japSMtibsgHD99dRJBOZyiQ5Nz6+E6aMyvdtMHTEVlPZUy3rYWxzOkjXH3ZrTlSo4+Z0RuWSZ8T6NKS2UYSSzNZVvop+Jqj6u+LXWRiGw4NtzAlq2cTxIxt57Yw3J5Lj2+drqu+XPDKotAobw814MZ5qO5bR8lt8JvtCzCaWVMxKH104P9/4fHW4jbOmmviJzwi1PM5B2P8OvjVhW/gf/Uv05buejkxyyG2XccrW753S7WgILPC7wqvXpSJ6IfB7oOvp/nWNFg58YEvdbRnz094QE2cKEPJfciSm77wN63ohrqehOefzMjW82/b8X+h968Wfnohja7zpr5mdR1/S9Ao5aV
+sidebar_class_name: "get api-method"
+info_path: api//tolgee-api
+custom_edit_url: null
+---
+
+import ApiTabs from "@theme/ApiTabs";
+import DiscriminatorTabs from "@theme/DiscriminatorTabs";
+import MethodEndpoint from "@theme/ApiExplorer/MethodEndpoint";
+import SecuritySchemes from "@theme/ApiExplorer/SecuritySchemes";
+import MimeTabs from "@theme/MimeTabs";
+import ParamsItem from "@theme/ParamsItem";
+import ResponseSamples from "@theme/ResponseSamples";
+import SchemaItem from "@theme/SchemaItem";
+import SchemaTabs from "@theme/SchemaTabs";
+import Markdown from "@theme/Markdown";
+import OperationTabs from "@theme/OperationTabs";
+import TabItem from "@theme/TabItem";
+
+<h1 className={"openapi__heading"}>Get all translations</h1>
+
+<MethodEndpoint method={"get"} path={"/v2/projects/{projectId}/translations/{languages}"}></MethodEndpoint>
+
+
+
+Returns all translations for specified languages
+
+## Request
+
+<details style={{"marginBottom":"1rem"}} className={"openapi-markdown__details"} data-collapsed={false} open={true}><summary style={{}}><h3 className={"openapi-markdown__details-summary-header-params"}>Path Parameters</h3></summary><div><ul><ParamsItem className={"paramsItem"} param={{"name":"languages","in":"path","description":"Comma-separated language tags to return translations in. Languages you are not permitted to see will be silently dropped and not returned.","required":true,"schema":{"uniqueItems":true,"type":"array","items":{"type":"string"}},"example":"en,de,fr"}}></ParamsItem><ParamsItem className={"paramsItem"} param={{"name":"projectId","in":"path","required":true,"allowEmptyValue":false,"schema":{"type":"integer","format":"int64"}}}></ParamsItem></ul></div></details><details style={{"marginBottom":"1rem"}} className={"openapi-markdown__details"} data-collapsed={false} open={true}><summary style={{}}><h3 className={"openapi-markdown__details-summary-header-params"}>Query Parameters</h3></summary><div><ul><ParamsItem className={"paramsItem"} param={{"name":"ns","in":"query","description":"Namespace to return","required":false,"schema":{"type":"string"}}}></ParamsItem><ParamsItem className={"paramsItem"} param={{"name":"structureDelimiter","in":"query","description":"Delimiter to structure response content. \n\ne.g. For key \"home.header.title\" would result in {\"home\": {\"header\": {\"title\": \"Hello\"}}} structure.\n\nWhen null, resulting file will be a flat key-value object.\n    ","required":false,"schema":{"type":"string","default":"."}}}></ParamsItem></ul></div></details><div><div><ApiTabs label={undefined} id={undefined}><TabItem label={"200"} value={"200"}><div>
+
+OK
+
+</div><div><MimeTabs className={"openapi-tabs__mime"} schemaType={"response"}><TabItem label={"application/json"} value={"application/json"}><SchemaTabs className={"openapi-tabs__schema"}><TabItem label={"Schema"} value={"Schema"}><details style={{}} className={"openapi-markdown__details response"} data-collapsed={false} open={true}><summary style={{}} className={"openapi-markdown__details-summary-response"}><strong>Schema</strong></summary><div style={{"textAlign":"left","marginLeft":"1rem"}}></div><ul style={{"marginLeft":"1rem"}}><div style={{"marginTop":".5rem","marginBottom":".5rem"}}>
+
+string
+
+</div></ul></details></TabItem><TabItem label={"Example (from schema)"} value={"Example (from schema)"}><ResponseSamples responseExample={"{\n  \"en\": {\n    \"what a key\": \"Translated value\",\n    \"another key\": \"Another key translated\"\n  },\n  \"cs\": {\n    \"what a key\": \"Překlad\",\n    \"another key\": \"Další překlad\"\n  }\n}"} language={"json"}></ResponseSamples></TabItem></SchemaTabs></TabItem></MimeTabs></div></TabItem><TabItem label={"400"} value={"400"}><div>
+
+Bad Request
+
+</div><div><MimeTabs className={"openapi-tabs__mime"} schemaType={"response"}><TabItem label={"*/*"} value={"*/*"}><SchemaTabs className={"openapi-tabs__schema"}><TabItem label={"Schema"} value={"Schema"}><details style={{}} className={"openapi-markdown__details response"} data-collapsed={false} open={true}><summary style={{}} className={"openapi-markdown__details-summary-response"}><strong>Schema</strong></summary><div style={{"textAlign":"left","marginLeft":"1rem"}}></div><ul style={{"marginLeft":"1rem"}}><div style={{"marginTop":".5rem","marginBottom":".5rem"}}>
+
+string
+
+</div></ul></details></TabItem></SchemaTabs></TabItem></MimeTabs></div></TabItem><TabItem label={"401"} value={"401"}><div>
+
+Unauthorized
+
+</div><div><MimeTabs className={"openapi-tabs__mime"} schemaType={"response"}><TabItem label={"*/*"} value={"*/*"}><SchemaTabs className={"openapi-tabs__schema"}><TabItem label={"Schema"} value={"Schema"}><details style={{}} className={"openapi-markdown__details response"} data-collapsed={false} open={true}><summary style={{}} className={"openapi-markdown__details-summary-response"}><strong>Schema</strong></summary><div style={{"textAlign":"left","marginLeft":"1rem"}}></div><ul style={{"marginLeft":"1rem"}}><div style={{"marginTop":".5rem","marginBottom":".5rem"}}>
+
+string
+
+</div></ul></details></TabItem></SchemaTabs></TabItem></MimeTabs></div></TabItem><TabItem label={"403"} value={"403"}><div>
+
+Forbidden
+
+</div><div><MimeTabs className={"openapi-tabs__mime"} schemaType={"response"}><TabItem label={"*/*"} value={"*/*"}><SchemaTabs className={"openapi-tabs__schema"}><TabItem label={"Schema"} value={"Schema"}><details style={{}} className={"openapi-markdown__details response"} data-collapsed={false} open={true}><summary style={{}} className={"openapi-markdown__details-summary-response"}><strong>Schema</strong></summary><div style={{"textAlign":"left","marginLeft":"1rem"}}></div><ul style={{"marginLeft":"1rem"}}><div style={{"marginTop":".5rem","marginBottom":".5rem"}}>
+
+string
+
+</div></ul></details></TabItem></SchemaTabs></TabItem></MimeTabs></div></TabItem><TabItem label={"404"} value={"404"}><div>
+
+Not Found
+
+</div><div><MimeTabs className={"openapi-tabs__mime"} schemaType={"response"}><TabItem label={"*/*"} value={"*/*"}><SchemaTabs className={"openapi-tabs__schema"}><TabItem label={"Schema"} value={"Schema"}><details style={{}} className={"openapi-markdown__details response"} data-collapsed={false} open={true}><summary style={{}} className={"openapi-markdown__details-summary-response"}><strong>Schema</strong></summary><div style={{"textAlign":"left","marginLeft":"1rem"}}></div><ul style={{"marginLeft":"1rem"}}><div style={{"marginTop":".5rem","marginBottom":".5rem"}}>
+
+string
+
+</div></ul></details></TabItem></SchemaTabs></TabItem></MimeTabs></div></TabItem></ApiTabs></div></div>
+      

@@ -1,0 +1,74 @@
+---
+id: delete-8
+title: "Delete translation comment"
+description: "Delete translation comment"
+sidebar_label: "Delete translation comment"
+hide_title: true
+hide_table_of_contents: true
+api: eJy9VmFv2zYQ/SvX+7KtYOw0C4ZBWAekazKkGbYgcdcNhuHS0tnmIpEKeXLqCfrvw1GybMdZhyLAvlgSj3f3+HjvzjWyXgRMxjjy2oZcs3EWfnJFQZYDThS6knxcvcwwwYxyYpp+jwpL7XVBTF7ca7S6IEwwbV0vM1RoLCZYal6iQk/3lfGUYcK+IoUhXVKhMamR16U4Gsu0II8K584Xmtul706xaVQfvfTuL0r/O7rOc/dwXpS8/l3nFWEy13n4wqwTCRtKZwMF8Tg5PpZHRiH1phRGMMHfrrBRePqU6Y3O4IbuKwqMClNnmSzLtpfDl/I4wBLYG7tAhfRJF2UuS3XqMnq9dtU0M9k0uIJ4aexi+uCdXSiIVxBej3uDgmiZNNg0TQT26hDYe6srXjpv/qbsmciqGIosm1QzZdu03x6mvXB+ZrKM7DNz9gU5tY6nJfnCMFO2ZYO3lRwGlBneoeP0ENevjuHCVfa5XHgKrvIpRVhzCdhDslWetxgahYHSyhteR9WcXV/CFa3BWFiSzshjMp5Iwe8Y7ivy6zbUxvruwwhG7o5sXJioR0d6G1UKO0RAp0tUKKXitlqOSuYlJjhcnQw7gYVh3UutGe4SOqx3vsTYBQ7Dupd+g3JKv9q0hsrnmOCSuQzJcKjLcsAuXxANjMPH0H8mK9dLGbQRQJzlhBvabuVCWkXusNBfj2TBTujyPSPto77bl4uNyt99GIlyb6uSPHwm0D667XaW7WACbFoPzJ2HQDYYNiuCvkoDPCzJQhXIw1IHCMRwcnE2gD9dBam24GasjYXwKPTKaPgoVyKew0VHy1HcdhS3fASyWemM5QG8qRhmBKn2NK/yF/DoXG3muFa6B/LhxRdw9ESN9izp0lzRGtWmQf9xdHZ9edQuxQbdeeyH2avow1j7nF/yVwGsY/DUVlhGGbATRkFi3h3EVBCMTQkMR4JnBIGdXJGxkLtFGGzx6rsN0OgvwwaNnbsIy3CU9ygWq+Q6wNaZrnPNMj/g5vx2FEF5mpMnm4q8RAft9tWrwbFQUbrAhY7V1uH4rGL3cvZ0MX3iYZlrYyVk1FjdSXmMqxPRdSdmVJjsTs5dPYttT9GxC3bjX2GynecThUsXWKLX9UwHeu/zppHllrpkPFG40t7omdA2rjEzQd6zfvw+OkjfbfHrm05F34Dge+qAmyKxUiGrdqojKryj9d7fDmmP/2PiLa/NpFHYN/G6s5+lKZW84ylzRfpZ34bfnv9yPjpHhTJK9+VwF+XQvUjMJ7Hsaq5NKr/Cw5Pbf+iE+GO/vbX8q0N3ps1uYWXSNM0/u5l5WA==
+sidebar_class_name: "delete api-method"
+info_path: api//tolgee-api
+custom_edit_url: null
+---
+
+import ApiTabs from "@theme/ApiTabs";
+import DiscriminatorTabs from "@theme/DiscriminatorTabs";
+import MethodEndpoint from "@theme/ApiExplorer/MethodEndpoint";
+import SecuritySchemes from "@theme/ApiExplorer/SecuritySchemes";
+import MimeTabs from "@theme/MimeTabs";
+import ParamsItem from "@theme/ParamsItem";
+import ResponseSamples from "@theme/ResponseSamples";
+import SchemaItem from "@theme/SchemaItem";
+import SchemaTabs from "@theme/SchemaTabs";
+import Markdown from "@theme/Markdown";
+import OperationTabs from "@theme/OperationTabs";
+import TabItem from "@theme/TabItem";
+
+<h1 className={"openapi__heading"}>Delete translation comment</h1>
+
+<MethodEndpoint method={"delete"} path={"/v2/projects/{projectId}/translations/{translationId}/comments/{commentId}"}></MethodEndpoint>
+
+
+
+Delete translation comment
+
+## Request
+
+<details style={{"marginBottom":"1rem"}} className={"openapi-markdown__details"} data-collapsed={false} open={true}><summary style={{}}><h3 className={"openapi-markdown__details-summary-header-params"}>Path Parameters</h3></summary><div><ul><ParamsItem className={"paramsItem"} param={{"name":"commentId","in":"path","required":true,"schema":{"type":"integer","format":"int64"}}}></ParamsItem><ParamsItem className={"paramsItem"} param={{"name":"projectId","in":"path","required":true,"allowEmptyValue":false,"schema":{"type":"integer","format":"int64"}}}></ParamsItem></ul></div></details><div><div><ApiTabs label={undefined} id={undefined}><TabItem label={"200"} value={"200"}><div>
+
+OK
+
+</div><div></div></TabItem><TabItem label={"400"} value={"400"}><div>
+
+Bad Request
+
+</div><div><MimeTabs className={"openapi-tabs__mime"} schemaType={"response"}><TabItem label={"*/*"} value={"*/*"}><SchemaTabs className={"openapi-tabs__schema"}><TabItem label={"Schema"} value={"Schema"}><details style={{}} className={"openapi-markdown__details response"} data-collapsed={false} open={true}><summary style={{}} className={"openapi-markdown__details-summary-response"}><strong>Schema</strong></summary><div style={{"textAlign":"left","marginLeft":"1rem"}}></div><ul style={{"marginLeft":"1rem"}}><div style={{"marginTop":".5rem","marginBottom":".5rem"}}>
+
+string
+
+</div></ul></details></TabItem></SchemaTabs></TabItem></MimeTabs></div></TabItem><TabItem label={"401"} value={"401"}><div>
+
+Unauthorized
+
+</div><div><MimeTabs className={"openapi-tabs__mime"} schemaType={"response"}><TabItem label={"*/*"} value={"*/*"}><SchemaTabs className={"openapi-tabs__schema"}><TabItem label={"Schema"} value={"Schema"}><details style={{}} className={"openapi-markdown__details response"} data-collapsed={false} open={true}><summary style={{}} className={"openapi-markdown__details-summary-response"}><strong>Schema</strong></summary><div style={{"textAlign":"left","marginLeft":"1rem"}}></div><ul style={{"marginLeft":"1rem"}}><div style={{"marginTop":".5rem","marginBottom":".5rem"}}>
+
+string
+
+</div></ul></details></TabItem></SchemaTabs></TabItem></MimeTabs></div></TabItem><TabItem label={"403"} value={"403"}><div>
+
+Forbidden
+
+</div><div><MimeTabs className={"openapi-tabs__mime"} schemaType={"response"}><TabItem label={"*/*"} value={"*/*"}><SchemaTabs className={"openapi-tabs__schema"}><TabItem label={"Schema"} value={"Schema"}><details style={{}} className={"openapi-markdown__details response"} data-collapsed={false} open={true}><summary style={{}} className={"openapi-markdown__details-summary-response"}><strong>Schema</strong></summary><div style={{"textAlign":"left","marginLeft":"1rem"}}></div><ul style={{"marginLeft":"1rem"}}><div style={{"marginTop":".5rem","marginBottom":".5rem"}}>
+
+string
+
+</div></ul></details></TabItem></SchemaTabs></TabItem></MimeTabs></div></TabItem><TabItem label={"404"} value={"404"}><div>
+
+Not Found
+
+</div><div><MimeTabs className={"openapi-tabs__mime"} schemaType={"response"}><TabItem label={"*/*"} value={"*/*"}><SchemaTabs className={"openapi-tabs__schema"}><TabItem label={"Schema"} value={"Schema"}><details style={{}} className={"openapi-markdown__details response"} data-collapsed={false} open={true}><summary style={{}} className={"openapi-markdown__details-summary-response"}><strong>Schema</strong></summary><div style={{"textAlign":"left","marginLeft":"1rem"}}></div><ul style={{"marginLeft":"1rem"}}><div style={{"marginTop":".5rem","marginBottom":".5rem"}}>
+
+string
+
+</div></ul></details></TabItem></SchemaTabs></TabItem></MimeTabs></div></TabItem></ApiTabs></div></div>
+      

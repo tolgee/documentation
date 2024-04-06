@@ -1,0 +1,75 @@
+---
+id: get-expected-usage
+title: "Get expected usage for current month"
+description: "Get expected usage for current month"
+sidebar_label: "Get expected usage for current month"
+hide_title: true
+hide_table_of_contents: true
+api: eJztV9tu20YQ/ZXJvLQNKDFxgz4QTQG7sAMnaOPaDtJCEJwVOZI2JneZ3VnZiqB/L2ZJUVfnghRFH/ogSFrO5ezZnTPDBbKaeMwGeEXluDe1nqmA01M40WWpzQSHCdqanGJtzXmBGU6IT+9rypmKN15NCBOslVMVMTkJtECjKsIMrZsooz+uPBPUBjOsFU8xQUcfgnZUYMYuUII+n1KlMFsgz2vx1oZpQg4THFtXKW6WfnqGy2XSpfBh5HOn6388xVDcfW2NJy8eR0+eyFdBXTrM8PUrTDC3hsmwPFV1Xeo87jd978VksZF0DWeAnhR7TJAtq1K+nTK+jJ5eGG8B2tF7ylkIdnIGrBswm7u+cDqnjT2ZUI3I4TJp0FBxxU7X9KujQrPfN0x29nRJJc2UYRhbB9rMrM7JgzXlvA9vp2SAp+QIlHyaBOBjBsibFAncERiiAtiCoyLkJD4Qtwq1wIXRHHiqPajKBsN9QdswskPTip5ggqfij6AMa57LwsN/X8/IXZTKfJ7GJvoh6nbyHTT5GoMO077hMkHWXMrS8YycmtCFs7V1chyqjAV2zlT9ZgsqJezWTfmfrs/Rla/v/X+aqYel6EHuvtTlAJuf0taO36tQHbh+D2xtwy86tQ5LefDskHaeqAIu6UMgz9si+jh9vK2bbSZRGTPBBOleVXXMtMhtQc/nNtwUurjxtiKeajO5uXPWTBKIXck/H3QPEohPhssO2NN9YG+MCjy1Tn+k4huRhRiKDEtToGKd9sf9tGfWjXRRkPnGnF2vvjGWb2pylWamYs3GpoD0pTg26Hi2j+t3y3Bmg/lWLhx5G1xOEdZYAnaQTCjLBkPsA3lw8aIPFvjy7TVc21symA2G0pPve3lpQ9fRt6G+IAZqJxMIcgtjE8uDc2QYKmviWED3TMY3+jlY4C3NMesCJzhTZaAmgWSUq2PbsSdOOjzFDNPZUbo53vh0sT3tLNNRMz+lfj1W9YjSzd7t08X2ALNMV/h7oR2tPLnZaq4KrsQMp8y1z9JU1XWfbTkh6mu718dfkJGLIO05RgBxlg2tCL6So2v0aoPm7iAlC7Yzk/wfkXJRMZofZyvdePn2WnThKtTk4BOBttGtzVnMQXtYyXM8My8nxHpG0N1nD3cyfgRPDqbKgyeGo7PjPvxlA+TKgB2x0gb8TuiZVvBOzks800lLSy+a9aLJOyBT1FYb7sNJYBgR5MrROJSPYGdfTea4Vts7cv7RV3B0fHEOr2gO2sCUVEFugyVV61ckHacdbP/sHV+c95qlONO2HtthPgRy86aMDsXa5vycv/NgLIOj3FYVmaKZ0YInkJi3ezET8NrkBJojwSMCz1aOSBso7cT313jV7Qpo9I8NQZuxjbDaxnAdL6vk2sPWProoFUtHgsvTq+sIytGYHJlcSkHqoDGfPe0/ESpq67lqOluL4ws1YCt7RxzTPad1qbSJPdTFRtdU/ABnR5hsvdLI/J7tveO0ZR8rd7PwZWGz9MV57+1lp/qHCYq/ZF8sRsrTG1cul7LckJwNhqJXTquREDxYYKG9/C4wG6vS7yrkYq3g+P1lW28/ACaHCVhdJzNfyyJi0irmzs7lpexfzL5D3XK4TFYlshb14zynmjfc917QthT+xek1Jigte+NO7NR0jH4Q2s8n0aDRiV86oFFhBN9y+TenEVyU
+sidebar_class_name: "get api-method"
+info_path: api//tolgee-api
+custom_edit_url: null
+---
+
+import ApiTabs from "@theme/ApiTabs";
+import DiscriminatorTabs from "@theme/DiscriminatorTabs";
+import MethodEndpoint from "@theme/ApiExplorer/MethodEndpoint";
+import SecuritySchemes from "@theme/ApiExplorer/SecuritySchemes";
+import MimeTabs from "@theme/MimeTabs";
+import ParamsItem from "@theme/ParamsItem";
+import ResponseSamples from "@theme/ResponseSamples";
+import SchemaItem from "@theme/SchemaItem";
+import SchemaTabs from "@theme/SchemaTabs";
+import Markdown from "@theme/Markdown";
+import OperationTabs from "@theme/OperationTabs";
+import TabItem from "@theme/TabItem";
+import { Badges } from '../src/component/docs/apiDocs/Badges';
+
+<h1 className={"openapi__heading"}>Get expected usage for current month</h1><Badges badges={["cloud"]} />
+
+<MethodEndpoint method={"get"} path={"/v2/organizations/{organizationId}/billing/self-hosted-ee/subscriptions/{subscriptionId}/expected-usage"}></MethodEndpoint>
+
+
+
+Get expected usage for current month
+
+## Request
+
+<details style={{"marginBottom":"1rem"}} className={"openapi-markdown__details"} data-collapsed={false} open={true}><summary style={{}}><h3 className={"openapi-markdown__details-summary-header-params"}>Path Parameters</h3></summary><div><ul><ParamsItem className={"paramsItem"} param={{"name":"organizationId","in":"path","required":true,"schema":{"type":"integer","format":"int64"}}}></ParamsItem><ParamsItem className={"paramsItem"} param={{"name":"subscriptionId","in":"path","required":true,"schema":{"type":"integer","format":"int64"}}}></ParamsItem></ul></div></details><div><div><ApiTabs label={undefined} id={undefined}><TabItem label={"200"} value={"200"}><div>
+
+OK
+
+</div><div><MimeTabs className={"openapi-tabs__mime"} schemaType={"response"}><TabItem label={"application/json"} value={"application/json"}><SchemaTabs className={"openapi-tabs__schema"}><TabItem label={"Schema"} value={"Schema"}><details style={{}} className={"openapi-markdown__details response"} data-collapsed={false} open={true}><summary style={{}} className={"openapi-markdown__details-summary-response"}><strong>Schema</strong></summary><div style={{"textAlign":"left","marginLeft":"1rem"}}></div><ul style={{"marginLeft":"1rem"}}><SchemaItem collapsible={false} name={"subscriptionPrice"} required={false} schemaName={"number"} qualifierMessage={undefined} schema={{"type":"number"}}></SchemaItem><SchemaItem collapsible={false} name={"appliedStripeCredits"} required={false} schemaName={"number"} qualifierMessage={undefined} schema={{"type":"number","description":"Relevant for invoices only. When there are applied stripe credits, we need to reduce the total price by this amount."}}></SchemaItem><SchemaItem collapsible={true} className={"schemaItem"}><details style={{}} className={"openapi-markdown__details"}><summary style={{}}><span className={"openapi-schema__container"}><strong className={"openapi-schema__property"}>seats</strong><span className={"openapi-schema__name"}> object</span><span className={"openapi-schema__divider"}></span><span className={"openapi-schema__required"}>required</span></span></summary><div style={{"marginLeft":"1rem"}}><SchemaItem collapsible={false} name={"total"} required={true} schemaName={"number"} qualifierMessage={undefined} schema={{"type":"number"}}></SchemaItem><SchemaItem collapsible={false} name={"unusedQuantity"} required={true} schemaName={"number"} qualifierMessage={undefined} schema={{"type":"number"}}></SchemaItem><SchemaItem collapsible={false} name={"usedQuantity"} required={true} schemaName={"number"} qualifierMessage={undefined} schema={{"type":"number"}}></SchemaItem><SchemaItem collapsible={false} name={"usedQuantityOverPlan"} required={true} schemaName={"number"} qualifierMessage={undefined} schema={{"type":"number"}}></SchemaItem></div></details></SchemaItem><SchemaItem collapsible={true} className={"schemaItem"}><details style={{}} className={"openapi-markdown__details"}><summary style={{}}><span className={"openapi-schema__container"}><strong className={"openapi-schema__property"}>translations</strong><span className={"openapi-schema__name"}> object</span><span className={"openapi-schema__divider"}></span><span className={"openapi-schema__required"}>required</span></span></summary><div style={{"marginLeft":"1rem"}}><SchemaItem collapsible={false} name={"total"} required={true} schemaName={"number"} qualifierMessage={undefined} schema={{"type":"number"}}></SchemaItem><SchemaItem collapsible={false} name={"unusedQuantity"} required={true} schemaName={"number"} qualifierMessage={undefined} schema={{"type":"number"}}></SchemaItem><SchemaItem collapsible={false} name={"usedQuantity"} required={true} schemaName={"number"} qualifierMessage={undefined} schema={{"type":"number"}}></SchemaItem><SchemaItem collapsible={false} name={"usedQuantityOverPlan"} required={true} schemaName={"number"} qualifierMessage={undefined} schema={{"type":"number"}}></SchemaItem></div></details></SchemaItem><SchemaItem collapsible={true} className={"schemaItem"}><details style={{}} className={"openapi-markdown__details"}><summary style={{}}><span className={"openapi-schema__container"}><strong className={"openapi-schema__property"}>credits</strong><span className={"openapi-schema__name"}> object</span></span></summary><div style={{"marginLeft":"1rem"}}><SchemaItem collapsible={false} name={"total"} required={true} schemaName={"number"} qualifierMessage={undefined} schema={{"type":"number"}}></SchemaItem><SchemaItem collapsible={false} name={"unusedQuantity"} required={true} schemaName={"int64"} qualifierMessage={undefined} schema={{"type":"integer","format":"int64"}}></SchemaItem><SchemaItem collapsible={false} name={"usedQuantity"} required={true} schemaName={"int64"} qualifierMessage={undefined} schema={{"type":"integer","format":"int64"}}></SchemaItem><SchemaItem collapsible={false} name={"usedQuantityOverPlan"} required={true} schemaName={"int64"} qualifierMessage={undefined} schema={{"type":"integer","format":"int64"}}></SchemaItem></div></details></SchemaItem><SchemaItem collapsible={false} name={"total"} required={true} schemaName={"number"} qualifierMessage={undefined} schema={{"type":"number"}}></SchemaItem></ul></details></TabItem><TabItem label={"Example (from schema)"} value={"Example (from schema)"}><ResponseSamples responseExample={"{\n  \"subscriptionPrice\": 0,\n  \"appliedStripeCredits\": 0,\n  \"seats\": {\n    \"total\": 0,\n    \"unusedQuantity\": 0,\n    \"usedQuantity\": 0,\n    \"usedQuantityOverPlan\": 0\n  },\n  \"translations\": {\n    \"total\": 0,\n    \"unusedQuantity\": 0,\n    \"usedQuantity\": 0,\n    \"usedQuantityOverPlan\": 0\n  },\n  \"credits\": {\n    \"total\": 0,\n    \"unusedQuantity\": 0,\n    \"usedQuantity\": 0,\n    \"usedQuantityOverPlan\": 0\n  },\n  \"total\": 0\n}"} language={"json"}></ResponseSamples></TabItem></SchemaTabs></TabItem></MimeTabs></div></TabItem><TabItem label={"400"} value={"400"}><div>
+
+Bad Request
+
+</div><div><MimeTabs className={"openapi-tabs__mime"} schemaType={"response"}><TabItem label={"*/*"} value={"*/*"}><SchemaTabs className={"openapi-tabs__schema"}><TabItem label={"Schema"} value={"Schema"}><details style={{}} className={"openapi-markdown__details response"} data-collapsed={false} open={true}><summary style={{}} className={"openapi-markdown__details-summary-response"}><strong>Schema</strong></summary><div style={{"textAlign":"left","marginLeft":"1rem"}}></div><ul style={{"marginLeft":"1rem"}}><div style={{"marginTop":".5rem","marginBottom":".5rem"}}>
+
+string
+
+</div></ul></details></TabItem></SchemaTabs></TabItem></MimeTabs></div></TabItem><TabItem label={"401"} value={"401"}><div>
+
+Unauthorized
+
+</div><div><MimeTabs className={"openapi-tabs__mime"} schemaType={"response"}><TabItem label={"*/*"} value={"*/*"}><SchemaTabs className={"openapi-tabs__schema"}><TabItem label={"Schema"} value={"Schema"}><details style={{}} className={"openapi-markdown__details response"} data-collapsed={false} open={true}><summary style={{}} className={"openapi-markdown__details-summary-response"}><strong>Schema</strong></summary><div style={{"textAlign":"left","marginLeft":"1rem"}}></div><ul style={{"marginLeft":"1rem"}}><div style={{"marginTop":".5rem","marginBottom":".5rem"}}>
+
+string
+
+</div></ul></details></TabItem></SchemaTabs></TabItem></MimeTabs></div></TabItem><TabItem label={"403"} value={"403"}><div>
+
+Forbidden
+
+</div><div><MimeTabs className={"openapi-tabs__mime"} schemaType={"response"}><TabItem label={"*/*"} value={"*/*"}><SchemaTabs className={"openapi-tabs__schema"}><TabItem label={"Schema"} value={"Schema"}><details style={{}} className={"openapi-markdown__details response"} data-collapsed={false} open={true}><summary style={{}} className={"openapi-markdown__details-summary-response"}><strong>Schema</strong></summary><div style={{"textAlign":"left","marginLeft":"1rem"}}></div><ul style={{"marginLeft":"1rem"}}><div style={{"marginTop":".5rem","marginBottom":".5rem"}}>
+
+string
+
+</div></ul></details></TabItem></SchemaTabs></TabItem></MimeTabs></div></TabItem><TabItem label={"404"} value={"404"}><div>
+
+Not Found
+
+</div><div><MimeTabs className={"openapi-tabs__mime"} schemaType={"response"}><TabItem label={"*/*"} value={"*/*"}><SchemaTabs className={"openapi-tabs__schema"}><TabItem label={"Schema"} value={"Schema"}><details style={{}} className={"openapi-markdown__details response"} data-collapsed={false} open={true}><summary style={{}} className={"openapi-markdown__details-summary-response"}><strong>Schema</strong></summary><div style={{"textAlign":"left","marginLeft":"1rem"}}></div><ul style={{"marginLeft":"1rem"}}><div style={{"marginTop":".5rem","marginBottom":".5rem"}}>
+
+string
+
+</div></ul></details></TabItem></SchemaTabs></TabItem></MimeTabs></div></TabItem></ApiTabs></div></div>
+      
