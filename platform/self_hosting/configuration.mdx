@@ -583,6 +583,10 @@ Defines whether and how is PostgreSQL started on Tolgee startup.
 
   Whether to start PostgreSQL on Tolgee startup. (default: `true`)
 
+- ##### `max-wait-time` {#max-wait-time}
+
+  The max time to wait for running postgres in seconds. (default: `300`)
+
 - ##### `mode` {#mode}
 
   How is Tolgee running PostgreSQL.
@@ -906,6 +910,7 @@ tolgee:
     container-name: tolgee_postgres
     database-name: postgres
     enabled: true
+    max-wait-time: 300
     mode: DOCKER
     password: postgres
     port: 25432
@@ -1518,6 +1523,10 @@ Defines whether and how is PostgreSQL started on Tolgee startup.
 
   Whether to start PostgreSQL on Tolgee startup. (default: `true`)
 
+- <h5 id="max-wait-time"><code>MAX_WAIT_TIME</code></h5>
+
+  The max time to wait for running postgres in seconds. (default: `300`)
+
 - <h5 id="mode"><code>MODE</code></h5>
 
   How is Tolgee running PostgreSQL.
@@ -1816,6 +1825,7 @@ TOLGEE_MACHINE_TRANSLATION_TOLGEE_DEFAULT_PRIMARY=true
 TOLGEE_POSTGRES_AUTOSTART_CONTAINER_NAME=tolgee_postgres
 TOLGEE_POSTGRES_AUTOSTART_DATABASE_NAME=postgres
 TOLGEE_POSTGRES_AUTOSTART_ENABLED=true
+TOLGEE_POSTGRES_AUTOSTART_MAX_WAIT_TIME=300
 TOLGEE_POSTGRES_AUTOSTART_MODE=DOCKER
 TOLGEE_POSTGRES_AUTOSTART_PASSWORD=postgres
 TOLGEE_POSTGRES_AUTOSTART_PORT=25432
@@ -2422,6 +2432,10 @@ Defines whether and how is PostgreSQL started on Tolgee startup.
 
   Whether to start PostgreSQL on Tolgee startup. (default: `true`)
 
+- <h5 id="max-wait-time"><code>max-wait-time</code></h5>
+
+  The max time to wait for running postgres in seconds. (default: `300`)
+
 - <h5 id="mode"><code>mode</code></h5>
 
   How is Tolgee running PostgreSQL.
@@ -2720,6 +2734,7 @@ tolgee.machine-translation.tolgee.default-primary = true
 tolgee.postgres-autostart.container-name = tolgee_postgres
 tolgee.postgres-autostart.database-name = postgres
 tolgee.postgres-autostart.enabled = true
+tolgee.postgres-autostart.max-wait-time = 300
 tolgee.postgres-autostart.mode = DOCKER
 tolgee.postgres-autostart.password = postgres
 tolgee.postgres-autostart.port = 25432
