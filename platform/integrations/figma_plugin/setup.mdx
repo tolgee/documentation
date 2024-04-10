@@ -5,6 +5,8 @@ sidebar_label: Setup
 description: Learn how to install and setup Tolgee Figma plugin. First, you need to install the plugin from the Figma Community by clicking on the Try it out button.
 ---
 
+import { FigmaScreenshotWrapper } from '../../shared/_FigmaScreenshotWrapper';
+
 ## Installation
 
 First, you need to install the plugin from the [Figma Community](https://www.figma.com/community/plugin/1212381421658754793/Tolgee) by clicking on the **Try it out** button.
@@ -19,10 +21,14 @@ If you are using the self-hosted version, you can update the "Tolgee URL" field 
 
 Then you need to click on **Validate** to validate the provided credentials.
 
-![Figma setup before validation](/img/docs/platform/figma-plugin/setup-before-validation.png)
+<FigmaScreenshotWrapper src="/img/docs/platform/figma-plugin/setup-before-validation.png" />
 
 After the credentials are validated, select the language of the Figma file, the default namespace for new keys (if you use namespaces), and whether to hide the namespace selector.
 
-Then click **Save**, and you are now ready to use the plugin!
+#### Text nodes filtering
 
-![Figma setup after validation](/img/docs/platform/figma-plugin/setup-after-validation.png)
+You can also select which text nodes should be considered for translation. By default, Tolgee filters out the text nodes, whose name starts with the underscore "_" and the nodes that contain purely numbers. You can adjust these settings to your needs.
+
+<FigmaScreenshotWrapper src="/img/docs/platform/figma-plugin/setup-after-validation.png" />
+
+Then click **Save**, and you are now ready to use the plugin!

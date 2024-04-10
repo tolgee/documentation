@@ -1,12 +1,11 @@
 import CodeBlock from '@theme/CodeBlock';
-import React, { FC } from 'react';
-import { OptimizedImage } from '../OptimizedImage';
+import React, { FC, ReactNode } from 'react';
 import './LandingPageDescription.css';
 
 export const LandingPageDescription: FC<{
   installationCommand?: string;
-  imageLinks?: { light: string; dark: string };
-}> = ({ children, installationCommand, imageLinks }) => (
+  image?: ReactNode;
+}> = ({ children, installationCommand, image }) => (
   <div className="container integration">
     <header className="integration__header">
       <div className="integration__headline-description">
@@ -16,14 +15,8 @@ export const LandingPageDescription: FC<{
             <CodeBlock>{installationCommand}</CodeBlock>
           </div>
         )}
-        {imageLinks && (
-          <OptimizedImage
-            sources={{
-              light: imageLinks.light,
-              dark: imageLinks.dark,
-            }}
-            className="integration__headline-head-image"
-          />
+        {image && (
+          <div className="integration__headline-head-image">{image}</div>
         )}
       </div>
     </header>

@@ -9,6 +9,7 @@ import { LandingPageActions } from '../../component/landingPages/LandingPageActi
 import { MoreIntegrations } from '../../component/landingPages/LandingPageMoreIntegrations';
 import Head from '@docusaurus/Head';
 import { LandingPageBottomSignUp } from '../../component/landingPages/LandingPageBottomSignup';
+import { OptimizedImage } from '../../component/OptimizedImage';
 
 const DocsLinks = ({ primary }: { primary?: boolean }) => (
   <LandingPageActions
@@ -45,10 +46,14 @@ export default function Unreal() {
         <DocsLinks />
       </LandingPageHeadline>
       <LandingPageDescription
-        imageLinks={{
-          light: '/img/unreal-plugin-light.png',
-          dark: '/img/unreal-plugin-dark.png',
-        }}
+        image={
+          <OptimizedImage
+            sources={{
+              light: '/img/unreal-plugin-light.png',
+              dark: '/img/unreal-plugin-dark.png',
+            }}
+          />
+        }
       >
         <p>
           Integrate your existing Unreal Engine project with the Tolgee platform

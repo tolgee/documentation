@@ -9,6 +9,7 @@ import { LandingPageActions } from '../../component/landingPages/LandingPageActi
 import { MoreIntegrations } from '../../component/landingPages/LandingPageMoreIntegrations';
 import Head from '@docusaurus/Head';
 import { LandingPageBottomSignUp } from '../../component/landingPages/LandingPageBottomSignup';
+import { FigmaScreenshotWrapper } from '../../../platform/shared/_FigmaScreenshotWrapper';
 
 const DocsLinks = ({ primary }: { primary?: boolean }) => (
   <LandingPageActions
@@ -40,10 +41,14 @@ export default function Figma() {
         <DocsLinks />
       </LandingPageHeadline>
       <LandingPageDescription
-        imageLinks={{
-          light: '/img/figma-plugin-light.png',
-          dark: '/img/figma-plugin-dark.png',
-        }}
+        image={
+          <FigmaScreenshotWrapper
+            sources={{
+              light: '/img/figma-plugin-light.png',
+              dark: '/img/figma-plugin-dark.png',
+            }}
+          />
+        }
       >
         <p>
           Easily manage translations within your Figma design files by

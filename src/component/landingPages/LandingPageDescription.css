@@ -9,7 +9,7 @@
 }
 
 .integration__headline-head-image {
-  width: 420px;
+  max-width: 440px;
 }
 
 .integration__header p {
