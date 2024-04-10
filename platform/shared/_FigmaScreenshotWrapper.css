@@ -1,0 +1,53 @@
+.figma-screenshot-wrapper--container {
+  box-shadow: 0 8px 20px 4px rgba(0, 0, 0, 0.36);
+  margin-bottom: 30px;
+  display: inline-grid;
+  overflow: hidden;
+  max-width: min(100%, 500px);
+}
+.figma-screenshot-wrapper--container img {
+  max-width: 100%;
+  width: auto;
+  height: auto;
+}
+
+.figma-screenshot-wrapper--header {
+  background: #fff;
+  padding: 4px 4px 4px 8px;
+  border-bottom: 1px solid #e6e6e6;
+  align-items: center;
+  display: flex;
+}
+
+.figma-screenshot-wrapper--square {
+  width: 16px;
+  height: 16px;
+  margin: 5px 7px 5px 2px;
+  background: url('/img/tolgeeLogo.svg');
+}
+
+.figma-screenshot-wrapper--label {
+  font-family: sans-serif;
+  font-size: 11px;
+  font-weight: 600;
+  margin: 0;
+  padding: 0;
+  padding: 2px 0px;
+  font-stretch: 110%;
+  color: black;
+  display: flex;
+  align-items: center;
+}
+
+html[data-theme='dark']
+  .figma-screenshot-wrapper--themed
+  .figma-screenshot-wrapper--header {
+  background: #2c2c2c;
+  border-bottom: 1px solid #444444;
+}
+
+html[data-theme='dark']
+  .figma-screenshot-wrapper--themed
+  .figma-screenshot-wrapper--label {
+  color: #fff;
+}
