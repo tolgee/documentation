@@ -1,18 +1,18 @@
 ---
 slug: localize-your-reactjs-app-the-simplest-way-you've-ever-seen
-title: Localize your React.js App the simplest way you've ever seen
-description: How to translate your React.js app easily to multiple languages with open-source tool Tolgee. Save developer’s time and remove repetitive tasks.
+title: Localize your React App the simplest way you've ever seen
+description: How to translate your React app easily to multiple languages with open-source tool Tolgee. Save developer’s time and remove repetitive tasks.
 authors: [jcizmar]
-tags: [react.js, i18n, webdev, javascript, SDK, tutorial]
+tags: [react, i18n, webdev, javascript, SDK, tutorial]
 ---
 
 Translating an App to multiple languages ([localization](/blog/localization-basics-S01E01)) is tricky part of many applications. Tolgee is simplifying the localization process and saves developer's time by removing repetitive tasks 🔁 ❌.
 
-In this article, we'll explore how Tolgee offers a streamlined solution for React localization, empowering developers to efficiently translate and adapt their applications for diverse audiences. From simplifying text translation to providing **in-context editing features**, Tolgee revolutionizes the localization experience for React.js developers.
+In this article, we'll explore how Tolgee offers a streamlined solution for React localization, empowering developers to efficiently translate and adapt their applications for diverse audiences. From simplifying text translation to providing **in-context editing features**, Tolgee revolutionizes the localization experience for React developers.
 
 Saving time? That's what I want. Show me how to localize my React app!
 
-<!--truncate-->
+<!-- truncate-->
 
 ## What is Tolgee?
 
@@ -42,7 +42,7 @@ To get started localizing your React app, you can simply follow the integration 
 
    ![Add button](/img/blog/add_project_button.webp)
 
-   Optionally, you can add multiple languages to translate your React.js app into.
+   Optionally, you can add multiple languages to translate your React app into.
 
 3. Select `Integrate` from the side menu, choose **React (Vite)** and generate an API key with **all scopes checked**.
 
@@ -50,26 +50,33 @@ To get started localizing your React app, you can simply follow the integration 
 
 4. Success! 🎉 Now you just have to follow the integration guide.
 
-## Let's integrate it into React.js App
+## Let's integrate it into React App
 
 1.  Generate a brand new React App and open it to your favorite editor
 
-        npx create-react-app tolgee-hello-world
+      ```bash
+      npm create vite@latest tolgee-hello-world -- --template react-ts
+      # follow the vite guide
+      ```
+
 
 2.  Install Tolgee packages ⬇️
+      ```bash
+      npm install @tolgee/react
+      ```
 
-        npm install @tolgee/react @tolgee/ui --save
+3.  Add Tolgee properties to your development `.env` file `env.development.local` by **copying it** from the integration guide
 
-3.  Add Tolgee properties to you development `.env` file `env.development.local` by **copying it** from the integration guide
+      ```bash
+      VITE_APP_TOLGEE_API_URL=https://app.tolgee.io
+      VITE_APP_TOLGEE_API_KEY=<your API key>
+      ```
 
-        REACT_APP_TOLGEE_API_URL=https://app.tolgee.io
-        REACT_APP_TOLGEE_API_KEY=<your API key>
+4.  Wrap your App component in `main.tsx` with `TolgeeProvider` component. Again, you can copy it from the integration guide.
 
-4.  Wrap your App component in `index.js` with `TolgeeProvider` component. Again, you can copy it from the integration guide.
+5.  Go to `App.tsx` and replace all the crap with a simple "Hello world!" message.
 
-5.  Go to `App.js` and replace all the crap with a simple "Hello world!" message.
-
-    ```jsx
+    ```tsx
     import './App.css';
 
     function App() {
@@ -123,19 +130,19 @@ You can find the resulting code in [this GitHub repo](https://github.com/JanCizm
 >
 </iframe>
 
-Now, you are able to translate your React.js applications with Tolgee. To learn more about Tolgee or to find out how to translate more complicated cases, [visit our docs](/platform) or integrations to other [frameworks](https://tolgee.io/integrations).
+Now, you are able to translate your React applications with Tolgee. To learn more about Tolgee or to find out how to translate more complicated cases, [visit our docs](/platform) or integrations to other [frameworks](https://tolgee.io/integrations).
 
 ## TL;DR
 
-[Tolgee for React](https://tolgee.io/integrations/react) provides a simple API to create a multi-lingual React.js application. With Tolgee i18n library for React, you can enjoy all Tolgee i18n features.
+[Tolgee for React](https://tolgee.io/integrations/react) provides a simple API to create a multi-lingual React application. With Tolgee i18n library for React, you can enjoy all Tolgee i18n features.
 
 **Tolgee is an open-source tool simplifying the process of web-based application.** It has these features:
 
 - It's an open-source and free localization (i18n) tool
-- You can translate in the [context](/features/dev-tools) of your React.js app
+- You can translate in the [context](/features/dev-tools) of your React app
 - You can generate [screenshots](/translation_keys/screenshots) automatically
 - Open-source localization platform included
-- Localize the React.js app with Tolgee fast and save time!
+- Localize the React app with Tolgee fast and save time!
 
 :::tipDo you have any question about React localization?
 
@@ -148,4 +155,4 @@ Join the Tolgee [Slack community](https://Tolg.ee/slack) to explore more tips on
 - [Tolgee Platform](https://github.com/tolgee/tolgee-platform) ⭐ Developer & translator-friendly web-based localization platform
 - [Tolgee JS](https://github.com/tolgee/tolgee-js) ⭐ Tolgee JavaScript libraries monorepo
 
-[![React.js banner](/img/blog/blog-banners/banner-react.webp)](https://app.tolgee.io/sign_up)
+[![React banner](/img/blog/blog-banners/banner-react.webp)](https://app.tolgee.io/sign_up)
