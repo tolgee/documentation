@@ -41,7 +41,7 @@ Manage all your translations in one place with Tolgee. The platform allows you t
 
 ### Rapid Integration and In-context-Translation
 
-Are you working with [Reactjs](/blog/2023-05-04-localize-your-reactjs-app-the-simplest-way-youve-ever-seen.md), Gatsby, Nextjs, Svelte, Vanilla Js or Figma? Tolgee has it all. Painlessly translate your [Vuejs application](/blog/how-to-localize-vue-app) in a matter of minutes. Tolgee is more than just another localization tool that offers integrations that simply sync your local data with the backend. Tolgee is completely integrated into your app through SDKs.
+Are you working with [Reactjs](/blog/localize-your-react-app-the-simplest-way-you've-ever-seen), Gatsby, Nextjs, Svelte, Vanilla Js or Figma? Tolgee has it all. Painlessly translate your [Vuejs application](/blog/how-to-localize-vue-app) in a matter of minutes. Tolgee is more than just another localization tool that offers integrations that simply sync your local data with the backend. Tolgee is completely integrated into your app through SDKs.
 
 Tolgee SDK implements i18n library features and assists you with formatting, interpolation, and language recognition. It also acts as a bridge to the Tolgee Platform, through [in-context translation](https://tolgee.io/js-sdk/) allowing you to generate one-click screenshots and change translations straight in your app.
 
