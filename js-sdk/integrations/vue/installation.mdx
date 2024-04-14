@@ -28,8 +28,8 @@ const tolgee = Tolgee()
     language: 'en',
 
     // for development
-    apiUrl: process.env.VUE_APP_TOLGEE_API_URL,
-    apiKey: process.env.VUE_APP_TOLGEE_API_KEY,
+    apiUrl: import.meta.env.VITE_APP_TOLGEE_API_URL,
+    apiKey: import.meta.env.VITE_APP_TOLGEE_API_KEY,
 
     // for production
     staticData: {
@@ -62,8 +62,8 @@ Wrap your application with [`TolgeeProvider`](./api#tolgeeprovider) component. `
 If you bootstrapped your application with vue-cli, your `.env.development.local` file should look like this:
 
 ```shell
-VUE_APP_TOLGEE_API_URL=https://app.tolgee.io
-VUE_APP_TOLGEE_API_KEY=tgpak_gfpwiojtnrztqmtbna3dczjxny2ha3dmnu4tk4tnnjvgc
+VITE_APP_TOLGEE_API_URL=https://app.tolgee.io
+VITE_APP_TOLGEE_API_KEY=tgpak_gfpwiojtnrztqmtbna3dczjxny2ha3dmnu4tk4tnnjvgc
 ```
 
 Otherwise, you can set the properties directly, or you can use plugins like [dotenv-webpack plugin](https://www.npmjs.com/package/dotenv-webpack).
