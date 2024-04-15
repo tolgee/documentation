@@ -1,0 +1,44 @@
+---
+id: component_interpolation
+title: Component interpolation (Vue)
+sidebar_label: Component interpolation
+slug: component-interpolation
+---
+
+With [`FormatIcu`](/formatting.mdx#icu-formatter) Vue integration supports components interpolation, which can be used to map variables in translations to custom Vue components.
+
+### Example usage
+
+```jsx
+import { FormatIcu } from '@tolgee/format-icu';
+
+...
+
+tolgee.use(FormatIcu())
+```
+
+Use `T` component with named slots, which are then mapped to the variables in the translation.
+
+```html
+<template>
+  <T
+    keyName="translation_with_link" 
+    defaultValue="Click this {link}"
+  >
+    <template v-slot:link>
+      <a href="...">{{ $t('link_label', "link") }}</a>
+    </template>
+  </T>
+</template>
+
+<script setup>
+  import { T } from '@tolgee/vue';
+</script>
+```
+
+
+will output:
+
+```html
+Click this <a href="...">link</a>
+```
