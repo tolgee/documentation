@@ -13,6 +13,7 @@ import { useDarkMode } from '../utils';
 import { getHotjarScript } from '../component/externalScripts/getHotjarScript';
 import { createTheme } from './muiTheme';
 import { getTypebotScript } from '../component/externalScripts/getTypebotScript';
+import { getPosthogScript } from '../component/externalScripts/getPosthogScript';
 
 const MuiThemeSynchronizer = () => {
   const isDarkTheme = useDarkMode();
@@ -33,6 +34,9 @@ export const LayoutContent = ({ children }) => {
   //const cookieYesId = siteConfig.customFields.cookieYesId;
   const hotjarId = siteConfig.customFields.hotjarId;
   const typebotToken = siteConfig.customFields.typebotToken as
+    | string
+    | undefined;
+  const posthogToken = siteConfig.customFields.posthogToken as
     | string
     | undefined;
 
@@ -68,6 +72,7 @@ export const LayoutContent = ({ children }) => {
           <script type="module">{getTypebotScript(typebotToken)}</script>
         )}
         {hotjarId && <script>{getHotjarScript(hotjarId as string)}</script>}
+        {posthogToken && <script>{getPosthogScript(posthogToken)}</script>}
         <script type="application/ld+json">
           {JSON.stringify(websiteSchema)}
         </script>
