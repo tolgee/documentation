@@ -4,7 +4,7 @@ title: Typed translation keys
 description: 'Adding type definitions to the translation keys.'
 ---
 
-If you want your keys to be typed with TypeScript you can do with the following `tolgee.d.ts` file:
+If you want your keys to be typed with TypeScript you can do so with the following `tolgee.d.ts` file:
 
 ```ts
 // tolgee.d.ts
@@ -37,4 +37,4 @@ declare module '@tolgee/core/lib/types' {
 }
 ```
 
-This setup will give you TypeScript intellisense for existing keys but also allows you to add non-existing keys. If you intentionally want TypeScript errors for non-existing keys, just remove `LiteralUnion`.
+This setup will give you TypeScript intellisense for existing keys but also allow you to add non-existing keys. If you intentionally want TypeScript errors for non-existing keys, just remove `LiteralUnion`.
