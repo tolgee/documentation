@@ -94,6 +94,7 @@ const config = {
     chatwootToken: process.env.DOCUSAURUS_CHATWOOT_TOKEN,
     hotjarId: process.env.DOCUSAURUS_HOTJAR_ID,
     typebotToken: process.env.DOCOSAURUS_TYPEBOT_TOKEN,
+    posthogToken: process.env.DOCOSAURUS_POSTHOG_TOKEN,
   },
   scripts: [
     {
