@@ -102,6 +102,27 @@ for this key (in selected language nor base language). If you won't provide this
 
 `String` - override current Tolgee language. This way you can switch to different language for separate translation. Load the language manually with [`tolgee.loadRecord`](/api/core_package/tolgee.mdx#loadrecord).
 
+### Children
+
+:::info
+Feature available from version 5.24.0
+:::
+
+You can pass children to the `T` component which will be mapped to the translation parameters according to their slot names. This way you can use custom components as a part of the translation.
+
+```html
+<template>
+  <T
+    keyName="translation_with_link" 
+    defaultValue="Click this {link}"
+  >
+    <template v-slot:link>
+      <a href="...">{{ $t('link_label', "link") }}</a>
+    </template>
+  </T>
+</template>
+```
+
 ## Composable `useTranslate`
 
 Use it for loading namespaces for specific components/pages or to get `t` function for translating.

@@ -47,6 +47,7 @@ module.exports = {
           items: [
             'integrations/vue/installation',
             'integrations/vue/translating',
+            'integrations/vue/component_interpolation',
             'integrations/vue/switching_language',
             'integrations/vue/api',
           ],
