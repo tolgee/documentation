@@ -1,0 +1,75 @@
+---
+id: cancel-ee-subscription
+title: "Cancel subscription for self-hosted EE instance"
+description: "Cancel subscription for self-hosted EE instance"
+sidebar_label: "Cancel subscription for self-hosted EE instance"
+hide_title: true
+hide_table_of_contents: true
+api: eJy9VttuGzcQ/ZXJvLQNKK3jGn1YNAXsVi4cB61hK0gLQXCo3ZFEeEWuyVnZymL/vRiuLivJKBC46JMkci6Hh3MOVSPrWcB0hHdUTHtzF5hyGAzgwhSFsTMcK3Qlec3G2ascU8y0zagY0F01CZk3pWygwlJ7vSAmL8VqtHpBmKLzM23N1022QmMxxVLzHBV6eqyMpxxT9hUpDNmcFhrTGnlVSraxTDPyqHDq/EJzu/TTGTaN2rYIHRz/aYuxpIfS2UBBMk5PTuQjp92xU/zzGhuFZy9tXegcbumxosCoMHOWybKEvU3eyscRlsBeGFdIz3pRFrJUZy6n9ytX3ecmvw9uQTw3dnb/5J2dKYikh/ej7YaCuDNusGmaCOzdMbBPVlc8d958pfyVyKpYiiybTDPlu7Y/Hre9dH5i8pzsK3tux/HeOr4vyS8MM+U7NthrG4oYEvqUG+7QcXaM6w/HcOkq+1ouPAVX+YwirKkU3EKyVVG0GBqFgbLKG15FnXz4PISheyCL6WgsI/fcywpXbQd2H+qvUXvQHXmYOg9hX7vGBpbICJLJBmEitnugFabbHgqXuqio7SXNZYqciDyngpiirHmOKSbL06Sr5ZDU+9JukklrGEkHS48o6WINSb2v1gaFDr/cuEblC0xxzlyGNEl0WfbZFTOivnF4yMXvZGUOKIe2AkiyHGLD753cXCvdDsvbe5QuuHYE+T0h7aMRtF8uN3bw4fNQJH5XleThXwrto9uFs4SDCbDxovWN2WDYLAm24xzgaU4WqkAe5jpAIIbTy/M+/O0qyLQFN2FtLISD0kuj4YtckGQmszUtvRjWiyFfgGxeOmO5DxcVw4Qg056mVfEGDs7Vdo5rpXsiH958A0fnN1dwTSswFuakc/IdlnRprmmFamPbf/XOb6567VJ07HXGfpnHivyqVdFLtfY5v+LvAljH4ClziwXZnHJgJ4yC1Hw4qqkgGJsRGI4ETwgCO7kiY6Fws9Df4dUPG6AxX54gNHbqIizD0QeGcVil1xG29dZNoVkeGrgd3A0jKE9T8tSKVXTQhi/f9U+EitIFXug4bWsc324Be0C2HDI9c1IW2ljpE4VXr9U+wuUpqr23O6DC9OgxX0s+irgrelnoyl6SD57psUIJl2Z1PdGBPvmiaWS5pTcdjcWdvNEToXZUY26CfM8xneoiHFpjvbNu/P52rbQfANXL590Mkl3tTBBRrf3x4KDyZ+N/7H7AVDNu1EYcOws/zzIquZMuz9Wehf82+DgYDlChvNCdiz/QcKz5IqCfL2JA6wu/bOFFRxFUTfMP4YWB3A==
+sidebar_class_name: "delete api-method"
+info_path: api//tolgee-api
+custom_edit_url: null
+---
+
+import ApiTabs from "@theme/ApiTabs";
+import DiscriminatorTabs from "@theme/DiscriminatorTabs";
+import MethodEndpoint from "@theme/ApiExplorer/MethodEndpoint";
+import SecuritySchemes from "@theme/ApiExplorer/SecuritySchemes";
+import MimeTabs from "@theme/MimeTabs";
+import ParamsItem from "@theme/ParamsItem";
+import ResponseSamples from "@theme/ResponseSamples";
+import SchemaItem from "@theme/SchemaItem";
+import SchemaTabs from "@theme/SchemaTabs";
+import Markdown from "@theme/Markdown";
+import OperationTabs from "@theme/OperationTabs";
+import TabItem from "@theme/TabItem";
+import { Badges } from '../src/component/docs/apiDocs/Badges';
+
+<h1 className={"openapi__heading"}>Cancel subscription for self-hosted EE instance</h1><Badges badges={["cloud"]} />
+
+<MethodEndpoint method={"delete"} path={"/v2/organizations/{organizationId}/billing/self-hosted-ee/subscriptions/{subscriptionId}"}></MethodEndpoint>
+
+
+
+Cancel subscription for self-hosted EE instance
+
+## Request
+
+<details style={{"marginBottom":"1rem"}} className={"openapi-markdown__details"} data-collapsed={false} open={true}><summary style={{}}><h3 className={"openapi-markdown__details-summary-header-params"}>Path Parameters</h3></summary><div><ul><ParamsItem className={"paramsItem"} param={{"name":"organizationId","in":"path","required":true,"schema":{"type":"integer","format":"int64"}}}></ParamsItem><ParamsItem className={"paramsItem"} param={{"name":"subscriptionId","in":"path","required":true,"schema":{"type":"integer","format":"int64"}}}></ParamsItem></ul></div></details><div><div><ApiTabs label={undefined} id={undefined}><TabItem label={"200"} value={"200"}><div>
+
+OK
+
+</div><div></div></TabItem><TabItem label={"400"} value={"400"}><div>
+
+Bad Request
+
+</div><div><MimeTabs className={"openapi-tabs__mime"} schemaType={"response"}><TabItem label={"*/*"} value={"*/*"}><SchemaTabs className={"openapi-tabs__schema"}><TabItem label={"Schema"} value={"Schema"}><details style={{}} className={"openapi-markdown__details response"} data-collapsed={false} open={true}><summary style={{}} className={"openapi-markdown__details-summary-response"}><strong>Schema</strong></summary><div style={{"textAlign":"left","marginLeft":"1rem"}}></div><ul style={{"marginLeft":"1rem"}}><div style={{"marginTop":".5rem","marginBottom":".5rem"}}>
+
+string
+
+</div></ul></details></TabItem></SchemaTabs></TabItem></MimeTabs></div></TabItem><TabItem label={"401"} value={"401"}><div>
+
+Unauthorized
+
+</div><div><MimeTabs className={"openapi-tabs__mime"} schemaType={"response"}><TabItem label={"*/*"} value={"*/*"}><SchemaTabs className={"openapi-tabs__schema"}><TabItem label={"Schema"} value={"Schema"}><details style={{}} className={"openapi-markdown__details response"} data-collapsed={false} open={true}><summary style={{}} className={"openapi-markdown__details-summary-response"}><strong>Schema</strong></summary><div style={{"textAlign":"left","marginLeft":"1rem"}}></div><ul style={{"marginLeft":"1rem"}}><div style={{"marginTop":".5rem","marginBottom":".5rem"}}>
+
+string
+
+</div></ul></details></TabItem></SchemaTabs></TabItem></MimeTabs></div></TabItem><TabItem label={"403"} value={"403"}><div>
+
+Forbidden
+
+</div><div><MimeTabs className={"openapi-tabs__mime"} schemaType={"response"}><TabItem label={"*/*"} value={"*/*"}><SchemaTabs className={"openapi-tabs__schema"}><TabItem label={"Schema"} value={"Schema"}><details style={{}} className={"openapi-markdown__details response"} data-collapsed={false} open={true}><summary style={{}} className={"openapi-markdown__details-summary-response"}><strong>Schema</strong></summary><div style={{"textAlign":"left","marginLeft":"1rem"}}></div><ul style={{"marginLeft":"1rem"}}><div style={{"marginTop":".5rem","marginBottom":".5rem"}}>
+
+string
+
+</div></ul></details></TabItem></SchemaTabs></TabItem></MimeTabs></div></TabItem><TabItem label={"404"} value={"404"}><div>
+
+Not Found
+
+</div><div><MimeTabs className={"openapi-tabs__mime"} schemaType={"response"}><TabItem label={"*/*"} value={"*/*"}><SchemaTabs className={"openapi-tabs__schema"}><TabItem label={"Schema"} value={"Schema"}><details style={{}} className={"openapi-markdown__details response"} data-collapsed={false} open={true}><summary style={{}} className={"openapi-markdown__details-summary-response"}><strong>Schema</strong></summary><div style={{"textAlign":"left","marginLeft":"1rem"}}></div><ul style={{"marginLeft":"1rem"}}><div style={{"marginTop":".5rem","marginBottom":".5rem"}}>
+
+string
+
+</div></ul></details></TabItem></SchemaTabs></TabItem></MimeTabs></div></TabItem></ApiTabs></div></div>
+      

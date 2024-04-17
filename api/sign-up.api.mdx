@@ -1,0 +1,74 @@
+---
+id: sign-up
+title: "Create new user account (Sign Up)"
+description: "When E-mail verification is enabled, null is returned. Otherwise JWT token is provided."
+sidebar_label: "Create new user account (Sign Up)"
+hide_title: true
+hide_table_of_contents: true
+api: eJy1VttuGzcQ/RWGL20DSnKcBCgWyIOd2oXjIjZsGW7hCApFjlaMd0mGnJWsCPvvxXBXd9VoYdQv1g7nejhzhguOMo88e+AnFU7AolESjbN8ILiGqILx6TPj9xOw7KxTSlOwKQQzbjWZiQysHBWgBbNVUZAgAFbBgu6yK5xAmJkI7NN9n6F7hGThg5saDbrLBXceQnJ1oXnGo8ntneeCB/heQcRTp+c8W3DlLIJF+im9L9rovW+RslvwqCZQSvpFdiaApqKA0uWCW1kCF9zLGGcuaKoO5x54xt3oGyiks0B5oIFITpJBtlhqRQzG5rwWrcdDJy7k0pofKa3PrXkpn/4Am+OEZ++PBC+NXX6+FfseVuk9a/nrAUtjpwZT5I9OH05cyaIYSfV4Fw6nH0BJj2oi+3RHB1RqwdFgQaLbdEe/oeN1XYsNxDFUkATROxsbKI+PjujfdjddXXLx76/0+buSSkGM/5S24Knp+kn6XFGfZrg9AzdtFVRkLfi7Q3WcSs1umkbdLuh17/XBGtrAgsOTLH0KvFBOw4e5q4ba6GF0JeDE2Hw4C87mgnkZZBk/PKwOBEsng3qV2Jv9xO6srHDigvkB+oWZVclViwvoddi3+2HPXRgZrcG+MOaKE4bW4dBDKA0iMcwSDQzSxiKpxC5ogxtwvNvP67NDdu4q+1IsAkRXBQUprTE5XKVE3NfkUAtOV+WIzrxLneEljS7vSW96vhoVRvWI6IYVMV2EMIVALLzgFY0nnyD6mPV60vsuuiIH6BrHdyn5d7CEEmjWeGBkXA/IoaqCwfkt1dUMCbHv7ohQFAqftHjGRyADBC7aH+culBJpMu77NEe3lYfAnnG0nd1afcX6S6JgYxdYBBsNmimw1WVHNqMtU0UIbCIji4Ds+Pyky/5yFVPSMjdCaSyLO66nRrKvvelxjyx7eQtLJ6l1kspXBlZ7Zyx22WmFbARMyQDjqnjFdupqIieZdzMI8dV/wOjk+oJdwpwZyyYgNYQNlKQ3lzBfbqOM/9k5ub7oNCJDiLUW226+VxDmTY8d8rWN+QX+FJl1yAIoV5ZgNWiGjhBl5PNxz6dg0VgFzGACeAQsoqMrMpYVLo/ddb7ycZlosk/kSVx9s17UZ8txWW7QjUlqFudasL8v12frTbiW7e649cnWaluLdzfa1r4cu4Rmy/39NGME0R6k7dF1IXHsQsluzm77CcsAYwhgFT0saHwb9emb7lHa5S5iKe0GEh8DSARmYdY0uFTKVRbZz7RN2Z3/ZTf0xpvnf3x9tQ2F8IQ9X0hjKfuqeSQ0rPVA3UaXkniLhqFlroHgE6K37IEvFiMZ4S4UdU3ipkGyh4HgUxkM5UdftVj2OFHdI8wJlqbGTlrQpF5UTYPvPAhqsbQ4UQo8Pqs72GDg66vbPs1r+44sm+YJckYtImc841/4F57eoYmD0huS5AteSJtXMif9xi/9/Q1W79wJ
+sidebar_class_name: "post api-method"
+info_path: api//tolgee-api
+custom_edit_url: null
+---
+
+import ApiTabs from "@theme/ApiTabs";
+import DiscriminatorTabs from "@theme/DiscriminatorTabs";
+import MethodEndpoint from "@theme/ApiExplorer/MethodEndpoint";
+import SecuritySchemes from "@theme/ApiExplorer/SecuritySchemes";
+import MimeTabs from "@theme/MimeTabs";
+import ParamsItem from "@theme/ParamsItem";
+import ResponseSamples from "@theme/ResponseSamples";
+import SchemaItem from "@theme/SchemaItem";
+import SchemaTabs from "@theme/SchemaTabs";
+import Markdown from "@theme/Markdown";
+import OperationTabs from "@theme/OperationTabs";
+import TabItem from "@theme/TabItem";
+
+<h1 className={"openapi__heading"}>Create new user account (Sign Up)</h1>
+
+<MethodEndpoint method={"post"} path={"/api/public/sign_up"}></MethodEndpoint>
+
+
+
+When E-mail verification is enabled, null is returned. Otherwise JWT token is provided.
+
+## Request
+
+<MimeTabs className={"openapi-tabs__mime"}><TabItem label={"application/json"} value={"application/json-schema"}><details style={{}} className={"openapi-markdown__details mime"} data-collapsed={false} open={true}><summary style={{}} className={"openapi-markdown__details-summary-mime"}><h3 className={"openapi-markdown__details-summary-header-body"}>Body</h3><strong className={"openapi-schema__required"}>required</strong></summary><div style={{"textAlign":"left","marginLeft":"1rem"}}></div><ul style={{"marginLeft":"1rem"}}><SchemaItem collapsible={false} name={"name"} required={true} schemaName={"string"} qualifierMessage={undefined} schema={{"type":"string"}}></SchemaItem><SchemaItem collapsible={false} name={"email"} required={true} schemaName={"string"} qualifierMessage={undefined} schema={{"type":"string"}}></SchemaItem><SchemaItem collapsible={false} name={"organizationName"} required={false} schemaName={"string"} qualifierMessage={"**Possible values:** `>= 3 characters` and `<= 50 characters`"} schema={{"maxLength":50,"minLength":3,"type":"string"}}></SchemaItem><SchemaItem collapsible={false} name={"password"} required={true} schemaName={"string"} qualifierMessage={"**Possible values:** `>= 8 characters` and `<= 50 characters`"} schema={{"maxLength":50,"minLength":8,"type":"string"}}></SchemaItem><SchemaItem collapsible={false} name={"invitationCode"} required={false} schemaName={"string"} qualifierMessage={undefined} schema={{"type":"string"}}></SchemaItem><SchemaItem collapsible={false} name={"callbackUrl"} required={false} schemaName={"string"} qualifierMessage={undefined} schema={{"type":"string"}}></SchemaItem><SchemaItem collapsible={false} name={"recaptchaToken"} required={false} schemaName={"string"} qualifierMessage={undefined} schema={{"type":"string"}}></SchemaItem></ul></details></TabItem></MimeTabs><div><div><ApiTabs label={undefined} id={undefined}><TabItem label={"200"} value={"200"}><div>
+
+OK
+
+</div><div><MimeTabs className={"openapi-tabs__mime"} schemaType={"response"}><TabItem label={"application/json"} value={"application/json"}><SchemaTabs className={"openapi-tabs__schema"}><TabItem label={"Schema"} value={"Schema"}><details style={{}} className={"openapi-markdown__details response"} data-collapsed={false} open={true}><summary style={{}} className={"openapi-markdown__details-summary-response"}><strong>Schema</strong></summary><div style={{"textAlign":"left","marginLeft":"1rem"}}></div><ul style={{"marginLeft":"1rem"}}><SchemaItem collapsible={false} name={"accessToken"} required={false} schemaName={"string"} qualifierMessage={undefined} schema={{"type":"string"}}></SchemaItem><SchemaItem collapsible={false} name={"tokenType"} required={false} schemaName={"string"} qualifierMessage={undefined} schema={{"type":"string"}}></SchemaItem></ul></details></TabItem><TabItem label={"Example (from schema)"} value={"Example (from schema)"}><ResponseSamples responseExample={"{\n  \"accessToken\": \"string\",\n  \"tokenType\": \"string\"\n}"} language={"json"}></ResponseSamples></TabItem></SchemaTabs></TabItem></MimeTabs></div></TabItem><TabItem label={"400"} value={"400"}><div>
+
+Bad Request
+
+</div><div><MimeTabs className={"openapi-tabs__mime"} schemaType={"response"}><TabItem label={"*/*"} value={"*/*"}><SchemaTabs className={"openapi-tabs__schema"}><TabItem label={"Schema"} value={"Schema"}><details style={{}} className={"openapi-markdown__details response"} data-collapsed={false} open={true}><summary style={{}} className={"openapi-markdown__details-summary-response"}><strong>Schema</strong></summary><div style={{"textAlign":"left","marginLeft":"1rem"}}></div><ul style={{"marginLeft":"1rem"}}><div style={{"marginTop":".5rem","marginBottom":".5rem"}}>
+
+string
+
+</div></ul></details></TabItem></SchemaTabs></TabItem></MimeTabs></div></TabItem><TabItem label={"401"} value={"401"}><div>
+
+Unauthorized
+
+</div><div><MimeTabs className={"openapi-tabs__mime"} schemaType={"response"}><TabItem label={"*/*"} value={"*/*"}><SchemaTabs className={"openapi-tabs__schema"}><TabItem label={"Schema"} value={"Schema"}><details style={{}} className={"openapi-markdown__details response"} data-collapsed={false} open={true}><summary style={{}} className={"openapi-markdown__details-summary-response"}><strong>Schema</strong></summary><div style={{"textAlign":"left","marginLeft":"1rem"}}></div><ul style={{"marginLeft":"1rem"}}><div style={{"marginTop":".5rem","marginBottom":".5rem"}}>
+
+string
+
+</div></ul></details></TabItem></SchemaTabs></TabItem></MimeTabs></div></TabItem><TabItem label={"403"} value={"403"}><div>
+
+Forbidden
+
+</div><div><MimeTabs className={"openapi-tabs__mime"} schemaType={"response"}><TabItem label={"*/*"} value={"*/*"}><SchemaTabs className={"openapi-tabs__schema"}><TabItem label={"Schema"} value={"Schema"}><details style={{}} className={"openapi-markdown__details response"} data-collapsed={false} open={true}><summary style={{}} className={"openapi-markdown__details-summary-response"}><strong>Schema</strong></summary><div style={{"textAlign":"left","marginLeft":"1rem"}}></div><ul style={{"marginLeft":"1rem"}}><div style={{"marginTop":".5rem","marginBottom":".5rem"}}>
+
+string
+
+</div></ul></details></TabItem></SchemaTabs></TabItem></MimeTabs></div></TabItem><TabItem label={"404"} value={"404"}><div>
+
+Not Found
+
+</div><div><MimeTabs className={"openapi-tabs__mime"} schemaType={"response"}><TabItem label={"*/*"} value={"*/*"}><SchemaTabs className={"openapi-tabs__schema"}><TabItem label={"Schema"} value={"Schema"}><details style={{}} className={"openapi-markdown__details response"} data-collapsed={false} open={true}><summary style={{}} className={"openapi-markdown__details-summary-response"}><strong>Schema</strong></summary><div style={{"textAlign":"left","marginLeft":"1rem"}}></div><ul style={{"marginLeft":"1rem"}}><div style={{"marginTop":".5rem","marginBottom":".5rem"}}>
+
+string
+
+</div></ul></details></TabItem></SchemaTabs></TabItem></MimeTabs></div></TabItem></ApiTabs></div></div>
+      
