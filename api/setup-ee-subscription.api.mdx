@@ -1,0 +1,75 @@
+---
+id: setup-ee-subscription
+title: "Setups subscription for self-hosted EE instance"
+description: "Setups subscription for self-hosted EE instance"
+sidebar_label: "Setups subscription for self-hosted EE instance"
+hide_title: true
+hide_table_of_contents: true
+api: eJylVttuGzcQ/RVmXtoGlGS7QR4WTQG7sBvHuRiWgtRQBIfaHUmMd8kNOStHEfbfi+HetJKRIs2TZe5czpzhnOEWSC09RFMYY7oYrKwnTMT5uTjTaarNEmYSbI5OkbbmMoEIPFKRn+O4mPvY6ZzPQUKunMqQ0HGsLRiVIURg3VIZ/a1xlqANRJArWoEEh18K7TCBiFyBEny8wkxBtAXa5OytDeESHUhYWJcpqo6eP4OynFXu6OnMJhv2ia0hNMQ/VZ6nOg5JR5+9NXzWBe/STiFHpy3jylPFAGeyyW3nnzEm/uK4fNLo2bm2i7aQaaOzIoPoWB7iTbDjJoLLRNiFoBUKv0Oa4FiP1CYbVB0Rnhy3QgIazjiFN+/eTl6+vgUJt+enN69vYVaWEkhTyubcyZehkW2b5nhT0QUlW/apDwc+t8ZXRZ4cHfGffhHvrkD+P5ILl/43sWx0UHCvqKaQNzbBlMsoJTx7DOmZSkRTbQ/y09HTPsoDer+qLA/ZtrFN8MXGFneJTu68zZBW2izvHpw1SynCbfcvpu0HKcKXWdkCOz4E9t6oglbW6W+Y/CSyIoRCQ9wCTLq0vx+mvbBurpMEzU/mbGXgzli6y9FlmgiTjg1yyvg0mPghJpp26Hh2iOutJXFhC/OzXDj0tnAxBlgLDthCMkWaVhhKCR7jwmnaBIF69WEiJvYeDUTTGcvJ10Gc2qIVoz7UMWue74/vwjrh+5qpjSdlYgwgCY1nJkK6e9xA1OaQsFZpgfX0zSTwLeKJh9yGSxsUMoLR+mS0K6F+tO0rajmaVzI92kEyQBztIvXAtbt1o81h1GBFlPtoNFJ5PiSbLhGH2h5I199ouOmYiCqCYGdG3JA55jZVI7xDads0zgK1tPP/c1QuKGT146LRvlcfJqx84yJHJ74TaK8trTmxudBeNMJTt8d4TXqNor27Xjys0IjCoxMr5YVHEicXp0NxawsRKyPsnJQ2wu+FXmslPnE/2HO0rGkZBLNBMPkk0CS51YaG4qwgMUcRK4eLIn0i9uqqMoez3D6g809+gKPT60txhRuhjVihStDtsKRyfYUbkM3+/Wdwen05qI7C6q09+mG+FOg21cg8FmtvmdEvXhhLwmFsswxNgokgy4wKjnl/EFMKr02MQlMgeI7Ck+UWaSNSu/TDDq+6b4AG/7AAeLncdLv+vJn+bhkfdSuz3Ywlx1nYUE+9QSbhljPIg6LqT9epIl7H4uZ8PAnVOFygw2qkeYAq8/Xx8CgsauspU+Ga1gX8uFD0gLTkE36lUZ4qbThPvRwrVZjC+gRk72nFEx4dvLVqaQjTvysOfNCTh5kE/siht9u58vjepWXJx1UXoumMFctpNWcip1tItOffCUQLlfp9udx5jMGvN/VA/iZAPl5dc9/MphNGAFlr5l5Z5ayUzS3uhPWvKt9gwqG6IAdvlFI2HqdxjDl913ZXl6/fjSdMaf3YzGzCPk498DtWPUAEH+Ejg7Y1p/wG4vMtpMosC7Vk+youX2re3jvt3hv5UNmjtPxxFgwqGfmzJSkIEHNTlv8CX+gO9A==
+sidebar_class_name: "post api-method"
+info_path: api//tolgee-api
+custom_edit_url: null
+---
+
+import ApiTabs from "@theme/ApiTabs";
+import DiscriminatorTabs from "@theme/DiscriminatorTabs";
+import MethodEndpoint from "@theme/ApiExplorer/MethodEndpoint";
+import SecuritySchemes from "@theme/ApiExplorer/SecuritySchemes";
+import MimeTabs from "@theme/MimeTabs";
+import ParamsItem from "@theme/ParamsItem";
+import ResponseSamples from "@theme/ResponseSamples";
+import SchemaItem from "@theme/SchemaItem";
+import SchemaTabs from "@theme/SchemaTabs";
+import Markdown from "@theme/Markdown";
+import OperationTabs from "@theme/OperationTabs";
+import TabItem from "@theme/TabItem";
+import { Badges } from '../src/component/docs/apiDocs/Badges';
+
+<h1 className={"openapi__heading"}>Setups subscription for self-hosted EE instance</h1><Badges badges={["cloud"]} />
+
+<MethodEndpoint method={"post"} path={"/v2/organizations/{organizationId}/billing/self-hosted-ee/subscriptions"}></MethodEndpoint>
+
+
+
+Setups subscription for self-hosted EE instance
+
+## Request
+
+<details style={{"marginBottom":"1rem"}} className={"openapi-markdown__details"} data-collapsed={false} open={true}><summary style={{}}><h3 className={"openapi-markdown__details-summary-header-params"}>Path Parameters</h3></summary><div><ul><ParamsItem className={"paramsItem"} param={{"name":"organizationId","in":"path","required":true,"schema":{"type":"integer","format":"int64"}}}></ParamsItem></ul></div></details><MimeTabs className={"openapi-tabs__mime"}><TabItem label={"application/json"} value={"application/json-schema"}><details style={{}} className={"openapi-markdown__details mime"} data-collapsed={false} open={true}><summary style={{}} className={"openapi-markdown__details-summary-mime"}><h3 className={"openapi-markdown__details-summary-header-body"}>Body</h3><strong className={"openapi-schema__required"}>required</strong></summary><div style={{"textAlign":"left","marginLeft":"1rem"}}></div><ul style={{"marginLeft":"1rem"}}><SchemaItem collapsible={false} name={"planId"} required={true} schemaName={"int64"} qualifierMessage={"**Possible values:** `>= 1`"} schema={{"minimum":1,"type":"integer","description":"Id of the subscription plan","format":"int64"}}></SchemaItem><SchemaItem collapsible={false} name={"period"} required={true} schemaName={"string"} qualifierMessage={"**Possible values:** [`MONTHLY`, `YEARLY`]"} schema={{"type":"string","enum":["MONTHLY","YEARLY"]}}></SchemaItem></ul></details></TabItem></MimeTabs><div><div><ApiTabs label={undefined} id={undefined}><TabItem label={"200"} value={"200"}><div>
+
+OK
+
+</div><div><MimeTabs className={"openapi-tabs__mime"} schemaType={"response"}><TabItem label={"application/json"} value={"application/json"}><SchemaTabs className={"openapi-tabs__schema"}><TabItem label={"Schema"} value={"Schema"}><details style={{}} className={"openapi-markdown__details response"} data-collapsed={false} open={true}><summary style={{}} className={"openapi-markdown__details-summary-response"}><strong>Schema</strong></summary><div style={{"textAlign":"left","marginLeft":"1rem"}}></div><ul style={{"marginLeft":"1rem"}}><SchemaItem collapsible={false} name={"url"} required={true} schemaName={"string"} qualifierMessage={undefined} schema={{"type":"string"}}></SchemaItem></ul></details></TabItem><TabItem label={"Example (from schema)"} value={"Example (from schema)"}><ResponseSamples responseExample={"{\n  \"url\": \"string\"\n}"} language={"json"}></ResponseSamples></TabItem></SchemaTabs></TabItem></MimeTabs></div></TabItem><TabItem label={"400"} value={"400"}><div>
+
+Bad Request
+
+</div><div><MimeTabs className={"openapi-tabs__mime"} schemaType={"response"}><TabItem label={"*/*"} value={"*/*"}><SchemaTabs className={"openapi-tabs__schema"}><TabItem label={"Schema"} value={"Schema"}><details style={{}} className={"openapi-markdown__details response"} data-collapsed={false} open={true}><summary style={{}} className={"openapi-markdown__details-summary-response"}><strong>Schema</strong></summary><div style={{"textAlign":"left","marginLeft":"1rem"}}></div><ul style={{"marginLeft":"1rem"}}><div style={{"marginTop":".5rem","marginBottom":".5rem"}}>
+
+string
+
+</div></ul></details></TabItem></SchemaTabs></TabItem></MimeTabs></div></TabItem><TabItem label={"401"} value={"401"}><div>
+
+Unauthorized
+
+</div><div><MimeTabs className={"openapi-tabs__mime"} schemaType={"response"}><TabItem label={"*/*"} value={"*/*"}><SchemaTabs className={"openapi-tabs__schema"}><TabItem label={"Schema"} value={"Schema"}><details style={{}} className={"openapi-markdown__details response"} data-collapsed={false} open={true}><summary style={{}} className={"openapi-markdown__details-summary-response"}><strong>Schema</strong></summary><div style={{"textAlign":"left","marginLeft":"1rem"}}></div><ul style={{"marginLeft":"1rem"}}><div style={{"marginTop":".5rem","marginBottom":".5rem"}}>
+
+string
+
+</div></ul></details></TabItem></SchemaTabs></TabItem></MimeTabs></div></TabItem><TabItem label={"403"} value={"403"}><div>
+
+Forbidden
+
+</div><div><MimeTabs className={"openapi-tabs__mime"} schemaType={"response"}><TabItem label={"*/*"} value={"*/*"}><SchemaTabs className={"openapi-tabs__schema"}><TabItem label={"Schema"} value={"Schema"}><details style={{}} className={"openapi-markdown__details response"} data-collapsed={false} open={true}><summary style={{}} className={"openapi-markdown__details-summary-response"}><strong>Schema</strong></summary><div style={{"textAlign":"left","marginLeft":"1rem"}}></div><ul style={{"marginLeft":"1rem"}}><div style={{"marginTop":".5rem","marginBottom":".5rem"}}>
+
+string
+
+</div></ul></details></TabItem></SchemaTabs></TabItem></MimeTabs></div></TabItem><TabItem label={"404"} value={"404"}><div>
+
+Not Found
+
+</div><div><MimeTabs className={"openapi-tabs__mime"} schemaType={"response"}><TabItem label={"*/*"} value={"*/*"}><SchemaTabs className={"openapi-tabs__schema"}><TabItem label={"Schema"} value={"Schema"}><details style={{}} className={"openapi-markdown__details response"} data-collapsed={false} open={true}><summary style={{}} className={"openapi-markdown__details-summary-response"}><strong>Schema</strong></summary><div style={{"textAlign":"left","marginLeft":"1rem"}}></div><ul style={{"marginLeft":"1rem"}}><div style={{"marginTop":".5rem","marginBottom":".5rem"}}>
+
+string
+
+</div></ul></details></TabItem></SchemaTabs></TabItem></MimeTabs></div></TabItem></ApiTabs></div></div>
+      
