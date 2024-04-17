@@ -4,7 +4,7 @@ title: SSR support
 sidebar_label: SSR support
 ---
 
-To use Tolgee with your SSR framework such as Next or Gatsby, you can provide localization data imported as object
+To use Tolgee with your SSR framework such as Next.js, you can provide localization data imported as object
 using staticData property of TolgeeProvider component, this data will be loaded directly into cache and immediately
 available with first render for SSR. We also need to know user's locale already on the server and set it through Tolgee `language` option.
 
@@ -85,6 +85,6 @@ const App = () => {
 ## Language changing
 
 When we use SSR, we have to specify language in a way that is detectable by both client and server. Easiest way is to
-include it directly in URL - both next.js and Gatsby have support for this.
+include it directly in URL - next.js has support for this.
 
 Then for language change we use the native way of the framework.

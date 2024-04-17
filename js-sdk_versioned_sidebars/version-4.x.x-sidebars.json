@@ -1,8 +1,6 @@
 {
   "someSidebar": [
-    [
-      "understanding_tolgee_for_web"
-    ],
+    ["understanding_tolgee_for_web"],
     {
       "id": "wrapping",
       "type": "doc"
@@ -39,9 +37,7 @@
         {
           "label": "Using with Npm",
           "type": "category",
-          "items": [
-            "using_with_npm/installation"
-          ]
+          "items": ["using_with_npm/installation"]
         },
         {
           "label": "Using with React",
