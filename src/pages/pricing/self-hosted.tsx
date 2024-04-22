@@ -11,7 +11,6 @@ import {
 import { featuresSelfHosted } from '../../component/pricing/featuresTable/featuresSelfHosted';
 import { ReviewAuthor } from '../../component/reviewAuthor/ReviewAuthor';
 import { PricingPlanVertical } from '../../component/pricing/pricingPlan/PricingPlanVertical';
-import { PricingDetailsLink } from '../../component/pricing/pricingPlan/PricingDetailsLink';
 import { ExtraMtCreditsLabel } from '../../component/pricing/ExtraMtCreditsLabel';
 
 export default function SelfHosted() {
