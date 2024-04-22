@@ -11,6 +11,7 @@ import Head from '@docusaurus/Head';
 import { featuresCloud } from '../../component/pricing/featuresTable/featuresCloud';
 import { PricingPlanVertical } from '../../component/pricing/pricingPlan/PricingPlanVertical';
 import { ReviewAuthor } from '../../component/reviewAuthor/ReviewAuthor';
+import { ExtraMtCreditsLabel } from '../../component/pricing/ExtraMtCreditsLabel';
 
 const MIN_PLAN_HEIGHTS: MinHeights = {
   content: 400,
@@ -97,7 +98,7 @@ export default function Pricing() {
                   value: `€${(10).toLocaleString()}/mo`,
                 },
                 {
-                  label: 'extra 1000 MT credits',
+                  label: <ExtraMtCreditsLabel />,
                   value: `€${(0.035).toLocaleString(undefined, {
                     minimumFractionDigits: 2,
                   })}`,
@@ -143,7 +144,7 @@ export default function Pricing() {
                   value: `€${(7).toLocaleString()}/mo`,
                 },
                 {
-                  label: 'extra 1000 MT credits',
+                  label: <ExtraMtCreditsLabel />,
                   value: `€${(0.035).toLocaleString(undefined, {
                     minimumFractionDigits: 2,
                   })}`,

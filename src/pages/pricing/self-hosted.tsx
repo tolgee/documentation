@@ -11,6 +11,7 @@ import {
 import { featuresSelfHosted } from '../../component/pricing/featuresTable/featuresSelfHosted';
 import { ReviewAuthor } from '../../component/reviewAuthor/ReviewAuthor';
 import { PricingPlanVertical } from '../../component/pricing/pricingPlan/PricingPlanVertical';
+import { ExtraMtCreditsLabel } from '../../component/pricing/ExtraMtCreditsLabel';
 
 export default function SelfHosted() {
   const [billing, setBilling] = useState<'monthly' | 'annually'>('annually');
@@ -96,12 +97,16 @@ export default function SelfHosted() {
               description={
                 <>For small teams, fostering smooth localization management</>
               }
-              billing={{ monthly: `€${(10).toLocaleString()}/mo/seat` }}
+              billing={{
+                monthly: 50,
+                annually: 42,
+              }}
               billingType={billing}
               toggleBillingType={toggleBilling}
               limits={{
                 strings: Infinity,
-                payAsYouSit: true,
+                // payAsYouSit: true,
+                seats: 10,
               }}
               featuresShortcut="All from Free"
               features={[
@@ -112,8 +117,14 @@ export default function SelfHosted() {
               ]}
               secondaryPrices={[
                 {
-                  label: '',
-                  value: <>&nbsp;</>,
+                  label: 'extra seat',
+                  value: `€${(10).toLocaleString()}/mo`,
+                },
+                {
+                  label: <ExtraMtCreditsLabel />,
+                  value: `€${(0.035).toLocaleString(undefined, {
+                    minimumFractionDigits: 2,
+                  })}`,
                 },
               ]}
               action={
@@ -149,6 +160,12 @@ export default function SelfHosted() {
                 {
                   label: 'extra seat',
                   value: `€${(20).toLocaleString()}/mo`,
+                },
+                {
+                  label: <ExtraMtCreditsLabel />,
+                  value: `€${(0.035).toLocaleString(undefined, {
+                    minimumFractionDigits: 2,
+                  })}`,
                 },
               ]}
               action={

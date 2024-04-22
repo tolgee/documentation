@@ -22,9 +22,18 @@ export const questions = [
     title: 'What are MT credits?',
     content: (
       <>
-        MT credits are used for Machine Translation providers (such as Google
-        Translate, AWS, DeepL, etc.). One credit ⋍ 1 translated character
-        (except for Tolgee Translator).
+        <>
+          MT credits are used for Machine Translation providers (such as Google
+          Translate, AWS, DeepL, etc.). One credit ⋍ 1 translated character
+          (except for Tolgee Translator).
+        </>
+        <br />
+        <br />
+        <>
+          On self-hosted instances, the MT credits only apply to Tolgee AI
+          Translator. For other providers (like Google Translate or Amazon
+          Translate), you provide your own API keys.
+        </>
       </>
     ),
   },
