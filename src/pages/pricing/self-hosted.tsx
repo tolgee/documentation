@@ -11,6 +11,8 @@ import {
 import { featuresSelfHosted } from '../../component/pricing/featuresTable/featuresSelfHosted';
 import { ReviewAuthor } from '../../component/reviewAuthor/ReviewAuthor';
 import { PricingPlanVertical } from '../../component/pricing/pricingPlan/PricingPlanVertical';
+import { PricingDetailsLink } from '../../component/pricing/pricingPlan/PricingDetailsLink';
+import { ExtraMtCreditsLabel } from '../../component/pricing/ExtraMtCreditsLabel';
 
 export default function SelfHosted() {
   const [billing, setBilling] = useState<'monthly' | 'annually'>('annually');
@@ -119,6 +121,12 @@ export default function SelfHosted() {
                   label: 'extra seat',
                   value: `€${(10).toLocaleString()}/mo`,
                 },
+                {
+                  label: <ExtraMtCreditsLabel />,
+                  value: `€${(0.035).toLocaleString(undefined, {
+                    minimumFractionDigits: 2,
+                  })}`,
+                },
               ]}
               action={
                 <Link
@@ -153,6 +161,12 @@ export default function SelfHosted() {
                 {
                   label: 'extra seat',
                   value: `€${(20).toLocaleString()}/mo`,
+                },
+                {
+                  label: <ExtraMtCreditsLabel />,
+                  value: `€${(0.035).toLocaleString(undefined, {
+                    minimumFractionDigits: 2,
+                  })}`,
                 },
               ]}
               action={

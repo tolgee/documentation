@@ -1,8 +1,8 @@
 import React, { ReactNode } from 'react';
 
 export type SecondaryPrice = {
-  label: string;
-  value: string | ReactNode;
+  label: ReactNode;
+  value: ReactNode;
 };
 
 type Props = {
