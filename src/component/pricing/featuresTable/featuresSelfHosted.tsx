@@ -14,7 +14,7 @@ export const featuresSelfHosted = {
           <PricingDetailsLink item="what-are-seats">seats</PricingDetailsLink>
         </span>
       ),
-      items: ['10', 0, 10, 'Unlimited'],
+      items: ['10', 10, 10, 'Unlimited'],
     },
     {
       type: 'item',
@@ -36,7 +36,7 @@ export const featuresSelfHosted = {
       label: 'Monthly price (annual billing)',
       items: [
         '€0/month',
-        '€0/month',
+        '€42/month',
         `€${(250).toLocaleString()}/month`,
         'Negotiable',
       ],
@@ -46,7 +46,7 @@ export const featuresSelfHosted = {
       label: 'Monthly price (monthly billing)',
       items: [
         '€0/month',
-        '€0/month',
+        '€50/month',
         `€${(300).toLocaleString()}/month`,
         'Negotiable',
       ],
