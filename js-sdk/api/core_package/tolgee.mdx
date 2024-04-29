@@ -274,6 +274,14 @@ when you need to find out if tolgee has all the necessary data before `run` func
 tolgee.isLoaded(ns?: FallbackNsTranslation): boolean
 ```
 
+### getRequiredRecords
+
+Returns records needed for instance to be `loaded`
+
+```ts
+tolgee.getRequiredRecords(): CacheDescriptor[]
+```
+
 - `ns`: `string` | `string[]` - optional list of namespaces that you are interested in
 
 ### isDev

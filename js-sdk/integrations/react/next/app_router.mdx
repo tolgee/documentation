@@ -196,6 +196,8 @@ export default async function LocaleLayout({
     notFound()
   };
 
+  // make sure you provide all locales, which are necessary
+  // for the inital SSR render (e.g. fallback languages)
   const locales = await getStaticData([locale]);
 
   return (
