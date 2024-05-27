@@ -65,6 +65,7 @@ export const featuresSelfHosted = {
         'n',
         `€${(0.035).toLocaleString()}`,
         `€${(0.035).toLocaleString()}`,
+        'Negotiable',
         'n',
       ],
     },
@@ -98,8 +99,8 @@ export const featuresSelfHosted = {
       label: 'Auto translation',
       items: ['y', 'y', 'y', 'y'],
     },
-    { type: 'item', label: 'Activity log', items: ['y', 'y', 'y'] },
-    { type: 'item', label: 'Tolgee CLI', items: ['y', 'y', 'y'] },
+    { type: 'item', label: 'Activity log', items: ['y', 'y', 'y', 'y'] },
+    { type: 'item', label: 'Tolgee CLI', items: ['y', 'y', 'y', 'y'] },
     {
       type: 'item',
       label: 'Tolgee Chrome plugin',
@@ -149,15 +150,15 @@ export const featuresSelfHosted = {
     {
       type: 'item',
       label: 'Prioritized feature requests',
-      items: ['n', 'n', 'y', 'y'],
+      items: ['n', 'n', 'n', 'y'],
     },
     {
       type: 'item',
       label: 'Standard support',
       items: ['n', 'y', 'y', 'y'],
     },
-    { type: 'item', label: 'Premium support', items: ['n', 'n', 'y'] },
-    { type: 'item', label: 'Account manager', items: ['n', 'n', 'y'] },
+    { type: 'item', label: 'Premium support', items: ['n', 'n', 'y', 'y'] },
+    { type: 'item', label: 'Account manager', items: ['n', 'n', 'y', 'y'] },
     {
       type: 'item',
       label: 'Dedicated Slack channel',

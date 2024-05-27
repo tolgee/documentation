@@ -105,6 +105,7 @@ export default function SelfHosted() {
               toggleBillingType={toggleBilling}
               limits={{
                 strings: Infinity,
+                mtCredits: 100_000,
                 // payAsYouSit: true,
                 seats: 10,
               }}
@@ -148,12 +149,12 @@ export default function SelfHosted() {
               toggleBillingType={toggleBilling}
               limits={{
                 strings: Infinity,
+                mtCredits: 1_000_000,
                 seats: 10,
               }}
               featuresShortcut="All from Team"
               features={[
                 'granular-permissions',
-                'prioritized-feature-requests',
                 'project-level-custom-content-storage',
               ]}
               secondaryPrices={[
@@ -199,6 +200,7 @@ export default function SelfHosted() {
                 'assisted-updates',
                 'backup-configuration',
                 'team-training',
+                'prioritized-feature-requests',
               ]}
               action={
                 <Link
