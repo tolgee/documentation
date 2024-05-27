@@ -43,3 +43,75 @@ By default, Tolgee uses its own internal extractor which looks for use of the [T
 ### `apiUrl`
 
 String. URL to the Tolgee instance you're using. If you're using Tolgee Cloud, you can ignore this.
+
+### `patterns`
+
+List&ltString&gt. File glob patterns to your source code, used for keys extraction.
+
+### `format`
+
+Format for push and pull operations. Check [supported formats](/platform/supported_formats).
+
+Options:
+ - `JSON_TOLGEE` (default)
+ - `JSON_ICU`
+ - `JSON_JAVA`
+ - `JSON_PHP`
+ - `JSON_RUBY`
+ - `JSON_C`
+ - `PO_PHP`
+ - `PO_C`
+ - `PO_JAVA`
+ - `PO_ICU`
+ - `PO_RUBY`
+ - `APPLE_STRINGS`
+ - `APPLE_XLIFF`
+ - `PROPERTIES_ICU`
+ - `PROPERTIES_JAVA`
+ - `ANDROID_XML`
+ - `FLUTTER_ARB`
+ - `YAML_RUBY`
+ - `YAML_JAVA`
+ - `YAML_ICU`
+ - `YAML_PHP`
+ - `XLIFF_ICU`
+ - `XLIFF_JAVA`
+ - `XLIFF_PHP`
+ - `XLIFF_RUBY`
+
+
+## Push options
+
+### `push.files`
+
+`List<{path: string, language: string, namespace?: string}>`. Define, which files should be pushed and attach language/namespace to them. By default Tolgee pushes all files specified here, you can filter them by `languages` and `namespaces` properties.
+
+### `push.languages`
+
+List&ltString&gt. Specifies which languages should be pushed from `push.files`.
+
+### `push.namespaces`
+
+List&ltString&gt. Specifies which namespaces should be pushed from `push.files`.
+
+### `push.forceMode`
+
+Specifies how to solve potential conflicts in the pushed data.
+
+Options:
+ - `OVERRIDE` - update everything according to local files
+ - `KEEP` - create only non-existent strings, don't touch existing ones
+ - `NO_FORCE` - throw an error, if there are any conflict
+
+### `push.overrideKeyDescriptions`
+
+Boolean. Override existing key descriptions from local files (only relevant for some formats).
+
+### `push.convertPlaceholdersToIcu`
+
+Boolean. Convert placeholders in local files to ICU format. (Default: `true`)
+
+### `push.tagNewKeys`
+
+List&ltString&gt. Specify tags that will be added to newly created keys.
+
