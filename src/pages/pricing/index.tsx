@@ -48,7 +48,7 @@ export default function Pricing() {
           <Head>
             <meta
               name="description"
-              content="Pricing for the cloud version of Tolgee localization tool. Choose among Free, Basic, Premium, or Enterprise subscription."
+              content="Pricing for the cloud version of Tolgee localization tool. Choose among Free, Business, or Enterprise subscription."
             />
           </Head>
           <div className="pricing__toggle">
@@ -154,7 +154,6 @@ export default function Pricing() {
               toggleBillingType={toggleBilling}
               featuresShortcut="All from Pay as you go"
               features={[
-                'prioritized-feature-requests',
                 'granular-permissions',
                 'multiple-content-deliveries',
                 'custom-content-storage',
@@ -190,6 +189,7 @@ export default function Pricing() {
                 'premium-support',
                 'dedicated-slack-channel',
                 'team-training',
+                'prioritized-feature-requests',
               ]}
               minHeights={MIN_PLAN_HEIGHTS}
               action={

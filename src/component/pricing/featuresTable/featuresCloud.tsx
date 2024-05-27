@@ -84,6 +84,7 @@ export const featuresCloud = {
         'n',
         `€${(10).toLocaleString()}/month`,
         `€${(7).toLocaleString()}/month`,
+        'Negotiable',
         'n',
       ],
     },
@@ -191,7 +192,7 @@ export const featuresCloud = {
     {
       type: 'item',
       label: 'Prioritized feature requests',
-      items: ['n', 'n', 'y', 'y'],
+      items: ['n', 'n', 'n', 'y'],
     },
     {
       type: 'item',
