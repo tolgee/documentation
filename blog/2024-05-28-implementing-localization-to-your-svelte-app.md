@@ -15,6 +15,8 @@ Implementing localization can be non-trivial. However, Tolgee makes it easy. Tol
 
 In this tutorial, you will learn how to implement localization to your Svelte app using Tolgee. With this step-by-step guide, you'll learn how to seamlessly integrate Tolgee, manage translations, and deliver a fully localized experience for your users. Let’s get started!
 
+<!--truncate-->
+
 ## Prerequisites
 
 This tutorial assumes that you have familiarity with JavaScript. Knowledge of Svelte is not required but is good to have. You will also need the following, to follow the tutorial.
