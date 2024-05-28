@@ -1,7 +1,7 @@
 module.exports = {
   someSidebar: [
     {
-      label: 'Getting started',
+      label: 'Get started with Tolgee platform',
       type: 'category',
       items: [
         'getting_started/about_tolgee',

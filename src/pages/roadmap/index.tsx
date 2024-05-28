@@ -153,17 +153,6 @@ const roadmapData = {
         ),
       },
       {
-        name: 'In-context support for mobile apps',
-        gitHubIssueLink:
-          'https://github.com/tolgee/tolgee-platform/issues/1545',
-        description: (
-          <p>
-            The in-context translating works great with web apps, and we would
-            like to provide the same comfort to mobile developers.
-          </p>
-        ),
-      },
-      {
         name: 'Ordering professional translation',
         gitHubIssueLink:
           'https://github.com/tolgee/tolgee-platform/issues/1561',
@@ -301,6 +290,17 @@ const roadmapData = {
             Sometimes you need to maintain multiple versions of your software,
             so you’ll need to have multiple versions of your localization data
             stored in Tolgee as well.
+          </p>
+        ),
+      },
+      {
+        name: 'In-context support for mobile apps',
+        gitHubIssueLink:
+          'https://github.com/tolgee/tolgee-platform/issues/1545',
+        description: (
+          <p>
+            The in-context translating works great with web apps, and we would
+            like to provide the same comfort to mobile developers.
           </p>
         ),
       },
