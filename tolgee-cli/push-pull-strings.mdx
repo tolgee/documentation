@@ -12,51 +12,50 @@ This is a useful command that exports strings from the platform, and saves them 
 use this to download strings from Tolgee before bundling your app for production.
 
 ```
-tolgee pull [options] [destination folder]
+tolgee pull [options]
 
 Example usage:
-   tolgee pull ./i18n
+   tolgee pull --path ./i18n
 ```
 
 Options:
 
-- `--format <format>` (short: `-f`) – Format of the exported files. Available formats: `xliff`, `json`. Defaults to `json`.
+- `--path <path>` (short: `-p`) - Destination of a folder where translation files will be stored in
 - `--languages <languages...>` (short: `-l`) – List of languages to pull. Leave unspecified to export all languages.
-- `--states <states...>` (short: `-s`) – List of translation states to include. Available states: `untranslated`, `translated`,
-  `reviewed`. Defaults to all except untranslated.
+- `--states <states...>` (short: `-s`) – List of translation states to include. (choices: "UNTRANSLATED", "TRANSLATED", "REVIEWED"). Defaults to all except untranslated.
 - `--delimiter [delimiter]` (short: `-d`) – Structure delimiter to use. By default, Tolgee treats `.` as a nested
   structure delimiter, and formats its export accordingly. Set the option without a value to disable this behavior.
   Can be [configured per-project](/tolgee-cli/project-configuration).
-- `--overwrite` (short: `-o`) – Whether contents of the destination folder should be overridden. **This will erase
-  ALL of the contents of the destination folder**. Defaults to asking the user interactively (or failing if it is not
-  possible).
-
-:::note
-Currently, CLI does not let you pull only specific namespaces and will download all strings. In the near future, you'll
-be able to configure this via a specific option.
-
-See [issue #17](https://github.com/tolgee/tolgee-cli/issues/17).
-:::
+- `--namespaces <namespaces...>` (short: `-n`) - List of namespaces to pull. Defaults to all namespaces.
+- `--tags <tags...>` (short: `-t`) - List of tags which to include.
+- `--exclude-tags <tags...>` - List of tags which to exclude.
+- `--support-arrays` - Export keys with array syntax (e.g. item[0]) as arrays. (default: false)
+- `--empty-dir` - Empty [path] directory before inserting pulled files.
+- `--file-structure-template <template>` - This is a template that defines the structure of the resulting .zip file content.
 
 ## Pushing strings
 
 This command allows you to upload existing strings from your local folder to the platform.
 
 ```
-tolgee push [options] [translations folder]
+tolgee push [options]
 
 Example usage:
-   tolgee push --force-mode override ./i18n
+   tolgee push --force-mode OVERRIDE
 ```
+
+:::info
+Push command requires [`push.files`](./project-configuration.mdx#pushfiles) in config (which specifies which files to import).
+:::
 
 Options:
 
-- `--force-mode` (`-f`) – Force mode. Available modes: `override`, `keep`, `no` (abort on conflicts). Defaults to
-  asking the user interactively (or `no` if it is not possible).
-
-:::tip
-For complex conflicts, even if the import fails, you can still manually resolve the conflicts in Tolgee itself.
-:::
+- `--force-mode <mode>` (short: `-f`) – What should we do with possible conflicts? Available modes: `OVERRIDE`, `KEEP`, `NO_FORCE` (abort on conflicts). Defaults to asking the user interactively (or `NO_FORCE` if it is not possible).
+- `--override-key-descriptions` - Override existing key descriptions from local files (only relevant for some formats).
+- `--convert-placeholders-to-icu` - Convert placeholders in local files to ICU format. (Default: true)
+- `--languages <languages...>` (short `-l`) - Specifies which languages should be pushed (see `push.files` in config).
+- `--namespaces <namespaces...>` (short `-n`) - Specifies which namespaces should be pushed (see `push.files` in config).
+- `--tag-new-keys <tags...>` - Specify tags that will be added to newly created keys.
 
 :::note
 Currently, CLI does not let you delete keys that are not part of your local copy of the strings. In the near future,
