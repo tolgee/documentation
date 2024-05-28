@@ -4,7 +4,27 @@ title: Project configuration
 ---
 
 Rather than specifying project details every single time you run a command, you can set them once and forget about it
-by creating a `.tolgeerc` file. It will be parsed as a JSON file.
+by creating a `.tolgeerc` file. You can still use command options explicitly, which will override the configuration.
+
+Example configuration:
+```json
+{
+  "$schema": "./node_modules/@tolgee/cli/schema.json",
+  "projectId": 123,
+  "patterns": ["./src/**/*.ts?(x)"],
+  "push": {
+    "files": [{
+      "path": "./public/i18n/en.json",
+      "language": "en"
+    }],
+    "forceMode": "OVERRIDE",
+  },
+  "pull": {
+    "path": "./public/i18n"
+  }
+}
+```
+
 
 :::tip
 We use [cosmiconfig](https://github.com/davidtheclark/cosmiconfig) to parse the Tolgee configuration file, which means
@@ -15,9 +35,13 @@ you aren't limited to naming it `.tolgeerc`. You can use any of the following:
 - `.config/tolgeerc`
 - `.config/tolgeerc.[json|yaml|yml|js|cjs]`
 - `tolgee.config.[js|cjs]`
+- or include config from custom location with `tolgee --config <location>`
 
 You can also store your config in `package.json`, under the `tolgee` key.
+
+All the paths in the config are relative to the config file location.
 :::
+
 
 ## List of properties
 
@@ -54,37 +78,25 @@ Format for push and pull operations. Check [supported formats](/platform/support
 
 Options:
  - `JSON_TOLGEE` (default)
- - `JSON_ICU`
- - `JSON_JAVA`
- - `JSON_PHP`
- - `JSON_RUBY`
- - `JSON_C`
- - `PO_PHP`
- - `PO_C`
- - `PO_JAVA`
- - `PO_ICU`
- - `PO_RUBY`
+ - `JSON_(ICU|JAVA|PHP|RUBY|C)`
+ - `PO_(ICU|JAVA|PHP|RUBY|C)`
  - `APPLE_STRINGS`
  - `APPLE_XLIFF`
  - `PROPERTIES_ICU`
  - `PROPERTIES_JAVA`
  - `ANDROID_XML`
  - `FLUTTER_ARB`
- - `YAML_RUBY`
- - `YAML_JAVA`
- - `YAML_ICU`
- - `YAML_PHP`
- - `XLIFF_ICU`
- - `XLIFF_JAVA`
- - `XLIFF_PHP`
- - `XLIFF_RUBY`
+ - `YAML_(ICU|JAVA|PHP|RUBY)`
+ - `XLIFF_(ICU|JAVA|PHP|RUBY)`
 
 
 ## Push options
 
+Related to `push` command, which imports the keys into the platform.
+
 ### `push.files`
 
-`List<{path: string, language: string, namespace?: string}>`. Define, which files should be pushed and attach language/namespace to them. By default Tolgee pushes all files specified here, you can filter them by `languages` and `namespaces` properties.
+`List<{path: string, language: string, namespace?: string}>`. Define, which files should be pushed and attach language/namespace to them. By default Tolgee pushes all files specified here, you can filter them by `languages` and `namespaces` properties. Path can be a glob, if you want to include multiple files.
 
 ### `push.languages`
 
@@ -115,3 +127,50 @@ Boolean. Convert placeholders in local files to ICU format. (Default: `true`)
 
 List&ltString&gt. Specify tags that will be added to newly created keys.
 
+## Pull options
+
+Related to `pull` command, which exports the keys from the platform.
+
+### `pull.path`
+
+String. Path to a folder where the localization files are stored. (Structure itself can be defined with `fileStructureTemplate`)
+
+### `pull.languages`
+
+List&ltString&gt. List of languages to pull. Leave unspecified to export them all.
+
+### `pull.namespaces`
+
+List&ltString&gt. List of namespaces to pull. Defaults to all namespaces.
+
+### `pull.states`
+
+List&ltString&gt. List of translation states to include. Defaults all except untranslated.
+
+### `pull.tags`
+
+List&ltString&gt. List of tags which to include.
+
+### `pull.excludeTags`
+
+List&ltString&gt. List of tags which to exclude.
+
+### `pull.supportArrays`
+
+Boolean. Export keys with array syntax (e.g. `item[0]`) as arrays.
+
+### `pull.fileStructureTemplate`
+
+String. This is a template that defines the structure of the resulting .zip file content.
+
+The template is a string that can contain the following placeholders: `{namespace}`, `{languageTag}`, `{androidLanguageTag}`, `{snakeLanguageTag}`, `{extension}`.
+
+For example, when exporting to JSON with the template `{namespace}/{languageTag}.{extension}`, the English translations of the home namespace will be stored in home/en.json.
+
+The `{snakeLanguageTag}` placeholder is the same as `{languageTag}` but in snake case. (e.g., en_US).
+
+The Android specific `{androidLanguageTag}` placeholder is the same as `{languageTag}` but in Android format. (e.g., en-rUS)
+
+### `pull.emptyDir`
+
+Boolean. Empty `path` folder before inserting pulled files.
