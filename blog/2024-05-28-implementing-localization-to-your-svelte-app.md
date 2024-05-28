@@ -2,6 +2,7 @@
 slug: implementing-localization-to-your-svelte-app
 title: 'Implementing localization to your Svelte App: A step-by-step guide'
 description: Learn to globalize your web applications with our guide on integrating the Tolgee i18n tool into your Svelte app. Enhance accessibility and user experience across diverse languages with simple, step-by-step instructions. Start localizing with Tolgee today and expand your reach!
+image: /img/blog/2024-05-28-implementing-localization-to-your-svelte-app/cover.png
 authors: [harshil1712]
 tags: [svelte, i18n, webdev, javascript, SDK, tutorial]
 ---
@@ -47,7 +48,7 @@ npm run dev
 
 On your browser, navigate to `http://localhost:5137`. You will see the sample app up and running.
 
-![Screenshot of the home page of the app listing two blog articles](/img/blog/2024-05-25-implementing-localization-to-your-svelte-app/home-page.png)
+![Screenshot of the home page of the app listing two blog articles](/img/blog/2024-05-28-implementing-localization-to-your-svelte-app/home-page.png)
 
 ## Step 2 - Getting started with Tolgee
 
@@ -57,13 +58,13 @@ If you don’t have a Tolgee account, create one. After you sign-up/sign in for 
 
 To create a new project, click on the **+ Add Project** button. Next, enter the name of your project in the **Name** field and select the translation languages you. This tutorial implements English (en) and German (de). But you can select other languages as well.
 
-![Screenshot of the Projects page on the Tolgee platform](/img/blog/2024-05-25-implementing-localization-to-your-svelte-app/add-project-screen.png)
+![Screenshot of the Projects page on the Tolgee platform](/img/blog/2024-05-28-implementing-localization-to-your-svelte-app/add-project-screen.png)
 
-![Screenshot of the Create Project page on the Tolgee platform](/img/blog/2024-05-25-implementing-localization-to-your-svelte-app/create-project.png)
+![Screenshot of the Create Project page on the Tolgee platform](/img/blog/2024-05-28-implementing-localization-to-your-svelte-app/create-project.png)
 
 Now that you have the project setup on Tolgee, the next step is to generate the API key. This API key will allow your application to interact with the Tolgee platform. To generate the API key, select **Integrate** from the left sidebar menu. Next, under the **Choose your weapon** section, select **_Svelte_**. Click on the dropdown menu under the **Select API key** section, and select **_Create new +_**.
 
-![Screenshot of the Integration page on the Tolgee platform](/img/blog/2024-05-25-implementing-localization-to-your-svelte-app/integration-page.png)
+![Screenshot of the Integration page on the Tolgee platform](/img/blog/2024-05-28-implementing-localization-to-your-svelte-app/integration-page.png)
 
 Enter the name for your API key in the **Description** field. Set the **Expiration** to **_Never expires_**.
 
@@ -73,7 +74,7 @@ Next, under **Scopes**, select **_Admin_**. This will give you all the permissio
 
 > **Note:** Before setting up the API key for production, carefully read and understand Scopes. You don’t want to give everyone the admin access.
 
-![Creating an API Key](/img/blog/2024-05-25-implementing-localization-to-your-svelte-app/configure-api-key.png)
+![Creating an API Key](/img/blog/2024-05-28-implementing-localization-to-your-svelte-app/configure-api-key.png)
 
 ## Step 3 - Integrating Tolgee in the Svelte app
 
@@ -200,7 +201,7 @@ npm run dev
 
 One of the features of Tolgee is in-context translation. In the previous step, you configured the Dev Tools provided by the Tolgee SDK. Press and hold the Option/ALT key on your keyboard and hover over the title. You will observe a red border around the title. If you click on the title holding the Option/ALT key, a Quick Translation window pops up. This is where you can add translation and screenshots.
 
-![Screenshot of the Svelte app with a red outline on Home](/img/blog/2024-05-25-implementing-localization-to-your-svelte-app/navbar-outline.png)
+![Screenshot of the Svelte app with a red outline on Home](/img/blog/2024-05-28-implementing-localization-to-your-svelte-app/navbar-outline.png)
 
 ## Step 6 - Using in-context Translation
 
@@ -208,7 +209,7 @@ In the previous step, you implemented the `T` component. This enabled you to use
 
 To get started with in-context translation, press and hold the **Option/ALT** key and click on **Home**. It will open up a pop window.
 
-![Screenshot of the Translation pop-up window](/img/blog/2024-05-25-implementing-localization-to-your-svelte-app/translation-pop-up.png)
+![Screenshot of the Translation pop-up window](/img/blog/2024-05-28-implementing-localization-to-your-svelte-app/translation-pop-up.png)
 
 Enter the English blog title in the **English** field. Add the German translation of the title in the **German** field. Optionally, you can add screenshots in the Screenshot section. Click on **Save** to save your translation.
 
@@ -220,7 +221,7 @@ There might be scenarios where you want to use the platform to manage translatio
 
 To use the platform to manage translation, make sure you are logged into the platform. Next, navigate to the project you created for this application. Click on **Translations** from the left sidebar. You will see the translation for Home is already available there.
 
-![Screenshot showing the new created naviation_home key on the Tolgee platform](/img/blog/2024-05-25-implementing-localization-to-your-svelte-app/home-key.png)
+![Screenshot showing the new created naviation_home key on the Tolgee platform](/img/blog/2024-05-28-implementing-localization-to-your-svelte-app/home-key.png)
 
 To add translation for the About option, click on + on the right corner. Enter `navigation_about` in the **Key field**.
 
@@ -228,11 +229,11 @@ To add translation for the About option, click on + on the right corner. Enter `
 
 Enter the English translation in the **English** field and click on **Save**. This will generate the key.
 
-![Screenshot of the Create new key window on the Tolgee platform](/img/blog/2024-05-25-implementing-localization-to-your-svelte-app/create-new-key.png)
+![Screenshot of the Create new key window on the Tolgee platform](/img/blog/2024-05-28-implementing-localization-to-your-svelte-app/create-new-key.png)
 
 To add the German translation for this key, click on **German** under **navigation_about**. Tolgee uses various APIs to provide the translations. You can use one of the provided translations or add your own. To use the translation that Tolgee provides, select one of the translations from the **Machine Translation** section. Click on **Save**, to save the translation.
 
-![Screenshot of the adding German translation for the navigation_about key window on the Tolgee platform](/img/blog/2024-05-25-implementing-localization-to-your-svelte-app/add-de-translation.png)
+![Screenshot of the adding German translation for the navigation_about key window on the Tolgee platform](/img/blog/2024-05-28-implementing-localization-to-your-svelte-app/add-de-translation.png)
 
 You now have translations for Home and About. However, you can’t really view them in your app without changing the language. In the next step, you will add a language switcher for your application.
 
@@ -318,9 +319,9 @@ Your finished `Navbar.svelte` file should have the following code.
 
 Save the file with the updated code. Start the development server, if it is not running already. The navigation bar should have a language switcher. Try changing the language, and you should see the respective translated content.
 
-![Screenshot of the Svelte app with English language selected with the language switcher](/img/blog/2024-05-25-implementing-localization-to-your-svelte-app/english-page.png)
+![Screenshot of the Svelte app with English language selected with the language switcher](/img/blog/2024-05-28-implementing-localization-to-your-svelte-app/english-page.png)
 
-![Screenshot of the Svelte app with German language selected with the language switcher](/img/blog/2024-05-25-implementing-localization-to-your-svelte-app/german-page.png)
+![Screenshot of the Svelte app with German language selected with the language switcher](/img/blog/2024-05-28-implementing-localization-to-your-svelte-app/german-page.png)
 
 Congratulations, you have successfully implemented localization to your Svelte app using Tolgee.
 
