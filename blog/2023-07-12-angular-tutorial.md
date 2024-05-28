@@ -229,7 +229,7 @@ Open the `src/app/app.component.html`, then add your key translations:
       class="card"
       target="_blank"
       rel="noopener"
-      href="<https://angular.io/tutorial>"
+      href="https://angular.io/tutorial"
     >
       ...
       <span t key="learn_angular"></span>
@@ -240,7 +240,7 @@ Open the `src/app/app.component.html`, then add your key translations:
       class="card"
       target="_blank"
       rel="noopener"
-      href="<https://angular.io/cli>"
+      href="https://angular.io/cli"
     >
       ...
       <span t key="cli_doc"></span>
@@ -251,7 +251,7 @@ Open the `src/app/app.component.html`, then add your key translations:
       class="card"
       target="_blank"
       rel="noopener"
-      href="<https://material.angular.io>"
+      href="https://material.angular.io"
     >
       ...
       <span t key="angular_material"></span>
@@ -262,7 +262,7 @@ Open the `src/app/app.component.html`, then add your key translations:
       class="card"
       target="_blank"
       rel="noopener"
-      href="<https://blog.angular.io/>"
+      href="https://blog.angular.io/"
     >
       ...
       <span t key="angular_blog"></span>
@@ -273,7 +273,7 @@ Open the `src/app/app.component.html`, then add your key translations:
       class="card"
       target="_blank"
       rel="noopener"
-      href="<https://angular.io/devtools/>"
+      href="https://angular.io/devtools/"
     >
       ...
       <span t key="angular_devtools"></span>
@@ -351,7 +351,7 @@ Open the `src/app/app.component.html`, then add your key translations:
     <a
       class="circle-link"
       title="Find a Local Meetup"
-      href="<https://www.meetup.com/find/?keywords=angular>"
+      href="https://www.meetup.com/find/?keywords=angular"
       target="_blank"
       rel="noopener"
     >
@@ -361,7 +361,7 @@ Open the `src/app/app.component.html`, then add your key translations:
     <a
       class="circle-link"
       title="Join the Conversation on Discord"
-      href="<https://discord.gg/angular>"
+      href="https://discord.gg/angular"
       target="_blank"
       rel="noopener"
     >
@@ -372,19 +372,11 @@ Open the `src/app/app.component.html`, then add your key translations:
   <!-- Footer -->
   <footer>
     <span t key="love_angular"> </span>
-    <a
-      href="<https://github.com/angular/angular>"
-      target="_blank"
-      rel="noopener"
-    >
+    <a href="https://github.com/angular/angular" target="_blank" rel="noopener">
       <span t key="give_star"> </span>
       ...
     </a>
-    <a
-      href="<https://github.com/angular/angular>"
-      target="_blank"
-      rel="noopener"
-    >
+    <a href="https://github.com/angular/angular" target="_blank" rel="noopener">
       ...
     </a>
   </footer>

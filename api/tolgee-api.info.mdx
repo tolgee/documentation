@@ -1,30 +1,27 @@
 ---
 id: tolgee-api
-title: 'Tolgee API'
-description: 'Tolgee Platform REST API reference'
-sidebar_label: Introduction to REST API
+title: "Tolgee API"
+description: "Tolgee Platform REST API reference"
+sidebar_label: Introduction
 sidebar_position: 0
 hide_title: true
 custom_edit_url: null
 slug: /
 ---
 
-import ApiLogo from '@theme/ApiLogo';
-import SchemaTabs from '@theme/SchemaTabs';
-import TabItem from '@theme/TabItem';
-import Export from '@theme/ApiExplorer/Export';
+import ApiLogo from "@theme/ApiLogo";
+import SchemaTabs from "@theme/SchemaTabs";
+import TabItem from "@theme/TabItem";
+import Export from "@theme/ApiExplorer/Export";
 
-<span className={'theme-doc-version-badge badge badge--secondary'}>
-  Version: v1.0
-</span>
+<span className={"theme-doc-version-badge badge badge--secondary"}>Version: v1.0</span>
 
 # Tolgee REST API Specification
 
-If you would like to get the OpenAPI specification in JSON format, you can download it
-[here](https://app.tolgee.io/v3/api-docs/Public%20API%20(All)).
+If you would like to get the OpenAPI specification in JSON format, you can download it [here](https://app.tolgee.io/v3/api-docs/Public%20API%20(All)).
 
 If you are more familiar with Swagger UI, follow this link
-[here](<https://app.tolgee.io/swagger-ui/index.html?configUrl=%2Fv3%2Fapi-docs%2Fswagger-config&urls.primaryName=Public%20API%20(All)>).
+[here](https://app.tolgee.io/swagger-ui/index.html?configUrl=%2Fv3%2Fapi-docs%2Fswagger-config&urls.primaryName=Public%20API%20(All)).
 There, you can also find internal API specifications that are not intended for public use.
 
 <div style={{"marginBottom":"2rem"}}><h2 id={"authentication"} style={{"marginBottom":"1rem"}}>Authentication</h2><SchemaTabs className={"openapi-tabs__security-schemes"}><TabItem label={"HTTP: Bearer Auth"} value={"JwtToken"}><div><table><tbody><tr><th>Security Scheme Type:</th><td>http</td></tr><tr><th>HTTP Authorization Scheme:</th><td>bearer</td></tr><tr><th>Bearer format:</th><td>JWT</td></tr></tbody></table></div></TabItem><TabItem label={"HTTP: Bearer Auth"} value={"SuperJwtToken"}>
@@ -36,10 +33,11 @@ Super JWT token is required for sensitive operations when user has set 2FA. You 
 It's not recommended to use API key in query param, since it can be stored in logs.
 
 <div><table><tbody><tr><th>Security Scheme Type:</th><td>apiKey</td></tr><tr><th>Header parameter name:</th><td>ak</td></tr></tbody></table></div></TabItem></SchemaTabs></div>
+      
 
-- The Bearer Auth (JWT Token) is used internally by the Tolgee Platform frontend. Some of the endpoints require a `Super JWT`
-  token, which requires two-factor authentication and is only valid for a short period of time.
-- The project API endpoints `/v2/projects/:projectId/...` can be accessed with Project API key
-- The non-project API endpoints have to be accessed with PAT (Personal access token)
+ - The Bearer Auth (JWT Token) is used internally by the Tolgee Platform frontend. Some of the endpoints require a `Super JWT`
+token, which requires two-factor authentication and is only valid for a short period of time.
+ - The project API endpoints `/v2/projects/:projectId/...` can be accessed with Project API key
+ - The non-project API endpoints have to be accessed with PAT (Personal access token)
 
 The allowed authentication methods are specified for each endpoint.
