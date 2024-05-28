@@ -8,13 +8,13 @@ Here is an overview of the basics of using the CLI.
 ## Command options
 
 These options are available on all commands. They can be specified during the command execution, or configured once
-in a [per-project configuration](/tolgee-cli/project-configuration).
+in a [per-project configuration](./project-configuration.mdx).
 
-- `--api-url <URL>` (short: `-au`) – URL of the Tolgee server. Useful for [self-hosted installations](/platform/self_hosting/getting_started). Can be [configured per-project](/tolgee-cli/project-configuration).
+- `--api-url <URL>` (short: `-au`) – URL of the Tolgee server. Useful for [self-hosted installations](/platform/self_hosting/getting_started). Can be [configured per-project](./project-configuration.mdx).
 - `--api-key <PAT/PAK>` (short: `-ak`) – **Required**. API Key. Can be a [Personal Access Token or a Project API Key](/platform/account_settings/api_keys_and_pat_tokens).
   May be omitted if you are [logged in](#logging-in). You can also set it via the `TOLGEE_API_KEY` environment variable (recommended for CI server use).
 - `--project-id <ID>` (short: `-p`) – **Required**. Project ID on the Tolgee server. May be omitted if you explicitly
-  specified a Project API Key via `--api-key` or `TOLGEE_API_KEY`. Can be [configured per-project](/tolgee-cli/project-configuration).
+  specified a Project API Key via `--api-key` or `TOLGEE_API_KEY`. Can be [configured per-project](./project-configuration.mdx).
 - `--verbose` (short: `-v`) – Enables debug output.
 
 :::tip
@@ -63,7 +63,7 @@ Here's how the CLI attempts to fetch the authentication token, from highest prio
 
 ### Using a self-hosted instance
 
-If you are not using Tolgee Cloud, but you are running a [self-hosted instance](/platform/self_hosting/getting_started) instead, you can configure this in the [`.tolgeerc`](/tolgee-cli/project-configuration#apiUrl)
+If you are not using Tolgee Cloud, but you are running a [self-hosted instance](/platform/self_hosting/getting_started) instead, you can configure this in the [`.tolgeerc`](./project-configuration.mdx#apiUrl)
 file for a whole project, or specify it when running commands via the `--api-url` flag.
 
 When running `tolgee login` in a project configured to use a different instance, Tolgee will automatically attempt to

@@ -8,7 +8,7 @@ its own internal extractor, Tolgee will use your script (written in JavaScript o
 strings.
 
 :::caution
-When using a custom extractor, you give up on the [magic comments](/tolgee-cli/extraction/magic-comments) as it is
+When using a custom extractor, you give up on the [magic comments](./magic-comments.mdx) as it is
 part of the internal extractor logic.
 :::
 
@@ -31,7 +31,7 @@ export default function (code: string, fileName: string): ExtractionResult {
 ## Using your custom extractor
 
 All commands using code extraction allow you to specify a `--extractor` option which takes a path to the extraction
-script to use. You can also configure it for the project via [`.tolgeerc`](/tolgee-cli/project-configuration).
+script to use. You can also configure it for the project via [`.tolgeerc`](../project-configuration.mdx).
 
 :::caution
 When using TypeScript to write your extractor, you must also install `ts-node` as the CLI will use it to load the
@@ -39,7 +39,7 @@ file.
 :::
 
 :::tip
-[`tolgee extract print`](/tolgee-cli/extraction/syncing-strings#dumping-all-strings) is a very helpful command to
+[`tolgee extract print`](./syncing-strings#dumping-all-strings) is a very helpful command to
 test and troubleshoot your extractor. It will dump all the keys it found and the warnings emitted to the console.
 :::
 

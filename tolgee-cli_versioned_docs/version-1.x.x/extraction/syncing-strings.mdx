@@ -14,10 +14,10 @@ The CLI will look through your code project and look for usage of the [Tolgee SD
 used in your app. You'll then be able to push the missing keys to the platform, and delete keys that have gone unused
 to keep your localization project clean.
 
-During analysis, the extractor will also look for [magic comments](/tolgee-cli/extraction/magic-comments) which are
+During analysis, the extractor will also look for [magic comments](./magic-comments.mdx) which are
 basically explicit directives you can give to the extractor.
 
-If you need to use custom logic to extract strings, we got you covered! You can use a [custom extractor](/tolgee-cli/extraction/custom-extractor)
+If you need to use custom logic to extract strings, we got you covered! You can use a [custom extractor](./custom-extractor.mdx)
 and have the CLI handle the rest for you.
 
 :::tip
@@ -40,7 +40,7 @@ Example usage:
 
 Options:
 
-- `--extractor` (short: `-e`) – [Custom extractor](/tolgee-cli/extraction/custom-extractor) to use. Leave unspecified
+- `--extractor` (short: `-e`) – [Custom extractor](./custom-extractor.mdx) to use. Leave unspecified
   to use the default internal extractor.
 
 :::info
@@ -63,7 +63,7 @@ Example usage:
 
 Options:
 
-- `--extractor` (short: `-e`) – [Custom extractor](/tolgee-cli/extraction/custom-extractor) to use. Leave unspecified
+- `--extractor` (short: `-e`) – [Custom extractor](./custom-extractor.mdx) to use. Leave unspecified
   to use the default internal extractor.
 
 ## Synchronizing projects
@@ -77,7 +77,7 @@ Example usage:
 
 Options:
 
-- `--extractor` (short: `-e`) – [Custom extractor](/tolgee-cli/extraction/custom-extractor) to use. Leave unspecified
+- `--extractor` (short: `-e`) – [Custom extractor](./custom-extractor.mdx) to use. Leave unspecified
   to use the default internal extractor.
 - `--backup <path>` (short: `-B`) – Optional. Path where a backup should be downloaded before performing the sync.
   If something goes wrong, the backup can be used to restore the project to its previous state.
@@ -90,7 +90,7 @@ Options:
 ## Dumping all strings
 
 This is more of a debug command, which you can use to troubleshoot extraction issues, use as a way to test your
-[custom extractor](/tolgee-cli/extraction/custom-extractor), etc.
+[custom extractor](./custom-extractor.mdx), etc.
 
 ```
 tolgee extract print [options] ['glob of files'...]
@@ -101,5 +101,5 @@ Example usage:
 
 Options:
 
-- `--extractor` (short: `-e`) – [Custom extractor](/tolgee-cli/extraction/custom-extractor) to use. Leave unspecified
+- `--extractor` (short: `-e`) – [Custom extractor](./custom-extractor.mdx) to use. Leave unspecified
   to use the default internal extractor.
