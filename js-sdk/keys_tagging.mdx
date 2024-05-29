@@ -1,0 +1,23 @@
+---
+id: keys_tagging
+title: Tagging new keys
+description: 'Automatical pre-selecting tags for newly created keys.'
+---
+
+import { ScreenshotWrapper } from '../platform/shared/_ScreenshotWrapper';
+
+
+For larger projects, it might be beneficial to keep track which keys are newly created and which are already used on production.
+
+Tolgee SDK offers a simple option to preselect a tag when creating new key through in-context UI.
+
+```ts
+tolgee.init({
+  ...
+  tagNewKeys: ['draft']
+})
+```
+
+This will result in `draft` tag being preselected in In-context translating UI:
+
+![In-context tools with draft tag preselected](/img/docs/sdk/draft-tag.webp)

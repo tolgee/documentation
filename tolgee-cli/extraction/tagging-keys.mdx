@@ -41,9 +41,11 @@ tolgee tag --filter-not-extracted --filter-tag production --tag deprecated --unt
 
 This command gets keys that are not present in the code and additionally filters them by existing tag `production`. Then we mark them as `deprecated` and remove `production` tag.
 
-:::tip
+### Tagging newly created keys
+
 If you want mark new keys pushed to the platform as `draft`, you can do so with [`--tag-new-keys`](../push-pull-strings.mdx#pushing-strings) when you `push`.
-:::
+
+> With Tolgee SDK, you can [use `tagNewKeys` option](/js-sdk/keys_tagging).
 
 ### Using wildcards
 
