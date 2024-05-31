@@ -1,0 +1,93 @@
+---
+id: migration-to-v2
+title: Migration to v2
+---
+
+Focus of version 2, was to enable new formats which are supported by Tolgee platform and make `.tolgeerc` more useful.
+
+Tolgee configuration file now allows you to specify most of the options, that you'd have to previously set through command options.
+
+Some options are now global:
+
+ - `--patterns`
+ - `--format`
+ - `--extractor`
+
+And they can also be defined through `.tolgeerc`.
+
+### Changes to `push` command
+
+This command has the most of the breaking changes. Now you **have to** specify which files you want to upload and to which language and namespace should be mapped.
+
+Before:
+
+```
+tolgee push ./i18n
+```
+
+Now:
+
+```
+tolgee push
+```
+
+with `.tolgeerc` something like this:
+
+```json
+{
+  "push": {
+    "files": [
+      {
+        "path": "./i18n/en.json",
+        "language": "en"
+      },
+      {
+        "path": "./i18n/cs.json",
+        "language": "cs"
+      }
+    ]
+  }
+}
+```
+
+We use a new endpoint for pushing, so now it's stateless (before it was using two-step intended for the UI).
+
+You can now tag new keys with specific tags and also delete keys which are not part of the imported files.
+
+### Changes to `pull` command
+
+Before:
+
+```
+tolgee pull ./i18n
+```
+
+Now:
+
+```
+tolgee pull --path ./i18n
+```
+
+Where the `path` can also now be set through `.tolgeerc`.
+
+You now have more options for filtering.
+
+### Commands using `patterns`
+
+Other commands were less affected, biggest change now is that `<patterns>` is now named global option, so all commands that use it need to be changed like this (`extract check`, `compare`, `sync` and `extract print`):
+
+Before:
+
+```
+tolgee extract check './src/**/*.ts?(x)'
+```
+
+Now:
+
+```
+tolgee extract check --patterns './src/**/*.ts?(x)'
+```
+
+Where the `patterns` can be defined in `.tolgeerc`
+
+

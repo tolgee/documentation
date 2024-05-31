@@ -16,5 +16,6 @@ module.exports = {
         'extraction/custom-extractor',
       ],
     },
+    'migration-to-v2',
   ],
 };
