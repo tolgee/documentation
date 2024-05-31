@@ -20,8 +20,10 @@ basically explicit directives you can give to the extractor.
 If you need to use custom logic to extract strings, we got you covered! You can use a [custom extractor](./custom-extractor.mdx)
 and have the CLI handle the rest for you.
 
-:::info
-All commands extracting keys from code require a global parameter [`--patterns <patterns...>`](../usage.mdx#command-options) or [`config.patterns`](../project-configuration.mdx#patterns).
+:::tip
+Beware, glob patterns **will** conflict with your shell and **must be escaped**. If you don't wrap it as a string
+(e.g. `./src/**/*.tsx` instead of `'./src/**/*.tsx'`), your shell will attempt to process the `*` tokens and you will
+not have the results you're hoping for.
 :::
 
 ## Check for extraction warnings
@@ -30,8 +32,16 @@ When extracting, the CLI might not be able to fully extract strings for a variet
 this happens, the CLI emits a warning and tells you the file and line where this warning was emitted.
 
 ```
-tolgee extract check
+tolgee extract check [options] ['glob of files'...]
+
+Example usage:
+   tolgee extract check './src/**/*.ts?(x)'
 ```
+
+Options:
+
+- `--extractor` (short: `-e`) – [Custom extractor](./custom-extractor.mdx) to use. Leave unspecified
+  to use the default internal extractor.
 
 :::info
 When running this command on CI, the CLI automatically adds review annotation warnings directly in your commits and pull requests.
@@ -45,17 +55,30 @@ You can think of this utility as a dry-run of `tolgee sync`. You can use it to s
 see if what it tells you seems right, or if it got something wrong.
 
 ```
-tolgee compare
-```
+tolgee compare [options] ['glob of files'...]
 
-## Synchronizing projects
-
-```
-tolgee sync [options]
+Example usage:
+   tolgee compare './src/**/*.ts?(x)'
 ```
 
 Options:
 
+- `--extractor` (short: `-e`) – [Custom extractor](./custom-extractor.mdx) to use. Leave unspecified
+  to use the default internal extractor.
+
+## Synchronizing projects
+
+```
+tolgee sync [options] ['glob of files'...]
+
+Example usage:
+   tolgee sync './src/**/*.ts?(x)'
+```
+
+Options:
+
+- `--extractor` (short: `-e`) – [Custom extractor](./custom-extractor.mdx) to use. Leave unspecified
+  to use the default internal extractor.
 - `--backup <path>` (short: `-B`) – Optional. Path where a backup should be downloaded before performing the sync.
   If something goes wrong, the backup can be used to restore the project to its previous state.
 - `--remove-unused` – Set this flag to also remove keys from the platform that are unused.
@@ -70,5 +93,13 @@ This is more of a debug command, which you can use to troubleshoot extraction is
 [custom extractor](./custom-extractor.mdx), etc.
 
 ```
-tolgee extract print
+tolgee extract print [options] ['glob of files'...]
+
+Example usage:
+   tolgee extract print './src/**/*.ts?(x)'
 ```
+
+Options:
+
+- `--extractor` (short: `-e`) – [Custom extractor](./custom-extractor.mdx) to use. Leave unspecified
+  to use the default internal extractor.

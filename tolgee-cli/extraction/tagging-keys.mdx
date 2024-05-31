@@ -1,0 +1,58 @@
+---
+id: tagging-keys
+title: Tagging keys
+---
+
+To help you with your keys organization, you can use CLI to tag extracted keys. You can also additionally filter the tagged keys by existing keys.
+
+```
+tolgee tag [options]
+
+Example usage:
+    tolgee tag --filter-extracted --tag production
+```
+
+Options:
+
+- `--filter-extracted` - Extract keys from code and filter by it.
+- `--filter-not-extracted` - Extract keys from code and filter them out.
+- `--filter-tag <tags...>` - Filter only keys with tag. Use * as a wildcard.
+- `--filter-no-tag <tags...>` - Filter only keys without tag. Use * as a wildcard.
+- `--tag <tags...>` - Add tag to filtered keys.
+- `--tag-other <tags...>` - Tag keys which are not filtered.
+- `--untag <tags...>` - Remove tag from filtered keys. Use * as a wildcard.
+- `--untag-other <tags...>` - Remove tag from keys which are not filtered. Use * as a wildcard.
+
+## Recommended usage
+
+As your project grows, it might be quite important to track the lifecycle of your keys. Basic usage is that we tag all our keys which are used in the code as `production`. We can do this with every release in our pipeline.
+
+```
+tolgee tag --filter-extracted --tag production
+```
+
+### Tagging deprecated keys
+
+We can also be interested in keys that are deprecated so we can clean them up later. We can mark keys that were previously tagged `production`, but now are not.
+
+```
+tolgee tag --filter-not-extracted --filter-tag production --tag deprecated --untag production
+```
+
+This command gets keys that are not present in the code and additionally filters them by existing tag `production`. Then we mark them as `deprecated` and remove `production` tag.
+
+### Tagging newly created keys
+
+If you want mark new keys pushed to the platform as `draft`, you can do so with [`--tag-new-keys`](../push-pull-strings.mdx#pushing-strings) when you `push`.
+
+> With Tolgee SDK, you can [use `tagNewKeys` option](/js-sdk/keys_tagging).
+
+### Using wildcards
+
+If you want to include additional info in your tags (e.g. version of release), you can use `*` as a wildcard in your tags.
+
+```
+tolgee tag --filter-extracted --untag production-* --tag production-{version}
+```
+
+This command will mark all extracted keys as `production-<current-version>` and removes old tag `production-<old-version>`. So each key will have a tag of the most recent release where it was extracted.

@@ -96,6 +96,7 @@ module.exports = {
         'providing_static_data',
       ],
     },
+    'keys_tagging',
     'plugins',
     'text_observer',
     'typed_keys',

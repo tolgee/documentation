@@ -11,6 +11,7 @@ module.exports = {
       type: 'category',
       items: [
         'extraction/syncing-strings',
+        'extraction/tagging-keys',
         'extraction/magic-comments',
         'extraction/custom-extractor',
       ],

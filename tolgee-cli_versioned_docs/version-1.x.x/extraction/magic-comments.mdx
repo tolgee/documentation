@@ -1,0 +1,62 @@
+---
+id: magic-comments
+title: Magic comments
+---
+
+In some cases, you may need to be explicit about what you want the extractor to do, because it's getting something wrong
+or because of a very specific use case. Magic comments to the rescue! They're a set of directives you can add to your
+code that'll explicitly tell the CLI what it should do.
+
+## Usage
+
+As their name implies, the magic comments are written as comments. You probably already encountered some form of them with your code
+linter, or type checker.
+
+Here is an example usage:
+
+```jsx
+import React from 'react';
+import { T } from '@tolgee/react';
+
+export default function MyComponent() {
+  return (
+    <section>
+      <h2>
+        <T keyName="section-title">My title!</T>
+      </h2>
+      {/* @tolgee-ignore */}
+      <p>
+        <T keyName="section-text">Section text!</T>
+      </p>
+    </section>
+  );
+}
+```
+
+Here, the `@tolgee-ignore` directive will tell the CLI to skip parsing the next line, and it will not include it in
+the extraction result. From the example above, only `section-title` would be considered a string.
+
+## Available directives
+
+### `@tolgee-ignore`
+
+Ignores the next line. Keys that might be present will not be extracted and warnings, that would've been emitted, will be suppressed as well.
+
+:::info
+If the ignore directive does not have any effect, a warning will be emitted.
+:::
+
+### `@tolgee-key`
+
+Specified a localization key. It can be written in 2 forms: simple or detailed.
+
+The simple form just takes the key name as an argument. The detailed form takes a JSON5 object, that takes the
+`keyName`, `ns`, and `defaultValue` properties.
+
+```js
+// @tolgee-key simple-key
+// @tolgee-key { keyName: 'detailed-key', ns: 'my-namespace' }
+```
+
+If it is set before a key that would've been extracted, the comment supersedes what would've been extracted and
+suppresses warnings that would have been emitted. Think of it as an implicit `@tolgee-ignore`.

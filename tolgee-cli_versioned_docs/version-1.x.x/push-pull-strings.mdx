@@ -1,0 +1,66 @@
+---
+id: push-pull-strings
+title: Pushing & pulling strings
+---
+
+Pushing and pulling strings from Tolgee is the most basic way to interact with strings. Similarly as with a Git project,
+it allows you to download strings from Tolgee to your computer (pull), or to upload them after you changed them (push).
+
+## Pulling strings
+
+This is a useful command that exports strings from the platform, and saves them in a folder of your choice. You can
+use this to download strings from Tolgee before bundling your app for production.
+
+```
+tolgee pull [options] [destination folder]
+
+Example usage:
+   tolgee pull ./i18n
+```
+
+Options:
+
+- `--format <format>` (short: `-f`) – Format of the exported files. Available formats: `xliff`, `json`. Defaults to `json`.
+- `--languages <languages...>` (short: `-l`) – List of languages to pull. Leave unspecified to export all languages.
+- `--states <states...>` (short: `-s`) – List of translation states to include. Available states: `untranslated`, `translated`,
+  `reviewed`. Defaults to all except untranslated.
+- `--delimiter [delimiter]` (short: `-d`) – Structure delimiter to use. By default, Tolgee treats `.` as a nested
+  structure delimiter, and formats its export accordingly. Set the option without a value to disable this behavior.
+  Can be [configured per-project](./project-configuration.mdx).
+- `--overwrite` (short: `-o`) – Whether contents of the destination folder should be overridden. **This will erase
+  ALL of the contents of the destination folder**. Defaults to asking the user interactively (or failing if it is not
+  possible).
+
+:::note
+Currently, CLI does not let you pull only specific namespaces and will download all strings. In the near future, you'll
+be able to configure this via a specific option.
+
+See [issue #17](https://github.com/tolgee/tolgee-cli/issues/17).
+:::
+
+## Pushing strings
+
+This command allows you to upload existing strings from your local folder to the platform.
+
+```
+tolgee push [options] [translations folder]
+
+Example usage:
+   tolgee push --force-mode override ./i18n
+```
+
+Options:
+
+- `--force-mode` (`-f`) – Force mode. Available modes: `override`, `keep`, `no` (abort on conflicts). Defaults to
+  asking the user interactively (or `no` if it is not possible).
+
+:::tip
+For complex conflicts, even if the import fails, you can still manually resolve the conflicts in Tolgee itself.
+:::
+
+:::note
+Currently, CLI does not let you delete keys that are not part of your local copy of the strings. In the near future,
+you'll be able to set a flag to tell the CLI you want to delete strings on the platform that aren't in your local copy.
+
+See [issue #18](https://github.com/tolgee/tolgee-cli/issues/18).
+:::
