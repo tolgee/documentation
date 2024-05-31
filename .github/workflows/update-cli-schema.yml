@@ -18,7 +18,7 @@ jobs:
       - run: npm install
 
       - name: Run your script to update the file
-        run: npm run oss
+        run: npm run cli-schema
 
       - name: Set git globals
         run: |
