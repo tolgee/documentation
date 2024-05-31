@@ -84,6 +84,17 @@ module.exports = {
             'integrations/figma_plugin/usage',
           ],
         },
+
+        {
+          label: 'Slack Integration',
+          type: 'category',
+          items: [
+            'integrations/slack_integration/setup',
+            'integrations/slack_integration/usage',
+
+          ],
+        },
+
         {
           label: 'Unreal plugin',
           type: 'category',

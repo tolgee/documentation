@@ -1,0 +1,104 @@
+---
+id: usage
+title: Usage
+sidebar_label: Usage
+description: Learn how to use commands, receive notifications about Tolgee project updates in Slack, customize the notifications, and more.
+---
+
+import { FigmaScreenshotWrapper } from '../../shared/_FigmaScreenshotWrapper';
+
+# Usage
+
+This guide will help you subscribe to project updates, manage your notifications, and more. Whether you're a project manager, developer, or translator,
+ Tolgee's Slack integration offers a seamless way to streamline your workflow and collaborate more efficiently with your team. :rocket:
+
+## Subscribe to a Project
+
+Subscribe to a project to receive notifications for all events and languages in the project.
+
+``
+/tolgee subscribe $project_id
+``
+
+After subscribing, you will receive notifications on key creation, and translation update events.
+
+<FigmaScreenshotWrapper src="/img/docs/platform/slack_integration/global_subscription.png" />
+
+## Advanced Subscription Options
+
+### Language Subscription
+
+You can subscribe to notifications for a specific language within a project. This allows you to receive updates only
+for translations in that language. Here's how to do it:
+
+``
+/tolgee subscribe 1 fr
+``
+
+This command subscribes you to French translations in project 1.
+
+:::info
+You need to know tag of the language you want to subscribe to.
+You can find the tag in the language settings in the Tolgee web app.
+:::
+
+### Event Subscription
+
+You can also subscribe to notifications for specific events within a project. These events include the creation of new keys,
+changes to the base text, or changes to translations. Here's how to subscribe to events:
+
+``
+/tolgee subscribe $project_id --on [event]
+``
+
+- new_key - receive notifications only when a new key is created
+- base_changed - receive notifications when the base text is changed
+- translation_changed - receive notifications when a translation is changed
+- all - receive notifications for all events
+
+For example, to subscribe to new key events in project 1 for French translations:
+
+``
+/tolgee subscribe 1 fr --on new_key
+``
+
+That's it! You're now equipped to manage your project notifications effectively using the Tolgee bot in Slack.
+
+## Unsubscribe from a Project
+
+If you no longer wish to receive notifications for a particular project, you can unsubscribe using this command:
+
+``
+/tolgee unsubscribe $project_id $language_tag(optional)
+``
+
+You can optionally include a language tag to unsubscribe from notifications for a specific language within the project.
+
+## Show Subscriptions
+
+To view a list of all your current subscriptions, use the following command:
+
+``
+/tolgee subscriptions
+``
+
+It will display a list of all your subscriptions, including the project ID, language tag, and events you are subscribed to.
+
+<FigmaScreenshotWrapper src="/img/docs/platform/slack_integration/subscriptions.png" />
+
+## Account Management
+### Connect Tolgee to Slack
+To get started with Tolgee and begin receiving notifications in Slack, you'll need to connect your Tolgee account to Slack.
+This simple process can be initiated using the
+``
+/tolgee login
+``
+command, which prompts you to authorize Tolgee's access to your Slack workspace.
+More about this in the [Setup](setup) section.
+
+### Logout
+If you ever need to disconnect your Tolgee account from Slack or switch accounts, you can easily log out using the
+``
+/tolgee logout
+``
+command. This ensures that your account remains secure and that you have full control over your integration settings.
