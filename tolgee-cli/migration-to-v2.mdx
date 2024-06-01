@@ -1,0 +1,92 @@
+---
+id: migration-to-v2
+title: Migration to v2
+description: Learn how to migrate from Tolgee CLI v1 to v2
+---
+
+Version 2 focuses on enabling new formats supported by the Tolgee platform, making `.tolgeerc` more useful and adding tagging operations, improving the overall reliability of the localization process.
+
+The tolgee configuration file now allows you to specify most of the options that you'd have to set previously through command options.
+
+Some options are now global:
+
+ - `--patterns`
+ - `--format`
+ - `--extractor`
+
+And they can also be defined through `.tolgeerc.`
+
+### Changes to `push` command
+
+This command has most of the breaking changes. Now, you **must** specify which files you want to upload and to which language and namespace they should be mapped.
+
+Before:
+
+```
+tolgee push ./i18n
+```
+
+Now:
+
+```
+tolgee push
+```
+
+With `.tolgeerc` looking like this:
+
+```json
+{
+  "push": {
+    "files": [
+      {
+        "path": "./i18n/en.json",
+        "language": "en"
+      },
+      {
+        "path": "./i18n/cs.json",
+        "language": "cs"
+      }
+    ]
+  }
+}
+```
+
+We use a new endpoint for pushing, so it's now stateless. Before, it used a statefull multi-step import endpoint, which was not optimal for CLI operations.
+
+You can now tag new keys with specified tags and delete keys in Tolgee Platform, which are not in the imported files.
+
+### Changes to `pull` command
+
+Before:
+
+```
+tolgee pull ./i18n
+```
+
+Now:
+
+```
+tolgee pull --path ./i18n
+```
+
+The `path` can also now be set through `.tolgeerc`.
+
+You now have more options for filtering.
+
+### Commands using `patterns`
+
+Other commands were less affected; the biggest change now is that `<patterns>` is now named a global option, so all commands that use it need to be changed like this (`extract check`, `compare`, `sync` and `extract print`):
+
+Before:
+
+```
+tolgee extract check './src/**/*.ts?(x)'
+```
+
+Now:
+
+```
+tolgee extract check --patterns './src/**/*.ts?(x)'
+```
+
+Where the `patterns` can be defined in `.tolgeerc`
