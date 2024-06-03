@@ -1,0 +1,351 @@
+---
+slug: implementing-localization-to-your-svelte-app
+title: 'Implementing localization to your Svelte App: A step-by-step guide'
+description: Learn to globalize your web applications with our guide on integrating the Tolgee i18n tool into your Svelte app. Enhance accessibility and user experience across diverse languages with simple, step-by-step instructions. Start localizing with Tolgee today and expand your reach!
+image: /img/blog/2024-06-03-implementing-localization-to-your-svelte-app/cover.png
+authors: [harshil1712]
+tags: [svelte, i18n, webdev, javascript, SDK, tutorial]
+---
+
+import ThemedImage from '@theme/ThemedImage';
+import useBaseUrl from '@docusaurus/useBaseUrl';
+
+<ThemedImage
+  alt="YAML Support Blog image"
+  sources={{
+    light: useBaseUrl(
+      '/img/blog/2024-06-03-implementing-localization-to-your-svelte-app/cover-light.png'
+    ),
+    dark: useBaseUrl(
+      '/img/blog/2024-06-03-implementing-localization-to-your-svelte-app/cover.png'
+    ),
+  }}
+/>
+
+In today's global market, making your web application accessible to a diverse audience is crucial. Localization enables apps to adapt to different languages and cultural contexts, enhancing user experience.
+
+Tolgee simplifies localization with its open-source i18n tool, combining a localization platform and SDKs. It provides features like in-context translation and automatic screenshot generation, making translation easy for developers and translators. Svelte is an open-source frontend framework that compiles components into small, performant JavaScript modules.
+
+In this tutorial, you'll learn how to implement localization in your Svelte app using Tolgee. Let's get started!
+
+<!--truncate-->
+
+## Prerequisites
+
+This tutorial assumes that you have familiarity with JavaScript. Knowledge of Svelte is not required but is good to have. You will also need the following, to follow the tutorial.
+
+- Node.js: Install [Node.js](https://nodejs.org/) on your machine if you don’t already have it installed. Use a node version manager tool like [nvm](https://github.com/nvm-sh/nvm) to install Node.js.
+- Tolgee account: You will be using Tolgee to implement localization. Hence, if you don’t have an account, please [sign-up here](https://app.tolgee.io/sign_up?utm_source=svelte-integration-blog) to create an account.
+- Git: Install Git for your machine. You will use Git for cloning the repo and version management.
+
+## Step 1 - Setting up the Svelte App
+
+For this tutorial, you will use the [Svelte Tolgee example project](https://github.com/harshil1712/svelte-tolgee-example). This project is a personal blogging website built using [TailwindCSS](https://tailwindcss.com/). If you want to create your own Svelte app, follow the official [Svelte documentation](https://svelte.dev/docs/introduction). While following the steps further down this tutorial, make sure to adapt to your app.
+
+To clone the project, run the following command in your terminal.
+
+```bash
+git clone https://github.com/harshil1712/svelte-tolgee-example.git
+```
+
+Next, navigate into the project directory and run the following command to install the required dependencies.
+
+```bash
+cd svelte-tolgee-example
+npm install
+```
+
+Now that you have all the required dependencies installed, run the development server and check out the project. To start the development server, execute the following command in your terminal.
+
+```bash
+npm run dev
+```
+
+On your browser, navigate to `http://localhost:5137`. You will see the sample app up and running.
+
+![Screenshot of the home page of the app listing two blog articles](/img/blog/2024-06-03-implementing-localization-to-your-svelte-app/home-page.png)
+
+## Step 2 - Getting started with Tolgee
+
+In the previous step you scaffolded the Svelte project. In this step you will learn how to get started with Tolgee to integrate it in your Svelte project.
+
+If you don’t have a Tolgee account, create one. After you sign-up/sign in for the first time, you will be presented with a demo project. While that is a good place to explore the platform in depth, for this tutorial, you will create a new project.
+
+To create a new project, click on the **+ Add Project** button. Next, enter the name of your project in the **Name** field and select the translation languages you. This tutorial implements English (en) and German (de). But you can select other languages as well.
+
+![Screenshot of the Projects page on the Tolgee platform](/img/blog/2024-06-03-implementing-localization-to-your-svelte-app/add-project-screen.png)
+
+![Screenshot of the Create Project page on the Tolgee platform](/img/blog/2024-06-03-implementing-localization-to-your-svelte-app/create-project.png)
+
+Now that you have the project setup on Tolgee, the next step is to generate the API key. This API key will allow your application to interact with the Tolgee platform. To generate the API key, select **Integrate** from the left sidebar menu. Next, under the **Choose your weapon** section, select **_Svelte_**. Click on the dropdown menu under the **Select API key** section, and select **_Create new +_**.
+
+![Screenshot of the Integration page on the Tolgee platform](/img/blog/2024-06-03-implementing-localization-to-your-svelte-app/integration-page.png)
+
+Enter the name for your API key in the **Description** field. Set the **Expiration** to **_Never expires_**.
+
+> **Note:** For the purpose of this tutorial, the Expiration is set to Never expires. Please make sure you are following the best security practices and have set a proper expiration time for the API key.
+
+Next, under **Scopes**, select **_Admin_**. This will give you all the permissions. Click on Save, and your API key will be generated. Scroll down to the Setup your environment (with SvelteKit) section. Copy the URL and the API Key. You will need these in the next step.
+
+> **Note:** Before setting up the API key for production, carefully read and understand Scopes. You don’t want to give everyone the admin access.
+
+![Creating an API Key](/img/blog/2024-06-03-implementing-localization-to-your-svelte-app/configure-api-key.png)
+
+## Step 3 - Integrating Tolgee in the Svelte app
+
+In the previous step, you configured the Tolgee platform by adding a new project and generating an API key. In this step, you will integrate Tolgee in your Svelte app.
+
+First, at the root of your project, create a `.env.development.local` file. Paste the URL and the API key you copied in the previous step. Your file should contain the content as shown below, where `<YOUR_TOLGEE_API_KEY>` is the API key you generated.
+
+```
+VITE_TOLGEE_API_URL=https://app.tolgee.io
+VITE_TOLGEE_API_KEY=<YOUR_TOLGEE_API_KEY>
+```
+
+Next, to start using Tolgee and make use of its SDK, you need to install the Tolgee SDK for Svelte. To install this SDK, execute the following command in your terminal.
+
+```bash
+npm install @tolgee/svelte
+```
+
+You have installed the required SDK and also have the API key to connect to Tolgee. In the next step, you will initialize the Tolgee SDK for your app.
+
+## Step 4 - Initializing Tolgee for Svelte
+
+Tolgee comes with a [provider component](https://tolgee.io/js-sdk/integrations/svelte/api#tolgeeprovider). This component provides the required context to all the children components it gets wrapped on. You will use this provider component to wrap all the child components with some configurations.
+
+Open up the `src > routes > +layout.svelte` file and paste the following code under the `<script>` tag. This line of code imports the required methods from the Tolgee SDK.
+
+```ts
+import { TolgeeProvider, Tolgee, DevTools, FormatSimple } from '@tolgee/svelte';
+```
+
+Next, to configure Tolgee, add the following code under the import statement.
+
+```ts
+const tolgee = Tolgee()
+  .use(DevTools())
+  .use(FormatSimple())
+  .init({
+    defaultLanguage: 'en',
+    availableLanguages: ['en', 'de']
+    apiUrl: import.meta.env.VITE_TOLGEE_API_URL,
+    apiKey: import.meta.env.VITE_TOLGEE_API_KEY,
+  });
+```
+
+In the above code, you initialize Tolgee passing on the DevTools and FormatSimple methods. You also configure the default and available languages for your app. Lastly, you configure your Tolgee credentials.
+
+Your updated `<script>` tag should be as follows.
+
+```ts
+<script>
+	import Navbar from '../components/Navbar.svelte';
+	import { TolgeeProvider, Tolgee, DevTools, FormatSimple } from '@tolgee/svelte';
+
+const tolgee = Tolgee()
+  .use(DevTools())
+  .use(FormatSimple())
+  .init({
+    defaultLanguage: 'en',
+    apiUrl: import.meta.env.VITE_TOLGEE_API_URL,
+    apiKey: import.meta.env.VITE_TOLGEE_API_KEY,
+	availableLanguages: ['en', 'de']
+  });
+</script>
+```
+
+Now that you have imported the provider and configured it, the next step is to wrap the children components. In your `+layout.svelte file`, update the HTML code as follows.
+
+```html
+<TolgeeProvider tolgee="{tolgee}">
+  <div slot="fallback">Loading...</div>
+  <div class="min-h-screen bg-gray-100">
+    <Navbar />
+    <div class="container mx-auto px-4 py-8">
+      <slot />
+    </div>
+  </div>
+</TolgeeProvider>
+```
+
+In the above code, you wrap the children components under the `<TolgeeProvider>` component. You pass the `tolgee` configuration and add a fallback component. While the translation gets loaded, the user will see this fallback component. You can modify this fallback component.
+
+## Step 5 - Implementing localization
+
+In the previous step, you have initialized Tolgee. In this step, you will learn to implement localization using Tolgee. You will update the navigation bar option elements. These elements will render the localized content for the selected language.
+
+In your `src > components > Navbar.svelte` file, import the [T component (Translation component)](https://tolgee.io/js-sdk/integrations/svelte/api#t-component) from the Tolgee SDK. Paste the following code in the `<script>` tag.
+
+```ts
+import { T } from '@tolgee/svelte';
+```
+
+Next, replace the text for anchor tag with `<T keyName=”navbar_<VALUE>” defaultValue=”<VALUE>”/>`. Here, `<VALUE>` is the title of the page. The `T` component takes `keyName` and `defaultValue` as parameters. The keyName parameter helps to identify the content. For each unique translating content, its value should be unique. The `defaultValue` parameter takes the value that should be rendered by default. Your `+Navbar.svelte` file should be as follows.
+
+```html
+<script>
+  import { T } from '@tolgee/svelte';
+</script>
+
+<nav class="bg-white shadow">
+  <div class="container mx-auto px-4">
+    <div class="flex justify-between items-center py-6">
+      <div class="text-xl font-semibold text-gray-900">My Blog</div>
+      <div class="space-x-4">
+        <a href="/" class="text-gray-600 hover:text-gray-900"
+          ><T keyName="navigation_home" defaultValue="Home"
+        /></a>
+        <a href="#" class="text-gray-600 hover:text-gray-900"
+          ><T keyName="navigation_about" defaultValue="About"
+        /></a>
+        <a href="#" class="text-gray-600 hover:text-gray-900"
+          ><T keyName="navigation_contact" defaultValue="Contact"
+        /></a>
+      </div>
+    </div>
+  </div>
+</nav>
+```
+
+Run the development server by executing the following command and navigate to `http://localhost:5137`.
+
+```bash
+npm run dev
+```
+
+One of the features of Tolgee is in-context translation. In the previous step, you configured the Dev Tools provided by the Tolgee SDK. Press and hold the Option/ALT key on your keyboard and hover over the title. You will observe a red border around the title. If you click on the title holding the Option/ALT key, a Quick Translation window pops up. This is where you can add translation and screenshots.
+
+![Screenshot of the Svelte app with a red outline on Home](/img/blog/2024-06-03-implementing-localization-to-your-svelte-app/navbar-outline.png)
+
+## Step 6 - Using in-context Translation
+
+In the previous step, you implemented the `T` component. This enabled you to use in-context translation for your app. In this step, you will use in context translation to add translation.
+
+To get started with in-context translation, press and hold the **Option/ALT** key and click on **Home**. It will open up a pop window.
+
+![Screenshot of the Translation pop-up window](/img/blog/2024-06-03-implementing-localization-to-your-svelte-app/translation-pop-up.png)
+
+Enter the English blog title in the **English** field. Add the German translation of the title in the **German** field. Optionally, you can add screenshots in the Screenshot section. Click on **Save** to save your translation.
+
+You can view this translation on the Tolgee platform. You can also modify it via the platform or via in-context translation option.
+
+There might be scenarios where you want to use the platform to manage translations. In the next step, you will learn how to add translation on the platform.
+
+## Step 7 - Manage Translation on the Platform
+
+To use the platform to manage translation, make sure you are logged into the platform. Next, navigate to the project you created for this application. Click on **Translations** from the left sidebar. You will see the translation for Home is already available there.
+
+![Screenshot showing the new created naviation_home key on the Tolgee platform](/img/blog/2024-06-03-implementing-localization-to-your-svelte-app/home-key.png)
+
+To add translation for the About option, click on + on the right corner. Enter `navigation_about` in the **Key field**.
+
+> **Note:** The key must be unique. It should match the value you pass to the T component.
+
+Enter the English translation in the **English** field and click on **Save**. This will generate the key.
+
+![Screenshot of the Create new key window on the Tolgee platform](/img/blog/2024-06-03-implementing-localization-to-your-svelte-app/create-new-key.png)
+
+To add the German translation for this key, click on **German** under **navigation_about**. Tolgee uses various APIs to provide the translations. You can use one of the provided translations or add your own. To use the translation that Tolgee provides, select one of the translations from the **Machine Translation** section. Click on **Save**, to save the translation.
+
+![Screenshot of the adding German translation for the navigation_about key window on the Tolgee platform](/img/blog/2024-06-03-implementing-localization-to-your-svelte-app/add-de-translation.png)
+
+You now have translations for Home and About. However, you can’t really view them in your app without changing the language. In the next step, you will add a language switcher for your application.
+
+## Step 8 - Adding a Language Switcher
+
+Irrespective of where the user is based, you should give the user an option to view the content in the language of their choice. Adding a language switcher to your app can help the user select the language from available choices. In this step, you will add a language switcher.
+
+To add a language switcher, open the `Navbar.svelte` file and update the `<script>` tag with the following code.
+
+```ts
+import { T, getTolgee, getTolgeeContext } from '@tolgee/svelte';
+
+const { tolgee } = getTolgeeContext();
+const availableLanguages = tolgee.getInitialOptions().availableLanguages;
+```
+
+In the above code, you import the required methods. You get the reference to the Tolgee instance you configured in Step 4. Next, you get the list of all the configured available languages for your app. You will use this list to provide options to the users.
+
+You also need to add a function that listens to the change of language. Paste the following in the `<script>` tag to add this function.
+
+```ts
+const t = getTolgee(['language']);
+
+function handleLanguageChange(e) {
+  $t.changeLanguage(e.currentTarget.value);
+}
+```
+
+The above subscription function listens for the change in language. When the language changes, it gets updated and the respective translated content is displayed to the user.
+
+The last step is to show the user a switch component. To add this component, paste the following code under the `<div id=”switch”>` tag.
+
+```html
+<select value="{$t.getLanguage()}" on:change="{handleLanguageChange}">
+  {#each availableLanguages as lan}
+  <option>{lan}</option>
+  {/each}
+</select>
+```
+
+Your finished `Navbar.svelte` file should have the following code.
+
+```html
+<script>
+  import { T, getTolgee, getTolgeeContext } from '@tolgee/svelte';
+
+  const { tolgee } = getTolgeeContext();
+  const availableLanguages = tolgee.getInitialOptions().availableLanguages;
+
+  const t = getTolgee(['language']);
+
+  function handleLanguageChange(e) {
+    $t.changeLanguage(e.currentTarget.value);
+  }
+</script>
+
+<nav class="bg-white shadow">
+  <div class="container mx-auto px-4">
+    <div class="flex justify-between items-center py-6">
+      <div class="text-xl font-semibold text-gray-900">My Blog</div>
+      <div class="space-x-4">
+        <a href="/" class="text-gray-600 hover:text-gray-900"
+          ><T keyName="navigation_home" defaultValue="Home"
+        /></a>
+        <a href="#" class="text-gray-600 hover:text-gray-900"
+          ><T keyName="navigation_about" defaultValue="About"
+        /></a>
+        <a href="#" class="text-gray-600 hover:text-gray-900"
+          ><T keyName="navigation_contact" defaultValue="Contact"
+        /></a>
+      </div>
+      <div id="switch">
+        <select value="{$t.getLanguage()}" on:change="{handleLanguageChange}">
+          {#each availableLanguages as lan}
+          <option>{lan}</option>
+          {/each}
+        </select>
+      </div>
+    </div>
+  </div>
+</nav>
+```
+
+Save the file with the updated code. Start the development server, if it is not running already. The navigation bar should have a language switcher. Try changing the language, and you should see the respective translated content.
+
+![Screenshot of the Svelte app with English language selected with the language switcher](/img/blog/2024-06-03-implementing-localization-to-your-svelte-app/english-page.png)
+
+![Screenshot of the Svelte app with German language selected with the language switcher](/img/blog/2024-06-03-implementing-localization-to-your-svelte-app/german-page.png)
+
+Congratulations, you have successfully implemented localization to your Svelte app using Tolgee.
+
+## Conclusion
+
+Tolgee allows you to seamlessly implement localization to your app. It provides features like in-context translation and SDK that makes it easy for your team to manage translations.
+
+In this article, you learned about Tolgee and how to integrate it with Svelte. You implemented localization to the navigation bar. Which means, you only scratched the surface! The next step is to implement localization to the rest of your application.
+
+If you ran into issues while following this tutorial, feel free to hit me up on [LinkedIn](http://linkedin.com/in/harshil1712)/[X (formerly Twitter)](http://x.com/harshil1712). I would be happy to help you. If you have more questions about Tolgee, I encourage you to join the official [Slack workspace](https://Tolg.ee/slack).
+
+I am looking forward to seeing your localized apps!
