@@ -1,0 +1,89 @@
+---
+slug: cli-2-features
+title: Cli 2.0 has been released!
+description: Read about new CLI 2.0 features including support for various formats and new tagging command.
+authors: [sgranat]
+tags: [react, i18n, webdev, javascript, SDK, tutorial]
+---
+
+Tolgee CLI version 2.0 brings support for various file formats, so you can import/export them effortlessly and also a new tagging command, which will help you to organize your keys in the development cycle.
+
+<!-- truncate-->
+
+## Better utilization of `.tolgeerc` 🐭
+
+You can now use `.tolgeerc` to configure much more options than before. Basically all the options of all the commands can now be configured through `.tolgeerc` and you can now also specify a custom path to Tolgee config (with the `--config` option), so you can use multiple configs from the same folder.
+
+We now also use [JSON Schema](https://json-schema.org/), so you can edit your config with IntelliSense.
+
+Let's say I configure my `.tolgeerc` like this:
+
+```json
+{
+  "$schema": "https://tolgee.io/cli-schema.json",
+  "projectId": 123,
+  "format": "JSON_TOLGEE",
+  "patterns": ["./src/**/*.ts?(x)"],
+  "push": {
+    "files": [{
+      "path": "./public/i18n/en.*",
+      "language": "en"
+    }],
+    "forceMode": "OVERRIDE",
+  },
+  "pull": {
+    "path": "./public/i18n"
+  }
+}
+```
+
+You can now use various Tolgee commands, without additional options, so usage is much cleaner:
+
+```bash
+tolgee push       # imports your en.json to the platform
+tolgee pull       # exports all translation files to local folder
+tolgee compare    # compare keys in your code with the platform
+...
+```
+
+## Support for various formats 🚀
+
+Tolgee platform can already deal with formats different from ICU (iOS, Android, Flutter, .po, etc.), for some time. Now we are happy to bring this support also to the CLI.
+
+The easiest way is to specify the format in the `.tolgeerc` file like this:
+
+```json
+{
+  "format": "YAML_JAVA",
+  ...
+}
+```
+
+This format will be applied for both `push` and `pull` commands.
+
+> Check all possible values [here](https://tolgee.io/tolgee-cli/project-configuration#format)
+
+In order to support any kind of file, we now require the `push.files` field to exactly specify, which files should be pushed and with which languages (+ namespace) are they associated, to avoid any ambiguities.
+
+## Tagging keys 💣
+
+In order to simplify the organization of keys in the platform we've added a new command `tag`. This command allows you to add/remove tags to keys extracted from the code and apply additional filters:
+
+```sh
+# tag all keys extracted from your code
+tolgee tag --filter-extracted --tag production
+
+# deal with deprecated keys
+tolgee tag --filter-not-extracted --filter-tag production --tag deprecated --untag production
+```
+
+> Read the `tag` command [full docs](https://tolgee.io/tolgee-cli/extraction/tagging-keys)
+
+## Some other new features ✨
+
+ - For both `pull` and `push` commands you now have more options to filter only specific languages, namespaces etc.
+ - The `pull` command now doesn't override whole target folder, but only updates new files. You can specify `--empty-dir`, which will remove the folder before inserting new files.
+ - For the `push` command, you can now specify `--remove-other-keys`, which will remove keys in platform, which are not part of the specified files.
+ - Another `push` command option `--tag-new-keys` will tag all newly created keys, similarly to the `tag` command.
+
+
