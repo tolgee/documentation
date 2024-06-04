@@ -28,19 +28,22 @@ Use `@tolgee/react` version `5.17.0` and higher
 The folder structure needs to be adjusted to resemble the following:
 
 ```
-├── middleware.ts
-├── navigation.ts
-├── i18n
-│   ├── en.json
-│   └── de.json
-├── tolgee
-│   ├── shared.ts
-│   ├── client.tsx
-│   └── server.tsx
-└── app
-    └── [locale]
-        ├── layout.tsx
-        └── page.tsx
+├── next.config.js
+└── src
+    ├── middleware.ts
+    ├── navigation.ts
+    ├── i18n.ts
+    ├── i18n
+    │   ├── en.json
+    │   └── de.json
+    ├── tolgee
+    │   ├── shared.ts
+    │   ├── client.tsx
+    │   └── server.tsx
+    └── app
+        └── [locale]
+            ├── layout.tsx
+            └── page.tsx
 ```
 
 ## Tolgee setup
@@ -147,13 +150,13 @@ One important difference from the client setup is the utilization of [`fullKeyEn
 ```tsx
 // server.tsx
 
-import { useLocale } from 'next-intl';
+import { getLocale } from 'next-intl/server';
 
 import { TolgeeBase, ALL_LOCALES, getStaticData } from './shared';
 import { createServerInstance } from '@tolgee/react/server';
 
 export const { getTolgee, getTranslate, T } = createServerInstance({
-  getLocale: useLocale,
+  getLocale,
   createTolgee: async (locale) =>
     TolgeeBase().init({
       // load all languages on the server
@@ -256,6 +259,31 @@ export const { Link, redirect, usePathname, useRouter } =
 ```
 
 > To gain a comprehensive understanding of how `next-intl` operates, check [their docs](https://next-intl-docs.vercel.app/docs/getting-started/app-router-server-components). We are only utilizing the necessary setup for proper routing, hence not all the listed configurations are required.
+
+### Additional changes required by `next-intl`
+
+Update `next.config.js`:
+
+```js
+import createNextIntlPlugin from 'next-intl/plugin';
+ 
+const withNextIntl = createNextIntlPlugin();
+ 
+/** @type {import('next').NextConfig} */
+const nextConfig = {};
+ 
+export default withNextIntl(nextConfig);
+```
+
+Add `i18n.ts` to the project root (we are loading translations our own way, but it's required by `next-intl`):
+
+```ts
+import { getRequestConfig } from 'next-intl/server';
+
+export default getRequestConfig(async () => {
+  return {};
+});
+```
 
 
 ## How to use it
