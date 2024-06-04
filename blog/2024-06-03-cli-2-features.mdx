@@ -23,7 +23,7 @@ Tolgee CLI version 2.0 brings support for various file formats, so you can impor
 
 ## Better utilization of `.tolgeerc` 🐭
 
-You can now use `.tolgeerc` to configure much more options than before. Basically all the options of all the commands can now be configured through `.tolgeerc` and you can now also specify a custom path to Tolgee config (with the `--config` option), so you can use multiple configs from the same folder.
+You can now use `.tolgeerc` to configure much more options than before. Basically, all the options of all the commands can now be configured through `.tolgeerc` and you can now also specify a custom path to Tolgee config (with the `--config` option), so you can use multiple configs from the same folder.
 
 We now also use [JSON Schema](https://json-schema.org/), so you can edit your config with IntelliSense.
 
@@ -74,7 +74,7 @@ This format will be applied for both `push` and `pull` commands.
 
 > Check all possible values [here](https://tolgee.io/tolgee-cli/project-configuration#format)
 
-In order to support any kind of file, we now require the `push.files` field to exactly specify, which files should be pushed and with which languages (+ namespace) are they associated, to avoid any ambiguities.
+To support any kind of file, we now require the `push.files` field to exactly specify, which files should be pushed and with which languages (+ namespace) are they associated, to avoid any ambiguities.
 
 ## Tagging keys 💣
 
@@ -93,8 +93,8 @@ tolgee tag --filter-not-extracted --filter-tag production --tag deprecated --unt
 ## Some other new features ✨
 
  - For both `pull` and `push` commands you now have more options to filter only specific languages, namespaces etc.
- - The `pull` command now doesn't override whole target folder, but only updates new files. You can specify `--empty-dir`, which will remove the folder before inserting new files.
- - For the `push` command, you can now specify `--remove-other-keys`, which will remove keys in platform, which are not part of the specified files.
+ - The `pull` command now doesn't override the whole target folder but only updates new files. You can specify `--empty-dir`, which will remove the folder before inserting new files.
+ - For the `push` command, you can now specify `--remove-other-keys`, which will remove keys in the platform, which are not part of the specified files.
  - Another `push` command option `--tag-new-keys` will tag all newly created keys, similarly to the `tag` command.
 
 
