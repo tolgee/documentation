@@ -102,8 +102,16 @@ This command filters keys **not** extracted but tagged as `production`, marking 
 
 > Check our [GitHub release pipeline](https://github.com/tolgee/tolgee-platform/blob/main/.github/workflows/release.yml) for the full code.
 
-## Why Not Branching?
+### Conclusion
+
+So our system can now distinguish feature branches with `draft: ...` tag, we know which keys are in `production` and after some time we'll see `deprecated` keys. This system should be quite robust, but not bulletproof. If the extraction tool fails to extract some key, it can be marked as `deprecated` even though it's not, so we advise you to always check manually if the key can be deleted.
+
+Other than that happy translating! 🚀
+
+### Bonus: Why Not Branching?
 
 We’ve considered adding branching to Tolgee, where the platform mirrors your branches. However, this involves significant technical challenges and usability issues. Git itself, while powerful, is complex and constantly evolving—a testament to the inherent difficulty of version control.
 
 By using tags and automated processes, we simplify localization key management without introducing the complexities of branching. This approach keeps our workflow efficient and our keys organized.
+
+[![React banner](/img/blog/blog-banners/banner-developer.webp)](https://app.tolgee.io/sign_up)
