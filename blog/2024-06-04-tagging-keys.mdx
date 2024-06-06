@@ -1,0 +1,151 @@
+---
+slug: organize-your-translation-keys-with-tags
+title: Organize your translation keys automatically with tags!
+description: A guide about the new Tolgee CLI feature, which simplifies key organization based on automatic extraction and tags.
+authors: [sgranat]
+tags: [react, i18n, webdev, javascript, SDK, tutorial]
+---
+
+Are there deprecated localization keys? Which keys are currently used in production? And which keys are part of draft pull requests, which are not yet merged? 🤯
+
+It can be quite difficult to keep localization keys organized in a large project, but it can be very important when there are many people involved in the localization process.
+
+<!-- truncate-->
+
+## The story
+
+One of my daily struggles when adding new features to Tolgee Platform is to keep track of the newly created localization keys.
+
+I want to know which keys are connected to the newly developed feature because those are kinda in "draft" mode. Until the feature is released everything is dynamic, strings are changing, keys are removed and added elsewhere or the entire feature can be scraped - you probably know how easy it is to add a key, which is never used and is just forgotten and never removed.
+
+## Manual tagging of keys
+
+To target this issue, I'm adding the tag `draft` to each key that I create during development, which is (ideally) then removed when the feature is released.
+
+We of course always forget to remove `draft` when we release the feature, but at least we know which keys were recently added and we can go through them later and clean up.
+
+This approach however mixes keys from multiple developed features together, so when we do multiple features at once, it can be quite confusing and it's also easy to forget the tag when added manually.
+
+## Broader issue
+
+Let's take a step back and look at the cause of these issues. 
+
+As we are adding new features to our product, we can't avoid having multiple versions (branches) of our application, we have the production one and then the branches that are currently in development.
+
+It's important to know which keys are related to which branch because we treat them differently. Production keys can't be simply removed and the texts shouldn't be changed drastically, only corrected if necessary. On the other hand, translations in development branches can be removed or changed or we need to filter them for translators.
+
+## A translation key lifecycle
+
+If we look at each key separately it has lifecycle similar to this:
+
+ 1. Key is added to the code (it's a `draft`)
+ 2. The code is released to the public (it's used in `production`)
+ 3. Code is changed and the key is no longer needed (it's `deprecated`)
+
+Each company can have a different lifecycle or specific needs but I'd like to show you the system which we are now using in Tolgee:
+
+### 1. `draft`
+
+With Tolgee SDK, you can now set up a default tag, which will be automatically preselected for new keys.
+
+```ts
+Tolgee().init({
+  tagNewKeys: ['draft'],
+})
+```
+
+Now if you are adding a new key through the Tolgee In-context tool, it will look like this:
+
+![In-context with draft](/img/blog/tagging-keys/in-context-with-draft.png)
+
+This setup is easy, but if we work on multiple features simultaneously, we don't know which is it. The solution we use is that we store a branch name in a file, which is imported into our web application and then used as a part of the tag like this:
+
+```ts
+import { branchName } from './branch.json'
+
+Tolgee().init({
+  tagNewKeys: [`draft: ${branchName}`],
+})
+```
+
+`branch.json`:
+```json
+{
+  "branchName": "current-feature-branch"
+}
+```
+
+Then we set up git hooks to update this file automatically when we switch to different branches. This is a bit complicated to explain fully here, but in short:
+
+1. Install husky `npm i -D husky` to your project and run `npx husky init`
+2. Put `post-commit` and `post-checkout` files into `.husky` folder with following script:
+```bash
+echo "{\"branchName\": \"$(git rev-parse --abbrev-ref HEAD)\"}" > ../branch.json
+```
+3. Add `branch.json` into `.gitignore`
+
+> To see our production solution check our [github](https://github.com/tolgee/tolgee-platform).
+
+Cool, if everything works, it should now keep `branch.json` updated according to your current branch and each new key will have the correct `draft` tag.
+
+### 2. `production` and `deprecated`
+
+:::info
+This part is heavily dependent on your keys being [extractable by CLI](http://localhost:3000/tolgee-cli/extraction/syncing-strings), which means you have to use Tolgee SDK and avoid dynamic keys in your code.
+:::
+
+We want to know what keys are currently in production because those keys need to be treated with care.
+Recently we've [introduced cli 2.0](/blog/cli-2-features) and the `tag` command, which will help us greatly.
+
+The tag command allows us to extract current keys from the code, so we know which keys are currently used. We've set this command up in our github actions on every new commit in `main` branch, so basically every time our production code is updated.
+
+To make this work, we need to setup tolgee CLI:
+
+1. Install tolgee CLI 
+```sh
+npm i -D @tolgee/cli
+```
+
+2. Setup `.tolgeerc` in your project root (adjust `projectId` and `patterns`):
+
+```json
+{
+  "$schema": "https://tolgee.io/cli-schema.json",
+  "projectId": 123,
+  "patterns": ["./src/**/*.ts?(x)"],
+}
+```
+
+3. Use [`tolgee login`](/tolgee-cli/usage#saving-credentials) locally or `TOLGEE_API_KEY` env variable in CI to set api key to your project. Check [how to obtain an API key](/platform/account_settings/api_keys_and_pat_tokens).
+
+Ok, let's first tag all production keys:
+
+```sh
+npx tolgee tag --filter-extracted --tag production --untag 'draft: *'
+```
+
+Note that this command will move the key from `draft` to `production`.
+
+Now we want to check which keys have been `deprecated` in current release:
+
+```sh
+npx tolgee tag \
+  --filter-not-extracted --filter-tag production \
+  --tag deprecated --untag production
+```
+
+This command is a bit more complicated, however what we are doing is basically taking all the keys that were **not** extracted (`--filter-not-extracted`), applying an additional filter that they are tagged as `production` - so we get keys that were previously in production but are not anymore. And then transitioning them to `deprecated` state.
+
+
+> Check our [github release pipeline](https://github.com/tolgee/tolgee-platform/blob/main/.github/workflows/release.yml) to see full code.
+
+
+## Why not branching?
+
+We've got multiple requests from our users to add some sort of branching into Tolgee. The idea is that your platform would follow the structure of your branches, which would be independent of each other.
+
+We were considering this for a long time and had this as a kinda scarecrow in our heads, that we will have to implement this someday. Why scarecrow? Branching is very difficult problem, we'd have to solve many technical issues (copying a large amount of data or somehow copying only what is different), API breaking changes etc.
+
+But the main thing is the usability for the user. We know it from our own experience. Every developer has to learn this utility called Git, which is used for versioning your code. Don't take me wrong, I think Git is a genius tool, but everyone is confused by it at the beginning. 
+
+And it's a sort of tool that you are learning to work with for your whole life. And I don't think it's because of the Tool is wrong, it's because the concept is complicated. It's like having parallel universes and you are switching between them and then you have to somehow merge them and figure out what to do if two people build the house on the same spot.
