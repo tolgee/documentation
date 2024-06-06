@@ -77,7 +77,7 @@ Now, `branch.json` updates according to your current branch, and new keys will h
 ### 2. `production` and `deprecated`
 
 :::info
-This part relies on your keys being [extractable by CLI](http://localhost:3000/tolgee-cli/extraction/syncing-strings), which means using Tolgee SDK and avoiding dynamic keys in your code.
+This part expects you to have [@tolgee/cli](/tolgee-cli) installed and integrated into your project.
 :::
 
 To track production keys, use the new CLI `tag` command, which extracts current keys from the code. We set this command in our GitHub Actions for every new commit in the `main` branch.
