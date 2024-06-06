@@ -105,20 +105,6 @@ export const questions = [
     ),
   },
   {
-    id: 'what-is-tolgee-translator',
-    title: 'How is Tolgee Translator priced?',
-    content: (
-      <>
-        Because Tolgee Translator is using ChatGPT in the background we price it
-        differently based on the number of tokens in the prompt.
-        <br />
-        <br />
-        {`10 tokens cost 1 MT credit and the average prompt size is about 250
-  tokens (with context it's 500 - 1000).`}
-      </>
-    ),
-  },
-  {
     id: 'free-cloud-plan',
     title: 'Do you offer a completely free cloud plan?',
     content: (
