@@ -16,11 +16,7 @@ Keeping localization keys organized in a large project can be a headache, especi
 
 One of my daily tasks at Tolgee Platform is tracking new localization keys. I need to identify keys linked to new features since they’re in "draft" mode. Until the feature is released, everything is fluid—strings change, keys get added or removed, and sometimes entire features get scrapped. It’s easy to end up with unused keys that are forgotten and never removed.
 
-## Manual Tagging of Keys
-
-To tackle this, I tag each new key as `draft` during development, ideally removing the tag upon release. However, we often forget to remove the `draft` tag, mixing keys from different features, making it confusing and easy to overlook tags.
-
-## The Bigger Picture
+### The Bigger Picture
 
 As we add new features, we inevitably have multiple versions (branches) of our application: the production version and development branches. It’s essential to know which keys belong to which branch since production keys require careful handling, while development keys can be modified or removed as needed.
 
@@ -46,7 +42,9 @@ Tolgee().init({
 
 When adding a new key through the Tolgee In-context tool, it appears like this:
 
-![In-context with draft](/img/blog/tagging-keys/in-context-with-draft.png)
+import { ScreenshotWrapper } from '../platform/shared/_ScreenshotWrapper';
+
+<ScreenshotWrapper src="/img/blog/tagging-keys/in-context-with-draft.png" alt="In-context with draft" />
 
 To manage multiple features, we store the branch name in a file, imported into our web application and used in the tag:
 
