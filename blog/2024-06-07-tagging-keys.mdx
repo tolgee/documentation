@@ -6,6 +6,16 @@ authors: [sgranat]
 tags: [tolgee, cli, tags, branching, tutorial]
 ---
 
+import ThemedImage from '@theme/ThemedImage';
+
+<ThemedImage
+  alt="Localization key lifecycle"
+  sources={{
+    light: '/img/blog/tagging-keys/lifecycle-light.png',
+    dark: '/img/blog/tagging-keys/lifecycle-dark.png',
+  }}
+/>
+
 Do you ever struggle with deprecated localization keys? Wondering which keys are active in production and which are part of unreleased features? 😵‍💫
 
 Keeping localization keys organized in a large project can be a headache, especially with many contributors. But it’s crucial for a smooth localization process.
@@ -37,28 +47,32 @@ With the Tolgee SDK, you can set a default tag for new keys:
 ```ts
 Tolgee().init({
   tagNewKeys: ['draft'],
-})
+});
 ```
 
 When adding a new key through the Tolgee In-context tool, it appears like this:
 
 import { ScreenshotWrapper } from '../platform/shared/_ScreenshotWrapper';
 
-<ScreenshotWrapper src="/img/blog/tagging-keys/in-context-with-draft.png" alt="In-context with draft" />
+<ScreenshotWrapper
+  src="/img/blog/tagging-keys/in-context-with-draft.png"
+  alt="In-context with draft"
+/>
 
 This approach is nice and simple, but we can't distinguish which feature does the key belong to.
 
 To identify different features, we store the branch name in a file, which is imported into our web application and used in the tag:
 
 ```ts
-import { branchName } from './branch.json'
+import { branchName } from './branch.json';
 
 Tolgee().init({
   tagNewKeys: [`draft: ${branchName}`],
-})
+});
 ```
 
 `branch.json`:
+
 ```json
 {
   "branchName": "current-feature-branch"
@@ -69,13 +83,14 @@ We set up Git hooks to update this file automatically with git hooks like this:
 
 1. Install Husky: `npm i -D husky` and run `npx husky init`
 2. Add `post-commit` and `post-checkout` files to the `.husky` folder with this script:
+
 ```bash
 echo "{\"branchName\": \"$(git rev-parse --abbrev-ref HEAD)\"}" > ../branch.json
 ```
+
 3. Add `branch.json` to `.gitignore`
 
 So now every time anyone adds a new key, it will automatically receive a tag including the name of the branch. 🎉
-
 
 ### 2. `production` 🌿 and `deprecated` 🍂
 
