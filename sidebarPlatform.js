@@ -89,6 +89,7 @@ module.exports = {
           label: 'Slack Integration',
           type: 'category',
           items: [
+            'integrations/slack_integration/about',
             'integrations/slack_integration/setup',
             'integrations/slack_integration/usage',
 
@@ -123,6 +124,8 @@ module.exports = {
         'self_hosting/running_with_java',
         'self_hosting/licensing',
         'self_hosting/configuration',
+        'self_hosting/slack_integration_self_hosted',
+
       ],
     },
     'faq',

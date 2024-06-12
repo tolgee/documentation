@@ -1,0 +1,101 @@
+---
+id: slack_integration_self_hosted
+title: Setup Slack Integration for Self-Hosted Runners
+sidebar_label: Setup Slack Integration
+slug: /self_hosting/slack_integration_self_hosted
+description: Learn how to setup Slack integration for self-hosted runners
+---
+
+## Setup For Self-Hosted Users
+
+If you are using the self-hosted version of Tolgee, you also can use the Slack integration. The setup is a bit different than for cloud users.
+
+### 1. Create and Install the Tolgee App in Slack
+
+First of all you need to create a new app in your Slack workspace. You can do that by navigating to [Slack Apps page](https://api.slack.com/apps)
+and clicking on **Create New App**. To know more about creating an app in Slack, you can refer to the [official documentation](https://api.slack.com/quickstart).
+After creation, you need to install the app in your workspace:
+
+1. Navigate to your app **Basic information** page
+2. Click on **Install to Workspace** button
+
+<ScreenshotWrapper src="/img/docs/platform/slack_integration/install_self_host.png" />
+
+
+### 2. Configure the App
+
+Now you need to provide all necessary tokens. First of all provide `signing-secret`.
+
+1. Go to the **Basic information** page of your app and find the **Signing Secret**.
+2. Navigate to your Tolgee instance and open `application.yaml` file.
+3. Add the following configuration:
+```yaml
+tolgee:
+ slack:
+    signing-secret: <signing-secret>
+```
+
+Now you need to provide all necessary bot Scopes:
+
+1. Navigate to **OAuth & Permissions** page and add the following scopes:
+   - `channels:history`
+   - `channels:read`
+   - `chat:write`
+   - `chat:write.customize`
+   - `commands`
+   - `groups:history`
+   - `groups:read`
+   - `im:history`
+   - `im:read`
+   - `mpim:history`
+   - `mpim:read`
+   - `users:read`
+
+2. Then reinstall the app in your workspace by clicking on **Reinstall App** button. This is necessary to apply the new scopes.
+
+After that, you need to provide the bot token, client-id, and client-secret. Follow these steps:
+
+1. Go to **OAuth & Permissions** and find section **Bot User OAuth Token**. Token starts with `xoxb-`.
+
+2. Now you need to provide the token to your Tolgee instance. Navigate to your Tolgee instance and open `application.yaml` file.
+Add the following configuration:
+```yaml
+tolgee:
+ slack:
+    bot-token: <your-bot-token>
+```
+
+3. Get `client-id` and `client-secret` from the **Basic information** page of your app.
+
+4. Provide client-id and client-secret in `application.yaml` file of your Tolgee instance:
+```yaml
+tolgee:
+ slack:
+   client-id: <your-client-id>
+   client-secret: <your-client-secret>
+```
+
+When you have all the necessary tokens, you need to configure URLs in Slack app:
+
+1. Setup Redirect URL in the **OAuth & Permissions** page of your app. Click on **Add New Redirect URL** and set
+it to public frontend URL e.g. `https://tolgee-frontend-<name>`
+
+2. Setup Redirect URL in the **Event Subscriptions** page . Enable events if not enabled and set a request URL to backend path /v2/public/slack/on-bot-event e.g.
+ `https://tolgee-backend-<name>/v2/public/slack/on-bot-event`
+
+3. Add event `app_uninstalled` in the **Event Subscriptions** page. For that navigate to **Subscribe to bot events** section and add the event.
+
+### 3. Configure Slash commands
+
+You need to add your own slash commands to your app.
+
+1. Navigate to **Slash Commands** in Slack Apps Dashboard.
+2. Click on **Create New Command** button.
+3. Fill in the form with the following values:
+   - Command: `/tolgee`
+   - Request URL: The backend `/v2/public/slack` endpoint url. E.g., `https://tolgee-backend-<name>/v2/public/slack`
+
+### 4. Configure Interactivity & Shortcuts
+
+1. Go to **Interactivity & Shortcuts** page of your app.
+2. Set Interactivity *request url* to /v2/public/slack/on-event backend endpoint. E.g., `https://tolgee-backend-<name>/v2/public/slack/on-event`
