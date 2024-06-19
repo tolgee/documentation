@@ -1,0 +1,73 @@
+---
+id: setup
+title: Setup Tolgee Slack Integration
+sidebar_label: Setup
+description: Learn how to install and setup Tolgee Slack app.
+---
+
+import { ScreenshotWrapper } from '../../shared/_ScreenshotWrapper';
+
+## Prerequisites
+
+Before you begin, ensure you have:
+
+- A Tolgee account with the necessary permissions to manage integrations
+- A Slack workspace where you have permission to add apps
+
+:::info Feature availability
+
+Tolgee Slack Integration is available in the Business and Enterprise plans. [Upgrade your plan](/pricing) to use this feature.
+
+If you use the self-hosted version, you need to [set up the license](/platform/self_hosting/licensing) to use this feature.
+
+:::
+
+## Step 1: Install the Tolgee App in Slack
+
+First of all you need to install the Tolgee app in your Slack workspace. You can do that right via our web app:
+
+1. Open [Tolgee Platform](https://app.tolgee.io/) (login if you are not already)
+2. Click on your icon in the right top corner and go to **Organization Settings**.
+3. Then navigate to **Apps**.
+4. Now you will see all available apps. Click on **Connect To Slack** button in the **Slack** app.
+
+<ScreenshotWrapper src="/img/docs/platform/slack_integration/install_app.png" />
+
+
+After that follow the prompts to authorize Tolgee app to access your Slack workspace just by clicking **Allow**
+
+<ScreenshotWrapper src="/img/docs/platform/slack_integration/authorize.png" />
+
+:::info Info
+
+The first step must be done by the **organization owner**. The second step must be done by any user to access the commands.
+
+:::
+
+After installing the Tolgee app, you can interact with it either as a personal app or within a channel. Once the app is installed in the workspace, it will be available in all public channels.
+For private channels, you need to invite the Tolgee app manually by using the command `/invite @Tolgee`.
+
+## Step 2: Connect your Slack account with your Tolgee account
+
+Now you need to link your Tolgee account with your Slack account. We need this to identify you and provide you with the necessary permissions.
+Here is how you can do that:
+1. Type `/tolgee login` in the chat room to which the Tolgee app is invited.
+2. Button **Connect Tolgee account** will appear in the chat.
+
+<ScreenshotWrapper src="/img/docs/platform/slack_integration/slack_login.png" />
+
+3. Click on it and you will be redirected to the Tolgee login page.
+
+<ScreenshotWrapper src="/img/docs/platform/slack_integration/tolgee_login.png" />
+
+4. Then click **Link Accounts**.
+
+After login you will see a success message in the chat.
+
+Now you can use the Tolgee app in your Slack workspace.
+
+# Self-hosting
+
+You can also use the Tolgee Slack integration with the self-hosted version of Tolgee. Your setup will be a bit different.
+ You need to need to create your own Slack and then configure the Tolgee app to use your self-hosted Tolgee instance.
+To learn more refer to the [Self-hosting documentation](/platform/self_hosting/slack_integration_self_hosted).
