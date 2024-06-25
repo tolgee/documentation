@@ -705,6 +705,18 @@ Tolgee uses [Sentry](https://sentry.io/) for error reporting.
 
   Sample rate for Sentry traces. If unset, traces are disabled on the server.
 
+### slack
+
+Prefix: `tolgee.slack`
+
+- ##### `client-id` {#client-id}
+
+- ##### `client-secret` {#client-secret}
+
+- ##### `signing-secret` {#signing-secret}
+
+- ##### `token` {#token}
+
 ### SMTP
 
 Prefix: `tolgee.smtp`
@@ -932,6 +944,11 @@ tolgee:
     client-dsn:
     server-dsn:
     traces-sample-rate:
+  slack:
+    client-id:
+    client-secret:
+    signing-secret:
+    token:
   smtp:
     auth: false
     from:
@@ -1645,6 +1662,18 @@ Tolgee uses [Sentry](https://sentry.io/) for error reporting.
 
   Sample rate for Sentry traces. If unset, traces are disabled on the server.
 
+<h3 id="slack">SLACK</h3>
+
+Prefix: `TOLGEE_SLACK`
+
+- <h5 id="client-id"><code>CLIENT_ID</code></h5>
+
+- <h5 id="client-secret"><code>CLIENT_SECRET</code></h5>
+
+- <h5 id="signing-secret"><code>SIGNING_SECRET</code></h5>
+
+- <h5 id="token"><code>TOKEN</code></h5>
+
 <h3 id="smtp">SMTP</h3>
 
 Prefix: `TOLGEE_SMTP`
@@ -1844,6 +1873,10 @@ TOLGEE_RECAPTCHA_SITE_KEY=
 TOLGEE_SENTRY_CLIENT_DSN=
 TOLGEE_SENTRY_SERVER_DSN=
 TOLGEE_SENTRY_TRACES_SAMPLE_RATE=
+TOLGEE_SLACK_CLIENT_ID=
+TOLGEE_SLACK_CLIENT_SECRET=
+TOLGEE_SLACK_SIGNING_SECRET=
+TOLGEE_SLACK_TOKEN=
 TOLGEE_SMTP_AUTH=false
 TOLGEE_SMTP_FROM=
 TOLGEE_SMTP_HOST=
@@ -2554,6 +2587,18 @@ Tolgee uses [Sentry](https://sentry.io/) for error reporting.
 
   Sample rate for Sentry traces. If unset, traces are disabled on the server.
 
+<h3 id="slack">slack</h3>
+
+Prefix: `tolgee.slack`
+
+- <h5 id="client-id"><code>client-id</code></h5>
+
+- <h5 id="client-secret"><code>client-secret</code></h5>
+
+- <h5 id="signing-secret"><code>signing-secret</code></h5>
+
+- <h5 id="token"><code>token</code></h5>
+
 <h3 id="smtp">SMTP</h3>
 
 Prefix: `tolgee.smtp`
@@ -2753,6 +2798,10 @@ tolgee.recaptcha.site-key =
 tolgee.sentry.client-dsn =
 tolgee.sentry.server-dsn =
 tolgee.sentry.traces-sample-rate =
+tolgee.slack.client-id =
+tolgee.slack.client-secret =
+tolgee.slack.signing-secret =
+tolgee.slack.token =
 tolgee.smtp.auth = false
 tolgee.smtp.from =
 tolgee.smtp.host =
