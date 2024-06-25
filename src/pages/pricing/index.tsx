@@ -190,6 +190,7 @@ export default function Pricing() {
                 'dedicated-slack-channel',
                 'team-training',
                 'prioritized-feature-requests',
+                'single-sign-on',
               ]}
               minHeights={MIN_PLAN_HEIGHTS}
               action={
