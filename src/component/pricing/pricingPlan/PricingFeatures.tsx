@@ -1,4 +1,5 @@
 import React, { ReactNode } from 'react';
+import { InDevelopment } from '../progressSymbols/InDevelopment';
 import { Ready } from '../progressSymbols/Ready';
 import { PricingDetailsLink } from './PricingDetailsLink';
 
@@ -62,6 +63,7 @@ const FEATURES_MAP = {
       </PricingDetailsLink>
     </Ready>
   ),
+  'single-sign-on': <InDevelopment>Single Sign On</InDevelopment>,
 };
 
 export type Feature = keyof typeof FEATURES_MAP;
