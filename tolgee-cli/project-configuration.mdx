@@ -51,13 +51,6 @@ All the paths in the config are relative to the config file location.
 Integer or integer string (i.e. 4242 or "4242"). ID of the project on the Tolgee server.
 It is shown when you first add an API key, but you can also easily find it in the URL: `app.tolgee.io/projects/{projectId}`.
 
-### `delimiter`
-
-Single char, or null. Used as a structure delimiter.
-
-By default, Tolgee interprets `.` in string keys as nested structures. You can use other delimiter, or disable this
-behavior by specifying `null`.
-
 ### `extractor`
 
 String. Path to the [custom extractor](./extraction/custom-extractor.mdx) to use, relative to the `.tolgeerc`
@@ -135,6 +128,13 @@ Related to `pull` command, which exports the keys from the platform.
 ### `pull.path`
 
 String. Path to a folder where the localization files are stored. (Structure itself can be defined with `fileStructureTemplate`)
+
+### `pull.delimiter`
+
+Single char, or null. Used as a structure delimiter.
+
+By default, Tolgee interprets `.` in string keys as nested structures. You can use other delimiter, or disable this
+behavior by specifying `null` or empty string `""`.
 
 ### `pull.languages`
 
