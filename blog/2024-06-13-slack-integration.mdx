@@ -1,0 +1,63 @@
+---
+slug: releasing-slack-integration
+title: 'Slack integration has been released!'
+description: 'We are excited to announce the release of the Slack integration. This integration allows you to receive notifications about your projects directly in your Slack workspace.'
+image: /img/blog/2024-06-13-slack-integration/cover-light.webp
+authors: [jcizmar]
+tags: [slack, i18n, integration]
+---
+
+import ThemedImage from '@theme/ThemedImage';
+import useBaseUrl from '@docusaurus/useBaseUrl';
+
+<ThemedImage
+  alt="Slack integration"
+  sources={{
+    light: useBaseUrl(
+      '/img/blog/2024-06-13-slack-integration/cover-light.webp'
+    ),
+    dark: useBaseUrl(
+      '/img/blog/2024-06-13-slack-integration/cover.webp'
+    ),
+  }}
+/>
+
+We are excited to announce the release of the Slack integration. This integration allows you to receive
+notifications about your projects directly in your Slack workspace, keeping you updated in real-time.
+
+Go to [docs](/platform/integrations/slack_integration/about) to read more.
+
+<!--truncate-->
+
+## Key features
+With Tolgee's new Slack integration, you can receive notifications of selected project events.
+
+You can set up notifying about the following events:
+- New keys are created
+- Base translation is changed
+- Translations are changed
+## Tailored Notifications for Every Role
+
+When designing the integration, we were considering all the roles contributing to a project and
+we made it configurable to enable each role in the project team to subscribe
+exactly to the events that are related to their work.
+
+- **Project managers** can subscribe to global subscription via `/tolgee subscribe <projectId>`; that way, they will
+only receive a change of any key value once. For subsequent changes, the Slack integration will only update the
+posted messages. If you are not interested in seeing all the language updates, you can specify which event
+you would like to see, e.g., `/tolgee subscribe <projectId> --events --on new_key`
+
+- **Translators** are usually interested in new key creations and base language updates.
+`/tolgee subscribe <projectId> --events --on new_key,base_changed`
+
+- **Proofreaders** are interested in target translation changes, e.g.,
+`/tolgee subscribe <projectId> --events --on translation_changed`
+
+## What's coming next?
+We're not stopping here! Soon, you can expect additional events support for translation comments, batch operations, and more 🚀
+## TL,DR - Sync Your Team with Slack
+- The Slack integration provides notifications for project events.
+- It allows configurable alerts tailored to different roles, such as project managers, translators, and proofreaders.
+- Upcoming features will include support for additional events like translation comments and batch operations. 🚀
+
+[![Join Tolgee Now!](/img/blog/content-delivery/banner-automation.svg)](https://app.tolgee.io/sign_up)
