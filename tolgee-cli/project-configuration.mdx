@@ -85,7 +85,7 @@ List&ltString&gt. File glob patterns to your source code, used for keys extracti
 
 ### `strictNamespace`
 
-Boolean. Require namespace to be reachable, turn off if you don't use namespaces. (Default: true)
+Boolean. Require namespace to be reachable (at extraction), turn off if you don't use namespaces. (Default: true)
 
 ### `defaultNamespace`
 
@@ -93,7 +93,7 @@ String. Default namespace used in extraction if not specified otherwise.
 
 ### `parser`
 
-[`react`, `vue`, `svelte`]. Tolgee detects which parser to use automatically from the extensions of matched files, with this option you can override it.
+Enum&lt`react`|`vue`|`svelte`&gt. Tolgee detects which parser to use automatically from the extensions of matched files, with this option you can override it.
 
 
 ## Push options
