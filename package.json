@@ -87,7 +87,7 @@
     "@types/react-github-button": "^0.1.1",
     "@types/scrollmagic": "^2.0.2",
     "@typescript-eslint/eslint-plugin": "5.32.0",
-    "babel-plugin-styled-components": "2.0.2",
+    "babel-plugin-styled-components": "2.1.4",
     "dotenv": "^16.4.5",
     "react-modal": "3.14.4",
     "typescript": "^4.5.2"
