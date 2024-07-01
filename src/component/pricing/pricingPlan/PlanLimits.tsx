@@ -31,8 +31,7 @@ export const PlanLimits = ({
           </span>{' '}
           <PricingDetailsLink item="what-are-strings">
             strings
-          </PricingDetailsLink>{' '}
-          included
+          </PricingDetailsLink>
         </div>
       )}
       {mtCredits !== undefined && (
@@ -42,8 +41,7 @@ export const PlanLimits = ({
           </span>{' '}
           <PricingDetailsLink item="what-are-mt-credits">
             MT credits
-          </PricingDetailsLink>{' '}
-          included
+          </PricingDetailsLink>
         </div>
       )}
       {seats !== undefined && (
@@ -51,8 +49,7 @@ export const PlanLimits = ({
           <span className="pricing__option-value">
             {seats !== Infinity ? seats.toLocaleString() : 'Unlimited'}
           </span>{' '}
-          <PricingDetailsLink item="what-are-seats">seats</PricingDetailsLink>{' '}
-          included
+          <PricingDetailsLink item="what-are-seats">seats</PricingDetailsLink>
         </div>
       )}
       {payAsYouSit && <div>Only pay for used seats</div>}

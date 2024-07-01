@@ -121,11 +121,6 @@ export const featuresSelfHosted = {
       items: ['y', 'y', 'y', 'y'],
     },
     { type: 'item', label: 'Figma plugin', items: ['y', 'y', 'y', 'y'] },
-    {
-      type: 'item',
-      label: 'Granular permissions',
-      items: ['n', 'n', 'y', 'y'],
-    },
     { type: 'item', label: 'Webhooks', items: ['n', 'y', 'y', 'y'] },
     {
       type: 'item',
@@ -138,11 +133,21 @@ export const featuresSelfHosted = {
     },
     {
       type: 'item',
+      label: 'Granular permissions',
+      items: ['n', 'n', 'y', 'y'],
+    },
+    {
+      type: 'item',
       label: (
-        <PricingDetailsLink item="what-is-project-level-custom-content-storage">
-          Project level custom Storage
+        <PricingDetailsLink item="what-is-custom-content-storage">
+          Custom content storage
         </PricingDetailsLink>
       ),
+      items: ['n', 'n', 'y', 'y'],
+    },
+    {
+      type: 'item',
+      label: 'Slack integration',
       items: ['n', 'n', 'y', 'y'],
     },
 

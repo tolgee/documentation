@@ -84,23 +84,8 @@ export const questions = [
     content: (
       <>
         Custom storage allows you to configure a custom place where the
-        localization files will be deployed. Currently, we support AWS S3
-        buckets and Azure blob storage.
-      </>
-    ),
-  },
-
-  {
-    id: 'what-is-project-level-custom-content-storage',
-    title: 'What is Project level content Storage?',
-    content: (
-      <>
-        Project level custom storage allows you to configure a custom place
-        where the localization files will be deployed. This storage can be
-        configured per project.{' '}
-        <a href="https://tolgee.io/platform/projects_and_organizations/content_delivery#using-custom-storage">
-          Read more{' '}
-        </a>
+        localization files will be deployed. This storage can be configured per
+        project. Currently, we support AWS S3 buckets and Azure blob storage.
       </>
     ),
   },
