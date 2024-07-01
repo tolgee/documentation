@@ -190,6 +190,7 @@ export default function SelfHosted() {
               limits={{
                 strings: Infinity,
                 seats: Infinity,
+                mtCredits: Infinity,
               }}
               featuresShortcut="All from Business"
               features={[

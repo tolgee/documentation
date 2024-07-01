@@ -18,7 +18,6 @@ const FEATURES_MAP = {
       </PricingDetailsLink>
     </Ready>
   ),
-
   'granular-permissions': (
     <Ready link="/platform/projects_and_organizations/members#granular-permissions">
       Granular permissions
@@ -43,8 +42,8 @@ const FEATURES_MAP = {
   ),
   'project-level-custom-content-storage': (
     <Ready>
-      <PricingDetailsLink item="what-is-project-level-custom-content-storage">
-        Project level content storage
+      <PricingDetailsLink item="what-is-custom-content-storage">
+        Custom content storage
       </PricingDetailsLink>
     </Ready>
   ),
@@ -64,6 +63,7 @@ const FEATURES_MAP = {
     </Ready>
   ),
   'single-sign-on': <InDevelopment>Single Sign On</InDevelopment>,
+  'slack-integration': <Ready>Slack integration</Ready>,
 };
 
 export type Feature = keyof typeof FEATURES_MAP;

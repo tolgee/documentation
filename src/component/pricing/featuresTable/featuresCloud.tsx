@@ -163,21 +163,7 @@ export const featuresCloud = {
       items: ['y', 'y', 'y', 'y'],
     },
     { type: 'item', label: 'Figma plugin', items: ['y', 'y', 'y', 'y'] },
-    {
-      type: 'item',
-      label: 'Granular permissions',
-      items: ['n', 'n', 'y', 'y'],
-    },
     { type: 'item', label: 'Webhooks', items: ['n', 'y', 'y', 'y'] },
-    {
-      type: 'item',
-      label: (
-        <PricingDetailsLink item="what-is-content-delivery">
-          Multiple Content Deliveries
-        </PricingDetailsLink>
-      ),
-      items: ['n', 'n', 'y', 'y'],
-    },
     {
       type: 'item',
       label: (
@@ -187,17 +173,36 @@ export const featuresCloud = {
       ),
       items: ['n', 'y', 'y', 'y'],
     },
+    {
+      type: 'item',
+      label: 'Slack integration',
+      items: ['n', 'n', 'y', 'y'],
+    },
+    {
+      type: 'item',
+      label: 'Granular permissions',
+      items: ['n', 'n', 'y', 'y'],
+    },
+    {
+      type: 'item',
+      label: (
+        <PricingDetailsLink item="what-is-content-delivery">
+          Multiple Content Deliveries
+        </PricingDetailsLink>
+      ),
+      items: ['n', 'n', 'y', 'y'],
+    },
 
     { type: 'title', label: 'Assistance' },
     {
       type: 'item',
-      label: 'Prioritized feature requests',
-      items: ['n', 'n', 'n', 'y'],
+      label: 'Standard support',
+      items: ['n', 'y', 'y', 'y'],
     },
     {
       type: 'item',
-      label: 'Standard support',
-      items: ['n', 'y', 'y', 'y'],
+      label: 'Prioritized feature requests',
+      items: ['n', 'n', 'n', 'y'],
     },
     { type: 'item', label: 'Premium support', items: ['n', 'n', 'n', 'y'] },
     { type: 'item', label: 'Account manager', items: ['n', 'n', 'n', 'y'] },
