@@ -51,20 +51,11 @@ All the paths in the config are relative to the config file location.
 Integer or integer string (i.e. 4242 or "4242"). ID of the project on the Tolgee server.
 It is shown when you first add an API key, but you can also easily find it in the URL: `app.tolgee.io/projects/{projectId}`.
 
-### `extractor`
-
-String. Path to the [custom extractor](./extraction/custom-extractor.mdx) to use, relative to the `.tolgeerc`
-file.
-
 By default, Tolgee uses its own internal extractor which looks for use of the [Tolgee SDK](/js-sdk).
 
 ### `apiUrl`
 
 String. URL to the Tolgee instance you're using. If you're using Tolgee Cloud, you can ignore this.
-
-### `patterns`
-
-List&ltString&gt. File glob patterns to your source code, used for keys extraction.
 
 ### `format`
 
@@ -82,6 +73,27 @@ Options:
  - `FLUTTER_ARB`
  - `YAML_(ICU|JAVA|PHP|RUBY)`
  - `XLIFF_(ICU|JAVA|PHP|RUBY)`
+
+### `extractor`
+
+String. Path to the [custom extractor](./extraction/custom-extractor.mdx) to use, relative to the `.tolgeerc`
+file.
+
+### `patterns`
+
+List&ltString&gt. File glob patterns to your source code, used for key extraction.
+
+### `strictNamespace`
+
+Boolean. Require namespaces to be reachable (at extraction), turn off if you don't use namespaces. (Default: true)
+
+### `defaultNamespace`
+
+String. Default namespace used in extraction if not specified otherwise.
+
+### `parser`
+
+Enum&lt`react`|`vue`|`svelte`&gt. Tolgee detects which parser to use automatically from the extensions of matched files, with this option you can override it.
 
 
 ## Push options
