@@ -8,12 +8,15 @@
         "string"
       ]
     },
-    "extractor": {
-      "description": "A path to a custom extractor to use instead of the default one.",
-      "type": "string"
-    },
     "apiUrl": {
       "description": "The url of Tolgee API.",
+      "type": "string"
+    },
+    "format": {
+      "$ref": "#/$defs/format"
+    },
+    "extractor": {
+      "description": "A path to a custom extractor to use instead of the default one.",
       "type": "string"
     },
     "patterns": {
@@ -23,8 +26,21 @@
         "type": "string"
       }
     },
-    "format": {
-      "$ref": "#/$defs/format"
+    "strictNamespace": {
+      "description": "Require namespace to be reachable, turn off if you don't use namespaces. (Default: true)",
+      "type": "boolean"
+    },
+    "defaultNamespace": {
+      "description": "Default namespace used in extraction if not specified otherwise.",
+      "type": "string"
+    },
+    "parser": {
+      "description": "Override parser detection.",
+      "enum": [
+        "react",
+        "vue",
+        "svelte"
+      ]
     },
     "push": {
       "type": "object",
