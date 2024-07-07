@@ -8,9 +8,10 @@ module.exports = {
       type: 'category',
       items: [
         {
-          label: 'Using with React',
+          label: 'React',
           type: 'category',
           items: [
+            'integrations/react/overiview',
             'integrations/react/installation',
             'integrations/react/translating',
             'integrations/react/tags_interpolation',
@@ -30,7 +31,7 @@ module.exports = {
           ],
         },
         {
-          label: 'Using with Angular',
+          label: 'Angular',
           type: 'category',
           items: [
             'integrations/angular/installation',
@@ -42,7 +43,7 @@ module.exports = {
           ],
         },
         {
-          label: 'Using with Vue',
+          label: 'Vue',
           type: 'category',
           items: [
             'integrations/vue/installation',
@@ -53,7 +54,7 @@ module.exports = {
           ],
         },
         {
-          label: 'Using with Svelte',
+          label: 'Svelte',
           type: 'category',
           items: [
             'integrations/svelte/installation',
@@ -63,7 +64,7 @@ module.exports = {
           ],
         },
         {
-          label: 'Using with i18next',
+          label: 'i18next',
           type: 'category',
           items: [
             'integrations/i18next/installation',
