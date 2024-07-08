@@ -82,7 +82,7 @@ export default function Pricing() {
               onMore={openFeaturesTable}
             />
             <PricingPlan
-              name="Pay as you go"
+              name="Basic"
               description={
                 <>
                   For individuals <br /> and small projects
@@ -152,7 +152,7 @@ export default function Pricing() {
               ]}
               billingType={billing}
               toggleBillingType={toggleBilling}
-              featuresShortcut="All from Pay as you go"
+              featuresShortcut="All from Basic"
               features={[
                 'granular-permissions',
                 'multiple-content-deliveries',
