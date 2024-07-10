@@ -1,12 +1,14 @@
 ---
 id: switching_language
-title: Switching language (React)
+title: Switching Language
 sidebar_label: Switching language
 slug: switching-language
-description: 'How to switch languages in React integration: For language management, use useCurrentLanguage and useSetLanguage hooks.'
+description: "Tolgee enables you to implement localization in your React application with ease. You can integrate Tolgee in your React application using Tolgee's SDK for React. Learn to manage language change using the useTolgee hook."
 ---
 
-For language management, use [`useTolgee`](./api#hook-usetolgee) hook. With passed [`language`](/api/core_package/events.mdx) event, so the component will get re-rendered when this event occurs.
+To manage an event like language change, the React SDK provides the [`useTolgee`](./api#hook-usetolgee) hook.
+
+Pass the [`language`](/api/core_package/events.mdx) event to the hook to re-rendered the component when the event emits.
 
 ```jsx
 import { useTolgee } from '@tolgee/react';
@@ -26,4 +28,4 @@ export const LangSelector = () => {
 };
 ```
 
-> Read more about [Language change, detection and storage](/language.mdx)
+> Learn more about language change, detection and storage on the [Language documentation page](../../language).
