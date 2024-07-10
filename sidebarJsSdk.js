@@ -11,7 +11,7 @@ module.exports = {
           label: 'React',
           type: 'category',
           items: [
-            'integrations/react/overiview',
+            'integrations/react/overview',
             'integrations/react/installation',
             'integrations/react/translating',
             'integrations/react/tags_interpolation',
