@@ -46,11 +46,11 @@ The above example code will render the following text.
 
 ![Formatted text](/img/docs/text_formatted.png)
 
-## 2. Passing a React component
+## 2. Passing a function
 
 ### Example usage
 
-You can also pass a React component:
+You can also pass a function that returns a React node. This function can take `content` as an argument such that `(content: React.ReactNode) => React.ReactNode`
 
 ```tsx
 const myFunction = (content) => <i title={content}>{content}</i>;
