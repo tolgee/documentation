@@ -634,6 +634,12 @@ Per-endpoint and auth-related rate limits are fixed and cannot be configured.
   
    (default: `true`)
 
+- ##### `email-verification-request-limit` {#email-verification-request-limit}
+
+- ##### `email-verification-request-limit-enabled` {#email-verification-request-limit-enabled}
+
+- ##### `email-verification-request-window` {#email-verification-request-window}
+
 - ##### `enabled` {#enabled}
 
   To turn all rate limits off, set this value to `false`.
@@ -704,6 +710,18 @@ Tolgee uses [Sentry](https://sentry.io/) for error reporting.
 - ##### `traces-sample-rate` {#traces-sample-rate}
 
   Sample rate for Sentry traces. If unset, traces are disabled on the server.
+
+### slack
+
+Prefix: `tolgee.slack`
+
+- ##### `client-id` {#client-id}
+
+- ##### `client-secret` {#client-secret}
+
+- ##### `signing-secret` {#signing-secret}
+
+- ##### `token` {#token}
 
 ### SMTP
 
@@ -918,6 +936,9 @@ tolgee:
     user: postgres
   rate-limit:
     authentication-limits: true
+    email-verification-request-limit: 5
+    email-verification-request-limit-enabled: true
+    email-verification-request-window: 60000
     enabled: true
     endpoint-limits: true
     global-limits: true
@@ -932,6 +953,11 @@ tolgee:
     client-dsn:
     server-dsn:
     traces-sample-rate:
+  slack:
+    client-id:
+    client-secret:
+    signing-secret:
+    token:
   smtp:
     auth: false
     from:
@@ -1574,6 +1600,12 @@ Per-endpoint and auth-related rate limits are fixed and cannot be configured.
   
    (default: `true`)
 
+- <h5 id="email-verification-request-limit"><code>EMAIL_VERIFICATION_REQUEST_LIMIT</code></h5>
+
+- <h5 id="email-verification-request-limit-enabled"><code>EMAIL_VERIFICATION_REQUEST_LIMIT_ENABLED</code></h5>
+
+- <h5 id="email-verification-request-window"><code>EMAIL_VERIFICATION_REQUEST_WINDOW</code></h5>
+
 - <h5 id="enabled"><code>ENABLED</code></h5>
 
   To turn all rate limits off, set this value to `false`.
@@ -1644,6 +1676,18 @@ Tolgee uses [Sentry](https://sentry.io/) for error reporting.
 - <h5 id="traces-sample-rate"><code>TRACES_SAMPLE_RATE</code></h5>
 
   Sample rate for Sentry traces. If unset, traces are disabled on the server.
+
+<h3 id="slack">SLACK</h3>
+
+Prefix: `TOLGEE_SLACK`
+
+- <h5 id="client-id"><code>CLIENT_ID</code></h5>
+
+- <h5 id="client-secret"><code>CLIENT_SECRET</code></h5>
+
+- <h5 id="signing-secret"><code>SIGNING_SECRET</code></h5>
+
+- <h5 id="token"><code>TOKEN</code></h5>
 
 <h3 id="smtp">SMTP</h3>
 
@@ -1832,6 +1876,9 @@ TOLGEE_POSTGRES_AUTOSTART_PORT=25432
 TOLGEE_POSTGRES_AUTOSTART_STOP=true
 TOLGEE_POSTGRES_AUTOSTART_USER=postgres
 TOLGEE_RATE_LIMIT_AUTHENTICATION_LIMITS=true
+TOLGEE_RATE_LIMIT_EMAIL_VERIFICATION_REQUEST_LIMIT=5
+TOLGEE_RATE_LIMIT_EMAIL_VERIFICATION_REQUEST_LIMIT_ENABLED=true
+TOLGEE_RATE_LIMIT_EMAIL_VERIFICATION_REQUEST_WINDOW=60000
 TOLGEE_RATE_LIMIT_ENABLED=true
 TOLGEE_RATE_LIMIT_ENDPOINT_LIMITS=true
 TOLGEE_RATE_LIMIT_GLOBAL_LIMITS=true
@@ -1844,6 +1891,10 @@ TOLGEE_RECAPTCHA_SITE_KEY=
 TOLGEE_SENTRY_CLIENT_DSN=
 TOLGEE_SENTRY_SERVER_DSN=
 TOLGEE_SENTRY_TRACES_SAMPLE_RATE=
+TOLGEE_SLACK_CLIENT_ID=
+TOLGEE_SLACK_CLIENT_SECRET=
+TOLGEE_SLACK_SIGNING_SECRET=
+TOLGEE_SLACK_TOKEN=
 TOLGEE_SMTP_AUTH=false
 TOLGEE_SMTP_FROM=
 TOLGEE_SMTP_HOST=
@@ -2483,6 +2534,12 @@ Per-endpoint and auth-related rate limits are fixed and cannot be configured.
   
    (default: `true`)
 
+- <h5 id="email-verification-request-limit"><code>email-verification-request-limit</code></h5>
+
+- <h5 id="email-verification-request-limit-enabled"><code>email-verification-request-limit-enabled</code></h5>
+
+- <h5 id="email-verification-request-window"><code>email-verification-request-window</code></h5>
+
 - <h5 id="enabled"><code>enabled</code></h5>
 
   To turn all rate limits off, set this value to `false`.
@@ -2553,6 +2610,18 @@ Tolgee uses [Sentry](https://sentry.io/) for error reporting.
 - <h5 id="traces-sample-rate"><code>traces-sample-rate</code></h5>
 
   Sample rate for Sentry traces. If unset, traces are disabled on the server.
+
+<h3 id="slack">slack</h3>
+
+Prefix: `tolgee.slack`
+
+- <h5 id="client-id"><code>client-id</code></h5>
+
+- <h5 id="client-secret"><code>client-secret</code></h5>
+
+- <h5 id="signing-secret"><code>signing-secret</code></h5>
+
+- <h5 id="token"><code>token</code></h5>
 
 <h3 id="smtp">SMTP</h3>
 
@@ -2741,6 +2810,9 @@ tolgee.postgres-autostart.port = 25432
 tolgee.postgres-autostart.stop = true
 tolgee.postgres-autostart.user = postgres
 tolgee.rate-limit.authentication-limits = true
+tolgee.rate-limit.email-verification-request-limit = 5
+tolgee.rate-limit.email-verification-request-limit-enabled = true
+tolgee.rate-limit.email-verification-request-window = 60000
 tolgee.rate-limit.enabled = true
 tolgee.rate-limit.endpoint-limits = true
 tolgee.rate-limit.global-limits = true
@@ -2753,6 +2825,10 @@ tolgee.recaptcha.site-key =
 tolgee.sentry.client-dsn =
 tolgee.sentry.server-dsn =
 tolgee.sentry.traces-sample-rate =
+tolgee.slack.client-id =
+tolgee.slack.client-secret =
+tolgee.slack.signing-secret =
+tolgee.slack.token =
 tolgee.smtp.auth = false
 tolgee.smtp.from =
 tolgee.smtp.host =
