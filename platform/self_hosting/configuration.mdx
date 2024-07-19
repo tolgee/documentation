@@ -116,6 +116,10 @@ Configuration of Tolgee's authentication.
   
    (default: `admin`)
 
+  :::tip
+  If you have updated the `initial-username` password via the Tolgee web UI and need to reset it to the `initial-password`; set the password_changed field to 'false' in the user_account table. Restarting the container will now allow you to use your `initial-password` for logging in.
+  :::
+
 - ##### `jwt-expiration` {#jwt-expiration}
 
   Expiration time of generated JWT tokens in milliseconds. (default: `604800000` = 7 days)
