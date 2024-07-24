@@ -1,0 +1,48 @@
+---
+id: running_on_azure
+title: Running on Azure
+sidebar_label: Running on Azure
+slug: /self_hosting/running_on_azure
+---
+
+If you're Azure user, we have prepared a Marketplace image for you. You can find it [here !!!replace with real link!!!](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/strapi.strapi?tab=Overview).
+This image runs the Tolgee server on Azure VM via Docker with the default configuration and is ready to use.
+You can also configure HTTPS support with Let's Encrypt and Traffic.
+
+import ThemedImage from '@theme/ThemedImage';
+
+<ThemedImage
+  alt="Azure Marketplace Offer"
+  sources={{
+    light: '/img/docs/platform/self-hosting/tolgee_azure.webp',
+    dark: '/img/docs/platform/self-hosting/tolgee_azure-dark.webp',
+  }}
+/>
+
+## Basic setup of Tolgee on Azure
+To create VM with Tolgee server, follow these steps:
+1. Open this [link](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/tolgee.azure-vitual-machine?tab=Overview) and click on "Get it now".
+2. Login to your Azure account if not already logged in.
+3. On the marketplace offer, click on "Create" and fill in the required information.
+4. When Azure is done with creating your VM, access it via configured SSH credentials
+5. Run the following command to get the initial password for user `admin`:
+   ```bash
+   ssh azureuser@<public ip of the VM> "cat /tolgee/data/initial.pwd && echo"
+   ```
+6. Log in to the Tolgee Platform by accessing it in a browser using in the VM's IP address. Use username `admin` and the password obtained in the previous step.
+7. Done! 🎉
+
+## Configuring HTTPS support with Let's Encrypt and Traefik
+When using Tolgee, you will likely communicate with the server encrypted. We have prepared a simple way how
+to configure it using [Traefik](https://traefik.io/traefik/) and [Let's encrypt](https://letsencrypt.org/).
+
+1. Set up your custom domain to point to the VM's public IP address (e.g., `tolgee.mydomain.com`).
+2. SSH to the VM and edit the file `/tolgee/docker-compose.yml`.
+3. Comment out everything under `# This is for HTTP (unsecured) connection`
+and uncomment everything under `# This is for HTTPS (secured) connection`. In both `app` and `traefik` sections.
+4. Replace `<your e-mail>` with your e-mail and `example.com` with your domain.
+5. Restart the docker compose inside `/tolgee` directory by running `cd /tolgee && docker compose up -d --force-recreate`.
+6. Now you can access Tolgee via `https://tolgee.mydomain.com,` which is secured by Let's Encrypt. 🎉
+
+## Configuration
+To configure Tolgee, you can edit the `/tolgee/data/config.yaml` according to the [configuration documentation](/platform/self_hosting/configuration).
