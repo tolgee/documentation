@@ -3,7 +3,7 @@ import { FeaturesTableItem } from './FeaturesTable';
 import { PricingDetailsLink } from '../pricingPlan/PricingDetailsLink';
 
 export const featuresCloud = {
-  plans: ['Free', 'Pay as you go', 'Business', 'Enterprise'],
+  plans: ['Free', 'Basic', 'Business', 'Enterprise'],
   items: [
     { type: 'title', label: 'Basic parameters' },
     {
