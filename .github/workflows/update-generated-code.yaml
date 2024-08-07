@@ -43,7 +43,7 @@ jobs:
 
       - name: Run the app & wait
         run: |
-          docker run --rm -d -p8080:8080 ghcr.io/tolgee/tolgee-ee:${{ github.event.inputs.version }}
+          docker run --rm -d -p8080:8080 -e tolgee.billing.createSubscriptionsOnStartup=true ghcr.io/tolgee/tolgee-ee:${{ github.event.inputs.version }}
           curl --retry 200 --retry-delay 1 -s --retry-all-errors "http://localhost:8080/swagger-ui/index.html" > /dev/null
 
       - name: Generate the code
