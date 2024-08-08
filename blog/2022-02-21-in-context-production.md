@@ -70,7 +70,7 @@ Now, if you navigate to any website which is using Tolgee, it should change its 
 3. Fill the API key
    - If `API url` is empty, fill it with `https://app.tolgee.io` (unless you use self-hosted Tolgee platform)
 4. Click `Apply`
-5. You should see green message `Valid` if your url and key are correct
+5. You should see green message with the name of your project if your url and key are correct
 
 ![Api key new](../static/img/blog/in-context-production/tolgee-plugin-dialog-filled.png)
 
