@@ -33,7 +33,7 @@ It's practical to pin it (with the pin symbol), so it's visible in the header ba
 
 ![Extensions list](../static/img/blog/in-context-production/extensions-list.png)
 
-Now, if you navigate to any website which is using Tolgee, it should change its color, if you click on it you should see following dialog:
+Now, if you navigate to any website that is using Tolgee, it should change its color. If you click on it you should see the following dialog:
 
 ![Tolgee Tools dialog](../static/img/blog/in-context-production/tolgee-plugin-dialog.png)
 
