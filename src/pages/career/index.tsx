@@ -40,18 +40,25 @@ export default function Career() {
           <h2 className="mt-[30px]">
             <GradientText>Currently open positions</GradientText>
           </h2>
-          <h3>Developer Relations (Dev Rel)</h3>
+          <h3>
+            <a href="/blog/we-are-hiring-full-stack-engineer-with-focus-on-the-backend">
+              Full-stack engineer with focus on the backend
+            </a>
+          </h3>
           <p>
-            Are you passionate about developer advocacy and fostering meaningful
-            relationships within the tech community? Join us as a Dev Rel at
-            Tolgee, where you'll have the opportunity to build connections,
-            create resources and share knowledge.
+            We are looking for someone would will become integral part of Tolgee
+            team and who will continues building a great, stable, clean and
+            scalable backend of Tolgee Platform.
+            <br />
+            <a href="/blog/we-are-hiring-full-stack-engineer-with-focus-on-the-backend">
+              Read more.
+            </a>
           </p>
-          <h3>Backend Developer - Kotlin/Java</h3>
+          <h3>Full-stack engineer with focus on mobile development</h3>
           <p>
-            Are you a passionate Kotlin/Java developer ready to embark on a
-            thrilling journey with Tolgee? We're a startup that offers a unique
-            experience, challenging the status quo of software localization.
+            We are looking for someone would will become integral part of Tolgee
+            team and who will build the best ever i18n mobile SDKs for Android,
+            iOS or Flutter.
           </p>
           <h2 className="mt-[30px] mb-[50px]">
             <GradientText>Prefer to start small?</GradientText>
