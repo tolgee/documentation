@@ -54,11 +54,19 @@ export default function Career() {
               Read more.
             </a>
           </p>
-          <h3>Full-stack engineer with focus on mobile development</h3>
+          <h3>
+            <a href="/blog/we-are-hiring-full-stack-engineer-with-focus-on-mobile-development">
+              Full-stack engineer with focus on mobile development
+            </a>
+          </h3>
           <p>
             We are looking for someone would will become integral part of Tolgee
             team and who will build the best ever i18n mobile SDKs for Android,
             iOS or Flutter.
+            <br />
+            <a href="/blog/we-are-hiring-full-stack-engineer-with-focus-on-mobile-development">
+              Read more.
+            </a>
           </p>
           <h2 className="mt-[30px] mb-[50px]">
             <GradientText>Prefer to start small?</GradientText>
