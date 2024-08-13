@@ -13,7 +13,7 @@ import './career.css';
 export default function Career() {
   return (
     <div>
-      <DecoratedLayout title={`Why open-source?`}>
+      <DecoratedLayout title={`We are hiring`}>
         <PageHeader className="mb-[180px]">
           <PageHeaderTitle active h1>
             Join Us on Our Journey
@@ -23,7 +23,7 @@ export default function Career() {
         <Head>
           <meta
             name="description"
-            content="Why is open source our passion? Learn why we follow the open-source model with Tolgee localization tool and what are the benefits."
+            content="Join the Tolgee team and build the best i18n developer friendly tool ever! "
           />
         </Head>
 
@@ -59,6 +59,10 @@ export default function Career() {
             We are looking for someone would will become integral part of Tolgee
             team and who will build the best ever i18n mobile SDKs for Android,
             iOS or Flutter.
+            <br />
+            <a href="/blog/we-are-hiring-full-stack-engineer-with-focus-on-mobile-development">
+              Read more.
+            </a>
           </p>
           <h2 className="mt-[30px] mb-[50px]">
             <GradientText>Prefer to start small?</GradientText>
