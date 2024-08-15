@@ -210,7 +210,7 @@ export const References = () => {
 
         <div className="mt-14">
           <a
-            href="https://www.capterra.com/reviews/278005/Tolgee?utm_source=vendor&utm_medium=badge&utm_campaign=capterra_reviews_badge"
+            href="https://www.capterra.com/p/10002120/Tolgee/reviews/?utm_source=vendor&utm_medium=badge&utm_campaign=capterra_reviews_badge"
             target="_blank"
             rel="noopener noreferrer"
           >
