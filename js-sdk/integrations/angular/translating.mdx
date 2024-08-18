@@ -1,29 +1,32 @@
 ---
 id: translating
-title: Translating (Angular)
+title: Translating
 sidebar_label: Translating
-description: 'Learn how to translate with Angular. To translate strings in Angular, you can use pipe, t component, or translation methods.'
+description: "Tolgee enables you to implement localization in your Angular application with ease. You can integrate Tolgee in your Angular application using Tolgee's integration library for Angular. Learn to impelement translation using the various methods."
 ---
 
 import TFunctionHint from '../../shared/_TFunctionHint.mdx';
 import NamespacesHint from '../../shared/_NamespacesHint.mdx';
 import ExampleBanner from '../../shared/ExampleBanner';
 
-<ExampleBanner framework="Angular" appName="ngx" />
+You can implement translation in your Angular application in the following ways.
 
-You can use pipe, t component, or translation methods to translate strings in Angular.
+- Using the [translate pipe](#translate-pipe)
+- Using the [`t` attribute](#t-attribute)
+- Using the [Translations methods](#translation-methods)
 
-## Using pipe
+## Translate pipe
 
-To translate a string using [`translate`](/integrations/angular/api.mdx#translate-pipe) pipe.
+You can translate a string using the [`translate pipe`](/integrations/angular/api.mdx#translate-pipe). It accepts specific parameters and an optional default value.
 
 ```html
 <h1>{{'hello_world' | translate}}</h1>
 ```
 
 To provide parameters for translation, pass them as the first parameter of the `translate` pipe.
+
 :::info
-To enable parameter interpolation, you need to use some [message formatter](/formatting.mdx).
+To enable parameter interpolation, you need to use a [message formatter](/formatting.mdx).
 :::
 
 ```html
@@ -33,10 +36,11 @@ To enable parameter interpolation, you need to use some [message formatter](/for
 You can also provide a default value.
 
 ```html
-<h1>{{'hello' | translate:{ name: 'John Doe' }:'Default!'}}</h1>
 // with params
-<h1>{{'hello' | translate:'Default!'}}</h1>
+<h1>{{'hello' | translate:{ name: 'John Doe' }:'Default!'}}</h1>
+
 // or without params
+<h1>{{'hello' | translate:'Default!'}}</h1>
 ```
 
 To disable wrapping, provide a `noWrap` option.
@@ -45,35 +49,35 @@ To disable wrapping, provide a `noWrap` option.
 <h1>{{ 'hello' | translate:{ noWrap: true } }}</h1>
 ```
 
-## [Element with `t` attribute](/integrations/angular/api.mdx#tcomponent)
+## `t` attribute
 
-You can also use [element with `t`](/integrations/angular/api.mdx#tcomponent) attribute. Angular will render Tolgee component with `t` attribute selector.
+You can also use a [`t` attribute](/integrations/angular/api.mdx#tcomponent) with an element for translation. Angular will render Tolgee component with `t` attribute selector.
 
 ```html
 <h1 t key="providing_default_values"></h1>
 ```
 
 To provide parameters for translation, pass them via the params attribute.
+
 :::info
-To enable parameter interpolation, you need to use some [message formatter](/formatting.mdx).
+To enable parameter interpolation, you need to use a [message formatter](/formatting.mdx).
 :::
 
 ```html
-<p t key="Peter has n dogs" [params]="{ name: 'John Doe' }"></p>
+<p t key="using_t_with_params" [params]="{ name: 'John Doe' }"></p>
 ```
 
-You can provide a default value using the `default` attribute
+You can also provide a default value using the `default` attribute.
 
 ```html
 <p t key="using_t_with_default" default="This is default"></p>
 ```
 
-## Using translation methods
+## Translation methods
 
-To translate texts in your component code, use [`translate`](/integrations/angular/api.mdx#method-translate)
-or [`instant`](/integrations/angular/api.mdx#method-instant) method.
+To translate texts in your component code, you can use [`translate`](/integrations/angular/api.mdx#method-translate) or [`instant`](/integrations/angular/api.mdx#method-instant) methods.
 
-These methods are part of `TranslateService` which can be injected using dependency injection:
+These methods are part of `TranslateService` which can be injected using dependency injection as shown in the following example.
 
 ```typescript
 import { Component, OnInit } from '@angular/core';
@@ -97,8 +101,7 @@ export class AppComponent implements OnInit {
 }
 ```
 
-`translate` method returns [**Observable**](https://rxjs-dev.firebaseapp.com/guide/observable)
-as a result, the provided listener is called every time the translation changes due to language changes or other reasons.
+`translate` method returns an [**Observable**](https://rxjs-dev.firebaseapp.com/guide/observable). As a result, the provided listener is called every time the translation changes due to language changes or other reasons.
 
 ```typescript
 this.translateService
@@ -106,17 +109,18 @@ this.translateService
   .subscribe((r) => (this.helloWorld = r));
 ```
 
-If you are unable to use this asynchronous approach for some reason, you can use
-[`instant`](/integrations/angular/api.mdx#method-instant) method.
+If you are unable to use this asynchronous approach for any reason, you can use the
+`instant` method.
+
+:::warning
+Don't overuse the `instant` method. Whenever possible, use the `translate` method.
+When translations are not loaded, `instant` method will not provide a valid result.
+:::
 
 ```typescript
 this.helloWorld = this.translateService.instant('hello_world');
 ```
 
-Both instant and translate methods accept the same parameters as [`tolgee.t`](/api/core_package/tolgee.mdx#t).
-So you can use all its features.
+Both the `instant` and `translate` methods accept the same parameters as [`tolgee.t`](/api/core_package/tolgee.mdx#t).
 
-:::warning
-Don't overuse [`instant`](/integrations/angular/api.mdx#method-instant) method. When possible, use [`translate`](/integrations/angular/api.mdx#method-get) method.
-When the translations are not loaded, [`instant`](/integrations/angular/api.mdx#method-instant) method will not provide a valid result.
-:::
+<ExampleBanner framework="Angular" appName="ngx" />

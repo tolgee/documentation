@@ -1,15 +1,15 @@
 ---
 id: api
-title: API (Angular)
+title: API
 sidebar_label: API
-description: 'API documentation for using Tolgee tool with Angular: NgxTolgeeModule, TranslateService, T-component, and others.'
+description: "Tolgee enables you to implement localization in your Angular application with ease. You can integrate Tolgee in your Angular application using Tolgee's integration library for Angular. Learn about NgxTolgeeModule, TranslateService, T-component, and other APIs."
 ---
 
-The package `@tolgee/ngx` exports these components and all of [`@tolgee/web`](/api/web_package/about.mdx).
+The `@tolgee/ngx` library exports the following components and all available components from [`@tolgee/web`](/api/web_package/about.mdx).
 
 ## NgxTolgeeModule
 
-The Tolgee Module. Add it to imports. The module exports `TranslatePipe` and `TComponent`.
+This is Tolgee Module. The module exports [`TranslatePipe`] and [`TComponent`]. To use Tolgee in your Angular application, you must import the `NgxTolgeeModule` in your application module.
 
 Example usage:
 
@@ -30,6 +30,7 @@ Example usage:
 ```
 
 ## TOLGEE_INSTANCE
+
 The injection token to provide [Tolgee instance](/api/core_package/tolgee.mdx).
 
 ```ts
@@ -68,43 +69,8 @@ The injection token to provide [Tolgee instance](/api/core_package/tolgee.mdx).
 Contains methods to translate text used by other components.
 
 ### property `tolgee`
+
 The [Tolgee instance](/api/core_package/tolgee.mdx).
-
-### method `translate`
-
-Returns `Observable` emitting current translation for specified parameters and current language. When the current value changes
-due to any event (e.g. language change), the new value is emitted.
-
-```ts
-this.subscription = this.translateService
-  .translate('this_is_a_key_with_params', { key: 'value' }, 'Default value')
-  .subscribe((val) => (this.translated = val));
-```
-
-This method accepts the same arguments as [`Tolgee.t`](/api/core_package/tolgee.mdx#t).
-
-```ts
-translate(key: string, defaultValue?: string, options?: CombinedOptions): Observable<string>
-translate(key: string, options?: CombinedOptions): Observable<string>
-translate(props: TranslateProps): Observable<string>
-```
-
-### method `instant`
-
-Returns `string` providing current translation value depending on the current language.
-
-```ts
-const translated = this.translateService
-  .instant('this_is_a_key_with_params', { key: 'value' }, 'Default value')
-```
-
-This method accepts the same arguments as [`Tolgee.t`](/api/core_package/tolgee.mdx#t).
-
-```ts
-instant(key: string, defaultValue?: string, options?: CombinedOptions): string
-instant(key: string, options?: CombinedOptions): string
-instant(props: TranslateProps): string
-```
 
 ### property `language`
 
@@ -126,20 +92,56 @@ Sets current language.
 this.translateService.setLang('en');
 ```
 
+### method `translate`
+
+Returns `Observable` emitting current translation for specified parameters and current language. When the current value changes due to an event (e.g. language change), the new value gets emitted.
+
+```ts
+this.subscription = this.translateService
+  .translate('this_is_a_key_with_params', { key: 'value' }, 'Default value')
+  .subscribe((val) => (this.translated = val));
+```
+
+This method accepts the same arguments as [`Tolgee.t`](/api/core_package/tolgee.mdx#t) method.
+
+```ts
+translate(key: string, defaultValue?: string, options?: CombinedOptions): Observable<string>
+translate(key: string, options?: CombinedOptions): Observable<string>
+translate(props: TranslateProps): Observable<string>
+```
+
+### method `instant`
+
+Returns `string` providing current translation value depending on the current language.
+
+```ts
+const translated = this.translateService
+  .instant('this_is_a_key_with_params', { key: 'value' }, 'Default value')
+```
+
+This method accepts the same arguments as [`Tolgee.t`](/api/core_package/tolgee.mdx#t) method.
+
+```ts
+instant(key: string, defaultValue?: string, options?: CombinedOptions): string
+instant(key: string, options?: CombinedOptions): string
+instant(props: TranslateProps): string
+```
+
 #### parameter language
 
 The language to be set.
 
-#### returns `Promise<void>` relved when language data is loaded
+returns `Promise<void>` relved when language data is loaded
 
-### Method `on`
+### method `on`
+
 Listens to Tolgee events.
 
 #### parameter `event`
 
 The event to listen to
 
-#### returns `Observable<?>` emitting when the event is triggered, providing [event-specific data](/api/core_package/events.mdx).
+returns `Observable<?>` emitting when the event is triggered, providing [event-specific data](/api/core_package/events.mdx).
 
 Read more in [Events API](/api/core_package/events.mdx)
 
@@ -169,8 +171,7 @@ Component with `t` attribute selector. Replaces the content of the element with 
 
 ### `translate` pipe
 
-Translates a key with specific parameters or default value. The transform method of `translate` pipe accepts the
-same arguments as [`tolgee.t`](/api/core_package/tolgee.mdx#t)
+Translates a key with specific parameters or default value. The transform method of `translate` pipe accepts the same arguments as the [`tolgee.t`](/api/core_package/tolgee.mdx#t) method.
 
 Example usages:
 
@@ -182,4 +183,5 @@ Example usages:
 ```
 
 ## NamespaceResolver
-A resolver to load namespaces while loading lazy module. You need to set `data.tolgeeNamespace` property to set the namespace to load.
+
+A resolver to load namespaces while loading lazy module. Set `data.tolgeeNamespace` property to set the namespace to load.
