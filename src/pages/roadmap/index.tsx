@@ -21,6 +21,49 @@ type PeriodData = {
 };
 
 const roadmapData = {
+  '2024/Q2': {
+    active: false,
+    future: false,
+    items: [
+      {
+        name: 'Slack integration',
+        done: true,
+        gitHubIssueLink:
+          'https://github.com/tolgee/tolgee-platform/issues/1384',
+        description: (
+          <p>
+            Users will be able to subscribe to a Tolgee project from a Slack
+            channel, and when permitted, they will be able to modify translated
+            values directly from Slack.
+          </p>
+        ),
+      },
+      {
+        name: 'CLI 2.0',
+        done: true,
+        gitHubIssueLink:
+          'https://github.com/tolgee/tolgee-platform/issues/1561',
+        description: (
+          <p>
+            Tolgee CLI now supports various file formats for easy import/export 
+            and introduces a tagging command to organize keys during development.
+          </p>
+        ),
+      },
+      {
+        name: 'Improved Figma plugin',
+        done: true,
+        gitHubIssueLink:
+          'https://github.com/tolgee/tolgee-platform/issues/1561',
+        description: (
+          <p>
+            Based on many user requests and feedback, we improved the overall 
+            performance of the Tolgee Figma plugin.
+          </p>
+        ),
+      },
+    ],
+  },
   '2024/Q1': {
     active: false,
     future: false,
@@ -112,9 +155,9 @@ const roadmapData = {
       },
     ],
   },
-  '2024/Q2': {
-    active: true,
-    future: false,
+  '2024/Q3': {
+    active: false,
+    future: true,
     items: [
       {
         name: 'Tasks',
@@ -139,19 +182,7 @@ const roadmapData = {
             enabled. So you can get your strings translated asap.
           </p>
         ),
-      },
-      {
-        name: 'Slack integration',
-        gitHubIssueLink:
-          'https://github.com/tolgee/tolgee-platform/issues/1384',
-        description: (
-          <p>
-            Users will be able to subscribe to a Tolgee project from a Slack
-            channel, and when permitted, they will be able to modify translated
-            values directly from Slack.
-          </p>
-        ),
-      },
+      }, 
       {
         name: 'Ordering professional translation',
         gitHubIssueLink:
@@ -166,35 +197,19 @@ const roadmapData = {
       },
     ],
   },
-  '2024/Q3': {
+  '2024/Q4': {
     active: false,
     future: true,
     items: [
       {
-        name: 'Translation proxy',
+        name: 'Glossaries',
         gitHubIssueLink:
-          'https://github.com/tolgee/tolgee-platform/issues/1687',
+          'https://github.com/tolgee/tolgee-platform/issues/1418',
         description: (
           <p>
-            Translation proxy will be a service enabling translation of any
-            website without modifying it's sources or content. It will be
-            especially useful for static websites.
-          </p>
-        ),
-      },
-      {
-        name: 'Community translations',
-        gitHubIssueLink:
-          'https://github.com/tolgee/tolgee-platform/issues/1360',
-        description: (
-          <p>
-            Tolgee is currently used by many open source projects, but Tolgee
-            doesn&apos;t support a safe way of community translating. It can
-            limit translation permissions to specific users, but the user can
-            then modify all the strings in the language. We need to provide a
-            better way, where the community members would be able to only
-            propose changes, which have to be approved and merged by somebody
-            who is permitted to.
+            To translate the same terms the same way every time, you need to
+            store the terminology to reuse it in the future. Glossaries are the
+            feature that enables you to do that.
           </p>
         ),
       },
@@ -207,6 +222,35 @@ const roadmapData = {
             Even translators make mistakes, but some of these mistakes can be
             detected, and translators can be notified. No more mistakes like
             missing tags, missing parameters, or missing punctuation marks.
+          </p>
+        ),
+      },
+      {
+        name: 'SSO in Cloud',
+        gitHubIssueLink:
+          'https://github.com/tolgee/tolgee-platform/issues/2273',
+        description: (
+          <p>
+            For larger companies SSO login is a must have both on Cloud 
+            and self-hosted instances.
+          </p>
+        ),
+      },
+    ],
+  },
+  '2025/Q1': {
+    active: false,
+    future: true,
+    items: [
+      {
+        name: 'Translation Memory management',
+        gitHubIssueLink:
+          'https://github.com/tolgee/tolgee-platform/issues/1569',
+        description: (
+          <p>
+            Management of Translation Memories will to share them between
+            different projects. You will be also able to import and export TMX
+            files, so you can back-up them if you want.
           </p>
         ),
       },
@@ -229,32 +273,35 @@ const roadmapData = {
         ),
       },
       {
-        name: 'Glossaries',
+        name: 'Community translations',
         gitHubIssueLink:
-          'https://github.com/tolgee/tolgee-platform/issues/1418',
+          'https://github.com/tolgee/tolgee-platform/issues/1360',
         description: (
           <p>
-            To translate the same terms the same way every time, you need to
-            store the terminology to reuse it in the future. Glossaries are the
-            feature that enables you to do that.
+            Tolgee is currently used by many open source projects, but Tolgee
+            doesn&apos;t support a safe way of community translating. It can
+            limit translation permissions to specific users, but the user can
+            then modify all the strings in the language. We need to provide a
+            better way, where the community members would be able to only
+            propose changes, which have to be approved and merged by somebody
+            who is permitted to.
           </p>
         ),
       },
       {
-        name: 'Translation Memory management',
+        name: 'In-context support for mobile apps',
         gitHubIssueLink:
-          'https://github.com/tolgee/tolgee-platform/issues/1569',
+          'https://github.com/tolgee/tolgee-platform/issues/1545',
         description: (
           <p>
-            Management of Translation Memories will to share them between
-            different projects. You will be also able to import and export TMX
-            files, so you can back-up them if you want.
+            The in-context translating works great with web apps, and we would
+            like to provide the same comfort to mobile developers.
           </p>
         ),
       },
     ],
   },
-  '2024/Q4': {
+  '2025/Q2': {
     active: false,
     future: true,
     items: [
@@ -282,29 +329,6 @@ const roadmapData = {
         ),
       },
       {
-        name: 'Branching',
-        gitHubIssueLink:
-          'https://github.com/tolgee/tolgee-platform/issues/1550',
-        description: (
-          <p>
-            Sometimes you need to maintain multiple versions of your software,
-            so you’ll need to have multiple versions of your localization data
-            stored in Tolgee as well.
-          </p>
-        ),
-      },
-      {
-        name: 'In-context support for mobile apps',
-        gitHubIssueLink:
-          'https://github.com/tolgee/tolgee-platform/issues/1545',
-        description: (
-          <p>
-            The in-context translating works great with web apps, and we would
-            like to provide the same comfort to mobile developers.
-          </p>
-        ),
-      },
-      {
         name: 'Backups and data export',
         gitHubIssueLink:
           'https://github.com/tolgee/tolgee-platform/issues/1540',
@@ -315,6 +339,36 @@ const roadmapData = {
             specific state when something goes wrong. Users will be also able to
             export all project data including metadata and screenshots and
             import them later.
+          </p>
+        ),
+      },
+    ],
+  },
+  '2025/Q3': {
+    active: false,
+    future: true,
+    items: [
+      {
+        name: 'Translation proxy',
+        gitHubIssueLink:
+          'https://github.com/tolgee/tolgee-platform/issues/1687',
+        description: (
+          <p>
+            Translation proxy will be a service enabling translation of any
+            website without modifying it's sources or content. It will be
+            especially useful for static websites.
+          </p>
+        ),
+      },
+      {
+        name: 'Branching',
+        gitHubIssueLink:
+          'https://github.com/tolgee/tolgee-platform/issues/1550',
+        description: (
+          <p>
+            Sometimes you need to maintain multiple versions of your software,
+            so you’ll need to have multiple versions of your localization data
+            stored in Tolgee as well.
           </p>
         ),
       },
@@ -395,13 +449,7 @@ const roadmapData = {
               will help developers and localization managers to simply import
               and export keys directly in Figma.
             </p>
-            <p>
-              The Figma plugin has been{' '}
-              <a href="https://tolgee.io/blog/figma-plugin">
-                <strong>released</strong>
-              </a>
-              !
-            </p>
+           
             <p>
               For more information, you can visit the{' '}
               <a href="https://tolgee.io/platform/figma-plugin/setup">
