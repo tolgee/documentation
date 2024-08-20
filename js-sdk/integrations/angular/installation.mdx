@@ -1,22 +1,32 @@
 ---
 id: installation
-title: Installation (Angular)
+title: Installation
 sidebar_label: Installation
-description: 'Learn how to install Tolgee Angular integration library to use Tolgee for translating your strings. Check also Angular example application. '
+description: "Tolgee enables you to implement localization in your Angular application with ease. You can integrate Tolgee in your Angular application using Tolgee's integration library for Angular. To use this library, start by installing Tolgee."
 ---
 
 import { InstallationTabs } from '../../../src/component/InstallationTabs';
 import PreparingForProduction from '../../shared/_PreparingForProduction.mdx';
 import ExampleBanner from '../../shared/ExampleBanner';
 
-<ExampleBanner framework="Angular" appName="ngx" />
+To use Tolgee in your React application, you need to follow these steps:
 
-To install Tolgee Angular integration library, run the following:
+1. [Install the Tolgee integration library](#install-the-tolgee-integration-library)
+2. [Configure the Tolgee API](#configure-the-tolgee-module)
+3. [Set up the environment variables](#set-up-the-environment-variables)
+4. [Preparing for production](#preparing-for-production)
+
+## Install the Tolgee integration library
+
+To install Tolgee integration library, run the following command:
 
 <InstallationTabs lib="@tolgee/ngx" />
 
-Then import [`NgxTolgeeModule`](/integrations/angular/api.mdx#ngxtolgeemodule) in your module file
-(`app.module.ts` or other):
+##  Configure the Tolgee module
+
+Once the library is installed, you need to import and initialize the `NgxTolgeeModule` in your module file (`app.module.ts` or other).
+
+The updated code should look like this:
 
 ```typescript
 ...
@@ -62,15 +72,21 @@ import {
 })
 export class AppModule {}
 ```
-> Check all [tolgee options](../../api/core_package/options) and [tolgee plugins](../../plugins.mdx).
 
-So you have to:
+The above code does the following:
 
-1. Add `NgxTolgeeModule` to your import section
-2. Add Factory provider for `TOLGEE_INSTANCE` token returning your `Tolgee` instance.
+- Imports the required moudle, classes, and plugins from the integration library.
+- Configures the module
+- Configures the Tolgee instance to use the [DevTools](../../api/web_package/plugins#devtools) and [FormatSimple](../../api/core_package/format-simple) plugins, and initializes it using the credentials.
 
-Use [angular application environments](https://angular.io/guide/build#configuring-application-environments) to configure `apiUrl` and `apiKey`.
+> You can configure more options and plugins during initialization. Learn about these other [options](../../api/core_package/options) and [Tolgee plugins](../../plugins) in their respective documentation.
+
+## Set up the environment variables
+
+Follow the instructions mentioned in the [angular application environments documentation](https://angular.io/guide/build#configuring-application-environments) to configure `apiUrl` and `apiKey`.
 
 ## Preparing for production
 
 <PreparingForProduction />
+
+<ExampleBanner framework="Angular" appName="ngx" />

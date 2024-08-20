@@ -34,6 +34,7 @@ module.exports = {
           label: 'Angular',
           type: 'category',
           items: [
+            'integrations/angular/overview',
             'integrations/angular/installation',
             'integrations/angular/translating',
             'integrations/angular/namespaces',
