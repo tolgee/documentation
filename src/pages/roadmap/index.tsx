@@ -45,8 +45,9 @@ const roadmapData = {
           'https://github.com/tolgee/tolgee-platform/issues/1561',
         description: (
           <p>
-            Tolgee CLI now supports various file formats for easy import/export 
-            and introduces a tagging command to organize keys during development.
+            Tolgee CLI now supports various file formats for easy import/export
+            and introduces a tagging command to organize keys during
+            development.
           </p>
         ),
       },
@@ -57,7 +58,7 @@ const roadmapData = {
           'https://github.com/tolgee/tolgee-platform/issues/1561',
         description: (
           <p>
-            Based on many user requests and feedback, we improved the overall 
+            Based on many user requests and feedback, we improved the overall
             performance of the Tolgee Figma plugin.
           </p>
         ),
@@ -182,7 +183,7 @@ const roadmapData = {
             enabled. So you can get your strings translated asap.
           </p>
         ),
-      }, 
+      },
       {
         name: 'Ordering professional translation',
         gitHubIssueLink:
@@ -231,8 +232,8 @@ const roadmapData = {
           'https://github.com/tolgee/tolgee-platform/issues/2273',
         description: (
           <p>
-            For larger companies SSO login is a must have both on Cloud 
-            and self-hosted instances.
+            For larger companies SSO login is a must have both on Cloud and
+            self-hosted instances.
           </p>
         ),
       },
@@ -449,7 +450,7 @@ const roadmapData = {
               will help developers and localization managers to simply import
               and export keys directly in Figma.
             </p>
-           
+
             <p>
               For more information, you can visit the{' '}
               <a href="https://tolgee.io/platform/figma-plugin/setup">
