@@ -1,21 +1,24 @@
 ---
 id: translating
-title: Translating (Svelte)
+title: Translating
 sidebar_label: Translating
-description: 'Learn about several ways how to translate a text using Tolgee Svelte integration: T-component and getTranslate method.'
+description: "Tolgee enables you to implement localization in your Svelte application with ease. You can integrate Tolgee in your Svelte application using Tolgee's integration library for Svelte. Learn to impelement translation using the various methods."
 ---
 
 import TFunctionHint from '../../shared/_TFunctionHint.mdx';
 import NamespacesHint from '../../shared/_NamespacesHint.mdx';
 import ExampleBanner from '../../shared/ExampleBanner';
 
-<ExampleBanner framework="Svelte" />
+You can implement translation in your Svelte application in the following ways.
 
-There are two ways how to translate with Tolgee.
+- Using the [`getTranslate` function](#gettranslate-function)
+- Using the [`T` component](#the-t-component)
 
-## `getTranslate` method
+## `getTranslate` function
 
-Other option how to translate is using of [`getTranslate`](./api#function-gettranslate) function. You can use it this way:
+The [`getTranslate` function](./api#function-gettranslate) provides a `t` function. This `t` function should be used to render the respective translation.
+
+The below code demonstrates the implemention of the `getTranslate` and the `t` function.
 
 ```svelte
 <script>
@@ -31,25 +34,9 @@ Other option how to translate is using of [`getTranslate`](./api#function-gettra
 
 <TFunctionHint />
 
-## The `T` component
-
-An alternative way is to use [`T` component](./api#t-component), which has a very similar use case and API to the `t` function mentioned above. 
-
-```svelte
-<script>
-  import { T } from "@tolgee/svelte";
-</script>
-
-<T 
-  keyName="translation_key" 
-  defaultValue="User has {count} points"
-  params={{ count: 10 }}
-/>
-```
-
 ### Using namespaces
 
-The `getTranslate` function can be also used for loading additional namespaces.
+Moreover, you can load namespaces with the `getTranslate` function.
 
 ```ts
 const { t, isLoading } = getTranslate('common');
@@ -57,3 +44,20 @@ const { t, isLoading } = getTranslate('common');
 
 <NamespacesHint />
 
+## The `T` component
+
+You can also use the [`T` component](./api#t-component) for translation. It has an API similar to the `t` function mentioned above.
+
+```svelte
+<script>
+  import { T } from "@tolgee/svelte";
+</script>
+
+<T
+  keyName="translation_key"
+  defaultValue="User has {count} points"
+  params={{ count: 10 }}
+/>
+```
+
+<ExampleBanner framework="Svelte" />

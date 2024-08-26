@@ -1,21 +1,46 @@
 ---
 id: installation
-title: Installation (Svelte)
+title: Installation
 sidebar_label: Installation
-description: 'Learn how to install Tolgee Svelte SDK. To get full image of working Svelte integration, check our Svelte Example Application.'
+description: "Tolgee enables you to implement localization in your Svelte application with ease. You can integrate Tolgee in your Svelte application using Tolgee's integration library for Svelte. To use this library, start by installing Tolgee."
 ---
 
 import ExampleBanner from '../../shared/ExampleBanner';
-
-<ExampleBanner framework="Svelte" />
-
-To install Tolgee Svelte integration library, run:
-
+import PreparingForProduction from '../../shared/_PreparingForProduction.mdx';
 import { InstallationTabs } from '../../../src/component/InstallationTabs';
+
+To use Tolgee in your React application, you need to follow these steps:
+
+1. [Install the Tolgee integration library](#install-the-tolgee-integration-library)
+2. [Set up the environment variables](#set-up-the-environment-variables)
+3. [Configure the TolgeeProvider](#configure-the-tolgeeprovider)
+4. [Preparing for production](#preparing-for-production)
+
+## Install the Tolgee integration library
+
+To install Tolgee Svelte integration library, run the following command.
 
 <InstallationTabs lib="@tolgee/svelte" />
 
-Init Tolgee and wrap your application in [`TolgeeProvider`](./api#tolgeeprovider).
+## Set up the environment variables
+
+
+Once the library is installed, you need to initialize it. For initialization, you need the Tolgee API URL, and the Tolgee API Key. To generate the API Key, follow the step-by-step instructions mentioned on the [API keys and PAT tokens page](../../../platform/account_settings/api_keys_and_pat_tokens).
+
+:::danger
+Make sure you don't leak your API key. If the API key is leaked, visitors can edit the translations on your site.
+:::
+
+After generating the API key, add these credentials. If you bootstrapped the application with SvelteKit, add them to the `.env.development.local` file. Your `.env.development.local` should look as follow.
+
+```env
+VITE_TOLGEE_API_KEY=tgpak_gfpwiojtnrztqmtbna3dczjxny2ha3dmnu4tk4tnnjvgc
+VITE_TOLGEE_API_URL=https://app.tolgee.io
+```
+
+## Configure the TolgeeProvider
+
+Next, initialize Tolgee and wrap the application in [`TolgeeProvider`](./api#tolgeeprovider).
 
 ```svelte
 <script>
@@ -43,25 +68,16 @@ Init Tolgee and wrap your application in [`TolgeeProvider`](./api#tolgeeprovider
   <slot />
 </TolgeeProvider>
 ```
+The above code does the following:
 
-> Check all [tolgee options](../../api/core_package/options) and [tolgee plugins](../../plugins.mdx).
+- Imports the required methods and plugins from the integration library.
+- Configures the Tolgee instance to use the [DevTools](../../api/web_package/plugins#devtools) and [FormatSimple](../../api/core_package/format-simple) plugins, and initializes it using the credentials. It also sets the language to English.
+- Wraps a component within the `TolgeeProvider`.
 
-If you bootstrapped your application with SvelteKit, your `.env.development.local` file should look like this:
-
-```shell
-VITE_TOLGEE_API_KEY=tgpak_gfpwiojtnrztqmtbna3dczjxny2ha3dmnu4tk4tnnjvgc
-VITE_TOLGEE_API_URL=https://app.tolgee.io
-```
-
-:::danger
-Never leak your API key! You don't want visitors of your site to edit your translations. That's why we recommend to use
-.env files to store your API key. API key is then omitted for production build.
-:::
-
-> Obtaining Tolgee API key is described in [Integration](/platform/integrations/about_integrations) chapter.
+> You can configure more options and plugins during initialization. Learn about other [options](../../api/core_package/options) and [Tolgee plugins](../../plugins) in their respective documentation.
 
 ## Preparing for production
 
-import PreparingForProduction from '../../shared/_PreparingForProduction.mdx';
-
 <PreparingForProduction />
+
+<ExampleBanner framework="Svelte" />

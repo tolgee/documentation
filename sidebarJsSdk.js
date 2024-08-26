@@ -58,6 +58,7 @@ module.exports = {
           label: 'Svelte',
           type: 'category',
           items: [
+            'integrations/svelte/overview',
             'integrations/svelte/installation',
             'integrations/svelte/translating',
             'integrations/svelte/switching_language',
