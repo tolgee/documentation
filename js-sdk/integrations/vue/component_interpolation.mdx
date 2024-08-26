@@ -1,16 +1,22 @@
 ---
 id: component_interpolation
-title: Component interpolation (Vue)
+title: Component interpolation
 sidebar_label: Component interpolation
 slug: component-interpolation
+description: "Tolgee enables you to implement localization in your Vue application with ease. You can integrate Tolgee in your Vue application using Tolgee's integration library. Moreover, the library supports Component Interpolation. Learn more about Component Interpolation and how to use them."
 ---
 
 :::info
 Feature available from version 5.24.0
 :::
 
+You might want to use a Component for certain part of the translated string. For example, let's take the translated string `Click this link`. You want to add the anchor tag to the word `link`. Using the integration library, you can implement this easily.
 
-With [`FormatIcu`](/formatting.mdx#icu-formatter) Vue integration supports components interpolation, which can be used to map variables in translations to custom Vue components.
+The integration library, uses [`FormatIcu`](/formatting.mdx#icu-formatter) which supports component interpolation. You can map variables in translations to custom Vue components.
+
+:::info
+Currently, non-closing tags and self-closing tags are not supported [#3101](https://github.com/tolgee/tolgee-js/issues/3101).
+:::
 
 ### Example usage
 
@@ -22,12 +28,14 @@ import { FormatIcu } from '@tolgee/format-icu';
 tolgee.use(FormatIcu())
 ```
 
-Use `T` component with named slots, which are then mapped to the variables in the translation.
+The above code configures Tolgee to use the `FormatIcu` formatter.
+
+Next, use the [`T` component](./translating#t-component) with named slots. These are mapped to the variables in the translation.
 
 ```html
 <template>
   <T
-    keyName="translation_with_link" 
+    keyName="translation_with_link"
     defaultValue="Click this {link}"
   >
     <template v-slot:link>
@@ -42,12 +50,8 @@ Use `T` component with named slots, which are then mapped to the variables in th
 ```
 
 
-will output:
+The above example code will provide the following output.
 
 ```html
 Click this <a href="...">link</a>
 ```
-
-:::info
-Currently, non-closing tags and self-closing tags are not supported [#3101](https://github.com/tolgee/tolgee-js/issues/3101).
-:::
