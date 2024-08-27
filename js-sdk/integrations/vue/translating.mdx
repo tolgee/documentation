@@ -2,7 +2,7 @@
 id: translating
 title: Translating
 sidebar_label: Translating
-description: "Tolgee enables you to implement localization in your Vue application with ease. You can integrate Tolgee in your Vue application using Tolgee's integration library for Vue. Learn to impelement translation using the various methods."
+description: "Learn to implement translations in Vue using Tolgee. Guide covers global $t function, useTranslate composable, and T component. Includes examples for basic usage, namespaces, and parameter interpolation."
 ---
 
 import TFunctionHint from '../../shared/_TFunctionHint.mdx';
@@ -18,7 +18,7 @@ You can implement translation in your Vue application in the following ways.
 
 ## Global `$t` function
 
-The [`VueTolgee`](./api#vuetolgee-plugin) plugin provides a `$t` function that allowss you to translate strings in your Vue application. If the `VueTolgee` plugin is registered, the `$t` function is available globally in your application.
+The [`VueTolgee`](./api#vuetolgee-plugin) plugin provides a `$t` function that allows you to translate strings in your Vue application. If the `VueTolgee` plugin is registered, the `$t` function is available globally in your application.
 
 ```html
 <template>
@@ -28,7 +28,7 @@ The [`VueTolgee`](./api#vuetolgee-plugin) plugin provides a `$t` function that a
 
 ## `useTranslate` composable
 
-The Tolgee integration library alos provides the [`useTranslate`](./api#composable-usetranslate) composable, which comes with a translation function ([`t` function](./api#function-t-ref)). Using this `t` function, you can render the actual translation.
+The Tolgee integration library provides the [`useTranslate`](./api#composable-usetranslate) composable, which comes with a translation function ([`t` function](./api#function-t-ref)). Using this `t` function, you can render the actual translation.
 
 ```html
 <template>
