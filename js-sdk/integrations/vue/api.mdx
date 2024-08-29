@@ -1,13 +1,15 @@
 ---
 id: api
-title: API (Vue)
+title: API
 sidebar_label: API
-description: 'Detail documentation to API in VueJS integration. TolgeeProvider Provides Tolgee context. Use in root of your application.'
+description: "Explore Tolgee's Vue API for easy localization. Learn about VueTolgee plugin, TolgeeProvider, T component, and composables. Includes usage examples and prop descriptions for efficient integration."
 ---
 
-## `VueTolgee` plugin
+The `@tolgee/vue` library exports the following components and all available components from [`@tolgee/web`](/api/web_package/about.mdx).
 
-`VueTolgee` plugin attaches tolgee to Vue instance. That mean, that you can use global `$t` function in any vue component.
+## VueTolgee plugin
+
+`VueTolgee` plugin attaches Tolgee to a Vue instance. This allows, you to use the `$t` function in any Vue component.
 
 ```jsx
 import { VueTolgee } from '@tolgee/vue';
@@ -18,18 +20,19 @@ app.use(VueTolgee, { tolgee });
 
 ...
 
+// A child Vue component
 <div>
  {{ $t('key', 'Default value') }}
 </div>
 ```
 
-> Check [`tolgee.t`](/api/core_package/tolgee.mdx#t) function interface.
+> For more refer to the [`tolgee.t`](/api/core_package/tolgee.mdx#t) function interface.
 
-It's also possible to use Tolgee without `VueTolgee`. Then you can use just `TolgeeProvider` and `useTranslate` for translating.
+You can also integrate Tolgee without using the `VueTolgee` plugin. In this case use the `TolgeeProvider` and the `useTranslate` method for translating.
 
 ## `TolgeeProvider`
 
-Provides Tolgee context. Use in root of your application.
+Provides the Tolgee context. Use in root of the application.
 
 ```jsx
 import { TolgeeProvider } from '@tolgee/vue';
@@ -43,16 +46,18 @@ import { TolgeeProvider } from '@tolgee/vue';
 
 ### Prop `fallback?`
 
-`String | JSX.Element` - it is rendered when Tolgee is loading translations instead of provided content.
-You can pass custom loading element when using Vue with JSX.
+`String | JSX.Element` - rendered when Tolgee is loading translations instead of provided content.
+Pass custom loading element when using Vue with JSX.
 
-### Prop `tolgee?`
+```html
+<TolgeeProvider fallback="Loading...">
+  <App />
+</TolgeeProvider>
+```
 
-Optionally provide tolgee instance. If you use `VueTolgee`, it's not necessary.
+### Slot `fallback?`
 
-### Slot `fallback`
-
-Alternative for `fallback` use when you are using Vue with templates:
+Alternative for `fallback`. Use when you are using Vue with templates:
 
 ```html
 <TolgeeProvider>
@@ -63,7 +68,13 @@ Alternative for `fallback` use when you are using Vue with templates:
 </TolgeeProvider>
 ```
 
+### Prop `tolgee?`
+
+Provide a Tolgee instance. If you use `VueTolgee`, this is not necessary.
+
 ## `T` component
+
+Implement translation in your Vue application. It has a very similar API to the `t` function.
 
 ```js
 import { T } from '@tolgee/vue';
@@ -79,8 +90,7 @@ import { T } from '@tolgee/vue';
 
 ### Prop `defaultValue?`
 
-`String` - You can pass default value, which will be rendered if there is no translation
-for this key (in selected language nor base language). If you won't provide this value, `keyName` will be rendered instead.
+`String` - Rendered if no translation for the specified key (in neither the selected language nor the base language) is present. If not provided, `keyName` gets rendered instead.
 
 ### Prop `params?`
 
@@ -96,11 +106,11 @@ for this key (in selected language nor base language). If you won't provide this
 `Boolean` (default: `false`)
 
 - `false` - in development mode translation will be [wrapped](/wrapping.mdx)
-- `true` - use when wrapping in dev mode causes problems, in this case in-context translation won't work
+- `true` - use when wrapping in dev mode causes problems. In-context translation won't work.
 
 ### Prop `language?`
 
-`String` - override current Tolgee language. This way you can switch to different language for separate translation. Load the language manually with [`tolgee.loadRecord`](/api/core_package/tolgee.mdx#loadrecord).
+`String` - override current Tolgee language. Allows switching to different language for separate translation. Load the language manually with [`tolgee.loadRecord`](/api/core_package/tolgee.mdx#loadrecord).
 
 ### Children
 
@@ -108,12 +118,12 @@ for this key (in selected language nor base language). If you won't provide this
 Feature available from version 5.24.0
 :::
 
-You can pass children to the `T` component which will be mapped to the translation parameters according to their slot names. This way you can use custom components as a part of the translation.
+Pass children to the `T` component that gets mapped to the translation parameters respective to their slot names. Allows implementation of custom components as a part of the translation.
 
 ```html
 <template>
   <T
-    keyName="translation_with_link" 
+    keyName="translation_with_link"
     defaultValue="Click this {link}"
   >
     <template v-slot:link>
@@ -142,11 +152,11 @@ function useTranslate(ns?: string | string[]): {
 
 - `boolean` - is true if any of listed namespaces is not loaded yet
 
-Use this property to make sure you won't display translation translations before they are loaded.
+Use this property to ensure translations are rendered after they are loaded.
 
 ### Function `t` (Ref)
 
-Returns requested translation and also subscribes component to translation/language changes, so component will be re-rendered every time translation changes. If you use namespaces, `t` function will automatically use first of the namespaces given to `useTranslate` function. You can override this by `ns` option.
+Returns requested translation and also subscribes component to translation/language changes. Component will be re-rendered every time translation changes. If used with namespaces, `t` function will automatically use the first the namespace given to `useTranslate` function. Override this with the `ns` option.
 
 ```ts
 t('key', 'Default value', <options>);
@@ -156,7 +166,7 @@ t('key', 'Default value', <options>);
 
 ## Composable `useTolgee`
 
-Returns tolgee instance as `Ref`. Allows subscription to different [`events`](/api/core_package/events.mdx), which will trigger re-render. Most common usecase is for language switch.
+Returns Tolgee instance as a `Ref`. Allows subscription to different [`events`](/api/core_package/events.mdx), which will trigger re-render. Most common usecase is for language switching.
 
 ```html
 <template>

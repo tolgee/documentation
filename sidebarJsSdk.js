@@ -47,6 +47,7 @@ module.exports = {
           label: 'Vue',
           type: 'category',
           items: [
+            'integrations/vue/overview',
             'integrations/vue/installation',
             'integrations/vue/translating',
             'integrations/vue/component_interpolation',
