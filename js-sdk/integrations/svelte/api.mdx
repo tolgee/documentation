@@ -1,16 +1,16 @@
 ---
 id: api
-title: API (Svelte)
+title: API
 sidebar_label: API
-description: 'Tolgee for svelte API documentation. Tolgee Provider provides Tolgee instance. Use in root of your application.'
+description: "Explore Tolgee's Svelte API for localization. Learn about TolgeeProvider, T component, getTranslate and getTolgee functions. Includes props, parameters, and usage examples for efficient translation implementation."
 ---
 
 ## `TolgeeProvider`
 
-Provides Tolgee context. Use in root of your application.
+Provides the Tolgee context. Use in the root of the application.
 
 ```jsx
-import { TolgeeProvider } from '@tolgee/vue';
+import { TolgeeProvider } from '@tolgee/svelte';
 
 ...
 
@@ -21,15 +21,15 @@ import { TolgeeProvider } from '@tolgee/vue';
 
 ### Prop `fallback?`
 
-`string` - it is rendered when Tolgee is loading translations instead of provided content.
+`string` - rendered when translations are loading.
 
 ### Prop `tolgee?`
 
-Optionally provide tolgee instance. If you use `VueTolgee`, it's not necessary.
+Provide a Tolgee instance.
 
 ### Slot `fallback`
 
-Alternative for `fallback`, use when you want to pass components:
+Alternative for `fallback`. Use when you to pass components.
 
 ```svelte
 <TolgeeProvider>
@@ -39,6 +39,8 @@ Alternative for `fallback`, use when you want to pass components:
 ```
 
 ## `T` component
+
+Implement translation in your Svelte application. It has a very similar API to the `t` function.
 
 ```svelte
 import { T } from '@tolgee/svelte';
@@ -52,8 +54,7 @@ import { T } from '@tolgee/svelte';
 
 ### Prop `defaultValue?`
 
-`String` - You can pass default value, which will be rendered if there is no translation
-for this key (in selected language nor base language). If you won't provide this value, `keyName` will be rendered instead.
+`String` - Rendered if no translation for the specified key (in neither the selected language nor the base language) is present. If not provided, `keyName` gets rendered instead.
 
 ### Prop `params?`
 
@@ -69,11 +70,11 @@ for this key (in selected language nor base language). If you won't provide this
 `Boolean` (default: `false`)
 
 - `false` - in development mode translation will be [wrapped](/wrapping.mdx)
-- `true` - use when wrapping in dev mode causes problems, in this case in-context translation won't work
+- `true` - use when wrapping in dev mode causes problems. In-context translation won't work.
 
 ### Prop `language?`
 
-`String` - override current Tolgee language. This way you can switch to different language for separate translation. Load the language manually with [`tolgee.loadRecord`](/api/core_package/tolgee.mdx#loadrecord).
+`String` - override current Tolgee language. Allows switching to different language for separate translation. Load the language manually with [`tolgee.loadRecord`](/api/core_package/tolgee.mdx#loadrecord).
 
 ## Function `getTranslate`
 
@@ -88,17 +89,15 @@ function getTranslate(ns?: string | string[]): {
 
 ### Parameter `ns`
 
-- `string` | `string[]` - namespace(s) which will be loaded
+- `string` | `string[]` - namespace(s) to be loaded
 
 ### Property `isLoading` (Readable)
 
-- `boolean` - is true if any of listed namespaces is not loaded yet
-
-Use this property to make sure you won't display translation translations before they are loaded.
+- `boolean` - is true if any of the listed namespaces is loading. Use this property to ensure translations are rendered after they are loaded.
 
 ### Function `t` (Readable)
 
-Returns requested translation and also subscribes component to translation/language changes, so component will be re-rendered every time translation changes. If you use namespaces, `t` function will automatically use first of the namespaces given to `useTranslate` function. You can override this by `ns` option.
+Returns requested translation and also subscribes component to translation/language changes. Component will be re-rendered every time translation changes. If used with namespaces, `t` function will automatically use the first the namespace given to `useTranslate` function. Override this with the `ns` option.
 
 ```ts
 $t('key', 'Default value', <options>)
@@ -108,7 +107,7 @@ $t('key', 'Default value', <options>)
 
 ## Function `getTolgee`
 
-Returns tolgee instance as `Readable`. Allows subscription to different [`events`](/api/core_package/events.mdx). Most common usecase is for language switch.
+Returns the Tolgee instance as a `Readable`. Allows subscription to different [`events`](/api/core_package/events.mdx). Most common usecase is for language switching.
 
 ```svelte
 <script>
