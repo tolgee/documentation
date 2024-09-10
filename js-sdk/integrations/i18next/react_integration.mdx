@@ -1,22 +1,27 @@
 ---
 id: react
-title: React integration (i18next)
+title: React integration using i18next
 sidebar_label: React integration
 slug: react-integration
-description: 'For integration with React (i18n) use standard React extension. We recommend also use ICU message formatter which is supported natively.'
+description: 'Learn how to integrate Tolgee with React applications using i18next and react-i18next. This guide covers installation, setup, and best practices for internationalization in React projects.'
 ---
 
+import {InstallationTabs} from "../../../src/component/InstallationTabs";
 import ExampleBanner from '../../shared/ExampleBanner';
 
-<ExampleBanner framework="i18next" appName="react-i18next" />
+## Overview
 
-For integration with React use standard React extension + we recommend also use ICU message formatter as that is supported on Tolgee platform natively:
+You can integrate Tolgee with React applications using `i18next` and `react-i18next`. It is recommend to use the ICU message formatter, since the Tolgee platform natively supported it.
 
-import {InstallationTabs} from "../../../src/component/InstallationTabs";
+## Installation
+
+To get started, install the necessary packages:
 
 <InstallationTabs lib="react-i18next i18next-icu" />
 
-And then use following setup:
+## Setup
+
+After installation, set up your i18next instance with Tolgee and React integration:
 
 ```ts
 import { withTolgee, Tolgee, I18nextPlugin, DevTools } from '@tolgee/i18next';
@@ -38,4 +43,8 @@ withTolgee(i18n, tolgee)
   });
 ```
 
-Now you can use regular [react-i18next](https://react.i18next.com/).
+You can now use the features of [react-i18next](https://react.i18next.com/).
+
+Feel free to explore the example application for more advanced usage and integration patterns.
+
+<ExampleBanner framework="i18next" appName="react-i18next" />

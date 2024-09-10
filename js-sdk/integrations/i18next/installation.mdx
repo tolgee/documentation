@@ -1,19 +1,40 @@
 ---
 id: installation
-title: Installation (i18next)
+title: Installation
 sidebar_label: Installation
-description: 'Learn how to install Tolgee i18next integration library to use regular i18next translation features. Tolgee will follow i18next configuration.'
+description: 'Learn how to integrate Tolgee with i18next to enhance your internationalization workflow while maintaining familiar i18next features.'
 ---
 
 import PreparingForProduction from '../../shared/_PreparingForProduction.mdx';
 import { InstallationTabs } from '../../../src/component/InstallationTabs';
-import ExampleBanner from '../../shared/ExampleBanner';
 
-To install Tolgee i18next integration library run:
+To use Tolgee with i18next, you need to follow these steps:
+
+1. [Install the Tolgee integration library](#installation)
+2. [Set up the environment variables](#set-up-the-environment-variables)
+3. [Initialize Tolgee](#initialize-tolgee)
+4. [Language Detection and Switching](#language-detection-and-switching)
+5. [Preparing for production](#preparing-for-production)
+
+## Installation
+
+To install the Tolgee i18next integration library, run the following command.
 
 <InstallationTabs lib="@tolgee/i18next" />
 
-Then wrap your i18next instance [`withTolgee`](./api#function-withtolgeei18next-tolgeeconfig):
+## Set up the environment variables
+
+Once the library is installed, you need to initialize it. For initialization, you need the Tolgee API URL, and the Tolgee API Key. To generate the API Key, follow the step-by-step instructions mentioned on the [API keys and PAT tokens page](../../../platform/account_settings/api_keys_and_pat_tokens).
+
+:::danger
+Make sure you don't leak your API key. If the API key is leaked, visitors can edit the translations on your site.
+:::
+
+After generating the API key, add these credentials in an environment variable file (`.env` or `.env.local`).
+
+## Initialize Tolgee
+
+Next, initialize Tolgee and wrap your i18next instance using [`withTolgee`](./api#function-withtolgeei18next-tolgeeconfig).
 
 ```ts
 import i18n from 'i18next';
@@ -40,19 +61,27 @@ withTolgee(i18n, tolgee)
 
 ```
 
-> Check all [tolgee options](../../api/core_package/options) and [tolgee plugins](../../plugins.mdx).
+The above code does the following:
+- Initializes Tolgee with the provided configuration.
+- Wraps the i18next instance with the `withTolgee` function.
+- Initializes i18next with the provided configuration.
 
-Now you can use regular i18next translation features.
 
-:::info
-`i18next` namespaces are mapped to Tolgee namespaces and since i18next doesn't support empty namespace, you have to have your translations in some namespace in the Tolgee platform (`i18next` defaults to "translation").
+> You can configure more options and plugins during initialization. Learn about these other [options](../../api/core_package/options) and [Tolgee plugins](../../plugins) in their respective documentation.
+
+:::info Namespace Mapping
+Tolgee maps `i18next` namespaces to its own namespaces. Since i18next doesn't support empty namespaces, ensure your translations are within a namespace in the Tolgee platform. By default, i18next uses the "translation" namespace.
 :::
 
-## Language detection/changes
+## Language Detection and Switching
 
-Tolgee will follow i18next configuration, so you can use i18next language detectors or set the language manually.
+Tolgee follows i18next's configuration for language detection. You can use i18next language detectors or set the language manually.
 
-To change language use `i18next.changeLanguage` function.
+To change the active language, use the `i18next.changeLanguage` function:
+
+```ts
+i18next.changeLanguage(lng, callback);
+```
 
 ## Preparing for production
 
