@@ -100,8 +100,8 @@ const tolgee = Tolgee()
   .use(FormatSimple())
   .init({
     language: 'en',
-    apiUrl: process.env.REACT_APP_TOLGEE_API_URL,
-    apiKey: process.env.REACT_APP_TOLGEE_API_KEY,
+    apiUrl: process.env.VITE_APP_TOLGEE_API_URL,
+    apiKey: process.env.VITE_APP_TOLGEE_API_KEY,
   });
 
 ...
