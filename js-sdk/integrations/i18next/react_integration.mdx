@@ -30,8 +30,8 @@ import ICU from 'i18next-icu';
 import { initReactI18next } from 'react-i18next';
 
 const tolgee = Tolgee().use(DevTools()).use(I18nextPlugin()).init({
-  apiUrl: process.env.REACT_APP_TOLGEE_API_URL,
-  apiKey: process.env.REACT_APP_TOLGEE_API_KEY,
+  apiUrl: process.env.VITE_APP_TOLGEE_API_URL,
+  apiKey: process.env.VITE_APP_TOLGEE_API_KEY,
 });
 
 withTolgee(i18n, tolgee)

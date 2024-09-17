@@ -30,8 +30,8 @@ Make sure you don't leak your API key. If the API key is leaked, visitors can ed
 After generating the API key, add these credentials in your `.env` file. Your `.env` should look like this:
 
 ```env
-REACT_APP_TOLGEE_API_URL=https://app.tolgee.io
-REACT_APP_TOLGEE_API_KEY=tgpak_gfpwiojtnrztqmtbna3dczjxny2ha3dmnu4tk4tnnjvgc
+VITE_APP_TOLGEE_API_URL=https://app.tolgee.io
+VITE_APP_TOLGEE_API_KEY=tgpak_gfpwiojtnrztqmtbna3dczjxny2ha3dmnu4tk4tnnjvgc
 ```
 
 :::note
@@ -54,8 +54,8 @@ const tolgee = Tolgee()
     language: 'en',
 
     // for development
-    apiUrl: process.env.REACT_APP_TOLGEE_API_URL,
-    apiKey: process.env.REACT_APP_TOLGEE_API_KEY,
+    apiUrl: process.env.VITE_APP_TOLGEE_API_URL,
+    apiKey: process.env.VITE_APP_TOLGEE_API_KEY,
 
     // for production
     staticData: {
