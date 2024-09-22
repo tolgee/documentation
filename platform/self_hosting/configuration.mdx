@@ -329,6 +329,46 @@ These properties are used to configure default server content delivery storage.
 
   The root path where the content is accessible by the public. If this property is not null, content delivery will be enabled on your server.
 
+#### cache-purging
+
+Prefix: `tolgee.content-delivery.cache-purging`
+
+##### azure-front-door
+
+Prefix: `tolgee.content-delivery.cache-purging.azure-front-door`
+
+- ##### `client-id` {#client-id}
+
+- ##### `client-secret` {#client-secret}
+
+- ##### `content-root` {#content-root}
+
+- ##### `endpoint-name` {#endpoint-name}
+
+- ##### `profile-name` {#profile-name}
+
+- ##### `resource-group-name` {#resource-group-name}
+
+- ##### `subscription-id` {#subscription-id}
+
+- ##### `tenant-id` {#tenant-id}
+
+##### cloudflare
+
+Prefix: `tolgee.content-delivery.cache-purging.cloudflare`
+
+- ##### `-number of paths to purge in one request. (-cloudflare limit is 30 now, but it might be subject to change)` {#-number of paths to purge in one request. (-cloudflare limit is 30 now, but it might be subject to change)}
+
+- ##### `api-key` {#api-key}
+
+- ##### `content-delivery-cache-purging-type` {#content-delivery-cache-purging-type}
+
+- ##### `enabled` {#enabled}
+
+- ##### `url-prefix` {#url-prefix}
+
+- ##### `zone-id` {#zone-id}
+
 #### storage
 
 Prefix: `tolgee.content-delivery.storage`
@@ -875,6 +915,23 @@ tolgee:
     use-redis: false
   content-delivery:
     public-url-prefix:
+    cache-purging:
+      azure-front-door:
+        client-id:
+        client-secret:
+        content-root:
+        endpoint-name:
+        profile-name:
+        resource-group-name:
+        subscription-id:
+        tenant-id:
+      cloudflare:
+        -number of paths to purge in one request. (-cloudflare limit is 30 now, but it might be subject to change): 30
+        api-key:
+        content-delivery-cache-purging-type: CLOUDFLARE
+        enabled: false
+        url-prefix:
+        zone-id:
     storage:
       azure:
         connection-string:
@@ -1300,6 +1357,46 @@ These properties are used to configure default server content delivery storage.
 - <h5 id="public-url-prefix"><code>PUBLIC_URL_PREFIX</code></h5>
 
   The root path where the content is accessible by the public. If this property is not null, content delivery will be enabled on your server.
+
+<h4 id="cache_purging">CACHE_PURGING</h4>
+
+Prefix: `TOLGEE_CONTENT_DELIVERY_CACHE_PURGING`
+
+<h5 id="azure_front_door">AZURE_FRONT_DOOR</h5>
+
+Prefix: `TOLGEE_CONTENT_DELIVERY_CACHE_PURGING_AZURE_FRONT_DOOR`
+
+- <h5 id="client-id"><code>CLIENT_ID</code></h5>
+
+- <h5 id="client-secret"><code>CLIENT_SECRET</code></h5>
+
+- <h5 id="content-root"><code>CONTENT_ROOT</code></h5>
+
+- <h5 id="endpoint-name"><code>ENDPOINT_NAME</code></h5>
+
+- <h5 id="profile-name"><code>PROFILE_NAME</code></h5>
+
+- <h5 id="resource-group-name"><code>RESOURCE_GROUP_NAME</code></h5>
+
+- <h5 id="subscription-id"><code>SUBSCRIPTION_ID</code></h5>
+
+- <h5 id="tenant-id"><code>TENANT_ID</code></h5>
+
+<h5 id="cloudflare">CLOUDFLARE</h5>
+
+Prefix: `TOLGEE_CONTENT_DELIVERY_CACHE_PURGING_CLOUDFLARE`
+
+- <h5 id="-number of paths to purge in one request. (-cloudflare limit is 30 now, but it might be subject to change)"><code>_NUMBER OF PATHS TO PURGE IN ONE REQUEST_ (_CLOUDFLARE LIMIT IS 30 NOW, BUT IT MIGHT BE SUBJECT TO CHANGE)</code></h5>
+
+- <h5 id="api-key"><code>API_KEY</code></h5>
+
+- <h5 id="content-delivery-cache-purging-type"><code>CONTENT_DELIVERY_CACHE_PURGING_TYPE</code></h5>
+
+- <h5 id="enabled"><code>ENABLED</code></h5>
+
+- <h5 id="url-prefix"><code>URL_PREFIX</code></h5>
+
+- <h5 id="zone-id"><code>ZONE_ID</code></h5>
 
 <h4 id="storage">STORAGE</h4>
 
@@ -1836,6 +1933,20 @@ TOLGEE_CACHE_DEFAULT_TTL=7200000
 TOLGEE_CACHE_ENABLED=false
 TOLGEE_CACHE_USE_REDIS=false
 TOLGEE_CONTENT_DELIVERY_PUBLIC_URL_PREFIX=
+TOLGEE_CONTENT_DELIVERY_CACHE_PURGING_AZURE_FRONT_DOOR_CLIENT_ID=
+TOLGEE_CONTENT_DELIVERY_CACHE_PURGING_AZURE_FRONT_DOOR_CLIENT_SECRET=
+TOLGEE_CONTENT_DELIVERY_CACHE_PURGING_AZURE_FRONT_DOOR_CONTENT_ROOT=
+TOLGEE_CONTENT_DELIVERY_CACHE_PURGING_AZURE_FRONT_DOOR_ENDPOINT_NAME=
+TOLGEE_CONTENT_DELIVERY_CACHE_PURGING_AZURE_FRONT_DOOR_PROFILE_NAME=
+TOLGEE_CONTENT_DELIVERY_CACHE_PURGING_AZURE_FRONT_DOOR_RESOURCE_GROUP_NAME=
+TOLGEE_CONTENT_DELIVERY_CACHE_PURGING_AZURE_FRONT_DOOR_SUBSCRIPTION_ID=
+TOLGEE_CONTENT_DELIVERY_CACHE_PURGING_AZURE_FRONT_DOOR_TENANT_ID=
+TOLGEE_CONTENT_DELIVERY_CACHE_PURGING_CLOUDFLARE__NUMBER OF PATHS TO PURGE IN ONE REQUEST_ (_CLOUDFLARE LIMIT IS 30 NOW, BUT IT MIGHT BE SUBJECT TO CHANGE)=30
+TOLGEE_CONTENT_DELIVERY_CACHE_PURGING_CLOUDFLARE_API_KEY=
+TOLGEE_CONTENT_DELIVERY_CACHE_PURGING_CLOUDFLARE_CONTENT_DELIVERY_CACHE_PURGING_TYPE=CLOUDFLARE
+TOLGEE_CONTENT_DELIVERY_CACHE_PURGING_CLOUDFLARE_ENABLED=false
+TOLGEE_CONTENT_DELIVERY_CACHE_PURGING_CLOUDFLARE_URL_PREFIX=
+TOLGEE_CONTENT_DELIVERY_CACHE_PURGING_CLOUDFLARE_ZONE_ID=
 TOLGEE_CONTENT_DELIVERY_STORAGE_AZURE_CONNECTION_STRING=
 TOLGEE_CONTENT_DELIVERY_STORAGE_AZURE_CONTAINER_NAME=
 TOLGEE_CONTENT_DELIVERY_STORAGE_S3_ACCESS_KEY=
@@ -2240,6 +2351,46 @@ These properties are used to configure default server content delivery storage.
 - <h5 id="public-url-prefix"><code>public-url-prefix</code></h5>
 
   The root path where the content is accessible by the public. If this property is not null, content delivery will be enabled on your server.
+
+<h4 id="cache-purging">cache-purging</h4>
+
+Prefix: `tolgee.content-delivery.cache-purging`
+
+<h5 id="azure-front-door">azure-front-door</h5>
+
+Prefix: `tolgee.content-delivery.cache-purging.azure-front-door`
+
+- <h5 id="client-id"><code>client-id</code></h5>
+
+- <h5 id="client-secret"><code>client-secret</code></h5>
+
+- <h5 id="content-root"><code>content-root</code></h5>
+
+- <h5 id="endpoint-name"><code>endpoint-name</code></h5>
+
+- <h5 id="profile-name"><code>profile-name</code></h5>
+
+- <h5 id="resource-group-name"><code>resource-group-name</code></h5>
+
+- <h5 id="subscription-id"><code>subscription-id</code></h5>
+
+- <h5 id="tenant-id"><code>tenant-id</code></h5>
+
+<h5 id="cloudflare">cloudflare</h5>
+
+Prefix: `tolgee.content-delivery.cache-purging.cloudflare`
+
+- <h5 id="-number of paths to purge in one request. (-cloudflare limit is 30 now, but it might be subject to change)"><code>-number of paths to purge in one request. (-cloudflare limit is 30 now, but it might be subject to change)</code></h5>
+
+- <h5 id="api-key"><code>api-key</code></h5>
+
+- <h5 id="content-delivery-cache-purging-type"><code>content-delivery-cache-purging-type</code></h5>
+
+- <h5 id="enabled"><code>enabled</code></h5>
+
+- <h5 id="url-prefix"><code>url-prefix</code></h5>
+
+- <h5 id="zone-id"><code>zone-id</code></h5>
 
 <h4 id="storage">storage</h4>
 
@@ -2776,6 +2927,20 @@ tolgee.cache.default-ttl = 7200000
 tolgee.cache.enabled = false
 tolgee.cache.use-redis = false
 tolgee.content-delivery.public-url-prefix =
+tolgee.content-delivery.cache-purging.azure-front-door.client-id =
+tolgee.content-delivery.cache-purging.azure-front-door.client-secret =
+tolgee.content-delivery.cache-purging.azure-front-door.content-root =
+tolgee.content-delivery.cache-purging.azure-front-door.endpoint-name =
+tolgee.content-delivery.cache-purging.azure-front-door.profile-name =
+tolgee.content-delivery.cache-purging.azure-front-door.resource-group-name =
+tolgee.content-delivery.cache-purging.azure-front-door.subscription-id =
+tolgee.content-delivery.cache-purging.azure-front-door.tenant-id =
+tolgee.content-delivery.cache-purging.cloudflare.-number of paths to purge in one request. (-cloudflare limit is 30 now, but it might be subject to change) = 30
+tolgee.content-delivery.cache-purging.cloudflare.api-key =
+tolgee.content-delivery.cache-purging.cloudflare.content-delivery-cache-purging-type = CLOUDFLARE
+tolgee.content-delivery.cache-purging.cloudflare.enabled = false
+tolgee.content-delivery.cache-purging.cloudflare.url-prefix =
+tolgee.content-delivery.cache-purging.cloudflare.zone-id =
 tolgee.content-delivery.storage.azure.connection-string =
 tolgee.content-delivery.storage.azure.container-name =
 tolgee.content-delivery.storage.s3.access-key =
