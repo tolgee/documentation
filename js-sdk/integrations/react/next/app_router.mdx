@@ -40,13 +40,14 @@ The folder structure of your project should resemble the following:
 
 ```
 ├── next.config.js
+├── messages
+│   ├── en.json
+│   └── cs.json
 └── src
     ├── middleware.ts
     ├── navigation.ts
-    ├── i18n.ts
     ├── i18n
-    │   ├── en.json
-    │   └── cs.json
+    │   └── request.ts
     ├── tolgee
     │   ├── shared.ts
     │   ├── client.tsx
@@ -204,9 +205,7 @@ export default async function LocaleLayout({
     notFound();
   }
 
-  // make sure you provide all the necessary locales
-  // for the inital SSR render (e.g. fallback languages)
-  const locales = await getStaticData([locale]);
+  const locales = await getMessages();
 
   return (
     <html lang={locale}>
@@ -273,17 +272,20 @@ const nextConfig = {};
 export default withNextIntl(nextConfig);
 ```
 
-### Add `i18n.ts` file
+### Add `i18n/request.ts` file
 
-The applicaiton handles the loading of translation. The `i18n.ts` file is added as it is required by `next-intl`.
-
-Create a `src/i18n.ts` file and paste the following code.
+The `i18n/request.ts` file is added as it is required by `next-intl` and is used to load static localization data.
 
 ```ts title="src/i18n.ts"
 import { getRequestConfig } from 'next-intl/server';
+import { getStaticData } from '../tolgee/shared';
 
-export default getRequestConfig(async () => {
-  return {};
+export default getRequestConfig(async ({ locale }) => {
+  return {
+    // it's important you provide all data which are needed for initial render
+    // so current locale and also fallback locales + necessary namespaces
+    messages: await getStaticData(['en', locale]),
+  };
 });
 ```
 
