@@ -205,7 +205,10 @@ export default async function LocaleLayout({
     notFound();
   }
 
-  const locales = await getMessages();
+  // make sure you provide all the necessary locales
+  // for the inital SSR render (e.g. fallback languages)
+  const locales = await getStaticData([locale]);
+
 
   return (
     <html lang={locale}>
@@ -274,7 +277,7 @@ export default withNextIntl(nextConfig);
 
 ### Add `i18n/request.ts` file
 
-The `i18n/request.ts` file is added as it is required by `next-intl` and is used to load static localization data.
+The `i18n/request.ts` is required by `next-intl` package, we don't actually need it, so we are only doing necessary actions to stop `next-intl` from complaining.
 
 ```ts title="src/i18n.ts"
 import { getRequestConfig } from 'next-intl/server';
@@ -282,9 +285,8 @@ import { getStaticData } from '../tolgee/shared';
 
 export default getRequestConfig(async ({ locale }) => {
   return {
-    // it's important you provide all data which are needed for initial render
-    // so current locale and also fallback locales + necessary namespaces
-    messages: await getStaticData(['en', locale]),
+    // do this to make next-intl not emmitt any warnings
+    messages: { locale },
   };
 });
 ```
