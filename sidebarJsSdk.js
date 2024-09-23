@@ -52,6 +52,7 @@ module.exports = {
             'integrations/vue/translating',
             'integrations/vue/component_interpolation',
             'integrations/vue/switching_language',
+            'integrations/vue/ssr',
             'integrations/vue/api',
           ],
         },
