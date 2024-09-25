@@ -87,10 +87,21 @@ export const DEFAULT_LOCALE = 'en';
 const apiKey = process.env.NEXT_PUBLIC_TOLGEE_API_KEY;
 const apiUrl = process.env.NEXT_PUBLIC_TOLGEE_API_URL;
 
-export async function getStaticData(languages: string[]) {
+export async function getStaticData(
+  languages: string[],
+  namespaces: string[] = ['']
+) {
   const result: Record<string, any> = {};
   for (const lang of languages) {
-    result[lang] = (await import(`../i18n/${lang}.json`)).default;
+    for (const namespace of namespaces) {
+      if (namespace) {
+        result[`${lang}:${namespace}`] = (
+          await import(`../../messages/${namespace}/${lang}.json`)
+        ).default;
+      } else {
+        result[lang] = (await import(`../../messages/${lang}.json`)).default;
+      }
+    }
   }
   return result;
 }
@@ -186,7 +197,7 @@ export const { getTolgee, getTranslate, T } = createServerInstance({
 
 The next step is to wrap the children with the `TolgeeNextProvider`. Update the `layout.tsx` file with the following code:
 
-```tsx title="src/app/layout.tsx"
+```tsx title="src/app/[locale]/layout.tsx"
 import { notFound } from 'next/navigation';
 import { ReactNode } from 'react';
 import { TolgeeNextProvider } from '@/tolgee/client';
