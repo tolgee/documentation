@@ -357,6 +357,14 @@ Prefix: `tolgee.content-delivery.cache-purging.azure-front-door`
 
 Prefix: `tolgee.content-delivery.cache-purging.cloudflare`
 
+- ##### `-if cache is filled with specific -origin header, it can be purged only if the purge request specifies the same -origin header. -here you can specify comma separated list of origins.
+e.g. `https://example.com,https://example2.com`
+
+-read more in the -cloudflare [docs](https://developers.cloudflare.com/cache/how-to/purge-cache/purge-by-single-file/).` {#-if cache is filled with specific -origin header, it can be purged only if the purge request specifies the same -origin header. -here you can specify comma separated list of origins.
+e.g. `https://example.com,https://example2.com`
+
+-read more in the -cloudflare [docs](https://developers.cloudflare.com/cache/how-to/purge-cache/purge-by-single-file/).}
+
 - ##### `-number of paths to purge in one request. (-cloudflare limit is 30 now, but it might be subject to change)` {#-number of paths to purge in one request. (-cloudflare limit is 30 now, but it might be subject to change)}
 
 - ##### `api-key` {#api-key}
@@ -926,6 +934,10 @@ tolgee:
         subscription-id:
         tenant-id:
       cloudflare:
+        -if cache is filled with specific -origin header, it can be purged only if the purge request specifies the same -origin header. -here you can specify comma separated list of origins.
+e.g. `https://example.com,https://example2.com`
+
+-read more in the -cloudflare [docs](https://developers.cloudflare.com/cache/how-to/purge-cache/purge-by-single-file/).:
         -number of paths to purge in one request. (-cloudflare limit is 30 now, but it might be subject to change): 30
         api-key:
         content-delivery-cache-purging-type: CLOUDFLARE
@@ -1385,6 +1397,14 @@ Prefix: `TOLGEE_CONTENT_DELIVERY_CACHE_PURGING_AZURE_FRONT_DOOR`
 <h5 id="cloudflare">CLOUDFLARE</h5>
 
 Prefix: `TOLGEE_CONTENT_DELIVERY_CACHE_PURGING_CLOUDFLARE`
+
+- <h5 id="-if cache is filled with specific -origin header, it can be purged only if the purge request specifies the same -origin header. -here you can specify comma separated list of origins.
+e.g. `https://example.com,https://example2.com`
+
+-read more in the -cloudflare [docs](https://developers.cloudflare.com/cache/how-to/purge-cache/purge-by-single-file/)."><code>_IF CACHE IS FILLED WITH SPECIFIC _ORIGIN HEADER, IT CAN BE PURGED ONLY IF THE PURGE REQUEST SPECIFIES THE SAME _ORIGIN HEADER_ _HERE YOU CAN SPECIFY COMMA SEPARATED LIST OF ORIGINS_
+E_G_ `HTTPS://EXAMPLE_COM,HTTPS://EXAMPLE2_COM`
+
+_READ MORE IN THE _CLOUDFLARE [DOCS](HTTPS://DEVELOPERS_CLOUDFLARE_COM/CACHE/HOW_TO/PURGE_CACHE/PURGE_BY_SINGLE_FILE/)_</code></h5>
 
 - <h5 id="-number of paths to purge in one request. (-cloudflare limit is 30 now, but it might be subject to change)"><code>_NUMBER OF PATHS TO PURGE IN ONE REQUEST_ (_CLOUDFLARE LIMIT IS 30 NOW, BUT IT MIGHT BE SUBJECT TO CHANGE)</code></h5>
 
@@ -1941,6 +1961,10 @@ TOLGEE_CONTENT_DELIVERY_CACHE_PURGING_AZURE_FRONT_DOOR_PROFILE_NAME=
 TOLGEE_CONTENT_DELIVERY_CACHE_PURGING_AZURE_FRONT_DOOR_RESOURCE_GROUP_NAME=
 TOLGEE_CONTENT_DELIVERY_CACHE_PURGING_AZURE_FRONT_DOOR_SUBSCRIPTION_ID=
 TOLGEE_CONTENT_DELIVERY_CACHE_PURGING_AZURE_FRONT_DOOR_TENANT_ID=
+TOLGEE_CONTENT_DELIVERY_CACHE_PURGING_CLOUDFLARE__IF CACHE IS FILLED WITH SPECIFIC _ORIGIN HEADER, IT CAN BE PURGED ONLY IF THE PURGE REQUEST SPECIFIES THE SAME _ORIGIN HEADER_ _HERE YOU CAN SPECIFY COMMA SEPARATED LIST OF ORIGINS_
+E_G_ `HTTPS://EXAMPLE_COM,HTTPS://EXAMPLE2_COM`
+
+_READ MORE IN THE _CLOUDFLARE [DOCS](HTTPS://DEVELOPERS_CLOUDFLARE_COM/CACHE/HOW_TO/PURGE_CACHE/PURGE_BY_SINGLE_FILE/)_=
 TOLGEE_CONTENT_DELIVERY_CACHE_PURGING_CLOUDFLARE__NUMBER OF PATHS TO PURGE IN ONE REQUEST_ (_CLOUDFLARE LIMIT IS 30 NOW, BUT IT MIGHT BE SUBJECT TO CHANGE)=30
 TOLGEE_CONTENT_DELIVERY_CACHE_PURGING_CLOUDFLARE_API_KEY=
 TOLGEE_CONTENT_DELIVERY_CACHE_PURGING_CLOUDFLARE_CONTENT_DELIVERY_CACHE_PURGING_TYPE=CLOUDFLARE
@@ -2379,6 +2403,14 @@ Prefix: `tolgee.content-delivery.cache-purging.azure-front-door`
 <h5 id="cloudflare">cloudflare</h5>
 
 Prefix: `tolgee.content-delivery.cache-purging.cloudflare`
+
+- <h5 id="-if cache is filled with specific -origin header, it can be purged only if the purge request specifies the same -origin header. -here you can specify comma separated list of origins.
+e.g. `https://example.com,https://example2.com`
+
+-read more in the -cloudflare [docs](https://developers.cloudflare.com/cache/how-to/purge-cache/purge-by-single-file/)."><code>-if cache is filled with specific -origin header, it can be purged only if the purge request specifies the same -origin header. -here you can specify comma separated list of origins.
+e.g. `https://example.com,https://example2.com`
+
+-read more in the -cloudflare [docs](https://developers.cloudflare.com/cache/how-to/purge-cache/purge-by-single-file/).</code></h5>
 
 - <h5 id="-number of paths to purge in one request. (-cloudflare limit is 30 now, but it might be subject to change)"><code>-number of paths to purge in one request. (-cloudflare limit is 30 now, but it might be subject to change)</code></h5>
 
@@ -2935,6 +2967,10 @@ tolgee.content-delivery.cache-purging.azure-front-door.profile-name =
 tolgee.content-delivery.cache-purging.azure-front-door.resource-group-name =
 tolgee.content-delivery.cache-purging.azure-front-door.subscription-id =
 tolgee.content-delivery.cache-purging.azure-front-door.tenant-id =
+tolgee.content-delivery.cache-purging.cloudflare.-if cache is filled with specific -origin header, it can be purged only if the purge request specifies the same -origin header. -here you can specify comma separated list of origins.
+e.g. `https://example.com,https://example2.com`
+
+-read more in the -cloudflare [docs](https://developers.cloudflare.com/cache/how-to/purge-cache/purge-by-single-file/). =
 tolgee.content-delivery.cache-purging.cloudflare.-number of paths to purge in one request. (-cloudflare limit is 30 now, but it might be subject to change) = 30
 tolgee.content-delivery.cache-purging.cloudflare.api-key =
 tolgee.content-delivery.cache-purging.cloudflare.content-delivery-cache-purging-type = CLOUDFLARE
