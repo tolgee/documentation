@@ -31,8 +31,6 @@ export const LayoutContent = ({ children }) => {
   const { siteConfig } = useDocusaurusContext();
 
   const trackingId = siteConfig.customFields.googleTrackingId;
-  //const cookieYesId = siteConfig.customFields.cookieYesId;
-  const hotjarId = siteConfig.customFields.hotjarId;
   const typebotToken = siteConfig.customFields.typebotToken as
     | string
     | undefined;
