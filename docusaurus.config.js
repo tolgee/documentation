@@ -95,6 +95,8 @@ const config = {
     hotjarId: process.env.DOCUSAURUS_HOTJAR_ID,
     typebotToken: process.env.DOCOSAURUS_TYPEBOT_TOKEN,
     posthogToken: process.env.DOCOSAURUS_POSTHOG_TOKEN,
+    posthogApiHost:
+      process.env.DOCOSAURUS_POSTHOG_API_HOST || 'https://app.posthog.com',
   },
   scripts: [
     {
