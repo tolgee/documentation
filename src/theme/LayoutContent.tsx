@@ -2,7 +2,6 @@ import React, { useEffect, useMemo } from 'react';
 
 import Head from '@docusaurus/Head';
 import useDocusaurusContext from '@docusaurus/useDocusaurusContext';
-import { getGtagScript } from '../component/externalScripts/getGtagScript';
 import websiteSchema from '../info/website';
 import {
   Experimental_CssVarsProvider,
@@ -10,10 +9,11 @@ import {
   useColorScheme,
 } from '@mui/material';
 import { useDarkMode } from '../utils';
-import { getHotjarScript } from '../component/externalScripts/getHotjarScript';
 import { createTheme } from './muiTheme';
 import { getTypebotScript } from '../component/externalScripts/getTypebotScript';
-import { getPosthogScript } from '../component/externalScripts/getPosthogScript';
+import { initPosthog } from '../component/initPosthog';
+import { useLocation } from 'react-router-dom';
+import posthog from 'posthog-js';
 
 const MuiThemeSynchronizer = () => {
   const isDarkTheme = useDarkMode();
@@ -36,9 +36,8 @@ export const LayoutContent = ({ children }) => {
   const typebotToken = siteConfig.customFields.typebotToken as
     | string
     | undefined;
-  const posthogToken = siteConfig.customFields.posthogToken as
-    | string
-    | undefined;
+
+  const location = useLocation();
 
   useEffect(() => {
     setTimeout(() => {
@@ -57,6 +56,25 @@ export const LayoutContent = ({ children }) => {
     return createTheme(isDarkTheme);
   }, [isDarkTheme]);
 
+  useEffect(() => {
+    const posthogToken = siteConfig.customFields.posthogToken as
+      | string
+      | undefined;
+
+    const posthogApiHost = siteConfig.customFields.posthogApiHost as
+      | string
+      | undefined;
+    initPosthog({ token: posthogToken, host: posthogApiHost });
+  }, []);
+
+  useEffect(() => {
+    if (posthog) {
+      posthog.capture('$pageview', {
+        $current_url: window.location.href,
+      });
+    }
+  }, [location]);
+
   return (
     <>
       <Head>
@@ -67,12 +85,9 @@ export const LayoutContent = ({ children }) => {
           'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
           })(window,document,'script','dataLayer','${trackingId}');`}</script>
         )}
-        {trackingId && <script>{getGtagScript(trackingId as string)}</script>}
         {typebotToken && (
           <script type="module">{getTypebotScript(typebotToken)}</script>
         )}
-        {hotjarId && <script>{getHotjarScript(hotjarId as string)}</script>}
-        {posthogToken && <script>{getPosthogScript(posthogToken)}</script>}
         <script type="application/ld+json">
           {JSON.stringify(websiteSchema)}
         </script>
