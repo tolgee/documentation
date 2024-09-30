@@ -1,0 +1,152 @@
+---
+id: tasks
+title: Tasks
+---
+
+import { ScreenshotWrapper } from '../shared/_ScreenshotWrapper';
+
+:::info Feature availability
+Tasks are introduced in paid plans. [Upgrade your plan](/pricing) to use this feature.
+
+If you use the self-hosted version, you must [set up the license](/platform/self_hosting/licensing) to use this feature.
+:::
+
+Tasks allow you to assign and track progress on translating or reviewing jobs.
+
+## Task creation
+
+To create a task go to the `Tasks` section in the project menu and click the `+ Task` button:
+
+<ScreenshotWrapper
+  src="/img/docs/platform/tasks/tasks_page_empty.webp"
+  alt="Tasks page empty"
+/>
+
+You will see a task creation dialog:
+
+<ScreenshotWrapper
+  src="/img/docs/platform/tasks/create_task.webp"
+  alt="Create task dialog"
+/>
+
+Fields description:
+
+- **Type** - the type of the task
+  - `Translate` - Expects assignee to fill or update translation
+  - `Review` - Expects assignee to change translation state to `Reviewed`
+- **Name**
+- **Languages** - You can select one or more languages, a separate task for each language will be created
+- **Due date** - A date due the task should be completed
+- **Description** - Additional information about the task
+- **Tasks and assignees**
+  - Filters - you can filter by keys or by translation states, this will influence how many keys will be in each task
+  - Tasks preview - shows what tasks will be created, with a calculated amount of work. You can also assign users to each task separately. There can be a warning sign, which appears when some keys are omitted because of their state or because the translation is already in a different task with the same type.
+
+
+> You can also create task through `Batch operation` from the translations view, to manually select keys.
+
+## Working on the task
+
+Once the task is created, each assignee receives an email notification.
+
+He can also see a notification next to his profile icon, where he can go to see his tasks.
+
+<ScreenshotWrapper
+  src="/img/docs/platform/tasks/task_notification.webp"
+  alt="Task notification"
+/>
+
+Once he clicks on `My tasks`, he can see a list of all tasks assigned to him.
+
+<ScreenshotWrapper src="/img/docs/platform/tasks/my_tasks.webp" alt="My tasks" />
+
+To start working on the task, he can click on it and get to a translation view, prefiltered by the task.
+
+<ScreenshotWrapper
+  src="/img/docs/platform/tasks/task_prefilter.webp"
+  alt="Translations prefiltered by task"
+/>
+
+Now every time the user changes a translation, the translation will be marked as done automatically (`Save & done` button), you can also change the `done` state by task button on the right side of the translation (it changes its color when the translation is done).
+
+> The same logic works with `Review` tasks, with the `Mark as reviewed` button.
+
+## User permissions
+
+If you assign task to a user which has read only rights to the project, his rights will be elevated to allow him to finish the task. In case of `Translate` task, he can edit the translation and add comments (similarly with `Review` tasks, he can change the review state). 
+
+He'll only has these rights until the task is `Done` or `Closed`.
+
+## Task state and progress
+
+Each task has four states:
+
+- `New` - nothing has been done on the task
+- `In progress` - at least one translation has been marked as `done`
+- `Done` - Once all translations are done, the user is prompted to mark the whole task as `Done`, this signifies that there will be no further work on the task
+- `Closed` at any time task can be closed - meaning the task is not relevant anymore
+
+To see an overview of tasks progress for a project, go to the tasks section in the project menu.
+
+<ScreenshotWrapper
+  src="/img/docs/platform/tasks/project_tasks.webp"
+  alt="Project tasks progress"
+/>
+
+In the basic view, you can see all the tasks that are `New` or `In progress`, `Done` tasks are only visible for `30 days`. To see older `Done` tasks and `Closed` tasks, check the `Closed tasks` checkbox.
+
+If you want to see tasks categorized by their state, you can switch to a `Board` view:
+
+<ScreenshotWrapper
+  src="/img/docs/platform/tasks/project_tasks_board.webp"
+  alt="Project tasks board view"
+/>
+
+## Task actions
+
+To manage tasks, use the task menu.
+
+<ScreenshotWrapper
+  src="/img/docs/platform/tasks/task_menu.webp"
+  alt="Task menu"
+/>
+
+- `Mark as done` - can be only used when the task is completed (progress is 100%)
+- `Close task` - can be used any time
+- `Clone to new task` - used to create the same task for different language
+- `Create review task` - use to create a follow-up review task
+- `Generate report` - generates Excel detailed report - useful when you want to see, how much work has been done on the task and by who
+
+## Task detail
+
+To see project details, use the button with the task icon.
+
+<ScreenshotWrapper
+  src="/img/docs/platform/tasks/task_detail_button.webp"
+  alt="Task detail button"
+/>
+
+Task detail allows you to see all the information about the task and also change assignees and other task details.
+
+<ScreenshotWrapper
+  src="/img/docs/platform/tasks/task_detail.webp"
+  alt="Task detail"
+/>
+
+If add new assignees, they will recieve notification email, similarly as when the task is created.
+
+## Task batch operations
+
+You can create task directly from batch operations, to select exectly which keys should be included. Or you can add the keys to an existing task.
+
+<ScreenshotWrapper
+  src="/img/docs/platform/tasks/task_batch_operations.webp"
+  alt="Task batch operations"
+/>
+
+To remove keys from a task, you can filter by task and then go to batch operations menu, and a `Remove keys from task` option will appear.
+
+<ScreenshotWrapper
+  src="/img/docs/platform/tasks/task_batch_op_remove.webp"
+  alt="Task remove keys"
+/>
