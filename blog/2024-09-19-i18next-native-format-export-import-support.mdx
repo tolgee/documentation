@@ -28,4 +28,4 @@ We are excited to announce that Tolgee now supports the [i18next format](https:/
 
 One of the formats still needing to be added to Tolgee was the i18next format. Not anymore! The support for the i18next format has landed in Tolgee. You can now import and export your localization data in the i18next format as JSON files.
 
-While only a small subset of i18next features are supported, this should be enough to allow basic usage of the format and simplify migration of your existing projects to Tolgee.
+When conversion to ICU placeholders is enabled, Tolgee will automatically convert most of the cases. However, some cases are not supported due to missing alternatives in the ICU. In that case, your i18next parameters will be kept untouched so Tolgee can export the same dataset as when imported.

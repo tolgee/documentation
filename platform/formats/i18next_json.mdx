@@ -4,7 +4,7 @@ title: i18next JSON
 sidebar_label: i18next JSON
 ---
 
-i18next is a library and format commonly used for handling translations in JavaScript-based projects. Translations are usually stored as part of JavaScript code or in `.json` files. Tolgee supports importing the `.json` representation of translation mapping, but not all i18next features are supported.
+i18next is a library and format commonly used for handling translations in JavaScript-based projects. Translations are usually stored as part of JavaScript code or in `.json` files. Tolgee supports importing the `.json` representation of translation mapping.
 
 The i18next format uses suffixes for plurals (e.g. `my_key_zero`, `my_key_one`, `my_key_many`) and has specific placeholders for keys (e.g. `value is {{placeholder_key}}`). You can import and export your localization data in the i18next format directly using Tolgee.
 
@@ -47,7 +47,7 @@ import {
 
 ### Placeholder conversion specification
 
-Only specifiers specified in the table below are supported. Tolgee doesn't support additional flags and modifiers and won't convert such placeholders.
+Only placeholders specified in the table below are supported. Tolgee doesn't support additional flags and modifiers and won't convert such placeholders. Unsupported placeholders will neither be lost nor modified. When a file with unsupported placeholders is imported and exported, all keys' values will remain the same.
 
 import { PlaceholderConversion } from "../../src/component/docs/formats/PlaceholderConversions";
 
