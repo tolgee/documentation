@@ -357,13 +357,22 @@ Prefix: `tolgee.content-delivery.cache-purging.azure-front-door`
 
 Prefix: `tolgee.content-delivery.cache-purging.cloudflare`
 
-- ##### `-number of paths to purge in one request. (-cloudflare limit is 30 now, but it might be subject to change)` {#-number of paths to purge in one request. (-cloudflare limit is 30 now, but it might be subject to change)}
-
 - ##### `api-key` {#api-key}
 
 - ##### `content-delivery-cache-purging-type` {#content-delivery-cache-purging-type}
 
 - ##### `enabled` {#enabled}
+
+- ##### `max-files-per-request` {#max-files-per-request}
+
+  Number of paths to purge in one request. (Cloudflare limit is 30 now, but it might be subject to change) (default: `30`)
+
+- ##### `origins` {#origins}
+
+  If cache is filled with specific Origin header, it can be purged only if the purge request specifies the same Origin header. Here you can specify comma separated list of origins.
+  e.g. `https://example.com,https://example2.com`
+  
+  Read more in the Cloudflare [docs](https://developers.cloudflare.com/cache/how-to/purge-cache/purge-by-single-file/).
 
 - ##### `url-prefix` {#url-prefix}
 
@@ -926,10 +935,11 @@ tolgee:
         subscription-id:
         tenant-id:
       cloudflare:
-        -number of paths to purge in one request. (-cloudflare limit is 30 now, but it might be subject to change): 30
         api-key:
         content-delivery-cache-purging-type: CLOUDFLARE
         enabled: false
+        max-files-per-request: 30
+        origins:
         url-prefix:
         zone-id:
     storage:
@@ -1386,13 +1396,22 @@ Prefix: `TOLGEE_CONTENT_DELIVERY_CACHE_PURGING_AZURE_FRONT_DOOR`
 
 Prefix: `TOLGEE_CONTENT_DELIVERY_CACHE_PURGING_CLOUDFLARE`
 
-- <h5 id="-number of paths to purge in one request. (-cloudflare limit is 30 now, but it might be subject to change)"><code>_NUMBER OF PATHS TO PURGE IN ONE REQUEST_ (_CLOUDFLARE LIMIT IS 30 NOW, BUT IT MIGHT BE SUBJECT TO CHANGE)</code></h5>
-
 - <h5 id="api-key"><code>API_KEY</code></h5>
 
 - <h5 id="content-delivery-cache-purging-type"><code>CONTENT_DELIVERY_CACHE_PURGING_TYPE</code></h5>
 
 - <h5 id="enabled"><code>ENABLED</code></h5>
+
+- <h5 id="max-files-per-request"><code>MAX_FILES_PER_REQUEST</code></h5>
+
+  Number of paths to purge in one request. (Cloudflare limit is 30 now, but it might be subject to change) (default: `30`)
+
+- <h5 id="origins"><code>ORIGINS</code></h5>
+
+  If cache is filled with specific Origin header, it can be purged only if the purge request specifies the same Origin header. Here you can specify comma separated list of origins.
+  e.g. `https://example.com,https://example2.com`
+  
+  Read more in the Cloudflare [docs](https://developers.cloudflare.com/cache/how-to/purge-cache/purge-by-single-file/).
 
 - <h5 id="url-prefix"><code>URL_PREFIX</code></h5>
 
@@ -1941,10 +1960,11 @@ TOLGEE_CONTENT_DELIVERY_CACHE_PURGING_AZURE_FRONT_DOOR_PROFILE_NAME=
 TOLGEE_CONTENT_DELIVERY_CACHE_PURGING_AZURE_FRONT_DOOR_RESOURCE_GROUP_NAME=
 TOLGEE_CONTENT_DELIVERY_CACHE_PURGING_AZURE_FRONT_DOOR_SUBSCRIPTION_ID=
 TOLGEE_CONTENT_DELIVERY_CACHE_PURGING_AZURE_FRONT_DOOR_TENANT_ID=
-TOLGEE_CONTENT_DELIVERY_CACHE_PURGING_CLOUDFLARE__NUMBER OF PATHS TO PURGE IN ONE REQUEST_ (_CLOUDFLARE LIMIT IS 30 NOW, BUT IT MIGHT BE SUBJECT TO CHANGE)=30
 TOLGEE_CONTENT_DELIVERY_CACHE_PURGING_CLOUDFLARE_API_KEY=
 TOLGEE_CONTENT_DELIVERY_CACHE_PURGING_CLOUDFLARE_CONTENT_DELIVERY_CACHE_PURGING_TYPE=CLOUDFLARE
 TOLGEE_CONTENT_DELIVERY_CACHE_PURGING_CLOUDFLARE_ENABLED=false
+TOLGEE_CONTENT_DELIVERY_CACHE_PURGING_CLOUDFLARE_MAX_FILES_PER_REQUEST=30
+TOLGEE_CONTENT_DELIVERY_CACHE_PURGING_CLOUDFLARE_ORIGINS=
 TOLGEE_CONTENT_DELIVERY_CACHE_PURGING_CLOUDFLARE_URL_PREFIX=
 TOLGEE_CONTENT_DELIVERY_CACHE_PURGING_CLOUDFLARE_ZONE_ID=
 TOLGEE_CONTENT_DELIVERY_STORAGE_AZURE_CONNECTION_STRING=
@@ -2380,13 +2400,22 @@ Prefix: `tolgee.content-delivery.cache-purging.azure-front-door`
 
 Prefix: `tolgee.content-delivery.cache-purging.cloudflare`
 
-- <h5 id="-number of paths to purge in one request. (-cloudflare limit is 30 now, but it might be subject to change)"><code>-number of paths to purge in one request. (-cloudflare limit is 30 now, but it might be subject to change)</code></h5>
-
 - <h5 id="api-key"><code>api-key</code></h5>
 
 - <h5 id="content-delivery-cache-purging-type"><code>content-delivery-cache-purging-type</code></h5>
 
 - <h5 id="enabled"><code>enabled</code></h5>
+
+- <h5 id="max-files-per-request"><code>max-files-per-request</code></h5>
+
+  Number of paths to purge in one request. (Cloudflare limit is 30 now, but it might be subject to change) (default: `30`)
+
+- <h5 id="origins"><code>origins</code></h5>
+
+  If cache is filled with specific Origin header, it can be purged only if the purge request specifies the same Origin header. Here you can specify comma separated list of origins.
+  e.g. `https://example.com,https://example2.com`
+  
+  Read more in the Cloudflare [docs](https://developers.cloudflare.com/cache/how-to/purge-cache/purge-by-single-file/).
 
 - <h5 id="url-prefix"><code>url-prefix</code></h5>
 
@@ -2935,10 +2964,11 @@ tolgee.content-delivery.cache-purging.azure-front-door.profile-name =
 tolgee.content-delivery.cache-purging.azure-front-door.resource-group-name =
 tolgee.content-delivery.cache-purging.azure-front-door.subscription-id =
 tolgee.content-delivery.cache-purging.azure-front-door.tenant-id =
-tolgee.content-delivery.cache-purging.cloudflare.-number of paths to purge in one request. (-cloudflare limit is 30 now, but it might be subject to change) = 30
 tolgee.content-delivery.cache-purging.cloudflare.api-key =
 tolgee.content-delivery.cache-purging.cloudflare.content-delivery-cache-purging-type = CLOUDFLARE
 tolgee.content-delivery.cache-purging.cloudflare.enabled = false
+tolgee.content-delivery.cache-purging.cloudflare.max-files-per-request = 30
+tolgee.content-delivery.cache-purging.cloudflare.origins =
 tolgee.content-delivery.cache-purging.cloudflare.url-prefix =
 tolgee.content-delivery.cache-purging.cloudflare.zone-id =
 tolgee.content-delivery.storage.azure.connection-string =
