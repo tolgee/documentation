@@ -4,11 +4,11 @@ title: i18next JSON
 sidebar_label: i18next JSON
 ---
 
-i18next is a library and format commonly used for handling translations in JavaScript-based for localization. Translations are usually stored as part of JavaScript code or in `.json` files. Tolgee supports importing the `.json` representation of translation mapping, but not all i18next features are supported.
+i18next is a library and format commonly used for handling translations in JavaScript-based projects. Translations are usually stored as part of JavaScript code or in `.json` files. Tolgee supports importing the `.json` representation of translation mapping, but not all i18next features are supported.
 
-The i18next format uses key suffixes for plurals (e.g. `my_key_zero`, `my_key_one`, `my_key_many`) and has specific placeholders for keys (e.g. `value is {{placeholder_key}}`). You can import and export your localization data in the i18next format directly using Tolgee.
+The i18next format uses suffixes for plurals (e.g. `my_key_zero`, `my_key_one`, `my_key_many`) and has specific placeholders for keys (e.g. `value is {{placeholder_key}}`). You can import and export your localization data in the i18next format directly using Tolgee.
 
-However, we recommend using the **ICU format** with the **[ICU plugin](https://github.com/i18next/i18next-icu) for i18next** when possible. The ICU format offers much better support for advanced message formatting and plurals.
+However, when possible, we recommend using the **ICU format** with the **[ICU plugin](https://github.com/i18next/i18next-icu) for i18next**. The ICU format offers much better support for advanced message formatting and plurals.
 
 Read more about i18next in [i18next official documentation](https://www.i18next.com/).
 
@@ -30,9 +30,9 @@ Read more about i18next in [i18next official documentation](https://www.i18next.
 }
 ```
 
-When importing this JSON, the nested keys will be converted into flat key structure and all plurals and placeholders will be converted to ICU message format (can be disabled).
+When importing this JSON, Tolgee will convert nested keys into flat key structure and all plurals and placeholders to ICU message format (can be disabled).
 
-When exporting to i18next JSON, the ICU message format will be converted back to i18next format. You can choose to either use the **flat JSON structure** or **nested JSON structure**, depending on your preference. However, for projects needing more advanced message formatting, we strongly recommend using the ICU format with the i18next [ICU plugin](https://github.com/i18next/i18next-icu). The Tolgee platform doesn't support exporting theses advanced features in the i18next format.
+When exporting to i18next JSON, Tolgee will convert ICU message format back to i18next format. Depending on your preference, you can choose to either use the **flat JSON structure** or **nested JSON structure**. However, for projects needing more advanced message formatting, we strongly recommend using the ICU format with the i18next [ICU plugin](https://github.com/i18next/i18next-icu). The Tolgee platform doesn't support exporting these advanced features in the i18next format.
 
 
 ## The message format and placeholder conversion
@@ -47,7 +47,7 @@ import {
 
 ### Placeholder conversion specification
 
-Only specifiers specified in the table below are supported. Tolgee doesn't support additional flags and modifiers and placeholders using them are not converted.
+Only specifiers specified in the table below are supported. Tolgee doesn't support additional flags and modifiers and won't convert such placeholders.
 
 import { PlaceholderConversion } from "../../src/component/docs/formats/PlaceholderConversions";
 
