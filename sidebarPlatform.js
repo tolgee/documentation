@@ -68,6 +68,7 @@ module.exports = {
         'formats/android_xml',
         'formats/flutter_arb',
         'formats/ruby_yaml',
+        'formats/i18next_json',
       ],
     },
     {
