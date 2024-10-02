@@ -1,9 +1,8 @@
 {
-  "extends": "@tsconfig/docusaurus/tsconfig.json",
+  "extends": "./tsconfig.base.json",
   "compilerOptions": {
-    "resolveJsonModule": true,
-    "downlevelIteration": true
+    "rootDir": "."
   },
-  "include": ["src/"],
-  "exclude": ["node_modules"]
+  "include": ["./src/**/*", "./test/**/*", "./scripts/**/*"],
+  "exclude": ["./test/__fixtures__"]
 }
