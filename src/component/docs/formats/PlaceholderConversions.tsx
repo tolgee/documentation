@@ -19,12 +19,17 @@ export type PlaceholderConversionData = {
 
 export const PlaceholderConversion: FC<{
   data: PlaceholderConversionData;
+  specifiers?: boolean;
 }> = (props) => {
+  const { data, specifiers = true } = props;
+
   return (
     <Table>
       <TableHead>
         <TableRow>
-          <TableHeadCell className="text-left">Specifier</TableHeadCell>
+          {specifiers ? (
+            <TableHeadCell className="text-left">Specifier</TableHeadCell>
+          ) : null}
           <TableHeadCell className="text-left">ICU type</TableHeadCell>
           <TableHeadCell className="text-left">Example</TableHeadCell>
           <TableHeadCell className="text-left">Converted to ICU</TableHeadCell>
@@ -32,9 +37,11 @@ export const PlaceholderConversion: FC<{
         </TableRow>
       </TableHead>
       <TableBody>
-        {props.data.map((row, index) => (
+        {data.map((row, index) => (
           <TableRow key={index}>
-            <TableCell className={clsx()}>{row.specifier}</TableCell>
+            {specifiers ? (
+              <TableCell className={clsx()}>{row.specifier}</TableCell>
+            ) : null}
             <TableCell className={clsx()}>{row.icuType}</TableCell>
             <TableCell className={clsx()}>{row.example}</TableCell>
             <TableCell className={clsx('whitespace-nowrap')}>
