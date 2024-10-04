@@ -13,6 +13,7 @@ module.exports = {
         'extraction/syncing-strings',
         'extraction/tagging-keys',
         'extraction/magic-comments',
+        'extraction/parsers',
         'extraction/custom-extractor',
       ],
     },

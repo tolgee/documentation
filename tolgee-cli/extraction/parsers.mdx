@@ -1,0 +1,165 @@
+---
+id: parsers
+title: Parsers
+---
+
+There are separate parsers for each integration. When not specified, we automatically detect which parser to use by specified file names. If none of the parsers fit or there are multiple possibilities, you need to select the parser manually via the `--parser` option.
+
+## React
+
+> Detected when there is at least one `.jsx|.tsx` file
+
+Recognized patterns:
+
+- `T` component, detected by component name
+
+```tsx
+<T keyName="key" defaultValue="Default value" ns="namespace" />
+```
+
+- `t` function with `useTranslate` hook, detected by function names, `useTranslate` is optional ([Read more](#t-function-source))
+
+```tsx
+useTranslate('namespace')
+
+...
+
+<div title={t('key', "Default value")}>
+```
+
+- `React.createElement` component, detected by function name and `T` component name
+
+```ts
+React.createElement(T, { keyName: "key1", ... })
+```
+
+## Vue
+
+> Detected when there is at least one `.vue` file
+
+Recognized patterns:
+
+- `T` component, detected by component name
+
+```html
+<T keyName="key1" ns="ns1" defaultValue="default value1" />
+```
+
+- `$t` global function, detected by function name
+
+```ts
+$t('key1', 'Default value', { ns: 'namespace' });
+```
+
+- `t` reactive function with `useTranslate` hook, detected by function names, `useTranslate` is optional ([Read more](#t-function-source))
+  - `t.value` is also detected
+  - the script is hoisted to the top of the file, so the order doesn't matter
+
+```html
+<template> {{ t('key2', ...) }} </template>
+<script setup>
+  const { t } = useTranslate()
+  t.value('key1', ...)
+</script>
+```
+
+- setup in default export also works
+
+```ts
+...
+export default {
+  setup () {
+    const { t } = useTranslate('ns1')
+    return { t }
+ },
+}
+```
+
+## Svelte
+
+> Detected when there is at least one `.svelte` file
+
+Recognized patterns:
+
+- `T` component, detected by component name
+
+```html
+<T keyName="key1" ns="ns1" defaultValue="default value1" />
+```
+
+- `t` reactive function with `getTranslate` hook, detected by function names, `getTranslate` is optional ([Read more](#t-function-source))
+  - the script is hoisted to the top of the file, so the order doesn't matter
+
+```svelte
+ {$t('key1')}
+ <script>
+   const { t } = getTranslate()
+ </script>
+```
+
+## Ngx (Angular)
+
+> Detected when there is at least one `.component.html` file
+
+Recognised patterns:
+
+- element with `t` attribute
+
+```html
+<p t key="key1" ns="ns1" default="default value1"></p>
+```
+
+- `translate` pipe, detected by `| translate` sequence and then the expression before it is taken as an argument
+
+```html
+<div>
+  {{ 'key1' | translate:{ ns: 'ns1' }:'Default value' }}
+  <!-- or -->
+  {{ { key: 'key2', ns: 'ns1', defaultValue: '...' } | translate }}
+</div>
+```
+
+- usage of `TranslateService`, detected by `translateService.{method}` sequence, **make sure you use exactly `translateService` as the property name**
+
+```ts
+class AppComponent implements OnInit {
+  constructor(private translateService: TranslateService) {}
+  async ngOnInit(): Promise<void> {
+    this.translateService.translate('key1', 'Default value', { ns: 'ns1' });
+    this.translateService.instant('key2', ...);
+    this.translateService.get('key3', ...);
+ }
+}
+```
+
+## `t` function source
+
+There is a recurring pattern in `React`, `Vue`, and `Svelte` with a hook and a `t` function returned from this hook.
+
+```ts
+const { t } = useTranslate('ns1') // or `getTranslate` in svelte
+
+...
+
+t('key_name') // key is in `ns1` namespace
+```
+
+Because you can specify namespace at a hook level, the `t` function detection is connected to the hook detection `useTranslate`.
+
+This pattern can be detected if `useTranslate` is in the same block as `t` function call. If the source of `t` function can't be found, you have to specify the namespace explicitly, or you'll get a warning in the console.
+
+```ts
+function () {
+  const { t } = useTranslate(['ns1'])
+  t('key1') // ok
+
+  function () {
+    t('key2') // ok
+ }
+}
+
+t('key3') // warning: "Expected source of `t` ..."
+t('key4', { ns: 'ns2' }) // ok
+```
+
+If you are not using namespaces you can disable this warning by `--no-strict-namespace` option.
