@@ -97,6 +97,7 @@ const config = {
     posthogToken: process.env.DOCOSAURUS_POSTHOG_TOKEN,
     posthogApiHost:
       process.env.DOCOSAURUS_POSTHOG_API_HOST || 'https://app.posthog.com',
+    plausibleTrackingDomain: process.env.DOCOSAURUS_PLAUSIBLE_TRACKING_DOMAIN,
   },
   scripts: [
     {

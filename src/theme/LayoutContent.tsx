@@ -14,6 +14,7 @@ import { getTypebotScript } from '../component/externalScripts/getTypebotScript'
 import { initPosthog } from '../component/initPosthog';
 import { useLocation } from 'react-router-dom';
 import posthog from 'posthog-js';
+import { usePlausible } from '../component/externalScripts/plausible';
 
 const MuiThemeSynchronizer = () => {
   const isDarkTheme = useDarkMode();
@@ -54,6 +55,8 @@ export const LayoutContent = ({ children }) => {
     return createTheme(isDarkTheme);
   }, [isDarkTheme]);
 
+  usePlausible();
+
   useEffect(() => {
     const posthogToken = siteConfig.customFields.posthogToken as
       | string
@@ -86,6 +89,7 @@ export const LayoutContent = ({ children }) => {
         {typebotToken && (
           <script type="module">{getTypebotScript(typebotToken)}</script>
         )}
+
         <script type="application/ld+json">
           {JSON.stringify(websiteSchema)}
         </script>
