@@ -4,7 +4,7 @@ import useDocusaurusContext from '@docusaurus/useDocusaurusContext';
 
 export const appendPlausibleUrlScript = (trackingDomain: string) =>
   appendScript(
-    'https://plausible.io/js/script.hash.outbound-links.pageview-props.revenue.tagged-events.local.js',
+    '/js/script.hash.outbound-links.pageview-props.revenue.tagged-events.js',
     false,
     { domain: trackingDomain }
   );
