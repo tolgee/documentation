@@ -1,3 +1,4 @@
+import Link from '@docusaurus/Link';
 import React from 'react';
 
 export const questions = [
@@ -86,6 +87,21 @@ export const questions = [
         Custom storage allows you to configure a custom place where the
         localization files will be deployed. This storage can be configured per
         project. Currently, we support AWS S3 buckets and Azure blob storage.
+      </>
+    ),
+  },
+  {
+    id: 'what-are-tasks',
+    title: 'What are tasks?',
+    content: (
+      <>
+        Tasks are used to organize work, assign people to specific translations
+        and track the progress. You can also generate detailed reports. Read
+        more in{' '}
+        <Link to="/platform/projects_and_organizations/tasks">
+          documentation
+        </Link>
+        .
       </>
     ),
   },

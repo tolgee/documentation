@@ -64,6 +64,11 @@ const FEATURES_MAP = {
   ),
   'single-sign-on': <InDevelopment>Single Sign On</InDevelopment>,
   'slack-integration': <Ready>Slack integration</Ready>,
+  tasks: (
+    <Ready>
+      <PricingDetailsLink item="what-are-tasks">Tasks</PricingDetailsLink>
+    </Ready>
+  ),
 };
 
 export type Feature = keyof typeof FEATURES_MAP;
