@@ -23,9 +23,15 @@ export const questions = [
     content: (
       <>
         <>
-          MT credits are used for Machine Translation providers (such as Google
-          Translate, AWS, DeepL, etc.). One credit ⋍ 1 translated character
-          (except for Tolgee Translator).
+          MT credits are used for Machine Translation providers (such as Tolgee
+          AI Translator, Google Translate, AWS, DeepL, etc.). One credit ⋍ 1
+          translated character.
+        </>
+        <br />
+        <br />
+        <>
+          MT credits renewed every month. Unused credits are not transferred to
+          the next month.
         </>
         <br />
         <br />
