@@ -156,6 +156,7 @@ export default function Pricing() {
               features={[
                 'granular-permissions',
                 'multiple-content-deliveries',
+                'tasks',
                 'slack-integration',
               ]}
               minHeights={MIN_PLAN_HEIGHTS}

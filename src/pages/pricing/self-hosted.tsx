@@ -156,6 +156,7 @@ export default function SelfHosted() {
               features={[
                 'granular-permissions',
                 'project-level-custom-content-storage',
+                'tasks',
                 'slack-integration',
               ]}
               secondaryPrices={[
