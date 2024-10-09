@@ -1,4 +1,4 @@
-import React, { FC } from 'react';
+import React from 'react';
 import { usePlausible } from '../../component/externalScripts/plausible';
 import { useHistory } from 'react-router-dom';
 import BrowserOnly from '@docusaurus/BrowserOnly';
