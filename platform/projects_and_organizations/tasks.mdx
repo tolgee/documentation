@@ -34,13 +34,13 @@ Fields description:
 - **Type** - the type of the task
   - `Translate` - Expects assignee to fill or update translation
   - `Review` - Expects assignee to change translation state to `Reviewed` or add a comment
-- **Name of the task**
+- **Task name**
 - **Languages** - You can select one or more languages, a separate task for each language will be created
 - **Due date** - A date due the task should be completed
 - **Description** - Additional information about the task
 - **Tasks and assignees**
   - Filters - you can filter by keys or by translation states, this will influence how many keys will be in each task
-  - Tasks preview - shows what tasks will be created, with a calculated amount of work. You can also assign users to each task separately. There can be a warning sign, which appears when some keys are omitted because of their state or because the translation is already in a different task with the same type.
+  - Tasks preview - shows what tasks will be created, with a calculated amount of work. You can also assign users to each task separately. There can be a warning sign, which appears when some keys are omitted because the translation is already in a different task with the same type.
 
 
 > You can also create task through `Batch operation` from the translations view, to manually select keys.
@@ -60,7 +60,11 @@ Once the assignee clicks on `My tasks`, they can see a list of all tasks assigne
 
 <ScreenshotWrapper src="/img/docs/platform/tasks/my_tasks.webp" alt="My tasks" />
 
-To start working on the task, they can click on it and get to a translation view, prefiltered by the task.
+To start working on the task, they can click on it and get to a translation task view.
+
+:::info
+Only assigned user can work on the task.
+:::
 
 <ScreenshotWrapper
   src="/img/docs/platform/tasks/task_prefilter.webp"
@@ -69,7 +73,11 @@ To start working on the task, they can click on it and get to a translation view
 
 Now every time the assignee changes a translation, it will be marked as done automatically (`Save & done` button), they can also change the `done` state by clicking the task button on the right side of the translation (it changes its color when the translation is done).
 
-> The same logic works with `Review` tasks, with the `Mark as reviewed` button.
+### Review tasks
+
+`Review` tasks have a similar logic, so when the user clicks `Mark as Reviewed` button, it is automatically marked as done.
+
+> Review tasks are blocked by translation tasks (translation task needs to be done first, if there is an overlap).
 
 ## User permissions
 
