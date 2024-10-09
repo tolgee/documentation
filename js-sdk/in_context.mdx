@@ -15,7 +15,7 @@ For local development, supply `apiUrl`, `apiKey` options (see [Integration](/pla
 
 > NOTE: If you use Tolgee without any integration, make sure you call [`run`](./api/core_package/tolgee.mdx#run) method.
 
-### One-click screenshots
+## One-click screenshots
 
 To generate screenshots automatically, you have to have installed
 [Tolgee Tools](https://chrome.google.com/webstore/detail/tolgee-tools/hacnbapajkkfohnonhbmegojnddagfnj) plugin
@@ -30,7 +30,7 @@ translation dialog.
 
 If you want to enable in-context on production build, there are two options:
 
-### Tolgee Chrome plugin
+### 1. Tolgee Chrome plugin
 
 To enable in-context translating on production you can pass `apiKey` and `apiUrl` through [Tolgee Tools](https://chrome.google.com/webstore/detail/tolgee-tools/hacnbapajkkfohnonhbmegojnddagfnj) plugin, that way Tolgee will switch to development mode (plugin will also supply `@tolgee/ui` package automatically).
 
@@ -52,7 +52,7 @@ This property is intended only for local development, as it's not meant to be pu
 - Plugin will supply `apiUrl` from Tolgee configuration if it's present (if not you can fill it manually)
 - Plugin changes its icon if Tolgee is present on the page or if credentials are set
 
-### Using InContextTools instead of DevTools
+### 2. Using InContextTools instead of DevTools
 
 DevTools are automatically omitted in production build (based on `NODE_ENV` variable), if you want to enable In-context unconditionally, you can use [`InContextTools`](/api/web_package/tools.mdx#incontexttools) (from `@tolgee/web/tools` package).
 
@@ -81,3 +81,18 @@ if (shouldIncludeInContextTools) {
 #### Using parts of InContextTools functionality
 
 [`InContextTools`](/api/web_package/tools.mdx#incontexttools) (or `DevTools` in development) are a combination of multiple plugins, which you can include independently, check [`InContextTools`](/api/web_package/tools.mdx#incontexttools) documentation for more info.
+
+## Modals, popovers and other focus-stealing elements
+Some elements like modals or popovers can steal focus from the Tolgee dev tools,
+so you can't type in the translation input fields.
+
+Fortunately, you can still use the dev tools by opening them in a separate popup window by clicking the icon next to the `Quick translation` dialog title.
+
+Your browser might block the popup, so you have to allow it.
+
+import { ScreenshotWrapper } from '../platform/shared/_ScreenshotWrapper';
+
+<ScreenshotWrapper
+  src="/img/docs/sdk/in_context_modal.webp"
+  alt="Open new window button"
+/>
