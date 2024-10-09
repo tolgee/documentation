@@ -175,6 +175,13 @@ export const featuresCloud = {
     },
     {
       type: 'item',
+      label: (
+        <PricingDetailsLink item="what-are-tasks">Tasks</PricingDetailsLink>
+      ),
+      items: ['n', 'n', 'y', 'y'],
+    },
+    {
+      type: 'item',
       label: 'Slack integration',
       items: ['n', 'n', 'y', 'y'],
     },
