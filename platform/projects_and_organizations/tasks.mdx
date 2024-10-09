@@ -6,7 +6,7 @@ title: Tasks
 import { ScreenshotWrapper } from '../shared/_ScreenshotWrapper';
 
 :::info Feature availability
-Tasks are introduced in paid plans. [Upgrade your plan](/pricing) to use this feature.
+Tasks are introduced in business and enterprise plans. [Upgrade your plan](/pricing) to use this feature.
 
 If you use the self-hosted version, you must [set up the license](/platform/self_hosting/licensing) to use this feature.
 :::
@@ -33,8 +33,8 @@ Fields description:
 
 - **Type** - the type of the task
   - `Translate` - Expects assignee to fill or update translation
-  - `Review` - Expects assignee to change translation state to `Reviewed`
-- **Name**
+  - `Review` - Expects assignee to change translation state to `Reviewed` or add a comment
+- **Name of the task**
 - **Languages** - You can select one or more languages, a separate task for each language will be created
 - **Due date** - A date due the task should be completed
 - **Description** - Additional information about the task
@@ -49,37 +49,37 @@ Fields description:
 
 Once the task is created, each assignee receives an email notification.
 
-He can also see a notification next to his profile icon, where he can go to see his tasks.
+They can also see a notification next to his profile icon, where he can go to see his tasks.
 
 <ScreenshotWrapper
   src="/img/docs/platform/tasks/task_notification.webp"
   alt="Task notification"
 />
 
-Once he clicks on `My tasks`, he can see a list of all tasks assigned to him.
+Once the user clicks on `My tasks`, they can see a list of all tasks assigned to him.
 
 <ScreenshotWrapper src="/img/docs/platform/tasks/my_tasks.webp" alt="My tasks" />
 
-To start working on the task, he can click on it and get to a translation view, prefiltered by the task.
+To start working on the task, they can click on it and get to a translation view, prefiltered by the task.
 
 <ScreenshotWrapper
   src="/img/docs/platform/tasks/task_prefilter.webp"
   alt="Translations prefiltered by task"
 />
 
-Now every time the user changes a translation, the translation will be marked as done automatically (`Save & done` button), you can also change the `done` state by task button on the right side of the translation (it changes its color when the translation is done).
+Now every time the user changes a translation, it will be marked as done automatically (`Save & done` button), they can also change the `done` state by task button on the right side of the translation (it changes its color when the translation is done).
 
 > The same logic works with `Review` tasks, with the `Mark as reviewed` button.
 
 ## User permissions
 
-If you assign task to a user which has read only rights to the project, his rights will be elevated to allow him to finish the task. In case of `Translate` task, he can edit the translation and add comments (similarly with `Review` tasks, he can change the review state). 
+If you assign task to a user with read-only rights to the project, their rights will be elevated to allow them to finish the task. In case of a `Translate` task, they can edit the translation and add comments (similarly with `Review` tasks, they can change the review state). 
 
-He'll only have these rights until the task is `Done` or `Closed`.
+They'll only have these rights until the task is `Done` or `Closed`.
 
 ## Task state and progress
 
-Each task has four states:
+The task can have one of four states:
 
 - `New` - nothing has been done on the task
 - `In progress` - at least one translation has been marked as `done`
@@ -93,7 +93,7 @@ To see an overview of tasks progress for a project, go to the tasks section in t
   alt="Project tasks progress"
 />
 
-In the basic view, you can see all the tasks that are `New` or `In progress`, `Done` tasks are only visible for `30 days`. To see older `Done` tasks and `Closed` tasks, check the `Closed tasks` checkbox.
+In the basic view, you can see all the `New` or `In progress` tasks. `Done` tasks are only visible for `30 days`. To see older `Done` tasks and `Closed` tasks, check the `Closed tasks` checkbox.
 
 If you want to see tasks categorized by their state, you can switch to a `Board` view:
 
@@ -133,7 +133,7 @@ Task detail allows you to see all the information about the task and also change
   alt="Task detail"
 />
 
-If add new assignees, they will recieve notification email, similarly as when the task is created.
+If you add new assignees, they will recieve notification email, similarly as when the task is created.
 
 ## Task batch operations
 
