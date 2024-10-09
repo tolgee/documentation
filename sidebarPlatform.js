@@ -63,6 +63,7 @@ module.exports = {
         'formats/properties',
         'formats/flat_yaml',
         'formats/structured_yaml',
+        'formats/csv',
         'formats/apple_strings',
         'formats/apple_xliff',
         'formats/android_xml',
