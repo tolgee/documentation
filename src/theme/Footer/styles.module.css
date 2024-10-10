@@ -14,3 +14,48 @@
   font-size: 12px;
   color: var(--home-text);
 }
+
+.footerCol {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: start;
+  padding: 10px;
+}
+.footerItem {
+  list-style-type: none;
+}
+.footerTitle {
+  font-weight: bold;
+  font-size: 20px;
+  margin-bottom: 10px;
+}
+
+.footerLinks {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin-top: 20px;
+}
+
+@media (max-width: 768px) {
+  .footerCol {
+    align-items: center;
+    text-align: start;
+  }
+
+  .footerLinks {
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: start;
+  }
+
+  .footerItem {
+    margin-bottom: 10px;
+  }
+  .footerTitle {
+    text-align: center;
+  }
+}
