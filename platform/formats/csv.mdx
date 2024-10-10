@@ -1,0 +1,59 @@
+---
+id: csv
+title: CSV
+sidebar_label: CSV
+---
+
+CSV (Comma Separated Values) is a simple format for table-like data. In Tolgee, you can import and export your localization data in CSV format.
+When exporting in this format, you can choose from various placeholder & message formats listed below.
+
+import { FormatList } from "../../src/component/docs/formats/FormatLinks";
+
+<FormatList formats={["ICU", "JAVA_STRING_FORMAT", "PHP_SPRINTF", "C_SPRINTF", "RUBY_SPRINTF"]} />
+
+Read more about [message & placeholder formats here.](./message_placeholder_format.mdx)
+
+Example of CSV:
+
+```csv title="exported.csv"
+key,en,cs
+save.button,Save,Uložit
+form.label,Form,Formulář
+```
+
+When importing CSV, the first row is used as a header, and the following rows are used as translations. The first column is used as a key, and the following columns are used as translations for the specified languages.
+
+## The message format and placeholder conversion
+import {
+  GenericMessageAndPlaceholderConversion
+} from "../../src/component/docs/formats/GenericMessageAndPlaceholderConversion";
+
+<GenericMessageAndPlaceholderConversion formatName="CSV"
+                                        placeholderExamples={<><code>%s</code>, <code>%d</code></>} />
+
+## Exporting via Tolgee CLI
+
+After installing [Tolgee CLI](/tolgee-cli/installation), you can use the `tolgee pull` command to export translations in CSV format.
+
+Example with [CLI](/tolgee-cli):
+```bash
+tolgee-cli --api-key "<Your Project API key>" --format CSV pull
+```
+
+### Exporting via REST API
+
+To export to CSV via REST API, you have to set the following parameters:
+```json
+{
+  "format": "CSV",
+}
+```
+
+Example with CURL:
+```bash
+curl "https://app.tolgee.io/v2/projects/export?format=CSV&zip=false" -H "X-API-Key: <Your Project API key>" --output exported.csv
+```
+
+import Importing from './components/_general_importing.mdx';
+
+<Importing />
