@@ -52,15 +52,29 @@
         hover:bg-transparent;
   }
 
+  .button--outlined:hover{
+    @apply button--base text-[color:var(--ifm-color-emphasis-0)]
+    border-solid
+    rounded-[16px]
+    decoration-0
+    transition-all duration-300
+    bg-[color:var(--ifm-color-primary)] font-[500];
+  }
+
   .button--small {
     padding: 4px 16px !important;
     border-width: 2px !important;
   }
 
   .button--primary:hover {
-    background: var(--ifm-color-primary-light);
-    color: var(--ifm-color-emphasis-0);
-    text-decoration: none;
+    @apply button--base
+    button--primary-reverse
+    bg-transparent
+    border-primary
+    border-solid
+    text-primary
+    hover:text-primary
+    hover:bg-transparent;
   }
 
   .button--primary-reverse {
@@ -243,6 +257,13 @@
     var(--ifm-navbar-item-padding-horizontal);
 }
 
+.login-button:hover {
+  @apply text-[color:var(--ifm-color-emphasis-0)]
+  border-[color:var(--ifm-color-primary)] border-[1px]
+  rounded
+  bg-[color:var(--ifm-color-primary)] font-[500];
+}
+
 .login-button::before {
   position: absolute;
   z-index: 1;
@@ -268,4 +289,16 @@
   border: 1px solid var(--ifm-link-color);
   padding: var(--ifm-navbar-item-padding-vertical)
     var(--ifm-navbar-item-padding-horizontal) !important;
+}
+
+.sign-up-button:hover {
+   
+  border: 1px solid var(--ifm-link-color);
+  color: var(--ifm-link-color);
+  border-radius: 8px;
+  position: relative;
+  overflow: hidden;
+ 
+  padding: var(--ifm-navbar-item-padding-vertical)
+    var(--ifm-navbar-item-padding-horizontal);
 }
