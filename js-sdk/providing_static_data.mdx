@@ -120,3 +120,34 @@ If you use namespaces, it should look like this:
 > This is default behavior, it's possible to customize in [`BackendFetch`](./api/web_package/plugins#backendfetch) plugin.
 
 
+## Data fallbacks
+
+You can provide local data as a fallback for CDN, for cases when network request fails.
+
+```ts
+const tolgee = Tolgee()
+  .use(BackendFetch({
+    prefix: '<your content storage link>',
+    fallbackOnFail: true
+  }))
+  .use(BackendFetch()) // your local data
+  .init({
+    ...
+  })
+```
+
+`fallbackOnFail` option will tell Tolgee to look for data in the next source, so it will fetch your local data. **Order of plugins is important here, they are used in the same order as they were added.**
+
+:::info Plugins are used in the same order as they were added.
+Tolgee first checks if data aren't already in cache (data passed directly to `staticData`) then all the plugins and then dynamic data from `staticData` field.
+:::
+
+You can also set a timeout, to only wait certain time for the data from CDN.
+
+```ts
+BackendFetch({
+  prefix: '<your content storage link>',
+  fallbackOnFail: true
+  timeout: 10_000 // 10 seconds
+})
+```
