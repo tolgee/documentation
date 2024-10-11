@@ -18,6 +18,7 @@ export default function Redirect() {
               redirect();
             },
             props: { targetUrl },
+            u: window.location.href,
           });
         });
 
