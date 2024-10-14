@@ -139,7 +139,7 @@ const tolgee = Tolgee()
 `fallbackOnFail` option will tell Tolgee to look for data in the next source, so it will fetch your local data. **Order of plugins is important here, they are used in the same order as they were added.**
 
 :::info Plugins are used in the same order as they were added.
-Tolgee first tries all the plugins and then `staticData` field, so it's also possible to pass local data there.
+Tolgee first checks if data aren't already in cache (data passed directly to `staticData`) then all the plugins and then dynamic data from `staticData` field.
 :::
 
 You can also set a timeout, to only wait certain time for the data from CDN.
