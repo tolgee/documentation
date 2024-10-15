@@ -128,14 +128,6 @@ body {
   font-weight: normal;
 }
 
-.navbar .DocSearch {
-  display: none;
-}
-
-.sidebar-search .DocSearch.DocSearch-Button {
-  width: 100%;
-}
-
 h1,
 h2,
 h3,

@@ -19,11 +19,11 @@ module.exports.navbar = {
     },
     {
       to: 'js-sdk',
-      label: 'JavaScript SDK',
+      label: 'SDK',
     },
     {
       to: 'tolgee-cli',
-      label: 'Tolgee CLI',
+      label: 'CLI',
     },
     {
       to: 'api',
@@ -36,12 +36,6 @@ module.exports.navbar = {
     },
 
     {
-      to: 'https://calendly.com/tolgee/30min',
-      label: 'Book a Demo',
-      position: 'right',
-      className: 'book-a-demo-button',
-    },
-    {
       to: 'https://app.tolgee.io',
       label: 'Login',
       position: 'right',
@@ -52,6 +46,10 @@ module.exports.navbar = {
       label: 'Sign up',
       position: 'right',
       className: 'sign-up-button',
+    },
+    {
+      type: 'search',
+      position: 'right',
     },
   ],
 };

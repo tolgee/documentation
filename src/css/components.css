@@ -102,15 +102,6 @@
     width: 100%;
   }
 
-  .page-with-decoration--not-scrolled .navbar {
-    box-shadow: none;
-  }
-
-  .page-with-decoration--not-scrolled .navbar__inner {
-    background-color: transparent;
-    backdrop-filter: none;
-  }
-
   .page-with-decoration {
     position: relative;
   }
