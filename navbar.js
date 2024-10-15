@@ -9,132 +9,37 @@ module.exports.navbar = {
   },
   items: [
     {
-      type: 'dropdown',
-      label: 'Product',
-      position: 'right',
-      items: [
-        {
-          type: 'html',
-          value: '#Features',
-        },
-        {
-          to: 'features/dev-tools',
-          label: 'Dev tools',
-        },
-        {
-          to: 'features/translation-assistance',
-          label: 'Translation assistance',
-        },
-        {
-          to: 'features/autonomous-translation',
-          label: 'Autonomous translation',
-        },
-        {
-          to: 'features/collaboration',
-          label: 'Collaboration',
-        },
-        {
-          type: 'html',
-          value: '#About us',
-        },
-        {
-          to: 'roadmap',
-          label: 'Roadmap',
-        },
-        {
-          to: 'opensource',
-          label: 'Why Open-source?',
-        },
-        {
-          to: 'career',
-          label: 'We are hiring!',
-        },
-      ],
-    },
-    {
-      type: 'dropdown',
-      label: 'Integrations',
-      position: 'right',
-      items: [
-        {
-          to: 'integrations',
-          label: 'All integrations',
-          activeBaseRegex: 'integrations$',
-        },
-        {
-          to: 'integrations/react',
-          label: 'React',
-        },
-        {
-          to: 'integrations/angular',
-          label: 'Angular',
-        },
-        {
-          to: 'integrations/vue',
-          label: 'Vue',
-        },
-        {
-          to: 'integrations/svelte',
-          label: 'Svelte',
-        },
-        {
-          to: 'integrations/next',
-          label: 'Next.js',
-        },
-        {
-          to: 'js-sdk/integrations/react/react_native',
-          label: 'React Native',
-        },
-        {
-          to: 'integrations/figma',
-          label: 'Figma',
-        },
-        {
-          to: 'integrations/unreal',
-          label: 'Unreal',
-        },
-      ],
-    },
-    {
-      type: 'dropdown',
+      to: '/',
       label: 'Docs',
-      position: 'right',
-      activeBasePath: 'docs',
-      items: [
-        {
-          to: 'platform',
-          label: 'Platform',
-        },
-        {
-          to: 'js-sdk',
-          label: 'JavaScript SDK',
-        },
-        {
-          to: 'tolgee-cli',
-          label: 'Tolgee CLI',
-        },
-        {
-          to: 'api',
-          label: 'REST API',
-        },
-      ],
+      className: 'menu-item-docs',
     },
     {
-      to: 'pricing',
-      activeBasePath: 'pricing',
-      label: 'Pricing',
-      position: 'right',
+      to: 'platform',
+      label: 'Platform',
+    },
+    {
+      to: 'js-sdk',
+      label: 'JavaScript SDK',
+    },
+    {
+      to: 'tolgee-cli',
+      label: 'Tolgee CLI',
+    },
+    {
+      to: 'api',
+      label: 'REST API',
     },
     {
       to: 'blog',
-      activeBasePath: 'blog',
       label: 'Blog',
-      position: 'right',
+      className: 'menu-item-blog',
     },
+
     {
       to: 'https://calendly.com/tolgee/30min',
       label: 'Book a Demo',
       position: 'right',
+      className: 'book-a-demo-button',
     },
     {
       to: 'https://app.tolgee.io',
