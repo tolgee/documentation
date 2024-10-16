@@ -4,32 +4,29 @@
     border
     border-solid
     border-emphasis-400
-    rounded
-    text-sm;
+    rounded-[20px]
+    text-sm
+    gap-[6px]
+    px-3
+    py-[7px]
+    text-home-text;
 }
 
 .github-btn--container {
   @apply flex
     items-center
-    gap-1
-    px-2
-    font-bold
     text-home-text
-    hover:no-underline
     hover:text-emphasis-1000;
 }
 
 .github-btn--count {
-  @apply border-0
-    border-l
-    border-solid
-    border-emphasis-400 
-    px-2
+  @apply text-[18px]
     text-home-text
-    hover:no-underline
-    hover:text-emphasis-1000;
+    hover:text-emphasis-1000
+    hover:no-underline;
 }
 
 .github-btn--logo {
-  width: 19px !important;
+  width: 20px !important;
+  height: 20px;
 }

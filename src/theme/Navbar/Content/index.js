@@ -1,5 +1,5 @@
 import React from 'react';
-import { useThemeConfig } from '@docusaurus/theme-common';
+import { useThemeConfig, ErrorCauseBoundary } from '@docusaurus/theme-common';
 import {
   splitNavbarItems,
   useNavbarMobileSidebar,
@@ -10,9 +10,9 @@ import SearchBar from '@theme/SearchBar';
 import NavbarMobileSidebarToggle from '@theme/Navbar/MobileSidebar/Toggle';
 import NavbarLogo from '@theme/Navbar/Logo';
 import NavbarSearch from '@theme/Navbar/Search';
-
 import styles from './styles.module.css';
 import { GithubButton } from '../../../component/githubButton/GithubButton';
+
 function useNavbarItems() {
   // TODO temporary casting until ThemeConfig type is improved
   return useThemeConfig().navbar.items;
@@ -21,7 +21,19 @@ function NavbarItems({ items }) {
   return (
     <>
       {items.map((item, i) => (
-        <NavbarItem {...item} key={i} />
+        <ErrorCauseBoundary
+          key={i}
+          onError={(error) =>
+            new Error(
+              `A theme navbar item failed to render.
+Please double-check the following navbar item (themeConfig.navbar.items) of your Docusaurus config:
+${JSON.stringify(item, null, 2)}`,
+              { cause: error }
+            )
+          }
+        >
+          <NavbarItem {...item} />
+        </ErrorCauseBoundary>
       ))}
     </>
   );
@@ -46,8 +58,10 @@ export default function NavbarContent() {
         <>
           {!mobileSidebar.disabled && <NavbarMobileSidebarToggle />}
           <NavbarLogo />
+          <div className="hidden xl:flex">
+            <GithubButton />
+          </div>
           <NavbarItems items={leftItems} />
-          <GithubButton />
         </>
       }
       right={
