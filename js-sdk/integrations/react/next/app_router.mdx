@@ -19,8 +19,9 @@ Follow the below instructions to learn to implement localization to your Next.js
 
 1. An existing Next.js project.
 2. An existing [project](../../../../platform/getting_started/creating_project) on Tolgee platform with at least 2 languages. This guide uses English (en) and Czech (cs).
-3. Add localization keys and translations for both the languages. This guide uses the key name `hello_world`.
-4. [API key](../../../../platform/account_settings/api_keys_and_pat_tokens) of your Tolgee project.
+3. Added localization keys and translations for both the languages in the Tolgee Platform. This guide uses the key name `hello_world` in `en` an `cs` languages.
+4. [Exported localization data](../../../../platform/projects_and_organizations/export) in json format and stored in `src/i18n/<lang>.json`
+4. [Created API key](../../../../platform/account_settings/api_keys_and_pat_tokens) of your Tolgee Platform project.
 
 ## Install the required packages
 
@@ -40,14 +41,14 @@ The folder structure of your project should resemble the following:
 
 ```
 ├── next.config.js
-├── messages
-│   ├── en.json
-│   └── cs.json
+├── .env.development.local
 └── src
     ├── middleware.ts
     ├── navigation.ts
     ├── i18n
-    │   └── request.ts
+    │   ├── en.json
+    │   ├── cs.json
+    │   └── request.ts 
     ├── tolgee
     │   ├── shared.ts
     │   ├── client.tsx
