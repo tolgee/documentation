@@ -118,6 +118,13 @@ module.exports = {
       ],
     },
     {
+      label: 'Single Sign-On',
+      type: 'category',
+      items: [
+        'sso/sso_getting_started',
+      ],
+    },
+    {
       label: 'Self-hosting',
       type: 'category',
       items: [
