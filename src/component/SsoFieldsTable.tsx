@@ -1,7 +1,13 @@
 import React, { FC, ReactNode } from 'react';
-import { Table, TableBody, TableCell, TableHead, TableHeadCell, TableRow } from "./table/Table";
-import clsx from "clsx";
-
+import {
+  Table,
+  TableBody,
+  TableCell,
+  TableHead,
+  TableHeadCell,
+  TableRow,
+} from './table/Table';
+import clsx from 'clsx';
 
 export type FieldsData = [
   {
