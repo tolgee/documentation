@@ -11,7 +11,7 @@ import ExampleBanner from '../../../shared/ExampleBanner';
 
 Follow the below instructions to learn to implement localization to your Next.js App Router app with Tolgee.
 
-In this example we'll store locale in cookies, which is a simple to implement, but is not ideal for your SEO. If you want a more robust solution with locale in url, see [App router with next-intl](./app_router_next_intl.mdx)
+In this example we'll store language in cookies, which is a simple to implement, but is not ideal for your SEO. If you want a more robust solution with language in url, see [App router with next-intl](./app_router_next_intl.mdx)
 
 ## Prerequisites
 
@@ -28,11 +28,16 @@ To implement localization to your app, you need to install the `@tolgee/react` p
 npm install @tolgee/react
 ```
 
+:::info
+Use `@tolgee/react` version `5.30.0` and higher
+:::
+
 ## Folder structure
 
 The folder structure of your project should resemble the following:
 
 ```
+├── .env.development.local    # ignored by git
 ├── next.config.js
 ├── messages
 │   ├── en.json
@@ -40,7 +45,7 @@ The folder structure of your project should resemble the following:
 └── src
     ├── tolgee
     │   ├── shared.ts
-    │   ├── locale.ts
+    │   ├── language.ts
     │   ├── client.tsx
     │   └── server.tsx
     └── app
@@ -54,7 +59,7 @@ Create the `.env.development.local` file if it does not exist. You will store th
 
 Paste the following in the newly created file. Replace `<your api key>` with your Tolgee API key.
 
-```
+```sh title=".env.development.local"
 NEXT_PUBLIC_TOLGEE_API_KEY=<your api key>
 NEXT_PUBLIC_TOLGEE_API_URL=https://app.tolgee.io
 ```
@@ -70,32 +75,37 @@ In your `tolgee/shared.ts` file, add the following code.
 ```ts title="src/tolgee/shared.ts"
 import { DevTools, Tolgee, FormatSimple } from '@tolgee/web';
 
-export const ALL_LOCALES = ['en', 'cs'];
-
-export const DEFAULT_LOCALE = 'en';
-
 const apiKey = process.env.NEXT_PUBLIC_TOLGEE_API_KEY;
 const apiUrl = process.env.NEXT_PUBLIC_TOLGEE_API_URL;
 
-export async function getStaticData(languages: string[]) {
+export const ALL_LANGUAGES = ['en', 'cs'];
+
+export const DEFAULT_LANGUAGE = 'en';
+
+export async function getStaticData(
+  languages: string[],
+  namespaces: string[] = ['']
+) {
   const result: Record<string, any> = {};
   for (const lang of languages) {
-    result[lang] = (await import(`../i18n/${lang}.json`)).default;
+    for (const namespace of namespaces) {
+      if (namespace) {
+        result[`${lang}:${namespace}`] = (
+          await import(`../../messages/${namespace}/${lang}.json`)
+        ).default;
+      } else {
+        result[lang] = (await import(`../../messages/${lang}.json`)).default;
+      }
+    }
   }
   return result;
 }
 
 export function TolgeeBase() {
-  return (
-    Tolgee()
-      .use(FormatSimple())
-      .use(DevTools())
-      // Preset shared settings
-      .updateDefaults({
-        apiKey,
-        apiUrl,
-      })
-  );
+  return Tolgee().use(FormatSimple()).use(DevTools()).updateDefaults({
+    apiKey,
+    apiUrl,
+  });
 }
 ```
 
@@ -107,73 +117,75 @@ The client configuration is very similar to the [Pages Router set up](./pages-ro
 'use client';
 
 import { TolgeeBase } from './shared';
-import { TolgeeProvider, useTolgeeSSR } from '@tolgee/react';
+import { TolgeeProvider, TolgeeStaticData } from '@tolgee/react';
 import { useRouter } from 'next/navigation';
 import { useEffect } from 'react';
 
 type Props = {
-  locales: any;
-  locale: string;
+  language: string;
+  staticData: TolgeeStaticData;
   children: React.ReactNode;
 };
 
 const tolgee = TolgeeBase().init();
 
-export const TolgeeNextProvider = ({ locale, locales, children }: Props) => {
-  // synchronize SSR and client first render
-  const tolgeeSSR = useTolgeeSSR(tolgee, locale, locales);
+export const TolgeeNextProvider = ({
+  language,
+  staticData,
+  children,
+}: Props) => {
   const router = useRouter();
 
   useEffect(() => {
-    const { unsubscribe } = tolgeeSSR.on('permanentChange', () => {
-      // refresh page when there is a translation update
+    const { unsubscribe } = tolgee.on('permanentChange', () => {
       router.refresh();
     });
-
     return () => unsubscribe();
-  }, [tolgeeSSR, router]);
+  }, [tolgee, router]);
 
   return (
-    <TolgeeProvider tolgee={tolgeeSSR} options={{ useSuspense: false }}>
+    <TolgeeProvider
+      tolgee={tolgee}
+      options={{ useSuspense: false }}
+      fallback="Loading"
+      ssr={{ language, staticData }}
+    >
       {children}
     </TolgeeProvider>
   );
 };
 ```
 
-### Storing locale in cookies
+### Storing language in cookies
 
-To store user locale create file `locale.ts`, important part here is the `"use server"` directive, so we can call `setLocale` method from frontend as server action.
+To store user language create file `language.ts`, important part here is the `"use server"` directive, so we can call `setLanguage` method from frontend as server action.
 
-```tsx title="src/tolgee/locale.ts"
+```tsx title="src/tolgee/language.ts"
 'use server';
 
+import { detectLanguageFromHeaders } from '@tolgee/react/server';
 import { cookies, headers } from 'next/headers';
-import { ALL_LOCALES, DEFAULT_LOCALE } from './shared';
+import { ALL_LANGUAGES, DEFAULT_LANGUAGE } from './shared';
 
-const LOCALE_COOKIE = 'NEXT_LOCALE';
+const LANGUAGE_COOKIE = 'NEXT_LOCALE';
 
-export async function setLocale(locale: string) {
+export async function setLanguage(locale: string) {
   const cookieStore = cookies();
-  cookieStore.set({
-    name: LOCALE_COOKIE,
-    value: locale,
+  cookieStore.set(LANGUAGE_COOKIE, locale, {
+    maxAge: 1000 * 60 * 60 * 24 * 365, // one year in milisecods
   });
 }
 
-export async function getLocale() {
+export async function getLanguage() {
   const cookieStore = cookies();
-  const locale = cookieStore.get(LOCALE_COOKIE)?.value;
-  if (locale && ALL_LOCALES.includes(locale)) {
+  const locale = cookieStore.get(LANGUAGE_COOKIE)?.value;
+  if (locale && ALL_LANGUAGES.includes(locale)) {
     return locale;
-  } else {
-    return (await detectLocale()) ?? DEFAULT_LOCALE;
   }
-}
 
-function detectLocale() {
-  // place for your own detection logic from headers
-  return undefined
+  // try to detect language from headers or use default
+  const detected = detectLanguageFromHeaders(headers(), ALL_LANGUAGES);
+  return detected || DEFAULT_LANGUAGE;
 }
 ```
 
@@ -185,25 +197,23 @@ Your app will utilize the React server cache for sharing Tolgee instance across 
 One important difference from the client setup is the utilization of [`fullKeyEncode`](../../../api/core_package/observer-options#fullkeyencode). `fullKeyEncode` ensures that translations rendered on the server are correctly picked up and interactive for in-context mode.
 
 ```tsx title="src/tolgee/server.tsx"
+import { TolgeeBase, ALL_LANGUAGES, getStaticData } from './shared';
 import { createServerInstance } from '@tolgee/react/server';
-import { TolgeeBase, ALL_LOCALES, getStaticData } from './shared';
-import { getLocale } from './locale';
+import { getLanguage } from './language';
 
 export const { getTolgee, getTranslate, T } = createServerInstance({
-  getLocale,
+  getLocale: getLanguage,
   createTolgee: async (locale) =>
     TolgeeBase().init({
-      // load all languages on the server
-      staticData: await getStaticData(ALL_LOCALES),
+      // including all locales
+      // on server we are not concerned about bundle size
+      staticData: await getStaticData(ALL_LANGUAGES),
       observerOptions: {
         fullKeyEncode: true,
       },
       language: locale,
-      // using custom fetch to avoid aggressive caching
-      fetch: async (input, init) => {
-        const data = await fetch(input, { ...init, next: { revalidate: 0 } });
-        return data;
-      },
+      fetch: async (input, init) =>
+        fetch(input, { ...init, next: { revalidate: 0 } }),
     }),
 });
 ```
@@ -213,33 +223,27 @@ export const { getTolgee, getTranslate, T } = createServerInstance({
 The next step is to wrap the children with the `TolgeeNextProvider`. Update the `layout.tsx` file with the following code:
 
 ```tsx title="src/app/layout.tsx"
-import { notFound } from 'next/navigation';
 import { ReactNode } from 'react';
 import { TolgeeNextProvider } from '@/tolgee/client';
-import { ALL_LOCALES, getStaticData } from '@/tolgee/shared';
+import { getStaticData } from '@/tolgee/shared';
+import { getLanguage } from '@/tolgee/language';
+import './style.css';
 
 type Props = {
   children: ReactNode;
   params: { locale: string };
 };
 
-export default async function LocaleLayout({
-  children,
-  params: { locale },
-}: Props) {
-  if (!ALL_LOCALES.includes(locale)) {
-    notFound();
-  }
-
-  // make sure you provide all the necessary locales
-  // for the inital SSR render (e.g. fallback languages)
-  const locales = await getStaticData([locale]);
-
+export default async function LocaleLayout({ children }: Props) {
+  const locale = await getLanguage();
+  // it's important you provide all data which are needed for initial render
+  // so current language and also fallback languages + necessary namespaces
+  const staticData = await getStaticData([locale]);
 
   return (
     <html lang={locale}>
       <body>
-        <TolgeeNextProvider locale={locale} locales={locales}>
+        <TolgeeNextProvider language={locale} staticData={staticData}>
           {children}
         </TolgeeNextProvider>
       </body>
@@ -250,7 +254,9 @@ export default async function LocaleLayout({
 
 The above code loads relevant locale available on the server and pass it to the client component through props.
 
-> This example provides translation globally. If you want to provide each page with a different namespace, you can move the provider to the relevant page files.
+:::info
+Make sure you are not using `export const dynamic = 'force-static'` on your pages, as that makes it impossible to use cookies ([more info](https://nextjs.org/docs/app/api-reference/file-conventions/route-segment-config)).
+:::
 
 
 ## Localize Server components
@@ -300,36 +306,31 @@ Make sure to use `@/tolgee/server` in server components and `@tolgee/react` in c
 
 ## Switching Languages
 
-For switching languages use `setLocale` server action from `locale.ts`, which will just update our cookie.
+For switching languages use `setLanguage` server action from `language.ts`, which will just update our cookie.
 
 ```tsx
 'use client';
 
-import React, { ChangeEvent } from 'react';
+import React from 'react';
 import { useTolgee } from '@tolgee/react';
-import { setLocale } from '@/tolgee/locale';
+import { setLanguage } from '@/tolgee/language';
 
 export const LangSelector: React.FC = () => {
   const tolgee = useTolgee(['language']);
-  const locale = tolgee.getLanguage();
+  const language = tolgee.getLanguage();
 
-  function onSelectChange(event: ChangeEvent<HTMLSelectElement>) {
-    const nextLocale = event.target.value;
-    setLocale(nextLocale);
+  function onSelectChange(e) {
+    setLanguage(e.target.value);
   }
 
   return (
-    <select onChange={onSelectChange} value={locale}>
+    <select onChange={onSelectChange} value={language}>
       <option value="en">🇬🇧 English</option>
       <option value="cs">🇨🇿 Česky</option>
     </select>
   );
 };
 ```
-
-:::info
-Make sure you use navigation-related components from `@/navigation` instead natively from Next.js. This ensures that the correct locale is passed to the route.
-:::
 
 ## Limitations of Server Components
 

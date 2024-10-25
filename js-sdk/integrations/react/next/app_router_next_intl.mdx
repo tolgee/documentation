@@ -2,16 +2,18 @@
 id: app-router-next-intl
 sidebar_label: App router with next-intl
 title: Next.js with App Router with next-intl
-description: "Get started with Tolgee's integration for Next.js. Learn how to add localization to your Next.js applications that uses the App Router."
+description: "Get started with Tolgee's integration for Next.js. Learn how to add localization to your Next.js applications that uses next-intl package with router-based localization."
 ---
 
 import ExampleBanner from '../../../shared/ExampleBanner';
 
-<ExampleBanner framework="Next app router" appName="next-app" />
+<ExampleBanner framework="Next app router with next-intl" appName="next-app-intl" />
 
 ## Installation
 
 The Next.js App Router does not provide native support for `i18n` as the Page Router does. However, you can use the [`next-intl`](https://next-intl-docs.vercel.app/) library, for routing and locale detection.
+
+We are not using an entire functionality of the library, so the setup is missing some pieces from official documentation of [next-intl](https://next-intl-docs.vercel.app/docs/getting-started/app-router/with-i18n-routing).
 
 Follow the below instructions to learn to implement localization to your Next.js App Router app with Tolgee.
 
@@ -31,7 +33,7 @@ npm install next-intl @tolgee/react
 ```
 
 :::info
-Use `@tolgee/react` version `5.17.0` and higher
+Use `@tolgee/react` version `5.30.0` and higher
 :::
 
 ## Folder structure
@@ -39,6 +41,7 @@ Use `@tolgee/react` version `5.17.0` and higher
 The folder structure of your project should resemble the following:
 
 ```
+├── .env.development.local    # ignored by git
 ├── next.config.js
 ├── messages
 │   ├── en.json
@@ -64,7 +67,7 @@ Create the `.env.development.local` file if it does not exist. You will store th
 
 Paste the following in the newly created file. Replace `<your api key>` with your Tolgee API key.
 
-```
+```sh title=".env.development.local"
 NEXT_PUBLIC_TOLGEE_API_KEY=<your api key>
 NEXT_PUBLIC_TOLGEE_API_URL=https://app.tolgee.io
 ```
@@ -80,33 +83,39 @@ In your `tolgee/shared.ts` file, add the following code.
 ```ts title="src/tolgee/shared.ts"
 import { DevTools, Tolgee, FormatSimple } from '@tolgee/web';
 
-export const ALL_LOCALES = ['en', 'cs'];
-
-export const DEFAULT_LOCALE = 'en';
-
 const apiKey = process.env.NEXT_PUBLIC_TOLGEE_API_KEY;
 const apiUrl = process.env.NEXT_PUBLIC_TOLGEE_API_URL;
 
-export async function getStaticData(languages: string[]) {
+export const ALL_LANGUAGES = ['en', 'cs', 'de', 'fr'];
+
+export const DEFAULT_LANGUAGE = 'en';
+
+export async function getStaticData(
+  languages: string[],
+  namespaces: string[] = ['']
+) {
   const result: Record<string, any> = {};
   for (const lang of languages) {
-    result[lang] = (await import(`../i18n/${lang}.json`)).default;
+    for (const namespace of namespaces) {
+      if (namespace) {
+        result[`${lang}:${namespace}`] = (
+          await import(`../../messages/${namespace}/${lang}.json`)
+        ).default;
+      } else {
+        result[lang] = (await import(`../../messages/${lang}.json`)).default;
+      }
+    }
   }
   return result;
 }
 
 export function TolgeeBase() {
-  return (
-    Tolgee()
-      .use(FormatSimple())
-      .use(DevTools())
-      // Preset shared settings
-      .updateDefaults({
-        apiKey,
-        apiUrl,
-      })
-  );
+  return Tolgee().use(FormatSimple()).use(DevTools()).updateDefaults({
+    apiKey,
+    apiUrl,
+  });
 }
+
 ```
 
 ### Client configutation
@@ -116,39 +125,45 @@ The client configuration is very similar to the [Pages Router set up](./pages-ro
 ```tsx title="src/tolgee/client.tsx"
 'use client';
 
-import { TolgeeBase } from './shared';
-import { TolgeeProvider, useTolgeeSSR } from '@tolgee/react';
-import { useRouter } from 'next/navigation';
 import { useEffect } from 'react';
+import { TolgeeProvider, TolgeeStaticData } from '@tolgee/react';
+import { useRouter } from 'next/navigation';
+import { TolgeeBase } from './shared';
 
 type Props = {
-  locales: any;
-  locale: string;
+  staticData: TolgeeStaticData;
+  language: string;
   children: React.ReactNode;
 };
 
 const tolgee = TolgeeBase().init();
 
-export const TolgeeNextProvider = ({ locale, locales, children }: Props) => {
-  // synchronize SSR and client first render
-  const tolgeeSSR = useTolgeeSSR(tolgee, locale, locales);
+export const TolgeeNextProvider = ({
+  language,
+  staticData,
+  children,
+}: Props) => {
   const router = useRouter();
 
   useEffect(() => {
-    const { unsubscribe } = tolgeeSSR.on('permanentChange', () => {
-      // refresh page when there is a translation update
+    const { unsubscribe } = tolgee.on('permanentChange', () => {
       router.refresh();
     });
-
     return () => unsubscribe();
-  }, [tolgeeSSR, router]);
+  }, [tolgee, router]);
 
   return (
-    <TolgeeProvider tolgee={tolgeeSSR} options={{ useSuspense: false }}>
+    <TolgeeProvider
+      tolgee={tolgee}
+      options={{ useSuspense: false }}
+      fallback="Loading"
+      ssr={{ language, staticData }}
+    >
       {children}
     </TolgeeProvider>
   );
 };
+
 ```
 
 ### Server configuration
@@ -160,24 +175,23 @@ One important difference from the client setup is the utilization of [`fullKeyEn
 ```tsx title="src/tolgee/server.tsx"
 import { getLocale } from 'next-intl/server';
 
-import { TolgeeBase, ALL_LOCALES, getStaticData } from './shared';
+import { TolgeeBase, ALL_LANGUAGES, getStaticData } from './shared';
 import { createServerInstance } from '@tolgee/react/server';
 
 export const { getTolgee, getTranslate, T } = createServerInstance({
-  getLocale,
-  createTolgee: async (locale) =>
+  getLocale: getLocale,
+  createTolgee: async (language) =>
     TolgeeBase().init({
-      // load all languages on the server
-      staticData: await getStaticData(ALL_LOCALES),
+      // including all languages
+      // on server we are not concerned about bundle size
+      staticData: await getStaticData(ALL_LANGUAGES),
       observerOptions: {
         fullKeyEncode: true,
       },
-      language: locale,
+      language,
       // using custom fetch to avoid aggressive caching
-      fetch: async (input, init) => {
-        const data = await fetch(input, { ...init, next: { revalidate: 0 } });
-        return data;
-      },
+      fetch: async (input, init) =>
+        fetch(input, { ...init, next: { revalidate: 0 } }),
     }),
 });
 ```
@@ -186,11 +200,11 @@ export const { getTolgee, getTranslate, T } = createServerInstance({
 
 The next step is to wrap the children with the `TolgeeNextProvider`. Update the `layout.tsx` file with the following code:
 
-```tsx title="src/app/layout.tsx"
+```tsx title="src/app/[locale]/layout.tsx"
 import { notFound } from 'next/navigation';
 import { ReactNode } from 'react';
 import { TolgeeNextProvider } from '@/tolgee/client';
-import { ALL_LOCALES, getStaticData } from '@/tolgee/shared';
+import { ALL_LANGUAGES, getStaticData } from '@/tolgee/shared';
 
 type Props = {
   children: ReactNode;
@@ -201,19 +215,18 @@ export default async function LocaleLayout({
   children,
   params: { locale },
 }: Props) {
-  if (!ALL_LOCALES.includes(locale)) {
+  if (!ALL_LANGUAGES.includes(locale)) {
     notFound();
   }
 
-  // make sure you provide all the necessary locales
-  // for the inital SSR render (e.g. fallback languages)
-  const locales = await getStaticData([locale]);
-
+  // it's important you provide all data which are needed for initial render
+  // so current language and also fallback languages + necessary namespaces
+  const staticData = await getStaticData([locale, 'en']);
 
   return (
     <html lang={locale}>
       <body>
-        <TolgeeNextProvider locale={locale} locales={locales}>
+        <TolgeeNextProvider language={locale} staticData={staticData}>
           {children}
         </TolgeeNextProvider>
       </body>
@@ -232,16 +245,18 @@ To use `next-intl` for routing and language detection, you need to set `middlewa
 
 ```tsx title="src/middleware.ts"
 import createMiddleware from 'next-intl/middleware';
-import { ALL_LOCALES, DEFAULT_LOCALE } from '@/tolgee/shared';
+import { ALL_LANGUAGES, DEFAULT_LANGUAGE } from '@/tolgee/shared';
 
+// read more about next-intl middleware configuration
+// https://next-intl-docs.vercel.app/docs/routing/middleware#locale-prefix
 export default createMiddleware({
-  locales: ALL_LOCALES,
-  defaultLocale: DEFAULT_LOCALE,
+  locales: ALL_LANGUAGES,
+  defaultLocale: DEFAULT_LANGUAGE,
   localePrefix: 'as-needed',
 });
 
 export const config = {
-  // Skip the paths that should not be internationalized
+  // Skip all paths that should not be internationalized
   matcher: ['/((?!api|_next|.*\\..*).*)'],
 };
 ```
@@ -250,12 +265,12 @@ Next, create a `src/navigation.ts` file. This provides easy access to the naviga
 
 ```ts title="src/navigation.ts"
 import { createSharedPathnamesNavigation } from 'next-intl/navigation';
-import { ALL_LOCALES } from './tolgee/shared';
+import { ALL_LANGUAGES } from './tolgee/shared';
 
 // read more about next-intl library
 // https://next-intl-docs.vercel.app
 export const { Link, redirect, usePathname, useRouter } =
-  createSharedPathnamesNavigation({ locales: ALL_LOCALES });
+  createSharedPathnamesNavigation({ locales: ALL_LANGUAGES });
 ```
 
 > To gain a comprehensive understanding of how `next-intl` operates, read [their documentation](https://next-intl-docs.vercel.app/docs/getting-started/app-router-server-components). This example utilizes the necessary setup for proper routing. Not all the listed configurations are required.
