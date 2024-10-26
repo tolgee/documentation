@@ -16,18 +16,18 @@ module.exports = {
             'integrations/react/translating',
             'integrations/react/tags_interpolation',
             'integrations/react/switching_language',
-            {
-              label: 'Next.js',
-              type: 'category',
-              items: [
-                'integrations/react/next/introduction',
-                'integrations/react/next/pages-router',
-                'integrations/react/next/app-router',
-              ],
-            },
             'integrations/react/ssr',
             'integrations/react/react_native',
             'integrations/react/api',
+          ],
+        },
+        {
+          label: 'Next.js',
+          type: 'category',
+          items: [
+            'integrations/react/next/introduction',
+            'integrations/react/next/pages-router',
+            'integrations/react/next/app-router',
           ],
         },
         {

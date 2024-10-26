@@ -301,10 +301,14 @@ import { getTranslate } from '@/tolgee/server';
 export default async function IndexPage() {
   // because this is server component, use `getTranslate`
   // not useTranslate from '@tolgee/react'
+  // Pass namespace to load translations from the namespace
+  // const t = await getTranslate(['namespace']);
   const t = await getTranslate();
   return (
     <main>
       <h1>{t('hello_world')}</h1>
+      {/* Alternatively, pass the namespace in the t-component */}
+      {/* t('hello_world', { ns: 'namespace' }) */}
     </main>
   );
 }
@@ -323,10 +327,15 @@ import { useTranslate } from '@tolgee/react';
 
 export const ExampleClientComponent = () => {
   const { t } = useTranslate();
+  // Pass namespace to load translations from the namespace
+  // const { t } = useTranslate(['namespace']);
 
   return (
     <section>
       <span>{t('example-key-in-client-component')}</span>
+      {/* Alternatively, pass the namespace in the t-component */}
+      {/* t('example-key-in-client-component', { ns: 'namespace' }); */}
+
     </section>
   );
 };
