@@ -145,11 +145,12 @@ export default function MyApp({
   );
 }
 
+
 MyApp.getInitialProps = async (
-  context: AppContext & { locale: string }
+  context: AppContext
 ): Promise<AppOwnProps & AppInitialProps> => {
   const ctx = await App.getInitialProps(context);
-  return { ...ctx, staticData: await getStaticData([context.router.locale!]) };
+  return { ...ctx, staticData: await getStaticData([context.ctx.locale!]) };
 };
 ```
 
