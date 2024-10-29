@@ -5,13 +5,16 @@ title: Next.js with App Router
 description: "Get started with Tolgee's integration for Next.js. Learn how to add localization to your Next.js applications that uses the App Router."
 ---
 
+import AppRouterTranslating from './shared/_AppRouterTranslating.mdx'
 import ExampleBanner from '../../../shared/ExampleBanner';
+import LimitationsOfServerComponents from './shared/_LimitationsOfServerComponents.mdx'
+
 
 <ExampleBanner framework="Next app router" appName="next-app" />
 
 Follow the below instructions to learn to implement localization to your Next.js App Router app with Tolgee.
 
-In this example we'll store language in cookies, which is a simple to implement, but is not ideal for your SEO. If you want a more robust solution with language in url, see [App router with next-intl](./app_router_next_intl.mdx)
+In this example we'll store language in cookies, which is a simple to implement, but is not ideal for SEO. If you want a more robust solution with language in url, see [App router with next-intl](./app_router_next_intl.mdx)
 
 ## Prerequisites
 
@@ -63,6 +66,11 @@ Paste the following in the newly created file. Replace `<your api key>` with you
 NEXT_PUBLIC_TOLGEE_API_KEY=<your api key>
 NEXT_PUBLIC_TOLGEE_API_URL=https://app.tolgee.io
 ```
+
+## Save exported data
+
+Create an `messages` folder in the root of your project directory, if it does not already exists. Move the exported localization json files to the `messages` folder.
+
 
 ## Set up Tolgee
 
@@ -258,51 +266,7 @@ The above code loads relevant locale available on the server and pass it to the 
 Make sure you are not using `export const dynamic = 'force-static'` on your pages, as that makes it impossible to use cookies ([more info](https://nextjs.org/docs/app/api-reference/file-conventions/route-segment-config)).
 :::
 
-
-## Localize Server components
-
-Now that everything is setup, you can use the `getTranslate` function to render the translated text. Since this is a server component, you use `getTranslate` instead of the `useTranslate` hook.
-
-```tsx title="src/page.tsx"
-import { getTranslate } from '@/tolgee/server';
-
-export default async function IndexPage() {
-  // because this is server component, use `getTranslate`
-  // not useTranslate from '@tolgee/react'
-  const t = await getTranslate();
-  return (
-    <main>
-      <h1>{t('hello_world')}</h1>
-    </main>
-  );
-}
-```
-
-If everything is set up correctly, you could use in-context translation. Press and holde the `alt` (or `option`) key, and click `hello_world`. This will open the in-context pop-up window.
-
-## Localize Client component
-
-For client components, you can use the `useTranslate` hook or the `t-component`.
-
-```tsx
-'use client';
-
-import { useTranslate } from '@tolgee/react';
-
-export const ExampleClientComponent = () => {
-  const { t } = useTranslate();
-
-  return (
-    <section>
-      <span>{t('example-key-in-client-component')}</span>
-    </section>
-  );
-};
-```
-
-:::info
-Make sure to use `@/tolgee/server` in server components and `@tolgee/react` in client components.
-:::
+<AppRouterTranslating />
 
 ## Switching Languages
 
@@ -332,10 +296,6 @@ export const LangSelector: React.FC = () => {
 };
 ```
 
-## Limitations of Server Components
+<LimitationsOfServerComponents />
 
-Although in-context translation works with server components, there are some limitations compared to client components. The Tolgee cache on the server is separate. This prevents Tolgee from automatically changing the translation when creating a screenshot (unlike with client components, which swap the content if you've modified it in a dialog).
-
-Furthermore, if you're using the [Tolgee browser plugin](https://chrome.google.com/webstore/detail/tolgee-tools/hacnbapajkkfohnonhbmegojnddagfnj), it won't affect the server's transition to dev mode. As a result, only the client switches, leaving server components non-editable in this mode.
-
-To learn more about checkout this example: [github.com/tolgee/next-example](https://github.com/tolgee/next-example).
+<ExampleBanner framework="Next app router" appName="next-app" />
