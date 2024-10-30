@@ -1,7 +1,7 @@
 ---
 slug: 2024-10-30-how-I-added-localization-to-dobco-using-tolgee
 title: 'How I added localization to Dub.co using Tolgee'
-description: 'Learn how to add localization to a Next.js application using Tolgee and integrate it with Dub.co.'
+description: 'Let's se, how did I add internationalization (i18n) support to a Dub.co (Next.js) application using Tolgee.'
 image: '/img/blog/2024-10-30-how-I-added-localization-to-dobco-using-tolgee/cover.webp'
 authors: [jcizmar]
 tags: ['tolgee', 'dobco', 'next.js', 'integration']
@@ -13,15 +13,15 @@ tags: ['tolgee', 'dobco', 'next.js', 'integration']
 
 Implementing localization in software applications can be overwhelming, especially for complex applications that haven't been prepared for internationalization (i18n).
 
-In this tutorial, I’ll walk you through an easy and efficient approach to localization in a Next.js application using [Tolgee](https://github.com/tolgee) - a platform designed for fast and autonomous translation management.
+In this article, I’ll walk you through an easy and efficient approach to localization in a Next.js application using [Tolgee](https://github.com/tolgee) - a platform designed for fast and autonomous translation management.
 
-You will also learn how to integrate Tolgee with [Dub.co](https://github.com/dubinc/dub), a popular link management platform allowing users to access and interact with the application in their preferred languages.
+You will also see how to integrate Tolgee with complex Next.js project - [Dub.co](https://github.com/dubinc/dub), a popular link management platform allowing users to access and interact with the application in their preferred languages.
 
 ## Prerequisites
 
-To fully understand this tutorial, you need to have a basic understanding of React or Next.js.
+To fully understand this Article, you need to have a basic understanding of React or Next.js.
 
-You will also need to set up the following:
+You will also need to set up the following if you would like to use this article as tutorial:
 
 - [Tolgee Project](https://tolgee.io/) - an existing project with at least two language translations.
 - [Tolgee CLI](https://tolgee.io/tolgee-cli) - allows you to interact with the Tolgee platform from your computer using the command line.
@@ -131,7 +131,7 @@ You can access the web application by navigating to **`http://localhost:8888`**
 
 ## How to configure Tolgee in a Next.js application
 
-In this section, you'll learn how to add Tolgee to a Next.js application and configure it to support multiple languages, allowing users to access the app in their preferred language.
+In this section, I'll show you how to add Tolgee to a Next.js application and configure it to support multiple languages, allowing users to access the app in their preferred language.
 
 To implement localization in Next.js applications, you’ll need to install the [Tolgee React SDK](https://tolgee.io/js-sdk/integrations/react/next/app-router#install-the-required-packages).
 
@@ -330,7 +330,7 @@ export const TolgeeNextProvider = ({ locale, locales, children }: Props) => {
 
 The **`client.tsx`** file serves the purpose of translating client components and also enables the in-context functionality for server-rendered components. The code snippet above defines the **`TolgeeNextProvider`** component, which wraps the entire Dub.co application, providing configurations needed to manage language changes and translations.
 
-As mentioned earlier in the tutorial, the Dub.co code repository includes custom routing configurations that conflict with [Tolgee’s default Next.js integration guide](https://tolgee.io/js-sdk/integrations/react/next/app-router). To resolve this, create a custom **`locale.ts`** file in the **`tolgee`** folder and copy the following code snippet into it:
+As mentioned earlier in the article, the Dub.co code repository includes custom routing configurations that conflict with [Tolgee’s default Next.js integration guide](https://tolgee.io/js-sdk/integrations/react/next/app-router). To resolve this, create a custom **`locale.ts`** file in the **`tolgee`** folder and copy the following code snippet into it:
 
 ```tsx
 "use server";
@@ -533,9 +533,9 @@ Tolgee also provides an [in-context translation](https://tolgee.io/features/dev-
 
 ![in-context-translation.webp](/img/blog/2024-10-30-how-I-added-localization-to-dobco-using-tolgee/in-context-translation.webp)
 
-Congratulations! You've successfully completed the project for this tutorial.
+And that's it. This is how I integrated Tolgee to Dub.co.
 
-The source code for this tutorial is available here:
+The source after these changes is available here:
 
 https://github.com/JanCizmar/dub-with-tolgee
 
