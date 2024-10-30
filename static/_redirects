@@ -1,2 +1,11 @@
 /js/script.hash.outbound-links.pageview-props.revenue.tagged-events.js https://plausible.io/js/script.hash.outbound-links.pageview-props.revenue.tagged-events.js 200
 /api/event https://plausible.io/api/event 200
+/ https://new-tolgee.framer.website/ 200
+/features/* https://new-tolgee.framer.website/features/:splat 200
+/apps-integrations/* https://new-tolgee.framer.website/apps-integrations/:splat 200
+/roadmap https://new-tolgee.framer.website/roadmap 200
+/opensource https://new-tolgee.framer.website/opensource 200
+/career/* https://new-tolgee.framer.website/career/:splat 200
+/privacy-policy https://new-tolgee.framer.website/privacy-policy 200
+/about https://new-tolgee.framer.website/about 200
+/terms_and_conditions https://new-tolgee.framer.website/terms_and_conditions 200
