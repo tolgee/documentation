@@ -1,0 +1,552 @@
+---
+slug: 2024-10-30-how-I-added-localization-to-dobco-using-tolgee
+title: 'How I added localization to Dub.co using Tolgee'
+description: 'Learn how to add localization to a Next.js application using Tolgee and integrate it with Dub.co.'
+image: '/img/blog/2024-10-30-how-I-added-localization-to-dobco-using-tolgee/cover.webp'
+authors: [jcizmar]
+tags: ['tolgee', 'dobco', 'next.js', 'integration']
+---
+
+![Cover image](/img/blog/2024-10-30-how-I-added-localization-to-dobco-using-tolgee/cover.webp)
+
+<!--truncate-->
+
+Implementing localization in software applications can be overwhelming, especially for complex applications that haven't been prepared for internationalization (i18n).
+
+In this tutorial, I’ll walk you through an easy and efficient approach to localization in a Next.js application using [Tolgee](https://github.com/tolgee) - a platform designed for fast and autonomous translation management.
+
+You will also learn how to integrate Tolgee with [Dub.co](https://github.com/dubinc/dub), a popular link management platform allowing users to access and interact with the application in their preferred languages.
+
+## Prerequisites
+
+To fully understand this tutorial, you need to have a basic understanding of React or Next.js.
+
+You will also need to set up the following:
+
+- [Tolgee Project](https://tolgee.io/) - an existing project with at least two language translations.
+- [Tolgee CLI](https://tolgee.io/tolgee-cli) - allows you to interact with the Tolgee platform from your computer using the command line.
+- [Docker](https://docs.docker.com/compose/install/) - required for running Dub.co. It is an open-source platform that uses containerization to make it easier to create, deploy, and run applications.
+- [Docker Compose](https://docs.docker.com/compose/install/) - a software application for defining and running multi-container Docker applications.
+- [Python (version 3.8 or higher)](https://www.python.org/downloads/): necessary for configuring some of Dub.co’s packages.
+
+---
+
+## What is Tolgee?
+
+Tolgee is a developer-friendly localization platform that allows you to translate your application into any language without modifying your code. It is designed for web applications but also supports mobile and desktop applications.
+With Tolgee, you don't need to look for keys in your source code, edit localization files, or perform manual exporting data for translators. Tolgee is a fast and painless platform that offers in-context translation, a translation memory for keeping track of already translated strings, machine and auto translations, and many others.
+
+![What is Tolgee](/img/blog/2024-10-30-how-I-added-localization-to-dobco-using-tolgee/what-is-tolgee.webp)
+---
+
+## How to set up [Dub.co](http://Dub.co) on your local computer
+
+[Dub.co](http://dub.co/) is an open-source link management platform that allows marketing teams to add powerful analytics to their links, create short links, generate QR codes for links, and many more. It was created by Steven Tey (formerly of Vercel).
+
+Follow these steps to set up [Dub.co](http://dub.co/) on your computer:
+
+Clone the [Dub.co GitHub repository](https://github.com/dubinc/dub) by running the code snippet below.
+
+```bash
+git clone https://github.com/dubinc/dub.git
+```
+
+Navigate into the **`dub`** folder and install the project dependencies:
+
+```bash
+pnpm install
+```
+
+Within the **`apps/web`** folder, rename the **`.env.example`** file to **`.env`**.
+
+Create a new [Tinybird account](https://www.tinybird.co/), and copy your **`Admin Auth Token`** into the **`.env`** file.
+
+```
+TINYBIRD_API_KEY=<your_admin_auth_token>
+```
+
+Navigate into the **`packages/tinybird`** directory and install the Tinybird CLI using the following command:
+
+```bash
+pip3 install tinybird-cli
+```
+
+Execute the following command in your terminal and enter your **`Admin Auth Token`** when prompted to authenticate using the Tinybird CLI:
+
+```bash
+tb auth
+```
+
+Publish the Tinybird datasource and endpoints by running the code snippet below:
+
+```bash
+tb push
+```
+
+Create an [Upstash database](https://console.upstash.com/redis) and copy the following credentials from the REST API section to the **`.env`** file:
+
+```bash
+UPSTASH_REDIS_REST_URL=<your_rest_url>
+UPSTASH_REDIS_REST_TOKEN=<your_rest_token>
+```
+
+Navigate to the [QStash tab](https://console.upstash.com/qstash) and copy the following credentials into the **`.env`** file.
+
+```bash
+QSTASH_TOKEN=
+QSTASH_CURRENT_SIGNING_KEY=
+QSTASH_NEXT_SIGNING_KEY=
+```
+
+Next, within the **`apps/web`** directory, run the following command to start the Docker Compose stack:
+
+```bash
+docker-compose up
+```
+
+Generate the Prisma client and create its database tables using the following commands:
+
+```bash
+npx prisma generate
+npx prisma db push
+```
+
+Dub.co supports multiple authentication methods. [Create a GitHub app](https://github.com/settings/applications/new) and copy the URL below as its callback URL.
+
+```bash
+http://localhost:8888/api/auth/callback/github
+```
+
+Finally, start the development server:
+
+```bash
+pnpm dev
+```
+
+You can access the web application by navigating to **`http://localhost:8888`** in your browser, create a workspace, and get started. If you encounter any issues, refer to the [complete installation guide](https://dub.co/docs/local-development) for more detailed assistance.
+
+![dub-overview.gif](/img/blog/2024-10-30-how-I-added-localization-to-dobco-using-tolgee/dub-overview.gif)
+
+---
+
+## How to configure Tolgee in a Next.js application
+
+In this section, you'll learn how to add Tolgee to a Next.js application and configure it to support multiple languages, allowing users to access the app in their preferred language.
+
+To implement localization in Next.js applications, you’ll need to install the [Tolgee React SDK](https://tolgee.io/js-sdk/integrations/react/next/app-router#install-the-required-packages).
+
+```bash
+npm install @tolgee/react
+```
+
+Next, create a [Tolgee Platform account](https://tolgee.io/)  and sign into your dashboard.
+
+![Created platform account](/img/blog/2024-10-30-how-I-added-localization-to-dobco-using-tolgee/platform1.webp)
+
+Add a new project by clicking the **Project** button and selecting your preferred languages for the project. For this application, we'll use five languages: English (as the base language), Chinese, Hindi, Spanish, and Arabic.
+
+![Creating project](/img/blog/2024-10-30-how-I-added-localization-to-dobco-using-tolgee/platform2.webp)
+
+Click the profile icon in the top-right corner of your dashboard, then select **Project API Keys** to create an API key for your Tolgee project.
+
+![API keys](/img/blog/2024-10-30-how-I-added-localization-to-dobco-using-tolgee/platform3.webp)
+
+Create a **`.env.development.local`**  and copy your API key into the file:
+
+```bash
+NEXT_PUBLIC_TOLGEE_API_KEY=<paste_your_API_key_here>
+NEXT_PUBLIC_TOLGEE_API_URL=https://app.tolgee.io
+```
+
+Select **Translations** from the sidebar menu and add a new translation to the project.
+
+![Go to translations](/img/blog/2024-10-30-how-I-added-localization-to-dobco-using-tolgee/platform4.webp)
+
+You can create a translation key, add the content or string you need to translate, provide a description, and then save it.
+
+![Create key](/img/blog/2024-10-30-how-I-added-localization-to-dobco-using-tolgee/platform5.webp)
+
+Tolgee provides various machine translation options by default, allowing you to easily translate content into the available languages within your project.
+
+![translation-change-with-tolgee.gif](/img/blog/2024-10-30-how-I-added-localization-to-dobco-using-tolgee/translation-change-with-tolgee.gif)
+
+Congratulations! You’ve successfully set up the Tolgee platform for translations within your application. Next, let’s configure Tolgee within the [Dub.co](http://dub.co/) project to easily generate translations directly in the application.
+
+### How to set up localization in [Dub.co](http://dub.co/)
+
+In this section, I’ll guide you through configuring Tolgee to support client-server interactions within the Dub.co project.
+
+First, install the [Tolgee CLI](https://tolgee.io/tolgee-cli) package.
+
+```bash
+npm install --global @tolgee/cli
+```
+
+Run the following code snippet to sign in to your Tolgee platform using your project API key.
+
+```bash
+tolgee login <your_tolgee_api_key>
+```
+
+![Screenshot 2024-10-28 at 07.39.01.png](https://prod-files-secure.s3.us-west-2.amazonaws.com/52633bf6-840b-4396-9a67-444d8ee25719/b63f4f63-852c-4ae9-a7f9-d280da61dfcb/Screenshot_2024-10-28_at_07.39.01.png)
+
+Next, create an **`i18n`** folder within the **`apps/web`** directory. This folder will store the JSON files containing translations for the various languages available in the Tolgee platform project.
+
+```bash
+apps
+├── web #👈🏼 this folder
+    ├── app
+    ├── i18n  #👈🏼 newly created
+packages
+├── tailwind-config
+├── tinybird
+├── tsconfig
+├── ui
+├── utils
+```
+
+Within the **`apps/web`** directory, fetch the language translations created in your Tolgee project by running the code snippet below:
+
+```bash
+tolgee --project-id <tolgee_platform_project_id> pull --path ./i18n
+```
+
+![Screenshot 2024-10-29 at 06.27.03.png](https://prod-files-secure.s3.us-west-2.amazonaws.com/52633bf6-840b-4396-9a67-444d8ee25719/47876ae9-b681-41cb-aded-628f103d0943/Screenshot_2024-10-29_at_06.27.03.png)
+
+The code snippet above automatically populates the **`i18n`** folder with the various language translations created within the Tolgee platform.
+
+```bash
+apps
+├── web
+    ├── app
+    ├── i18n #👇🏻 translation files
+        ├── ar.json
+        ├── en.json
+        ├── es.json
+        ├── zh.json
+packages
+├── tailwind-config
+├── tinybird
+├── tsconfig
+├── ui
+├── utils
+```
+
+Create a **`tolgee`** folder which will contain Tolgee configurations within the **`apps/web`** directory:
+
+```bash
+apps
+├── web # 👈🏼 this folder
+    ├── app
+    ├── i18n
+    ├── tolgee # 👈🏼 Tolgee folder
+packages
+├── tailwind-config
+├── tinybird
+├── tsconfig
+├── ui
+├── utils
+```
+
+Add a **`shared.ts`** file in the **`tolgee`** directory, then copy the following code snippet into the file:
+
+```tsx
+import { FormatIcu } from "@tolgee/format-icu";
+import { DevTools, Tolgee } from "@tolgee/react";
+
+const apiKey = process.env.NEXT_PUBLIC_TOLGEE_API_KEY;
+const apiUrl = process.env.NEXT_PUBLIC_TOLGEE_API_URL;
+
+//👇🏻 available translations
+export const ALL_LOCALES = ["en", "ar", "es", "zh"];
+
+//👇🏻 default translation
+export const DEFAULT_LOCALE = "en";
+
+//👇🏻 returns an object containing the translation files
+export async function getStaticData(languages: string[]) {
+  const result: Record<string, any> = {};
+
+  for (const lang of languages) {
+    result[lang] = (await import(`../i18n/${lang}.json`)).default;
+  }
+
+  return result;
+}
+
+export function TolgeeBase() {
+  return Tolgee().use(FormatIcu()).use(DevTools()).updateDefaults({
+    apiKey,
+    apiUrl,
+    fallbackLanguage: "en",
+    defaultLanguage: DEFAULT_LOCALE,
+  });
+}
+```
+
+The code snippet above configures Tolgee with default and fallback languages to enable localization within the application.
+
+Next, create a **`client.tsx`** file in the **`tolgee`** directory, then copy the code snippet below into the file:
+
+```tsx
+'use client';
+
+import { TolgeeBase } from './shared';
+import { TolgeeProvider, useTolgeeSSR } from '@tolgee/react';
+import { useRouter } from 'next/navigation';
+import { useEffect } from 'react';
+
+type Props = {
+  locales: any;
+  locale: string;
+  children: React.ReactNode;
+};
+
+const tolgee = TolgeeBase().init();
+
+export const TolgeeNextProvider = ({ locale, locales, children }: Props) => {
+  const tolgeeSSR = useTolgeeSSR(tolgee, locale, locales);
+  const router = useRouter();
+
+  useEffect(() => {
+    const { unsubscribe } = tolgeeSSR.on('permanentChange', () => {
+      router.refresh();
+    });
+
+    return () => unsubscribe();
+  }, [tolgeeSSR, router]);
+
+  return (
+    <TolgeeProvider
+      tolgee={tolgeeSSR}
+      options={{ useSuspense: false }}
+      fallback="Loading"
+    >
+      {children}
+    </TolgeeProvider>
+  );
+};
+```
+
+The **`client.tsx`** file serves the purpose of translating client components and also enables the in-context functionality for server-rendered components. The code snippet above defines the **`TolgeeNextProvider`** component, which wraps the entire Dub.co application, providing configurations needed to manage language changes and translations.
+
+As mentioned earlier in the tutorial, the Dub.co code repository includes custom routing configurations that conflict with [Tolgee’s default Next.js integration guide](https://tolgee.io/js-sdk/integrations/react/next/app-router). To resolve this, create a custom **`locale.ts`** file in the **`tolgee`** folder and copy the following code snippet into it:
+
+```tsx
+"use server";
+
+import { cookies, headers } from "next/headers";
+import { ALL_LOCALES, DEFAULT_LOCALE } from "./shared.ts";
+
+const COOKIE_NAME = "NEXT_LOCALE";
+
+//👇🏻 Retrieves the current language setting for the user.
+// If not set, it attempts to detect the user's language from browser preferences.
+// Defaults to the application's default locale if no match is found.
+export async function getUserLocale() {
+  return (
+    cookies().get(COOKIE_NAME)?.value || detectLanguage() || DEFAULT_LOCALE
+  );
+}
+
+//👇🏻 Sets the user’s preferred language in a cookie to persist their selection.
+export async function setUserLocale(locale: string) {
+  cookies().set(COOKIE_NAME, locale);
+}
+
+//👇🏻 Attempts to detect the user's preferred language based on browser settings.
+const detectLanguage = () => {
+  const allPreferred = getAcceptedLanguages();
+
+  for (const language of allPreferred) {
+    // Checks for an exact match in the list of supported locales
+    const exactMatch = ALL_LOCALES.find((l) => l === language);
+    if (exactMatch) {
+      return exactMatch;
+    }
+
+    // Falls back to matching only the two-letter language code
+    const getTwoLetters = (fullTag: string) =>
+      fullTag.replace(/^(.+?)(-.*)?$/, "$1");
+
+    const preferredTwoLetter = getTwoLetters(language);
+    const twoLetterMatch = ALL_LOCALES.find(
+      (l) => getTwoLetters(l) === preferredTwoLetter,
+    );
+    if (twoLetterMatch) {
+      return twoLetterMatch;
+    }
+  }
+};
+
+//👇🏻 Retrieves accepted languages from the "Accept-Language" HTTP header.
+// Returns an array of languages in order of preference.
+function getAcceptedLanguages() {
+  const acceptLanguageHeader = getAcceptLanguageHeader();
+  if (!acceptLanguageHeader) {
+    return [];
+  }
+
+  // Splits the header value by commas to separate each language code
+  return acceptLanguageHeader.split(",").map((lang) => {
+    const [language] = lang.split(";");
+    return language.trim();
+  });
+}
+
+//👇🏻 Fetches the "Accept-Language" HTTP header from the user's browser.
+// This header lists languages preferred by the user, ranked by preference.
+function getAcceptLanguageHeader() {
+  return headers().get("Accept-Language");
+}
+```
+
+Finally, create a **`server.tsx`** file in the **`tolgee`** folder, then copy the following code snippet into the file:
+
+```tsx
+import { getUserLocale } from "./locale.ts";
+import { TolgeeBase, ALL_LOCALES, getStaticData } from './shared';
+import { createServerInstance } from '@tolgee/react/server';
+
+export const { getTolgee, getTranslate, T } = createServerInstance({
+   getLocale: async () => getUserLocale(),
+  createTolgee: async (locale) =>
+    TolgeeBase().init({
+      // including all locales
+      // on server we are not concerned about bundle size
+      staticData: await getStaticData(ALL_LOCALES),
+      observerOptions: {
+        fullKeyEncode: true,
+      },
+      language: locale,
+      fetch: async (input, init) => {
+        const data = await fetch(input, { ...init, next: { revalidate: 0 } });
+        return data;
+      },
+    }),
+});
+```
+
+The application utilizes the React server cache for sharing Tolgee instance across components in a single render. This allows the app to use the Tolgee instance anywhere in the server components.
+
+Congratulations! You’ve successfully configured Tolgee and are now ready to start adding translations to various content within the application.
+
+---
+
+## How to translate your application content with Tolgee
+
+Here, you'll learn how to translate content within your web application and see how Tolgee enables easy in-app translation.
+
+To get started, you need to wrap the entire Dub.co application with the **`TolgeeNextProvider`** component, defined in **`tolgee/client.tsx`**. Navigate to the **`apps/web/app`** folder, then go to the **`app.dub.co/(dashboard)`** directory, and update the **`layout.tsx`** file as shown below:
+
+```tsx
+import { MainNav } from "@/ui/layout/main-nav";
+import { HelpButtonRSC } from "@/ui/layout/sidebar/help-button-rsc";
+import Toolbar from "@/ui/layout/toolbar/toolbar";
+import { constructMetadata } from "@dub/utils";
+import { ReactNode } from "react";
+import Providers from "../../providers";
+//👇🏻 Tolgee imports
+import { TolgeeNextProvider } from "../../../tolgee/client.tsx";
+import { getUserLocale } from "../../../tolgee/locale.ts";
+import { getStaticData } from "../../../tolgee/shared.ts";
+
+export const metadata = constructMetadata();
+
+export default async function Layout({ children }: { children: ReactNode }) {
+  const locale = await getUserLocale();
+  const locales = await getStaticData([locale, "en"]);
+
+  return (
+    <TolgeeNextProvider locale={locale} locales={locales}>
+      <Providers>
+        <div className="min-h-screen w-full bg-white">
+          <MainNav toolContent={<HelpButtonRSC />}>{children}</MainNav>
+        </div>
+        {/* <ChangelogPopup /> */}
+        <Toolbar show={["onboarding"]} />
+      </Providers>
+    </TolgeeNextProvider>
+  );
+}
+```
+
+The code snippet above wraps the dashboard routes with the Tolgee provider, enabling language switching and localization throughout the application.
+
+Tolgee provides two hooks to help you select and translate text within your application: [**`useTolgee`**](https://tolgee.io/js-sdk/integrations/react/api#hook-usetolgee) and [**`useTranslate`**](https://tolgee.io/js-sdk/integrations/react/translating#usetranslate-hook).
+
+- The **`useTolgee`** hook returns the Tolgee instance, allowing you to subscribe to various events that will trigger re-renders when translating text.
+- The **`useTranslate`** hook includes a translation function (`t` function) that renders the actual translations directly within the app.
+
+Update the **`page.tsx`** file in the **`app.dub.co/(dashboard)/[slug]`** directory by adding the following code snippet:
+
+```tsx
+"use client";
+import { PageContent } from "@/ui/layout/page-content";
+import WorkspaceLinksClient from "./page-client";
+//👇🏻 Tolgee installations
+import { useTolgee, useTranslate } from "@tolgee/react";
+import { setUserLocale } from "tolgee/locale";
+
+export default function WorkspaceLinks() {
+  const { t } = useTranslate();
+  const tolgee = useTolgee(["pendingLanguage"]);
+  const language = tolgee.getPendingLanguage();
+
+  return (
+    <PageContent title="Links">
+    {/** -- HTML input for selecting the preferred language -- */}
+      <div className="flex w-full flex-col px-10">
+        <p>Select Language</p>
+        <select
+          defaultValue={language}
+          className="rounded-sm"
+          name="locale"
+          id="locale"
+          onChange={(e) => setUserLocale(e.currentTarget.value)}
+        >
+          <option value="en">English</option>
+          <option value="es">Spanish</option>
+          <option value="ar">Arabic</option>
+          <option value="zh">Chinese</option>
+        </select>
+
+        <p>{t("hello")}</p>
+      </div>
+    {/** -- end of Tolgee -- */}
+      <WorkspaceLinksClient />
+    </PageContent>
+  );
+}
+```
+
+The code snippet above displays an HTML `<select>` tag that allows users to choose and switch between different languages. The **`{t("hello")}`** element uses Tolgee’s translation function to render a value of the "hello" key based on the selected language.
+
+Finally, you can update the remaining content throughout the application to support language changes, allowing users to view all components in their selected language.
+
+![app-complete.gif](/img/blog/2024-10-30-how-I-added-localization-to-dobco-using-tolgee/app-complete.gif)
+
+
+We are currently working on AI migration agent, which will automatically convert your project files to be translated with Tolgee Native SDKs. You can check the repository [here](https://github.com/tolgee/ai-migrator).
+
+Tolgee also provides an [in-context translation](https://tolgee.io/features/dev-tools#in-context) feature, allowing you to translate strings directly within your application, whether in development or production, simply by clicking the text and holding the Alt / Option key.
+
+![in-context-translation.webp](/img/blog/2024-10-30-how-I-added-localization-to-dobco-using-tolgee/in-context-translation.webp)
+
+Congratulations! You've successfully completed the project for this tutorial.
+
+The source code for this tutorial is available here:
+
+https://github.com/JanCizmar/dub-with-tolgee
+
+---
+
+## Next Steps
+
+So far, you’ve learned how to add localization to your software applications using Tolgee, implement support for multiple languages, and make language switching seamless within a real-world project.
+
+Tolgee is a fast, developer-focused localization platform that allows you to provide context to your content and generate translations in seconds. It also supports [multiple JavaScript frameworks](https://tolgee.io/integrations), including Vue, Angular, and Svelte, and integrates with tools like Figma and a REST API for flexibility.
+
+If you're looking to create a personalized experience for your users, Tolgee is an excellent choice. Feel free to contribute and star our [GitHub repository](https://github.com/tolgee/tolgee-platform), and join our [Slack community](https://join.slack.com/t/tolgeecommunity/shared_invite/zt-195isb5u8-_RcSRgVJfvgsPpOBIok~IQ) to connect with others and engage with the team.
+
+Thank you for reading!
