@@ -1,0 +1,5 @@
+## Limitations of Server Components
+
+Although in-context translation works with server components, there are some limitations compared to client components. The Tolgee cache on the server is separate. This prevents Tolgee from automatically changing the translation when creating a screenshot (unlike with client components, which swap the content if you've modified it in a dialog).
+
+Furthermore, if you're using the [Tolgee browser plugin](https://chrome.google.com/webstore/detail/tolgee-tools/hacnbapajkkfohnonhbmegojnddagfnj), it won't affect the server's transition to dev mode. As a result, only the client switches, leaving server components non-editable in this mode.

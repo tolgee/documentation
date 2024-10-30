@@ -23,6 +23,7 @@ module.exports = {
                 'integrations/react/next/introduction',
                 'integrations/react/next/pages-router',
                 'integrations/react/next/app-router',
+                'integrations/react/next/app-router-next-intl',
               ],
             },
             'integrations/react/ssr',
