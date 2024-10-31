@@ -6,6 +6,8 @@ module.exports.navbar = {
     srcDark: 'img/tolgeeLogoDark.svg',
     width: 32,
     height: 32,
+    href: 'https://tolgee.io',
+    target: '_self',
   },
   items: [
     {
