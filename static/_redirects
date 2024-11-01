@@ -11,4 +11,4 @@
 /terms_and_conditions https://new-tolgee.framer.website/terms_and_conditions 200
 
 /ingest/static/* https://us-assets.i.posthog.com/static/:splat 200
-/ingest/* https://us.i.posthog.com/:splat 200
+/ingest/* https://eu.i.posthog.com/:splat 200
