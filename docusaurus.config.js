@@ -87,6 +87,32 @@ const config = {
     openApiPluginConfig,
     ...docs,
   ],
+  markdown: {
+    preprocessor: ({ filePath, fileContent }) => {
+      var key = '';
+      var found = false;
+      for (key in globalVariables) {
+        let folderName = key == 'current' ? 'current' : `version-${key}`;
+        if (filePath.includes(`/${folderName}/`)) {
+          found = true;
+          break;
+        }
+      }
+      if (key == '' || !found) {
+        key = 'current';
+      }
+
+      let content = fileContent;
+      for (const variable in globalVariables[key]) {
+        content = content.replaceAll(
+          '@' + variable + '@',
+          globalVariables[key][variable]
+        );
+      }
+
+      return content;
+    },
+  },
   customFields: {
     googleTrackingId: process.env.DOCUSAURUS_GOOGLE_TRACKING_ID,
     cookieYesId: process.env.DOCUSAURUS_COOKIE_YES_ID,

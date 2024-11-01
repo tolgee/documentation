@@ -86,7 +86,7 @@ While they may appear similar at first glance, each abbreviation carries its own
 
 If you're seeking a comprehensive solution for your software localization needs, Tolgee offers a powerful combination of i18n capabilities and an efficient localization platform.
 
-I18n open-source tool and **localization platform** Tolgee is transforming the software localization process with a [novel technique](/features/dev-tools) that intends to reduce time and effort for everyone involved in the process, including developers and translators. Tolgee software localization platform is a [free and open-source online tool](https://tolgee.io/blog/free-software-localization) that helps software developers localize their products for international markets. [Sign up](https://app.tolgee.io/sign_up) and **try it out for free!**
+I18n open-source tool and **localization platform** Tolgee is transforming the software localization process with a [novel technique](https://tolgee.io/features/dev-tools) that intends to reduce time and effort for everyone involved in the process, including developers and translators. Tolgee software localization platform is a [free and open-source online tool](https://tolgee.io/blog/free-software-localization) that helps software developers localize their products for international markets. [Sign up](https://app.tolgee.io/sign_up) and **try it out for free!**
 
 **Join the growing community** of developers and translators who have embraced Tolgee to simplify their localization workflows and deliver exceptional multilingual experiences to users worldwide.
 

@@ -95,7 +95,7 @@ You can also add the context "manually" by hitting the update button in the [in-
 
 Tolgee knows where the translations are located, we plan to add an auto-context-gathering mode, which will update the context automatically.
 
-We also plan to gather context using the [CLI](/tolgee-cli) and [Figma Plugin](/integrations/figma), so even if you don't use Tolgee SDKs, you still will be
+We also plan to gather context using the [CLI](/tolgee-cli) and [Figma Plugin](https://tolgee.io/integrations/figma), so even if you don't use Tolgee SDKs, you still will be
 able to use all the power of Tolgee Autonomous Localization.
 
 <video loop autoPlay muted style={{ maxWidth: "100%", margin: "0 auto" }}>

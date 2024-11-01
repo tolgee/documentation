@@ -22,7 +22,7 @@ describe, how these features work and how to use them.
 
 ## Machine translation 🤖
 
-With the [machine translation](/features/translation-assistance) feature, you don't have to translate every string manually. Tolgee suggests the
+With the [machine translation](https://tolgee.io/features/translation-assistance) feature, you don't have to translate every string manually. Tolgee suggests the
 translations from third-party services, so you can just click and edit/save them.
 
 ![Machine translating](/img/blog/translation-tools/machine-translating.png)
