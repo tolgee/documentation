@@ -130,8 +130,11 @@ const tolgee = Tolgee()
     prefix: '<your content storage link>',
     fallbackOnFail: true
   }))
-  .use(BackendFetch()) // your local data
   .init({
+    staticData: {
+      en: () => import('./i18n/en.json'),
+      de: () => import('./i18n/de.json'),
+    }
     ...
   })
 ```
