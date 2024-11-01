@@ -33,3 +33,7 @@ tolgee.use(FormatIcu());
 ```
 
 Read more about [ICU message format](/platform/translation_process/icu_message_format)
+
+:::info
+For react-native you might need to polyfill `Intl` object. Use [`@formatjs/intl-locale`](https://formatjs.github.io/docs/polyfills/intl-locale) and [`@formatjs/intl-pluralrules`](https://formatjs.github.io/docs/polyfills/intl-pluralrules) to make plurals work.
+:::
