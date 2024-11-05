@@ -28,7 +28,7 @@ function Home() {
         description={baseSchema.description}
       >
         <div className="text-home-text pt-[60px]">
-          <div className="max-w-[1200px] mx-auto px-12 py-[120px]">
+          <div className="max-w-[1200px] mx-auto px-6 md:px-12 py-[40px] md:py-[120px]">
             <div className="grid gap-10">
               <h1 className="text-primary m-0">Welcome to Tolgee Docs</h1>
               <p className="m-0">
@@ -38,12 +38,7 @@ function Home() {
                 management for efficient localization. Explore the docs to get
                 started!
               </p>
-              <div
-                className="grid gap-5"
-                style={{
-                  gridTemplateColumns: 'repeat(auto-fit, minmax(400px, 1fr))',
-                }}
-              >
+              <div className="grid gap-5 grid-cols-1 md:grid-cols-2">
                 <DocsTile
                   title="Platform"
                   text={
