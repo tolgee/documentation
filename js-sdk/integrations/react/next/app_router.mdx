@@ -110,10 +110,14 @@ export async function getStaticData(
 }
 
 export function TolgeeBase() {
-  return Tolgee().use(FormatSimple()).use(DevTools()).updateDefaults({
-    apiKey,
-    apiUrl,
-  });
+  return Tolgee()
+    .use(FormatSimple())
+    // replace with .use(FormatIcu()) for rendering plurals, foramatted numbers, etc.
+    .use(DevTools())
+    .updateDefaults({
+      apiKey,
+      apiUrl,
+    });
 }
 ```
 
