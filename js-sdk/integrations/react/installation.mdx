@@ -50,6 +50,7 @@ import { Tolgee, DevTools, TolgeeProvider, FormatSimple } from "@tolgee/react";
 const tolgee = Tolgee()
   .use(DevTools())
   .use(FormatSimple())
+  // replace with .use(FormatIcu()) for rendering plurals, foramatted numbers, etc.
   .init({
     language: 'en',
 

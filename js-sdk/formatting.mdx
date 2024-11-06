@@ -16,6 +16,13 @@ import { FormatSimple } from '@tolgee/web';
 tolgee.use(FormatSimple());
 ```
 
+### Example
+
+```ts
+tolgee.t('basket_items', '{count} items in the basket', { count: 10 })
+// -> 10 items in the basket
+```
+
 ## Icu formatter
 
 For advanced formatting functionality install `FormatIcu` plugin, which is shipped in separate package.
@@ -30,6 +37,16 @@ Use it like this:
 import { FormatIcu } from '@tolgee/format-icu';
 
 tolgee.use(FormatIcu());
+```
+
+### Examples
+
+```ts
+tolgee.t('progress', 'Progress: {progress, number, percent}', { progress: 0.1 })
+// -> Progress: 10%
+
+tolgee.t('basket_items', '{count, plural, one {# item} other {# items}} in the basket', { count: 10 })
+// -> 10 items in the basket
 ```
 
 Read more about [ICU message format](/platform/translation_process/icu_message_format)
