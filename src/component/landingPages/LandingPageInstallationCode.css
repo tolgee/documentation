@@ -1,7 +1,0 @@
-.installation-guide__step-code > div {
-  display: inline-block;
-}
-
-.installation-guide__step-code--full-width > div {
-  display: block !important;
-}

@@ -34,7 +34,6 @@ export const GithubButton = () => {
         to="https://github.com/tolgee/tolgee-platform"
       >
         <GitHub className="github-btn--logo" />
-        <span>Star</span>
       </Link>
       <Link
         className="github-btn--count"

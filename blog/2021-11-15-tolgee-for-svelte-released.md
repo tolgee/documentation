@@ -6,8 +6,8 @@ authors: [jcizmar]
 tags: [svelte, i18n, tolgee, javascript, SDK, integration]
 ---
 
-After three weeks of hard work, we finally created, documented and released an integration for Svelte. 
+After three weeks of hard work, we finally created, documented and released an integration for Svelte.
 
-I learned a lot about Svelte while creating it, and I have to say, that I love Svelte!  
+I learned a lot about Svelte while creating it, and I have to say, that I love Svelte!
 
-Get started on [Tolgee for Svelte](/integrations/svelte)!
+Get started on [Tolgee for Svelte](https://tolgee.io/integrations/svelte)!

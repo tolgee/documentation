@@ -102,15 +102,6 @@
     width: 100%;
   }
 
-  .page-with-decoration--not-scrolled .navbar {
-    box-shadow: none;
-  }
-
-  .page-with-decoration--not-scrolled .navbar__inner {
-    background-color: transparent;
-    backdrop-filter: none;
-  }
-
   .page-with-decoration {
     position: relative;
   }
@@ -231,19 +222,60 @@
   }
 }
 
-.login-button {
-  @apply ml-[10px] desktop:ml-[20px];
-  border: 1px solid var(--ifm-link-color);
-  color: var(--ifm-link-color);
+.menu-item-docs {
+  color: var(--navbar-link-text-color);
+  padding-left: 24px;
+  font-weight: 700 !important;
+  font-size: 18px;
+  margin-top: -2px;
+}
+
+.menu-item-blog {
+  position: relative;
+  padding-top: 0px;
+  padding-bottom: 0px;
+  margin-left: 16px;
+  padding-right: 0px;
+}
+
+.menu-item-blog::before {
+  content: '';
+  border-left: 1px solid var(--navbar-separator-color);
+  position: absolute;
+  top: 0;
+  left: -8px;
+  bottom: 0;
+  width: 1;
+}
+
+.navbar__logo {
+  display: flex;
+  align-items: center;
+  margin-right: 4px;
+  margin-left: 4px;
+}
+
+.navbar__logo > img {
+  width: 44px !important;
+  height: 44px !important;
+  margin: -10px 0px;
+}
+
+.login-button,
+.book-a-demo-button {
+  @apply ml-[10px];
+  border: 1px solid var(--navbar-button-border);
   border-radius: 8px;
   position: relative;
   overflow: hidden;
+  color: var(--navbar-link-text-color) !important;
   z-index: 2;
   padding: var(--ifm-navbar-item-padding-vertical)
     var(--ifm-navbar-item-padding-horizontal);
 }
 
-.login-button::before {
+.login-button::before,
+.book-a-demo-button::before {
   position: absolute;
   z-index: 1;
   opacity: 0;
@@ -256,13 +288,13 @@
   transition: opacity 0.2s;
 }
 
-.login-button:hover::before {
+.login-button:hover::before,
+.book-a-demo-button:hover::before {
   opacity: 0.05;
 }
 
 .sign-up-button {
   @apply button--primary font-bold ml-[10px] desktop:mx-[10px] mt-[10px] desktop:mt-0;
-
   font-size: 16px !important;
   border-radius: 8px;
   border: 1px solid var(--ifm-link-color);

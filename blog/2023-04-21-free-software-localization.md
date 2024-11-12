@@ -85,7 +85,7 @@ Since Tolgee is open-source, self-hosting will be free forever. However, you wi
 
 ## How long does it take to integrate Tolgee?
 
-The integration is very fast: you can do it in seconds! Follow our integration guides in the docs or in the platform. You can contact us via chat on our website or our [community Slack channel](https://join.slack.com/t/tolgeecommunity/shared_invite/zt-16l0sf7ae-6fmAl2Fb9wqFCV0uzSa7bw) if you get lost. Tolgee currently has integrations for React, Angular, Vue, Svelte, Next.js, Gatsby, and [others](/integrations/).
+The integration is very fast: you can do it in seconds! Follow our integration guides in the docs or in the platform. You can contact us via chat on our website or our [community Slack channel](https://join.slack.com/t/tolgeecommunity/shared_invite/zt-16l0sf7ae-6fmAl2Fb9wqFCV0uzSa7bw) if you get lost. Tolgee currently has integrations for React, Angular, Vue, Svelte, Next.js, Gatsby, and [others](https://tolgee.io/integrations).
 
 ## TL;DR
 

@@ -18,7 +18,7 @@ countries, you have to translate your App to their languages. 🇬🇧 🇨🇳 
 In this article, I am going to show you, how to integrate i18next and Tolgee into your project and how easy and fast you
 can translate a React app using these tools.
 
-> Tolgee has also its [native integrations](/integrations). Which are a bit easier to set up, so if you're not used to i18next, maybe it
+> Tolgee has also its [native integrations](https://tolgee.io/integrations). Which are a bit easier to set up, so if you're not used to i18next, maybe it
 > would be easier for you to [start with those](/js-sdk/integrations/react/installation).
 
 <!--truncate-->

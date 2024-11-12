@@ -1,2 +1,5 @@
 /js/script.hash.outbound-links.pageview-props.revenue.tagged-events.js https://plausible.io/js/script.hash.outbound-links.pageview-props.revenue.tagged-events.js 200
 /api/event https://plausible.io/api/event 200
+
+/ingest/static/* https://us-assets.i.posthog.com/static/:splat 200
+/ingest/* https://eu.i.posthog.com/:splat 200

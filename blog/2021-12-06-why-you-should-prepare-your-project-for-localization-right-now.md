@@ -87,7 +87,7 @@ So you will provide file like this.
 }
 ```
 
-But the translator don't have any [context](/features/dev-tools) information about the texts. Where is it on the page? What's the purpose of the
+But the translator don't have any [context](https://tolgee.io/features/dev-tools) information about the texts. Where is it on the page? What's the purpose of the
 button? What is the gender of the objects? Is this noun or verb?
 
 ## How can you do better?
@@ -96,10 +96,10 @@ Simple. Just integrate localization as soon as possible. From the beginning prep
 Tolgee founder I would recommend you to use out solution 😁, but you can use any other library suitable for your
 framework or language.
 
-- React: `react-intl`, `react-i18next` or [`@tolgee/react`](/integrations/react)
-- Vue: `vue-i18next`, `vue-intl` or [`@tolgee/vue`](/integrations/vue)
-- Angular: `@angular/localize` (native), `angular-i18next`, [`@tolgee/angular`](/integrations/angular)
-- Svelte: `svelte-i18n`, [`@tolgee/svelte`](/integrations/svelte)
+- React: `react-intl`, `react-i18next` or [`@tolgee/react`](https://tolgee.io/integrations/react)
+- Vue: `vue-i18next`, `vue-intl` or [`@tolgee/vue`](https://tolgee.io/integrations/vue)
+- Angular: `@angular/localize` (native), `angular-i18next`, [`@tolgee/angular`](https://tolgee.io/integrations/angular)
+- Svelte: `svelte-i18n`, [`@tolgee/svelte`](https://tolgee.io/integrations/svelte)
 
 While using those tools, try to also store context of the keys in form of comments or screenshots, which you can provide
 to translators in the future.
