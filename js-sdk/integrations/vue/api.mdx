@@ -135,7 +135,7 @@ Pass children to the `T` component that gets mapped to the translation parameter
 
 ## Composable `useTranslate`
 
-Use it for loading namespaces for specific components/pages or to get `t` function for translating.
+Use it for loading namespaces for specific components/pages or to get `t` function for translating (returned `t` function uses first namespace from the list automatically).
 
 ```ts
 function useTranslate(ns?: string | string[]): {
