@@ -100,6 +100,7 @@ module.exports = {
         'in_context',
         'wrapping',
         'providing_static_data',
+        'filter_by_tags',
       ],
     },
     'keys_tagging',
