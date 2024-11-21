@@ -78,7 +78,7 @@ import { T } from '@tolgee/svelte';
 
 ## Function `getTranslate`
 
-Use it for loading namespaces for specific components/pages or to get `t` function for translating.
+Use it for loading namespaces for specific components/pages or to get `t` function for translating (returned `t` function uses first namespace from the list automatically).
 
 ```ts
 function getTranslate(ns?: string | string[]): {
