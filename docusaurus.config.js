@@ -11,7 +11,7 @@ const openApiPluginConfig = require('./apiSpecGeneration/pluginConfig');
 const config = {
   title: 'Tolgee',
   tagline: 'Localization for everyone',
-  url: 'https://tolgee.io',
+  url: 'https://docs.tolgee.io',
   baseUrl: '/',
   onBrokenLinks: 'throw',
   favicon: 'img/favicon.svg',
