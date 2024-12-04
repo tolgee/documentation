@@ -1,8 +1,13 @@
 {
   "data": [
     {
+      "name": "Activepieces",
+      "description": "Activepieces is an open source, no-code, AI-first business automation tool. Alternative to Zapier, Make and Workato.",
+      "href": "https://activepieces.com"
+    },
+    {
       "name": "Appsmith",
-      "description": "Build build custom software on top of your data.",
+      "description": "Build custom software on top of your data.",
       "href": "https://www.appsmith.com"
     },
     {
