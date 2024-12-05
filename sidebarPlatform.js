@@ -118,6 +118,14 @@ module.exports = {
       ],
     },
     {
+      label: 'Single Sign-On',
+      type: 'category',
+      items: [
+        'sso/sso_getting_started',
+        'sso/sso_okta'
+      ],
+    },
+    {
       label: 'Self-hosting',
       type: 'category',
       items: [
