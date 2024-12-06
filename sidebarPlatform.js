@@ -118,11 +118,21 @@ module.exports = {
       ],
     },
     {
-      label: 'Single Sign-On',
+      label: 'Single Sign-On (SSO)',
       type: 'category',
       items: [
         'sso/sso_getting_started',
-        'sso/sso_okta'
+        'sso/sso_okta',
+        'sso/sso_keycloak',
+        {
+          label: 'Self-hosted setup',
+          type: 'category',
+          items: [
+            'sso/sso_server_setup',
+            'sso/sso_server_setup_global',
+            'sso/sso_server_setup_organizations',
+          ],
+        },
       ],
     },
     {

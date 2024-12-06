@@ -1,0 +1,29 @@
+---
+id: sso_server_setup
+title: Single Sign-On (SSO) Server Setup
+sidebar_label: Introduction
+description: Learn how to properly configure Single Sign-On (SSO) on your Tolgee server.
+---
+
+:::info Feature availability
+Single Sign-On is available for enterprise plans. [Upgrade your plan](https://tolgee.io/pricing) to use this feature.
+
+If you use the self-hosted version, you must [set up the license](/platform/self_hosting/licensing) to use this feature.
+:::
+
+This guide will help you set up Single Sign-On (SSO) for your server using OpenID Connect.
+
+## Global SSO vs Organizations SSO
+
+There are two separate modes of operation available to set up for SSO for self-hosted instances of Tolgee. By default, both are disabled.
+
+### Global SSO
+
+Global SSO allows you to set up a single SSO configuration for whole server. For users this authentication method is comparable to any
+other third-party authentication method. To set up Global SSO, follow the steps in the [SSO Getting Started](/platform/sso/sso_server_setup_global) guide.
+
+### Organizations SSO
+
+Organizations SSO allows you to set up separate SSO configuration for each organization. When user signs up using this method, their account
+will be managed by the organization they signed up to and they won't be able to leave that organization or join another organizations.
+To set up Organizations SSO, follow the steps in the [SSO Getting Started](/platform/sso/sso_server_setup_organizations) guide.

@@ -6,7 +6,7 @@ import {
   TableHead,
   TableHeadCell,
   TableRow,
-} from './table/Table';
+} from '../table/Table';
 import clsx from 'clsx';
 
 export type FieldsData = [

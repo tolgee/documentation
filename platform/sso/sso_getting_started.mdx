@@ -6,16 +6,15 @@ description: Learn how to set up Single Sign-On (SSO) using OpenID Connect for y
 ---
 
 import { ScreenshotWrapper } from "../shared/_ScreenshotWrapper";
-import { SsoFieldsTable } from "../../src/component/SsoFieldsTable";
+import { SsoFieldsTable } from "../../src/component/sso/SsoFieldsTable";
 
+:::info Feature availability
+Single Sign-On is available for enterprise plans. [Upgrade your plan](https://tolgee.io/pricing) to use this feature.
 
-# SSO Using OpenID Connect
+If you use the self-hosted version, you must [set up the license](/platform/self_hosting/licensing) and then follow the [sso server setup guide](/platform/sso/sso_server_setup) to use this feature.
+:::
 
 This guide will help you set up Single Sign-On (SSO) for your organization using OpenID Connect.
-
-:::info
-This feature is only available with a Enterprise subscription on Tolgee cloud. [Upgrade your plan](/pricing) to use this feature.
-:::
 
 ## Getting Started
 
@@ -23,15 +22,16 @@ First, you need to enable the SSO feature in your organization settings. To do t
 
 1. Log in to your Tolgee account.
 2. Click on your profile picture in the top right corner and select `Organization settings`.
-3. In the `SSO` section, click the `Enable SSO` button.
+3. In the `Single Sign-On (SSO)` section, click the `Enable SSO` button.
 
+{/* TODO: update */}
 <ScreenshotWrapper src="/img/docs/platform/sso/sso_enable.png" />
 
 ## Configure OIDC application with your Identity Provider (IdP)
 
-Now you need to register OIDC application with your Identity Provider (IdP) and provide Client ID and Client Secret and
-Well-Known configuration URL's to Tolgee. Configuration OIDC application is different for each IdP, but commonly you need
-to set Sign-in redirect URI (if you use Tolgee cloud URL is https://app.tolgee.io/login/open-id/auth-callback) and Grant type to Authorization Code.
+Now you need to register OIDC application with your Identity Provider (IdP) and provide Client ID, Client Secret and
+well-known configuration URLs to Tolgee. Configuration OIDC application is different for each IdP, but commonly you need
+to set Sign-in redirect URI (if you use Tolgee cloud URL is https://app.tolgee.io/login/auth_callback/sso) and Grant type to Authorization Code.
 You can find a guide for popular IdPs in the [section below](#guides-for-popular-identity-providers).
 
 ## Configure Tolgee
@@ -60,14 +60,6 @@ After you have registered and configured OIDC application, you need to provide t
       item: 'Token URL',
       description: 'URL for exchanging authorization code for tokens',
     },
-    {
-      item: 'JWKS URI',
-      description: 'URL to retrieve the JSON Web Key Set (JWKS)',
-    },
-    {
-      item: 'Tolgee URL',
-      description: 'URL of your Tolgee instance',
-    },
   ]}
 />
 
@@ -77,3 +69,4 @@ For this purpose, you can use the ** Login with SSO ** button on the login page 
 
 ## Guides for popular Identity Providers
 - [Okta](/platform/sso/sso_okta)
+- [Keycloak](/platform/sso/sso_keycloak)
