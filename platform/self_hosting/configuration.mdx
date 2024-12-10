@@ -151,7 +151,8 @@ Configuration of Tolgee's authentication.
 - ##### `registrations-allowed` {#registrations-allowed}
 
   Whether users are allowed to register on Tolgee.
-  When set to `false`, existing users must send invites to projects to new users for them to be able to register. (default: `false`)
+  When set to `false`, existing users must send invites to projects to new users for them to be able to register.
+  When SSO is enabled, users can still register via SSO, even if this setting is set to `false`. (default: `false`)
 
 - ##### `secured-image-retrieval` {#secured-image-retrieval}
 
@@ -165,7 +166,9 @@ Configuration of Tolgee's authentication.
 - ##### `user-can-create-organizations` {#user-can-create-organizations}
 
   Whether regular users are allowed to create organizations. When `false`, only administrators can create organizations.
-  By default, when the user has no organization, one is created for them; this doesn't apply when this setting is set to `false`. In that case, the user without organization has no permissions on the server. (default: `true`)
+  By default, when the user has no organization, one is created for them; this doesn't apply when this setting is set to `false`. In that case, the user without organization has no permissions on the server.
+  
+  When SSO authentication is enabled, users created by SSO don't have their own organization automatically created no matter the value of this setting. (default: `true`)
 
 #### GitHub
 
@@ -251,6 +254,66 @@ This enables the integration of a wide range of authorization providers into tol
 - ##### `user-url` {#user-url}
 
   URL to OAuth2 userinfo API endpoint.
+
+#### Server wide Single Sign-On
+
+Prefix: `tolgee.authentication.sso-global`
+
+Single sign-on (SSO) is an authentication process that allows a user to access multiple applications with one set of login credentials. To use SSO in Tolgee, can either configure global SSO settings in this section or in refer to `sso-organizations` section for enabling the per Organization mode.
+
+There is a significant difference between global and per organization SSO: Global SSO can handle authentication for all server users no matter which organizations they belong to, while per organization SSO can handle authentication only for users of the organization and such users cannot be members of any other organization. SSO users associated with per organization SSO have no rights to create or manage organizations. Global SSO users should be invited to organizations they need to have access to. Per organization SSO users are automatically added to the organization they belong to.
+
+- ##### `authorization-uri` {#authorization-uri}
+
+  URL to redirect users for authentication
+
+- ##### `client-id` {#client-id}
+
+  Unique identifier for an application
+
+- ##### `client-secret` {#client-secret}
+
+  Key used to authenticate the application
+
+- ##### `custom-login-text` {#custom-login-text}
+
+  Custom text for the SSO login page.
+
+- ##### `custom-logo-url` {#custom-logo-url}
+
+  Custom logo URL to be displayed on the login screen. Can be set only when `nativeEnabled` is `false`.
+
+- ##### `domain` {#domain}
+
+  Used to identify the organization on login page
+
+- ##### `enabled` {#enabled}
+
+  Enables SSO authentication on global level - as a login method for the whole server (default: `false`)
+
+- ##### `session-expiration-minutes` {#session-expiration-minutes}
+
+  Minutes after which the server will recheck the user's with the SSO provider to ensure the user account is still valid. This is to prevent the user from being able to access the server after the account has been disabled or deleted in the SSO provider. (default: `10`)
+
+- ##### `token-uri` {#token-uri}
+
+  URL for exchanging authorization code for tokens
+
+#### Per-Organization Single Sign-On
+
+Prefix: `tolgee.authentication.sso-organizations`
+
+Single sign-on (SSO) is an authentication process that allows a user to access multiple applications with one set of login credentials. To use SSO in Tolgee, can either configure global SSO settings in `sso-global` section or in the per Organization mode by setting the `enable` to `true` in this section and configuring it separately for each organization in the organization settings.
+
+There is a significant difference between global and per organization SSO: Global SSO can handle authentication for all server users no matter which organizations they belong to, while per organization SSO can handle authentication only for users of the organization and such users cannot be members of any other organization. SSO users associated with per organization SSO have no rights to create or manage organizations. Global SSO users should be invited to organizations they need to have access to. Per organization SSO users are automatically added to the organization they belong to.
+
+- ##### `enabled` {#enabled}
+
+  Enables SSO authentication (default: `false`)
+
+- ##### `session-expiration-minutes` {#session-expiration-minutes}
+
+  Minutes after which the server will recheck the user's with the SSO provider to ensure the user account is still valid. This is to prevent the user from being able to access the server after the account has been disabled or deleted in the SSO provider. (default: `10`)
 
 - ##### ~~`user-can-create-projects`~~ {#user-can-create-projects}
 
@@ -916,6 +979,19 @@ tolgee:
       scopes: []
       token-url:
       user-url:
+    sso-global:
+      authorization-uri:
+      client-id:
+      client-secret:
+      custom-login-text:
+      custom-logo-url:
+      domain:
+      enabled: false
+      session-expiration-minutes: 10
+      token-uri:
+    sso-organizations:
+      enabled: false
+      session-expiration-minutes: 10
   batch:
     concurrency: 1
   cache:
@@ -1192,7 +1268,8 @@ Configuration of Tolgee's authentication.
 - <h5 id="registrations-allowed"><code>REGISTRATIONS_ALLOWED</code></h5>
 
   Whether users are allowed to register on Tolgee.
-  When set to `false`, existing users must send invites to projects to new users for them to be able to register. (default: `false`)
+  When set to `false`, existing users must send invites to projects to new users for them to be able to register.
+  When SSO is enabled, users can still register via SSO, even if this setting is set to `false`. (default: `false`)
 
 - <h5 id="secured-image-retrieval"><code>SECURED_IMAGE_RETRIEVAL</code></h5>
 
@@ -1206,7 +1283,9 @@ Configuration of Tolgee's authentication.
 - <h5 id="user-can-create-organizations"><code>USER_CAN_CREATE_ORGANIZATIONS</code></h5>
 
   Whether regular users are allowed to create organizations. When `false`, only administrators can create organizations.
-  By default, when the user has no organization, one is created for them; this doesn't apply when this setting is set to `false`. In that case, the user without organization has no permissions on the server. (default: `true`)
+  By default, when the user has no organization, one is created for them; this doesn't apply when this setting is set to `false`. In that case, the user without organization has no permissions on the server.
+  
+  When SSO authentication is enabled, users created by SSO don't have their own organization automatically created no matter the value of this setting. (default: `true`)
 
 <h4 id="github">GitHub</h4>
 
@@ -1292,6 +1371,66 @@ This enables the integration of a wide range of authorization providers into tol
 - <h5 id="user-url"><code>USER_URL</code></h5>
 
   URL to OAuth2 userinfo API endpoint.
+
+<h4 id="server-wide-single-sign-on">Server wide Single Sign-On</h4>
+
+Prefix: `TOLGEE_AUTHENTICATION_SSO_GLOBAL`
+
+Single sign-on (SSO) is an authentication process that allows a user to access multiple applications with one set of login credentials. To use SSO in Tolgee, can either configure global SSO settings in this section or in refer to `sso-organizations` section for enabling the per Organization mode.
+
+There is a significant difference between global and per organization SSO: Global SSO can handle authentication for all server users no matter which organizations they belong to, while per organization SSO can handle authentication only for users of the organization and such users cannot be members of any other organization. SSO users associated with per organization SSO have no rights to create or manage organizations. Global SSO users should be invited to organizations they need to have access to. Per organization SSO users are automatically added to the organization they belong to.
+
+- <h5 id="authorization-uri"><code>AUTHORIZATION_URI</code></h5>
+
+  URL to redirect users for authentication
+
+- <h5 id="client-id"><code>CLIENT_ID</code></h5>
+
+  Unique identifier for an application
+
+- <h5 id="client-secret"><code>CLIENT_SECRET</code></h5>
+
+  Key used to authenticate the application
+
+- <h5 id="custom-login-text"><code>CUSTOM_LOGIN_TEXT</code></h5>
+
+  Custom text for the SSO login page.
+
+- <h5 id="custom-logo-url"><code>CUSTOM_LOGO_URL</code></h5>
+
+  Custom logo URL to be displayed on the login screen. Can be set only when `nativeEnabled` is `false`.
+
+- <h5 id="domain"><code>DOMAIN</code></h5>
+
+  Used to identify the organization on login page
+
+- <h5 id="enabled"><code>ENABLED</code></h5>
+
+  Enables SSO authentication on global level - as a login method for the whole server (default: `false`)
+
+- <h5 id="session-expiration-minutes"><code>SESSION_EXPIRATION_MINUTES</code></h5>
+
+  Minutes after which the server will recheck the user's with the SSO provider to ensure the user account is still valid. This is to prevent the user from being able to access the server after the account has been disabled or deleted in the SSO provider. (default: `10`)
+
+- <h5 id="token-uri"><code>TOKEN_URI</code></h5>
+
+  URL for exchanging authorization code for tokens
+
+<h4 id="per-organization-single-sign-on">Per-Organization Single Sign-On</h4>
+
+Prefix: `TOLGEE_AUTHENTICATION_SSO_ORGANIZATIONS`
+
+Single sign-on (SSO) is an authentication process that allows a user to access multiple applications with one set of login credentials. To use SSO in Tolgee, can either configure global SSO settings in `sso-global` section or in the per Organization mode by setting the `enable` to `true` in this section and configuring it separately for each organization in the organization settings.
+
+There is a significant difference between global and per organization SSO: Global SSO can handle authentication for all server users no matter which organizations they belong to, while per organization SSO can handle authentication only for users of the organization and such users cannot be members of any other organization. SSO users associated with per organization SSO have no rights to create or manage organizations. Global SSO users should be invited to organizations they need to have access to. Per organization SSO users are automatically added to the organization they belong to.
+
+- <h5 id="enabled"><code>ENABLED</code></h5>
+
+  Enables SSO authentication (default: `false`)
+
+- <h5 id="session-expiration-minutes"><code>SESSION_EXPIRATION_MINUTES</code></h5>
+
+  Minutes after which the server will recheck the user's with the SSO provider to ensure the user account is still valid. This is to prevent the user from being able to access the server after the account has been disabled or deleted in the SSO provider. (default: `10`)
 
 - <h5 id="user-can-create-projects"><del><code>USER_CAN_CREATE_PROJECTS</code></del></h5>
 
@@ -1949,6 +2088,17 @@ TOLGEE_AUTHENTICATION_OAUTH2_CLIENT_SECRET=
 TOLGEE_AUTHENTICATION_OAUTH2_SCOPES=[]
 TOLGEE_AUTHENTICATION_OAUTH2_TOKEN_URL=
 TOLGEE_AUTHENTICATION_OAUTH2_USER_URL=
+TOLGEE_AUTHENTICATION_SSO_GLOBAL_AUTHORIZATION_URI=
+TOLGEE_AUTHENTICATION_SSO_GLOBAL_CLIENT_ID=
+TOLGEE_AUTHENTICATION_SSO_GLOBAL_CLIENT_SECRET=
+TOLGEE_AUTHENTICATION_SSO_GLOBAL_CUSTOM_LOGIN_TEXT=
+TOLGEE_AUTHENTICATION_SSO_GLOBAL_CUSTOM_LOGO_URL=
+TOLGEE_AUTHENTICATION_SSO_GLOBAL_DOMAIN=
+TOLGEE_AUTHENTICATION_SSO_GLOBAL_ENABLED=false
+TOLGEE_AUTHENTICATION_SSO_GLOBAL_SESSION_EXPIRATION_MINUTES=10
+TOLGEE_AUTHENTICATION_SSO_GLOBAL_TOKEN_URI=
+TOLGEE_AUTHENTICATION_SSO_ORGANIZATIONS_ENABLED=false
+TOLGEE_AUTHENTICATION_SSO_ORGANIZATIONS_SESSION_EXPIRATION_MINUTES=10
 TOLGEE_BATCH_CONCURRENCY=1
 TOLGEE_CACHE_CAFFEINE_MAX_SIZE=-1
 TOLGEE_CACHE_CLEAN_ON_STARTUP=true
@@ -2198,7 +2348,8 @@ Configuration of Tolgee's authentication.
 - <h5 id="registrations-allowed"><code>registrations-allowed</code></h5>
 
   Whether users are allowed to register on Tolgee.
-  When set to `false`, existing users must send invites to projects to new users for them to be able to register. (default: `false`)
+  When set to `false`, existing users must send invites to projects to new users for them to be able to register.
+  When SSO is enabled, users can still register via SSO, even if this setting is set to `false`. (default: `false`)
 
 - <h5 id="secured-image-retrieval"><code>secured-image-retrieval</code></h5>
 
@@ -2212,7 +2363,9 @@ Configuration of Tolgee's authentication.
 - <h5 id="user-can-create-organizations"><code>user-can-create-organizations</code></h5>
 
   Whether regular users are allowed to create organizations. When `false`, only administrators can create organizations.
-  By default, when the user has no organization, one is created for them; this doesn't apply when this setting is set to `false`. In that case, the user without organization has no permissions on the server. (default: `true`)
+  By default, when the user has no organization, one is created for them; this doesn't apply when this setting is set to `false`. In that case, the user without organization has no permissions on the server.
+  
+  When SSO authentication is enabled, users created by SSO don't have their own organization automatically created no matter the value of this setting. (default: `true`)
 
 <h4 id="github">GitHub</h4>
 
@@ -2298,6 +2451,66 @@ This enables the integration of a wide range of authorization providers into tol
 - <h5 id="user-url"><code>user-url</code></h5>
 
   URL to OAuth2 userinfo API endpoint.
+
+<h4 id="server-wide-single-sign-on">Server wide Single Sign-On</h4>
+
+Prefix: `tolgee.authentication.sso-global`
+
+Single sign-on (SSO) is an authentication process that allows a user to access multiple applications with one set of login credentials. To use SSO in Tolgee, can either configure global SSO settings in this section or in refer to `sso-organizations` section for enabling the per Organization mode.
+
+There is a significant difference between global and per organization SSO: Global SSO can handle authentication for all server users no matter which organizations they belong to, while per organization SSO can handle authentication only for users of the organization and such users cannot be members of any other organization. SSO users associated with per organization SSO have no rights to create or manage organizations. Global SSO users should be invited to organizations they need to have access to. Per organization SSO users are automatically added to the organization they belong to.
+
+- <h5 id="authorization-uri"><code>authorization-uri</code></h5>
+
+  URL to redirect users for authentication
+
+- <h5 id="client-id"><code>client-id</code></h5>
+
+  Unique identifier for an application
+
+- <h5 id="client-secret"><code>client-secret</code></h5>
+
+  Key used to authenticate the application
+
+- <h5 id="custom-login-text"><code>custom-login-text</code></h5>
+
+  Custom text for the SSO login page.
+
+- <h5 id="custom-logo-url"><code>custom-logo-url</code></h5>
+
+  Custom logo URL to be displayed on the login screen. Can be set only when `nativeEnabled` is `false`.
+
+- <h5 id="domain"><code>domain</code></h5>
+
+  Used to identify the organization on login page
+
+- <h5 id="enabled"><code>enabled</code></h5>
+
+  Enables SSO authentication on global level - as a login method for the whole server (default: `false`)
+
+- <h5 id="session-expiration-minutes"><code>session-expiration-minutes</code></h5>
+
+  Minutes after which the server will recheck the user's with the SSO provider to ensure the user account is still valid. This is to prevent the user from being able to access the server after the account has been disabled or deleted in the SSO provider. (default: `10`)
+
+- <h5 id="token-uri"><code>token-uri</code></h5>
+
+  URL for exchanging authorization code for tokens
+
+<h4 id="per-organization-single-sign-on">Per-Organization Single Sign-On</h4>
+
+Prefix: `tolgee.authentication.sso-organizations`
+
+Single sign-on (SSO) is an authentication process that allows a user to access multiple applications with one set of login credentials. To use SSO in Tolgee, can either configure global SSO settings in `sso-global` section or in the per Organization mode by setting the `enable` to `true` in this section and configuring it separately for each organization in the organization settings.
+
+There is a significant difference between global and per organization SSO: Global SSO can handle authentication for all server users no matter which organizations they belong to, while per organization SSO can handle authentication only for users of the organization and such users cannot be members of any other organization. SSO users associated with per organization SSO have no rights to create or manage organizations. Global SSO users should be invited to organizations they need to have access to. Per organization SSO users are automatically added to the organization they belong to.
+
+- <h5 id="enabled"><code>enabled</code></h5>
+
+  Enables SSO authentication (default: `false`)
+
+- <h5 id="session-expiration-minutes"><code>session-expiration-minutes</code></h5>
+
+  Minutes after which the server will recheck the user's with the SSO provider to ensure the user account is still valid. This is to prevent the user from being able to access the server after the account has been disabled or deleted in the SSO provider. (default: `10`)
 
 - <h5 id="user-can-create-projects"><del><code>user-can-create-projects</code></del></h5>
 
@@ -2955,6 +3168,17 @@ tolgee.authentication.oauth2.client-secret =
 tolgee.authentication.oauth2.scopes = []
 tolgee.authentication.oauth2.token-url =
 tolgee.authentication.oauth2.user-url =
+tolgee.authentication.sso-global.authorization-uri =
+tolgee.authentication.sso-global.client-id =
+tolgee.authentication.sso-global.client-secret =
+tolgee.authentication.sso-global.custom-login-text =
+tolgee.authentication.sso-global.custom-logo-url =
+tolgee.authentication.sso-global.domain =
+tolgee.authentication.sso-global.enabled = false
+tolgee.authentication.sso-global.session-expiration-minutes = 10
+tolgee.authentication.sso-global.token-uri =
+tolgee.authentication.sso-organizations.enabled = false
+tolgee.authentication.sso-organizations.session-expiration-minutes = 10
 tolgee.batch.concurrency = 1
 tolgee.cache.caffeine-max-size = -1
 tolgee.cache.clean-on-startup = true
