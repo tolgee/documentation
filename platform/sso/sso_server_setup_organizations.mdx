@@ -1,0 +1,28 @@
+---
+id: sso_server_setup_organizations
+title: Organizations Single Sign-On (SSO) Server Configuration
+sidebar_label: Organizations SSO
+description: Learn how to configure Organizations Single Sign-On (SSO) for your Tolgee server.
+---
+
+:::info Feature availability
+Single Sign-On is available for enterprise plans. [Upgrade your plan](https://tolgee.io/pricing) to use this feature.
+
+If you use the self-hosted version, you must [set up the license](/platform/self_hosting/licensing) to use this feature.
+:::
+
+This guide will help you set up an Organizations Single Sign-On (SSO) for your server.
+
+## Configuration
+
+Modify your server `config.yaml` to include the following configuration options:
+
+```yaml title="config.yaml"
+tolgee:
+  authentication:
+    enabled: true
+    sso-organizations:
+      enabled: true
+```
+
+Restart your Tolgee server to apply the changes, then follow the [SSO Getting Started](/platform/sso/sso_getting_started) guide to set up the SSO for specific organizations.
