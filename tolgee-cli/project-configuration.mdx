@@ -22,6 +22,9 @@ Example configuration:
   },
   "pull": {
     "path": "./public/i18n"
+  },
+  "sync": {
+    "continueOnWarning": false
   }
 }
 ```
@@ -187,3 +190,23 @@ The Android specific `{androidLanguageTag}` placeholder is the same as `{languag
 ### `pull.emptyDir`
 
 Boolean. Empty `path` folder before inserting pulled files.
+
+## Sync options
+
+Related to `sync` command, which synchronizes the keys of the platform.
+
+### `sync.backup`
+
+String. Path to a folder where a backup of the localization files is stored. If something goes wrong, the backup can be used to restore the project to its previous state.
+
+### `sync.continueOnWarning`
+
+Boolean. Continue the sync regardless of whether warnings are detected during string extraction. By default, as warnings may indicate an invalid extraction, the CLI will abort the sync.
+
+### `sync.removeUnused`
+
+Boolean. Delete unused keys from the Tolgee project.
+
+### `sync.yes`
+
+Boolean. Skip prompts and automatically say yes to them. You will not be asked for confirmation before creating/deleting keys.
