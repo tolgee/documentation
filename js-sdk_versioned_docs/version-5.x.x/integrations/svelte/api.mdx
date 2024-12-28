@@ -1,0 +1,128 @@
+---
+id: api
+title: API
+sidebar_label: API
+description: "Explore Tolgee's Svelte API for localization. Learn about TolgeeProvider, T component, getTranslate and getTolgee functions. Includes props, parameters, and usage examples for efficient translation implementation."
+---
+
+## `TolgeeProvider`
+
+Provides the Tolgee context. Use in the root of the application.
+
+```jsx
+import { TolgeeProvider } from '@tolgee/svelte';
+
+...
+
+<TolgeeProvider>
+  <App />
+</TolgeeProvider>
+```
+
+### Prop `fallback?`
+
+`string` - rendered when translations are loading.
+
+### Prop `tolgee?`
+
+Provide a Tolgee instance.
+
+### Slot `fallback`
+
+Alternative for `fallback`. Use when you to pass components.
+
+```svelte
+<TolgeeProvider>
+  <App />
+  <div slot="fallback">Loading...</div>
+</TolgeeProvider>
+```
+
+## `T` component
+
+Implement translation in your Svelte application. It has a very similar API to the `t` function.
+
+```svelte
+import { T } from '@tolgee/svelte';
+
+<T keyName="key" defaultValue="Default" />
+```
+
+### Prop `keyName`
+
+`String` - translation key.
+
+### Prop `defaultValue?`
+
+`String` - Rendered if no translation for the specified key (in neither the selected language nor the base language) is present. If not provided, `keyName` gets rendered instead.
+
+### Prop `params?`
+
+`Record<string, string>` - variable params, which can be used in translation value
+(read more about [ICU message format](/platform/translation_process/icu_message_format)).
+
+### Prop `ns?`
+
+`string` - translation namespace
+
+### Prop `noWrap?`
+
+`Boolean` (default: `false`)
+
+- `false` - in development mode translation will be [wrapped](/wrapping.mdx)
+- `true` - use when wrapping in dev mode causes problems. In-context translation won't work.
+
+### Prop `language?`
+
+`String` - override current Tolgee language. Allows switching to different language for separate translation. Load the language manually with [`tolgee.loadRecord`](/api/core_package/tolgee.mdx#loadrecord).
+
+## Function `getTranslate`
+
+Use it for loading namespaces for specific components/pages or to get `t` function for translating (returned `t` function uses first namespace from the list automatically).
+
+```ts
+function getTranslate(ns?: string | string[]): {
+  t: Readable<TFnType>;
+  isLoading: Readable<boolean>;
+};
+```
+
+### Parameter `ns`
+
+- `string` | `string[]` - namespace(s) to be loaded
+
+### Property `isLoading` (Readable)
+
+- `boolean` - is true if any of the listed namespaces is loading. Use this property to ensure translations are rendered after they are loaded.
+
+### Function `t` (Readable)
+
+Returns requested translation and also subscribes component to translation/language changes. Component will be re-rendered every time translation changes. If used with namespaces, `t` function will automatically use the first the namespace given to `useTranslate` function. Override this with the `ns` option.
+
+```ts
+$t('key', 'Default value', <options>)
+```
+
+> Check [`tolgee.t`](/api/core_package/tolgee.mdx#t) function interface.
+
+## Function `getTolgee`
+
+Returns the Tolgee instance as a `Readable`. Allows subscription to different [`events`](/api/core_package/events.mdx). Most common usecase is for language switching.
+
+```svelte
+<script>
+  import { getTolgee } from '@tolgee/svelte';
+
+  // gets updated on language change
+  const tolgee1 = getTolgee(['language']);
+
+  // gets updated when loading changes
+  const tolgee2 = getTolgee(['loading']);
+
+  // never gets updated
+  const tolgee3 = getTolgee();
+</script>
+
+<div>Language: {$tolgee1.getLanguage()}</div>
+<div>Loading: {$tolgee2.isLoading()}</div>
+```

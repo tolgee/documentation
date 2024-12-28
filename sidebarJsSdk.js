@@ -139,17 +139,6 @@ module.exports = {
         },
       ],
     },
-    {
-      type: 'category',
-      label: 'Migration to v5',
-      items: [
-        'migration_to_v5/core',
-        'migration_to_v5/react',
-        'migration_to_v5/ngx',
-        'migration_to_v5/svelte',
-        'migration_to_v5/vue',
-        'migration_to_v5/i18next',
-      ],
-    },
+    'migration-to-v6'
   ],
 };

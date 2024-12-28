@@ -1,0 +1,75 @@
+---
+id: translating
+title: Translating
+sidebar_label: Translating
+description: "Learn to implement translations in Vue using Tolgee. Guide covers global $t function, useTranslate composable, and T component. Includes examples for basic usage, namespaces, and parameter interpolation."
+---
+
+import TFunctionHint from '../../shared/_TFunctionHint.mdx';
+import NamespacesHint from '../../shared/_NamespacesHint.mdx';
+import ExampleBanner from '../../shared/ExampleBanner';
+
+
+You can implement translation in your Vue application in the following ways.
+
+- Using the [global `$t` function](##global-t-function)
+- Using the [`useTranslate` composable](#usetranslate-composable)
+- Using the [`T` component](#the-t-component)
+
+## Global `$t` function
+
+The [`VueTolgee`](./api#vuetolgee-plugin) plugin provides a `$t` function that allows you to translate strings in your Vue application. If the `VueTolgee` plugin is registered, the `$t` function is available globally in your application.
+
+```html
+<template>
+  <div>{{ $t('this_is_a_key') }}</div>
+</template>
+```
+
+## `useTranslate` composable
+
+The Tolgee integration library provides the [`useTranslate`](./api#composable-usetranslate) composable, which comes with a translation function ([`t` function](./api#function-t-ref)). Using this `t` function, you can render the actual translation.
+
+```html
+<template>
+  <div :title="t('key')">...</div>
+</template>
+
+<script setup>
+  import { useTranslate } from '@tolgee/vue';
+
+  const { t } = useTranslate();
+</script>
+```
+
+<TFunctionHint />
+
+### Using namespaces
+
+The `useTranslate` composable can be also used for loading additional namespaces.
+
+```ts
+const { t, isLoading } = useTranslate('common');
+```
+
+<NamespacesHint />
+
+## The `T` component
+
+An alternative way is to use the [`T` component](./api#t-component). It has a very similar API to the `t` function mentioned above.
+
+```html
+<template>
+  <T
+    keyName="translation_key"
+    defaultValue="User has {count} points"
+    :params="{ count: 10 }"
+ />
+</template>
+
+<script setup>
+  import { T } from '@tolgee/vue';
+</script>
+```
+
+<ExampleBanner framework="Vue" />

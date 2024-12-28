@@ -30,7 +30,7 @@ const docs = [
       versions: {
         current: {
           banner: 'none',
-          label: '5.x.x',
+          label: '6.x.x',
         },
       },
     },
