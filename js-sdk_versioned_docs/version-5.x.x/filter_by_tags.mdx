@@ -1,0 +1,17 @@
+---
+id: filter_by_tags
+title: Filter keys by tags
+description: ''
+---
+
+You can configure Tolgee to only use keys with certain tags. This can be useful if you are sharing translations e.g. between multiple platforms (e.g. web and mobile).
+
+```ts
+const tolgee = Tolgee()
+  .init({
+    filterTag: ['web']
+    ...
+  })
+```
+
+With this setup, Tolgee SDK will only load keys with the given tag. If you specify multiple tags, keys with any of the specified tags will be loaded.

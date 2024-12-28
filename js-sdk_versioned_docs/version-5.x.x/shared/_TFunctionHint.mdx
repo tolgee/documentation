@@ -1,0 +1,36 @@
+## `t` function
+
+This function allows you to render the actual translation.
+
+#### Simple usage
+
+```ts
+t('app_title')
+```
+
+The `t` function looks into your translations finds an appropriate key and renders the translation for currently selected language
+
+> If you use Typescript [read about typed keys](../typed_keys.mdx)
+
+#### Default value
+
+You can pass the default value as second parameter, which will be rendered if the key doesn't exist yet.
+
+```ts
+t('non_existant_key', 'Default value')
+```
+
+#### Parameter interpolation
+
+You can supply a variable parameters which will then be rendered in your translations.
+
+```ts
+t('user_points', 'User has {count} points', { count: 10 })
+
+// -> User has 10 points
+```
+
+There are more options you can do with the variable parameters, but it depends on selected [formatter plugin](../formatting.mdx).
+
+> To get the full `t` function specification [check it's API](../api/core_package/tolgee.mdx#t)
+

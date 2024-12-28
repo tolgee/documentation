@@ -1,0 +1,156 @@
+---
+id: providing_static_data
+title: Providing static data
+slug: providing-static-data
+---
+
+Provide static localization data in production mode or if you want to use it [without Tolgee platform](./usage-without-platform).
+
+## Load translations directly from Tolgee
+
+The easiest way to get to your localization files on production is to set up [Tolgee Content Delivery](/platform/projects_and_organizations/content_delivery) and fetch the translations directly from there.
+
+```ts
+import { BackendFetch } from '@tolgee/react';
+
+const tolgee = Tolgee()
+  ...
+  .use(BackendFetch({ prefix: '<your content storage link>'}))
+  ...
+```
+
+## Use localization files directly
+
+Other option is to export localization files Tolgee platform manually and bundle them directly with your application.
+
+### Export with CLI
+
+
+Install [`@tolgee/cli`](/tolgee-cli) package:
+
+```bash
+# install Tolgee cli
+npm i -g @tolgee/cli
+
+# login to tolgee platform
+tolgee login <Your-Personal-Access-Token>
+
+# pull translation files to ./i18n folder
+tolgee pull ./i18n
+```
+
+### Providing data using dynamic import
+
+To provide your localization data using dynamic import you will need to add providers for every supported language to [`staticData`](./api/core_package/options#staticdata).
+
+```jsx
+const tolgee = Tolgee().init({
+  ...
+  staticData: {
+    en: () => import('./i18n/en.json'),
+    de: () => import('./i18n/de.json'),
+
+    // or for namespaces
+    'de:common': () => import('./i18n/common/de.json'),
+  }
+})
+```
+
+:::info
+For some build systems you'll need to use <br/>
+`en: () => import('./i18n/en.json').then(m => m.default)`
+:::
+
+
+Using this approach data will be fetched just when it's needed, so you will save some network traffic.
+
+### Using imported object
+
+```jsx
+import localeEn from './i18n/en.json';
+import localeDe from './i18n/de.json';
+
+import commonDe from './i18n/common/de.json'
+
+...
+
+const tolgee = Tolgee().init({
+  ...
+  staticData: {
+    en: localeEn,
+    de: localeDe,
+
+    // or for namespaces
+    'de:common': commonDe,
+  }
+})
+```
+
+Using this approach, all localization data are bundled with your application. Don't use it, if our translations files are large. This approach is useful on SSR, when you need the translations to be available for initial render.
+
+### Providing data using backend plugin
+
+```jsx
+import { BackendFetch } from '@tolgee/react';
+
+tolgee.use(BackendFetch());
+```
+
+[`BackendFetch`](./api/web_package/plugins#backendfetch) will fetch translation files (en.json, de.json) from `https://<your url>/i18n`, so you don't have to list all the files explicitly.
+
+If you don't use namespaces place your translation into `/i18n` folder:
+
+```
+├── i18n
+│   ├── cs.json
+│   └── en.json
+├── index.html
+```
+
+If you use namespaces, it should look like this:
+
+```
+├── i18n
+│   └── common
+│       ├── en.json
+│       └── de.json
+├── index.html
+```
+
+> This is default behavior, it's possible to customize in [`BackendFetch`](./api/web_package/plugins#backendfetch) plugin.
+
+
+## Data fallbacks
+
+You can provide local data as a fallback for CDN, for cases when network request fails.
+
+```ts
+const tolgee = Tolgee()
+  .use(BackendFetch({
+    prefix: '<your content storage link>',
+    fallbackOnFail: true
+  }))
+  .init({
+    staticData: {
+      en: () => import('./i18n/en.json'),
+      de: () => import('./i18n/de.json'),
+    }
+    ...
+  })
+```
+
+`fallbackOnFail` option will tell Tolgee to look for data in the next source, so it will fetch your local data. **Order of plugins is important here, they are used in the same order as they were added.**
+
+:::info Plugins are used in the same order as they were added.
+Tolgee first checks if data aren't already in cache (data passed directly to `staticData`) then all the plugins and then dynamic data from `staticData` field.
+:::
+
+You can also set a timeout, to only wait certain time for the data from CDN.
+
+```ts
+BackendFetch({
+  prefix: '<your content storage link>',
+  fallbackOnFail: true
+  timeout: 10_000 // 10 seconds
+})
+```

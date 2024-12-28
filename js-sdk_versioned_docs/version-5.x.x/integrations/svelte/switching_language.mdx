@@ -1,0 +1,27 @@
+---
+id: switching_language
+title: Switching language
+sidebar_label: Switching language
+slug: switching-language
+description: "Learn to manage language switching in Svelte apps using Tolgee. Guide demonstrates how to use the getTolgee function and subscribe to language events, with code examples for implementation."
+---
+
+For language management, the Tolgee integration provides the [`getTolgee`](./api#function-gettolgee) function. Use this function with subscription to the `language` event. Below is an example of how to use it for switching languages.
+
+```svelte
+<script>
+  import { getTolgee } from '@tolgee/svelte';
+
+  const tolgee = getTolgee(['language'])
+
+  function handleLanguageChange(e) {
+    $tolgee.changeLanguage(e.currentTarget.value)
+  }
+</script>
+
+<select value={$tolgee.getLanguage()} on:change={handleLanguageChange}>
+  ...
+</select>
+```
+
+> Read more about [Language change, detection and storage](/language.mdx)

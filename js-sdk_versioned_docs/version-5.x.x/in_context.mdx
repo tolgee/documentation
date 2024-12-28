@@ -1,0 +1,98 @@
+---
+id: in_context
+title: In-context translating
+slug: in-context
+description: 'Learn how to use in-context translating feature in Tolgee tool and how to enable in-context translating on production.'
+---
+
+For local development, supply `apiUrl`, `apiKey` options (see [Integration](/platform/integrations/about_integrations)) and [`DevTools`](./api/web_package/tools#devtools) plugin. If you set everything properly, you can use in-context translating:
+
+1.  Press and hold `Alt`/`Option` key
+2.  Navigate mouse over any translation on your website
+3.  It should get highlighted
+4.  Click on it to open "Quick translation" dialog
+5.  You can edit translations (changes will get stored to Tolgee platform)
+
+> NOTE: If you use Tolgee without any integration, make sure you call [`run`](./api/core_package/tolgee.mdx#run) method.
+
+## One-click screenshots
+
+To generate screenshots automatically, you have to have installed
+[Tolgee Tools](https://chrome.google.com/webstore/detail/tolgee-tools/hacnbapajkkfohnonhbmegojnddagfnj) plugin
+for Google Chrome browser. With this plugin, you can generate screenshots by clicking camera icon in Tolgee UI
+translation dialog.
+
+:::info
+[`DevTools`](./api/web_package/tools#devtools) are automatically omitted in production builds (based on `NODE_ENV` variable).
+:::
+
+## In-context on production
+
+If you want to enable in-context on production build, there are two options:
+
+### 1. Tolgee Chrome plugin
+
+To enable in-context translating on production you can pass `apiKey` and `apiUrl` through [Tolgee Tools](https://chrome.google.com/webstore/detail/tolgee-tools/hacnbapajkkfohnonhbmegojnddagfnj) plugin, that way Tolgee will switch to development mode (plugin will also supply `@tolgee/ui` package automatically).
+
+:::warning
+Never include `apiKey` in Tolgee configuration on production.
+This property is intended only for local development, as it's not meant to be publicly visible.
+:::
+
+1.  Install [Tolgee Tools](https://chrome.google.com/webstore/detail/tolgee-tools/hacnbapajkkfohnonhbmegojnddagfnj) plugin
+2.  Go to the production version of your website
+3.  Click on Tolgee Tools extension and apply your API key (you might need to reload if you just installed the plugin)
+4.  In-context translating should work
+
+> You can also check [Step-by-step tutorial](/blog/in-context-production)
+
+#### A few notes about Tolgee Tools plugin
+
+- You can turn off development mode by switching "Applied" toggle, which will turn it off, but stores credentials locally so you don't have to fill it again next time
+- Plugin will supply `apiUrl` from Tolgee configuration if it's present (if not you can fill it manually)
+- Plugin changes its icon if Tolgee is present on the page or if credentials are set
+
+### 2. Using InContextTools instead of DevTools
+
+DevTools are automatically omitted in production build (based on `NODE_ENV` variable), if you want to enable In-context unconditionally, you can use [`InContextTools`](/api/web_package/tools.mdx#incontexttools) (from `@tolgee/web/tools` package).
+
+Note that [`InContextTools`](/api/web_package/tools.mdx#incontexttools) will significantly increase your bundle size, so we recommend using dynamic import and only including them when needed.
+
+:::warning
+In-context on production should be always behind some authentication or in a private network. Make sure you are not exposing your credentials publicly.
+:::
+
+```ts
+// initialize tolgee without DevTools
+const tolgee = Tolgee()
+  .use(FormatSimple())
+  .init({
+    ...
+  });
+
+// include in-context tools only if needed
+if (shouldIncludeInContextTools) {
+  import('@tolgee/web/tools').then((module) => {
+    tolgee.addPlugin(module.InContextTools())
+  })
+}
+```
+
+#### Using parts of InContextTools functionality
+
+[`InContextTools`](/api/web_package/tools.mdx#incontexttools) (or `DevTools` in development) are a combination of multiple plugins, which you can include independently, check [`InContextTools`](/api/web_package/tools.mdx#incontexttools) documentation for more info.
+
+## Modals, popovers and other focus-stealing elements
+Some elements like modals or popovers can steal focus from the Tolgee dev tools,
+so you can't type in the translation input fields.
+
+Fortunately, you can still use the dev tools by opening them in a separate popup window by clicking the icon next to the `Quick translation` dialog title.
+
+Your browser might block the popup, so you have to allow it.
+
+import { ScreenshotWrapper } from '../../platform/shared/_ScreenshotWrapper';
+
+<ScreenshotWrapper
+  src="/img/docs/sdk/in_context_modal.webp"
+  alt="Open new window button"
+/>

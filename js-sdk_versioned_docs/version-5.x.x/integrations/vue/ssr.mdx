@@ -1,0 +1,79 @@
+---
+id: ssr
+title: SSR support
+sidebar_label: SSR support
+---
+
+To use Tolgee with your SSR framework such as Vike (vite-plugin-ssr), you can provide localization data imported as object
+using `staticData` props of TolgeeProvider component, this data will be loaded directly into cache and immediately
+available with first render for SSR. We also need to know user's locale already on the server and set it through TolgeeProvider `language` prop.
+
+```ts
+import { Tolgee, DevTools, VueTolgee, FormatSimple } from '@tolgee/vue';
+
+const tolgee = Tolgee()
+  .use(DevTools())
+  .use(FormatSimple())
+  .init({
+    defaultLanguage: 'en',
+  });
+
+...
+
+app.use(VueTolgee, { tolgee, enableSSR: true });
+```
+
+and in the your root component
+
+```html
+<script setup>
+import localeEn from 'i18n/en.json';
+import localeDe from 'i18n/de.json';
+
+const staticData = {
+  en: localeEn,
+  de: localeDe,
+};
+
+// we need to get these on server, which we'll need to implement
+// differently for each framework
+const language = ?;
+</script>
+
+...
+
+<template>
+  <TolgeeProvider :language="language" :static-data="staticData" ...>
+    ...
+  </TolgeeProvider>
+</template>
+```
+
+With this approach we include all translations directly in the bundle regardless user locale. For smaller projects this is not a big issue, however it might be significant for large applications with many translations and languages.
+
+For these cases we need to only provide statically the locale, that the user is currently using. We can also use async functions in `staticData` which will be used for fetching translations dynamically on client side (you can use this instead of having them in public folder).
+
+```html
+<script setup>
+
+// we need to get these on server, which we'll need to implement
+// differently for each framework
+const language = ?;
+const staticData = ?;
+</script>
+
+...
+
+<template>
+  <TolgeeProvider :language="language" :static-data="staticData" ...>
+    ...
+  </TolgeeProvider>
+</template>
+```
+
+## Language changing
+
+When we use SSR, we have to specify language in a way that is detectable by both client and server. Easiest way is to
+include it directly in URL.
+
+Then for language change we use the native way of the framework.

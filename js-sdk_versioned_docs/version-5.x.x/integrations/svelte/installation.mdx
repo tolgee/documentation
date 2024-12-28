@@ -1,0 +1,83 @@
+---
+id: installation
+title: Installation
+sidebar_label: Installation
+description: "Learn how to install and configure Tolgee for Svelte localization. Step-by-step guide covers library installation, environment setup, TolgeeProvider configuration, and production preparation. Includes code examples."
+---
+
+import ExampleBanner from '../../shared/ExampleBanner';
+import PreparingForProduction from '../../shared/_PreparingForProduction.mdx';
+import { InstallationTabs } from '../../../../src/component/InstallationTabs';
+
+To use Tolgee in your React application, you need to follow these steps:
+
+1. [Install the Tolgee integration library](#install-the-tolgee-integration-library)
+2. [Set up the environment variables](#set-up-the-environment-variables)
+3. [Configure the TolgeeProvider](#configure-the-tolgeeprovider)
+4. [Preparing for production](#preparing-for-production)
+
+## Install the Tolgee integration library
+
+To install Tolgee Svelte integration library, run the following command.
+
+<InstallationTabs lib="@tolgee/svelte" />
+
+## Set up the environment variables
+
+
+Once the library is installed, you need to initialize it. For initialization, you need the Tolgee API URL, and the Tolgee API Key. To generate the API Key, follow the step-by-step instructions mentioned on the [API keys and PAT tokens page](../../../../../platform/account_settings/api_keys_and_pat_tokens).
+
+:::danger
+Make sure you don't leak your API key. If the API key is leaked, visitors can edit the translations on your site.
+:::
+
+After generating the API key, add these credentials. If you bootstrapped the application with SvelteKit, add them to the `.env.development.local` file. Your `.env.development.local` should look as follow.
+
+```env
+VITE_TOLGEE_API_KEY=tgpak_gfpwiojtnrztqmtbna3dczjxny2ha3dmnu4tk4tnnjvgc
+VITE_TOLGEE_API_URL=https://app.tolgee.io
+```
+
+## Configure the TolgeeProvider
+
+Next, initialize Tolgee and wrap the application in [`TolgeeProvider`](./api#tolgeeprovider).
+
+```svelte
+<script>
+  import { TolgeeProvider, Tolgee, DevTools, FormatSimple } from '@tolgee/svelte';
+
+  const tolgee = Tolgee()
+    .use(DevTools())
+    .use(FormatSimple())
+    .init({
+      language: 'en',
+
+      // for development
+      apiUrl: import.meta.env.VITE_TOLGEE_API_URL,
+      apiKey: import.meta.env.VITE_TOLGEE_API_KEY,
+
+      // for production
+      staticData: {
+        ...
+      }
+    });
+</script>
+
+<TolgeeProvider tolgee={tolgee}>
+  <div slot="fallback">Loading...</div>
+  <slot />
+</TolgeeProvider>
+```
+The above code does the following:
+
+- Imports the required methods and plugins from the integration library.
+- Configures the Tolgee instance to use the [DevTools](../../api/web_package/plugins#devtools) and [FormatSimple](../../api/core_package/format-simple) plugins, and initializes it using the credentials. It also sets the language to English.
+- Wraps a component within the `TolgeeProvider`.
+
+> You can configure more options and plugins during initialization. Learn about other [options](../../api/core_package/options) and [Tolgee plugins](../../plugins) in their respective documentation.
+
+## Preparing for production
+
+<PreparingForProduction />
+
+<ExampleBanner framework="Svelte" />

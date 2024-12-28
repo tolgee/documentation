@@ -1,0 +1,434 @@
+---
+id: tolgee
+title: Tolgee
+description: TolgeeCore allows you to gradually initialize Tolgee instance. You can repeatedly call `use` and `updateDefaults`.
+---
+
+## TolgeeCore
+
+Allows you to gradually initialize Tolgee instance. You can repeatedly call `use` and `updateDefaults`. Finally when you call `init` it will apply everything at once and return `TolgeeInstance`.
+
+```ts
+function TolgeeCore(): TolgeeChainer;
+```
+
+Basic usage:
+
+```ts
+import { TolgeeCore } from '@tolgee/core';
+
+const tolgee = TolgeeCore()
+  .use(...)
+  .updateDefaults(...)
+  .init(...);
+```
+
+:::info
+Constructor called [`Tolgee`](../web_package/plugins#tolgee) is located in `@tolgee/web` package as it automatically includes browser-specific features, which can't be included directly in the core. Use that if you run Tolgee in the browser.
+:::
+
+### use
+
+Add tolgee plugin.
+
+```ts
+TolgeeCore().use(plugin: TolgeePlugin): TolgeeChainer
+```
+
+Plugins are applied after `init` is called. To see how TolgeePlugin interface work check [Plugin API](./plugin-api).
+
+### updateDefaults
+
+Updates [Tolgee options](./options) before `init` is called. Extends existing options,
+so it only changes the fields, that are listed.
+
+```ts
+TolgeeCore().updateDefaults(options: TolgeeOptions): TolgeeChainer
+```
+
+You can call it multiple times and rewrite only part of the configuration:
+
+```ts
+const tolgee = TolgeeCore()
+  .updateDefaults({ apiKey: 'key' })
+  .updateDefaults({ language: 'en' })
+  .init({ apiUrl: 'url' });
+// resulting configuration will be:
+{
+  apiUrl: 'url',
+  apiKey: 'key',
+  language: 'en'
+}
+```
+
+## TolgeeInstance
+
+Represents initialized tolgee instance. Allows you to read translations and manipulate lanugage or cache.
+
+### run
+
+Changes internal state to `running: true` and loads initial files. Starts `Observer` if present.
+
+```ts
+tolgee.run(): Promise<void>
+```
+
+### stop
+
+Changes internal state to `running: false` and stops runnable plugins.
+
+```ts
+tolgee.stop(): void
+```
+
+```ts
+tolgee.init(options: TolgeeOptions): TolgeeInstance
+```
+
+### on
+
+Allows you to listen to tolgee events.
+
+```ts
+tolgee.on(event: TolgeeEvent, handler: ListenerHandler): Listener
+```
+
+Returned object has `tolgee.unsubscribe`, call it to stop listening.
+
+```ts
+const listner = tolgee.on(...)
+listener.unsubscribe()
+```
+
+Check [Events](./events) for details.
+
+### onNsUpdate
+
+Allows you to listen to key changes of namespaces that you pick.
+
+```ts
+tolgee.onNsUpdate(handler: ListenerHandler): ListenerSelective
+```
+
+Returns object, which allows you to subscribe to namespaces.
+
+```ts
+const listener = tolgee.onNsUpdate(...)
+// subscribes namespace
+listener.subscribeNs(ns)
+// unsubscribe completely
+listener.unsubscribe()
+```
+
+Use this when you want to make sure, you always update translation when it's necessary.
+It internally stores list of namespaces that you are interested in and calls the handler, when necessary.
+
+### t
+
+Returns formatted translation based on current language. If `Observer` is present and tolgee is running, `wraps` the result to be identifiable in the DOM.
+
+```ts
+tolgee.t(key: string, defaultValue?: string, options?: CombinedOptions): string
+tolgee.t(key: string, options?: CombinedOptions): string
+tolgee.t(props: TranslateProps): string
+```
+
+`t` function provides flexibility in how to pass the options:
+
+```ts
+// with arguments
+const translation = t('key', 'default value', {
+  ns: 'test',
+  // any unknown property in CombinedOptions is taken as param
+  parameter: 'parameter',
+});
+// with props object
+const translation = t({
+  key: 'key',
+  defaultValue: 'default value',
+  ns: 'test',
+  params: { parameter: 'parameter' },
+});
+```
+
+All the options:
+
+- `key`: `string` - translation key
+- `defaultValue`: `string` - value displayed when no translation is available
+- `noWrap`: `boolean` - returns translation without wrapping (default: false)
+- `orEmpty`: `boolean` - return empty string instead of key if translation doesn't exist (default: false)
+- `params`: `Record<string, value>` object with parameters for the formatter
+- `ns`: `string` - namespace, if not provided default namespace is used
+- `language`: `string` - override current Tolgee language. This way you can override current language and use different one from the cache. **Language needs to be loaded manually by [`tolgee.loadRecord`](/api/core_package/tolgee.mdx#loadrecord)**.
+
+> `t` function serves only for reading, not for loading new namespaces or languages. Use [`addActiveNs`](#addactivens) for loading additional namespaces.
+
+### changeLanguage
+
+Change current language.
+
+```ts
+tolgee.changeLanguage(language: string): Promise<void>
+```
+
+- if tolgee is not running sets `pendingLanguage`, `language` to the new value
+- if tolgee is running sets `pendingLanguage` to the value, fetches necessary data and then changes `language`
+
+Returns promise which is resolved when `language` is changed.
+
+### getLanguage
+
+Returns current `language` if set.
+
+```ts
+tolgee.getLanguage(): string | undefined
+```
+
+### getPendingLanguage
+
+Returns current `pendingLanguage` if set.
+
+```ts
+tolgee.getPendingLanguage(): string | undefined
+```
+
+`pendingLanguage` represents language which is currently being loaded.
+
+### addActiveNs
+
+Adds namespace(s) list of active namespaces and if tolgee is `running`, loads required data. Active namespaces are also loaded automatically when language is changed.
+
+```ts
+tolgee.addActiveNs(ns: FallbackNsTranslation, forget?: boolean): Promise<void>
+```
+
+- `ns`: `string` | `string[]` - namespace(s)
+- `forget`: `boolean` - if true, tolgee only fetches the data, but won't remember namespaces as active, so it won't get loaded automatically on language change
+
+### removeActiveNs
+
+Remove namespace(s) from active namespaces.
+
+```ts
+tolgee.removeActiveNs(ns: FallbackNsTranslation): void
+```
+
+Tolgee internally counts how many times was each active namespace added,
+so this method will remove namespace only if the counter goes down to 0.
+
+```ts
+tolgee.addActiveNs('common');
+tolgee.addActiveNs(['common', 'component']);
+// active namespaces: {common: 2, component: 1}
+tolgee.removeActiveNs(['common', 'component']);
+// active namespaces: {common: 1}
+tolgee.removeActiveNs('common');
+// active namespaces: {}
+```
+
+This is used in component lifecycles, where we want to keep track which namespaces are needed, when language changes.
+
+### isRunning
+
+Returns `true` if tolgee is running.
+
+```ts
+tolgee.isRunning(): boolean
+```
+
+### isInitialLoading
+
+Returns `true` if tolgee is loading initial data (triggered by `run`).
+
+```ts
+tolgee.isInitialLoading(): boolean
+```
+
+### isFetching
+
+Returns `true` if tolgee is fetching any data.
+
+```ts
+tolgee.isFetching(ns?: FallbackNsTranslation): boolean
+```
+
+- `ns`: `string` | `string[]` - optional list of namespaces that you are interested in
+
+### isLoading
+
+Returns `true` if tolgee is loading initial data or when new namespace is added. When you are changing language
+this won't get triggered. Basically indicates, that Tolgee doesn't have all the neccessary data available.
+
+```ts
+tolgee.isLoading(ns?: FallbackNsTranslation): boolean
+```
+
+- `ns`: `string` | `string[]` - optional list of namespaces that you are interested in
+
+### isLoaded
+
+Similar to `isLoading`, but can be called before the actual loading starts. This function is mostly useful
+when you need to find out if tolgee has all the necessary data before `run` function is triggered.
+
+```ts
+tolgee.isLoaded(ns?: FallbackNsTranslation): boolean
+```
+
+### getRequiredRecords
+
+Returns records needed for instance to be `loaded`
+
+```ts
+tolgee.getRequiredRecords(): CacheDescriptor[]
+```
+
+- `ns`: `string` | `string[]` - optional list of namespaces that you are interested in
+
+### isDev
+
+Returns `true` if tolgee is in dev mode.
+Tolgee is in dev mode if `DevTools` plugin is used and `apiKey` + `apiUrl` is specified.
+
+```ts
+tolgee.isDev(): boolean
+```
+
+### setEmitterActive
+
+Turn off/on events emitting. Is on by default.
+
+```ts
+tolgee.setEmitterActive(active: boolean)
+```
+
+### getInitialOptions
+
+Returns current [Tolgee options](./options).
+
+```ts
+tolgee.getInitialOptions(): TolgeeOptions
+```
+
+### highlight
+
+Highlights keys that match selection.
+
+```ts
+tolgee.highlight(key?: string, ns?: FallbackNsTranslation): Highlighter
+```
+
+Returns object with `unhighlight` method.
+
+### wrap
+
+Wraps translation if there is `Observer plugin`.
+
+```ts
+tolgee.wrap(params: TranslatePropsInternal): string | undefined
+```
+
+### unwrap
+
+Returns wrapped translation info.
+
+```ts
+tolgee.unwrap(text: string): Unwrapped
+```
+
+### loadRecord
+
+Manually load record from `Backend` (or `DevBackend` when in dev mode).
+
+```ts
+tolgee.loadRecord(descriptors: CacheDescriptor): Promise<TranslationsFlat>
+```
+
+### loadRecords
+
+Manually load multiple records from `Backend` (or `DevBackend` when in dev mode).
+
+```ts
+tolgee.loadRecords(descriptors: CacheDescriptor[]): Promise<TranslationsFlat[]>
+```
+
+It loads data together and adds them to cache in one operation, to prevent partly loaded state.
+
+### getRecord
+
+Get record from cache.
+
+```ts
+tolgee.getRecord(descriptors: CacheDescriptor[]): TranslationsFlat | undefined
+```
+
+### getAllRecords
+
+Get all records from cache.
+
+```ts
+tolgee.getAllRecords(): CachePublicRecord[]
+```
+
+### addStaticData
+
+Add data to cache. It will only rewrite cache if there are no dev data loaded.
+
+Example:
+
+```ts
+tolgee.addStaticData({
+  'locale': {
+    'key': 'translation'
+  },
+  // or
+  'locale': () => fetchTranslations(),
+  // or
+  'locale:namespace': ...
+})
+```
+
+```ts
+tolgee.addStaticData(data: TolgeeStaticData): CachePublicRecord[]
+```
+
+### changeTranslation
+
+Temporarily change translation in cache.
+
+```ts
+tolgee.changeTranslation(descriptor: CacheDescriptor, key: string, value: string): TranslationChanger
+```
+
+Returns object with `revert` method.
+
+### overrideCredentials
+
+Override creadentials passed on initialization. When called in running state, tolgee stops and runs again.
+
+```ts
+tolgee.overrideCredentials(credentials: DevCredentials)
+```
+
+```ts
+type DevCredentials = {
+  apiUrl?: string;
+  apiKey?: string;
+  projectId?: string | number;
+};
+```
+
+### addPlugin
+
+Add tolgee plugin after initialization. When called in running state, tolgee stops and runs again. To see how TolgeePlugin interface work check [Plugin API](./plugin-api).
+
+```ts
+tolgee.addPlugin(plugin: TolgeePlugin | undefined)
+```
+
+### updateOptions
+
+Updates [Tolgee options](./options) after instance creation. Extends existing options, so it only changes the fields, that are listed. When called in `running` state, tolgee stops and runs again.
+
+```ts
+tolgee.updateOptions(options?: TolgeeOptions)
+```

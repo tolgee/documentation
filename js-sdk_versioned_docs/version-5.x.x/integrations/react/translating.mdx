@@ -1,0 +1,64 @@
+---
+id: translating
+title: Translating
+sidebar_label: Translating
+description: "Tolgee enables you to implement localization in your React application with ease. You can integrate Tolgee in your React application using Tolgee's SDK for React. Learn to impelement translation using the useTranslate hook and the T-component."
+---
+
+import TFunctionHint from '../../shared/_TFunctionHint.mdx';
+import NamespacesHint from '../../shared/_NamespacesHint.mdx';
+
+You can implement translation in your React application in two ways.
+
+- Using the [useTranslate hook](#usetranslate-hook)
+- Using the [T-component](#t-component)
+
+## `useTranslate` hook
+
+The Tolgee React SDK provides the [`useTranslate`](./api#hook-usetranslate) hook, which comes with a translation function ([`t` function](./api#function-t)). Using this `t` function, you can render the actual translation.
+
+```js
+import { useTranslate } from '@tolgee/react';
+
+function Component() {
+  const { t } = useTranslate();
+
+  return <div>{t('key_to_translate', 'DEFAULT VALUE')}</div>;
+}
+```
+
+<TFunctionHint />
+
+## `T` component
+
+An alternative way is to use the [`T` component](./api#t-component). It has a very similar API to the `t` function mentioned above.
+
+```jsx
+import { T } from "@tolgee/react";
+
+...
+
+<T
+  keyName="translation_key"
+  defaultValue="User has {count} points"
+  params={{ count: 10 }}
+/>
+```
+
+## useTranslate hook vs T-component
+
+The `T` component has a similar API to that of the `t` function mentioned above. However, there are some considerations when deciding which to use:
+
+- To apply translation in the component where you don't have access to React hooks, use the `T` component.
+- If you want to use [Tags interpolation](./tags-interpolation), use the `T` component.
+- For namespaces, use the `useTranslate` hook. Check the following example to learn more:
+
+```ts
+const { t, isLoading } = useTranslate('common');
+```
+
+<NamespacesHint />
+
+import ExampleBanner from '../../shared/ExampleBanner';
+
+<ExampleBanner framework="React" />

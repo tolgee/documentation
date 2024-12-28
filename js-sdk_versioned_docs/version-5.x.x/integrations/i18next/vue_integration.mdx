@@ -1,0 +1,63 @@
+---
+id: vue
+title: Vue integration using i18next
+sidebar_label: Vue integration
+slug: vue-integration
+description: 'Learn how to integrate Tolgee with Vue 2 applications using i18next and @panter/vue-i18next. This guide covers installation, setup, and usage for effective internationalization in Vue 2 projects.'
+---
+
+import {InstallationTabs} from "../../../../src/component/InstallationTabs";
+import ExampleBanner from '../../shared/ExampleBanner';
+
+:::caution
+This integration is specifically for Vue 2.
+:::
+
+## Overview
+
+You can integrate Tolgee with Vue2 applications using `i18next` and `@panter/vue-i18next`. It is recommend to use the ICU message formatter, since the Tolgee platform natively supported it.
+
+## Installation
+
+To get started, install the necessary packages:
+
+<InstallationTabs lib="@panter/vue-i18next i18next-icu" />
+
+
+## Setup
+
+After installation, set up your i18next instance with Tolgee and Vue integration:
+
+```ts
+import { withTolgee, I18nextPlugin, DevTools } from '@tolgee/i18next';
+import i18next from 'i18next';
+import ICU from 'i18next-icu';
+import VueI18Next from '@panter/vue-i18next';
+
+Vue.use(VueI18Next);
+
+const tolgee = Tolgee().use(DevTools()).use(I18nextPlugin()).init({
+  apiUrl: process.env.VUE_APP_TOLGEE_API_URL,
+  apiKey: process.env.VUE_APP_TOLGEE_API_KEY,
+});
+
+withTolgee(i18next, tolgee)
+  .use(ICU)
+  .init({
+    lng: 'en', // or use i18next language detector
+    supportedLngs: ['cs', 'en', 'fr', 'de'],
+  });
+
+const i18n = new VueI18Next(i18next);
+
+new Vue({
+  i18n,
+  ...
+}).$mount('#app');
+```
+
+You can now use the features of [@panter/vue-i18next](https://panter.github.io/vue-i18next/).
+
+Feel free to explore the example application for more advanced usage and integration patterns.
+
+<ExampleBanner framework="i18next" appName="vue-i18next" />

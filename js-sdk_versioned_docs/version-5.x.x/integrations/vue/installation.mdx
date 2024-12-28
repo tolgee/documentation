@@ -1,0 +1,100 @@
+---
+id: installation
+title: Installation
+sidebar_label: Installation
+description: "Step-by-step guide to install Tolgee in Vue apps. Covers library installation, environment setup, Tolgee initialization, and TolgeeProvider integration. Includes production preparation tips and code examples."
+---
+
+import ExampleBanner from '../../shared/ExampleBanner';
+import { InstallationTabs } from '../../../../src/component/InstallationTabs';
+import PreparingForProduction from '../../shared/_PreparingForProduction.mdx';
+
+To use Tolgee in your Vue application, you need to follow these steps:
+
+1. [Install the Tolgee integration library](#install-the-tolgee-integration-library)
+2. [Set up the environment variables](#set-up-the-environment-variables)
+3. [Initialize Tolgee](#initialize-tolgee)
+4. [Add the Tolgee Provider](#add-the-tolgee-provider)
+5. [Preparing for production](#preparing-for-production)
+
+
+## Install the Tolgee integration library
+
+To install Tolgee integration library, run the following command:
+
+<InstallationTabs lib="@tolgee/vue" />
+
+## Set up the environment variables
+
+Once the library is installed, you need to initialize it. For initialization, you need the Tolgee API URL, and the Tolgee API Key. To generate the API Key, follow the step-by-step instructions mentioned on the [API keys and PAT tokens page](../../../../../platform/account_settings/api_keys_and_pat_tokens).
+
+:::danger
+Make sure you don't leak your API key. If the API key is leaked, visitors can edit the translations on your site.
+:::
+
+After generating the API key, add these credentials. If you bootstrapped the Vue application using the vue-cli, add them to the `.env.development.local` file. Your `.env.development.local` should look like this:
+
+```env
+VITE_APP_TOLGEE_API_URL=https://app.tolgee.io
+VITE_APP_TOLGEE_API_KEY=tgpak_gfpwiojtnrztqmtbna3dczjxny2ha3dmnu4tk4tnnjvgc
+```
+
+Otherwise, you can set these properties directly, or use plugins like [dotenv-webpack](https://www.npmjs.com/package/dotenv-webpack).
+
+## Initialize Tolgee
+
+Next initialize `Tolgee` and use [`VueTolgee`](./api#vuetolgee-plugin). The `VueTolgee` plugin makes [`$t`](./translating#global-t-function) function globally available.
+
+```ts
+import { Tolgee, DevTools, VueTolgee, FormatSimple } from '@tolgee/vue';
+
+const tolgee = Tolgee()
+  .use(DevTools())
+  .use(FormatSimple())
+  // replace with .use(FormatIcu()) for rendering plurals, foramatted numbers, etc.
+  .init({
+    language: 'en',
+
+    // for development
+    apiUrl: import.meta.env.VITE_APP_TOLGEE_API_URL,
+    apiKey: import.meta.env.VITE_APP_TOLGEE_API_KEY,
+
+    // for production
+    staticData: {
+      ...
+    }
+  });
+
+...
+
+app.use(VueTolgee, { tolgee });
+```
+
+The above code does the following:
+
+- Imports the required classes, and plugins from the integration library.
+- Configures the Tolgee instance to use the [DevTools](../../api/web_package/plugins#devtools) and [FormatSimple](../../api/core_package/format-simple) plugins, and initializes it using the credentials. It also sets the language to English.
+- Registers the `VueTolgee` plugin with the Vue application.
+
+> You can configure more options and plugins during initialization. Learn about these other [options](../../api/core_package/options) and [Tolgee plugins](../../plugins) in their respective documentation.
+
+## Add the Tolgee Provider
+
+Wrap your application with the [`TolgeeProvider`](./api#tolgeeprovider) component. `TolgeeProvider` will initialize tolgee when it is ready and waits for initial data to be load. You can also provide a `fallback` slot to show custom loader while translations are being loaded.
+
+```html
+<template>
+  <TolgeeProvider>
+    <template v-slot:fallback>
+      <div>Loading...</div>
+    </template>
+    <App />
+  </TolgeeProvider>
+</template>
+```
+
+## Preparing for production
+
+<PreparingForProduction />
+
+<ExampleBanner framework="Vue" />
