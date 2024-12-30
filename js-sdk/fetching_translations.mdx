@@ -1,0 +1,67 @@
+---
+id: fetching_translations
+title: Fetching translations
+---
+
+:::info
+New in SDK version 6
+:::
+
+Tolgee SDK can be used to simply load correct translation files from tolgee platform or from static data.
+This is primarly useful on the server, when you need to prefetch data and pass them to frontend as a JSON.
+
+These methods also load the data to cache, so you can then call `t` function to render the translations.
+
+## loadRequired
+
+This method fetches the same data as `tolgee.run()` method - based on current options of `language`, `ns` (and their fallbacks).
+
+```ts
+// on the server
+const translations = JSON.stringify(await tolgee.loadRequired())
+
+// ... pass translations to the client
+
+// on the client
+tolgee.addStaticData(translations)
+// now the client doesn't have to fetch anything, when `run` is called
+```
+
+> Check the [method API](./api/core_package/tolgee.mdx#loadrequired)
+
+## loadMatrix
+
+Use this method for easy prefetching of user defined records.
+
+```ts
+const translations = await tolgee.loadMatrix({
+    languages: ['en', 'cs']
+    namespaces: ['common', 'info']
+})
+// loads `en:common`, `en:info`, `cs:common` and `cs:info` records
+```
+
+Let's say we want to load all namespaces on the server so we can render them without loading later.
+
+```ts
+await tolgee.loadMatrix({
+    languages: ['en']
+    namespaces: 'all'
+})
+
+// now all namespaces are now prefetched for english
+
+t('app_title', { ns: 'info' })
+```
+
+For this to work, you need to specify [`availableNs`](./api/core_package/options.mdx#availablens) or [`availableLanguages`](./api/core_package/options.mdx#availablelanguages).
+
+> Check the [method API](./api/core_package/tolgee.mdx#loadmatrix)
+
+# Data caching on the server
+
+By default these methods always re-fetch the data when called (requests are only de-duped).
+
+If you want to re-use already fetched data from cache, you can pass option `{ useCache: true }`.
+However on the server this is not recommended, since if the tolgee instance would live, the data would't be renewed.
+Instead we recommend external caching solution (for example next.js caching).
