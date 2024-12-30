@@ -70,6 +70,29 @@ tolgee.on('update', (events) => {
 
 ## React
 
-`TolgeeProvider` component `useSuspense` is now false by default.
+`TolgeeProvider` component `useSuspense` is now false by default. It didn't work well with next.js,
+so it's off by default.
+
+Old:
+```tsx
+<TolgeeProvider options={{ useSuspense: false }}>
+```
+
+New:
+```tsx
+<TolgeeProvider>
+```
 
 ## Vue
+
+`TolgeeProvider` ssr interface is now same as the react one.
+
+Old:
+```html
+<TolgeeProvider :staticData="staticData" language="en">
+```
+
+New:
+```html
+<TolgeeProvider :ssr="{ staticData, language: 'en' }">
+```
