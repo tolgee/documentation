@@ -1,0 +1,17 @@
+## Usage of Tolgee Content Delivery
+
+If you want to use Tolgee Content Delivery instead of local static data,
+we recommend usage of next.js cache functionality by configuring the BackendFetch plugin in following way:
+
+```ts
+tolgee.use(
+  BackendFetch({
+    prefix: '<your content storage link>',
+    next: {
+      revalidate: 1000 * 60, // cache CDN data for one minute
+    },
+  })
+)
+```
+
+You can remove `staticData` or use them as fallback ([read more](/js-sdk/providing-static-data#load-translations-directly-from-tolgee)).
