@@ -3,6 +3,9 @@ id: migration_to_v6
 title: Migration to v6
 ---
 
+In v6 we introduced serveral minor breaking changes, which were mostly necessary for better support of
+next.js (and server side rendering in general).
+
 ## Updates to cache
 
 Cache no longer returns records as maps.
@@ -28,7 +31,7 @@ type CacheInternalRecord = {
 ## Updated `getRequiredRecords`
 
 This function was renamed to `getRequiredDescriptors`, because it's not returning data from cache,
-but description (descriptors) of what need to be in cache. Previous naming might be confusing.
+but description (descriptors) of what need to be in cache. Previous name was confusing.
 
 ```ts
 tolgee.getRequiredDescriptors(lang?: string, ns?: NsFallback): CacheDescriptorInternal[]
