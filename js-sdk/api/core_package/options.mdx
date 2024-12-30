@@ -68,8 +68,8 @@ projectId: number | string;
 
 ### availableLanguages
 
-Languages which can be used for language detection
-and also limits which values can be stored. Is derrived from `staticData` keys if not provided.
+Specify all available languages. Required for language detection or loading all languages at once ([loadMatrix](./tolgee.mdx#loadmatrix)).
+It also limits which values can be stored. Is derrived from `staticData` keys if not provided.
 
 ```ts
 availableLanguages: string[];
@@ -97,6 +97,14 @@ Default namespace when no namespace defined (default: empty string)
 
 ```ts
 defaultNs: string;
+```
+
+### availableNs
+
+Specify all available namespaces. Required for loading all namespaces at once ([loadMatrix](./tolgee.mdx#loadmatrix)).
+
+```ts
+availableNs: string[];
 ```
 
 ### staticData
