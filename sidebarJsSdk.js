@@ -101,6 +101,7 @@ module.exports = {
         'wrapping',
         'providing_static_data',
         'filter_by_tags',
+        'fetching_translations'
       ],
     },
     'keys_tagging',

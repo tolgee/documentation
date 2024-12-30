@@ -25,10 +25,6 @@ To implement localization to your app, you need to install the `@tolgee/react` p
 npm install @tolgee/react
 ```
 
-:::info
-Use `@tolgee/react` version `5.30.0` and higher
-:::
-
 ## Folder structure
 
 The folder structure of your project should resemble the following:
@@ -82,25 +78,6 @@ This file contains tolgee setup and helper function for loading static files.
 import { FormatIcu } from '@tolgee/format-icu';
 import { Tolgee, DevTools } from '@tolgee/react';
 
-export async function getStaticData(
-  languages: string[],
-  namespaces: string[] = ['']
-) {
-  const result: Record<string, any> = {};
-  for (const lang of languages) {
-    for (const namespace of namespaces) {
-      if (namespace) {
-        result[`${lang}:${namespace}`] = (
-          await import(`../messages/${namespace}/${lang}.json`)
-        ).default;
-      } else {
-        result[lang] = (await import(`../messages/${lang}.json`)).default;
-      }
-    }
-  }
-  return result;
-}
-
 export const tolgee = Tolgee()
   .use(FormatIcu())
   .use(DevTools())
@@ -109,6 +86,10 @@ export const tolgee = Tolgee()
     defaultLanguage: 'en',
     apiKey: process.env.NEXT_PUBLIC_TOLGEE_API_KEY,
     apiUrl: process.env.NEXT_PUBLIC_TOLGEE_API_URL,
+    staticData: {
+      en: () => import('../messages/en.json'),
+      cs: () => import('../messages/cs.json'),
+    }
   });
 
 ```
@@ -150,7 +131,12 @@ MyApp.getInitialProps = async (
   context: AppContext
 ): Promise<AppOwnProps & AppInitialProps> => {
   const ctx = await App.getInitialProps(context);
-  return { ...ctx, staticData: await getStaticData([context.ctx.locale!]) };
+  return {
+    ...ctx,
+    staticData: await tolgee.loadRequired({
+      language: context.ctx.locale!,
+    }),
+  };
 };
 ```
 

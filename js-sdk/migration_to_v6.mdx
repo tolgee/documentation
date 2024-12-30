@@ -9,8 +9,8 @@ Cache no longer returns records as maps.
 All methods interacting with cache are now returning plain objects instead of `Map`.
 
 ```ts
-tolgee.loadRecords(): CacheInternalRecord[]
-tolgee.loadRecord(): CacheInternalRecord
+tolgee.loadRecords(): Promise<CacheInternalRecord[]>
+tolgee.loadRecord(): Promise<CacheInternalRecord>
 tolgee.getRecord(): CacheInternalRecord
 tolgee.getAllRecords(): CacheInternalRecord[]
 ```
@@ -39,5 +39,37 @@ all records that are required to be in the cache, so it works the same regardles
 
 Previous behavior can be achieved by comparing the cache content with the results of this function.
 
-## 
+## Removed obscure `onNsUpdate` subscribing
 
+Previously it was possible to subscribe to specific namespace changes like this:
+
+```ts
+const listener = tolgee.onNsUpdate(...)
+// subscribes namespace
+listener.subscribeNs(ns)
+// unsubscribe completely
+listener.unsubscribe()
+```
+
+You can replace that with `update` event.
+
+```ts
+tolgee.on('update', ...)
+```
+
+If you want to only react to certain namespaces, the event handler recieves an array of events which
+led to invocation of `update` event (`update` is derrived from other events).
+
+```ts
+tolgee.on('update', (events) => {
+  if (events.every(e => (e.type !== 'cache' || e.value.namespace === 'namespace'))) {
+    handler()
+  }
+})
+```
+
+## React
+
+`TolgeeProvider` component `useSuspense` is now false by default.
+
+## Vue
