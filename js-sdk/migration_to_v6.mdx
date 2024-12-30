@@ -3,4 +3,41 @@ id: migration-to-v6
 title: Migration to v6
 ---
 
+## Updates to cache
+
+Cache no longer returns records as maps.
+All methods interacting with cache are now returning plain objects instead of `Map`.
+
+```ts
+tolgee.loadRecords(): CacheInternalRecord[]
+tolgee.loadRecord(): CacheInternalRecord
+tolgee.getRecord(): CacheInternalRecord
+tolgee.getAllRecords(): CacheInternalRecord[]
+```
+
+Returned cache record(s) are now unified like this:
+```ts
+type CacheInternalRecord = {
+  data: Record<string, string | undefined | null>; // replaces Map()
+  language: string;
+  namespace: string;
+  cacheKey: string;
+};
+```
+
+## Updated `getRequiredRecords`
+
+This function was renamed to `getRequiredDescriptors`, because it's not returning data from cache,
+but description (descriptors) of what need to be in cache. Previous naming might be confusing.
+
+```ts
+tolgee.getRequiredDescriptors(lang?: string, ns?: NsFallback): CacheDescriptorInternal[]
+```
+
+Previously the method returned the descriptors that are missing in the cache, but now we are returning
+all records that are required to be in the cache, so it works the same regardless what is currently in cache.
+
+Previous behavior can be achieved by comparing the cache content with the results of this function.
+
+## 
 

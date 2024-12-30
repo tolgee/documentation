@@ -274,15 +274,16 @@ when you need to find out if tolgee has all the necessary data before `run` func
 tolgee.isLoaded(ns?: FallbackNsTranslation): boolean
 ```
 
-### getRequiredRecords
+### getRequiredDescriptors
 
-Returns records needed for instance to be `loaded`
+Returns descriptors of records needed for instance to be `loaded`
 
 ```ts
-tolgee.getRequiredRecords(): CacheDescriptor[]
+tolgee.getRequiredDescriptors(lang?: string, ns?: NsFallback): CacheDescriptorInternal[]
 ```
 
-- `ns`: `string` | `string[]` - optional list of namespaces that you are interested in
+- `lang`: `string` - optional language (if not present, takes current language)
+- `ns`: `string` | `string[]` - optional list of namespaces that you are interested in (if not present takes current active namespaces)
 
 ### isDev
 
@@ -335,12 +336,61 @@ Returns wrapped translation info.
 tolgee.unwrap(text: string): Unwrapped
 ```
 
+
+### loadRequired
+
+Load records required by current settings (influenced by current language and active namespaces).
+
+```ts
+loadRequired(options?: LoadRequiredOptions): Promise<CacheInternalRecord[]>
+```
+
+In most cases can be called without any options and will return records which would be loaded
+by `run` method initially.
+
+Options:
+ - `language`: `string` - optionally override instance language (can be used when you don't know the language at the initialization time)
+ - `noDev`: `boolean` - load production translations only - skips DevBackend (false by default)
+ - `useCache`: `boolean` - skip fetching already loaded records (false by default)
+
+### loadMatrix
+
+Loads all combinations of specified languages and namespaces.
+
+```ts
+loadRequired(options?: LoadRequiredOptions): Promise<CacheInternalRecord[]>
+```
+
+Example usage:
+```ts
+const result = await tolgee.loadMatrix({
+  languages: ['en', 'cs'],
+  namespaces: ['']
+})
+// loads `en` and `cs` languages for empty namespace
+
+const result = await tolgee.loadMatrix({
+  languages: ['en', 'cs'],
+  namespaces: ['common', 'info']
+})
+// loads `en:common`, `en:info`, `cs:common` and `cs:info` records
+```
+
+Options:
+ - `languages`: `string[] | 'all'` - languages that should be loaded
+    - use `all` value to load all [`availableLanguages`](./options.mdx#availablelanguages)
+ - `namespaces`: `string[] | 'all'` - namespaces that should be loaded
+    - use `all` value to load all [`availableNs`](./options.mdx#availablens)
+ - `noDev`: `boolean` - load production translations only - skips DevBackend (false by default)
+ - `useCache`: `boolean` - skip fetching already loaded records (false by default)
+
+
 ### loadRecord
 
 Manually load record from `Backend` (or `DevBackend` when in dev mode).
 
 ```ts
-tolgee.loadRecord(descriptors: CacheDescriptor): Promise<TranslationsFlat>
+tolgee.loadRecord(descriptors: CacheDescriptor, options?: LoadOptions): Promise<TranslationsFlat>
 ```
 
 ### loadRecords
@@ -348,7 +398,7 @@ tolgee.loadRecord(descriptors: CacheDescriptor): Promise<TranslationsFlat>
 Manually load multiple records from `Backend` (or `DevBackend` when in dev mode).
 
 ```ts
-tolgee.loadRecords(descriptors: CacheDescriptor[]): Promise<TranslationsFlat[]>
+tolgee.loadRecords(descriptors: CacheDescriptor[], options?: LoadOptions): Promise<TranslationsFlat[]>
 ```
 
 It loads data together and adds them to cache in one operation, to prevent partly loaded state.
