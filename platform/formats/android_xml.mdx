@@ -63,7 +63,7 @@ import JavaPlaceholders from './components/placeholderConversion/_java.mdx'
 <JavaPlaceholders />
 
 ## Exporting
-When exporting the data back to the .po file, the placeholders are converted back to the original format.
+When exporting the data back to the .xml file, the placeholders are converted back to the original format.
 
 ## Array support
 When importing data to Tolgee from the Android XML files, the array elements are converted into flat keys with
@@ -120,7 +120,7 @@ Tolgee imports this string as `Welcome <b>user</b>`. If we exported this string 
 the `user` won't be bold anymore in our app.
 
 ## Escaping
-When importing data to Tolgee unescapes escapes quote `\"`, apostrophe `\'`, backslash `\\`, new line `\n` and tab (`\t`) characters are unescaped. When exporting,
+When importing data Tolgee unescapes escaped quote `\"`, apostrophe `\'`, backslash `\\`, new line `\n` and tab (`\t`) characters. When exporting,
 these characters are escaped back. e.g. `\"` is imported as `"` etc. Other characters (e.g. escaped unicode characters like `\u0020`) are not unescaped.
 
 ## Multiple spaces and quoting
