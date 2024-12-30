@@ -102,27 +102,6 @@ listener.unsubscribe()
 
 Check [Events](./events) for details.
 
-### onNsUpdate
-
-Allows you to listen to key changes of namespaces that you pick.
-
-```ts
-tolgee.onNsUpdate(handler: ListenerHandler): ListenerSelective
-```
-
-Returns object, which allows you to subscribe to namespaces.
-
-```ts
-const listener = tolgee.onNsUpdate(...)
-// subscribes namespace
-listener.subscribeNs(ns)
-// unsubscribe completely
-listener.unsubscribe()
-```
-
-Use this when you want to make sure, you always update translation when it's necessary.
-It internally stores list of namespaces that you are interested in and calls the handler, when necessary.
-
 ### t
 
 Returns formatted translation based on current language. If `Observer` is present and tolgee is running, `wraps` the result to be identifiable in the DOM.

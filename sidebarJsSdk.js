@@ -140,6 +140,6 @@ module.exports = {
         },
       ],
     },
-    'migration-to-v6'
+    'migration_to_v6'
   ],
 };
