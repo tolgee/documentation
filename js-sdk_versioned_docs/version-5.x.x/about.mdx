@@ -1,0 +1,53 @@
+---
+id: about
+title: Overview
+slug: /
+description: 'Tolgee SDK provides the functionality of an i18n library and helps you with formatting, interpolation, or language detection. '
+---
+
+import { ScreenRecording } from '../../platform/shared/_ScreenRecording';
+
+Tolgee SDK provides the functionality of an i18n library and helps you with [formatting](./formatting), interpolation, and [language detection](./language#language-detection).
+The SDK also allows you to connect to the [Tolgee Platform](../../platform/). It enables you to implement [in-context translation](./in-context) which also helps you generate one-click screenshots and edit translations directly in your app.
+
+## In-context Translation
+
+In-context translation helps you speed up development by saving you from tedious localization tasks. Using the Tolgee SDK, you can implement in-context translation. Learn more about in-context translation and how to implement it in your local development environment in [this documentation](./in-context).
+
+<ScreenRecording>
+  <source src="/in-context.mov"></source>
+</ScreenRecording>
+
+You can also enable in-context translation in the production version of your web application. Set up the [Tolgee Tools](https://chrome.google.com/webstore/detail/tolgee-tools/hacnbapajkkfohnonhbmegojnddagfnj) to use in-context translation in production.
+
+<ScreenRecording>
+  <source src="/in-context-production.mov"></source>
+</ScreenRecording>
+
+## Automated Screenshots Generation
+
+To help translators understand the exact context of the translation, you can now add screenshots. Generate one-click screenshots with in-context translation or the [Tolgee Tools](https://chrome.google.com/webstore/detail/tolgee-tools/hacnbapajkkfohnonhbmegojnddagfnj) extension.
+
+<ScreenRecording>
+  <source src="/in-context-screenshot.mov"></source>
+</ScreenRecording>
+
+## Automatic Context Collection
+
+The SDK automatically collects additional context about the layout of the keys on the page. This context allows the Tolgee Translator to provide you with better results, utilizing ChatGPT under the hood.
+
+### What data are collected and when?
+
+Every time you save a translation through the in-context translation dialog box, the SDK sends a list of keys currently present on the page to the Tolgee platform. The platform then tracks the relationships between the keys based on thier order of appreance across different pages.
+
+### Is this safe, and what about data leaks?
+
+We only collect information about the order of the translations, which are already present on the platform. This order information helps the model better understand their relationships. We do not collect any additional information from your page.
+
+## Review translations
+
+Your team can review the translations directly in your app, make any necessary changes, and mark these translations as reviewed. This helps you set up a workflow for translation, speeding up the process and resulting in faster development.
+
+<ScreenRecording>
+  <source src="/in-context-review.mov"></source>
+</ScreenRecording>

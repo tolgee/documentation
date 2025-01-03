@@ -1,0 +1,35 @@
+---
+id: html_tags
+title: Strings with HTML Tags
+sidebar_label: Strings with HTML Tags
+description: "Tolgee enables you to implement localization in your Angular application with ease. You can integrate Tolgee in your Angular application using Tolgee's integration library for Angular. Learn how to render i18n strings with HTML tags in Angular."
+---
+
+You can render HTML tags in translations using the [`t` attribute](./translating#t-attribute) or the [`translate` pipe](./translating#translate-pipe).
+
+To render a translation containing HTML tags using pipe, you must set the translated value via the `innerHTML` attribute of the wrapping component.
+
+Consider a translation for the key `hello_peter` with the English value `Hello <b>Peter</b>!`
+
+You can render it using the `translate` pipe as follows:
+```html
+<div [innerHTML]="'hello_peter' | translate"></div>
+```
+
+To render a translation containing HTML tags using the `t` attribute, you must set the translated value via the `innerHTML` attribute of the wrapping component.
+
+```html
+<div t key="hello_peter" [isHtml]="true"></div>
+```
+
+## Security
+
+Tolgee sanitizes HTML tags in translations. It removes all HTML tags and attributes that are not allowed.
+
+The HTML is automatically sanitized for both `t` component and `translate` pipe. However, if you don't expect HTML strings in your code, avoid passing the strings using innerHtml.
+
+```html
+<b onmouseover=alert('XSS testing!')>Hello Peter!</b>
+```
+
+The above code is sanitized to: `<b>Hello Peter!</b>`

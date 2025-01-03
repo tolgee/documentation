@@ -1,0 +1,37 @@
+---
+id: translating
+title: Translating
+description: 'Tolgee translating with vanilla JS.'
+---
+
+Use [`tolgee.t`](../../api/core_package/tolgee.mdx#t) method to translate keys.
+
+```ts
+domElement.textContent = tolgee.t('key', 'Default value');
+```
+
+However this will not update translation in case you change language or update translation through in-context.
+
+### Listening for changes
+
+:::info
+If you use Tolgee with any supported framework, this is solved for you automatically.
+:::
+
+You can [listen](../../api/core_package/tolgee.mdx#on) for translation change with `update` event.
+
+```ts
+tolgee.on('update', () => {
+  domElement.textContent = tolgee.t('key', 'Default value');
+});
+```
+
+This event gets triggered when any translation need to be updated, so it might be inefficient if you use many namespaces. Therefore there is also [`onNsUpdate`](../../api/core_package/tolgee.mdx#onnsupdate) method, which allows you to subscribe only to selected namespaces.
+
+```ts
+tolgee
+  .onNsUpdate(() => {
+    domElement.textContent = tolgee.t('key', 'Default value');
+  })
+  .subscribeNs('my_namespace');
+```

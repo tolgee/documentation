@@ -11,7 +11,7 @@ Tolgee events which can be listened through `tolgee.on` method.
 Emitted on language change.
 
 ```ts
-tolgee.on('language', handler: ListenerHandler<string>)
+tolgee.on('language', handler: Handler<LanguageEvent>)
 ```
 
 ### pendingLanguage
@@ -19,7 +19,7 @@ tolgee.on('language', handler: ListenerHandler<string>)
 Emitted on language change. Before languages are loaded (when tolgee is running).
 
 ```ts
-tolgee.on('pendingLanguage', handler: ListenerHandler<string>)
+tolgee.on('pendingLanguage', handler: Handler<PendingLanguageEvent>)
 ```
 
 ### loading
@@ -27,7 +27,7 @@ tolgee.on('pendingLanguage', handler: ListenerHandler<string>)
 Emitted on loading change. Changes when tolgee is loading some data for the first time.
 
 ```ts
-tolgee.on('loading', handler: ListenerHandler<boolean>)
+tolgee.on('loading', handler: Handler<LoadingEvent>)
 ```
 
 ### fetching
@@ -35,7 +35,7 @@ tolgee.on('loading', handler: ListenerHandler<boolean>)
 Emitted on fetching change. Changes when tolgee is fetching any data.
 
 ```ts
-tolgee.on('fetching', handler: ListenerHandler<boolean>)
+tolgee.on('fetching', handler: Handler<FetchingEvent>)
 ```
 
 ### initialLoad
@@ -43,7 +43,7 @@ tolgee.on('fetching', handler: ListenerHandler<boolean>)
 Emitted when `run` method finishes.
 
 ```ts
-tolgee.on('initialLoad', handler: ListenerHandler<void>)
+tolgee.on('initialLoad', handler: Handler<InitialLoadEvent>)
 ```
 
 ### running
@@ -51,7 +51,7 @@ tolgee.on('initialLoad', handler: ListenerHandler<void>)
 Emitted when internal `running` state changes.
 
 ```ts
-tolgee.on('initialLoad', handler: ListenerHandler<boolean>)
+tolgee.on('running', handler: Handler<RunningEvent>)
 ```
 
 ### cache
@@ -59,16 +59,23 @@ tolgee.on('initialLoad', handler: ListenerHandler<boolean>)
 Emitted when cache changes.
 
 ```ts
-tolgee.on('cache', handler: ListenerHandler<CacheDescriptorWithKey>)
+tolgee.on('cache', handler: Handler<CacheEvent>)
 ```
 
 ### update
 
-Emitted when any key needs (or might need) to be re-rendered. Similar to `tolgee.onNsUpdate`,
-except we intercept all events, not just selection.
+Emitted when any key needs (or might need) to be re-rendered. It's derrived from other events
+(`initialLoad`, `language`, `cache`), the events are grouped when multiple happen at the same time,
+so it only results to one `update` event being emitted.
 
 ```ts
-tolgee.on('update', handler: ListenerHandler<void>)
+tolgee.on('update', handler: CombinedHandler<UpdateEvent>)
+```
+
+You can check what events triggered this change event from the first argument of the handler.
+
+```ts
+tolgee.on('update', (events) => events.forEach(e => ...))
 ```
 
 ### error
@@ -79,6 +86,6 @@ Emitted when there is an error. You can intercept different types of errors, con
  - `LanguageStorageError` - error when loading/saving language through language storage plugin
 
 ```ts
-tolgee.on('error', handler: ListenerHandler<TolgeeError>)
+tolgee.on('error', handler: Handler<ErrorEvent>)
 ```
 

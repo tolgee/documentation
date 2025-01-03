@@ -43,7 +43,7 @@ const language = ?;
 ...
 
 <template>
-  <TolgeeProvider :language="language" :static-data="staticData" ...>
+  <TolgeeProvider :ssr="{ staticData, language: 'en' }" ...>
     ...
   </TolgeeProvider>
 </template>
@@ -65,7 +65,7 @@ const staticData = ?;
 ...
 
 <template>
-  <TolgeeProvider :language="language" :static-data="staticData" ...>
+  <TolgeeProvider :ssr="{ staticData, language: 'en' }" ...>
     ...
   </TolgeeProvider>
 </template>

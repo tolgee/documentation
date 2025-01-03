@@ -1,0 +1,43 @@
+---
+id: ssr
+title: SSR support
+sidebar_label: SSR support
+---
+
+Since version `SDK v5.30.0`, TolgeeProvider has `ssr` property, where you can pass `language` and optionally `staticData`. TolgeeProvider will then ensure, that tolgee instance is switched to this language for the first render immediately and loads static data directly into cache. Everything is then prepared for SSR rendering.
+
+Loading correct locale and static data is a operation that needs to be performed on the server and it's implementation depends on used framework.
+
+```jsx
+const tolgee = Tolgee()
+  .use(DevTools())
+  .use(FormatSimple())
+  // replace with .use(FormatIcu()) for rendering plurals, foramatted numbers, etc.
+  .init({
+    defaultLanguage: 'en',
+  })
+
+const App = () => {
+  // this needs to work on server
+  const language = ?
+  const staticData = ?
+
+  return (
+    <TolgeeProvider
+      tolgee={tolgee}
+      ssr={{
+        language,
+        staticData
+      }}
+    >
+      ...
+    </TolgeeProvider>
+  )
+}
+```
+
+## Language changing
+
+When we use SSR, we have to specify language in a way that is detectable by both client and server. There are basically two ways - either use cookie or include locale information directly in the url.
+
+Then for language change we use the native way of the framework.

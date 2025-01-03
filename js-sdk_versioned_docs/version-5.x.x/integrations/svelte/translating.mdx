@@ -1,0 +1,63 @@
+---
+id: translating
+title: Translating
+sidebar_label: Translating
+description: "Learn to implement translations in Svelte using Tolgee. Guide covers the getTranslate function and T component, with examples for basic usage and advanced features like namespaces and parameter interpolation."
+---
+
+import TFunctionHint from '../../shared/_TFunctionHint.mdx';
+import NamespacesHint from '../../shared/_NamespacesHint.mdx';
+import ExampleBanner from '../../shared/ExampleBanner';
+
+You can implement translation in your Svelte application in the following ways.
+
+- Using the [`getTranslate` function](#gettranslate-function)
+- Using the [`T` component](#the-t-component)
+
+## `getTranslate` function
+
+The [`getTranslate` function](./api#function-gettranslate) provides a `t` function. This `t` function should be used to render the respective translation.
+
+The below code demonstrates the implemention of the `getTranslate` and the `t` function.
+
+```svelte
+<script>
+  import { getTranslate } from "@tolgee/svelte";
+
+  // t is store
+  const { t } = getTranslate();
+</script>
+
+<!-- use the translation function -->
+{$t('key', 'Default value')}
+```
+
+<TFunctionHint />
+
+### Using namespaces
+
+Moreover, you can load namespaces with the `getTranslate` function.
+
+```ts
+const { t, isLoading } = getTranslate('common');
+```
+
+<NamespacesHint />
+
+## The `T` component
+
+You can also use the [`T` component](./api#t-component) for translation. It has an API similar to the `t` function mentioned above.
+
+```svelte
+<script>
+  import { T } from "@tolgee/svelte";
+</script>
+
+<T
+  keyName="translation_key"
+  defaultValue="User has {count} points"
+  params={{ count: 10 }}
+/>
+```
+
+<ExampleBanner framework="Svelte" />

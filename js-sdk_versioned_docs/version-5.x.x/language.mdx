@@ -1,0 +1,52 @@
+---
+id: language
+title: Language
+description: 'Language of the application UI with Tolgee. To change language use changeLanguage method.'
+---
+
+To change language use [`changeLanguage`](./api/core_package/tolgee.mdx#changelanguage) method.
+
+```ts
+await tolgee.changeLanguage('es');
+```
+
+## Getting current language
+
+When Tolgee is running, this will first change `pendingLanguage` property, loads required translation file(s) (when they are not already in the cache) and then changes `language` property.
+
+Use [`getLanguage`](./api/core_package/tolgee.mdx#getlanguage) or [`getPendingLanguage`](./api/core_package/tolgee.mdx#getpendinglanguage) methods to read current state.
+
+You can also listen to `language` and `pendingLanguage` [events](./api/core_package/events).
+
+> When Tolgee is not running, `changeLanguage` won't fetch translations, it only changes the internal state
+
+## Language detection
+
+Tolgee includes [`LanguageDetector`](./api/web_package/plugins#languagedetector) plugin, which tries to detect language from browser `window.navigator.language` property. 
+
+If you use language detector Tolgee needs to know available languages which you can provide with `availableLanguages` property or if you provide `staticData` it will be taken from there. You also have to provide `defaultLanguage` property, so Tolgee knows which language should be picked if detection fails.
+
+```ts
+const tolgee = Tolgee()
+  .use(LanguageDetector())
+  .init({
+    availableLanguages: ['en', 'cs', 'es', 'fr'],
+    defaultLanguage: 'en'
+  })
+```
+
+## Language storage
+
+Once user selects his language Tolgee can remember it for the next time. Use [`LanguageStorage`](./api/web_package/plugins#languagestorage) plugin, for storing language settings in the browser local storage.
+
+Tolgee checks if the stored language is valid and because of that you need to specify `availableLanguages` or define language data through `staticData`.
+
+```ts
+const tolgee = Tolgee()
+  .use(LanguageStorage())
+  .init({
+    availableLanguages: ['en', 'cs', 'es', 'fr'],
+  })
+```
+
+> Read more about [Tolgee Plugins](./plugins.mdx).
