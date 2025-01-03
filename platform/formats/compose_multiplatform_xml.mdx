@@ -1,0 +1,123 @@
+---
+id: compose_multiplatform_xml
+title: Compose Multiplatform Resources XML
+sidebar_label: Compose Multiplatform Resources XML
+---
+
+Compose Multiplatform Resources XML files (usually found in
+`composeResources/values/{languageCode}.xml`) can be used to store localization (i18n) data.
+It is similar to Android Resources XML files but has some specific differences
+in escaping and placeholder handling. It supports plurals and arrays.
+To read more about using resources in your Compose Multiplatform application in general,
+read the [official Compose Multiplatform documentation](https://www.jetbrains.com/help/kotlin-multiplatform-dev/compose-multiplatform-resources.html#set-up-a-project-with-multiplatform-resources).
+
+## Example
+```xml
+<resources>
+    <string name="user_settings_password_label">
+      Password
+    </string>
+    <plurals name="dogs_count">
+        <item quantity="one">%1$d dog</item>
+        <item quantity="other">%1$d dogs</item>
+    </plurals>
+    <string-array name="string_array">
+        <item>First item</item>
+        <item>Second item</item>
+    </string-array>
+</resources>
+```
+
+## File structure
+The Compose Multiplatform Resources XML file is an XML-based file.
+When used for storing translations, it can contain these elements:
+
+[//]: # (@formatter:off)
+- **resources**
+    - the root element of the file.
+- **string**
+    - a simple string value.
+- **plurals**
+    - a string that has different forms based on the quantity
+    - attributes:
+        - **quantity**: the plural keyword
+
+          Possible keywords: `zero`, `one`, `two`, `few`, `many`, `other`.
+
+          Get the full list of the keywords for each language [here](https://www.unicode.org/cldr/charts/44/supplemental/language_plural_rules.html).
+[//]: # (@formatter:on)
+
+## The MessageFormat and placeholder conversion
+When importing data to Tolgee from the Compose Multiplatform XML files, you can turn the
+conversion to the Tolgee Universal ICU placeholders on or off. The conversion is enabled by default. You can also turn off the
+conversion globally in project settings by disabling the `Use Tolgee Universal ICU placeholders` option. We recommend
+keeping the conversion enabled, as it brings many benefits.
+[Read more about the benefits of Tolgee Universal ICU placeholders](/platform/translation_process/tolgee_universal_icu_placeholders).
+
+When the conversion is disabled, the original placeholders like `%1$s`, `%1$d` etc. are preserved.
+
+### Placeholder conversion specification
+
+import JavaPlaceholders from './components/placeholderConversion/_java.mdx'
+
+<JavaPlaceholders />
+
+## Exporting
+When exporting the data back to the .xml file, the placeholders are converted back to the original format.
+
+## Array support
+When importing data to Tolgee from the Compose Multiplatform XML files, the array elements are converted into flat keys with
+`arrayName[index]` format.
+
+For example, the following XML:
+```xml
+<resources>
+ <string-array name="string_array">
+        <item>First item</item>
+        <item>Second item</item>
+ </string-array>
+</resources>
+```
+
+will be imported to Tolgee as
+
+```json
+{
+  "string_array[0]": "First item",
+  "string_array[1]": "Second item"
+}
+```
+
+and vice versa when exporting from Tolgee to the Compose Multiplatform Resources XML file.
+
+Since the `[` and `]` characters are not allowed in the key names in the Compose Multiplatform Resources XML files,
+there should be no conflicts if you use the Tolgee project only for the Compose Multiplatform app. Otherwise, remember that keys named
+with the described syntax are converted to arrays.
+
+## Strings wrapped with CDATA
+When Tolgee imports the Compose Multiplatform Resources XML file, it extracts the strings from the CDATA sections. e.g.
+`<string><![CDATA[Hello]]></string>` is imported as `Hello`. Keys with imported translations with CDATA-wrapped values
+are marked with `_androidWrapWithCdata` [custom value](/platform/translation_keys/custom_values) (this is for legacy reasons as the Android format was
+the first to introduce the CDATA wrapping). When exporting, keys marked with `_androidWrapWithCdata` are wrapped with CDATA.
+
+Tolgee does this because its primary goal is to enable users to use the same translation data on multiple platforms
+(e.g., Web, Android, Apple). So we have to strip all the additional syntax, which is removed by the XML Resources parser.
+
+However, when Tolgee removes this syntax, without the `androidWrapWithCdata` custom value, it wouldn't be able to build
+the Resources XML resource file without possibly breaking the App.
+
+## Escaping
+When importing data Tolgee unescapes escaped backslash `\\`, new line `\n` and tab (`\t`) characters. When exporting,
+these characters are escaped back. e.g. `\\` is imported as `\` etc. Other characters (e.g. escaped unicode characters like `\u0020`) are not unescaped.
+
+## Importing keys with tags
+Unless the string is wrapped with CDATA, all tags are removed when importing data to Tolgee to match
+the functionality of the default `stringResource` function.
+
+## Tags and Placeholders
+When the value contains XML tags and placeholders at the same time, it's always wrapped with CDATA when exported.
+
+
+import Importing from './components/_general_importing.mdx';
+
+<Importing />
