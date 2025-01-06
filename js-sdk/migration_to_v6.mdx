@@ -6,12 +6,12 @@ next.js'
 ---
 
 In v6 we introduced a few minor breaking changes, which were mostly necessary for better support of
-next.js (and server side rendering in general).
+next.js (and server-side rendering in general).
 
 ## Updates to cache
 
-Cache no longer returns records as maps.
-All methods interacting with cache are now returning plain objects instead of `Map`.
+The cache no longer returns records as maps.
+All methods interacting with the cache are now returning plain objects instead of `Map`.
 
 ```ts
 tolgee.loadRecords(): Promise<CacheInternalRecord[]>
@@ -32,15 +32,15 @@ type CacheInternalRecord = {
 
 ## Updated `getRequiredRecords`
 
-This function was renamed to `getRequiredDescriptors`, because it's not returning data from cache,
-but description (descriptors) of what need to be in cache. Previous name was confusing.
+This function was renamed to `getRequiredDescriptors`, because it's not returning data from the cache,
+but description (descriptors) of what needs to be in cache. The previous name was confusing.
 
 ```ts
 tolgee.getRequiredDescriptors(lang?: string, ns?: NsFallback): CacheDescriptorInternal[]
 ```
 
-Previously the method returned the descriptors that are missing in the cache, but now we are returning
-all records that are required to be in the cache, so it works the same regardless what is currently in cache.
+Previously the method returned the descriptors that were missing in the cache, but now we are returning
+all the missing records regardless of what is currently in the cache.
 
 Previous behavior can be achieved by comparing the cache content with the results of this function.
 
@@ -62,14 +62,14 @@ You can replace that with `update` event.
 tolgee.on('update', ...)
 ```
 
-If you want to only react to certain namespaces, the event handler recieves an array of events which
-led to invocation of `update` event (`update` is derrived from other events).
+If you only want to react to certain namespaces, the event handler receives an array of events which
+led to the invocation of `update` event (`update` is derived from other events).
 
 ```ts
 tolgee.on('update', (events) => {
   if (events.every(e => (e.type !== 'cache' || e.value.namespace === 'namespace'))) {
     handler()
-  }
+ }
 })
 ```
 
@@ -90,7 +90,7 @@ New:
 
 ## Vue
 
-`TolgeeProvider` ssr interface is now same as the react one.
+`TolgeeProvider` ssr interface is now the same as the react one.
 
 Old:
 ```html
