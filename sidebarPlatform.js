@@ -69,6 +69,7 @@ module.exports = {
         'formats/apple_strings',
         'formats/apple_xliff',
         'formats/android_xml',
+        'formats/compose_multiplatform_xml',
         'formats/flutter_arb',
         'formats/ruby_yaml',
         'formats/i18next_json',
