@@ -1,16 +1,17 @@
 ---
 id: fetching_translations
 title: Fetching translations
+description: Learn how to use the Tolgee SDK to fetch translation files, prefetch data for server-side rendering, and manage caching strategies effectively.
 ---
 
 :::info
 New in SDK version 6
 :::
 
-Tolgee SDK can be used to simply load correct translation files from tolgee platform or from static data.
-This is primarly useful on the server, when you need to prefetch data and pass them to frontend as a JSON.
+Tolgee SDK can be used to load correct translation files simply from the Tolgee platform or static data.
+This is primarily useful on the server when you need to prefetch data and pass them to frontend as a JSON.
 
-These methods also load the data to cache, so you can then call `t` function to render the translations.
+These methods also load the data to the cache, so you can then call `t` function to render the translations.
 
 ## loadRequired
 
@@ -31,7 +32,7 @@ tolgee.addStaticData(translations)
 
 ## loadMatrix
 
-Use this method for easy prefetching of user defined records.
+Use this method for easy prefetching of user-defined records.
 
 ```ts
 const translations = await tolgee.loadMatrix({
@@ -41,7 +42,7 @@ const translations = await tolgee.loadMatrix({
 // loads `en:common`, `en:info`, `cs:common` and `cs:info` records
 ```
 
-Let's say we want to load all namespaces on the server so we can render them without loading later.
+Let's say we want to load all namespaces on the server so we can render them without loading them later.
 
 ```ts
 await tolgee.loadMatrix({
@@ -49,7 +50,7 @@ await tolgee.loadMatrix({
     namespaces: 'all'
 })
 
-// now all namespaces are now prefetched for english
+// now all namespaces are now prefetched for English
 
 t('app_title', { ns: 'info' })
 ```
@@ -62,6 +63,6 @@ For this to work, you need to specify [`availableNs`](./api/core_package/options
 
 By default these methods always re-fetch the data when called (requests are only de-duped).
 
-If you want to re-use already fetched data from cache, you can pass option `{ useCache: true }`.
-However on the server this is not recommended, since if the tolgee instance would live, the data would't be renewed.
-Instead we recommend external caching solution (for example next.js caching).
+If you want to re-use already fetched data from the cache, you can pass option `{ useCache: true }`.
+However, on the server, this is not recommended, because until the tolgee instance is live, the data wouldn't be renewed.
+Instead, we recommend an external caching solution (for example next.js caching).
