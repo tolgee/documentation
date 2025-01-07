@@ -34,7 +34,7 @@ A .NET RESX file is an XML file with the following structure:
 ## Placeholders
 RESX files support placeholders for dynamic content. These placeholders are indexed using curly braces, e.g., `{0}`, `{1}`.
 Since RESX placeholders are a subset of ICU, Tolgee imports RESX files assuming full ICU support.
-We recommend using a [library](https://www.nuget.org/packages/icu.net) that enables ICU placeholders in your .NET app to fully leverage this feature.
+For more complex message formatting, we recommend using a [library](https://www.nuget.org/packages/icu.net) to fully leverage ICU formatting features in your .NET app.
 See [ICU Message Format](/platform/translation_process/icu_message_format) documentation for more info
 about its capabilities.
 
