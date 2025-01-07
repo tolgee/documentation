@@ -1,7 +1,7 @@
 ---
 slug: sdk-v6
-title: 'Tolgee SDK Version 6 released! 🎉🎉'
-description: "Supercharge your localization with Tolgee SDK V6! 🚀 Simplified Next.js integration, smarter translation fetching, and minimal breaking changes for a seamless transition! 🌐"
+title: 'Tolgee SDK Version 6 released!'
+description: "Supercharge your localization with Tolgee SDK V6! Simplified Next.js integration, smarter translation fetching, and minimal breaking changes for a seamless transition!"
 image: /img/blog/sdk-v6/SDK6-light.webp
 authors: [sgranat]
 tags: ['tolgee', 'sdk', 'release']
@@ -22,7 +22,7 @@ import useBaseUrl from '@docusaurus/useBaseUrl';
   }}
 />
 
-With Tolgee SDK Version 6, fetching translations for your Next.js applications is easier than ever. 🚀 You can prefetch translation data on the server and seamlessly pass it to the client, ensuring smooth and efficient localization. ✅
+With Tolgee SDK Version 6, fetching translations for your Next.js applications is easier than ever. You can prefetch translation data on the server and seamlessly pass it to the client, ensuring smooth and efficient localization.
 
 <!-- truncate-->
 
@@ -38,9 +38,10 @@ const translations = JSON.stringify(await tolgee.loadRequired());
 tolgee.addStaticData(JSON.parse(translations));
 ```
 
-This approach ensures the client has the translations ready without additional requests. 🔄✨
+This approach ensures the client has the translations ready without additional requests.
+Check the [next.js integration guide](/js-sdk/integrations/react/next/app-router) to see how it's used.
 
-### Advanced Prefetching with `loadMatrix` 🌟
+### Advanced Prefetching with `loadMatrix`
 
 For greater control, use `loadMatrix` to prefetch specific languages and namespaces.
 
@@ -62,9 +63,9 @@ await tolgee.loadMatrix({
 t('app_title', { ns: 'info' });
 ```
 
-These tools make it simple to fetch and render translations, streamlining the localization process for server-rendered and server components. ✨🎯
+These tools make it simple to fetch and render translations, streamlining the localization process for server-rendered and server components.
 
-## Breaking changes ⚠️
+## Breaking changes
 
 Version 6 is just a mild update, so breaking changes are minimal.
 
