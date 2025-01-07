@@ -141,8 +141,21 @@ const tolgee = Tolgee()
 
 `fallbackOnFail` option will tell Tolgee to look for data in the next source, so it will fetch your local data. **Order of plugins is important here, they are used in the same order as they were added.**
 
-:::info Plugins are used in the same order as they were added.
+### Fallback logic
+
+Plugins are used in the same order as they were added.
 Tolgee first checks if data aren't already in cache (data passed directly to `staticData`) then all the plugins and then dynamic data from `staticData` field.
+
+:::warning Don't pass data directly
+Passing data directly (e.g. `en: enObject`), results in data being used as a first option - without further attempts to load data.
+
+If you want to use static object as a last fallback, return it in async function (like dynamic data):
+```ts
+staticData: {
+  en: async () => enObject
+  ...
+}
+```
 :::
 
 You can also set a timeout, to only wait certain time for the data from CDN.
