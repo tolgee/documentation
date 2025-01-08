@@ -1,0 +1,43 @@
+---
+id: dotnet_resx
+title: .NET RESX
+sidebar_label: .NET RESX
+---
+
+.NET RESX files are commonly used for localizing .NET applications. These XML-based files store key-value pairs for strings,
+making them a standard choice for managing translations in .NET projects.
+Learn more about .NET localization in the [official Microsoft documentation](https://learn.microsoft.com/en-us/dotnet/core/extensions/localization).
+
+## Example
+```xml
+<root>
+  <data name="welcome_message" xml:space="preserve">
+    <value>Welcome to our app!</value>
+  </data>
+  <data name="user_count_message" xml:space="preserve">
+    <value>There are {0} users online.</value>
+  </data>
+  <data name="weekdays" xml:space="preserve">
+    <value>Sunday, Monday, Tuesday, Wednesday, Thursday, Friday, Saturday</value>
+  </data>
+</root>
+```
+
+## File structure
+A .NET RESX file is an XML file with the following structure:
+
+- **root**: The main container element for all translations.
+- **data**: Each `data` element represents a translation key-value pair.
+  - **name**: The unique identifier for the string.
+  - **value**: The actual translation string.
+
+## Placeholders
+RESX files support placeholders for dynamic content. These placeholders are indexed using curly braces, e.g., `{0}`, `{1}`.
+Since RESX placeholders are a subset of ICU, Tolgee imports RESX files assuming full ICU support.
+For more complex message formatting, we recommend using a [library](https://www.nuget.org/packages/icu.net) to fully leverage ICU formatting features in your .NET app.
+See [ICU Message Format](/platform/translation_process/icu_message_format) documentation for more info
+about its capabilities.
+
+import Importing from './components/_general_importing.mdx';
+
+<Importing />

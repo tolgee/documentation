@@ -73,6 +73,7 @@ module.exports = {
         'formats/flutter_arb',
         'formats/ruby_yaml',
         'formats/i18next_json',
+        'formats/dotnet_resx',
       ],
     },
     {
