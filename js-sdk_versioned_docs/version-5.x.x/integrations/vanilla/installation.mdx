@@ -1,0 +1,58 @@
+---
+id: installation
+title: Installation
+description: 'Explore multiple ways how to install Tolgee: with supported integrations, using dev tools without bundler and more.'
+---
+
+If you use vanilla javascript or an unsupported framework, use [`@tolgee/web`](../../api/web_package/about) package.
+
+import { InstallationTabs } from '../../../../src/component/InstallationTabs';
+
+<InstallationTabs lib="@tolgee/web" />
+
+```ts
+import { Tolgee } from '@tolgee/web';
+```
+
+### With script tag
+
+```jsx
+<script src="https://cdn.jsdelivr.net/npm/@tolgee/web/dist/tolgee-web.production.umd.min.js"></script>
+```
+
+```ts
+const { Tolgee } = window['@tolgee/web'];
+```
+
+### With native es import
+
+```ts
+import { Tolgee } from 'https://cdn.jsdelivr.net/npm/@tolgee/web/dist/tolgee-web.production.esm.min.mjs'
+```
+
+## In-context (DevTools)
+
+To use In-context in development mode, you can simply use [`DevTools`](../../api/web_package/plugins#devtools) from `@tolgee/web`
+
+```ts
+import { Tolgee, DevTools } from '@tolgee/web';
+
+const tolgee = Tolgee().use(DevTools()).init(...)
+```
+
+If you use any standard FE setup with a bundler, `DevTools` will be automatically excluded in production (based on `process.env.NODE_ENV`). If you want the in-context to be always available, use [`InContextTools`](/api/web_package/tools.mdx#incontexttools) instead of `DevTools`- it is the same plugin, the only difference is that `DevTools` are exported conditionally.
+
+## Using dev tools without bundler
+
+You can use separately bundled `in-context-tools` however, you'll have to make sure you won't include it in production.
+
+```jsx
+<script src="https://cdn.jsdelivr.net/npm/@tolgee/web/dist/tolgee-in-context-tools.umd.min.js"></script>;
+const { InContextTools } = window['@tolgee/in-context-tools'];
+
+// or
+
+import { InContextTools } from 'https://cdn.jsdelivr.net/npm/@tolgee/web/dist/tolgee-in-context-tools.esm.min.mjs';
+```
+
+Check the [complete list](https://cdn.jsdelivr.net/npm/@tolgee/web/dist/) of bundles.

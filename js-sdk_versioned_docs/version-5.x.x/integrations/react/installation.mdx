@@ -1,0 +1,94 @@
+---
+id: installation
+title: Installation
+sidebar_label: Installation
+description: "Tolgee enables you to implement localization in your React application with ease. You can integrate Tolgee in your React application using Tolgee's SDK for React. To use this SDK, start by installing Tolgee for React."
+---
+
+To use Tolgee in your React application, you need to follow these steps:
+
+1. [Install the Tolgee SDK](#install-the-tolgee-sdk)
+2. [Configure the Tolgee API](#configure-the-tolgee-api)
+3. [Add the Tolgee Provider](#add-the-tolgee-provider)
+
+## Install the Tolgee SDK
+
+To install Tolgee's React integration SDK, execute the following command:
+
+import { InstallationTabs } from '../../../../src/component/InstallationTabs';
+
+<InstallationTabs lib="@tolgee/react" />
+
+## Configure the Tolgee API
+
+Once the SDK is installed, you need to initialize it. For the initialization, you need the Tolgee API URL, and the Tolgee API Key. To generate the API Key, follow the step-by-step instructions mentioned on the [API keys and PAT tokens page](../../../../../platform/account_settings/api_keys_and_pat_tokens).
+
+:::danger
+Make sure you don't leak your API key. If the API key is leaked, visitors can edit the translations on your site.
+:::
+
+After generating the API key, add these credentials in your `.env` file. Your `.env` should look like this:
+
+```env
+VITE_APP_TOLGEE_API_URL=https://app.tolgee.io
+VITE_APP_TOLGEE_API_KEY=tgpak_gfpwiojtnrztqmtbna3dczjxny2ha3dmnu4tk4tnnjvgc
+```
+
+:::note
+If you are using a React-based framework like Next.js, make sure you paste these credentials in the correct file.
+:::
+
+## Add the Tolgee Provider
+
+Next, use the above credentials to initialize Tolgee in your React application. You can use Tolgee across your React application by using the [`TolgeeProvider`](./api#tolgeeprovider).
+
+Wrap your `App` component within the TolgeeProvider, as show in the code below.
+
+```tsx
+import { Tolgee, DevTools, TolgeeProvider, FormatSimple } from "@tolgee/react";
+
+const tolgee = Tolgee()
+  .use(DevTools())
+  .use(FormatSimple())
+  // replace with .use(FormatIcu()) for rendering plurals, foramatted numbers, etc.
+  .init({
+    language: 'en',
+
+    // for development
+    apiUrl: process.env.VITE_APP_TOLGEE_API_URL,
+    apiKey: process.env.VITE_APP_TOLGEE_API_KEY,
+
+    // for production
+    staticData: {
+      ...
+    }
+  });
+
+...
+
+<TolgeeProvider
+  tolgee={tolgee}
+  fallback="Loading..." // loading fallback
+>
+  <App/>
+</TolgeeProvider>
+```
+
+The above code does the following:
+
+- Imports the required classes, plugins and the TolgeeProvider from the SDK.
+- Creates a new instance of Tolgee, configures it to use the [DevTools](../../api/web_package/plugins#devtools) and [FormatSimple](../../api/core_package/format-simple) plugins, and initializes it using the credentials.
+- Passes the instance to the TolgeeProvider and sets a fallback.
+- Uses TolgeeProvider to wrap the component.
+
+> You can configure more options and plugins during initialization. Learn about these other [options](../../api/core_package/options) and [Tolgee plugins](../../plugins) in their respective documentation.
+
+## Prepare for production
+
+import PreparingForProduction from '../../shared/_PreparingForProduction.mdx';
+
+<PreparingForProduction />
+
+import ExampleBanner from '../../shared/ExampleBanner';
+
+<ExampleBanner framework="React" />

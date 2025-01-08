@@ -1,0 +1,187 @@
+---
+id: api
+title: API
+sidebar_label: API
+description: "Tolgee enables you to implement localization in your Angular application with ease. You can integrate Tolgee in your Angular application using Tolgee's integration library for Angular. Learn about NgxTolgeeModule, TranslateService, T-component, and other APIs."
+---
+
+The `@tolgee/ngx` library exports the following components and all available components from [`@tolgee/web`](/api/web_package/about.mdx).
+
+## NgxTolgeeModule
+
+This is Tolgee Module. The module exports [`TranslatePipe`] and [`TComponent`]. To use Tolgee in your Angular application, you must import the `NgxTolgeeModule` in your application module.
+
+Example usage:
+
+```ts
+@NgModule({
+ imports: [
+    NgxTolgeeModule,
+    ...
+  ],
+  providers: [
+    {
+      provide: TOLGEE_INSTANCE,
+      ...
+    },
+  ],
+  ...
+})
+```
+
+## TOLGEE_INSTANCE
+
+The injection token to provide [Tolgee instance](/api/core_package/tolgee.mdx).
+
+```ts
+@NgModule({
+ imports: [
+    NgxTolgeeModule,
+    ...
+  ],
+  providers: [
+    {
+      provide: TOLGEE_INSTANCE,
+      useFactory: () => {
+        return Tolgee()
+          .use(LanguageDetector())
+          .use(FormatIcu())
+          .use(DevTools())
+          .init({
+            staticData: {
+              en: () => import('../i18n/en.json'),
+              cs: () => import('../i18n/cs.json'),
+            },
+            apiUrl: environment.tolgeeApiUrl,
+            apiKey: environment.tolgeeApiKey,
+            fallbackLanguage: 'en',
+            defaultLanguage: 'en',
+          });
+      },
+    },
+  ],
+  ...
+})
+```
+
+## TranslateService
+
+Contains methods to translate text used by other components.
+
+### property `tolgee`
+
+The [Tolgee instance](/api/core_package/tolgee.mdx).
+
+### property `language`
+
+Returns `string` containing current language.
+
+```ts
+this.translateService.language // "en"
+```
+
+### property `languageAsync`
+
+Returns `Observable<string>` emitting current language. When language is changed and loaded, the new value is emitted.
+
+### method `changeLanguage`
+
+Sets current language.
+
+```ts
+this.translateService.setLang('en');
+```
+
+### method `translate`
+
+Returns `Observable` emitting current translation for specified parameters and current language. When the current value changes due to an event (e.g. language change), the new value gets emitted.
+
+```ts
+this.subscription = this.translateService
+  .translate('this_is_a_key_with_params', { key: 'value' }, 'Default value')
+  .subscribe((val) => (this.translated = val));
+```
+
+This method accepts the same arguments as [`Tolgee.t`](/api/core_package/tolgee.mdx#t) method.
+
+```ts
+translate(key: string, defaultValue?: string, options?: CombinedOptions): Observable<string>
+translate(key: string, options?: CombinedOptions): Observable<string>
+translate(props: TranslateProps): Observable<string>
+```
+
+### method `instant`
+
+Returns `string` providing current translation value depending on the current language.
+
+```ts
+const translated = this.translateService
+  .instant('this_is_a_key_with_params', { key: 'value' }, 'Default value')
+```
+
+This method accepts the same arguments as [`Tolgee.t`](/api/core_package/tolgee.mdx#t) method.
+
+```ts
+instant(key: string, defaultValue?: string, options?: CombinedOptions): string
+instant(key: string, options?: CombinedOptions): string
+instant(props: TranslateProps): string
+```
+
+#### parameter language
+
+The language to be set.
+
+returns `Promise<void>` relved when language data is loaded
+
+### method `on`
+
+Listens to Tolgee events.
+
+#### parameter `event`
+
+The event to listen to
+
+returns `Observable<?>` emitting when the event is triggered, providing [event-specific data](/api/core_package/events.mdx).
+
+Read more in [Events API](/api/core_package/events.mdx)
+
+### method start
+
+Runs the `Tolgee.run` method from the `@tolgee/core` library outside Angular's NgZone.
+
+### TComponent
+
+Component with `t` attribute selector. Replaces the content of the element with the translated value.
+
+- Input `key` - Key to translate
+- Input `ns` - The namespace of the key
+- Input `params` - Object of parameters to interpolate
+- Input `default` - Default value
+- Input `isHtml` - Whether the input should be treated as HTML.
+- Input `noWrap` - Disable wrapping
+- Input `language` - Override current Tolgee language. This way you can switch to different language for separate translation. Load the language manually with [`tolgee.loadRecord`](/api/core_package/tolgee.mdx#loadrecord).
+
+```html
+<div
+  t
+  key="this_is_a_key_with_params"
+  [params]="{key: 'value', key2: 'value2'}"
+></div>
+```
+
+### `translate` pipe
+
+Translates a key with specific parameters or default value. The transform method of `translate` pipe accepts the same arguments as the [`tolgee.t`](/api/core_package/tolgee.mdx#t) method.
+
+Example usages:
+
+```html
+{{ 'this_key_does_not_exist' | translate:'This is default'}}
+{{ 'this_is_a_key_with_params' | translate:{key: 'value', key2: 'value2'} }}
+{{ 'this_is_a_key_with_params' | translate:"Default value":{key: 'value', key2: 'value2'} }}
+{{ { key: 'this_is_a_key', defaultValue: 'Jeeey!' } | translate}}
+```
+
+## NamespaceResolver
+
+A resolver to load namespaces while loading lazy module. Set `data.tolgeeNamespace` property to set the namespace to load.

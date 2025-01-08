@@ -1,0 +1,44 @@
+---
+id: usage_without_platform
+slug: usage-without-platform
+title: Usage without platform
+description: 'Use Tolgee SDK as regular i18n library without Tolgee Platform.'
+---
+
+Tolgee SDK is designed as regular i18n library and therefore it can be used as such without integration with Tolgee Platform. If you won't include `apiUrl` and `apiKey` to the Tolgee options it will only fetch data locally.
+
+```ts
+import { Tolgee, DevTools } from '@tolgee/web';
+
+const tolgee = Tolgee()
+  .use(DevTools())
+  .use(FormatSimple())
+  .init({
+    language: 'en',
+    staticData: {
+      ...
+    }
+  });
+```
+
+> For more options check [Providing static data](./providing-static-data)
+
+### Static files structure
+
+You can manage static files manually and use DevTools for easier access to translation key. Tolgee accepts json files with either flat or nested structure:
+
+```json
+{
+  "nested.key": "Key"
+}
+```
+
+This is also accepted:
+
+```json
+{
+  "nested": {
+    "key": "Key"
+  }
+}
+```

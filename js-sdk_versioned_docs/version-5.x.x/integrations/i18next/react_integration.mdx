@@ -1,0 +1,50 @@
+---
+id: react
+title: React integration using i18next
+sidebar_label: React integration
+slug: react-integration
+description: 'Learn how to integrate Tolgee with React applications using i18next and react-i18next. This guide covers installation, setup, and best practices for internationalization in React projects.'
+---
+
+import {InstallationTabs} from "../../../../src/component/InstallationTabs";
+import ExampleBanner from '../../shared/ExampleBanner';
+
+## Overview
+
+You can integrate Tolgee with React applications using `i18next` and `react-i18next`. It is recommend to use the ICU message formatter, since the Tolgee platform natively supported it.
+
+## Installation
+
+To get started, install the necessary packages:
+
+<InstallationTabs lib="react-i18next i18next-icu" />
+
+## Setup
+
+After installation, set up your i18next instance with Tolgee and React integration:
+
+```ts
+import { withTolgee, Tolgee, I18nextPlugin, DevTools } from '@tolgee/i18next';
+import i18n from 'i18next';
+import ICU from 'i18next-icu';
+import { initReactI18next } from 'react-i18next';
+
+const tolgee = Tolgee().use(DevTools()).use(I18nextPlugin()).init({
+  apiUrl: process.env.VITE_APP_TOLGEE_API_URL,
+  apiKey: process.env.VITE_APP_TOLGEE_API_KEY,
+});
+
+withTolgee(i18n, tolgee)
+  .use(ICU)
+  .use(initReactI18next)
+  .init({
+    lng: 'en', // or use i18next language detector
+    supportedLngs: ['cs', 'en', 'fr', 'de'],
+  });
+```
+
+You can now use the features of [react-i18next](https://react.i18next.com/).
+
+Feel free to explore the example application for more advanced usage and integration patterns.
+
+<ExampleBanner framework="i18next" appName="react-i18next" />

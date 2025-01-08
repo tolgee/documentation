@@ -1,0 +1,103 @@
+---
+id: migration_to_v6
+title: Migration to v6
+description: 'In v6 we introduced a few minor breaking changes, which were mostly necessary for better support of
+next.js'
+---
+
+In v6 we introduced a few minor breaking changes, which were mostly necessary for better support of
+next.js (and server-side rendering in general).
+
+## Updates to cache
+
+The cache no longer returns records as maps.
+All methods interacting with the cache are now returning plain objects instead of `Map`.
+
+```ts
+tolgee.loadRecords(): Promise<CacheInternalRecord[]>
+tolgee.loadRecord(): Promise<CacheInternalRecord>
+tolgee.getRecord(): CacheInternalRecord
+tolgee.getAllRecords(): CacheInternalRecord[]
+```
+
+Returned cache record(s) are now unified like this:
+```ts
+type CacheInternalRecord = {
+  data: Record<string, string | undefined | null>; // replaces Map()
+  language: string;
+  namespace: string;
+  cacheKey: string;
+};
+```
+
+## Updated `getRequiredRecords`
+
+This function was renamed to `getRequiredDescriptors`, because it's not returning data from the cache,
+but description (descriptors) of what needs to be in cache. The previous name was confusing.
+
+```ts
+tolgee.getRequiredDescriptors(lang?: string, ns?: NsFallback): CacheDescriptorInternal[]
+```
+
+Previously the method returned the descriptors that were missing in the cache, but now we are returning
+all the missing records regardless of what is currently in the cache.
+
+Previous behavior can be achieved by comparing the cache content with the results of this function.
+
+## Removed obscure `onNsUpdate` subscribing
+
+Previously it was possible to subscribe to specific namespace changes like this:
+
+```ts
+const listener = tolgee.onNsUpdate(...)
+// subscribes namespace
+listener.subscribeNs(ns)
+// unsubscribe completely
+listener.unsubscribe()
+```
+
+You can replace that with `update` event.
+
+```ts
+tolgee.on('update', ...)
+```
+
+If you only want to react to certain namespaces, the event handler receives an array of events which
+led to the invocation of `update` event (`update` is derived from other events).
+
+```ts
+tolgee.on('update', (events) => {
+  if (events.every(e => (e.type !== 'cache' || e.value.namespace === 'namespace'))) {
+    handler()
+ }
+})
+```
+
+## React
+
+`TolgeeProvider` component `useSuspense` is now false by default. It didn't work well with next.js,
+so it's off by default.
+
+Old:
+```tsx
+<TolgeeProvider options={{ useSuspense: false }}>
+```
+
+New:
+```tsx
+<TolgeeProvider>
+```
+
+## Vue
+
+`TolgeeProvider` ssr interface is now the same as the react one.
+
+Old:
+```html
+<TolgeeProvider :staticData="staticData" language="en">
+```
+
+New:
+```html
+<TolgeeProvider :ssr="{ staticData, language: 'en' }">
+```

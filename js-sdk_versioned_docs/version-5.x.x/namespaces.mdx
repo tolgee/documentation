@@ -1,0 +1,48 @@
+---
+id: namespaces
+title: Namespaces
+description: 'Tolgee namespaces with vanilla JS. Namespaces are a way how to separate translations into multiple files, which can be downloaded only when needed.'
+---
+
+Tolgee namespaces are a way how to separate translations into multiple files, which can be downloaded only when needed. By default `Tolgee` uses "" (empty string) namespace. You can change this through initial [`Options`](./api/core_package/options).
+
+```ts
+const tolgee = Tolgee().init({
+  // set default namespace
+  defaultNs: 'common',
+
+  // define which namespaces should be fetched initially
+  ns: ['common', 'test'],
+});
+```
+
+## Definition through `staticData`
+
+You can tell Tolgee how to get namespaces through [`staticData`](./api/core_package/options#staticdata), ideally with async function:
+
+```ts
+const tolgee = Tolgee().init({
+  staticData: {
+    'en:common': () => import('./i18n/common/en.json'),
+    'en:test': () => import('./i18n/test/en.json'),
+  },
+});
+```
+
+You can also use plugins for loading namespaces check [Providing static data](./providing-static-data).
+
+## Active namespaces
+
+To download new namespaces dynamically you can change active namespaces with [`addActiveNs`](./api/core_package/tolgee.mdx#addactivens) method. Active namespaces are automatically fetched and also when you change the languge (when tolgee is running).
+
+```ts
+tolgee.addActiveNs('newNamespace');
+```
+
+Removing active namespace:
+
+```ts
+tolgee.removeActiveNs('newNamespace');
+```
+
+Tolgee internally rembers how many times is each namespace used and removed, so it will only remove namespace if [`removeActiveNs`](./api/core_package/tolgee.mdx#removeactivens) was called the same time as [`addActiveNs`](./api/core_package/tolgee.mdx#addactivens).

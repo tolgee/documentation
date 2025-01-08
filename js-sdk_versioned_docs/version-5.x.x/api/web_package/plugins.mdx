@@ -1,0 +1,110 @@
+---
+id: plugins
+title: Plugins
+sidebar_label: Plugins
+---
+
+## Tolgee
+
+[`TolgeeCore`](../core_package/tolgee#tolgeecore) with added [`BrowserExtensionPlugin`](./plugins#browserextensionplugin).
+
+Usage:
+
+```ts
+const tolgee = Tolgee()
+  .use(...)
+  .updateDefaults(...)
+  .init(...)
+```
+
+## `LanguageStorage`
+
+Plugin for storing current language in `localStorage`. It remembers the language if the user changed it.
+
+```ts
+tolgee.use(LanguageStorage());
+```
+
+:::info
+Don't use [`language`](https://tolgee.io/js-sdk/api/core_package/options#language) property with this plugin, as it will hard-override the languge. Instead use [`defaultLanguage`](https://tolgee.io/js-sdk/api/core_package/options#defaultlanguage).
+:::
+
+## `LanguageDetector`
+
+Plugin for language detection from the user's browser locale. It requires `staticData` or `availableLanguages` to be defined in Tolgee options, as it matches the locale with it.
+
+```ts
+tolgee.use(LanguageDetector());
+```
+
+:::info
+Don't use [`language`](https://tolgee.io/js-sdk/api/core_package/options#language) property with this plugin, as it will hard-override the languge. Instead use [`defaultLanguage`](https://tolgee.io/js-sdk/api/core_package/options#defaultlanguage).
+:::
+
+## `BackendFetch`
+
+Plugin for fetching translations JSON files.
+
+```ts
+tolgee.use(BackendFetch(options?: BackendOptions));
+```
+
+Pass `BackendOptions` to customize the behavior:
+
+### `options.prefix`
+
+Pass string to change URL prefix, use can use relative or absolute paths (Default: `/i18n`)
+
+### `options.getPath`
+
+Combines prefix, namespace and language and generates file path.
+
+```ts
+function ({ prefix, namespace, language }): string
+```
+
+Default returns `{prefix}/{namespace}/{language}.json` or `{prefix}/{language}.json` when namespace is empty.
+
+### `options.getData`
+
+Parses data from response, by default it returns `r.json()`.
+
+```ts
+function (r: Response): Promise<any>;
+```
+
+### `options.headers`
+
+Pass custom headers. Default: `{ Accept: 'application/json' }`
+
+## `DevTools`
+
+It's a combination [`ObserverPlugin`](./plugins#observerplugin), [`ContextUi`](./tools#contextui) and [`DevBackend`](./plugins#devbackend) in one plugin, intended to enable in-context capabilities. It only applies plugins if there they are not already applied.
+
+`DevTools` are automatically omitted in production builds (based on `NODE_ENV` variable).
+
+If you need include in-context tools in your production build check [`InContextTools`](/api/web_package/tools.mdx#incontexttools), which are completely equivalent to `DevTools`, only without auto-omitting logic.
+
+
+## `DevBackend`
+
+Plugin for communication with Tolgee platform uses `apiUrl`, `apiKey` (+ `projectId`) from Tolgee options.
+
+```ts
+tolgee.use(DevBackend());
+```
+
+## `ObserverPlugin`
+
+Plugin which wraps translations and observes the DOM, so it's able to locate translations on the page. Read more in [this article](/blog/2021/12/17/invisible-characters-for-better-localization).
+
+```ts
+tolgee.use(ObserverPlugin());
+```
+
+You can influence the behavior of this plugin through [`observer options`](../core_package/observer-options).
+
+
+## `BrowserExtensionPlugin`
+
+Plugin which connects Tolgee to [Tolgee Tools browser extension](https://chrome.google.com/webstore/detail/tolgee-tools/hacnbapajkkfohnonhbmegojnddagfnj). This plugin is automatically included in Tolgee, if you import it from `@tolgee/web`.

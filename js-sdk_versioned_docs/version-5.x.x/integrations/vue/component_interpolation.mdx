@@ -1,0 +1,57 @@
+---
+id: component_interpolation
+title: Component interpolation
+sidebar_label: Component interpolation
+slug: component-interpolation
+description: "Learn to use component interpolation in Vue with Tolgee. Guide covers implementing custom components within translations, using FormatIcu and the T component. Includes code examples and usage tips."
+---
+
+:::info
+Feature available from version 5.24.0
+:::
+
+You might want to use a Component for certain part of the translated string. For example, let's take the translated string `Click this link`. You want to add the anchor tag to the word `link`. Using the integration library, you can implement this easily.
+
+The integration library, uses [`FormatIcu`](/formatting.mdx#icu-formatter) which supports component interpolation. You can map variables in translations to custom Vue components.
+
+:::info
+Currently, non-closing tags and self-closing tags are not supported [#3101](https://github.com/tolgee/tolgee-js/issues/3101).
+:::
+
+### Example usage
+
+```jsx
+import { FormatIcu } from '@tolgee/format-icu';
+
+...
+
+tolgee.use(FormatIcu())
+```
+
+The above code configures Tolgee to use the `FormatIcu` formatter.
+
+Next, use the [`T` component](./translating#t-component) with named slots. These are mapped to the variables in the translation.
+
+```html
+<template>
+  <T
+    keyName="translation_with_link"
+    defaultValue="Click this {link}"
+  >
+    <template v-slot:link>
+      <a href="...">{{ $t('link_label', "link") }}</a>
+    </template>
+  </T>
+</template>
+
+<script setup>
+  import { T } from '@tolgee/vue';
+</script>
+```
+
+
+The above example code will provide the following output.
+
+```html
+Click this <a href="...">link</a>
+```
