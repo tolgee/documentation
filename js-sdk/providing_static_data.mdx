@@ -122,42 +122,42 @@ If you use namespaces, it should look like this:
 
 ## Data fallbacks
 
-You can provide local data as a fallback for CDN, for cases when network request fails.
+You can provide local data as a fallback for CDN, for cases when a network request fails.
 
 ```ts
 const tolgee = Tolgee()
-  .use(BackendFetch({
+ .use(BackendFetch({
     prefix: '<your content storage link>',
     fallbackOnFail: true
-  }))
-  .init({
+ }))
+ .init({
     staticData: {
       en: () => import('./i18n/en.json'),
       de: () => import('./i18n/de.json'),
-    }
-    ...
-  })
+ }
+ ...
+ })
 ```
 
-`fallbackOnFail` option will tell Tolgee to look for data in the next source, so it will fetch your local data. **Order of plugins is important here, they are used in the same order as they were added.**
+`fallbackOnFail` option will tell Tolgee to look for data in the next source so it will fetch your local data. **Order of plugins is important here, they are used in the same order as they were added.**
 
 ### Fallback order
 
 Tolgee tries to find the data in following way:
 
- 1. Checks direct `staticData`, if data are accessible as plain object
+ 1. If available, uses plain object from `staticData`
  2. Tries to fetch language data with plugins (in the same order as they were added)
  3. Fetches language data through `staticData` dynamic properties
 
-:::warning Don't pass data directly
-Be careful about difference between static and dynamic values in `staticData`
+:::warning
+Be careful about the difference between static and dynamic values in `staticData`
 
 This will be used directly, without further fallbacks:
 
 ```ts
 staticData: {
   en: enObject
-  ...
+ ...
 }
 ```
 
@@ -165,14 +165,14 @@ This will be the last fallback after all the plugins:
 ```ts
 staticData: {
   en: async () => enObject
-  ...
+ ...
 }
 ```
 :::
 
 ### Timeout
 
-You can also set a timeout, to only wait certain time (e.g. for the data from CDN):
+You can also set a timeout, to only wait a certain time (e.g. for the data from CDN):
 
 ```ts
 BackendFetch({
