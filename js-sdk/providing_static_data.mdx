@@ -134,8 +134,8 @@ const tolgee = Tolgee()
     staticData: {
       en: () => import('./i18n/en.json'),
       de: () => import('./i18n/de.json'),
- }
- ...
+    }
+    ...
  })
 ```
 
@@ -157,7 +157,7 @@ This will be used directly, without further fallbacks:
 ```ts
 staticData: {
   en: enObject
- ...
+  ...
 }
 ```
 
@@ -165,7 +165,7 @@ This will be the last fallback after all the plugins:
 ```ts
 staticData: {
   en: async () => enObject
- ...
+  ...
 }
 ```
 :::
