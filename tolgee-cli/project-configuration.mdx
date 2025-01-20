@@ -57,6 +57,17 @@ By default, Tolgee uses its own internal extractor which looks for use of the [T
 
 String. URL to the Tolgee instance you're using. If you're using Tolgee Cloud, you can ignore this.
 
+### `apiKey`
+
+String. Api key to tolgee platform. It can be a [Personal Access Token or a Project API Key](/platform/account_settings/api_keys_and_pat_tokens).
+
+:::danger Make sure you don't leak your API key
+Use `apiKey` only if you are loading it from an environment or other secured source (supported in .js or .yml files) or your config is not public.
+
+In most cases, it's better to use a one-time [login command](#logging-in) or set it via the `TOLGEE_API_KEY` environment variable.
+:::
+
+
 ### `format`
 
 Format for push and pull operations. Check [supported formats](/platform/supported_formats).
