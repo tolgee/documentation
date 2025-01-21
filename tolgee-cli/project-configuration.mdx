@@ -144,6 +144,10 @@ Boolean. Convert placeholders in local files to ICU format. (Default: `true`)
 
 List&ltString&gt. Specify tags that will be added to newly created keys.
 
+### `push.removeOtherKeys`
+
+Boolean. Remove keys which are not present in the import.
+
 ## Pull options
 
 Related to `pull` command, which exports the keys from the platform.
@@ -198,3 +202,51 @@ The Android specific `{androidLanguageTag}` placeholder is the same as `{languag
 ### `pull.emptyDir`
 
 Boolean. Empty `path` folder before inserting pulled files.
+
+## Sync options
+
+### `sync.backup`
+
+String. Store translation files backup (only translation files, not states, comments, tags, etc.). If something goes wrong, the backup can be used to restore the project to its previous state.
+
+### `sync.continueOnWarning`
+
+Boolean. Continue the sync regardless of whether warnings are detected during string extraction. By default, as warnings may indicate an invalid extraction, the CLI will abort the sync.
+
+### `sync.removeUnused`
+
+Boolean. Delete unused keys from the Tolgee project.
+
+## Tag options
+
+### `tag.filterExtracted`
+
+Boolean. Extract keys from code and filter by it.
+
+### `tag.filterNotExtracted`
+
+Boolean. Extract keys from code and filter them out.
+
+### `tag.filterTag`
+
+List&ltString&gt. Filter only keys with tag. Use * as a wildcard.
+
+### `tag.filterNoTag`
+
+List&ltString&gt. Filter only keys without tag. Use * as a wildcard.
+
+### `tag.tag`
+
+List&ltString&gt. Add tag to filtered keys.
+
+### `tag.tagOther`
+
+List&ltString&gt. Tag keys which are not filtered.
+
+### `tag.untag`
+
+List&ltString&gt. Remove tag from filtered keys. Use * as a wildcard.
+
+### `tag.untagOther`
+
+List&ltString&gt. Remove tag from keys which are not filtered. Use * as a wildcard.
