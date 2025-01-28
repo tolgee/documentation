@@ -71,6 +71,8 @@ Configuration specific to Tolgee.
 - ##### `front-end-url` {#front-end-url}
 
   Public URL where Tolgee is accessible. Used to generate links to Tolgee (e.g. email confirmation link).
+  
+  **Warning:** Not providing this property leads to security issues.Providing this property is highly recommended especially if you are managing publicly accessible Tolgee instance. 
 
 - ##### `max-screenshots-per-key` {#max-screenshots-per-key}
 
@@ -392,7 +394,9 @@ To get content delivery working, you have to configure the Storage (e.g. S3 or B
 
 - ##### `public-url-prefix` {#public-url-prefix}
 
-  The root path where the content is accessible by the public. If this property is not null, content delivery will be enabled on your server.
+  The prefix URL where the content is accessible from the public. If this property is not null, content delivery will be enabled on your server.
+  
+  For example, if you set this property to `https://cdn.example.com/`
 
 #### cache-purging
 
@@ -1188,6 +1192,8 @@ Configuration specific to Tolgee.
 - <h5 id="front-end-url"><code>FRONT_END_URL</code></h5>
 
   Public URL where Tolgee is accessible. Used to generate links to Tolgee (e.g. email confirmation link).
+  
+  **Warning:** Not providing this property leads to security issues.Providing this property is highly recommended especially if you are managing publicly accessible Tolgee instance. 
 
 - <h5 id="max-screenshots-per-key"><code>MAX_SCREENSHOTS_PER_KEY</code></h5>
 
@@ -1509,7 +1515,9 @@ To get content delivery working, you have to configure the Storage (e.g. S3 or B
 
 - <h5 id="public-url-prefix"><code>PUBLIC_URL_PREFIX</code></h5>
 
-  The root path where the content is accessible by the public. If this property is not null, content delivery will be enabled on your server.
+  The prefix URL where the content is accessible from the public. If this property is not null, content delivery will be enabled on your server.
+  
+  For example, if you set this property to `https://cdn.example.com/`
 
 <h4 id="cache_purging">CACHE_PURGING</h4>
 
@@ -2268,6 +2276,8 @@ Configuration specific to Tolgee.
 - <h5 id="front-end-url"><code>front-end-url</code></h5>
 
   Public URL where Tolgee is accessible. Used to generate links to Tolgee (e.g. email confirmation link).
+  
+  **Warning:** Not providing this property leads to security issues.Providing this property is highly recommended especially if you are managing publicly accessible Tolgee instance. 
 
 - <h5 id="max-screenshots-per-key"><code>max-screenshots-per-key</code></h5>
 
@@ -2589,7 +2599,9 @@ To get content delivery working, you have to configure the Storage (e.g. S3 or B
 
 - <h5 id="public-url-prefix"><code>public-url-prefix</code></h5>
 
-  The root path where the content is accessible by the public. If this property is not null, content delivery will be enabled on your server.
+  The prefix URL where the content is accessible from the public. If this property is not null, content delivery will be enabled on your server.
+  
+  For example, if you set this property to `https://cdn.example.com/`
 
 <h4 id="cache-purging">cache-purging</h4>
 
