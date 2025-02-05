@@ -1,0 +1,62 @@
+{
+  "sourceLanguage": "en",
+  "version": "1.0",
+  "strings": {
+    "dog_count": {
+      "localizations": {
+        "en": {
+          "variations": {
+            "plural": {
+              "other": {
+                "stringUnit": {
+                  "state": "translated",
+                  "value": "I have %%lli dogs."
+                }
+              }
+            }
+          }
+        },
+        "cs": {
+          "variations": {
+            "plural": {
+              "one": {
+                "stringUnit": {
+                  "state": "translated",
+                  "value": "Já mám jednoho psa."
+                }
+              },
+              "few": {
+                "stringUnit": {
+                  "state": "translated",
+                  "value": "Já mám %%lli psi."
+                }
+              },
+              "other": {
+                "stringUnit": {
+                  "state": "translated",
+                  "value": "Já mám %%lli psů."
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "hello": {
+      "en": {
+        "stringUnit": {
+          "state": "translated",
+          "value": "Hello!"
+        }
+      },
+      "localizations": {
+        "cs": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Ahoj!"
+          }
+        }
+      }
+    }
+  }
+}
