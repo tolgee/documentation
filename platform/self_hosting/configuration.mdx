@@ -71,6 +71,8 @@ Configuration specific to Tolgee.
 - ##### `front-end-url` {#front-end-url}
 
   Public URL where Tolgee is accessible. Used to generate links to Tolgee (e.g. email confirmation link).
+  
+  **Warning:** Not providing this property leads to security issues.Providing this property is highly recommended especially if you are managing publicly accessible Tolgee instance. 
 
 - ##### `max-screenshots-per-key` {#max-screenshots-per-key}
 
@@ -291,6 +293,10 @@ There is a significant difference between global and per organization SSO: Globa
 
   Enables SSO authentication on global level - as a login method for the whole server (default: `false`)
 
+- ##### `force` {#force}
+
+  When true, users with an email matching the organization's domain must sign in using SSO (default: `false`)
+
 - ##### `session-expiration-minutes` {#session-expiration-minutes}
 
   Minutes after which the server will recheck the user's with the SSO provider to ensure the user account is still valid. This is to prevent the user from being able to access the server after the account has been disabled or deleted in the SSO provider. (default: `10`)
@@ -306,6 +312,10 @@ Prefix: `tolgee.authentication.sso-organizations`
 Single sign-on (SSO) is an authentication process that allows a user to access multiple applications with one set of login credentials. To use SSO in Tolgee, can either configure global SSO settings in `sso-global` section or in the per Organization mode by setting the `enable` to `true` in this section and configuring it separately for each organization in the organization settings.
 
 There is a significant difference between global and per organization SSO: Global SSO can handle authentication for all server users no matter which organizations they belong to, while per organization SSO can handle authentication only for users of the organization and such users cannot be members of any other organization. SSO users associated with per organization SSO have no rights to create or manage organizations. Global SSO users should be invited to organizations they need to have access to. Per organization SSO users are automatically added to the organization they belong to.
+
+- ##### `allowed-domains` {#allowed-domains}
+
+  Only allow listed domains to be used for SSO configuration. (default: `[]`)
 
 - ##### `enabled` {#enabled}
 
@@ -392,7 +402,9 @@ To get content delivery working, you have to configure the Storage (e.g. S3 or B
 
 - ##### `public-url-prefix` {#public-url-prefix}
 
-  The root path where the content is accessible by the public. If this property is not null, content delivery will be enabled on your server.
+  The prefix URL where the content is accessible from the public. If this property is not null, content delivery will be enabled on your server.
+  
+  For example, if you set this property to `https://cdn.example.com/`
 
 #### cache-purging
 
@@ -987,9 +999,11 @@ tolgee:
       custom-logo-url:
       domain:
       enabled: false
+      force: false
       session-expiration-minutes: 10
       token-uri:
     sso-organizations:
+      allowed-domains: []
       enabled: false
       session-expiration-minutes: 10
   batch:
@@ -1188,6 +1202,8 @@ Configuration specific to Tolgee.
 - <h5 id="front-end-url"><code>FRONT_END_URL</code></h5>
 
   Public URL where Tolgee is accessible. Used to generate links to Tolgee (e.g. email confirmation link).
+  
+  **Warning:** Not providing this property leads to security issues.Providing this property is highly recommended especially if you are managing publicly accessible Tolgee instance. 
 
 - <h5 id="max-screenshots-per-key"><code>MAX_SCREENSHOTS_PER_KEY</code></h5>
 
@@ -1408,6 +1424,10 @@ There is a significant difference between global and per organization SSO: Globa
 
   Enables SSO authentication on global level - as a login method for the whole server (default: `false`)
 
+- <h5 id="force"><code>FORCE</code></h5>
+
+  When true, users with an email matching the organization's domain must sign in using SSO (default: `false`)
+
 - <h5 id="session-expiration-minutes"><code>SESSION_EXPIRATION_MINUTES</code></h5>
 
   Minutes after which the server will recheck the user's with the SSO provider to ensure the user account is still valid. This is to prevent the user from being able to access the server after the account has been disabled or deleted in the SSO provider. (default: `10`)
@@ -1423,6 +1443,10 @@ Prefix: `TOLGEE_AUTHENTICATION_SSO_ORGANIZATIONS`
 Single sign-on (SSO) is an authentication process that allows a user to access multiple applications with one set of login credentials. To use SSO in Tolgee, can either configure global SSO settings in `sso-global` section or in the per Organization mode by setting the `enable` to `true` in this section and configuring it separately for each organization in the organization settings.
 
 There is a significant difference between global and per organization SSO: Global SSO can handle authentication for all server users no matter which organizations they belong to, while per organization SSO can handle authentication only for users of the organization and such users cannot be members of any other organization. SSO users associated with per organization SSO have no rights to create or manage organizations. Global SSO users should be invited to organizations they need to have access to. Per organization SSO users are automatically added to the organization they belong to.
+
+- <h5 id="allowed-domains"><code>ALLOWED_DOMAINS</code></h5>
+
+  Only allow listed domains to be used for SSO configuration. (default: `[]`)
 
 - <h5 id="enabled"><code>ENABLED</code></h5>
 
@@ -1509,7 +1533,9 @@ To get content delivery working, you have to configure the Storage (e.g. S3 or B
 
 - <h5 id="public-url-prefix"><code>PUBLIC_URL_PREFIX</code></h5>
 
-  The root path where the content is accessible by the public. If this property is not null, content delivery will be enabled on your server.
+  The prefix URL where the content is accessible from the public. If this property is not null, content delivery will be enabled on your server.
+  
+  For example, if you set this property to `https://cdn.example.com/`
 
 <h4 id="cache_purging">CACHE_PURGING</h4>
 
@@ -2095,8 +2121,10 @@ TOLGEE_AUTHENTICATION_SSO_GLOBAL_CUSTOM_LOGIN_TEXT=
 TOLGEE_AUTHENTICATION_SSO_GLOBAL_CUSTOM_LOGO_URL=
 TOLGEE_AUTHENTICATION_SSO_GLOBAL_DOMAIN=
 TOLGEE_AUTHENTICATION_SSO_GLOBAL_ENABLED=false
+TOLGEE_AUTHENTICATION_SSO_GLOBAL_FORCE=false
 TOLGEE_AUTHENTICATION_SSO_GLOBAL_SESSION_EXPIRATION_MINUTES=10
 TOLGEE_AUTHENTICATION_SSO_GLOBAL_TOKEN_URI=
+TOLGEE_AUTHENTICATION_SSO_ORGANIZATIONS_ALLOWED_DOMAINS=[]
 TOLGEE_AUTHENTICATION_SSO_ORGANIZATIONS_ENABLED=false
 TOLGEE_AUTHENTICATION_SSO_ORGANIZATIONS_SESSION_EXPIRATION_MINUTES=10
 TOLGEE_BATCH_CONCURRENCY=1
@@ -2268,6 +2296,8 @@ Configuration specific to Tolgee.
 - <h5 id="front-end-url"><code>front-end-url</code></h5>
 
   Public URL where Tolgee is accessible. Used to generate links to Tolgee (e.g. email confirmation link).
+  
+  **Warning:** Not providing this property leads to security issues.Providing this property is highly recommended especially if you are managing publicly accessible Tolgee instance. 
 
 - <h5 id="max-screenshots-per-key"><code>max-screenshots-per-key</code></h5>
 
@@ -2488,6 +2518,10 @@ There is a significant difference between global and per organization SSO: Globa
 
   Enables SSO authentication on global level - as a login method for the whole server (default: `false`)
 
+- <h5 id="force"><code>force</code></h5>
+
+  When true, users with an email matching the organization's domain must sign in using SSO (default: `false`)
+
 - <h5 id="session-expiration-minutes"><code>session-expiration-minutes</code></h5>
 
   Minutes after which the server will recheck the user's with the SSO provider to ensure the user account is still valid. This is to prevent the user from being able to access the server after the account has been disabled or deleted in the SSO provider. (default: `10`)
@@ -2503,6 +2537,10 @@ Prefix: `tolgee.authentication.sso-organizations`
 Single sign-on (SSO) is an authentication process that allows a user to access multiple applications with one set of login credentials. To use SSO in Tolgee, can either configure global SSO settings in `sso-global` section or in the per Organization mode by setting the `enable` to `true` in this section and configuring it separately for each organization in the organization settings.
 
 There is a significant difference between global and per organization SSO: Global SSO can handle authentication for all server users no matter which organizations they belong to, while per organization SSO can handle authentication only for users of the organization and such users cannot be members of any other organization. SSO users associated with per organization SSO have no rights to create or manage organizations. Global SSO users should be invited to organizations they need to have access to. Per organization SSO users are automatically added to the organization they belong to.
+
+- <h5 id="allowed-domains"><code>allowed-domains</code></h5>
+
+  Only allow listed domains to be used for SSO configuration. (default: `[]`)
 
 - <h5 id="enabled"><code>enabled</code></h5>
 
@@ -2589,7 +2627,9 @@ To get content delivery working, you have to configure the Storage (e.g. S3 or B
 
 - <h5 id="public-url-prefix"><code>public-url-prefix</code></h5>
 
-  The root path where the content is accessible by the public. If this property is not null, content delivery will be enabled on your server.
+  The prefix URL where the content is accessible from the public. If this property is not null, content delivery will be enabled on your server.
+  
+  For example, if you set this property to `https://cdn.example.com/`
 
 <h4 id="cache-purging">cache-purging</h4>
 
@@ -3175,8 +3215,10 @@ tolgee.authentication.sso-global.custom-login-text =
 tolgee.authentication.sso-global.custom-logo-url =
 tolgee.authentication.sso-global.domain =
 tolgee.authentication.sso-global.enabled = false
+tolgee.authentication.sso-global.force = false
 tolgee.authentication.sso-global.session-expiration-minutes = 10
 tolgee.authentication.sso-global.token-uri =
+tolgee.authentication.sso-organizations.allowed-domains = []
 tolgee.authentication.sso-organizations.enabled = false
 tolgee.authentication.sso-organizations.session-expiration-minutes = 10
 tolgee.batch.concurrency = 1
