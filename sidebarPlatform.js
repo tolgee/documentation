@@ -127,6 +127,7 @@ module.exports = {
       items: [
         'sso/sso_getting_started',
         'sso/sso_okta',
+        'sso/sso_keycloak',
         {
           label: 'Self-hosted setup',
           type: 'category',
