@@ -1,0 +1,249 @@
+---
+slug: 2025-02-17-self-hosting-tolgee-with-content-delivery
+title: 'Ultimate guide to self-hosting Tolgee with Content Delivery (CDN)'
+description: 'Learn how to self-host Tolgee with Content Delivery (CDN) to improve performance and security.'
+image: '/img/blog/dotnet-resx-support/dotnet-light.webp'
+authors: [jcizmar]
+tags: ['tolgee', 'content delivery', 'self-hosting']
+---
+
+import { ScreenshotWrapper } from '../platform/shared/_ScreenshotWrapper';
+import ThemedImage from '@theme/ThemedImage';
+import useBaseUrl from '@docusaurus/useBaseUrl';
+
+<ThemedImage
+  alt="Ultimate guide to self-hosting Tolgee with Content Delivery (CDN)"
+  sources={{
+    light: useBaseUrl(
+      '/img/blog/docker-compose-with-content-delivery/selfhost-amazon-S3-light.png'
+    ),
+    dark: useBaseUrl(
+      '/img/blog/docker-compose-with-content-delivery/selfhost-amazon-S3-dark.png'
+    ),
+  }}
+/>
+
+HHello, amazing Tolgee self-hosters 🤟
+
+In this tutorial you will learn how to self-host Tolgee for using with Content Delivery features with S3 bucket
+(or Azure Blob).
+
+Free self-hosted version allows you to create single Content Delivery configuration, and you will have to stick with
+single storage configuration per your instance.
+
+<!--truncate-->
+
+To self-host Tolgee, you can use several different deployment options. You can use a simple Docker container, run the
+Java .jar file or use Kubernetes or other orchestration tools. In this tutorial, we will use docker-compose with
+a standalone Postgres database.
+
+To follow this tutorial, you can clone
+[this repository](https://github.com/tolgee/docker-compose-content-delivery-example), to get started quickly:
+
+```bash
+git clone https://github.com/tolgee/docker-compose-content-delivery-example.git
+```
+
+## The Docker Compose configuration
+
+According to the [self-hosting documentation](/platform/self_hosting/running_with_docker#running-with-docker-compose-with-external-postgresql-database)
+section, this is how your `docker-compose.yaml` should look like.
+
+```yaml title="docker-compose.yaml"
+version: '3'
+
+services:
+  app:
+    image: tolgee/tolgee:latest
+    volumes:
+      - ./data:/data
+      - ./config.yaml:/config.yaml
+    ports:
+      - '8089:8080'
+    environment:
+      spring.config.additional-location: file:///config.yaml
+    deploy:
+      restart_policy:
+        condition: on-failure
+    depends_on:
+      - db
+  db:
+    image: postgres:13
+    environment:
+      POSTGRES_DB: postgres
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: postgres
+    volumes:
+      - ./data/postgres:/var/lib/postgresql/data
+    ports:
+      - '25432:5432' # <-- If you want to access your postgres from outside of docker network
+```
+
+The configuration file that is mounted to the container should look like the one below. It's recommended that
+the configuration be provided via a mounted property file. It's cleaner to read, and it's better for security since the environment variables can be
+subject to logs.
+
+```yaml title="config.yaml"
+tolgee:
+  postgres-autostart:
+    enabled: false
+  authentication:
+    enabled: true
+  content-delivery:
+    public-url-prefix:
+    storage:
+#      Uncomment this for Azure Blob
+#      azure:
+#        connection-string:
+#        container-name:
+      s3:
+        access-key:
+        bucket-name:
+        endpoint:
+        secret-key:
+        signing-region:
+spring:
+  datasource:
+    url: jdbc:postgresql://db:5432/postgres
+    username: postgres
+    password: postgres
+```
+
+It's also a good idea to change the `POSTGRES_PASSWORD` in both files to something more secure.
+
+## Setting up S3 bucket
+For the simplicity of this tutorial, we will create a public S3 bucket. For optimized configurations, you might want to put
+Amazon CloudFront in front of it, but I will leave this to you. Providing **storage configuration is required to
+use Content Delivery** features on the free self-hosted instance.
+
+1. Go to [AWS S3 Console](https://s3.console.aws.amazon.com/s3/home)
+2. Click on `Create bucket`
+3. Fill in the bucket name. I am naming it `tolgee-cdn-bucket-1234`
+4. Deselect `Block all public access` and acknowledge that the bucket will be public
+   (ignore if you plan to use CloudFront or other)
+5. Click `Create bucket`
+6. **Ignore following steps if you plan to use CloudFront or other**
+7. Open the bucket by clicking it in the list
+8. Go to permissions and add this `Bucket policy` json and replace the bucket name with your name. This will
+   make your bucket public.
+    ```
+    {
+       "Version": "2012-10-17",
+       "Statement": [
+           {
+               "Sid": "PublicReadGetObject",
+               "Effect": "Allow",
+               "Principal": "*",
+               "Action": "s3:GetObject",
+               "Resource": "arn:aws:s3:::tolgee-cdn-bucket-1234/*"
+           }
+       ]
+    }
+   ```
+
+Now. You have your S3 bucket ready.
+
+Great! 🎉 Now you have your S3 bucket ready.
+
+Now we need to create credentials to access this bucket.
+
+1. Go to [AWS IAM Console](https://console.aws.amazon.com/iam/home)
+2. Click on `Users` in the left menu
+3. Click on `Add user`
+4. Fill in the username. I am naming it `tolgee-cdn-user-1234`
+5. Go to step 2 `Set permissions`
+6. Click on `Attach existing policies directly`
+7. Click on `Create policy`
+8. Click on `JSON` tab and paste this
+   ```
+ {
+    "Version": "2012-10-17",
+    "Statement": [
+        {
+            "Sid": "VisualEditor0",
+            "Effect": "Allow",
+            "Action": [
+                "s3:PutObject",
+                "s3:GetObject",
+                "s3:GetObjectAttributes",
+                "s3:ListBucket",
+                "s3:DeleteObject"
+            ],
+            "Resource": [
+                "arn:aws:s3:::tolgee-cdn-bucket-1234",
+                "arn:aws:s3:::tolgee-cdn-bucket-1234/*"
+            ]
+        }
+    ]
+ }
+   ```
+9. Review and create policy. I am naming it TolgeeCdnBucketPolicy
+10. Select this policy in the user creation wizard
+11. Create the user
+12. Go to `Security credentials` tab of the new user
+13. Click on `Create access key`
+14. Select `Third-party service` or `Other`
+15. Finish the creation
+
+Store the Access key and Secret key in a safe place. You will need them in the next step.
+
+Cool! Now you have everything ready. You can fill in the `config.yaml` file with the credentials.
+I am using the eu-central-1 region.
+
+```yaml
+  ...
+  content-delivery:
+    public-url-prefix: https://tolgee-cdn-bucket-1234.s3.eu-central-1.amazonaws.com/
+    storage:
+      s3:
+        access-key: AKIA...............
+        bucket-name: tolgee-cdn-bucket-1234
+        endpoint: s3.eu-central-1.amazonaws.com
+        secret-key: <your secret key>
+        signing-region: eu-central-1
+  ...
+```
+
+:::info
+Don't forget that the `public-url-prefix` and one of the storage configurations are required to use
+Content Delivery features unless are on an advanced self-hosted plan with per-project content storages enabled.
+:::
+
+## Testing time
+Let's run the beast.
+```
+docker compose up
+```
+
+When the service is running, you can run this command to obtain the initial admin password stored in `data/initial.pwd`
+
+```
+cat data/initial.pwd
+```
+
+Now open your browser on [http://localhost:8089](http://localhost:8089) and log in with
+ - username: admin
+ - password: `the initial password obtained in previous step`
+
+Then open the demo project and go to the developer settings (`</>`) section accessible from the menu on the left.
+
+You should see empty list of the content delivery configurations.
+
+<ScreenshotWrapper src="/img/blog/docker-compose-with-content-delivery/empty-list.webp"
+                   alt="Screenshot of empty list of content delivery configurations" />
+
+### Creating new content delivery
+1. Hit the `+ Content delivery` button
+2. Keep the properties as they are and hit save
+3. `Content delivery successfully created!` message should be prompted
+
+By now, you should have your project data uploaded to the S3 bucket and made accessible.
+For my public url prefix, this file can be accessed on
+
+```
+https://tolgee-cdn-bucket-1234.s3.eu-central-1.amazonaws.com/305b9eb32a8c9de207af72c9232f29af/en.json
+```
+
+Thanks for reading, Tolgee friends. ❤️
+
+[![Demo banner](/img/blog/blog-banners/banner-demo.webp)](https://calendly.com/tolgee/30min)
