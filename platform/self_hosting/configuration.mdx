@@ -163,7 +163,7 @@ Configuration of Tolgee's authentication.
 
 - ##### `secured-image-timestamp-max-age` {#secured-image-timestamp-max-age}
 
-  Expiration time of a generated image access token in milliseconds. (default: `600000` = 10 minutes)
+  Expiration time of a generated image access token in milliseconds. (default: `7200000` = 2 hours)
 
 - ##### `user-can-create-organizations` {#user-can-create-organizations}
 
@@ -971,7 +971,7 @@ tolgee:
     needs-email-verification: false
     registrations-allowed: false
     secured-image-retrieval: false
-    secured-image-timestamp-max-age: 600000
+    secured-image-timestamp-max-age: 7200000
     user-can-create-organizations: true
     github:
       authorization-url: https://github.com/login/oauth/access_token
@@ -1294,7 +1294,7 @@ Configuration of Tolgee's authentication.
 
 - <h5 id="secured-image-timestamp-max-age"><code>SECURED_IMAGE_TIMESTAMP_MAX_AGE</code></h5>
 
-  Expiration time of a generated image access token in milliseconds. (default: `600000` = 10 minutes)
+  Expiration time of a generated image access token in milliseconds. (default: `7200000` = 2 hours)
 
 - <h5 id="user-can-create-organizations"><code>USER_CAN_CREATE_ORGANIZATIONS</code></h5>
 
@@ -2097,7 +2097,7 @@ TOLGEE_AUTHENTICATION_NATIVE_ENABLED=true
 TOLGEE_AUTHENTICATION_NEEDS_EMAIL_VERIFICATION=false
 TOLGEE_AUTHENTICATION_REGISTRATIONS_ALLOWED=false
 TOLGEE_AUTHENTICATION_SECURED_IMAGE_RETRIEVAL=false
-TOLGEE_AUTHENTICATION_SECURED_IMAGE_TIMESTAMP_MAX_AGE=600000
+TOLGEE_AUTHENTICATION_SECURED_IMAGE_TIMESTAMP_MAX_AGE=7200000
 TOLGEE_AUTHENTICATION_USER_CAN_CREATE_ORGANIZATIONS=true
 TOLGEE_AUTHENTICATION_GITHUB_AUTHORIZATION_URL=https://github.com/login/oauth/access_token
 TOLGEE_AUTHENTICATION_GITHUB_CLIENT_ID=
@@ -2388,7 +2388,7 @@ Configuration of Tolgee's authentication.
 
 - <h5 id="secured-image-timestamp-max-age"><code>secured-image-timestamp-max-age</code></h5>
 
-  Expiration time of a generated image access token in milliseconds. (default: `600000` = 10 minutes)
+  Expiration time of a generated image access token in milliseconds. (default: `7200000` = 2 hours)
 
 - <h5 id="user-can-create-organizations"><code>user-can-create-organizations</code></h5>
 
@@ -3191,7 +3191,7 @@ tolgee.authentication.native-enabled = true
 tolgee.authentication.needs-email-verification = false
 tolgee.authentication.registrations-allowed = false
 tolgee.authentication.secured-image-retrieval = false
-tolgee.authentication.secured-image-timestamp-max-age = 600000
+tolgee.authentication.secured-image-timestamp-max-age = 7200000
 tolgee.authentication.user-can-create-organizations = true
 tolgee.authentication.github.authorization-url = https://github.com/login/oauth/access_token
 tolgee.authentication.github.client-id =
