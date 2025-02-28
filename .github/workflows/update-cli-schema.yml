@@ -2,8 +2,8 @@ name: Update cli schema
 
 on:
   push:
-    branches:
-      - main
+    # branches:
+    #   - main
   schedule:
     - cron: '0 0 * * *'
 
@@ -28,13 +28,13 @@ jobs:
       - name: Commit and push changes
         run: |
           git add .
-          git diff --quiet && git diff --staged --quiet || git commit -m "Update oss friends"
+          git diff --quiet && git diff --staged --quiet || git commit -m "chore: Update CLI schema"
 
       - name: Create or update pull request
         uses: peter-evans/create-pull-request@v3
         with:
           token: ${{ secrets.GITHUB_TOKEN }}
-          commit-message: 'Updating file'
+          commit-message: 'chore: Update CLI schema'
           title: 'Cli schema update'
           body: 'This is an automated daily update.'
           branch: cli-schema-update
