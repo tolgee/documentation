@@ -5,7 +5,7 @@ const { docs } = require('./docs');
 const { redirects } = require('./redirects');
 const { navbar } = require('./navbar');
 const { footer } = require('./footer');
-// const openApiPluginConfig = require('./apiSpecGeneration/pluginConfig');
+const openApiPluginConfig = require('./apiSpecGeneration/pluginConfig');
 
 /** @type {import("@docusaurus/types").Config} */
 const config = {
@@ -45,11 +45,11 @@ const config = {
   },
   presets: [
     [
-      '@docusaurus/preset-classic',
+      "classic",
       {
         docs: {
           sidebarPath: require.resolve('./sidebars.js'),
-          // Please change this to your repo.
+          docItemComponent: "@theme/ApiItem", // Derived from docusaurus-theme-openapi
           editUrl: 'https://github.com/tolgee/documentation/tree/main',
         },
         blog: {
@@ -64,9 +64,9 @@ const config = {
           archiveBasePath: null,
         },
         theme: {
-          customCss: require.resolve('./src/css/custom.css'),
+          customCss: "./src/css/custom.css",
         },
-      },
+      }
     ],
   ],
   plugins: [
@@ -84,7 +84,7 @@ const config = {
         },
       };
     },
-    // openApiPluginConfig,
+    openApiPluginConfig,
     ...docs,
   ],
   customFields: {

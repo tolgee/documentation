@@ -52,19 +52,18 @@ const docs = [
       },
     },
   ],
-  // [
-  //   '@docusaurus/plugin-content-docs',
-  //   {
-  //     id: 'rest-api',
-  //     path: 'api',
-  //     breadcrumbs: true,
-  //     routeBasePath: 'api',
-  //     include: ['**/*.md', '**/*.mdx'],
-  //     sidebarPath: require.resolve('./apiSpecGeneration/sidebarApi.js'),
-  //     // docLayoutComponent: '@theme/DocPage',
-  //     docItemComponent: '@theme/ApiItem',
-  //   },
-  // ],
+  [
+    '@docusaurus/plugin-content-docs',
+    {
+      id: 'rest-api',
+      path: 'api',
+      breadcrumbs: true,
+      routeBasePath: 'api',
+      include: ['**/*.md', '**/*.mdx'],
+      sidebarPath: require.resolve('./apiSpecGeneration/sidebarApi.js'),
+      docItemComponent: '@theme/ApiItem',
+    },
+  ],
 ];
 
 module.exports = { docs };
