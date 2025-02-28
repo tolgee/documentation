@@ -27,15 +27,15 @@ module.exports.navbar = {
       to: 'tolgee-cli',
       label: 'CLI',
     },
-    {
-      to: 'api',
-      label: 'REST API',
-    },
-    {
-      to: 'blog',
-      label: 'Blog',
-      className: 'menu-item-blog',
-    },
+    // {
+    //   to: 'api',
+    //   label: 'REST API',
+    // },
+    // {
+    //   to: 'blog',
+    //   label: 'Blog',
+    //   className: 'menu-item-blog',
+    // },
 
     {
       to: 'https://app.tolgee.io',

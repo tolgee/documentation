@@ -2,18 +2,19 @@ import React, { useEffect, useMemo } from 'react';
 
 import Head from '@docusaurus/Head';
 import useDocusaurusContext from '@docusaurus/useDocusaurusContext';
-import websiteSchema from '../info/website';
+import posthog from 'posthog-js';
+import { useLocation } from 'react-router-dom';
 import {
   Experimental_CssVarsProvider,
   ThemeProvider as MuiThemeProvider,
   useColorScheme,
 } from '@mui/material';
+
+import websiteSchema from '../info/website';
 import { useDarkMode } from '../utils';
 import { createTheme } from './muiTheme';
 import { getTypebotScript } from '../component/externalScripts/getTypebotScript';
 import { initPosthog } from '../component/initPosthog';
-import { useLocation } from 'react-router-dom';
-import posthog from 'posthog-js';
 import { usePlausible } from '../component/externalScripts/plausible';
 
 const MuiThemeSynchronizer = () => {
