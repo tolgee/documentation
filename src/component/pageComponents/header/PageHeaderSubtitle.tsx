@@ -5,6 +5,7 @@ export const PageHeaderSubtitle: FC<{
   active?: boolean;
   className?: string;
   h1?: boolean;
+  children?: React.ReactNode;
 }> = (props) => {
   const Header = props.h1 ? 'h1' : 'h2';
 
