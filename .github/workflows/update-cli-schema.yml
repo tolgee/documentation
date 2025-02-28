@@ -2,8 +2,8 @@ name: Update cli schema
 
 on:
   push:
-    # branches:
-    #   - main
+    branches:
+      - main
   schedule:
     - cron: '0 0 * * *'
 
