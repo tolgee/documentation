@@ -106,6 +106,7 @@ const config = {
       async: true,
     },
   ],
+  onBrokenAnchors: 'throw'
 };
 
 module.exports = config;

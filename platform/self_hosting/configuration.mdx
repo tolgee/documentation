@@ -13,12 +13,11 @@ Example configuration files:
 
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
+import ExampleYamlConfig from "./shared/_exampleYamlConfig.mdx";
 
 <Tabs lazy groupId="config-format" queryString values={[{"value":"yaml","label":"YAML","displayOption":"kebab-case"},{"value":"env","label":".env","displayOption":"snake-upper-case"},{"value":"properties","label":"application.properties","displayOption":"kebab-case"}]}>
 
 <TabItem value="yaml">
-
-import ExampleYamlConfig from "./shared/_exampleYamlConfig.mdx";
 
 <ExampleYamlConfig />
 
@@ -148,7 +147,7 @@ Configuration of Tolgee's authentication.
 
 - ##### `needs-email-verification` \{#needs-email-verification}
 
-  Whether users need to verify their email addresses when creating their account. Requires a valid [SMTP configuration](#SMTP). (default: `false`)
+  Whether users need to verify their email addresses when creating their account. Requires a valid [SMTP configuration](#smtp). (default: `false`)
 
 - ##### `registrations-allowed` \{#registrations-allowed}
 

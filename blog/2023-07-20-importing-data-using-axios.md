@@ -149,7 +149,7 @@ console.log(response.data._embedded.languages);
 
 Now, when we know the id of the desired language, we can assign it to the import language. For example, when we would like to
 assign the "import language" with id `1015429001` to the existing language with id `1005650001` (Spanish). To do so, hit
-["Pair existing language"](/api#tag/Import/operation/selectExistingLanguage_1) endpoint.
+["Pair existing language"](/api/select-existing-language) endpoint.
 
 ```javascript
 const response = await axios.put(
@@ -165,14 +165,14 @@ const response = await axios.put(
 
 When the server responds with 200, the language is assigned.
 
-You can also check this by accessing the [import result endpoint](/api#tag/Import/operation/getImportResult_1). ` GET https://app.tolgee.io/v2/projects/import/result`
+You can also check this by accessing the [import result endpoint](/api/get-import-result). ` GET https://app.tolgee.io/v2/projects/import/result`
 
 ## Step 3 - Resolving conflicts
 
 Sometimes when you add files to the Tolgee platform, there might be some conflicts.
 
 To find out which imported translations conflict with existing ones,
-use [this endpoint](https://tolgee.io/api#tag/Import/operation/getImportTranslations_1).
+use [this endpoint](/api/get-import-translations).
 `GET https://app.tolgee.io/v2/projects/import/result/languages/{languageId}/translations`
 
 The `languageId` parameter refers to "import language," not the "existing language"!
@@ -189,7 +189,7 @@ this in detail.
 
 ## Step 4 - Applying the import
 
-To finally apply the import, use the [`Apply` endpoint](/api#tag/Import/operation/applyImport_1).
+To finally apply the import, use the [`Apply` endpoint](/api/apply-import).
 
 ```javascript
 await axios.put('https://app.tolgee.io/v2/projects/import/apply', null, {
@@ -207,12 +207,12 @@ When the response is OK, your data is imported. Yeeey!
 
 When you work with namespaces in your project, you might also want to select a namespace for the imported languages as
 well.
-This is possible using the [`Select namespace`](https://tolgee.io/api#tag/Import/operation/selectNamespace_1) endpoint.
+This is possible using the [`Select namespace`](/api/select-namespace) endpoint.
 
 ## More options
 
 There is much more you can do with the import endpoints. All the endpoints are documented in the
-[import section of the API docs](/api#tag/Import).
+[import section of the API docs](/api/apply-import).
 
 There are endpoints like
 
