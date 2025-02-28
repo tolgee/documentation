@@ -5,7 +5,7 @@ const { docs } = require('./docs');
 const { redirects } = require('./redirects');
 const { navbar } = require('./navbar');
 const { footer } = require('./footer');
-const openApiPluginConfig = require('./apiSpecGeneration/pluginConfig');
+// const openApiPluginConfig = require('./apiSpecGeneration/pluginConfig');
 
 /** @type {import("@docusaurus/types").Config} */
 const config = {
@@ -84,7 +84,7 @@ const config = {
         },
       };
     },
-    openApiPluginConfig,
+    // openApiPluginConfig,
     ...docs,
   ],
   customFields: {
