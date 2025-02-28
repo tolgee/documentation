@@ -1,6 +1,6 @@
 import React from 'react';
 import './oss-friends.css';
-import { data } from './data.json';
+import json from './data.json';
 
 import DecoratedLayout from '../../theme/DecoratedLayout';
 import { PageHeader } from '../../component/pageComponents/header/PageHeader';
@@ -23,7 +23,7 @@ export default function OssFriends() {
         </PageHeaderSubtitle>
       </PageHeader>
       <div className="oss-friends--content">
-        {data
+        {json.data
           .filter(({ name }) => name !== 'Tolgee')
           .map(({ name, description, href }, i) => (
             <div key={i} className="oss-friends--friend">

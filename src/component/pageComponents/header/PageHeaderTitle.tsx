@@ -6,6 +6,7 @@ export const PageHeaderTitle: FC<{
   active?: boolean;
   className?: string;
   h1?: boolean;
+  children?: React.ReactNode;
 }> = (props) => {
   const Header = props.h1 ? 'h1' : 'h2';
 

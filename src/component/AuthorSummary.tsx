@@ -1,17 +1,8 @@
+import Author from '@theme/Blog/Components/Author';
 import React from 'react';
-import Author from '@theme/BlogPostItem/Header/Author';
-
-export type AuthorType = {
-  description?: React.ReactNode;
-  imageURL: string;
-  key?: string;
-  name: string;
-  title: string;
-  url?: string;
-};
 
 type Props = {
-  author: AuthorType;
+  author: React.ComponentProps<typeof Author>['author'];
 };
 
 export const AuthorSummary = ({ author }: Props) => {

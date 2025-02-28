@@ -48,7 +48,7 @@ in its translations. The right **level of formality enhances user experience** a
 Formality in translation is like the clothing your software wears. It **sets the tone for how your brand is perceived**. Consistency
 in language across your software helps in crafting a coherent brand image – whether you're a playful app or a serious business tool:
 
-:::tipExample
+:::tip Example
 
 🎮 Yo! Awesome news! We've got some epic updates rolling out. Dive in and tell us what you think. We live for your thoughts!
 

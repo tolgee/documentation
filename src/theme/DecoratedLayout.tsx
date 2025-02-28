@@ -13,7 +13,6 @@ export default function DecoratedLayout(props) {
     };
 
     scrollListener();
-
     document.addEventListener('scroll', scrollListener);
     return () => {
       document.removeEventListener('scroll', scrollListener);

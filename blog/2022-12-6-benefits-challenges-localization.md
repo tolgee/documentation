@@ -1,14 +1,9 @@
 ---
 slug: benefits-challenges-software-localization
-
 title: 'Benefits and Challenges of Software Localization'
-
 authors: [mchalupnikova]
-
 image: '/img/blog/mt-tolgee/machine_translation_tolgee.png'
-
 description: 'Software localization can offer many benefits for your software business, including expanding your market reach and increasing customer satisfaction.'
-
 tags: [in-context, localization, i18n, translation]
 ---
 
@@ -65,7 +60,7 @@ However, not all people want to make such an investment and prefer **machine tra
 
 Context plays a crucial role in software localization and is necessary for accurate translation. Even if you hire the best translators, they can make mistakes if they don’t have all the needed information.
 
-**Translators rely significantly on context** as it helps them understand the meaning of the text they are translating. Unfortunately, translators still often receive software strings in spreadsheet form with zero context. To get accurate translations of your app, make sure to provide translators with the necessary context. Context is genuinely a [gamechanger in the software localization.](/blog/context-gamechanger-localization)
+**Translators rely significantly on context** as it helps them understand the meaning of the text they are translating. Unfortunately, translators still often receive software strings in spreadsheet form with zero context. To get accurate translations of your app, make sure to provide translators with the necessary context. Context is genuinejly a [gamechanger in the software localization.](/blog/context-gamechanger-localization)
 
 First, Tolgee can offer context in the form of **automatic screenshots** to provide a visual context for the text that needs to be translated, making it easier to understand the meaning and intent. Second, an [in-context translation feature](/blog/in-context-production) can bring even more value to the whole localization process as it enables to **translate directly in your app** just with one click with all the context needed.
 
@@ -73,7 +68,7 @@ First, Tolgee can offer context in the form of **automatic screenshots** to prov
 
 To make your software usable for customers in different regions, it’s not enough to simply translate the text. You must also account for formatting differences and **conventions for writing dates, times, numbers, addresses, and currency**. Hard-coded date, time, or currency formats will cause trouble during the localization process, as languages and countries use different date and time formats.
 
-Tolgee deals with formatting issues using the [ICU (International Components for Unicode)](/platform/icu_message_format) message format. ICU also provides a lot of other helpful functionalities, such as advanced pluralization or selection rules.
+Tolgee deals with formatting issues using the [ICU (International Components for Unicode)](/platform/translation_process/icu_message_format) message format. ICU also provides a lot of other helpful functionalities, such as advanced pluralization or selection rules.
 
 ## 6. Inconsistency of translation
 

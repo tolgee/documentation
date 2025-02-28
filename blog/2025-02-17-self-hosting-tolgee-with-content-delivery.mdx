@@ -31,7 +31,7 @@ In this tutorial you will learn how to self-host Tolgee for using with Content D
 Free self-hosted version allows you to create single Content Delivery configuration, and you will have to stick with
 single storage configuration per your instance.
 
-<!--truncate-->
+<!-- truncate-->
 
 To self-host Tolgee, you can use several different deployment options. You can use a simple Docker container, run the
 Java .jar file or use Kubernetes or other orchestration tools. In this tutorial, we will use docker-compose with
@@ -126,20 +126,20 @@ use Content Delivery** features on the free self-hosted instance.
 7. Open the bucket by clicking it in the list
 8. Go to permissions and add this `Bucket policy` json and replace the bucket name with your name. This will
    make your bucket public.
-    ```
-    {
-       "Version": "2012-10-17",
-       "Statement": [
-           {
-               "Sid": "PublicReadGetObject",
-               "Effect": "Allow",
-               "Principal": "*",
-               "Action": "s3:GetObject",
-               "Resource": "arn:aws:s3:::tolgee-cdn-bucket-1234/*"
-           }
-       ]
-    }
-   ```
+```
+{
+    "Version": "2012-10-17",
+    "Statement": [
+        {
+            "Sid": "PublicReadGetObject",
+            "Effect": "Allow",
+            "Principal": "*",
+            "Action": "s3:GetObject",
+            "Resource": "arn:aws:s3:::tolgee-cdn-bucket-1234/*"
+        }
+    ]
+}
+```
 
 Now. You have your S3 bucket ready.
 
@@ -155,7 +155,7 @@ Now we need to create credentials to access this bucket.
 6. Click on `Attach existing policies directly`
 7. Click on `Create policy`
 8. Click on `JSON` tab and paste this
-   ```
+```
  {
     "Version": "2012-10-17",
     "Statement": [
@@ -176,7 +176,7 @@ Now we need to create credentials to access this bucket.
         }
     ]
  }
-   ```
+```
 9. Review and create policy. I am naming it TolgeeCdnBucketPolicy
 10. Select this policy in the user creation wizard
 11. Create the user
