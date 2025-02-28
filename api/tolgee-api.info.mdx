@@ -10,29 +10,163 @@ slug: /
 ---
 
 import ApiLogo from "@theme/ApiLogo";
+import Heading from "@theme/Heading";
 import SchemaTabs from "@theme/SchemaTabs";
 import TabItem from "@theme/TabItem";
 import Export from "@theme/ApiExplorer/Export";
 
-<span className={"theme-doc-version-badge badge badge--secondary"}>Version: v1.0</span>
+<span
+  className={"theme-doc-version-badge badge badge--secondary"}
+  children={"Version: v1.0"}
+>
+</span>
 
-# Tolgee REST API Specification
+<Heading
+  as={"h1"}
+  className={"openapi__heading"}
+  children={"Tolgee API"}
+>
+</Heading>
 
-If you would like to get the OpenAPI specification in JSON format, you can download it [here](https://app.tolgee.io/v3/api-docs/Public%20API%20(All)).
 
-If you are more familiar with Swagger UI, follow this link
-[here](https://app.tolgee.io/swagger-ui/index.html?configUrl=%2Fv3%2Fapi-docs%2Fswagger-config&urls.primaryName=Public%20API%20(All)).
-There, you can also find internal API specifications that are not intended for public use.
 
-<div style={{"marginBottom":"2rem"}}><h2 id={"authentication"} style={{"marginBottom":"1rem"}}>Authentication</h2><SchemaTabs className={"openapi-tabs__security-schemes"}><TabItem label={"HTTP: Bearer Auth"} value={"JwtToken"}><div><table><tbody><tr><th>Security Scheme Type:</th><td>http</td></tr><tr><th>HTTP Authorization Scheme:</th><td>bearer</td></tr><tr><th>Bearer format:</th><td>JWT</td></tr></tbody></table></div></TabItem><TabItem label={"HTTP: Bearer Auth"} value={"SuperJwtToken"}>
+Tolgee Platform REST API reference
 
-Super JWT token is required for sensitive operations when user has set 2FA. You can obtain super JWT token via `/v2/user/generate-super-token` endpoint. But be careful! Super JWT Token has super powers!
-
-<div><table><tbody><tr><th>Security Scheme Type:</th><td>http</td></tr><tr><th>HTTP Authorization Scheme:</th><td>bearer</td></tr><tr><th>Bearer format:</th><td>JWT</td></tr></tbody></table></div></TabItem><TabItem label={"API Key: ApiKeyInHeader"} value={"ApiKeyInHeader"}><div><table><tbody><tr><th>Security Scheme Type:</th><td>apiKey</td></tr><tr><th>Header parameter name:</th><td>X-API-Key</td></tr></tbody></table></div></TabItem><TabItem label={"API Key: ApiKeyInQueryParam"} value={"ApiKeyInQueryParam"}>
-
-It's not recommended to use API key in query param, since it can be stored in logs.
-
-<div><table><tbody><tr><th>Security Scheme Type:</th><td>apiKey</td></tr><tr><th>Header parameter name:</th><td>ak</td></tr></tbody></table></div></TabItem></SchemaTabs></div>
+<div
+  style={{"marginBottom":"2rem"}}
+>
+  <Heading
+    id={"authentication"}
+    as={"h2"}
+    className={"openapi-tabs__heading"}
+    children={"Authentication"}
+  >
+  </Heading><SchemaTabs
+    className={"openapi-tabs__security-schemes"}
+  >
+    <TabItem
+      label={"HTTP: Bearer Auth"}
+      value={"JwtToken"}
+    >
+      
+      
+      
+      
+      <div>
+        <table>
+          <tbody>
+            <tr>
+              <th>
+                Security Scheme Type:
+              </th><td>
+                http
+              </td>
+            </tr><tr>
+              <th>
+                HTTP Authorization Scheme:
+              </th><td>
+                bearer
+              </td>
+            </tr><tr>
+              <th>
+                Bearer format:
+              </th><td>
+                JWT
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </TabItem><TabItem
+      label={"HTTP: Bearer Auth"}
+      value={"SuperJwtToken"}
+    >
+      
+      
+      Super JWT token is required for sensitive operations when user has set 2FA. You can obtain super JWT token via `/v2/user/generate-super-token` endpoint. But be careful! Super JWT Token has super powers!
+      
+      <div>
+        <table>
+          <tbody>
+            <tr>
+              <th>
+                Security Scheme Type:
+              </th><td>
+                http
+              </td>
+            </tr><tr>
+              <th>
+                HTTP Authorization Scheme:
+              </th><td>
+                bearer
+              </td>
+            </tr><tr>
+              <th>
+                Bearer format:
+              </th><td>
+                JWT
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </TabItem><TabItem
+      label={"API Key: ApiKeyInHeader"}
+      value={"ApiKeyInHeader"}
+    >
+      
+      
+      
+      
+      <div>
+        <table>
+          <tbody>
+            <tr>
+              <th>
+                Security Scheme Type:
+              </th><td>
+                apiKey
+              </td>
+            </tr><tr>
+              <th>
+                Header parameter name:
+              </th><td>
+                X-API-Key
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </TabItem><TabItem
+      label={"API Key: ApiKeyInQueryParam"}
+      value={"ApiKeyInQueryParam"}
+    >
+      
+      
+      It's not recommended to use API key in query param, since it can be stored in logs.
+      
+      <div>
+        <table>
+          <tbody>
+            <tr>
+              <th>
+                Security Scheme Type:
+              </th><td>
+                apiKey
+              </td>
+            </tr><tr>
+              <th>
+                Header parameter name:
+              </th><td>
+                ak
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </TabItem>
+  </SchemaTabs>
+</div>
       
 
  - The Bearer Auth (JWT Token) is used internally by the Tolgee Platform frontend. Some of the endpoints require a `Super JWT`

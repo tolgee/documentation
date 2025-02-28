@@ -8,7 +8,6 @@ import {
 import {
   isSamePath,
   useLocalPathname,
-  //@ts-ignore
 } from '@docusaurus/theme-common/internal';
 import NavbarNavLink from '@theme/NavbarItem/NavbarNavLink';
 import NavbarItem from '@theme/NavbarItem';
