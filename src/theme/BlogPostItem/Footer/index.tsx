@@ -1,67 +1,99 @@
-import React from 'react';
+import React, { type ReactNode } from 'react';
 import clsx from 'clsx';
-import { useBlogPost } from '@docusaurus/theme-common/internal';
-import EditThisPage from '@theme/EditThisPage';
+import { useBlogPost } from '@docusaurus/plugin-content-blog/client';
+import { ThemeClassNames } from '@docusaurus/theme-common';
+import EditMetaRow from '@theme/EditMetaRow';
 import TagsListInline from '@theme/TagsListInline';
 import ReadMoreLink from '@theme/BlogPostItem/Footer/ReadMoreLink';
-import styles from './styles.module.css';
-import { AuthorSummary } from '../../../component/AuthorSummary';
 import Head from '@docusaurus/Head';
-export default function BlogPostItemFooter() {
+import { AuthorSummary } from '../../../component/AuthorSummary';
+
+export default function BlogPostItemFooter(): ReactNode {
   const { metadata, isBlogPostPage } = useBlogPost();
-  const { tags, title, editUrl, hasTruncateMarker, authors, frontMatter } =
-    metadata;
+  const {
+    tags,
+    title,
+    editUrl,
+    hasTruncateMarker,
+    lastUpdatedBy,
+    lastUpdatedAt,
+    authors,
+    frontMatter,
+  } = metadata;
+
   const { image } = frontMatter;
+
   // A post is truncated if it's in the "list view" and it has a truncate marker
   const truncatedPost = !isBlogPostPage && hasTruncateMarker;
+
   const tagsExists = tags.length > 0;
+
   const renderFooter = tagsExists || truncatedPost || editUrl;
 
   if (!renderFooter) {
     return null;
   }
-  return (
-    <>
-      {image && (
-        <Head>
-          <meta property="og:image" content={image} />
-        </Head>
-      )}
-      {renderFooter ? (
-        <footer
-          className={clsx(
-            'row docusaurus-mt-lg',
-            isBlogPostPage && styles.blogPostFooterDetailsFull
-          )}
-        >
-          {!truncatedPost &&
-            authors.map((author, i) => {
-              return <AuthorSummary key={i} author={author} />;
-            })}
 
-          {tagsExists && (
-            <div className={clsx('col', { 'col--9': truncatedPost })}>
+  // BlogPost footer - details view
+  if (isBlogPostPage) {
+    const canDisplayEditMetaRow = !!(editUrl || lastUpdatedAt || lastUpdatedBy);
+
+    return (
+      <footer className="docusaurus-mt-lg">
+        {image && (
+          <Head>
+            <meta property="og:image" content={image} />
+          </Head>
+        )}
+        {authors.map((author, i) => {
+          return <AuthorSummary key={i} author={author} />;
+        })}
+        {tagsExists && (
+          <div
+            className={clsx(
+              'row',
+              'margin-top--sm',
+              ThemeClassNames.blog.blogFooterEditMetaRow
+            )}
+          >
+            <div className="col">
               <TagsListInline tags={tags} />
             </div>
-          )}
-
-          {isBlogPostPage && editUrl && (
-            <div className="col margin-top--sm">
-              <EditThisPage editUrl={editUrl} />
-            </div>
-          )}
-
-          {truncatedPost && (
-            <div
-              className={clsx('col text--right', {
-                'col--3': tagsExists,
-              })}
-            >
-              <ReadMoreLink blogPostTitle={title} to={metadata.permalink} />
-            </div>
-          )}
-        </footer>
-      ) : null}
-    </>
-  );
+          </div>
+        )}
+        {canDisplayEditMetaRow && (
+          <EditMetaRow
+            className={clsx(
+              'margin-top--sm',
+              ThemeClassNames.blog.blogFooterEditMetaRow
+            )}
+            editUrl={editUrl}
+            lastUpdatedAt={lastUpdatedAt}
+            lastUpdatedBy={lastUpdatedBy}
+          />
+        )}
+      </footer>
+    );
+  }
+  // BlogPost footer - list view
+  else {
+    return (
+      <footer className="row docusaurus-mt-lg">
+        {tagsExists && (
+          <div className={clsx('col', { 'col--9': truncatedPost })}>
+            <TagsListInline tags={tags} />
+          </div>
+        )}
+        {truncatedPost && (
+          <div
+            className={clsx('col text--right', {
+              'col--3': tagsExists,
+            })}
+          >
+            <ReadMoreLink blogPostTitle={title} to={metadata.permalink} />
+          </div>
+        )}
+      </footer>
+    );
+  }
 }

@@ -1,17 +1,22 @@
-import React from 'react';
+import React, { type ReactNode } from 'react';
+
 import { useThemeConfig } from '@docusaurus/theme-common';
 import FooterLinks from '@theme/Footer/Links';
 import FooterLogo from '@theme/Footer/Logo';
 import FooterCopyright from '@theme/Footer/Copyright';
 import FooterLayout from '@theme/Footer/Layout';
-import styles from './styles.module.css';
 import { useDarkMode } from '../../utils';
+import styles from './styles.module.css';
 
 function TechnologyIncubation() {
   const isDarkTheme = useDarkMode();
   return (
     <div className={styles.footerLogoSection}>
-      <a href="https://www.czechinvest.org/en?force" target="_blank">
+      <a
+        href="https://www.czechinvest.org/en?force"
+        target="_blank"
+        rel="noreferrer"
+      >
         <img
           src={
             isDarkTheme
@@ -32,12 +37,13 @@ function TechnologyIncubation() {
   );
 }
 
-export default function Footer() {
+function Footer(): ReactNode {
   const { footer } = useThemeConfig();
   if (!footer) {
     return null;
   }
   const { copyright, links, logo, style } = footer;
+
   return (
     <FooterLayout
       style={style}
@@ -52,3 +58,5 @@ export default function Footer() {
     />
   );
 }
+
+export default React.memo(Footer);

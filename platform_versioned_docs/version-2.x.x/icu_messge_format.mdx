@@ -12,19 +12,19 @@ Let's see, how to work with it.
 ## Providing values
 The easiest example is how to include external parameters in your message.
 
-    Hello, I am {name}.
+    `Hello, I am {name}.`
 
 If your parameter `name` is `John`, the output will be `Hello, I am John`.
 
 ## Plurals
 Sometimes you need to specify the form of some part of the message depending on provided number value.
 
-    {dogsCount, plural, one {One dog is} other {# dogs are}} here.
+    `{dogsCount, plural, one {One dog is} other {# dogs are}} here.`
 
 In english this is relatively easy. We need just 2 forms of the word `dog` and `be` verb. If we would like to be even cooler,
 we could provide special form for 0 dogs.
 
-    {dogsCount, plural, =0 {No dogs} one {One dog is} other {# dogs are}} here.
+    `{dogsCount, plural, =0 {No dogs} one {One dog is} other {# dogs are}} here.`
 
 If we are translating into other languages, this could be much more complicated. Fortunately, it's simple to cover all
 the cases. For example in Czech language we will need to cover these cases:

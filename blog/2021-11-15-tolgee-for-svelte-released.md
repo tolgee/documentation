@@ -11,3 +11,5 @@ After three weeks of hard work, we finally created, documented and released an i
 I learned a lot about Svelte while creating it, and I have to say, that I love Svelte!
 
 Get started on [Tolgee for Svelte](https://tolgee.io/integrations/svelte)!
+
+<!--truncate-->

@@ -1,4 +1,4 @@
-import { CustomThemeColors } from './theme/colors';
+import { CustomThemeColors } from './theme_internal/colors';
 
 declare module '*.svg' {
   const content: React.FunctionComponent<React.SVGAttributes<SVGElement>>;
