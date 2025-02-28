@@ -52,17 +52,17 @@ const config = {
           // Please change this to your repo.
           editUrl: 'https://github.com/tolgee/documentation/tree/main',
         },
-        // blog: {
-        //   blogSidebarTitle: 'All posts',
-        //   blogSidebarCount: 'ALL',
-        //   showReadingTime: true,
-        //   editUrl: 'https://github.com/tolgee/documentation/tree/main',
-        //   feedOptions: {
-        //     type: 'all',
-        //     copyright: `Copyright © ${new Date().getFullYear()} Tolgee`,
-        //   },
-        //   archiveBasePath: null,
-        // },
+        blog: {
+          blogSidebarTitle: 'All posts',
+          blogSidebarCount: 'ALL',
+          showReadingTime: true,
+          editUrl: 'https://github.com/tolgee/documentation/tree/main',
+          feedOptions: {
+            type: 'all',
+            copyright: `Copyright © ${new Date().getFullYear()} Tolgee`,
+          },
+          archiveBasePath: null,
+        },
         theme: {
           customCss: require.resolve('./src/css/custom.css'),
         },

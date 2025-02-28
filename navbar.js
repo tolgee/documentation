@@ -31,11 +31,11 @@ module.exports.navbar = {
     //   to: 'api',
     //   label: 'REST API',
     // },
-    // {
-    //   to: 'blog',
-    //   label: 'Blog',
-    //   className: 'menu-item-blog',
-    // },
+    {
+      to: 'blog',
+      label: 'Blog',
+      className: 'menu-item-blog',
+    },
 
     {
       to: 'https://app.tolgee.io',
