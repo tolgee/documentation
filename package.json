@@ -58,7 +58,7 @@
     "path-browserify": "1.0.1",
     "postcss": "8.4.14",
     "posthog-js": "^1.165.0",
-    "prettier": "^2.3.1",
+    "prettier": "^3.5.2",
     "prism-svelte": "0.4.7",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
