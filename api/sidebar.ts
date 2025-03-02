@@ -260,6 +260,30 @@ const sidebar: SidebarsConfig = {
     },
     {
       type: "category",
+      label: "Professional translation",
+      link: {
+        type: "doc",
+        id: "professional-translation",
+      },
+      collapsible: false,
+      collapsed: false,
+      items: [
+        {
+          type: "doc",
+          id: "create-translation-order",
+          label: "Create multiple tasks with assigned to an agency",
+          className: "api-method post",
+        },
+        {
+          type: "doc",
+          id: "get-preferred-agency",
+          label: "Get preferred agency",
+          className: "api-method get",
+        },
+      ],
+    },
+    {
+      type: "category",
       label: "Import",
       link: {
         type: "doc",
@@ -540,7 +564,7 @@ const sidebar: SidebarsConfig = {
         },
         {
           type: "doc",
-          id: "get-21",
+          id: "get-22",
           label: "Get one API key",
           className: "api-method get",
         },
@@ -1206,6 +1230,74 @@ const sidebar: SidebarsConfig = {
     },
     {
       type: "category",
+      label: "Cloud Billing",
+      collapsible: false,
+      collapsed: false,
+      items: [
+        {
+          type: "doc",
+          id: "assign-cloud-plan",
+          label: "Assign a plan",
+          className: "api-method put",
+        },
+        {
+          type: "doc",
+          id: "update-trial-end-d-ate",
+          label: "Changes a trial end date",
+          className: "api-method put",
+        },
+        {
+          type: "doc",
+          id: "get-billing-info",
+          label: "Get stored billing info",
+          className: "api-method get",
+        },
+        {
+          type: "doc",
+          id: "cancel-subscription",
+          label: "Cancel subscription",
+          className: "api-method put",
+        },
+        {
+          type: "doc",
+          id: "get-expected-usage-1",
+          label: "Get expected usage for current month",
+          className: "api-method get",
+        },
+        {
+          type: "doc",
+          id: "get-expected-usage-detail",
+          label: "Get expected usage detail in CSV format",
+          className: "api-method get",
+        },
+        {
+          type: "doc",
+          id: "get-cloud-plans",
+          label: "Get cloud plans",
+          className: "api-method get",
+        },
+        {
+          type: "doc",
+          id: "get-subscription",
+          label: "Get active subscription",
+          className: "api-method get",
+        },
+        {
+          type: "doc",
+          id: "get-mt-credit-prices",
+          label: "Get public MT credit prices",
+          className: "menu__list-item--deprecated api-method get",
+        },
+        {
+          type: "doc",
+          id: "get-plans",
+          label: "Get all public plans",
+          className: "api-method get",
+        },
+      ],
+    },
+    {
+      type: "category",
       label: "New features announcements",
       collapsible: false,
       collapsed: false,
@@ -1238,7 +1330,7 @@ const sidebar: SidebarsConfig = {
         },
         {
           type: "doc",
-          id: "prepare-set-license-key",
+          id: "prepare-set-license-key-1",
           label: "Get info before applying the license key",
           className: "api-method post",
         },
@@ -1394,6 +1486,64 @@ const sidebar: SidebarsConfig = {
           type: "doc",
           id: "get-all-with-statistics-1",
           label: "Get all projects with stats",
+          className: "api-method get",
+        },
+      ],
+    },
+    {
+      type: "category",
+      label: "Invoices",
+      collapsible: false,
+      collapsed: false,
+      items: [
+        {
+          type: "doc",
+          id: "get-invoices",
+          label: "Get invoices",
+          className: "api-method get",
+        },
+        {
+          type: "doc",
+          id: "get-invoice-pdf",
+          label: "Get invoice PDF",
+          className: "api-method get",
+        },
+        {
+          type: "doc",
+          id: "get-usage-1",
+          label: "Get invoiced usage",
+          className: "api-method get",
+        },
+        {
+          type: "doc",
+          id: "get-usage-detail",
+          label: "Get usage detail in CSV format",
+          className: "api-method get",
+        },
+      ],
+    },
+    {
+      type: "category",
+      label: "Self-hosted EE Billing",
+      collapsible: false,
+      collapsed: false,
+      items: [
+        {
+          type: "doc",
+          id: "get-self-hosted-plans",
+          label: "Get self-hosted EE plans available for organization",
+          className: "api-method get",
+        },
+        {
+          type: "doc",
+          id: "get-self-hosted-ee-subscriptions",
+          label: "Get self-hosted EE subscriptions",
+          className: "api-method get",
+        },
+        {
+          type: "doc",
+          id: "get-expected-usage",
+          label: "Get expected usage for current month",
           className: "api-method get",
         },
       ],
@@ -1634,7 +1784,7 @@ const sidebar: SidebarsConfig = {
         },
         {
           type: "doc",
-          id: "translate",
+          id: "translate-1",
           label: "Pre-translate by TM",
           className: "api-method post",
         },
