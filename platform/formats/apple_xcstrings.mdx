@@ -1,0 +1,88 @@
+---
+id: apple_xcstrings
+title: Apple String Catalog (.xcstrings)
+sidebar_label: Apple String Catalog
+---
+
+Apple String Catalog is the latest Apple approach to localization for Apple platforms.
+We recommend using it in favor of XLIFF since this format gives you
+better control over the strings and their translations.
+
+Tolgee supports simple values as well as plural values.
+
+Example of a Stringsdict file:
+```json
+{
+  "sourceLanguage": "en",
+  "version": "1.0",
+  "strings": {
+    "dog_count": {
+      "localizations": {
+        "en": {
+          "variations": {
+            "plural": {
+              "other": {
+                "stringUnit": {
+                  "state": "translated",
+                  "value": "I have %lld dogs."
+                }
+              }
+            }
+          }
+        },
+        "cs": {
+          "variations": {
+            "plural": {
+              "one": {
+                "stringUnit": {
+                  "state": "translated",
+                  "value": "Já mám jednoho psa."
+                }
+              },
+              "few": {
+                "stringUnit": {
+                  "state": "translated",
+                  "value": "Já mám %lld psi."
+                }
+              },
+              "other": {
+                "stringUnit": {
+                  "state": "translated",
+                  "value": "Já mám %lld psů."
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "hello": {
+      "en": {
+        "stringUnit": {
+          "state": "translated",
+          "value": "Hello!"
+        }
+      },
+      "localizations": {
+        "cs": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Ahoj!"
+          }
+        }
+      }
+    }
+  }
+}
+```
+
+We recommend using the semantic keys format as in the examples above. That enables you to change the base values without
+modifying the key and doesn't suggest keeping the keys in sync with the base language translation.
+
+import ApplePlaceholders from './components/_apple_placeholders.mdx';
+
+<ApplePlaceholders />
+
+import Importing from './components/_general_importing.mdx';
+
+<Importing />
