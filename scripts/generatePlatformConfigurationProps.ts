@@ -128,7 +128,7 @@ function writeItemHeading(
       stream.write(
         `- ${'#'.repeat(5)} ${
           item.removedIn ? `~~\`${name}\`~~` : `\`${name}\``
-        } {#${
+        } \\{#${
           displayOption === 'snake-upper-case'
             ? getName(item, 'kebab-case')
             : name
