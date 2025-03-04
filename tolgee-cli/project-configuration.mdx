@@ -90,7 +90,7 @@ file.
 
 ### `patterns`
 
-List&ltString&gt. File glob patterns to your source code, used for key extraction.
+List[String]. File glob patterns to your source code, used for key extraction.
 
 ### `strictNamespace`
 
@@ -102,7 +102,7 @@ String. Default namespace used in extraction if not specified otherwise.
 
 ### `parser`
 
-Enum&lt`react`|`vue`|`svelte`&gt. Tolgee detects which parser to use automatically from the extensions of matched files, with this option you can override it.
+Enum[`react`|`vue`|`svelte`]. Tolgee detects which parser to use automatically from the extensions of matched files, with this option you can override it.
 
 
 ## Push options
@@ -123,13 +123,19 @@ More explicit alternative to `filesTemplate`.
 
 `List<{path: string, language: string, namespace?: string}>`. Define, which files should be pushed and attach language/namespace to them. By default Tolgee pushes all files specified here, you can filter them by `languages` and `namespaces` properties. Path can be a glob, if you want to include multiple files.
 
+:::info `push.filesTemplate` vs `push.files`
+We recommend usage of [`push.filesTemplate`](#pushfilestemplate), which can describe your local localization file structure
+with single option. `push.files` requires you to specify each pushed file individually, but can be useful, if you have a weird file
+structure or you want to remap language tags.
+:::
+
 ### `push.languages`
 
-List&ltString&gt. Specifies which languages should be pushed from `push.files`.
+List[String]. Specifies which languages should be pushed from `push.files`.
 
 ### `push.namespaces`
 
-List&ltString&gt. Specifies which namespaces should be pushed from `push.files`.
+List[String]. Specifies which namespaces should be pushed from `push.files`.
 
 ### `push.forceMode`
 
@@ -150,7 +156,7 @@ Boolean. Convert placeholders in local files to ICU format. (Default: `true`)
 
 ### `push.tagNewKeys`
 
-List&ltString&gt. Specify tags that will be added to newly created keys.
+List[String]. Specify tags that will be added to newly created keys.
 
 ### `push.removeOtherKeys`
 
@@ -173,23 +179,23 @@ behavior by specifying `null` or empty string `""`.
 
 ### `pull.languages`
 
-List&ltString&gt. List of languages to pull. Leave unspecified to export them all.
+List[String]. List of languages to pull. Leave unspecified to export them all.
 
 ### `pull.namespaces`
 
-List&ltString&gt. List of namespaces to pull. Defaults to all namespaces.
+List[String]. List of namespaces to pull. Defaults to all namespaces.
 
 ### `pull.states`
 
-List&ltString&gt. List of translation states to include. Defaults all except untranslated.
+List[String]. List of translation states to include. Defaults all except untranslated.
 
 ### `pull.tags`
 
-List&ltString&gt. List of tags which to include.
+List[String]. List of tags which to include.
 
 ### `pull.excludeTags`
 
-List&ltString&gt. List of tags which to exclude.
+List[String]. List of tags which to exclude.
 
 ### `pull.supportArrays`
 
@@ -233,24 +239,24 @@ Boolean. Extract keys from code and filter them out.
 
 ### `tag.filterTag`
 
-List&ltString&gt. Filter only keys with tag. Use * as a wildcard.
+List[String]. Filter only keys with tag. Use * as a wildcard.
 
 ### `tag.filterNoTag`
 
-List&ltString&gt. Filter only keys without tag. Use * as a wildcard.
+List[String]. Filter only keys without tag. Use * as a wildcard.
 
 ### `tag.tag`
 
-List&ltString&gt. Add tag to filtered keys.
+List[String]. Add tag to filtered keys.
 
 ### `tag.tagOther`
 
-List&ltString&gt. Tag keys which are not filtered.
+List[String]. Tag keys which are not filtered.
 
 ### `tag.untag`
 
-List&ltString&gt. Remove tag from filtered keys. Use * as a wildcard.
+List[String]. Remove tag from filtered keys. Use * as a wildcard.
 
 ### `tag.untagOther`
 
-List&ltString&gt. Remove tag from keys which are not filtered. Use * as a wildcard.
+List[String]. Remove tag from keys which are not filtered. Use * as a wildcard.
