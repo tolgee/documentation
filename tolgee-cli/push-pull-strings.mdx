@@ -33,17 +33,6 @@ Options:
 - `--empty-dir` - Empty target directory before inserting pulled files.
 - `--file-structure-template <template>` - [Defines exported file structure](#file-structure-template-format)
 
-### File structure template format
-This is a template that defines the structure of the resulting .zip file content.
-
-The template is a string that can contain the following placeholders: `{namespace}`, `{languageTag}`, `{androidLanguageTag}`, `{snakeLanguageTag}`, `{extension}`.
-
-For example, when exporting to JSON with the template `{namespace}`/`{languageTag}`.`{extension}`, the English translations of the home namespace will be stored in home/en.json.
-
-The `{snakeLanguageTag}` placeholder is the same as `{languageTag}` but in snake case. (e.g., en_US).
-
-The Android specific `{androidLanguageTag}` placeholder is the same as `{languageTag}` but in Android format. (e.g., en-rUS)
-
 ## Pushing strings
 
 This command allows you to upload existing strings from your local folder to the platform.
@@ -55,12 +44,8 @@ Example usage:
    tolgee push --force-mode OVERRIDE
 ```
 
-:::info
-Push command requires [`push.files`](./project-configuration.mdx#pushfiles) in config (which specifies which files to import).
-:::
-
 Options:
-
+- `--files-template <templates...>` (short: `-ft`) - A template that describes the structure of the local files and their location with [file structure template format](#file-structure-template-format). Example: `./public/{namespace}/{languageTag}.json`
 - `--force-mode <mode>` (short: `-f`) – What should we do with possible conflicts? Available modes: `OVERRIDE`, `KEEP`, `NO_FORCE` (abort on conflicts). Defaults to asking the user interactively (or `NO_FORCE` if it is not possible).
 - `--override-key-descriptions` - Override existing key descriptions from local files (only relevant for some formats).
 - `--convert-placeholders-to-icu` - Convert placeholders in local files to ICU format. (Default: true)
@@ -68,3 +53,15 @@ Options:
 - `--namespaces <namespaces...>` (short `-n`) - Specifies which namespaces should be pushed (see `push.files` in config).
 - `--tag-new-keys <tags...>` - Specify tags that will be added to newly created keys.
 - `--remove-other-keys` - Remove keys which are not present in the import.
+
+
+### File structure template format
+This is a template that defines the structure of static files and mapping them to languages/namespaces.
+
+The template is a string that can contain the following placeholders: `{namespace}`, `{languageTag}`, `{androidLanguageTag}`, `{snakeLanguageTag}`, `{extension}`.
+
+For example, when exporting to JSON with the template `{namespace}`/`{languageTag}`.`{extension}`, the English translations of the home namespace will be stored in home/en.json.
+
+The `{snakeLanguageTag}` placeholder is the same as `{languageTag}` but in snake case. (e.g., en_US).
+
+The Android specific `{androidLanguageTag}` placeholder is the same as `{languageTag}` but in Android format. (e.g., en-rUS)
