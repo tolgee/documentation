@@ -86,3 +86,25 @@ import ApplePlaceholders from './components/_apple_placeholders.mdx';
 import Importing from './components/_general_importing.mdx';
 
 <Importing />
+
+# Usage with CLI
+
+Apple xcstrings format is a bit different from other formats, because it contains all the languages in single file.
+Example `.tolgeerc` configuration:
+
+```json
+{
+  "$schema": "https://docs.tolgee.io/cli-schema.json",
+  "projectId": 123,           // project id in tolgee platform
+  "format": "APPLE_XCSTRINGS",
+  "push": {
+    "filesTemplate": "./i18n/Localizable.xcstrings",
+    "languages": ["en"]       // which languages should be pushed by default
+  },
+  "pull": {
+    "path": "./i18n"
+  }
+}
+```
+
+> Read [more about CLI](/tolgee-cli)
