@@ -87,10 +87,13 @@ import Importing from './components/_general_importing.mdx';
 
 <Importing />
 
-# Usage with CLI
+# Using with the CLI
 
-Apple xcstrings format is a bit different from other formats, because it contains all the languages in single file.
-Example `.tolgeerc` configuration:
+Apple String Catalog (.xcstrings) format differs slightly from other formats because it contains all the languages in a single file.
+
+You will probably want to push only the base language (usually English) since translating other languages will happen in the Tolgee Platform. That's why we set the `push.languages` to `["en"]`, so Tolgee will ignore all other languages included in the `.xcstrings`.
+
+For pulling, you usually want to use all the languages from the Tolgee platform, so we are keeping the default for the `pull` option.
 
 ```json
 {
