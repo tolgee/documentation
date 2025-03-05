@@ -10,13 +10,12 @@ Example configuration:
 ```json
 {
   "$schema": "https://docs.tolgee.io/cli-schema.json",
-  "projectId": 123,
+  "projectId": 123,                   // project id in tolgee platform
   "format": "JSON_TOLGEE",
-  "patterns": ["./src/**/*.ts?(x)"],
+  "patterns": ["./src/**/*.ts?(x)"],  // pattern for code extraction
   "push": {
     "filesTemplate": "./public/i18n/{languageTag}.json",
-    "language": ["en"],
-    "forceMode": "OVERRIDE",
+    "language": ["en"],               // which languages should be pushed by default
   },
   "pull": {
     "path": "./public/i18n"

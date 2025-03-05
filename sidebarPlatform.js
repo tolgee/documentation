@@ -69,6 +69,7 @@ module.exports = {
         'formats/csv',
         'formats/xlsx',
         'formats/apple_strings',
+        'formats/apple_xcstrings',
         'formats/apple_xliff',
         'formats/android_xml',
         'formats/compose_multiplatform_xml',
