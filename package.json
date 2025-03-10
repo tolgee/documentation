@@ -49,7 +49,7 @@
     "docusaurus-plugin-openapi-docs": "^4.3.5",
     "docusaurus-tailwindcss": "^0.1.0",
     "docusaurus-theme-openapi-docs": "^4.3.5",
-    "eslint": "^7.32.0",
+    "eslint": "^9.21.0",
     "eslint-plugin-prettier": "^3.4.0",
     "eslint-plugin-react": "^7.24.0",
     "imagemagick": "0.1.3",
