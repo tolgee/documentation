@@ -13,11 +13,12 @@ Example configuration files:
 
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
-import ExampleYamlConfig from "./shared/_exampleYamlConfig.mdx";
 
 <Tabs lazy groupId="config-format" queryString values={[{"value":"yaml","label":"YAML","displayOption":"kebab-case"},{"value":"env","label":".env","displayOption":"snake-upper-case"},{"value":"properties","label":"application.properties","displayOption":"kebab-case"}]}>
 
 <TabItem value="yaml">
+
+import ExampleYamlConfig from "./shared/_exampleYamlConfig.mdx";
 
 <ExampleYamlConfig />
 
@@ -84,6 +85,10 @@ Configuration specific to Tolgee.
 - ##### `max-upload-file-size` \{#max-upload-file-size}
 
   Maximum size of uploaded files (in kilobytes). (default: `51200` ≈ 50MB)
+
+- ##### `translations-view-languages-limit` \{#translations-view-languages-limit}
+
+  Maximum amount of languages that can be selected in the Translations view (default: `10`)
 
 ### Authentication
 
@@ -958,6 +963,7 @@ tolgee:
   max-screenshots-per-key: 20
   max-translation-text-length: 10000
   max-upload-file-size: 51200
+  translations-view-languages-limit: 10
   authentication:
     create-demo-for-initial-user: true
     enabled: true
@@ -1216,6 +1222,10 @@ Configuration specific to Tolgee.
 
   Maximum size of uploaded files (in kilobytes). (default: `51200` ≈ 50MB)
 
+- <h5 id="translations-view-languages-limit"><code>TRANSLATIONS_VIEW_LANGUAGES_LIMIT</code></h5>
+
+  Maximum amount of languages that can be selected in the Translations view (default: `10`)
+
 <h3 id="authentication">Authentication</h3>
 
 Prefix: `TOLGEE_AUTHENTICATION`
@@ -1278,7 +1288,7 @@ Configuration of Tolgee's authentication.
 
 - <h5 id="needs-email-verification"><code>NEEDS_EMAIL_VERIFICATION</code></h5>
 
-  Whether users need to verify their email addresses when creating their account. Requires a valid [SMTP configuration](#SMTP). (default: `false`)
+  Whether users need to verify their email addresses when creating their account. Requires a valid [SMTP configuration](#smtp). (default: `false`)
 
 - <h5 id="registrations-allowed"><code>REGISTRATIONS_ALLOWED</code></h5>
 
@@ -2085,6 +2095,7 @@ TOLGEE_FRONT_END_URL=
 TOLGEE_MAX_SCREENSHOTS_PER_KEY=20
 TOLGEE_MAX_TRANSLATION_TEXT_LENGTH=10000
 TOLGEE_MAX_UPLOAD_FILE_SIZE=51200
+TOLGEE_TRANSLATIONS_VIEW_LANGUAGES_LIMIT=10
 TOLGEE_AUTHENTICATION_CREATE_DEMO_FOR_INITIAL_USER=true
 TOLGEE_AUTHENTICATION_ENABLED=true
 TOLGEE_AUTHENTICATION_INITIAL_PASSWORD=
@@ -2310,6 +2321,10 @@ Configuration specific to Tolgee.
 
   Maximum size of uploaded files (in kilobytes). (default: `51200` ≈ 50MB)
 
+- <h5 id="translations-view-languages-limit"><code>translations-view-languages-limit</code></h5>
+
+  Maximum amount of languages that can be selected in the Translations view (default: `10`)
+
 <h3 id="authentication">Authentication</h3>
 
 Prefix: `tolgee.authentication`
@@ -2372,7 +2387,7 @@ Configuration of Tolgee's authentication.
 
 - <h5 id="needs-email-verification"><code>needs-email-verification</code></h5>
 
-  Whether users need to verify their email addresses when creating their account. Requires a valid [SMTP configuration](#SMTP). (default: `false`)
+  Whether users need to verify their email addresses when creating their account. Requires a valid [SMTP configuration](#smtp). (default: `false`)
 
 - <h5 id="registrations-allowed"><code>registrations-allowed</code></h5>
 
@@ -3179,6 +3194,7 @@ tolgee.front-end-url =
 tolgee.max-screenshots-per-key = 20
 tolgee.max-translation-text-length = 10000
 tolgee.max-upload-file-size = 51200
+tolgee.translations-view-languages-limit = 10
 tolgee.authentication.create-demo-for-initial-user = true
 tolgee.authentication.enabled = true
 tolgee.authentication.initial-password =
