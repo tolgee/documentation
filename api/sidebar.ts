@@ -356,6 +356,30 @@ const sidebar: SidebarsConfig = {
     },
     {
       type: "category",
+      label: "Sso Tenant",
+      link: {
+        type: "doc",
+        id: "sso-tenant",
+      },
+      collapsible: false,
+      collapsed: false,
+      items: [
+        {
+          type: "doc",
+          id: "find-provider",
+          label: "Get SSO Tenant configuration for organization",
+          className: "api-method get",
+        },
+        {
+          type: "doc",
+          id: "set-provider",
+          label: "Set SSO Tenant configuration for organization",
+          className: "api-method put",
+        },
+      ],
+    },
+    {
+      type: "category",
       label: "Big Meta",
       link: {
         type: "doc",
@@ -880,6 +904,12 @@ const sidebar: SidebarsConfig = {
           label: "Get all single owned organizations",
           className: "api-method get",
         },
+        {
+          type: "doc",
+          id: "get-sso",
+          label: "Get information about SSO configuration",
+          className: "api-method get",
+        },
       ],
     },
     {
@@ -1233,7 +1263,7 @@ const sidebar: SidebarsConfig = {
         {
           type: "doc",
           id: "get-authentication-url",
-          label: "getAuthenticationUrl",
+          label: "Generate authentication url (third-party, SSO)",
           className: "api-method post",
         },
         {
@@ -1659,26 +1689,6 @@ const sidebar: SidebarsConfig = {
           id: "disconnect-workspace",
           label: "Disconnect workspace",
           className: "api-method delete",
-        },
-      ],
-    },
-    {
-      type: "category",
-      label: "sso-provider-controller",
-      collapsible: false,
-      collapsed: false,
-      items: [
-        {
-          type: "doc",
-          id: "find-provider",
-          label: "findProvider",
-          className: "api-method get",
-        },
-        {
-          type: "doc",
-          id: "set-provider",
-          label: "setProvider",
-          className: "api-method put",
         },
       ],
     },
