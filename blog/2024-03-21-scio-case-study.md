@@ -32,7 +32,7 @@ CSO aggregates, processes, and analyzes **data from various sources, spanning ov
 
 The Climate Security Observatory currently includes detailed country profiles integrating conflict and climate **data from 13 countries across Central America, Africa, and South Asia**.
 
-The Climate Security research team is partnering with local groups in these areas to hold workshops and help people understand and use the platform better. Given that a **significant portion of these countries are Spanish and French speaking**, they decided to [localize the platform](/blog/benefits-challenges-software-localization#why-should-you-consider-software-localization) to both languages.
+The Climate Security research team is partnering with local groups in these areas to hold workshops and help people understand and use the platform better. Given that a **significant portion of these countries are Spanish and French speaking**, they decided to [localize the platform](/blog/benefits-challenges-software-localization#why-should-you-consider-software-localization-tools) to both languages.
 
 In the next few years, they plan to **extend the platform's impact** by adding more country profiles and new languages to match the diverse languages spoken in these regions.
 
