@@ -65,7 +65,7 @@ Double contribution tip: kill two birds with one stone by contributing with tran
 
 To move forward with any open-source project, feedback from real users is very needed. Do you have any ideas on how to improve the project? Which feature to add? Share it in project communities and discuss it with others.
 
-**Contributing to Tolgee tip:** suggest new features, share your feedback in our [Slack Tolgee community](https://join.slack.com/t/tolgeecommunity/shared_invite/zt-195isb5u8-_RcSRgVJfvgsPpOBIok~IQ) or on [Github Discussions](https://github.com/tolgee/tolgee-platform/discussions)
+**Contributing to Tolgee tip:** suggest new features, share your feedback in our [Slack Tolgee community](https://tolg.ee/slack) or on [Github Discussions](https://github.com/tolgee/tolgee-platform/discussions)
 
 ## Final thoughts
 
