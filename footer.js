@@ -35,7 +35,7 @@ module.exports.footer = {
       items: [
         {
           label: 'Slack',
-          href: 'https://join.slack.com/t/tolgeecommunity/shared_invite/zt-195isb5u8-_RcSRgVJfvgsPpOBIok~IQ',
+          href: 'https://tolg.ee/slack',
         },
         {
           label: 'GitHub',
