@@ -125,9 +125,45 @@ If you want to update only translations of some keys, first select the keys and 
 
 ## Locating translation on the page
 
-If you want to locate a string on the page, click on the **target** button, which will align your figma view so that the node is in the center of your screen.
+If you want to locate a string on the page, click on the **more** button and then on the **Move to string** button, which will align your figma view so that the node is in the center of your screen.
 
 <FigmaScreenshotWrapper
   aria-label="Usage - locate string on the page"
   src="/img/docs/platform/figma-plugin/usage-locate-string.png"
+/>
+
+## Formatting text
+
+There are a few syntaxes supported to format the text for Figma. Supported are the following HTML tags:
+- `<b>` or `<strong>` – bold
+- `<i>` or `<em>` – italic
+- `<u>` – underline
+- `<br>` – line break
+
+If your text contains any of these tags, the plugin will automatically format the text in Figma.
+It will just work in the direction from Tolgee to Figma, so if you change the font weight or decoration for any of the connected texts in figma, this plugin won't recognize these changes.
+
+<FigmaScreenshotWrapper
+  aria-label="Usage - locate string on the page"
+  src="/img/docs/platform/figma-plugin/usage-formatting.png"
+/>
+
+## Using Plurals and Variables
+
+You can use Tolgee's Plurals and Variables in Figma. To define a variable or mark a string as plural, you need to go to the **String details** page in the plugin by clicking on the **More** button for a text.
+
+<FigmaScreenshotWrapper
+  aria-label="Usage - string details"
+  src="/img/docs/platform/figma-plugin/usage-string-details.png"
+/>
+
+In the **String details** page, you can define a variable by using the same syntax you know from Tolgee (`{varName}`) and mark a string as plural by checking the **Plural** checkbox.
+
+<FigmaScreenshotWrapper
+  aria-label="Usage - string details"
+  src="/img/docs/platform/figma-plugin/usage-string-details-variable.png"
+/>
+<FigmaScreenshotWrapper
+  aria-label="Usage - string details"
+  src="/img/docs/platform/figma-plugin/usage-string-details-plural.png"
 />
