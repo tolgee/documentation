@@ -110,7 +110,7 @@ function Car(color) {
 
 I've always found class inheritance confusing, and this way is much more readable for me. It's also quite similar to how React allows you to compose hooks, so it feels familiar.
 
-Even though I haven't seen this method used in many places, it feels quite natural to me. I like how I see exactly what is passed where. It also brings an advantage in code optimization as private methods are truly private (unlike `Typescript` private methods), so the optimizer can optimize them accordingly.
+Even though I haven't seen this method used in many places, it feels quite natural to me. I like how I see exactly what is passed where. It also brings an advantage in code optimization as private methods are truly private (unlike Typescript private methods), which is beneficial when evaluated by [AI code review](https://www.qodo.ai/learn/code-review/ai/) tools for encapsulation and optimization.
 
 One simple advantage is that you can safely use the desctructuring assignment here, as we won't run into issues with binding and prototype chain.
 
