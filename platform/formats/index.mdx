@@ -77,8 +77,10 @@ with this format. Because of that, we recommend going with `.strings` & `.string
 
 ## Apple String Catalog (.xcstrings)
 
-We currently don't support importing/exporting String Catalog `.xcstrings` directly, but you can translate String Catalogs via
-`.xliff` import/export. [Read more](apple_xliff.mdx).
+Apple String Catalog is a modern localization format for Apple platforms introduced with Xcode 15.
+It's a JSON-based format that combines the functionality of `.strings` and `.stringsdict` files into a single,
+more maintainable format. Tolgee fully supports importing and exporting `.xcstrings` files while preserving all
+format-specific features like pluralization and metadata. [Read more](apple_xcstrings.mdx).
 
 ## Android resources XML (.xml)
 
