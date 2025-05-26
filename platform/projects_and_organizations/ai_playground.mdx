@@ -1,0 +1,131 @@
+---
+id: ai-playground
+title: AI Playground
+---
+
+import { ScreenshotWrapper } from '../shared/_ScreenshotWrapper';
+
+AI Playground allows you to test your custom AI prompt settings or write a completely custom prompt.
+
+To open the playground:
+
+ 1. Select `AI settings` in the project menu
+ 2. Click `Open AI playground` button (or `+ Prompt` button if some prompts already exist)
+
+You can also quickly get there via the `Customize` button above machine translation suggestions
+(only if AI assistant is enabled in suggestions).
+
+<ScreenshotWrapper
+  alt="Providing project description"
+  src="/img/docs/platform/ai-playground/customize-button.png"
+/>
+
+## Basic mode
+
+<ScreenshotWrapper
+  alt="Providing project description"
+  src="/img/docs/platform/ai-playground/basic-playground.png"
+/>
+
+In this mode you can influence what information will be included in the prompt. If you e.g. don't want translation to be influenced by Translation Memory results, you can toggle `TM Suggestions` off.
+
+## Advanced mode
+
+:::info
+This feature is only available with a Business subscription or higher on Tolgee cloud and on Subscribed Self-hosted.
+:::
+
+<ScreenshotWrapper
+  alt="Providing project description"
+  src="/img/docs/platform/ai-playground/advanced-playground.png"
+/>
+
+In Advanced mode you can edit resulting prompt directly via text input. We use so called "fragments" which are a sections of the default prompt. You can hover any fragment to see it's content and you can also click the `Insert` button to edit the fragment in the editor.
+
+Other than fragments you can also use variables, which give you direct access to information about current key, source and target translations and so on.
+
+## Running prompts
+
+You can test your current prompt by hitting the `Preview` button and it will run the prompt on currently selected translation (if the button is disabled, you need to select some translation first).
+
+<ScreenshotWrapper
+  alt="Providing project description"
+  src="/img/docs/platform/ai-playground/prompt-preview-single.png"
+/>
+
+Once the AI model returns the result, it is displayed in `Result` section. This section displays how the resulting translation suggestion will look like. You can also click the `</>` button, to see the raw output of the model.
+
+### Preview in batch
+
+You can also run your customized prompt on all currently filtered keys.
+
+ 1. Click the `Arrow` next to the `Preview` button
+ 2. Click `Preview all (x keys)`
+
+This will let you select which languages to preview and start the batch operation.
+
+<ScreenshotWrapper
+  alt="Providing project description"
+  src="/img/docs/platform/ai-playground/prompt-preview-all.png"
+/>
+
+After the operation is done, you will see results next to existing translations. The results are only visible to the current user and don't influence currently active translations in any way.
+
+<ScreenshotWrapper
+  alt="Providing project description"
+  src="/img/docs/platform/ai-playground/prompt-preview-result.png"
+/>
+
+### Preview on selected dataset
+
+If you have bigger project you might want to have your selected translations which will be used for testing in AI playground. You can do this by tagging selected keys by `ai-playground` tag and then selecting `Preview on my dataset`.
+
+<ScreenshotWrapper
+  alt="Providing project description"
+  src="/img/docs/platform/ai-playground/prompt-preview-dataset.png"
+/>
+
+This will run the batch preview only on the tagged keys.
+
+## Saving prompts and using them in the platform
+
+To save your prompt click the `Save as...` button. Then you'll see following dialog:
+
+<ScreenshotWrapper
+  alt="Providing project description"
+  src="/img/docs/platform/ai-playground/prompt-save-dialog.png"
+/>
+
+Name your prompt accordingly and you can also check the `Use as default for machine translation`, if you want to replace default prompt.
+
+### Selecting prompt in language settings
+
+For more granular control you can go to project language settings:
+
+  1. Select `Languages` in project menu
+  2. Go to `Machine translation` tab
+
+In this view you can change machine translation settings globally or for each language individually. Select from your saved custom prompts or reset to the default one.
+
+<ScreenshotWrapper
+  alt="Providing project description"
+  src="/img/docs/platform/ai-playground/language-settings-prompt.png"
+/>
+
+## Handlebars templating system
+
+To use a variable, start by typing `{{` (double curly bracket) and the editor will hint you available variables and fragments.
+
+<ScreenshotWrapper
+  alt="Providing project description"
+  src="/img/docs/platform/ai-playground/editor-variables.png"
+/>
+
+We use Handlebars templating system which has many more functions, read more at [Handlebars documentation](https://handlebarsjs.com/).
+
+
+## List of available variables and fragments
+
+
+
+

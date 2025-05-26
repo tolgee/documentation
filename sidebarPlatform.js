@@ -17,6 +17,7 @@ module.exports = {
         'projects_and_organizations/project_settings',
         'projects_and_organizations/languages',
         'projects_and_organizations/machine-translation-settings',
+        'projects_and_organizations/ai-playground',
         'projects_and_organizations/ai-translation-customization',
         'projects_and_organizations/tasks',
         'projects_and_organizations/order_translation',
