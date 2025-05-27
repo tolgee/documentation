@@ -18,7 +18,7 @@ module.exports = {
         'projects_and_organizations/languages',
         'projects_and_organizations/machine-translation-settings',
         'projects_and_organizations/ai-playground',
-        'projects_and_organizations/ai-translation-customization',
+        'projects_and_organizations/ai-settings',
         'projects_and_organizations/tasks',
         'projects_and_organizations/order_translation',
         'projects_and_organizations/members',
@@ -47,7 +47,7 @@ module.exports = {
       items: [
         'translation_process/translation_memory',
         'translation_process/machine_translation',
-        'translation_process/tolgee_translator',
+        'translation_process/ai_translator',
         'translation_process/comments',
         'translation_process/icu_message_format',
         'translation_process/tolgee_universal_icu_placeholders',
