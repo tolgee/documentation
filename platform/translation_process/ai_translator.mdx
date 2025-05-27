@@ -1,0 +1,40 @@
+---
+id: ai_translator
+title: AI Translator
+description: AI Translator is based on ChatGPT and can translate with included Tolgee Context, key description, project description, language notes and results from TM.
+---
+
+import { ScreenshotWrapper } from '../shared/_ScreenshotWrapper';
+
+AI Translator is based on ChatGPT and can translate with included screenshots, [Tolgee Context](/js-sdk#automatic-context-collection),
+key description, project description, language notes and results from the translation memory.
+
+## AI Translator with context
+
+:::info
+This functionality is available only in the Cloud version with SDK 5.9.0 and higher.
+:::
+
+Tolgee Context is a statistic about relations between the keys based on how they are laid out in your application.
+Context is gathered by Tolgee SDK. [Read more.](/js-sdk#automatic-context-collection)
+
+<ScreenshotWrapper
+  src="/img/docs/platform/ai-translator.png"
+  alt="AI Translator"
+/>
+
+_With Tolgee Context, ambiguous translations can be improved radically._
+
+The presence of context for the given key is indicated at the bottom left corner of the key
+cell and at the with a little ⚡ icon. By clicking on the icon, you can see the context.
+
+## AI Translator customization
+
+You can customize the AI Translator via [AI Playground](../projects_and_organizations/ai_playground.mdx)
+(customizing translating prompt). Or simply provide project and language descriptions
+[AI Translator Customization section](/platform/projects_and_organizations/ai-settings#context-data-formerly-ai-customization).
+
+:::tip
+If you want to learn more about autonomous translation with AI Translator, check out our
+[blog post](/blog/autonomous-localization) on the topic.
+:::
