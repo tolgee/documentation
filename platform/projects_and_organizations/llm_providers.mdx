@@ -6,10 +6,10 @@ title: LLM Providers
 import { ScreenshotWrapper } from '../shared/_ScreenshotWrapper';
 
 
-Tolgee platform allows you to setup custom llm models. You can do so in the organization section
+The Tolgee platform allows you to set up custom LLM models. You can do so in the organization section
 (Cloud version) or globally in the server configuration (Self-hosted version).
 
-In this guide we'll show setup via the UI, but the fields are mostly identical when you use server
+In this guide, we'll show setup via the UI, but the fields are mostly identical when you use the server
 configuration.
 
 ## Configuration via UI
@@ -22,7 +22,7 @@ configuration.
   alt="new member invitation"
 />
 
-Here you can see list of custom providers (configuration is per Organization). You can also see
+Here, you can see a list of custom providers (configuration is per Organization). You can also see
 server-configured providers in the `Server` tab. Server providers cannot be modified via UI.
 
 ## Adding custom provider
@@ -36,34 +36,34 @@ Click the `+ Provider` button to open a provider dialog.
 
 ### Provider naming
 
-Provider name is a displayed name in the UI as well as the ID of the provider.
+The provider name is displayed in the UI, as well as the provider's ID.
 
-If you name custom provider with the same name as a server provider, you will override it.
+If you name a custom provider with the same name as a server provider, you will override it.
 
 If you specify multiple providers with the same name, Tolgee will assume it's the same provider with multiple
-deployments, so it will load-balance between them.
+deployments, so there will be a load balance between them.
 
 You can also specify `Priority`:
  - LOW - deployment will only be used for batch operations
  - HIGH - deployment will only be used for suggestions
 
-This is useful for load-balancing and avoiding rate-limits.
+This is useful for load-balancing and avoiding rate limits.
 
 ## Provider types
 
-Provider type selects a type of API, it influences what other configuration fields are available
+Provider type selects a type of API; it influences what other configuration fields are available
 based on the API requirements.
 
 ### Open AI
 
-Is designed to work with official OpenAI API.
+It is designed to work with the official OpenAI API.
 
  - `API url`: e.g. "https://api.openai.com"
- - `API key`: specify your OpenAI api key without the `Bearer ` prefix
- - `Model`: specify your a model name e.g. "gpt-4o"
- - `Format`: some older models don't support structured output, but for newer ones select "json_schema"
+ - `API key`: specify your OpenAI API key without the `Bearer ` prefix
+ - `Model`: specify your model name, e.g. "gpt-4o"
+ - `Format`: some older models don't support structured output, but for newer ones, select "json_schema"
 
-#### Using Open AI api of lm studio
+#### Using Open AI API of LM studio
 
 [LM studio](https://lmstudio.ai/) uses OpenAI compatible API, so you can configure Tolgee to use it.
 
@@ -71,24 +71,24 @@ Example configuration:
  - `API url`: "http://localhost:1234" (default when running lm studio locally)
  - `API key`: empty
  - `Model`: "gemma-3-4b-it-qat" (name of the model in the lm studio)
- - `Format`: some older models don't support structured output, but for newer ones select "json_schema"
+ - `Format`: some older models don't support structured output, but for newer ones, select "json_schema"
 
 
 ### Azure Open AI
 
-Is designed to work with Azure version of OpenAI API.
+It is designed to work with the Azure version of OpenAI API.
 
- - `API url`: url of your azure resource
+ - `API url`: URL of your Azure resource
  - `API key`: resource key
- - `Deployment`: specify your AI Foundry deployment (e.g. gpt-4o)
- - `Format`: some older models don't support structured output, but for newer ones select "json_schema"
+ - `Deployment`: specify your AI Foundry deployment (e.g., gpt-4o)
+ - `Format`: some older models don't support structured output, but for newer ones, select "json_schema"
 
 
 ## Deleting or editing provider
 
-Click on `⋮` icon next to a provider.
+Click on the`⋮` icon next to a provider.
 
-From here you can select `Edit` or `Delete`.
+From here, you can select `Edit` or `Delete`.
 
 <ScreenshotWrapper
   src="/img/docs/platform/llm-providers/llm-providers-edit-delete.png"
