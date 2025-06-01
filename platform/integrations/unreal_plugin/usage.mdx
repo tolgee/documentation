@@ -9,7 +9,7 @@ description: In the following sections, we will cover how to connect Unreal Engi
 
 Tolgee is now fully supported as a **native Localization Provider** for the Unreal Engine Localization Dashboard.
 
-If you unfamiliar with localization in Unreal Engine, we highly encourage you to check out the following resources:
+If you are unfamiliar with localization in Unreal Engine, we highly encourage you to check out the following resources:
 
 - [Unreal Engine Localization Tools documentation](https://dev.epicgames.com/documentation/en-us/unreal-engine/localization-tools-in-unreal-engine)
 - [Unreal Engine Localization In-Depth](https://dev.epicgames.com/community/learning/tutorials/zwPJ/unreal-engine-localization-in-depth)
@@ -20,7 +20,7 @@ If you have not configured the Tolgee Provider yet, go through the [Setup](/plat
 
 To make the initial push (or to update it after creating/deleting/updating keys):
 
-1. Run Unreal's `Gather Text` follow by `Tolgee Push`
+1. Run Unreal's `Gather Text` followed by `Tolgee Push`
 2. Go inside the Tolgee web dashboard and translate
 3. Run `Tolgee Pull` to get the latest data from your dashboard
 
@@ -74,7 +74,7 @@ These settings will be packaged with the final game and are saved as **plain tex
 
 `Cdn Addresses`: List of web addresses the plugin will query to fetch dynamic translations at the game start.
 
-`Use Cdn in Editor`: If enabled, Play-in-editor Sessions will use dynamic data from the CDN. Otherwise, data from the Web Dashbaord will be querried.
+`Use Cdn in Editor`: If enabled, Play-in-editor Sessions will use dynamic data from the CDN. Otherwise, data from the Web Dashboard will be queried.
 
 ### Tolgee Editor Settings
 
@@ -84,7 +84,7 @@ These settings will **NOT** be packaged with the final game, but they are saved 
 
 ![Tolgee Editor Settings](/img/docs/platform/unreal-plugin/tolgee-editor-settings.png)
 
-The `Api Key`, `Api Url` and the entire `Provider` section are programatically controlled when they are configured via the Unreal Localization Dashboard. So you don't have to worry about setting them manually.
+The `Api Key`, `Api Url` and the entire `Provider` section are programmatically controlled when they are configured via the Unreal Localization Dashboard. So you don't have to worry about setting them manually.
 
 `In-Context` → `Project Ids`: List of Tolgee Project Ids the plugin will query to fetch dynamic translations constantly.
 
@@ -100,7 +100,7 @@ After enabling the Tolgee plugin and restarting the editor, the Tolgee icon shou
 
 The best part of the Tolgee plugin is the **Tolgee Tab**. 
 
-After logging into your Tolgee account, hovering any unformatted localized string will open a browser window containing the matching key inside Tolgee.
+After logging into your Tolgee account, hovering over any unformatted localized string will open a browser window containing the matching key inside Tolgee.
 
 You can directly update the translation, hit save and if you have the settings configured, the text will be updated while the game is running.
 
