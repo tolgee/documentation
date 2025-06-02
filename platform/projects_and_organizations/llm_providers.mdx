@@ -41,13 +41,16 @@ The provider name is displayed in the UI, as well as the provider's ID.
 If you name a custom provider with the same name as a server provider, you will override it.
 
 If you specify multiple providers with the same name, Tolgee will assume it's the same provider with multiple
-deployments, so there will be a load balance between them.
+deployments, so the platform will load balance between them.
 
 You can also specify `Priority`:
  - LOW - deployment will only be used for batch operations
  - HIGH - deployment will only be used for suggestions
 
-This is useful for load-balancing and avoiding rate limits.
+This is useful for load-balancing and avoiding rate limits. Batch operations are repeatable,
+but they usually handle more traffic. On the other hand, 
+the translation suggestion in the UI is not repeatable.
+That's why it makes sense to give suggestions higher priority.
 
 ## Provider types
 
