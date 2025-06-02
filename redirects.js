@@ -187,6 +187,10 @@ module.exports.redirects = {
       from: '/platform/projects_and_organizations/ai-translation-customization',
       to: '/platform/projects_and_organizations/ai-settings',
     },
+    {
+      from: '/platform/translation_process/tolgee_translator',
+      to: '/platform/translation_process/ai_translator',
+    },
   ],
   createRedirects(existingPath) {
     if (existingPath.indexOf('/js-sdk/5.x.x') === 0) {
