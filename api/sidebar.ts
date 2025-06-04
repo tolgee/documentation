@@ -18,21 +18,27 @@ const sidebar: SidebarsConfig = {
       items: [
         {
           type: "doc",
-          id: "get-all-1",
+          id: "get-all-7",
           label: "Get all keys",
           className: "api-method get",
         },
         {
           type: "doc",
-          id: "create-2",
+          id: "create-6",
           label: "Create new key",
           className: "api-method post",
         },
         {
           type: "doc",
-          id: "delete-4",
+          id: "delete-6",
           label: "Delete one or multiple keys (post)",
           className: "api-method delete",
+        },
+        {
+          type: "doc",
+          id: "create-5",
+          label: "Create new key",
+          className: "api-method post",
         },
         {
           type: "doc",
@@ -66,13 +72,13 @@ const sidebar: SidebarsConfig = {
         },
         {
           type: "doc",
-          id: "delete-2",
+          id: "delete-4",
           label: "Delete one or multiple keys",
           className: "api-method delete",
         },
         {
           type: "doc",
-          id: "get-6",
+          id: "get-14",
           label: "Get one key",
           className: "api-method get",
         },
@@ -99,6 +105,12 @@ const sidebar: SidebarsConfig = {
           id: "set-disabled-languages",
           label: "Set disabled languages",
           className: "api-method put",
+        },
+        {
+          type: "doc",
+          id: "select-keys",
+          label: "Select keys",
+          className: "api-method get",
         },
       ],
     },
@@ -132,25 +144,25 @@ const sidebar: SidebarsConfig = {
       items: [
         {
           type: "doc",
-          id: "list-2",
+          id: "list-4",
           label: "List existing Content Delivery Configs",
           className: "api-method get",
         },
         {
           type: "doc",
-          id: "create-6",
+          id: "create-10",
           label: "Create Content Delivery Config",
           className: "api-method post",
         },
         {
           type: "doc",
-          id: "get-9",
+          id: "get-17",
           label: "Get one Content Delivery Config",
           className: "api-method get",
         },
         {
           type: "doc",
-          id: "update-4",
+          id: "update-6",
           label: "Update Content Delivery Config",
           className: "api-method put",
         },
@@ -162,7 +174,7 @@ const sidebar: SidebarsConfig = {
         },
         {
           type: "doc",
-          id: "delete-7",
+          id: "delete-9",
           label: "Delete Content Delivery Config",
           className: "api-method delete",
         },
@@ -222,13 +234,13 @@ const sidebar: SidebarsConfig = {
         },
         {
           type: "doc",
-          id: "get-all-namespaces",
+          id: "get-all-namespaces-2",
           label: "Get namespaces",
           className: "api-method get",
         },
         {
           type: "doc",
-          id: "update-1",
+          id: "update-3",
           label: "Update namespace",
           className: "api-method put",
         },
@@ -414,7 +426,7 @@ const sidebar: SidebarsConfig = {
       items: [
         {
           type: "doc",
-          id: "get-10",
+          id: "get-4",
           label: "Get Import Settings",
           className: "api-method get",
         },
@@ -438,7 +450,7 @@ const sidebar: SidebarsConfig = {
       items: [
         {
           type: "doc",
-          id: "get-all-7",
+          id: "get-all-5",
           label: "Get all languages",
           className: "api-method get",
         },
@@ -450,7 +462,7 @@ const sidebar: SidebarsConfig = {
         },
         {
           type: "doc",
-          id: "get-16",
+          id: "get-12",
           label: "Get one language",
           className: "api-method get",
         },
@@ -516,7 +528,7 @@ const sidebar: SidebarsConfig = {
         },
         {
           type: "doc",
-          id: "get-all-namespaces-2",
+          id: "get-all-namespaces",
           label: "Get namespaces",
           className: "api-method get",
         },
@@ -1014,7 +1026,7 @@ const sidebar: SidebarsConfig = {
         },
         {
           type: "doc",
-          id: "get-all-3",
+          id: "get-all-1",
           label: "Get tags",
           className: "api-method get",
         },
@@ -1080,37 +1092,37 @@ const sidebar: SidebarsConfig = {
       items: [
         {
           type: "doc",
-          id: "create-9",
+          id: "create-3",
           label: "Create translation comment",
           className: "api-method post",
         },
         {
           type: "doc",
-          id: "get-all-5",
+          id: "get-all-3",
           label: "Get translation comments",
           className: "api-method get",
         },
         {
           type: "doc",
-          id: "create-7",
+          id: "create-1",
           label: "Create translation comment",
           className: "api-method post",
         },
         {
           type: "doc",
-          id: "get-14",
+          id: "get-10",
           label: "Get one translation comment",
           className: "api-method get",
         },
         {
           type: "doc",
-          id: "update-5",
+          id: "update-1",
           label: "Update translation comment",
           className: "api-method put",
         },
         {
           type: "doc",
-          id: "delete-8",
+          id: "delete-2",
           label: "Delete translation comment",
           className: "api-method delete",
         },
@@ -1146,7 +1158,7 @@ const sidebar: SidebarsConfig = {
         },
         {
           type: "doc",
-          id: "get-4",
+          id: "get-8",
           label: "Get one project",
           className: "api-method get",
         },
@@ -1314,7 +1326,25 @@ const sidebar: SidebarsConfig = {
         },
         {
           type: "doc",
-          id: "update-trial-end-d-ate",
+          id: "assign-self-hosted-plan",
+          label: "Assign a plan",
+          className: "api-method put",
+        },
+        {
+          type: "doc",
+          id: "unassign-cloud-plan",
+          label: "Unassign a plan",
+          className: "api-method put",
+        },
+        {
+          type: "doc",
+          id: "unassign-self-hosted-plan",
+          label: "Unassign a self-hosted plan",
+          className: "api-method put",
+        },
+        {
+          type: "doc",
+          id: "update-trial-end-date",
           label: "Changes a trial end date",
           className: "api-method put",
         },
@@ -1394,6 +1424,12 @@ const sidebar: SidebarsConfig = {
       collapsible: false,
       collapsed: false,
       items: [
+        {
+          type: "doc",
+          id: "get-usage-2",
+          label: "Get current usage for the current EE subscription",
+          className: "api-method get",
+        },
         {
           type: "doc",
           id: "get-info-5",
@@ -1614,6 +1650,12 @@ const sidebar: SidebarsConfig = {
         },
         {
           type: "doc",
+          id: "get-current-usage",
+          label: "Get current usage",
+          className: "api-method get",
+        },
+        {
+          type: "doc",
           id: "get-expected-usage",
           label: "Get expected usage for current month",
           className: "api-method get",
@@ -1782,13 +1824,13 @@ const sidebar: SidebarsConfig = {
       items: [
         {
           type: "doc",
-          id: "list-3",
+          id: "list",
           label: "List batch operations",
           className: "api-method get",
         },
         {
           type: "doc",
-          id: "get-12",
+          id: "get-6",
           label: "Get batch operation",
           className: "api-method get",
         },
@@ -1874,13 +1916,13 @@ const sidebar: SidebarsConfig = {
       items: [
         {
           type: "doc",
-          id: "list-1",
+          id: "list-3",
           label: "List Content Storages",
           className: "api-method get",
         },
         {
           type: "doc",
-          id: "create-5",
+          id: "create-9",
           label: "Create Content Storage",
           className: "api-method post",
         },
@@ -1892,19 +1934,19 @@ const sidebar: SidebarsConfig = {
         },
         {
           type: "doc",
-          id: "get-8",
+          id: "get-16",
           label: "Get Content Storage",
           className: "api-method get",
         },
         {
           type: "doc",
-          id: "update-3",
+          id: "update-5",
           label: "Update Content Storage",
           className: "api-method put",
         },
         {
           type: "doc",
-          id: "delete-6",
+          id: "delete-8",
           label: "Delete Content Storage",
           className: "api-method delete",
         },
@@ -2056,7 +2098,7 @@ const sidebar: SidebarsConfig = {
       items: [
         {
           type: "doc",
-          id: "list",
+          id: "list-2",
           label: "List webhook configurations",
           className: "api-method get",
         },
@@ -2068,7 +2110,7 @@ const sidebar: SidebarsConfig = {
         },
         {
           type: "doc",
-          id: "get-5",
+          id: "get-9",
           label: "Get one webhook configuration",
           className: "api-method get",
         },
