@@ -21,20 +21,34 @@ To enable the Tolgee plugin inside Unreal, perform the following steps:
 
 ![Unreal Engine Enable Plugin](/img/docs/platform/unreal-plugin/enable-plugin.png)
 
-## Setting up the plugin
+## Localization Provider setup
 
-After installing and enabling the plugin, you need to set the following properties in the Project Settings → Localization → Tolgee section:
+Open the Unreal Engine Localization Dashboard (located at Tools → Localization Dashboard) and have the `Localization Service Provider` tab open.
 
-1. Set the **API key**
+Set the `Localization Service Provider` to `Tolgee` via the dropdown.
 
-  If you don't have one, you can check out our documentation on [how to generate an API key](/platform/account_settings/api_keys_and_pat_tokens#generation).
+This will spawn 2 additional fields, set their values to:
 
-2. Set the **API URL**
+1. Set the `Api Url`
 
   If you are using the self-hosted version, you can change the URL to your instance.
+
+2. Set the `Api Key`
+
+  If you don't have one, you can check out our documentation on [how to generate an API key](/platform/account_settings/api_keys_and_pat_tokens#generation).
   
-  ![Unreal Engine Project Settings](/img/docs/platform/unreal-plugin/project-settings.png)
+![Unreal Engine Localization Provider Settings](/img/docs/platform/unreal-plugin/localization-provider-settings.png)
 
-3. Adjust *Languages*
+## Localization Target setup
 
-  By default, the Unreal plugin pulls all the languages defined in your Tolgee project. However, if you want to use other localization methods for a certain language, you can remove it from the list.
+For each Localization Target of your game you want to connect to Tolgee, go under the `Languages` section you should have 3 additional buttons on the actions toobar.
+
+1. `Toglee Pull`
+2. `Tolgee Push`
+3. `Tolgee Settings`
+
+Press `Tolgee Settings` and set the `Project Id`
+
+  The ID assigned to your project in Tolgee platform (visible in the URL)
+
+![Unreal Engine Localization Target Settings](/img/docs/platform/unreal-plugin/localization-target-settings.png)
