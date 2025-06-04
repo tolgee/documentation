@@ -33,7 +33,7 @@ Getting started with the Tolgee Unreal plugin is easy. Here’s how:
 
 1. [**Sign up** for Tolgee](https://app.tolgee.io/sign_up) if you haven’t already.
 2. [**Install** Tolgee Unreal plugin](https://www.unrealengine.com/marketplace/en-US/product/2757e202f8f3408bbf66f65d26223398) and [**enable** it in the Unreal Engine](/platform/integrations/unreal_plugin/setup#enabling-the-plugin).
-3. [**Connect your Unreal project** to Tolgee](/platform/integrations/unreal_plugin/setup#setting-up-the-plugin) and start managing your localization process seamlessly.
+3. [**Connect your Unreal project** to Tolgee](/platform/integrations/unreal_plugin/setup#localization-provider-setup) and start managing your localization process seamlessly.
 
 ## Conclusion
 
