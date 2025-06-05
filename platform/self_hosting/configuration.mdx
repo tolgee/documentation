@@ -477,6 +477,8 @@ Prefix: `tolgee.content-delivery.storage.s3`
 
 - ##### `endpoint` \{#endpoint}
 
+- ##### `path` \{#path}
+
 - ##### `secret-key` \{#secret-key}
 
 - ##### `signing-region` \{#signing-region}
@@ -512,6 +514,10 @@ Tolgee supports storing its files on an S3-compatible storage server. When enabl
 - ##### `endpoint` \{#endpoint}
 
   Has to be set to a service endpoint: https://docs.aws.amazon.com/general/latest/gr/s3.html
+
+- ##### `path` \{#path}
+
+  Optional subfolder structure within s3 bucket to which content will be stored
 
 - ##### `secret-key` \{#secret-key}
 
@@ -1042,6 +1048,7 @@ tolgee:
         access-key:
         bucket-name:
         endpoint:
+        path:
         secret-key:
         signing-region:
   file-storage:
@@ -1051,6 +1058,7 @@ tolgee:
       bucket-name:
       enabled: false
       endpoint:
+      path:
       secret-key:
       signing-region:
   import:
@@ -1608,6 +1616,8 @@ Prefix: `TOLGEE_CONTENT_DELIVERY_STORAGE_S3`
 
 - <h5 id="endpoint"><code>ENDPOINT</code></h5>
 
+- <h5 id="path"><code>PATH</code></h5>
+
 - <h5 id="secret-key"><code>SECRET_KEY</code></h5>
 
 - <h5 id="signing-region"><code>SIGNING_REGION</code></h5>
@@ -1643,6 +1653,10 @@ Tolgee supports storing its files on an S3-compatible storage server. When enabl
 - <h5 id="endpoint"><code>ENDPOINT</code></h5>
 
   Has to be set to a service endpoint: https://docs.aws.amazon.com/general/latest/gr/s3.html
+
+- <h5 id="path"><code>PATH</code></h5>
+
+  Optional subfolder structure within s3 bucket to which content will be stored
 
 - <h5 id="secret-key"><code>SECRET_KEY</code></h5>
 
@@ -2154,6 +2168,7 @@ TOLGEE_CONTENT_DELIVERY_STORAGE_AZURE_CONTAINER_NAME=
 TOLGEE_CONTENT_DELIVERY_STORAGE_S3_ACCESS_KEY=
 TOLGEE_CONTENT_DELIVERY_STORAGE_S3_BUCKET_NAME=
 TOLGEE_CONTENT_DELIVERY_STORAGE_S3_ENDPOINT=
+TOLGEE_CONTENT_DELIVERY_STORAGE_S3_PATH=
 TOLGEE_CONTENT_DELIVERY_STORAGE_S3_SECRET_KEY=
 TOLGEE_CONTENT_DELIVERY_STORAGE_S3_SIGNING_REGION=
 TOLGEE_FILE_STORAGE_FS_DATA_PATH=~/.tolgee/
@@ -2161,6 +2176,7 @@ TOLGEE_FILE_STORAGE_S3_ACCESS_KEY=
 TOLGEE_FILE_STORAGE_S3_BUCKET_NAME=
 TOLGEE_FILE_STORAGE_S3_ENABLED=false
 TOLGEE_FILE_STORAGE_S3_ENDPOINT=
+TOLGEE_FILE_STORAGE_S3_PATH=
 TOLGEE_FILE_STORAGE_S3_SECRET_KEY=
 TOLGEE_FILE_STORAGE_S3_SIGNING_REGION=
 TOLGEE_IMPORT_BASE_LANGUAGE_TAG=en
@@ -2702,6 +2718,8 @@ Prefix: `tolgee.content-delivery.storage.s3`
 
 - <h5 id="endpoint"><code>endpoint</code></h5>
 
+- <h5 id="path"><code>path</code></h5>
+
 - <h5 id="secret-key"><code>secret-key</code></h5>
 
 - <h5 id="signing-region"><code>signing-region</code></h5>
@@ -2737,6 +2755,10 @@ Tolgee supports storing its files on an S3-compatible storage server. When enabl
 - <h5 id="endpoint"><code>endpoint</code></h5>
 
   Has to be set to a service endpoint: https://docs.aws.amazon.com/general/latest/gr/s3.html
+
+- <h5 id="path"><code>path</code></h5>
+
+  Optional subfolder structure within s3 bucket to which content will be stored
 
 - <h5 id="secret-key"><code>secret-key</code></h5>
 
@@ -3248,6 +3270,7 @@ tolgee.content-delivery.storage.azure.container-name =
 tolgee.content-delivery.storage.s3.access-key =
 tolgee.content-delivery.storage.s3.bucket-name =
 tolgee.content-delivery.storage.s3.endpoint =
+tolgee.content-delivery.storage.s3.path =
 tolgee.content-delivery.storage.s3.secret-key =
 tolgee.content-delivery.storage.s3.signing-region =
 tolgee.file-storage.fs-data-path = ~/.tolgee/
@@ -3255,6 +3278,7 @@ tolgee.file-storage.s3.access-key =
 tolgee.file-storage.s3.bucket-name =
 tolgee.file-storage.s3.enabled = false
 tolgee.file-storage.s3.endpoint =
+tolgee.file-storage.s3.path =
 tolgee.file-storage.s3.secret-key =
 tolgee.file-storage.s3.signing-region =
 tolgee.import.base-language-tag = en
