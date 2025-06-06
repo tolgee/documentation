@@ -22,7 +22,7 @@ To add new translation keys to Tolgee, you have a few options:
 - Use the editor to [create a single translation key](#creating-translation-keys-manually) and adjust its options as needed.
 - Use the [Tolgee API](/api) to add one or more keys through the [`create` endpoint](/api/create-6).
 - Use the [Tolgee CLI](/tolgee-cli) to add one or more keys with the [`push` command](/tolgee-cli/push-pull-strings#pushing-strings).
-- Use the [Tolgee Figma plugin](/platform/integrations/figma_plugin/setup) to add one or more keys with the [`Push` action](/platform/integrations/figma_plugin/usage#pushing-texts-from-figma-into-tolgee).
+- Use the [Tolgee Figma plugin](/platform/integrations/figma_plugin/setup) to add one or more keys with the [`Push` action](/platform/integrations/figma_plugin/usage#push-adding-new-strings-and-translations).
 
 ## Creating translation keys manually
 
@@ -36,7 +36,7 @@ To create a new translation key, click the `+ Add` button on the project's Trans
 When adding a new key, you can specify the following options:
 
 - **Key name**: The name of the key. This name is used to identify the key in the translation files and in the code. The name must be unique within a project.
-- **Namespace**: The namespace of the key. This is an optional field that can be used to structure keys into different "buckets" – namespaces separate translation keys to separate files.
+- **Namespace**: The namespace of the key. This is an optional field that can be used to structure keys into different "buckets" - namespaces separate translation keys to separate files.
 It can be useful in large projects, we recommend it for projects with more than ~1000 keys. You can learn more on the [Namespaces](namespaces) page.
 - **Tags**: Tags can be used to group keys together. You can select multiple tags. You can learn more on the [Tags](tags) page.
 - **Language text(s)**: The text that should be displayed to the user in each language. You can specify the text for one or more languages.
