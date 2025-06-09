@@ -1,27 +1,53 @@
 ---
-id: ai-translation-customization
-title: AI Translation Customization
-sidebar_label: AI Translation Customization
+id: ai-settings
+title: AI Settings
 ---
 
 import { ScreenshotWrapper } from '../shared/_ScreenshotWrapper';
 
+## Prompts section
+
+<ScreenshotWrapper
+  alt="Providing project description"
+  src="/img/docs/platform/ai-settings/prompts-list.webp"
+/>
+
+In this section, you can see all custom prompts for the current project. 
+
+### Adding new prompt
+
+Click on `+ Prompt` (or `OpenAi Playground` if the list is empty); this will redirect you to the
+[AI Playground](../translation_process/ai_playground.mdx) with default prompt, which you can edit and save as a custom prompt.
+
+### Managing prompts
+
+Click on the`⋮` icon next to any custom prompt to see a prompt menu.
+
+<ScreenshotWrapper
+  alt="Providing project description"
+  src="/img/docs/platform/ai-settings/prompts-menu.webp"
+/>
+
+From here you can edit the prompt (redirects to the playground with the selected prompt opened), rename or delete the prompt.
+
+## Context data (formerly AI customization)
+
 :::info
-This feature is only available with a Business subscription or higher on Tolgee cloud and on Subscribed Self-hosted
-instances with [Tolgee AI translator](/platform/translation_process/tolgee_translator) enabled as the translation provider.
+This feature is only available with a Business subscription or higher on Tolgee cloud and Subscribed Self-hosted
+instances with [AI translator](/platform/translation_process/ai_translator) enabled as the translation provider.
 :::
 
-If you wish to enhance the results from the [Tolgee AI translator](/platform/translation_process/tolgee_translator),
+If you wish to enhance the results from the [AI translator](/platform/translation_process/ai_translator),
 you can customize it according to your needs. Tolgee enables you to input key descriptions,
 project descriptions, or language notes. This information is provided along with the actual string
 that requires translation. It helps to understand the context of your translation project and provide
 more accurate translations.
 
-## Providing project description
+### Providing project description
 
 Project descriptions are beneficial when you have a project in a specific domain.
 You can also specify your **overall tone of voice**.
-For instance, if you're translating an app for golf players, you can provide a description like the following:
+For instance, if you're translating an app for golf players, you can provide description like this:
 
 ```text title="Example"
 This is an app for golf players.
@@ -38,12 +64,12 @@ To provide the project description,
 
 <ScreenshotWrapper
   alt="Providing project description"
-  src="/img/docs/platform/ai-customization/project-description.webp"
-></ScreenshotWrapper>
+  src="/img/docs/platform/ai-settings/project-description.webp"
+/>
 
-## Providing language notes
+### Providing language notes
 
-Language notes are useful to specify your conventions for a specific language. You can also use it to specify common terminology.
+Language notes are useful for specifying your conventions for a specific language. You can also use it to specify common terminology.
 Sometimes, you might also want to specify the tone of voice for a specific language
 if you wish to communicate differently to different cultures.
 
@@ -60,15 +86,15 @@ To provide the language description,
 
 <ScreenshotWrapper
   alt="Providing language notes"
-  src="/img/docs/platform/ai-customization/language-notes.webp"
-></ScreenshotWrapper>
+  src="/img/docs/platform/ai-settings/language-notes.webp"
+/>
 
 :::tip
 If you want to learn more about AI translation customization, check out our
 [blog post](/blog/releasing-ai-customizations) on the topic.
 :::
 
-## Providing key description
+### Providing a key description
 
 You can read more about providing key descriptions [here](/platform/translation_keys/keys#key-description).
-Tolgee uses the same key description for AI translation as visible in the Translation editor.
+Tolgee uses the same key description for AI translation as the translation editor.
