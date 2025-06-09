@@ -568,6 +568,22 @@ Properties for importing data to Tolgee and bulk-imports exported json files in 
 
   If true, uploaded files will be stored in configured file storage for future debugging. Such data is not automatically removed after successful import. You have to clean-up manually! (default: `false`)
 
+### llm-properties
+
+Prefix: `tolgee.llm`
+
+- ##### `-enable/disable -a-i translator (default: enabled if there is at least one provider)` \{#-enable/disable -a-i translator (default: enabled if there is at least one provider)}
+
+- ##### `default-enabled` \{#default-enabled}
+
+  Whether llm-powered machine translation is enabled. (default: `true`)
+
+- ##### `default-primary` \{#default-primary}
+
+  Whether to use llm machine translation as a primary translation engine. (default: `true`)
+
+- ##### `providers` \{#providers}
+
 ### Machine Translation
 
 Prefix: `tolgee.machine-translation`
@@ -692,14 +708,6 @@ See [Google Cloud Translation](https://cloud.google.com/translate) page for more
 - ##### `default-primary` \{#default-primary}
 
   Whether to use Google Cloud Translation as a primary translation engine. (default: `true`)
-
-#### tolgee
-
-Prefix: `tolgee.machine-translation.tolgee`
-
-- ##### `default-enabled` \{#default-enabled}
-
-- ##### `default-primary` \{#default-primary}
 
 ### Postgres autostart
 
@@ -1066,6 +1074,11 @@ tolgee:
     create-implicit-api-key: false
     dir:
     store-files-for-debugging: false
+  llm-properties:
+    -enable/disable -a-i translator (default: enabled if there is at least one provider):
+    default-enabled: true
+    default-primary: true
+    providers: []
   machine-translation:
     free-credits-amount: -1
     aws:
@@ -1092,9 +1105,6 @@ tolgee:
       default-primary: false
     google:
       api-key:
-      default-enabled: true
-      default-primary: true
-    tolgee:
       default-enabled: true
       default-primary: true
   postgres-autostart:
@@ -1707,6 +1717,22 @@ Properties for importing data to Tolgee and bulk-imports exported json files in 
 
   If true, uploaded files will be stored in configured file storage for future debugging. Such data is not automatically removed after successful import. You have to clean-up manually! (default: `false`)
 
+<h3 id="llm_properties">LLM_PROPERTIES</h3>
+
+Prefix: `TOLGEE_LLM`
+
+- <h5 id="-enable/disable -a-i translator (default: enabled if there is at least one provider)"><code>_ENABLE/DISABLE _A_I TRANSLATOR (DEFAULT: ENABLED IF THERE IS AT LEAST ONE PROVIDER)</code></h5>
+
+- <h5 id="default-enabled"><code>DEFAULT_ENABLED</code></h5>
+
+  Whether llm-powered machine translation is enabled. (default: `true`)
+
+- <h5 id="default-primary"><code>DEFAULT_PRIMARY</code></h5>
+
+  Whether to use llm machine translation as a primary translation engine. (default: `true`)
+
+- <h5 id="providers"><code>PROVIDERS</code></h5>
+
 <h3 id="machine-translation">Machine Translation</h3>
 
 Prefix: `TOLGEE_MACHINE_TRANSLATION`
@@ -1831,14 +1857,6 @@ See [Google Cloud Translation](https://cloud.google.com/translate) page for more
 - <h5 id="default-primary"><code>DEFAULT_PRIMARY</code></h5>
 
   Whether to use Google Cloud Translation as a primary translation engine. (default: `true`)
-
-<h4 id="tolgee">TOLGEE</h4>
-
-Prefix: `TOLGEE_MACHINE_TRANSLATION_TOLGEE`
-
-- <h5 id="default-enabled"><code>DEFAULT_ENABLED</code></h5>
-
-- <h5 id="default-primary"><code>DEFAULT_PRIMARY</code></h5>
 
 <h3 id="postgres-autostart">Postgres autostart</h3>
 
@@ -2183,6 +2201,10 @@ TOLGEE_IMPORT_BASE_LANGUAGE_TAG=en
 TOLGEE_IMPORT_CREATE_IMPLICIT_API_KEY=false
 TOLGEE_IMPORT_DIR=
 TOLGEE_IMPORT_STORE_FILES_FOR_DEBUGGING=false
+TOLGEE_LLM_PROPERTIES__ENABLE/DISABLE _A_I TRANSLATOR (DEFAULT: ENABLED IF THERE IS AT LEAST ONE PROVIDER)=
+TOLGEE_LLM_PROPERTIES_DEFAULT_ENABLED=true
+TOLGEE_LLM_PROPERTIES_DEFAULT_PRIMARY=true
+TOLGEE_LLM_PROPERTIES_PROVIDERS=[]
 TOLGEE_MACHINE_TRANSLATION_FREE_CREDITS_AMOUNT=-1
 TOLGEE_MACHINE_TRANSLATION_AWS_ACCESS_KEY=
 TOLGEE_MACHINE_TRANSLATION_AWS_DEFAULT_ENABLED=true
@@ -2205,8 +2227,6 @@ TOLGEE_MACHINE_TRANSLATION_DEEPL_DEFAULT_PRIMARY=false
 TOLGEE_MACHINE_TRANSLATION_GOOGLE_API_KEY=
 TOLGEE_MACHINE_TRANSLATION_GOOGLE_DEFAULT_ENABLED=true
 TOLGEE_MACHINE_TRANSLATION_GOOGLE_DEFAULT_PRIMARY=true
-TOLGEE_MACHINE_TRANSLATION_TOLGEE_DEFAULT_ENABLED=true
-TOLGEE_MACHINE_TRANSLATION_TOLGEE_DEFAULT_PRIMARY=true
 TOLGEE_POSTGRES_AUTOSTART_CONTAINER_NAME=tolgee_postgres
 TOLGEE_POSTGRES_AUTOSTART_DATABASE_NAME=postgres
 TOLGEE_POSTGRES_AUTOSTART_ENABLED=true
@@ -2809,6 +2829,22 @@ Properties for importing data to Tolgee and bulk-imports exported json files in 
 
   If true, uploaded files will be stored in configured file storage for future debugging. Such data is not automatically removed after successful import. You have to clean-up manually! (default: `false`)
 
+<h3 id="llm-properties">llm-properties</h3>
+
+Prefix: `tolgee.llm`
+
+- <h5 id="-enable/disable -a-i translator (default: enabled if there is at least one provider)"><code>-enable/disable -a-i translator (default: enabled if there is at least one provider)</code></h5>
+
+- <h5 id="default-enabled"><code>default-enabled</code></h5>
+
+  Whether llm-powered machine translation is enabled. (default: `true`)
+
+- <h5 id="default-primary"><code>default-primary</code></h5>
+
+  Whether to use llm machine translation as a primary translation engine. (default: `true`)
+
+- <h5 id="providers"><code>providers</code></h5>
+
 <h3 id="machine-translation">Machine Translation</h3>
 
 Prefix: `tolgee.machine-translation`
@@ -2933,14 +2969,6 @@ See [Google Cloud Translation](https://cloud.google.com/translate) page for more
 - <h5 id="default-primary"><code>default-primary</code></h5>
 
   Whether to use Google Cloud Translation as a primary translation engine. (default: `true`)
-
-<h4 id="tolgee">tolgee</h4>
-
-Prefix: `tolgee.machine-translation.tolgee`
-
-- <h5 id="default-enabled"><code>default-enabled</code></h5>
-
-- <h5 id="default-primary"><code>default-primary</code></h5>
 
 <h3 id="postgres-autostart">Postgres autostart</h3>
 
@@ -3285,6 +3313,10 @@ tolgee.import.base-language-tag = en
 tolgee.import.create-implicit-api-key = false
 tolgee.import.dir =
 tolgee.import.store-files-for-debugging = false
+tolgee.llm-properties.-enable/disable -a-i translator (default: enabled if there is at least one provider) =
+tolgee.llm-properties.default-enabled = true
+tolgee.llm-properties.default-primary = true
+tolgee.llm-properties.providers = []
 tolgee.machine-translation.free-credits-amount = -1
 tolgee.machine-translation.aws.access-key =
 tolgee.machine-translation.aws.default-enabled = true
@@ -3307,8 +3339,6 @@ tolgee.machine-translation.deepl.default-primary = false
 tolgee.machine-translation.google.api-key =
 tolgee.machine-translation.google.default-enabled = true
 tolgee.machine-translation.google.default-primary = true
-tolgee.machine-translation.tolgee.default-enabled = true
-tolgee.machine-translation.tolgee.default-primary = true
 tolgee.postgres-autostart.container-name = tolgee_postgres
 tolgee.postgres-autostart.database-name = postgres
 tolgee.postgres-autostart.enabled = true
