@@ -9,9 +9,9 @@ import { FigmaScreenshotWrapper } from '../../shared/_FigmaScreenshotWrapper';
 
 ## Installation
 
-First, you need to install the plugin from the [Figma Community](https://www.figma.com/community/plugin/1212381421658754793/Tolgee) by clicking on the **Try it out** button.
+First, you need to install the plugin from the [Figma Community](https://www.figma.com/community/plugin/1212381421658754793/Tolgee) by clicking on the ”**Open in…**” or “Open in Dev Mode” button.
 
-Alternatively, you can find the plugin in Figma by opening the Resources > Plugins, searching for "**Tolgee**", and then click **Run**.
+You can find the Tolgee plugin in Figma by clicking the **Actions icon** (shortcut CTRL + K or ⌘ + K) **→ “Plugins & widgets”** in the toolbar, search for "Tolgee," and click Run. Alternatively, click the Figma button in the top left corner, then select **Plugins → Manage Plugins…** and search for Tolgee
 
 ## Setup
 
@@ -25,10 +25,14 @@ Then you need to click on **Validate** to validate the provided credentials.
 
 After the credentials are validated, select the language of the Figma file, the default namespace for new keys (if you use namespaces), and whether to hide the namespace selector.
 
-#### Text nodes filtering
+## Settings
 
-You can also select which text nodes should be considered for translation. By default, Tolgee filters out the text nodes, whose name starts with the underscore "_" and the nodes that contain purely numbers. You can adjust these settings to your needs.
+In this section, you can find how to use more detailed features of the plugin to for example omit numbers or text that does not need translating.
 
-<FigmaScreenshotWrapper src="/img/docs/platform/figma-plugin/setup-after-validation.png" />
+### Ignoring Numbers and Certain Text
+
+You can select which text nodes should be considered for translation. By default, Tolgee filters out the text nodes, whose name starts with the underscore "_" and the nodes that contain purely numbers. You can adjust these settings to your needs.
 
 Then click **Save**, and you are now ready to use the plugin!
+
+<FigmaScreenshotWrapper src="/img/docs/platform/figma-plugin/setup-after-validation.png" />

@@ -1,71 +1,85 @@
 ---
 id: usage
-title: Usage
-sidebar_label: Usage
+title: Usage Guide
+sidebar_label: Usage Guide
 description: Learn how to push texts from Figma into Tolgee, connect them to existing keys and pull texts from Tolgee into Figma
 ---
 
 import { FigmaScreenshotWrapper } from '../../shared/_FigmaScreenshotWrapper';
 
-## Pushing texts from Figma into Tolgee
+The Figma plugin helps designers to cooperate seamlessly with developers and translators. With the plugin, designers can see how different translations will look in the project and adjust everything accordingly. It helps to see changes as they are made and add the keys and information for developers to ensure proper development.
 
-First, you need to provide key name to each text that you want to push to Tolgee.
-If you use namespaces in Tolgee, you can select what namespace should be used for given key.
+Here is a step-by-step guide on how to use the Tolgee Figma Plugin to work with localization straight from your Figma projects.
 
-<FigmaScreenshotWrapper
-  aria-label="Usage - key name"
-  src="/img/docs/platform/figma-plugin/usage-push-key-name.png"
-/>
+## Installing and Connecting the Plugin
 
-To push all texts into Tolgee, first unselect all and then click **Push all**. If you need to push only some keys, select them first and click **Push**.
+After installing the plugin from the [Figma plugin page](https://www.figma.com/community/plugin/1212381421658754793/tolgee-localization), go back to your Figma project and do the following: 
 
-<FigmaScreenshotWrapper
-  aria-label="Usage - push keys"
-  src="/img/docs/platform/figma-plugin/usage-push-keys.png"
-/>
+1. Access the plugin by clicking the **Actions** icon in the toolbar (shortcut CTRL + K or ⌘ + K), or click the Figma button in the top left corner, then select **Plugins → Manage Plugins…**
+2. Find and open “Tolgee”
+3. Insert your [API key](https://docs.tolgee.io/platform/account_settings/api_keys_and_pat_tokens)
+4. Keep the Tolgee URL default if you are not self-hosting
+5. Click “Validate” and then “Save”
+6. Done!
 
-Then you will see an overview of the keys that will be pushed into Tolgee.
-By default, the plugin will create (or update) screenshots to the keys – you can disable this by unchecking the checkbox. To confirm the settings, click **Push to Tolgee**.
+A full guide can be found on the [Setup](https://docs.tolgee.io/platform/integrations/figma_plugin/setup) docs page
 
-:::info
-The plugin uses figma `frames` to decide what is a "screen" so if the screenshots are not properly created check if you wrap each screen in `frame`. If a string occurs in multiple frames the top-level one is taken.
-:::
+![Installing and Connecting the Plugin Video Guide](/img/docs/platform/figma-plugin/installing-and-connecting-the-plugin.gif)
 
+## Push: Adding New Strings and Translations
 
-<FigmaScreenshotWrapper
-  aria-label="Usage - push translations"
-  src="/img/docs/platform/figma-plugin/usage-push-translations.png"
-/>
+If you are working on a **new project** and would like to start localizing, you need to provide key names to each text that you want to translate with Tolgee. To add the keys, you should**:**
 
-## Connecting to existing keys
+1. Choose the frame or just the text for which you want to add the keys
+2. [Name your key](https://docs.tolgee.io/blog/naming-translation-keys)
+3. Click Push to upload the changes to Tolgee
+4. By default, the plugin will create (or update) screenshots to the keys - you can disable this by unchecking the checkbox.
+5. Then, if everything is okay, click “Push to Togee” to add the new keys
+6. Now you should be able to find the key on the Tolgee platform, together with the screenshot of the text in your base language
 
-If you have existing keys in Tolgee, you can connect them to the texts in Figma with our plugin.
+> The plugin uses Figma `frames` to decide what a "screen" is, so if the screenshots are not properly created, check if you wrap each screen in a `frame`. If a string occurs in multiple frames, the top-level one is taken.
+>
 
-First, click on the "link" icon.
+![Adding New Strings and Translations Video Guide](/img/docs/platform/figma-plugin/adding-new-strings-and-translations.gif)
+
+## Pull: Working with existing translations and keys
+
+If you are working on **a Figma file that** **already has the [keys](https://docs.tolgee.io/platform/translation_keys/keys)** added on Tolgee, you can select the whole frame or just the text string and click “**Pull**” in the Tolgee plugin window to update them. 
+
+### Connecting Figma to Existing Translations on Toggle
+
+In case **you have the keys on Tolgee, but not yet on Figma,** you can connect them in this way:
+
+First, click on the “Link” icon.
 
 <FigmaScreenshotWrapper
   aria-label="Usage - connect to existing key"
   src="/img/docs/platform/figma-plugin/usage-connect-to-existing-key.png"
 />
 
-Then select a key from list of keys that you want to connect the text to. You can edit the text in the **Search** field to find any key in Tolgee.
+Second, select a key from the list of keys that you want to connect the text to. You can edit the text in the Search field to find any key in Tolgee. After you connect an existing key to the text, the "link" icon will be darker (or lighter when using the Dark theme).
 
 <FigmaScreenshotWrapper
   aria-label="Usage - select existing key"
   src="/img/docs/platform/figma-plugin/usage-connect-key-select.png"
 />
 
-After you connect an existing key to the text, the "link" icon will be darker (or lighter when using the Dark theme).
-If you want to remove the connect, just click on the "link" icon again and click **Remove connection**.
+To **remove a connection**, click on the "link" icon again and click **Remove connection**
 
 <FigmaScreenshotWrapper
   aria-label="Usage - remove connection to key"
   src="/img/docs/platform/figma-plugin/usage-remove-connection.png"
 />
 
-## Pulling texts from Tolgee into Figma
+## How to Switch Languages and Add New Translations from the Platform
 
-Once the keys are translated, you can pull them from Tolgee into Figma. Select a language on the main screen and then click **Replace**.
+In the previous steps, we managed to add the keys to existing strings in your base language (English in this example). Once the keys are translated, you can change the language and import the translation from Tolgee into Figma. To do so:
+
+1. Open the Tolgee plugin in FIgma
+2. Select a language on the main screen 
+3. Click **Replace**.
+
+![Switch Languages Video Guide](/img/docs/platform/figma-plugin/switch-languages.gif)
 
 If there are some keys with missing translation in the selected language, they will be displayed on this screen.
 
@@ -74,6 +88,8 @@ If there are some keys with missing translation in the selected language, they w
   src="/img/docs/platform/figma-plugin/usage-pull-change-language.png"
 />
 
+If you want to update only some translations, select the keys and click **Pull**.
+
 If you want to update new translations for all texts, click **Pull all**.
 
 <FigmaScreenshotWrapper
@@ -81,89 +97,33 @@ If you want to update new translations for all texts, click **Pull all**.
   src="/img/docs/platform/figma-plugin/usage-pull-all.png"
 />
 
-If you want to update only some translations, select the keys and click **Pull**.
+## Creating and Updating Page Copies
 
-## Creating page copies
+Copies can be used to work with the translated versions of the project without constantly switching between them in the same file. With our plugin, you can create the following **page copies**:
 
-With our plugin, you can create the following **page copies**:
+- **Copy with key names** - this creates a copy with all texts replaced with the corresponding key names. Duplicate pages that contain key names are particularly useful for developers, as they provide clear guidance on which key names to use in the code.
+- **Copy with languages** - this creates a copy for each selected language with texts replaced with their translation in given language.
+1. To create a page copy, first click ”**Create a copy”**
+2. Choose whether you would like to create a copy with key names or with translations:
+3. After you click **Create**, the plugin will automatically create new page(s) according to what you selected.
 
-- **Copy with key names** – this creates a copy with all texts replaced with the corresponding key names.
-  Duplicate pages that contain key names are particularly useful for developers, as they provide clear guidance on which key names to use in the code.
-- **Copy with languages** – this creates a copy for each selected language with texts replaced with their translation in given language.
+![Creating and Updating Page Copies Video Guide](/img/docs/platform/figma-plugin/creating-and-updating-page-copies.gif)
 
-To create a page copy, first click **Create a copy**:
+To update a copy to reflect the latest changes in the translation:
 
-<FigmaScreenshotWrapper
-  aria-label="Usage - create a copy"
-  src="/img/docs/platform/figma-plugin/usage-create-copy.png"
-/>
+1. Open the copy of the page
+2. Open the Tolgee plugin
+3. Click **Pull all** to update all translations when no texts are selected.
 
-Next, choose whether you would like to create a copy with key names or with translations:
+If you want to update only translations of some text, first select the text and then click **Pull**.
 
-<FigmaScreenshotWrapper
-  aria-label="Usage - create and select type of copy"
-  src="/img/docs/platform/figma-plugin/usage-create-copy-select.png"
-/>
-
-After you click **Create**, the plugin will automatically create new page(s) according to what you selected.
-
-### Updating translated page copies
-
-When you open the page copy, you can click **Pull all** to update all translations when no texts are selected.
-
-<FigmaScreenshotWrapper
-  aria-label="Usage - update all keys"
-  src="/img/docs/platform/figma-plugin/usage-copy-pull-all.png"
-/>
-
-If you want to update only translations of some keys, first select the keys and then click **Pull**.
-
-<FigmaScreenshotWrapper
-  aria-label="Usage - update selected keys"
-  src="/img/docs/platform/figma-plugin/usage-copy-pull.png"
-/>
+![Updating A Copy Video Guide](/img/docs/platform/figma-plugin/updating-a-copy.gif)
 
 ## Locating translation on the page
 
-If you want to locate a string on the page, click on the **more** button and then on the **Move to string** button, which will align your figma view so that the node is in the center of your screen.
+If you want to locate a string on the page, click on the **more** button and then on the **Move to string** button, which will align your Figma view so that the text is in the center of your screen.
 
 <FigmaScreenshotWrapper
   aria-label="Usage - locate string on the page"
   src="/img/docs/platform/figma-plugin/usage-locate-string.png"
-/>
-
-## Formatting text
-
-There are a few syntaxes supported to format the text for Figma. Supported are the following HTML tags:
-- `<b>` or `<strong>` – bold
-- `<i>` or `<em>` – italic
-- `<u>` – underline
-- `<br>` – line break
-
-If your text contains any of these tags, the plugin will automatically format the text in Figma.
-It will just work in the direction from Tolgee to Figma, so if you change the font weight or decoration for any of the connected texts in figma, this plugin won't recognize these changes.
-
-<FigmaScreenshotWrapper
-  aria-label="Usage - locate string on the page"
-  src="/img/docs/platform/figma-plugin/usage-formatting.png"
-/>
-
-## Using Plurals and Variables
-
-You can use Tolgee's Plurals and Variables in Figma. To define a variable or mark a string as plural, you need to go to the **String details** page in the plugin by clicking on the **More** button for a text.
-
-<FigmaScreenshotWrapper
-  aria-label="Usage - string details"
-  src="/img/docs/platform/figma-plugin/usage-string-details.png"
-/>
-
-In the **String details** page, you can define a variable by using the [ICU syntax](/platform/translation_process/tolgee_universal_icu_placeholders) you know from Tolgee (`{varName}`) and mark a string as plural by checking the **Plural** checkbox.
-
-<FigmaScreenshotWrapper
-  aria-label="Usage - string details"
-  src="/img/docs/platform/figma-plugin/usage-string-details-variable.png"
-/>
-<FigmaScreenshotWrapper
-  aria-label="Usage - string details"
-  src="/img/docs/platform/figma-plugin/usage-string-details-plural.png"
 />
