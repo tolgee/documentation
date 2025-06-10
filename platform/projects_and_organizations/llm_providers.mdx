@@ -70,9 +70,9 @@ It is designed to work with the official OpenAI API.
 [LM studio](https://lmstudio.ai/) uses OpenAI compatible API, so you can configure Tolgee to use it.
 
 Example configuration:
- - `API url`: "http://localhost:1234" (default when running lm studio locally)
+ - `API url`: e.g. "http://localhost:1234" (default when running lm studio locally)
  - `API key`: empty
- - `Model`: "gemma-3-4b-it-qat" (name of the model in the lm studio)
+ - `Model`: e.g. "gemma-3-4b-it-qat" (name of the model in the lm studio)
  - `Format`: some older models don't support structured output, but for newer ones, select "json_schema"
 
 
@@ -84,6 +84,22 @@ It is designed to work with the Azure version of OpenAI API.
  - `API key`: resource key
  - `Deployment`: specify your AI Foundry deployment (e.g., gpt-4o)
  - `Format`: some older models don't support structured output, but for newer ones, select "json_schema"
+
+### Anthropic
+
+It is designed to work with the Anthropic API.
+
+ - `API url`: e.g. "https://api.anthropic.com"
+ - `API key`: specify your Anthropic API key ("x-api-key" header)
+ - `Model`: specify your model name (e.g., claude-sonnet-4-20250514)
+
+### Google AI
+
+It is designed to work with the Google AI API.
+
+ - `API url`: e.g. "https://generativelanguage.googleapis.com"
+ - `API key`: specify your Google Console API key ("api-key" header)
+ - `Model`: specify your model name (e.g., gemini-2.0-flash)
 
 
 ## Deleting or editing provider
