@@ -71,7 +71,7 @@ based on the API requirements.
 
 It is designed to work with the official OpenAI API.
 
- - `API url`: e.g. "https://api.openai.com"
+ - `API url`: e.g., "https://api.openai.com"
  - `API key`: specify your OpenAI API key without the `Bearer ` prefix
  - `Model`: specify your model name (e.g., "gpt-4o")
  - `Format`: some older models don't support structured output, but for newer ones, select "json_schema"
@@ -81,9 +81,9 @@ It is designed to work with the official OpenAI API.
 [LM studio](https://lmstudio.ai/) uses OpenAI compatible API, so you can configure Tolgee to use it.
 
 Example configuration:
- - `API url`: e.g. "http://localhost:1234" (default when running lm studio locally)
+ - `API url`: e.g., "http://localhost:1234" (default when running lm studio locally)
  - `API key`: empty
- - `Model`: e.g. "gemma-3-4b-it-qat" (name of the model in the lm studio)
+ - `Model`: e.g., "gemma-3-4b-it-qat" (name of the model in the lm studio)
  - `Format`: some older models don't support structured output, but for newer ones, select "json_schema"
 
 
@@ -100,7 +100,7 @@ It is designed to work with the Azure version of OpenAI API.
 
 It is designed to work with the Anthropic API.
 
- - `API url`: e.g. "https://api.anthropic.com"
+ - `API url`: e.g., "https://api.anthropic.com"
  - `API key`: specify your Anthropic API key ("x-api-key" header)
  - `Model`: specify your model name (e.g., claude-sonnet-4-20250514)
 
@@ -108,17 +108,17 @@ It is designed to work with the Anthropic API.
 
 It is designed to work with the Google AI API.
 
- - `API url`: e.g. "https://generativelanguage.googleapis.com"
+ - `API url`: e.g., "https://generativelanguage.googleapis.com"
  - `API key`: specify your Google Console API key ("api-key" header)
  - `Model`: specify your model name (e.g., gemini-2.0-flash)
 
 ## Self-hosted server configuration
 
-In the same way as through UI, you can also configure llm providers through server configuration,
+In the same way, as through UI, you can also configure llm providers through server configuration,
 when you are self-hosting.
 
 Configuration field [`tolgee.llm.providers`](/platform/self_hosting/configuration#providers),
-is an array of providers with following fields:
+is an array of providers with the following fields:
 
 ```
 tolgee:
@@ -130,9 +130,9 @@ tolgee:
         api-key: string
         model: string
         deployment: string
-        format: string (e.g. "json_schema" )
+        format: string (e.g., "json_schema" )
         priority: null | LOW | HIGH
         enabled: true | false (default: true)
 ```
 
-Fill the fields which are necessary according to the documentation above, you can leave other fields empty.
+Fill in the necessary fields according to the documentation above; you can leave other fields empty.
