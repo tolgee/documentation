@@ -24,6 +24,17 @@ configuration.
 Here, you can see a list of custom providers (configuration is per Organization). You can also see
 server-configured providers in the `Server` tab. Server providers cannot be modified via UI.
 
+## Deleting or editing provider
+
+Click on the `⋮` icon next to a provider.
+
+From here, you can select `Edit` or `Delete`.
+
+<ScreenshotWrapper
+  src="/img/docs/platform/llm-providers/llm-providers-edit-delete.webp"
+  alt="new member invitation"
+/>
+
 ## Adding custom provider
 
 Click the `+ Provider` button to open a provider dialog.
@@ -101,15 +112,27 @@ It is designed to work with the Google AI API.
  - `API key`: specify your Google Console API key ("api-key" header)
  - `Model`: specify your model name (e.g., gemini-2.0-flash)
 
+## Self-hosted server configuration
 
-## Deleting or editing provider
+In the same way as through UI, you can also configure llm providers through server configuration,
+when you are self-hosting.
 
-Click on the `⋮` icon next to a provider.
+Configuration field [`tolgee.llm.providers`](/platform/self_hosting/configuration#providers),
+is an array of providers with following fields:
 
-From here, you can select `Edit` or `Delete`.
+```
+tolgee:
+  llm:
+    providers:
+      - name: string
+        type: OPENAI | OPENAI_AZURE | TOLGEE | ANTHROPIC | GOOGLE_AI
+        api-url: string
+        api-key: string
+        model: string
+        deployment: string
+        format: string (e.g. "json_schema" )
+        priority: null | LOW | HIGH
+        enabled: true | false (default: true)
+```
 
-<ScreenshotWrapper
-  src="/img/docs/platform/llm-providers/llm-providers-edit-delete.webp"
-  alt="new member invitation"
-/>
-
+Fill the fields which are necessary according to the documentation above, you can leave other fields empty.
