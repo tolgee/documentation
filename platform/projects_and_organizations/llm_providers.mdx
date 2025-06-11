@@ -24,6 +24,17 @@ configuration.
 Here, you can see a list of custom providers (configuration is per Organization). You can also see
 server-configured providers in the `Server` tab. Server providers cannot be modified via UI.
 
+## Deleting or editing provider
+
+Click on the `⋮` icon next to a provider.
+
+From here, you can select `Edit` or `Delete`.
+
+<ScreenshotWrapper
+  src="/img/docs/platform/llm-providers/llm-providers-edit-delete.webp"
+  alt="new member invitation"
+/>
+
 ## Adding custom provider
 
 Click the `+ Provider` button to open a provider dialog.
@@ -60,7 +71,7 @@ based on the API requirements.
 
 It is designed to work with the official OpenAI API.
 
- - `API url`: e.g. "https://api.openai.com"
+ - `API url`: e.g., "https://api.openai.com"
  - `API key`: specify your OpenAI API key without the `Bearer ` prefix
  - `Model`: specify your model name (e.g., "gpt-4o")
  - `Format`: some older models don't support structured output, but for newer ones, select "json_schema"
@@ -70,9 +81,9 @@ It is designed to work with the official OpenAI API.
 [LM studio](https://lmstudio.ai/) uses OpenAI compatible API, so you can configure Tolgee to use it.
 
 Example configuration:
- - `API url`: "http://localhost:1234" (default when running lm studio locally)
+ - `API url`: e.g., "http://localhost:1234" (default when running lm studio locally)
  - `API key`: empty
- - `Model`: "gemma-3-4b-it-qat" (name of the model in the lm studio)
+ - `Model`: e.g., "gemma-3-4b-it-qat" (name of the model in the lm studio)
  - `Format`: some older models don't support structured output, but for newer ones, select "json_schema"
 
 
@@ -85,15 +96,43 @@ It is designed to work with the Azure version of OpenAI API.
  - `Deployment`: specify your AI Foundry deployment (e.g., gpt-4o)
  - `Format`: some older models don't support structured output, but for newer ones, select "json_schema"
 
+### Anthropic
 
-## Deleting or editing provider
+It is designed to work with the Anthropic API.
 
-Click on the `⋮` icon next to a provider.
+ - `API url`: e.g., "https://api.anthropic.com"
+ - `API key`: specify your Anthropic API key ("x-api-key" header)
+ - `Model`: specify your model name (e.g., claude-sonnet-4-20250514)
 
-From here, you can select `Edit` or `Delete`.
+### Google AI
 
-<ScreenshotWrapper
-  src="/img/docs/platform/llm-providers/llm-providers-edit-delete.webp"
-  alt="new member invitation"
-/>
+It is designed to work with the Google AI API.
 
+ - `API url`: e.g., "https://generativelanguage.googleapis.com"
+ - `API key`: specify your Google Console API key ("api-key" header)
+ - `Model`: specify your model name (e.g., gemini-2.0-flash)
+
+## Self-hosted server configuration
+
+In the same way, as through UI, you can also configure llm providers through server configuration,
+when you are self-hosting.
+
+Configuration field [`tolgee.llm.providers`](/platform/self_hosting/configuration#providers),
+is an array of providers with the following fields:
+
+```
+tolgee:
+  llm:
+    providers:
+      - name: string
+        type: OPENAI | OPENAI_AZURE | TOLGEE | ANTHROPIC | GOOGLE_AI
+        api-url: string
+        api-key: string
+        model: string
+        deployment: string
+        format: string (e.g., "json_schema" )
+        priority: null | LOW | HIGH
+        enabled: true | false (default: true)
+```
+
+Fill in the necessary fields according to the documentation above; you can leave other fields empty.

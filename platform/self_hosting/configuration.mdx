@@ -568,7 +568,7 @@ Properties for importing data to Tolgee and bulk-imports exported json files in 
 
   If true, uploaded files will be stored in configured file storage for future debugging. Such data is not automatically removed after successful import. You have to clean-up manually! (default: `false`)
 
-### llm-properties
+### LLM Providers
 
 Prefix: `tolgee.llm`
 
@@ -583,6 +583,22 @@ Prefix: `tolgee.llm`
   Whether to use llm machine translation as a primary translation engine. (default: `true`)
 
 - ##### `providers` \{#providers}
+
+  
+      List of LLM providers. Example:
+      
+      ```
+      providers:
+        - name: openai-gpt-4o-mini
+          type: OPENAI
+          api-key: "<api key>"
+          api-url: "https://api.openai.com"
+          model: gpt-4o-mini
+          format: "json_schema"
+      ```
+      
+      Check [llm providers documentation](/platform/projects_and_organizations/llm-providers#self-hosted-server-configuration) for more information.
+     (default: `[]`)
 
 ### Machine Translation
 
@@ -1717,7 +1733,7 @@ Properties for importing data to Tolgee and bulk-imports exported json files in 
 
   If true, uploaded files will be stored in configured file storage for future debugging. Such data is not automatically removed after successful import. You have to clean-up manually! (default: `false`)
 
-<h3 id="llm_properties">LLM_PROPERTIES</h3>
+<h3 id="llm-providers">LLM Providers</h3>
 
 Prefix: `TOLGEE_LLM`
 
@@ -1732,6 +1748,22 @@ Prefix: `TOLGEE_LLM`
   Whether to use llm machine translation as a primary translation engine. (default: `true`)
 
 - <h5 id="providers"><code>PROVIDERS</code></h5>
+
+  
+      List of LLM providers. Example:
+      
+      ```
+      providers:
+        - name: openai-gpt-4o-mini
+          type: OPENAI
+          api-key: "<api key>"
+          api-url: "https://api.openai.com"
+          model: gpt-4o-mini
+          format: "json_schema"
+      ```
+      
+      Check [llm providers documentation](/platform/projects_and_organizations/llm-providers#self-hosted-server-configuration) for more information.
+     (default: `[]`)
 
 <h3 id="machine-translation">Machine Translation</h3>
 
@@ -2829,7 +2861,7 @@ Properties for importing data to Tolgee and bulk-imports exported json files in 
 
   If true, uploaded files will be stored in configured file storage for future debugging. Such data is not automatically removed after successful import. You have to clean-up manually! (default: `false`)
 
-<h3 id="llm-properties">llm-properties</h3>
+<h3 id="llm-providers">LLM Providers</h3>
 
 Prefix: `tolgee.llm`
 
@@ -2844,6 +2876,22 @@ Prefix: `tolgee.llm`
   Whether to use llm machine translation as a primary translation engine. (default: `true`)
 
 - <h5 id="providers"><code>providers</code></h5>
+
+  
+      List of LLM providers. Example:
+      
+      ```
+      providers:
+        - name: openai-gpt-4o-mini
+          type: OPENAI
+          api-key: "<api key>"
+          api-url: "https://api.openai.com"
+          model: gpt-4o-mini
+          format: "json_schema"
+      ```
+      
+      Check [llm providers documentation](/platform/projects_and_organizations/llm-providers#self-hosted-server-configuration) for more information.
+     (default: `[]`)
 
 <h3 id="machine-translation">Machine Translation</h3>
 
