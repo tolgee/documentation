@@ -93,6 +93,7 @@ module.exports = {
           items: [
             'integrations/figma_plugin/setup',
             'integrations/figma_plugin/usage',
+            'integrations/figma_plugin/formatting_text_and_variables',
           ],
         },
 
