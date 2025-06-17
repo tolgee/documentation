@@ -1,0 +1,79 @@
+---
+slug: deploying-tolgee-on-sealos
+title: 'Deploying Tolgee on Sealos'
+description: 'You can now self-host Tolgee on Sealos with just one click'
+image: '/img/blog/deploying-tolgee-on-sealos/sealos-hosting-thumbnail-dark.webp'
+authors: [jcizmar]
+tags: ['tolgee', 'sealos', 'self-host', 'localization', 'guide']
+---
+
+import { ScreenshotWrapper } from '../platform/shared/_ScreenshotWrapper';
+import ThemedImage from '@theme/ThemedImage';
+import useBaseUrl from '@docusaurus/useBaseUrl';
+
+<ThemedImage
+  alt="Apple String Catalog Support Blog Image"
+  sources={{
+    light: useBaseUrl(
+      '/img/blog/deploying-tolgee-on-sealos/sealos-hosting-thumbnail-light.webp'
+    ),
+    dark: useBaseUrl(
+      '/img/blog/deploying-tolgee-on-sealos/sealos-hosting-thumbnail-dark.webp'
+    ),
+  }}
+/>
+
+This guide shows how to self-host Tolgee in two ways: using [Sealos](https://sealos.io/), or deploying with ways that give you more control over your instance. This will help you determine the best option for your needs.
+
+<!--truncate-->
+
+Localization is key for reaching international audiences. Tolgee is an open-source localization platform that offers powerful features for translating applications with support for React, Angular, Vue, and even has a [Figma plugin](https://tolgee.io/apps-integrations/figma-plugin). Tolgee provides an excellent cloud-hosted solution, but some organizations prefer self-hosting for enhanced control and customization.
+
+## Why Self-Host?
+
+Self-hosting Tolgee provides organizations with complete control, the freedom to modify and customize the platform according to specific needs, and integration within existing infrastructure. However, it comes with its drawbacks, as you know, “with great power comes great responsibility,” which means that you will be dealing with all the setup and problems that occur with modifications that you are doing with the self-hosted version. Unlike on Tolgee cloud, you get limited support, and you need to use more intricate ways to work with it. You can upgrade to a more advanced plan for self-hosted, which also provides webhooks, standard support, custom content storage, and AI customization
+
+## Tolgee Deployment Methods
+
+The simplest one is with [Sealos](https://sealos.io/), an operating system built on Kubernetes that provides a unified platform for developers to develop, deploy, and scale applications. What makes Sealos particularly attractive for hosting Tolgee is its one-click deployment capability and comprehensive feature set. The platform eliminates the complexity typically associated with Kubernetes deployments while maintaining all the benefits of container orchestration.
+
+While Sealos offers exceptional ease of use, several other deployment methods are available for self-hosting Tolgee. Each comes with distinct advantages and trade-offs that make them suitable for different scenarios and organizational requirements. 
+
+### How to Host on Sealos
+
+1. To host Tolgee, simply go to the [Tolgee page on Sealos](https://template.usw.sealos.io/deploy?templateName=tolgee) 
+2. Fill in the details like TOLGEE_AUTHENTICATION_INITIAL_USERNAME, TOLGEE_AUTHENTICATION_INITIAL_PASSWORD, and the rest as needed
+3. Click **“Deploy on Sealos”**
+
+<ScreenshotWrapper src="/img/blog/deploying-tolgee-on-sealos/sealos-hosting-example.webp"
+                   alt="Screenshot of the Tolgee page on Sealos" />
+
+## Alternatives
+
+### 1. [Docker Compose Deployment](/platform/self_hosting/running_with_docker)
+
+Docker Compose provides a straightforward approach to deploying Tolgee with a standalone PostgreSQL database, making it an attractive option for many development teams. This method has both simplicity and control. It is good for smaller deployments where complex methods aren't needed. The setup process involves defining services in a docker-compose.yml file and running the application stack with minimal configuration.
+
+### 2. Cloud Provider Services
+
+Cloud providers that offer managed container services can also host Tolgee. You can use AWS ECS, Google Cloud Run, or [Microsoft Azure](/platform/self_hosting/running_on_azure) Container Instances. These services offer managed infrastructure and the flexibility of containerized applications. This approach appeals to organizations already invested in specific cloud ecosystems.
+
+### 3. Java Deployment
+
+Tolgee officially supports running as a standalone Java application with external database configuration. It is also great for organizations that prefer direct runtime control. You can learn how to set it up [here](/platform/self_hosting/running_with_java).
+
+## When to Choose Self-Hosting vs Official Platform
+
+The decision between self-hosting Tolgee and using the [official cloud platform](https://tolgee.io/) depends on your specific requirements, technical skills, and priorities. Self-hosting becomes the preferred choice when you need different customization capabilities or must integrate with some kind of existing infrastructure. Though, for most people, simply using Tolgee Cloud is better than bothering to set up your own instances, as it is simple and the functionality covers most use cases.
+
+The [official platform (Tolgee cloud)](https://tolgee.io/) excels when speed, simplicity, and professional support are prioritized over infrastructure control. This approach is perfect for teams who want to focus on localization strategy rather than technical implementation details. 
+
+## Conclusion
+
+**We usually recommend using Tolgee's official cloud platform for most organizations**. The official platform delivers great value through professional support, automatic maintenance, and a focus on the main objectives instead of infrastructure management. If you know what you are doing, deploying through platforms like Sealos is a great option if you want full control.
+
+Start with Tolgee's official platform to quickly validate your localization needs and scale your multilingual applications. The platform's flexible pricing plans accommodate teams of all sizes, and you can always migrate to self-hosting later if specific requirements emerge. For the majority of teams, Tolgee's official platform provides the fastest path to successful internationalization with standard support and minimal costs.
+
+Thanks for reading, Tolgee friends. ❤️
+
+[![Demo banner](/img/blog/blog-banners/banner-demo.webp)](https://calendly.com/tolgee/30min)
