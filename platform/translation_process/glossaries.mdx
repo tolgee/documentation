@@ -1,0 +1,68 @@
+---
+id: glossaries
+title: Glossaries
+sidebar_label: Glossaries
+---
+
+import { ScreenshotWrapper } from '../shared/_ScreenshotWrapper';
+
+Glossaries help you maintain consistent terminology when translating your content.
+When you translate a string that contains glossary terms,
+these terms are highlighted and their definitions are displayed in the glossary panel while editing translations.
+
+## Glossary Terms highlights
+
+When you open a translation that contains glossary terms, these terms are highlighted in the base text.
+
+Hovering over highlights will display a tooltip containing the term, its suggested translation, description and flags.
+
+<ScreenshotWrapper
+  src="/img/docs/platform/translation_process/glossary-highlights.webp"
+  alt="Glossary terms highlighted in base text"
+/>
+
+## Glossary Panel
+
+The glossary panel shows all glossary terms found in the base text in the right sidebar. For each term, you can see:
+
+- The term text
+- Any flags associated with the term (non-translatable, case-sensitive, abbreviation, forbidden)
+- The term description when hovering over the `(i)` icon
+
+<ScreenshotWrapper
+  src="/img/docs/platform/translation_process/glossary-panel.webp"
+  alt="Glossary panel showing terms"
+/>
+
+## Using Glossary Terms
+
+When translating content with glossary terms:
+
+1. Check the glossary panel to see the terms and their descriptions
+2. Pay attention to the flags:
+   - Non-translatable: Do not translate these terms
+   - Case-sensitive: Maintain the same case in your translation
+   - Abbreviation: Keep the abbreviation format
+   - Forbidden: Avoid using these terms in your translation
+
+## Glossary Terms matching
+
+When searching for glossary terms in the translation, Tolgee looks tries to do case-insensitive match of the whole term against the translation.
+
+The flags affect the process in the following ways:
+
+- **Case-sensitive**: When set, the system will only match the term if it has the exact same case as defined in the glossary. For example, "API" will not match "api" if a case-sensitive flag is set.
+- **Non-translatable**: When enabled, the translation of the term in the base language will be used for all languages, regardless of the target language.
+- **Abbreviation** and **Forbidden**: These flags have no effect on the search process itself but still provide guidance for both human and AI translators.
+
+## Machine Translation and Glossaries
+
+When using machine translation, the glossary terms are taken into account. This helps ensure that:
+
+- Non-translatable terms remain untranslated
+- Terminology is consistent across all translations
+
+<ScreenshotWrapper
+  src="/img/docs/platform/translation_process/glossary-machine-translation.webp"
+  alt="Machine translation with glossary terms"
+/>
