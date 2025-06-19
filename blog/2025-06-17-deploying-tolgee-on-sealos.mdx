@@ -35,7 +35,7 @@ Self-hosting Tolgee provides organizations with complete control, the freedom to
 
 ## Tolgee Deployment Methods
 
-The simplest one is with [Sealos](https://sealos.io/), an operating system built on Kubernetes that provides a unified platform for developers to develop, deploy, and scale applications. What makes Sealos particularly attractive for hosting Tolgee is its one-click deployment capability and comprehensive feature set. The platform eliminates the complexity typically associated with Kubernetes deployments while maintaining all the benefits of container orchestration.
+One of the solutions is [Sealos](https://sealos.io/), an operating system built on Kubernetes that provides a unified platform for developers to develop, deploy, and scale applications. What makes Sealos particularly attractive for hosting Tolgee is its one-click deployment capability and comprehensive feature set. The platform eliminates the complexity typically associated with Kubernetes deployments while maintaining all the benefits of container orchestration.
 
 While Sealos offers exceptional ease of use, several other deployment methods are available for self-hosting Tolgee. Each comes with distinct advantages and trade-offs that make them suitable for different scenarios and organizational requirements. 
 
@@ -45,22 +45,15 @@ While Sealos offers exceptional ease of use, several other deployment methods ar
 2. Fill in the details like TOLGEE_AUTHENTICATION_INITIAL_USERNAME, TOLGEE_AUTHENTICATION_INITIAL_PASSWORD, and the rest as needed
 3. Click **“Deploy on Sealos”**
 
+You can read more about configuring Tolgee [here](/platform/self_hosting/configuration) and about integrating Tolgee [here](/platform/integrations/about_integrations).
+
 <ScreenshotWrapper src="/img/blog/deploying-tolgee-on-sealos/sealos-hosting-example.webp"
                    alt="Screenshot of the Tolgee page on Sealos" />
 
 ## Alternatives
 
-### 1. [Docker Compose Deployment](/platform/self_hosting/running_with_docker)
+Other ways to self-host Tolgee are [Docker Compose Deployment](/platform/self_hosting/running_with_docker), Cloud Provider Services (you can use AWS ECS, Google Cloud Run, or [Microsoft Azure](/platform/self_hosting/running_on_azure)), and [Java Deployment](/platform/self_hosting/running_with_java).
 
-Docker Compose provides a straightforward approach to deploying Tolgee with a standalone PostgreSQL database, making it an attractive option for many development teams. This method has both simplicity and control. It is good for smaller deployments where complex methods aren't needed. The setup process involves defining services in a docker-compose.yml file and running the application stack with minimal configuration.
-
-### 2. Cloud Provider Services
-
-Cloud providers that offer managed container services can also host Tolgee. You can use AWS ECS, Google Cloud Run, or [Microsoft Azure](/platform/self_hosting/running_on_azure) Container Instances. These services offer managed infrastructure and the flexibility of containerized applications. This approach appeals to organizations already invested in specific cloud ecosystems.
-
-### 3. Java Deployment
-
-Tolgee officially supports running as a standalone Java application with external database configuration. It is also great for organizations that prefer direct runtime control. You can learn how to set it up [here](/platform/self_hosting/running_with_java).
 
 ## When to Choose Self-Hosting vs Official Platform
 
