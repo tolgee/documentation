@@ -29,7 +29,7 @@ import useBaseUrl from '@docusaurus/useBaseUrl';
 
 We have developed the [**Tolgee Figma plugin**](https://tolgee.io/apps-integrations/figma-plugin) to help designers see how the UI behaves in every language before fully developing it. This way, they don't need to wait for the final version of the app or the final translation from the translators, *only to realize that the main page looks confusing in every language other than English.*
 
-Localization doesn't end with just developers implementing it in the code. It is hard for designers to know how the final version will look in different languages. Consider the challenges: German text is 40% longer than English or Arabic layouts are written right-to-left. Here are the new features we are introducing to help you work with localization in Figma:
+Localization doesn't end with just developers implementing it in the code. It is hard for designers to know how the final version will look in different languages. Consider the challenges: German text is 40% longer than English, and Arabic layouts are written right-to-left. Here are the new features we are introducing to help you work with localization in Figma:
 
 ## Variables with Simple ICU Syntax
 
@@ -94,10 +94,12 @@ Often test string can have some acent elements or contain some text decoration. 
 - `<u>` - underline
 - `<br>` - line break
 
-If your text contains any of these tags on the Tolgee platform, the plugin will automatically format the text in Figma. It works in the direction from Tolgee to Figma. So make sure to add them on the platform.
+If your text contains any of these tags, the plugin will automatically format the text in Figma. Make sure to use the tags from Tolgee and not edit the text using the built-in tools of Figma for bold text, italics, etc. If default Figma tools are used to modify the text, it will not be reflected on the Tolgee platform.
 
 ## Conclusion
 
 The plugin helps designers prepare the localization data for the developers, such as the key names, that developers can later use when transferring the design into the final product. Later, Tolgee is simply used to translate it with AI or with human translation, and **it syncs everywhere as you go**!
 
 It has never been easier to bring your design project global. Stop writing every translation manually into Figma, or waiting for final translations to discover layout problems. Start designing with confidence for every language with our plugin or update your current project as easily as it can be.
+
+[![Demo banner](/img/blog/blog-banners/banner-demo.webp)](https://calendly.com/tolgee/30min)
