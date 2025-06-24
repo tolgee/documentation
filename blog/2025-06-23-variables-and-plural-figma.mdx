@@ -1,0 +1,105 @@
+---
+slug: variables-in-figma
+title: 'Variable and Plural Support Now Available in the Figma Plugin'
+description: 'Tolgee now supports variables, plural formas, and text HTML tags in the Figma plugin'
+image: '/img/blog/variables-and-plural-figma/figma-variables-and-plurals-light.webp'
+authors: [noliinyk]
+tags: ['tolgee', 'figma', 'plugin', 'localization', 'variables']
+---
+
+import { ScreenshotWrapper } from '../platform/shared/_ScreenshotWrapper';
+import ThemedImage from '@theme/ThemedImage';
+import useBaseUrl from '@docusaurus/useBaseUrl';
+
+<ThemedImage
+  alt="Variables and Plurals Figma Plugin Blog Image"
+  sources={{
+    light: useBaseUrl(
+      '/img/blog/variables-and-plural-figma/figma-variables-and-plurals-light.webp'
+    ),
+    dark: useBaseUrl(
+      '/img/blog/variables-and-plural-figma/figma-variables-and-plurals-dark.webp'
+    ),
+  }}
+/>
+
+**Transform your workflow with dynamic text that adapts to every language, right in Figma.** The latest [Tolgee Figma plugin](https://tolgee.io/apps-integrations/figma-plugin) update introduces variable and plural support.
+
+<!--truncate-->
+
+We have developed the [**Tolgee Figma plugin**](https://tolgee.io/apps-integrations/figma-plugin) to help designers see how the UI behaves in every language before fully developing it. This way, they don't need to wait for the final version of the app or the final translation from the translators, *only to realize that the main page looks confusing in every language other than English.*
+
+Localization doesn't end with just developers implementing it in the code. It is hard for designers to know how the final version will look in different languages. Consider the challenges: German text is 40% longer than English, and Arabic layouts are written right-to-left. Here are the new features we are introducing to help you work with localization in Figma:
+
+## Variables with Simple ICU Syntax
+
+Before this update, Tolgee Figma plugin users were not able to specify variables in the strings. However, most of the apps use some variables in the strings like `Hello, {name}` or `Created at {date}`, so support for variables was crucial to enable designers to completely prepare the localization keys for developers.
+
+We have implemented those on Tolgee using our platform variables. Using the variable with ICU syntax (like  `{varName}`) within String Details, designers can use changing elements like:
+
+- **User names and personal data**
+- **Pricing**
+- **Locations**
+- **Dates and time**
+
+<ScreenshotWrapper src="/img/blog/variables-and-plural-figma/figma-variables.webp"
+                   alt="Screenshot of the Tolgee Variables Window for the Figma Plugin" />
+
+The variables can be added using this syntax `{varName}` in the Translation field. You can find in the String Details menu. Moreover, you can insert a value that will be shown in the design in Figma, so it does not look just like a placeholder.
+
+## Singular vs Plural Variables
+
+If you tick the “is plural” checkbox now you will be able to set how the text should look like with a variable that represents one thing versus more than one, or even zero. Similarly, you can set a default value to be shown in Figma.
+
+<ScreenshotWrapper src="/img/blog/variables-and-plural-figma/figma-plural.webp"
+                   alt="Screenshot of the Tolgee Plurals Window for the Figma Plugin" />
+
+It helps adapt translations that depend on quantity. In many languages, similar to English, when the number is other than one, different words are used to describe it. This avoids awkward situations, such as saying, *“You have 1 new messages.”* 
+
+## Better Designer-Developer Collaboration
+
+This update helps to decrease the gap between design and development. Designers now prepare localization-ready assets complete with:
+
+- **Standardized key names**
+- **Variable structures** that match code implementation
+- **Content previews** for accurate design validation
+- **Plural handling** to prevent errors in translation
+
+To learn more about how to use the new features, you can visit the [docs page](https://docs.tolgee.io/platform/integrations/figma_plugin/formatting_text_and_variables).
+
+## Getting Started with Variables and Plurals
+
+With this update, there are a few advantages that you will get by using the Tolgee Figma plugin. Both designers and developers benefit from these new features that are also reflected on the Tolgee platform, not just on Figma. Here are the key takeaways for both parties:
+
+**For designers:**
+
+- Preview dynamic content with realistic values
+- Design for plurals in mind
+- Standardize variable and key naming
+- Collaborate more effectively with devs
+
+**For developers:**
+
+- Receive design files with variable structures and keys already there
+- Reduce communication about dynamic content
+- Implement plurals
+- The plugin integrates with existing Tolgee workflows
+
+## Bonus: Text Formatting
+
+Often test string can have some acent elements or contain some text decoration. Now it is possible to add HTML elemtns like `<b>`or `<i>`. You can simply add them on the platform in the text field. Here are the available tags:
+
+- `<b>` or `<strong>` - bold
+- `<i>` or `<em>` - italic
+- `<u>` - underline
+- `<br>` - line break
+
+If your text contains any of these tags, the plugin will automatically format the text in Figma. Make sure to use the tags from Tolgee and not edit the text using the built-in tools of Figma for bold text, italics, etc. If default Figma tools are used to modify the text, it will not be reflected on the Tolgee platform.
+
+## Conclusion
+
+The plugin helps designers prepare the localization data for the developers, such as the key names, that developers can later use when transferring the design into the final product. Later, Tolgee is simply used to translate it with AI or with human translation, and **it syncs everywhere as you go**!
+
+It has never been easier to bring your design project global. Stop writing every translation manually into Figma, or waiting for final translations to discover layout problems. Start designing with confidence for every language with our plugin or update your current project as easily as it can be.
+
+[![Demo banner](/img/blog/blog-banners/banner-demo.webp)](https://calendly.com/tolgee/30min)
