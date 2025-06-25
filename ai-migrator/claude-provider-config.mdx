@@ -1,0 +1,60 @@
+---
+id: claude-provider-configuration
+title: "Configuring Anthropic Claude as AI Provider"
+description: "How to use Anthropic Claude with Tolgee AI Migrator"
+sidebar_label: "Claude Provider"
+---
+
+# Configuring Anthropic Claude as AI Provider
+
+Tolgee AI Migrator supports Anthropic Claude as an alternative AI provider to OpenAI and Azure OpenAI.
+
+## What is Anthropic Claude?
+
+Anthropic Claude is a powerful AI language model that you can use to perform your localization migration tasks.
+
+## Getting Your Claude API Key
+
+1. Visit the Anthropic Console: https://console.anthropic.com/
+2. Sign up or log in.
+3. Navigate to the API Keys section.
+4. Create a new API key and copy it securely.
+
+## Using Claude with Tolgee Migrator
+
+You can specify Claude as your AI provider using the `--provider` flag and provide your Claude API key with `--claude-api-key`.
+
+Example:
+
+```bash
+tolgee-migrator migrate -p 'src/**/*.tsx' -r react --provider claude --claude-api-key <your-claude-api-key>
+```
+
+Alternatively, you can set the environment variable `CLAUDE_API_KEY` to your API key.
+
+## Switching Between Providers
+
+You can switch between OpenAI, Azure OpenAI, and Claude by using the `--provider` flag:
+
+- **OpenAI (default):**
+
+```bash
+tolgee-migrator migrate -p 'src/**/*.tsx' -r react -k <your-openai-api-key>
+```
+
+- **Azure OpenAI:**
+
+```bash
+tolgee-migrator migrate -p 'src/**/*.tsx' -r react --provider azure --azure-api-key <your-azure-api-key> --endpoint <your-endpoint> --deployment <your-deployment>
+```
+
+- **Claude:**
+
+```bash
+tolgee-migrator migrate -p 'src/**/*.tsx' -r react --provider claude --claude-api-key <your-claude-api-key>
+```
+
+This flexibility allows you to choose the AI provider that best fits your needs.
+
+---
+
