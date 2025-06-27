@@ -1,0 +1,138 @@
+---
+id: glossaries
+title: Glossaries
+sidebar_label: Glossaries
+---
+
+import { ScreenshotWrapper } from '../shared/_ScreenshotWrapper';
+
+Glossaries help you maintain consistent terminology across your translations.
+You can create glossaries at the organization level and assign them to projects.
+
+<ScreenshotWrapper
+  src="/img/docs/platform/glossaries/glossary-overview.webp"
+  alt="Glossaries example"
+/>
+
+## Managing Glossaries
+
+This section describes how to work with glossaries and the terms in them.
+
+### Accessing Glossaries
+
+Here, you can see a list of glossaries in your organization.
+
+1. Go to Organization settings
+2. Select Glossaries in the side menu
+
+It is important to note that a user can see all glossaries if they have access to any project within the organization.
+
+The user can add a glossary and edit it if the access is set to at least a maintainer. You can edit the user's project access in the [Organization members](/platform/projects_and_organizations/organization_settings#organization-members) tab.
+
+<ScreenshotWrapper
+  src="/img/docs/platform/glossaries/glossaries-list.webp"
+  alt="Glossaries list"
+/>
+
+
+### Creating a Glossary
+
+1. Click the `+ Glossary` button to open the dialog window to create the glossary
+2. Enter a name for the glossary
+3. Assign the glossary to projects (it is optional but essential for working with glossaries properly)
+4. Select a base language
+5. Click `Create`
+6. Next, you can add the terms with "+ Term" button
+
+The base language and the glossary languages are derived from the projects that were assigned to the glossary. The languages can be added to the project themselves, and then they will be automatically assigned.
+
+<ScreenshotWrapper
+  src="/img/docs/platform/glossaries/create-glossary.gif"
+  alt="Create glossary dialog"
+/>
+
+### Adding Terms to a Glossary
+
+1. In the glossary detail view, click the `+ Term` button
+2. Enter the term text
+3. Add a description
+4. Tick the checkboxes as needed to add the tags:
+   - Non-translatable: Indicates that the term should not be translated (in this case, you will not be able to click on the translations in the glossary)
+   - Case-sensitive: Indicates that the term's case should be preserved
+   - Abbreviation: Indicates that the term is an abbreviation
+   - Forbidden term: Indicates that the term should not be used
+5. Click `Save`
+
+<ScreenshotWrapper
+  src="/img/docs/platform/glossaries/create-term.webp"
+  alt="Create term dialog"
+/>
+
+### Viewing and Editing a Glossary
+
+1. Open the tab Glossaries in Organization settings. 
+2. Click on three dots 
+3. Go to Settings. 
+
+Here you can edit the parameters of your glossary that you have set when creating it.
+
+<ScreenshotWrapper
+  src="/img/docs/platform/glossaries/glossary-settings.webp"
+  alt="Glossary detail view"
+/>
+
+To see the terms of your glossary, click on the glossary you want in the list of all glossaries, and then you will be able to view the glossary terms.
+
+From here, you can:
+- Add new terms
+- Edit existing terms
+- Translate existing terms
+- Delete terms
+- Search for terms
+
+To edit or add a term translation, click on the cell in the desired language column.
+
+To edit a term or its details like the tags or the description, click on the term cell in its base language column (the first column).
+
+### Editing Terms
+
+1. Open the details of the term by clicking on the first column
+2. Update the term details
+3. Click `Save`
+
+<ScreenshotWrapper
+  src="/img/docs/platform/glossaries/edit-term.gif"
+  alt="Edit term dialog"
+/>
+
+### Translating Terms
+
+1. Add the desired language to the list of languages in the top right corner next to the `+ Term` button
+2. Click on the translation cell for the desired language
+3. Enter the translation for the term
+4. Click Save
+
+This will not work if the base language term has a "Non-translatable" tag as it will stay the same in all languages.
+
+<ScreenshotWrapper
+    src="/img/docs/platform/glossaries/translate-term.gif"
+    alt="Translate term editor"
+/>
+
+### Deleting Terms
+
+1. Click on the first column of the term
+2. Click `Delete`
+3. Confirm the deletion
+
+Also, it is possible to bulk select and delete multiple terms at once. 
+
+1. Click on the checkboxes of the desired terms
+2. Select the action at the bottom of the screen
+3. Click the arrow button
+4. Confirm the action
+
+<ScreenshotWrapper
+    src="/img/docs/platform/glossaries/delete-terms.gif"
+    alt="Translate term editor"
+/>
