@@ -45,11 +45,11 @@ const config = {
   },
   presets: [
     [
-      "classic",
+      'classic',
       {
         docs: {
           sidebarPath: require.resolve('./sidebars.js'),
-          docItemComponent: "@theme/ApiItem", // Derived from docusaurus-theme-openapi
+          docItemComponent: '@theme/ApiItem', // Derived from docusaurus-theme-openapi
           editUrl: 'https://github.com/tolgee/documentation/tree/main',
         },
         blog: {
@@ -64,9 +64,9 @@ const config = {
           archiveBasePath: null,
         },
         theme: {
-          customCss: "./src/css/custom.css",
+          customCss: './src/css/custom.css',
         },
-      }
+      },
     ],
   ],
   plugins: [
@@ -106,7 +106,8 @@ const config = {
       async: true,
     },
   ],
-  onBrokenAnchors: 'throw'
+  onBrokenAnchors: 'throw',
+  trailingSlash: false,
 };
 
 module.exports = config;
