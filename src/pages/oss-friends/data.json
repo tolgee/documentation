@@ -206,6 +206,11 @@
       "href": "https://unkey.dev"
     },
     {
+      "name": "Voltagent",
+      "description": "Open Source TypeScript framework for building AI agents with enterprise-grade capabilities and seamless integrations.",
+      "href": "https://voltagent.dev/"
+    },
+    {
       "name": "Webiny",
       "description": "Open-source enterprise-grade serverless CMS. Own your data. Scale effortlessly. Customize everything.",
       "href": "https://www.webiny.com"
