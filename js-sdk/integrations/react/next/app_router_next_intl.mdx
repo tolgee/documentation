@@ -31,11 +31,11 @@ Follow the below instructions to learn to implement localization to your Next.js
 
 ## Install the required packages
 
-To implement localization to your app, you need to install the `next-intl` and `@tolgee/react` package. Execute the following command to install the package.
+To implement localization to your app, you need to install the `next-intl`, `@tolgee/react` and `@tolgee/web` package. Execute the following command to install the package.
 
-```sh
-npm install next-intl @tolgee/react
-```
+import { InstallationTabs } from '../../../../src/component/InstallationTabs';
+
+<InstallationTabs lib="next-intl @tolgee/react @tolgee/web" />
 
 ## Folder structure
 
@@ -92,7 +92,7 @@ import { DevTools, Tolgee, FormatSimple } from '@tolgee/web';
 const apiKey = process.env.NEXT_PUBLIC_TOLGEE_API_KEY;
 const apiUrl = process.env.NEXT_PUBLIC_TOLGEE_API_URL;
 
-export const ALL_LANGUAGES = ['en', 'cs', 'de', 'fr'];
+export const ALL_LANGUAGES = ['en', 'cs'];
 
 export const DEFAULT_LANGUAGE = 'en';
 
@@ -117,7 +117,7 @@ The client configuration is very similar to the [Pages Router set up](./pages-ro
 'use client';
 
 import { useEffect } from 'react';
-import { TolgeeProvider, TolgeeStaticData } from '@tolgee/react';
+import { CachePublicRecord, TolgeeProvider, TolgeeStaticData } from '@tolgee/react';
 import { useRouter } from 'next/navigation';
 import { TolgeeBase } from './shared';
 

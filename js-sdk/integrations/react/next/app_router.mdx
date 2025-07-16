@@ -10,7 +10,6 @@ import ExampleBanner from '../../../shared/ExampleBanner';
 import LimitationsOfServerComponents from './shared/_LimitationsOfServerComponents.mdx'
 import CdnFetchPlugin from './shared/_CdnFetchPlugin.mdx';
 
-
 <ExampleBanner framework="Next app router" appName="next-app" />
 
 Follow the below instructions to learn to implement localization to your Next.js App Router app with Tolgee.
@@ -26,11 +25,11 @@ In this example we'll store language in cookies, which is a simple to implement,
 
 ## Install the required packages
 
-To implement localization to your app, you need to install the `@tolgee/react` package:
+To implement localization to your app, you need to install the `@tolgee/react` and `@tolgee/web` package:
 
-```sh
-npm install @tolgee/react
-```
+import { InstallationTabs } from '../../../../src/component/InstallationTabs';
+
+<InstallationTabs lib="@tolgee/react @tolgee/web" />
 
 ## Folder structure
 
