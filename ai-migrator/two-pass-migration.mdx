@@ -1,0 +1,67 @@
+---
+id: two-pass-migration
+title: "Two-Pass Migration Review Flow"
+description: "How to use the two-pass review flow in Tolgee AI Migrator"
+sidebar_label: "Two-Pass Migration"
+---
+
+# Two-Pass Migration Review Flow
+
+The Tolgee AI Migrator now supports a two-pass migration process to give you better control and review over your localization migration.
+
+## What is Two-Pass Migration?
+
+Instead of migrating all files and generating the status file in one go, the two-pass approach splits the process into steps:
+
+1. **First Pass:** The migrator replaces raw strings with Tolgee SDK calls and inserts JSON-formatted comments above each call. These comments contain metadata like key names, descriptions, and default values.
+2. **Review:** You manually review the migrated files with inline comments in your IDE, allowing you to verify and adjust the migration before finalizing.
+3. **Second Pass:** You run a separate command to extract these inline comments, remove them from the code, and generate the `.tolgee/migration-status.json` file.
+4. **Upload:** Finally, you upload the keys to the Tolgee platform.
+
+## How to Use Two-Pass Migration
+
+### First Pass: Migrate with Inline Comments
+
+Run the migrator with the `--inline-comments` flag:
+
+```bash
+tolgee-migrator migrate -p 'src/**/*.tsx' -r react -k <your-api-key> --inline-comments
+```
+
+
+This will insert JSON comments above each Tolgee SDK call, like this:
+
+```json
+/**
+
+{"description": "Welcome message for users", "default": "Welcome!"}
+*/
+
+<T keyName="welcome-message" />
+```
+
+
+### Review
+
+Open the migrated files in your IDE and review the inline comments to ensure the migration is correct.
+
+### Second Pass: Extract Comments and Generate Status File
+
+After review, run the extract-comments command to remove inline comments and generate the migration status file:
+
+```bash
+tolgee-migrator extract-comments -p 'src/**/*.tsx'
+```
+
+### Upload Keys
+
+Upload the keys to Tolgee:
+
+```bash
+tolgee-migrator upload-keys -ak <your-tolgee-api-key>
+```
+
+This workflow helps you catch issues early and maintain a clean migration history.
+
+---
+
