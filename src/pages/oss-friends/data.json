@@ -21,11 +21,6 @@
       "href": "https://argos-ci.com"
     },
     {
-      "name": "BoxyHQ",
-      "description": "BoxyHQ’s suite of APIs for security and privacy helps engineering teams build and ship compliant cloud applications faster.",
-      "href": "https://boxyhq.com"
-    },
-    {
       "name": "Cal.com",
       "description": "Cal.com is a scheduling tool that helps you schedule meetings without the back-and-forth emails.",
       "href": "https://cal.com"
@@ -36,24 +31,9 @@
       "href": "https://www.classroomio.com"
     },
     {
-      "name": "Crowd.dev",
-      "description": "Centralize community, product, and customer data to understand which companies are engaging with your open source project.",
-      "href": "https://www.crowd.dev"
-    },
-    {
-      "name": "DevHunt",
-      "description": "Find the best Dev Tools upvoted by the community every week.",
-      "href": "https://devhunt.org/"
-    },
-    {
       "name": "Documenso",
       "description": "The Open-Source DocuSign Alternative. We aim to earn your trust by enabling you to self-host the platform and examine its inner workings.",
       "href": "https://documenso.com"
-    },
-    {
-      "name": "dyrector.io",
-      "description": "dyrector.io is an open-source continuous delivery & deployment platform with version management.",
-      "href": "https://dyrector.io"
     },
     {
       "name": "Formbricks",
@@ -61,19 +41,9 @@
       "href": "https://formbricks.com"
     },
     {
-      "name": "Firecamp",
-      "description": "vscode for apis, open-source postman/insomnia alternative",
-      "href": "https://firecamp.io"
-    },
-    {
       "name": "Ghostfolio",
       "description": "Ghostfolio is a privacy-first, open source dashboard for your personal finances. Designed to simplify asset tracking and empower informed investment decisions.",
       "href": "https://ghostfol.io"
-    },
-    {
-      "name": "GitWonk",
-      "description": "GitWonk is an open-source technical documentation tool, designed and built focusing on the developer experience.",
-      "href": "https://gitwonk.com"
     },
     {
       "name": "Hanko",
@@ -104,11 +74,6 @@
       "name": "Langfuse",
       "description": "Open source LLM engineering platform. Debug, analyze and iterate together.",
       "href": "https://langfuse.com"
-    },
-    {
-      "name": "Lost Pixel",
-      "description": "Open source visual regression testing alternative to Percy & Chromatic",
-      "href": "https://lost-pixel.com"
     },
     {
       "name": "Mockoon",
@@ -166,11 +131,6 @@
       "href": "https://www.sniffnet.net"
     },
     {
-      "name": "Spark.NET",
-      "description": "The .NET Web Framework for Makers. Build production ready, full-stack web applications fast without sweating the small stuff.",
-      "href": "https://spark-framework.net"
-    },
-    {
       "name": "Tiledesk",
       "description": "The innovative open-source framework for developing LLM-enabled chatbots, Tiledesk empowers developers to create advanced, conversational AI agents.",
       "href": "https://tiledesk.com"
@@ -194,11 +154,6 @@
       "name": "Twenty",
       "description": "A modern CRM offering the flexibility of open-source, advanced features and sleek design.",
       "href": "https://twenty.com"
-    },
-    {
-      "name": "UnInbox",
-      "description": "Modern email for teams and professionals. Bringing the best of email and messaging into a single, modern, and secure platform.",
-      "href": "https://uninbox.com"
     },
     {
       "name": "Unkey",
