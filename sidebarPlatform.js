@@ -52,6 +52,7 @@ module.exports = {
         'translation_process/ai-playground',
         'translation_process/comments',
         'translation_process/glossaries',
+        'translation_process/labels',
         'translation_process/icu_message_format',
         'translation_process/tolgee_universal_icu_placeholders',
         'translation_process/notifications',
