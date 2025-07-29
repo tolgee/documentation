@@ -36,7 +36,7 @@
     "@mdx-js/react": "^3.0.0",
     "@mui/icons-material": "^5.15.15",
     "@mui/material": "^5.15.15",
-    "@types/imagemagick": "0.0.31",
+    "@types/imagemagick": "0.0.35",
     "@types/react": "^18.2.29",
     "@types/react-helmet": "^6.1.0",
     "@types/react-router-dom": "^5.1.7",
