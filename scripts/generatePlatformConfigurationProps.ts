@@ -428,6 +428,11 @@ async function downloadProps() {
         Accept: 'application/json',
       },
     });
+
+    if (!response.ok) {
+      throw new Error(`HTTP error! Status: ${response.status}`);
+    }
+
     const data: Data[] = await response.json();
     return data;
   } catch (e) {
