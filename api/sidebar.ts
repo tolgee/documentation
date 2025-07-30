@@ -18,7 +18,7 @@ const sidebar: SidebarsConfig = {
       items: [
         {
           type: "doc",
-          id: "get-all-7",
+          id: "get-all-9",
           label: "Get all keys",
           className: "api-method get",
         },
@@ -111,6 +111,66 @@ const sidebar: SidebarsConfig = {
           id: "select-keys",
           label: "Select keys",
           className: "api-method get",
+        },
+      ],
+    },
+    {
+      type: "category",
+      label: "Translation labels",
+      link: {
+        type: "doc",
+        id: "translation-labels",
+      },
+      collapsible: false,
+      collapsed: false,
+      items: [
+        {
+          type: "doc",
+          id: "get-all-3",
+          label: "Get available project labels",
+          className: "api-method get",
+        },
+        {
+          type: "doc",
+          id: "create-label",
+          label: "Create label",
+          className: "api-method post",
+        },
+        {
+          type: "doc",
+          id: "get-labels-by-ids",
+          label: "Get labels by ids",
+          className: "api-method get",
+        },
+        {
+          type: "doc",
+          id: "update-label",
+          label: "Update label",
+          className: "api-method put",
+        },
+        {
+          type: "doc",
+          id: "delete-label",
+          label: "Delete label",
+          className: "api-method delete",
+        },
+        {
+          type: "doc",
+          id: "assign-label-2",
+          label: "Add label to translation by key and language id",
+          className: "api-method put",
+        },
+        {
+          type: "doc",
+          id: "assign-label",
+          label: "Add label to translation",
+          className: "api-method put",
+        },
+        {
+          type: "doc",
+          id: "unassign-label",
+          label: "Remove label from translation",
+          className: "api-method delete",
         },
       ],
     },
@@ -450,7 +510,7 @@ const sidebar: SidebarsConfig = {
       items: [
         {
           type: "doc",
-          id: "get-all-5",
+          id: "get-all-7",
           label: "Get all languages",
           className: "api-method get",
         },
@@ -751,7 +811,7 @@ const sidebar: SidebarsConfig = {
         {
           type: "doc",
           id: "create-15",
-          label: "Crete API key",
+          label: "Create API key",
           className: "api-method post",
         },
         {
@@ -1098,7 +1158,7 @@ const sidebar: SidebarsConfig = {
         },
         {
           type: "doc",
-          id: "get-all-3",
+          id: "get-all-5",
           label: "Get translation comments",
           className: "api-method get",
         },
@@ -1146,8 +1206,8 @@ const sidebar: SidebarsConfig = {
       items: [
         {
           type: "doc",
-          id: "get-all-11",
-          label: "getAll_11",
+          id: "get-all-13",
+          label: "getAll_13",
           className: "api-method get",
         },
         {
@@ -1616,7 +1676,7 @@ const sidebar: SidebarsConfig = {
       items: [
         {
           type: "doc",
-          id: "get-all-10",
+          id: "get-all-12",
           label: "Get all permitted organizations",
           className: "api-method get",
         },
@@ -1808,7 +1868,7 @@ const sidebar: SidebarsConfig = {
       items: [
         {
           type: "doc",
-          id: "get-all-12",
+          id: "get-all-14",
           label: "Get all organization glossaries",
           className: "api-method get",
         },
@@ -1872,7 +1932,7 @@ const sidebar: SidebarsConfig = {
       items: [
         {
           type: "doc",
-          id: "get-all-13",
+          id: "get-all-15",
           label: "Get all glossary terms",
           className: "api-method get",
         },
@@ -2020,7 +2080,7 @@ const sidebar: SidebarsConfig = {
       items: [
         {
           type: "doc",
-          id: "get-all-9",
+          id: "get-all-11",
           label: "Get PAKs",
           className: "api-method get",
         },
@@ -2138,6 +2198,12 @@ const sidebar: SidebarsConfig = {
         },
         {
           type: "doc",
+          id: "assign-translation-label",
+          label: "Assign labels to translations",
+          className: "api-method post",
+        },
+        {
+          type: "doc",
           id: "clear-translations",
           label: "Clear translation values",
           className: "api-method post",
@@ -2182,6 +2248,12 @@ const sidebar: SidebarsConfig = {
           type: "doc",
           id: "tag-keys",
           label: "Add tags",
+          className: "api-method post",
+        },
+        {
+          type: "doc",
+          id: "unassign-translation-label",
+          label: "Unassign labels from translations",
           className: "api-method post",
         },
         {

@@ -707,6 +707,10 @@ See [DeepL's](https://www.deepl.com/) page for more information and applicable p
 
   Whether to use DeepL as a primary translation engine. (default: `false`)
 
+- ##### `optional-parameters` \{#optional-parameters}
+
+  DeepL parameters which should be set for deepl api usage (Optional)
+
 #### Google Cloud Translation
 
 Prefix: `tolgee.machine-translation.google`
@@ -931,7 +935,7 @@ tolgee.smtp.from=Tolgee <no-reply@tolgee.yourserver.something>
 
 - ##### `tls-required` \{#tls-required}
 
-  Whether SSL is required. (default: `false`)
+  Whether TLS is required. (default: `false`)
 
 - ##### `username` \{#username}
 
@@ -1119,6 +1123,7 @@ tolgee:
       auth-key:
       default-enabled: true
       default-primary: false
+      optional-parameters:
     google:
       api-key:
       default-enabled: true
@@ -1872,6 +1877,10 @@ See [DeepL's](https://www.deepl.com/) page for more information and applicable p
 
   Whether to use DeepL as a primary translation engine. (default: `false`)
 
+- <h5 id="optional-parameters"><code>OPTIONAL_PARAMETERS</code></h5>
+
+  DeepL parameters which should be set for deepl api usage (Optional)
+
 <h4 id="google-cloud-translation">Google Cloud Translation</h4>
 
 Prefix: `TOLGEE_MACHINE_TRANSLATION_GOOGLE`
@@ -2096,7 +2105,7 @@ tolgee.smtp.from=Tolgee <no-reply@tolgee.yourserver.something>
 
 - <h5 id="tls-required"><code>TLS_REQUIRED</code></h5>
 
-  Whether SSL is required. (default: `false`)
+  Whether TLS is required. (default: `false`)
 
 - <h5 id="username"><code>USERNAME</code></h5>
 
@@ -2256,6 +2265,7 @@ TOLGEE_MACHINE_TRANSLATION_BAIDU_DEFAULT_PRIMARY=false
 TOLGEE_MACHINE_TRANSLATION_DEEPL_AUTH_KEY=
 TOLGEE_MACHINE_TRANSLATION_DEEPL_DEFAULT_ENABLED=true
 TOLGEE_MACHINE_TRANSLATION_DEEPL_DEFAULT_PRIMARY=false
+TOLGEE_MACHINE_TRANSLATION_DEEPL_OPTIONAL_PARAMETERS=
 TOLGEE_MACHINE_TRANSLATION_GOOGLE_API_KEY=
 TOLGEE_MACHINE_TRANSLATION_GOOGLE_DEFAULT_ENABLED=true
 TOLGEE_MACHINE_TRANSLATION_GOOGLE_DEFAULT_PRIMARY=true
@@ -3000,6 +3010,10 @@ See [DeepL's](https://www.deepl.com/) page for more information and applicable p
 
   Whether to use DeepL as a primary translation engine. (default: `false`)
 
+- <h5 id="optional-parameters"><code>optional-parameters</code></h5>
+
+  DeepL parameters which should be set for deepl api usage (Optional)
+
 <h4 id="google-cloud-translation">Google Cloud Translation</h4>
 
 Prefix: `tolgee.machine-translation.google`
@@ -3224,7 +3238,7 @@ tolgee.smtp.from=Tolgee <no-reply@tolgee.yourserver.something>
 
 - <h5 id="tls-required"><code>tls-required</code></h5>
 
-  Whether SSL is required. (default: `false`)
+  Whether TLS is required. (default: `false`)
 
 - <h5 id="username"><code>username</code></h5>
 
@@ -3384,6 +3398,7 @@ tolgee.machine-translation.baidu.default-primary = false
 tolgee.machine-translation.deepl.auth-key =
 tolgee.machine-translation.deepl.default-enabled = true
 tolgee.machine-translation.deepl.default-primary = false
+tolgee.machine-translation.deepl.optional-parameters =
 tolgee.machine-translation.google.api-key =
 tolgee.machine-translation.google.default-enabled = true
 tolgee.machine-translation.google.default-primary = true
