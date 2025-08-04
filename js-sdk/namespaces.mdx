@@ -4,7 +4,13 @@ title: Namespaces
 description: 'Tolgee namespaces with vanilla JS. Namespaces are a way how to separate translations into multiple files, which can be downloaded only when needed.'
 ---
 
-Tolgee namespaces are a way how to separate translations into multiple files, which can be downloaded only when needed. By default `Tolgee` uses "" (empty string) namespace. You can change this through initial [`Options`](./api/core_package/options).
+Tolgee namespaces are a way to separate translations into multiple files, which can be downloaded only when needed. This approach helps with organizing translations and optimizing performance by loading only the necessary translation data.
+
+## Understanding Namespaces
+
+### Default Namespace
+
+By default, Tolgee uses an empty string (`""`) as the default namespace. You can change this through the `defaultNs` option when initializing Tolgee:
 
 ```ts
 const tolgee = Tolgee().init({
@@ -16,7 +22,14 @@ const tolgee = Tolgee().init({
 });
 ```
 
-## Definition through `staticData`
+The `defaultNs` is important because:
+- It's used when no namespace is explicitly specified in translation calls
+- It's automatically loaded when Tolgee initializes
+- It typically contains common translations used throughout your application
+
+## Configuring Namespaces
+
+### Definition through `staticData`
 
 You can tell Tolgee how to get namespaces through [`staticData`](./api/core_package/options#staticdata), ideally with async function:
 
@@ -29,11 +42,11 @@ const tolgee = Tolgee().init({
 });
 ```
 
-You can also use plugins for loading namespaces check [Providing static data](./providing-static-data).
+You can also use plugins for loading namespaces. Check [Providing static data](./providing-static-data) for more information.
 
-## Active namespaces
+### Active namespaces
 
-To download new namespaces dynamically you can change active namespaces with [`addActiveNs`](./api/core_package/tolgee.mdx#addactivens) method. Active namespaces are automatically fetched and also when you change the languge (when tolgee is running).
+To download new namespaces dynamically, you can change active namespaces with the [`addActiveNs`](./api/core_package/tolgee.mdx#addactivens) method. Active namespaces are automatically fetched when added and also when you change the language (when Tolgee is running).
 
 ```ts
 tolgee.addActiveNs('newNamespace');
@@ -45,4 +58,139 @@ Removing active namespace:
 tolgee.removeActiveNs('newNamespace');
 ```
 
-Tolgee internally rembers how many times is each namespace used and removed, so it will only remove namespace if [`removeActiveNs`](./api/core_package/tolgee.mdx#removeactivens) was called the same time as [`addActiveNs`](./api/core_package/tolgee.mdx#addactivens).
+Tolgee internally remembers how many times each namespace is added and removed, so it will only remove a namespace if [`removeActiveNs`](./api/core_package/tolgee.mdx#removeactivens) was called the same number of times as [`addActiveNs`](./api/core_package/tolgee.mdx#addactivens).
+
+## Using Namespaces in Translations
+
+### With Vanilla JS
+
+When using the Tolgee core package, you can specify the namespace as the first parameter of the `t` function:
+
+```ts
+// Using the default namespace
+tolgee.t('hello_world');
+
+// Using a specific namespace
+tolgee.t('admin:user_profile');
+
+// Alternative syntax with explicit namespace parameter
+tolgee.t({
+  key: 'user_profile',
+  ns: 'admin'
+});
+```
+
+### With React Integration
+
+In React applications, you can specify the namespace when using the `useTranslate` hook:
+
+```tsx
+import { useTranslate } from '@tolgee/react';
+
+function AdminPanel() {
+  // Using a specific namespace
+  const { t } = useTranslate('admin');
+  
+  return (
+    <div>
+      <h1>{t('panel_title')}</h1>
+      <p>{t('welcome_message')}</p>
+    </div>
+  );
+}
+
+function App() {
+  // Using the default namespace
+  const { t } = useTranslate();
+  
+  // Using a different namespace for a specific translation
+  const { t: tAdmin } = useTranslate('admin');
+  
+  return (
+    <div>
+      <h1>{t('app_title')}</h1>
+      <p>{t('common_text')}</p>
+      <div>{tAdmin('special_admin_message')}</div>
+    </div>
+  );
+}
+```
+
+You can also use the `T` component with namespaces:
+
+```tsx
+import { T } from '@tolgee/react';
+
+function Component() {
+  return (
+    <div>
+      {/* Using default namespace */}
+      <T keyName="hello" />
+      
+      {/* Using specific namespace */}
+      <T keyName="admin:user_greeting" params={{ name: 'John' }} />
+    </div>
+  );
+}
+```
+
+### With Angular Integration
+
+In Angular applications, you can use namespaces with the translate pipe or t attribute:
+
+```html
+<!-- Using default namespace -->
+<p>{{ 'welcome' | translate }}</p>
+
+<!-- Using specific namespace -->
+<p>{{ 'admin:title' | translate }}</p>
+
+<!-- Using t attribute with namespace -->
+<p t="admin:description"></p>
+```
+
+## Practical Examples
+
+### Organizing Translations by Feature
+
+A common pattern is to organize translations by feature or module:
+
+```ts
+const tolgee = Tolgee().init({
+  defaultNs: 'common',
+  ns: ['common', 'auth', 'dashboard'],
+  staticData: {
+    'en:common': () => import('./i18n/common/en.json'),
+    'en:auth': () => import('./i18n/auth/en.json'),
+    'en:dashboard': () => import('./i18n/dashboard/en.json'),
+    'de:common': () => import('./i18n/common/de.json'),
+    'de:auth': () => import('./i18n/auth/de.json'),
+    'de:dashboard': () => import('./i18n/dashboard/de.json'),
+  },
+});
+```
+
+### Loading Namespaces on Demand
+
+For better performance, you can load namespaces only when needed:
+
+```ts
+// In your main app initialization
+const tolgee = Tolgee().init({
+  defaultNs: 'common',
+  ns: ['common'], // Only load common namespace initially
+});
+
+// Later, when user navigates to admin section
+function loadAdminSection() {
+  tolgee.addActiveNs('admin');
+  // Now you can use admin namespace translations
+  renderAdminUI();
+}
+
+// When user leaves admin section
+function leaveAdminSection() {
+  tolgee.removeActiveNs('admin');
+  // Admin namespace will be unloaded if not used elsewhere
+}
+```
