@@ -70,7 +70,7 @@ The number of projects and users in the project are unlimited, so you can invite
 
 **2. Free for open-source projects**
 
-Open Source software can be freely used, changed, and shared (in modified or unmodified form) by anyone. We would love to support the open-source ecosystem; that's why our **Business plan is free for all open-source projects**. To get this offer, just reach us out by [email](mailto:info@tolgee.io) or by DM in our [Slack community](https://join.slack.com/t/tolgeecommunity/shared_invite/zt-16l0sf7ae-6fmAl2Fb9wqFCV0uzSa7bw).
+Open Source software can be freely used, changed, and shared (in modified or unmodified form) by anyone. We would love to support the open-source ecosystem; that's why our **Business plan is free for all open-source projects**. To get this offer, just reach us out by [email](mailto:info@tolgee.io) or by DM in our [Slack community](https://tolg.ee/slack).
 
 **3. Free Self-hosted version of Tolgee**
 Since Tolgee is open-source, self-hosting will be free forever. However, you will have to serve yourself with the setup and configuration of Tolgee. It may also require a certain amount of maintenance and upkeep, such as regular software updates, security patches, and backups, which can be time-consuming. Support and troubleshooting of the tool are entirely the user's responsibility as well.
@@ -85,7 +85,7 @@ Since Tolgee is open-source, self-hosting will be free forever. However, you wi
 
 ## How long does it take to integrate Tolgee?
 
-The integration is very fast: you can do it in seconds! Follow our integration guides in the docs or in the platform. You can contact us via chat on our website or our [community Slack channel](https://join.slack.com/t/tolgeecommunity/shared_invite/zt-16l0sf7ae-6fmAl2Fb9wqFCV0uzSa7bw) if you get lost. Tolgee currently has integrations for React, Angular, Vue, Svelte, Next.js, Gatsby, and [others](/integrations/).
+The integration is very fast: you can do it in seconds! Follow our integration guides in the docs or in the platform. You can contact us via chat on our website or our [community Slack channel](https://tolg.ee/slack) if you get lost. Tolgee currently has integrations for React, Angular, Vue, Svelte, Next.js, Gatsby, and [others](https://tolgee.io/integrations).
 
 ## TL;DR
 

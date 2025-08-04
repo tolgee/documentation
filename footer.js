@@ -21,10 +21,6 @@ module.exports.footer = {
           to: '/platform/self_hosting/running_with_docker',
         },
         {
-          label: 'Integrations',
-          to: '/integrations',
-        },
-        {
           label: 'Chrome localization plugin',
           href: 'https://chrome.google.com/webstore/detail/tolgee-tools/hacnbapajkkfohnonhbmegojnddagfnj',
         },
@@ -39,7 +35,7 @@ module.exports.footer = {
       items: [
         {
           label: 'Slack',
-          href: 'https://join.slack.com/t/tolgeecommunity/shared_invite/zt-195isb5u8-_RcSRgVJfvgsPpOBIok~IQ',
+          href: 'https://tolg.ee/slack',
         },
         {
           label: 'GitHub',
@@ -58,7 +54,6 @@ module.exports.footer = {
           href: 'https://www.npmjs.com/org/tolgee',
         },
         { label: 'OSS Friends', href: '/oss-friends' },
-        { label: 'We are hiring!', href: '/career' },
       ],
     },
     {

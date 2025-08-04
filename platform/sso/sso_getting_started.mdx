@@ -1,0 +1,71 @@
+---
+id: sso_getting_started
+title: Single Sign-On (SSO) Getting Started
+sidebar_label: Getting Started
+description: Learn how to set up Single Sign-On (SSO) for your organization using OpenID Connect.
+---
+
+import { ScreenshotWrapper } from "../shared/_ScreenshotWrapper";
+import { SsoFieldsTable } from "../../src/component/sso/SsoFieldsTable";
+
+:::info Feature availability
+Single Sign-On is available for enterprise plans. [Upgrade your plan](https://tolgee.io/pricing) to use this feature.
+
+If you use the self-hosted version, you must [set up the license](/platform/self_hosting/licensing) and then follow the [sso server setup guide](/platform/sso/sso_server_setup) to use this feature.
+:::
+
+This guide will help you set up Single Sign-On (SSO) for your organization using OpenID Connect.
+
+## Getting Started
+
+First, you need to enable the SSO feature in your organization settings. To do this, follow these steps:
+
+1. Log in to your Tolgee account.
+2. Click on your profile picture in the top right corner and select `Organization settings`.
+3. Click the 'Enable SSO' button in the `Single Sign-On (SSO)` section.
+
+<ScreenshotWrapper src="/img/docs/platform/sso/sso_enable.png" />
+
+## Configure the OIDC application with your Identity Provider (IdP)
+
+Now you must register the OIDC application with your Identity Provider (IdP) and provide Client ID, Client Secret and
+well-known configuration URLs to Tolgee. Configuration OIDC application is different for each IdP, but commonly you need
+to set the Sign-in redirect URI (if you use Tolgee cloud URL is https://app.tolgee.io/login/auth_callback/sso) and Grant type to Authorization Code and Refresh Token.
+You can find a guide for popular IdPs in the [section below](#guides-for-popular-identity-providers).
+
+## Configure Tolgee
+
+After you have registered and configured the OIDC application, you need to provide the following information to Tolgee:
+
+<SsoFieldsTable
+    data={[
+        {
+            item: 'Domain name',
+            description: 'Used to identify the organization on login page',
+        },
+        {
+            item: 'Client ID',
+            description: 'Unique identifier for an application',
+        },
+        {
+            item: 'Client Secret',
+            description: 'Key used to authenticate the application',
+        },
+        {
+            item: 'Authorization URL',
+            description: 'URL to redirect users for authentication',
+        },
+        {
+            item: 'Token URL',
+            description: 'URL for exchanging authorization code for tokens',
+        },
+    ]}
+/>
+
+
+After you have provided this information, click the **Save** button. You can now log in to your Tolgee account using SSO.
+For this purpose, you can use the **Login with SSO** button on the login page and provide your organization's domain name.
+
+## Guides for popular Identity Providers
+- [Okta](/platform/sso/sso_okta)
+- [Keycloak](/platform/sso/sso_keycloak)

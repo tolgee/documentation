@@ -30,7 +30,7 @@ const docs = [
       versions: {
         current: {
           banner: 'none',
-          label: '5.x.x',
+          label: '6.x.x',
         },
       },
     },
@@ -61,7 +61,6 @@ const docs = [
       routeBasePath: 'api',
       include: ['**/*.md', '**/*.mdx'],
       sidebarPath: require.resolve('./apiSpecGeneration/sidebarApi.js'),
-      // docLayoutComponent: '@theme/DocPage',
       docItemComponent: '@theme/ApiItem',
     },
   ],

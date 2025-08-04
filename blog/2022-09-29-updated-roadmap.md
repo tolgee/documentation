@@ -23,4 +23,4 @@ core, community translations, webhooks, and batch operations.
 In the past months, we've got a lot of feedback from you - our users and the community, and we decided to update our
 roadmap to match the needs of you as much as possible.
 
-So what are the features, we are going to work on and when? See [our new roadmap](/roadmap) to learn more.
+So what are the features, we are going to work on and when? See [our new roadmap](https://tolgee.io/roadmap) to learn more.

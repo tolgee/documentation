@@ -1,0 +1,114 @@
+---
+id: labels
+title: Labels
+sidebar_label: Labels
+description: Labels allow for filtering translations by the label and are easily seen from the Translation view.
+---
+
+:::info Feature availability
+Labels are available in the Business and Enterprise plans. [Upgrade your plan](https://tolgee.io/pricing) to use this feature.
+
+If you use the self-hosted version, labels are also available in the Business and Enterprise plans, and you need to [set up the license](/platform/self_hosting/licensing) to use this feature.
+:::
+
+import { ScreenshotWrapper } from '../shared/_ScreenshotWrapper';
+
+In Tolgee, you can use labels to organize the translation process. Labels allow for filtering translations by the label and are easily seen from the Translation view. It is important to note that you can use [tags](/platform/translation_keys/tags) for the keys, while labels are used for individual translations and serve a different purpose.
+
+## Creating a New Label
+
+Labels are added separately to each project in the organization. To add a new label:
+
+1. Go to Project Settings
+2. Select the Labels tab at the top
+3. Click `+ Label`
+4. Fill in the details
+5. Click `Add`
+
+<ScreenshotWrapper
+  src="/img/docs/platform/labels/new-label.gif"
+  alt="Create a new label on Tolgee"
+/>
+
+In the `+ Label` window, you can fill in the label name, color, and description. For the color, you can use the HEX color format or click on the square with the color to choose from a standard palette.
+
+To edit a label, click the pencil icon to the right of its row. 
+
+To delete it, click the cross icon and confirm.
+
+## Assigning Labels
+
+> Important: Labels are assigned to individual translations or the base language terms, not to the keys themselves. For the keys, you can use [tags](/platform/translation_keys/tags).
+> 
+
+In the Translation view, hover over the translation of the key or the base language term, and you will see a `+ Label` button. After clicking it, you will see a pop-up menu where you can choose labels from a list of the labels that you have added. 
+
+You can assign multiple labels to a single translation.
+
+<ScreenshotWrapper
+  src="/img/docs/platform/labels/multiple-labels.webp"
+  alt="Add multiple labels to a signle translation"
+/>
+
+Moreover, you can use bulk actions to assign labels to multiple translations at once. To assign labels to multiple keys at once:
+
+1. Select the keys you want to use by clicking on the checkbox on the left of the key
+2. In the bottom left corner, click the “Choose operation” window and select “Assign labels”
+3. Then, in the same place, two more selectors will appear, “Select languages” and “+ label”
+4. In “Select languages”, choose the languages you would like your labels to be applied to
+5. In “+ label”, select the labels you want to assign
+6. Click an arrow on the right to apply the bulk action
+
+<ScreenshotWrapper
+  src="/img/docs/platform/labels/bulk-assign-label.gif"
+  alt="Bulk assign labels to translations"
+/>
+
+## Removing Labels
+
+To remove a label, hover over the label and click the cross that pops up.
+
+<ScreenshotWrapper
+  src="/img/docs/platform/labels/remove-label.webp"
+  alt="Removing a label"
+/>
+
+Similarly, you can bulk delete labels. Follow the same steps as in the previous section, [Assigning Labels](/platform/translation_process/labels#assigning-labels), but instead, in the “Choose operation” window, select “Unassign labels.”
+
+## Filtering Key by Labels
+
+The “Filter” menu is located at the top, near the “Search” bar.
+
+1. Click the `Filter...` dropdown in the Translations view
+2. Click `Labels`
+3. Select one or multiple labels
+4. Then, under the list of labels, select the languages you want to filter for
+
+When selecting a language to filter for, you can select all but base, all languages, or an individual language.
+
+<ScreenshotWrapper
+  src="/img/docs/platform/labels/filter-labels.webp"
+  alt="Filter by a label"
+/>
+
+## Permissions for Organization Members to Use Labels
+
+Members with Translate, Review and Edit [permissions](/platform/projects_and_organizations/members#permissions) can assign and unassign labels for individual translations.
+
+Members with Manage permission can also create, update, and delete labels in project settings.
+
+You can choose how an individual member can use labels using [Granular](/platform/projects_and_organizations/members#granular-permissions) permissions. To give a memeber labels permissions:
+
+1. Go to `Members` page
+2. For each member, you can find the permissions menu on the right next to the cross button.
+3. Open the member's permissions menu and go to `Granular`
+4. You can find Labels under Translation permissions
+5. There, you can tick the checkboxes to give the permissions to `Assign` and `Manage` 
+
+`Assign` permission lets the member [assign](/platform/translation_process/labels#assigning-labels) or [unassign](/platform/translation_process/labels#removing-labels) labels for individual translations or the base language term.
+
+`Manage` permission allows [creating or deleting](/platform/translation_process/labels#creating-a-new-label) labels in Project settings.
+
+## Label Activity
+
+All the actions that are related to labels, like adding, deleting, assigning, and unassigning, are shown in the Activity window in the Project Dashboard

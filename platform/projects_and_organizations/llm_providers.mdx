@@ -1,0 +1,138 @@
+---
+id: llm-providers
+title: LLM Providers
+---
+
+import { ScreenshotWrapper } from '../shared/_ScreenshotWrapper';
+
+
+The Tolgee platform allows you to set up custom LLM models. You can do so in the organization section (Cloud version) or globally in the server configuration (Self-hosted version).
+
+In this guide, we'll show setup via the UI, but the fields are mostly identical when you use the server
+configuration.
+
+## Configuration via UI
+
+  1. Go to Organization settings
+  2. Select LLM Providers in the side menu
+
+<ScreenshotWrapper
+  src="/img/docs/platform/llm-providers/llm-providers-list.webp"
+  alt="new member invitation"
+/>
+
+Here, you can see a list of custom providers (configuration is per Organization). You can also see
+server-configured providers in the `Server` tab. Server providers cannot be modified via UI.
+
+## Deleting or editing provider
+
+Click on the `⋮` icon next to a provider.
+
+From here, you can select `Edit` or `Delete`.
+
+<ScreenshotWrapper
+  src="/img/docs/platform/llm-providers/llm-providers-edit-delete.webp"
+  alt="new member invitation"
+/>
+
+## Adding custom provider
+
+Click the `+ Provider` button to open a provider dialog.
+
+<ScreenshotWrapper
+  src="/img/docs/platform/llm-providers/llm-provider-create.webp"
+  alt="new member invitation"
+/>
+
+### Provider naming
+
+The provider name is displayed in the UI, as well as the provider's ID.
+
+If you name a custom provider with the same name as a server provider, you will override it.
+
+If you specify multiple providers with the same name, Tolgee will assume it's the same provider with multiple
+deployments, so the platform will load balance between them.
+
+You can also specify `Priority`:
+ - LOW - deployment will only be used for batch operations
+ - HIGH - deployment will only be used for suggestions
+
+This is useful for load-balancing and avoiding rate limits. Batch operations are repeatable,
+but they usually handle more traffic. On the other hand, 
+the translation suggestion in the UI is not repeatable.
+That's why it makes sense to give suggestions higher priority.
+
+## Provider types
+
+Provider type selects a type of API; it influences what other configuration fields are available
+based on the API requirements.
+
+### OpenAi
+
+It is designed to work with the official OpenAI API.
+
+ - `API url`: e.g., "https://api.openai.com"
+ - `API key`: specify your OpenAI API key without the `Bearer ` prefix
+ - `Model`: specify your model name (e.g., "gpt-4o")
+ - `Format`: some older models don't support structured output, but for newer ones, select "json_schema"
+
+#### Using OpenAi API of LM studio
+
+[LM studio](https://lmstudio.ai/) uses OpenAI compatible API, so you can configure Tolgee to use it.
+
+Example configuration:
+ - `API url`: e.g., "http://localhost:1234" (default when running lm studio locally)
+ - `API key`: empty
+ - `Model`: e.g., "gemma-3-4b-it-qat" (name of the model in the lm studio)
+ - `Format`: some older models don't support structured output, but for newer ones, select "json_schema"
+
+
+### Azure OpenAi
+
+It is designed to work with the Azure version of OpenAI API.
+
+ - `API url`: URL of your Azure resource
+ - `API key`: resource key
+ - `Deployment`: specify your AI Foundry deployment (e.g., gpt-4o)
+ - `Format`: some older models don't support structured output, but for newer ones, select "json_schema"
+
+### Anthropic
+
+It is designed to work with the Anthropic API.
+
+ - `API url`: e.g., "https://api.anthropic.com"
+ - `API key`: specify your Anthropic API key ("x-api-key" header)
+ - `Model`: specify your model name (e.g., claude-sonnet-4-20250514)
+
+### Google AI
+
+It is designed to work with the Google AI API.
+
+ - `API url`: e.g., "https://generativelanguage.googleapis.com"
+ - `API key`: specify your Google Console API key ("api-key" header)
+ - `Model`: specify your model name (e.g., gemini-2.0-flash)
+
+## Self-hosted server configuration
+
+In the same way, as through UI, you can also configure llm providers through server configuration,
+when you are self-hosting.
+
+Configuration field [`tolgee.llm.providers`](/platform/self_hosting/configuration#providers),
+is an array of providers with the following fields:
+
+```
+tolgee:
+  llm:
+    providers:
+      - name: string
+        type: OPENAI | OPENAI_AZURE | TOLGEE | ANTHROPIC | GOOGLE_AI
+        api-url: string
+        api-key: string
+        model: string
+        deployment: string
+        format: string (e.g., "json_schema" )
+        priority: null | LOW | HIGH
+        enabled: true | false (default: true)
+```
+
+Fill in the necessary fields according to the documentation above; you can leave other fields empty.

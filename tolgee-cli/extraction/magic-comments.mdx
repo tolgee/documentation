@@ -51,11 +51,11 @@ If the ignore directive does not have any effect, a warning will be emitted.
 Specified a localization key. It can be written in 2 forms: simple or detailed.
 
 The simple form just takes the key name as an argument. The detailed form takes a JSON5 object, that takes the
-`keyName`, `ns`, and `defaultValue` properties.
+`key`, `ns`, and `defaultValue` properties.
 
 ```js
 // @tolgee-key simple-key
-// @tolgee-key { keyName: 'detailed-key', ns: 'my-namespace' }
+// @tolgee-key { key: 'detailed-key', ns: 'my-namespace', defaultValue: 'My defaultValue' }
 ```
 
 If it is set before a key that would've been extracted, the comment supersedes what would've been extracted and

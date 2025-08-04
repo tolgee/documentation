@@ -17,12 +17,15 @@ module.exports = {
         'projects_and_organizations/project_settings',
         'projects_and_organizations/languages',
         'projects_and_organizations/machine-translation-settings',
-        'projects_and_organizations/ai-translation-customization',
+        'projects_and_organizations/ai-settings',
         'projects_and_organizations/tasks',
+        'projects_and_organizations/order_translation',
         'projects_and_organizations/members',
         'projects_and_organizations/import',
         'projects_and_organizations/export',
         'projects_and_organizations/organization_settings',
+        'projects_and_organizations/glossaries',
+        'projects_and_organizations/llm-providers',
         'projects_and_organizations/content_delivery',
         'projects_and_organizations/webhooks',
       ],
@@ -45,10 +48,14 @@ module.exports = {
       items: [
         'translation_process/translation_memory',
         'translation_process/machine_translation',
-        'translation_process/tolgee_translator',
+        'translation_process/ai_translator',
+        'translation_process/ai-playground',
         'translation_process/comments',
+        'translation_process/glossaries',
+        'translation_process/labels',
         'translation_process/icu_message_format',
         'translation_process/tolgee_universal_icu_placeholders',
+        'translation_process/notifications',
       ],
     },
     {
@@ -65,12 +72,16 @@ module.exports = {
         'formats/flat_yaml',
         'formats/structured_yaml',
         'formats/csv',
+        'formats/xlsx',
         'formats/apple_strings',
+        'formats/apple_xcstrings',
         'formats/apple_xliff',
         'formats/android_xml',
+        'formats/compose_multiplatform_xml',
         'formats/flutter_arb',
         'formats/ruby_yaml',
         'formats/i18next_json',
+        'formats/dotnet_resx',
       ],
     },
     {
@@ -85,6 +96,7 @@ module.exports = {
           items: [
             'integrations/figma_plugin/setup',
             'integrations/figma_plugin/usage',
+            'integrations/figma_plugin/formatting_text_and_variables',
           ],
         },
 
@@ -115,6 +127,24 @@ module.exports = {
       items: [
         'account_settings/password_and_2fa',
         'account_settings/api_keys_and_pat_tokens',
+      ],
+    },
+    {
+      label: 'Single Sign-On (SSO)',
+      type: 'category',
+      items: [
+        'sso/sso_getting_started',
+        'sso/sso_okta',
+        'sso/sso_keycloak',
+        {
+          label: 'Self-hosted setup',
+          type: 'category',
+          items: [
+            'sso/sso_server_setup',
+            'sso/sso_server_setup_global',
+            'sso/sso_server_setup_organizations',
+          ],
+        },
       ],
     },
     {

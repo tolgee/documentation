@@ -25,7 +25,7 @@ and we will charge you for what you use.
 For the users who have already subscribed to our plan, the current plans will stay the same. However, you can switch to the
 new plans, if you would like to.
 
-Visit our [pricing page](/pricing) to learn more.
+Visit our [pricing page](https://tolgee.io/pricing) to learn more.
 
 ## String: The new metric
 
@@ -66,4 +66,4 @@ before. By buying the license for a self-hosted instance, you support the develo
 - Tolgee now offers licenses for self-hosted instances, allowing customers to access granular permissions, prioritized
   feature requests, and advanced support while supporting the development of Tolgee. The core of Tolgee remains
   open-source.
-- Visit the [pricing page](/pricing) to learn more.
+- Visit the [pricing page](https://tolgee.io/pricing) to learn more.

@@ -31,6 +31,12 @@ Applies wrapping to each translation, making it detectable for in-context transl
 
 - `tolgee` - A Tolgee instance
 
+You can also use `noWrap` parameter in the `i18next.t` function to disable wrapping for certain translations. For example:
+
+```tsx
+<input defaultValue={t('input_default', { noWrap: true })} />
+```
+
 ### function `tolgeeApply(tolgee, i18next)`
 
 Registers necessary callbacks (`tolgee.onTranslationChange` and `i18next.on('languageChanged')`) on both Tolgee instance and i18next.

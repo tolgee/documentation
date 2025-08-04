@@ -156,7 +156,7 @@ growth may be slower, so they reached out for a startup discount. If you're also
 However, we've got options for everyone. We offer a **free plan** with up to 1,000 translation strings suitable for
 smaller projects. Then, you can upgrade to a **pay-as-you-go plan** based on your translation needs. **If your project is open
 source**, we'll be happy to support it with a free Business subscription. To get this offer, reach us by email or by DM
-in our [Slack community](https://join.slack.com/t/tolgeecommunity/shared_invite/zt-16l0sf7ae-6fmAl2Fb9wqFCV0uzSa7bw).
+in our [Slack community](https://tolg.ee/slack).
 
 So, if you are still using spreadsheets for software localization, give Tolgee a try! [Sign up](https://app.tolgee.io/sign_up)
 and simplify your translation process today.

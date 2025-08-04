@@ -57,6 +57,12 @@ To export/import data in Ruby On Rails, go for Ruby YAML format.
 CSV (Comma Separated Values) is a simple format for table like data.
 [Read more](csv.mdx)
 
+## XLSX (Generic)
+
+XLSX (Microsoft Excel Open XML Spreadsheet) is a format for storing table-like data.
+Importing older XLS files is also supported.
+[Read more](xlsx.mdx)
+
 ## Apple Strings (.strings, .stringsdict)
 
 Apple strings format is used in Apple platforms. It is used for localization of iOS, macOS, watchOS, and tvOS applications.
@@ -71,13 +77,21 @@ with this format. Because of that, we recommend going with `.strings` & `.string
 
 ## Apple String Catalog (.xcstrings)
 
-We currently don't support importing/exporting String Catalog `.xcstrings` directly, but you can translate String Catalogs via
-`.xliff` import/export. [Read more](apple_xliff.mdx).
+Apple String Catalog is a modern localization format for Apple platforms introduced with Xcode 15.
+It's a JSON-based format that combines the functionality of `.strings` and `.stringsdict` files into a single,
+more maintainable format. Tolgee fully supports importing and exporting `.xcstrings` files while preserving all
+format-specific features like pluralization and metadata. [Read more](apple_xcstrings.mdx).
 
 ## Android resources XML (.xml)
 
 Android resources XML format is used to localize Android applications.
 We support all the features of the format, including plurals and arrays [Read more](android_xml.mdx).
+
+## Compose Multiplatform XML Resources (.xml)
+
+The Compose Multiplatform XML Resources format is used for managing localization in Compose Multiplatform projects.
+It is similar to Android's XML Resources but has unique differences in formatting and escaping.
+We support all the features of the format, including plurals and arrays [Read more](compose_multiplatform_xml.mdx).
 
 ## Flutter (.arb)
 
@@ -91,3 +105,7 @@ Ruby YAML is structured in YAML format with array support specific to Ruby on Ra
 ## i18next (.json)
 
 i18next format is the a specific format of i18next library to represent localizations. With Tolgee, you're able to import and export these files. [Read more](i18next_json.mdx)
+
+## .NET RESX (.resx)
+
+Resx is .NET specific format for storing resources including localization data. Tolgee is capable of importing and exporting such files. [Read more](dotnet_resx.mdx)

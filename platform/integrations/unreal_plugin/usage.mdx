@@ -2,110 +2,106 @@
 id: usage
 title: Usage
 sidebar_label: Usage
-description: In the following sections, we will cover the most basic example and setup required to localize your project before using the Tolgee plugin.
+description: In the following sections, we will cover how to connect Unreal Engine Localization Dashboard to the Tolgee Localization Provider
 ---
 
 ## Localization setup in Unreal Engine
 
-Localizing your project is one of the most complicated tasks for any project. If you unfamiliar with localization in Unreal Engine, we highly encourage you to check out [Unreal's official documentation](https://docs.unrealengine.com/5.2/en-US/localizing-content-in-unreal-engine/).
+Tolgee is now fully supported as a **native Localization Provider** for the Unreal Engine Localization Dashboard.
 
-The Tolgee plugin will re-use the default Unreal localization setup, so if you've already completed the process for your project, skip ahead to [Tolgee Menu](#tolgee-menu).
+If you are unfamiliar with localization in Unreal Engine, we highly encourage you to check out the following resources:
 
-In the following sections, we will cover the most basic example and setup required to localize your project before using the Tolgee plugin.
+- [Unreal Engine Localization Tools documentation](https://dev.epicgames.com/documentation/en-us/unreal-engine/localization-tools-in-unreal-engine)
+- [Unreal Engine Localization In-Depth](https://dev.epicgames.com/community/learning/tutorials/zwPJ/unreal-engine-localization-in-depth)
 
-### Step 1: Create a String Table asset
+If you have not configured the Tolgee Provider yet, go through the [Setup](/platform/integrations/unreal_plugin/setup) first.
 
-First and foremost we have to create a **String Table**. This is a special asset that can hold multiple localization keys. For this example, we will name it `ST_MyCoolTable`.
+## Working with the Tolgee Localization Provider
 
-**Note**: The name of the asset will also be the name of the namespace for all the keys that will be added.
+To make the initial push (or to update it after creating/deleting/updating keys):
 
-![Create String Table](/img/docs/platform/unreal-plugin/step-1-create-string-table.png)
+1. Run Unreal's `Gather Text` followed by `Tolgee Push`
+2. Go inside the Tolgee web dashboard and translate
+3. Run `Tolgee Pull` to get the latest data from your dashboard
 
-### Step 2: Add your first key
+## Data sources breakdown
 
-Double-click the newly created asset to open it. You can add new translation keys at the bottom of the newly spawned editor.
+When using the Tolgee Unreal Engine plugin, translation data can be pulled from multiple places:
 
-To do so, you will have to provide a key name and a default translation (text to be used if no translation is provided).
+### Unreal Localization Dashboard
 
-For this example, we will be using `MyCoolKey`.
+- **Servers:** static data
+    - can only be updated using the `Tolgee Pull` button mentioned above
+    - requires re-packaging the game to update
 
-![Add your key](/img/docs/platform/unreal-plugin/step-2-add-your-key.png)
+- **Available:** both in-editor and packaged games
 
-### Step 3: Use your key (binding the key to an FText)
+- **Best for:** when keys are added/removed from the project
 
-To use your newly created key, navigate to any Text (FText) variable and press the localization (flag) button.
+### Content Delivery Network
 
-This will open a small menu where you can select the string table (`ST_MyCoolTable`) and the key (`MyCoolKey`) you want to use.
+- **Servers:** dynamic data
+    - fetched at runtime during start-up from [Tolgee Content Delivery](/platform/projects_and_organizations/content_delivery) and dynamically injected
+    - updated over the air without re-packaging
 
-In this example, we are binding the newly created key to a standard TextBlock inside a UserWidget Blueprint.
+- **Available:** both in-editor and packaged games
 
-![Use your key](/img/docs/platform/unreal-plugin/step-3-use-your-key.png)
+- **Best for:** patching translation without risks to production
 
-### Step 4: Open the Localization Dashboard
+### Tolgee Web Dashboard
 
-Now that our Text variable is properly localized, we will need to set up the Localization Dashboard to pick up our newly created key.
+- **Servers:** dynamic data
+    - fetched at runtime during startup from the [Web Dashboard](/platform/projects_and_organizations/editing_translations) directly and dynamically injected
+    - updated over the air without re-packaging
 
-Open the Localization Dashboard, which can be found under the `Tools` dropdown menu.
+- **Available:** only in-editor
 
-![Open localization dashboard](/img/docs/platform/unreal-plugin/step-4-open-localization-dashboard.png)
+- **Best for:** faster local development
 
-### Step 5: Add your String Table asset to the gathering process
+:::info
+`Content Delivery Network` and `Tolgee Web Dashboard` cannot be used at the same time for Play-in-Editor sessions. Toggling between them is done via `Use Cdn in Editor`. Configuring the settings for each is explained below.
+:::
 
-Now we need to set up the Localization Targets of the project to properly gather our string table asset.
+## Settings
 
-Enable the `Gather from Packages` step and add a new entry inside the `Include Path Wildcards` with the `*` path.
+### Tolgee Runtime Settings
 
-![Dashboard gather settings](/img/docs/platform/unreal-plugin/step-5-dashboard-gather-settings.png)
+:::warning
+These settings will be packaged with the final game and are saved as **plain text** in the project.
+:::
 
-### Step 6: Set up the default culture
+![Tolgee Runtime Settings](/img/docs/platform/unreal-plugin/tolgee-runtime-settings.png)
 
-Finally, inside the `Cultures` section, press the radio button next to `English` to enable it as the `default culture`.
+`Cdn Addresses`: List of web addresses the plugin will query to fetch dynamic translations at the game start.
 
-![Dashboard default locale](/img/docs/platform/unreal-plugin/step-6-dashboard-default-locale.png)
+`Use Cdn in Editor`: If enabled, Play-in-editor Sessions will use dynamic data from the CDN. Otherwise, data from the Web Dashboard will be queried.
+
+### Tolgee Editor Settings
+
+:::warning
+These settings will **NOT** be packaged with the final game, but they are saved as **plain text** in the project.
+:::
+
+![Tolgee Editor Settings](/img/docs/platform/unreal-plugin/tolgee-editor-settings.png)
+
+The `Api Key`, `Api Url` and the entire `Provider` section are programmatically controlled when they are configured via the Unreal Localization Dashboard. So you don't have to worry about setting them manually.
+
+`In-Context` → `Project Ids`: List of Tolgee Project Ids the plugin will query to fetch dynamic translations constantly.
+
+`In-Context` → `Refresh Interval`: How often (in seconds) we will check the above project ids for updates.
 
 ## Tolgee Menu
 
 After enabling the Tolgee plugin and restarting the editor, the Tolgee icon should be visible in the upper right corner toolbar.
 
-You can use this menu to access all the functionality available to you:
-
-- launch the Tolgee Platform
-- open the Tolgee Dashboard inside Unreal
-- shortcuts to documentation, settings, and support (Slack)
-- Uploading & Purging actions
-
 ![Unreal Engine Integration Menu](/img/docs/platform/unreal-plugin/integration-menu.png)
 
-### Pushing texts from Unreal into Tolgee
+### Tolgee Tab – In Context Translations
 
-One of the first actions you should perform is **Upload missing keys**. This will evaluate all the translation keys used in your project and upload them to the Tolgee Platform so you can start translating them.
+The best part of the Tolgee plugin is the **Tolgee Tab**.
 
-**Note**: This action requires valid Localization Targets. If you haven't set those up yet, please refer to [localization setup in Unreal Engine](#localization-setup-in-unreal-engine).
+After logging into your Tolgee account, hovering over any unformatted localized string will open a browser window containing the matching key inside Tolgee.
 
-After the operation is complete, you can see all your namespaces and keys inside your Tolgee Dashboard.
-
-### Purging unused texts from Tolgee
-
-As the project grows, it's common for keys to get deleted locally without having their linked key deleted from the project.
-
-We added the **Purge unused keys** button to simplify the maintenance process. This will verify what keys from your Tolgee project are no longer used in your Unreal project and delete them.
-
-### Tolgee Dashboard – hover to translate
-
-The best part of the Tolgee plugin is the **Tolgee Dashboard**. To open this window, press the **Translation Dashboard** button from your [Integration Menu](#tolgee-menu).
+You can directly update the translation, hit save and if you have the settings configured, the text will be updated while the game is running.
 
 ![Unreal Engine Hover Translation](/img/docs/platform/unreal-plugin/hover-translation.png)
-
-When this window is opened, it will highlight every TextBlock you hover in the UI and open the corresponding key in Tolgee to change the translation for that particular key.
-
-After entering your desired translation, press Save, and the text will directly update at **runtime**.
-
-**Note**: To use this functionality, you are required to log into your Tolgee account inside Unreal's browser.
-
-## Tolgee settings
-
-### Offline Translation Data
-
-Our recommended approach is to embed the translation data in your final executable. To do so you will need to uncheck `Live Translation Updates` **BEFORE** starting the packaging process.
-
-![Unreal Engine Live Translation Settings](/img/docs/platform/unreal-plugin/settings-offline-mode.png)

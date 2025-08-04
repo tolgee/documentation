@@ -1,0 +1,65 @@
+---
+id: tags_interpolation
+title: Tags Interpolation
+sidebar_label: Tags interpolation
+slug: tags-interpolation
+description: "Tolgee enables you to implement localization in your React application with ease. You can integrate Tolgee in your React application using Tolgee's SDK for React. Moreover, the SDK supports Tags Interpolation. Learn more about Tags Interpolation and how to use them."
+---
+
+You might want to add formatting to certain part of the translated string. For example, let's take the translated string `Tolgee and React work well`. You want to add italics to the word `Tolgee` and bold to the word `React`. Using the React SDK, you can implement this easily.
+
+The React SDK, uses [`FormatIcu`](/formatting.mdx#icu-formatter) which supports tags interpolation. You can add custom tags in translations and map them to React elements to implement such formatting.
+
+There are two different ways to implement tags interpolation.
+
+## 1. Passing an element
+
+:::info
+Currently, non-closing tags and self-closing tags are not supported [#3101](https://github.com/tolgee/tolgee-js/issues/3101).
+:::
+
+### Example usage
+
+```jsx
+import { FormatIcu } from '@tolgee/format-icu';
+
+...
+
+tolgee.use(FormatIcu())
+```
+
+```jsx
+const Component = () => {
+  return (
+    <div>
+      <T
+        keyName="translation_key"
+        params={{ i: <i /> }}
+        defaultValue="This is <i>formatted</i>"
+      />
+    </div>
+  );
+};
+```
+
+The above example code will render the following text.
+
+![Formatted text](/img/docs/text_formatted.png)
+
+## 2. Passing a function
+
+### Example usage
+
+You can also pass a function that returns a React node. This function can take `content` as an argument such that `(content: React.ReactNode) => React.ReactNode`
+
+```tsx
+const myFunction = (content) => <i title={content}>{content}</i>;
+
+<T
+  keyName="translation_key"
+  params={{
+    i: myFunction,
+  }}
+  defaultValue="This is <i>formatted</i>"
+/>;
+```

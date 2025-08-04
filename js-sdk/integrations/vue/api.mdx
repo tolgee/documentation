@@ -114,10 +114,6 @@ import { T } from '@tolgee/vue';
 
 ### Children
 
-:::info
-Feature available from version 5.24.0
-:::
-
 Pass children to the `T` component that gets mapped to the translation parameters respective to their slot names. Allows implementation of custom components as a part of the translation.
 
 ```html
@@ -135,7 +131,7 @@ Pass children to the `T` component that gets mapped to the translation parameter
 
 ## Composable `useTranslate`
 
-Use it for loading namespaces for specific components/pages or to get `t` function for translating.
+Use it for loading namespaces for specific components/pages or to get `t` function for translating (returned `t` function uses first namespace from the list automatically).
 
 ```ts
 function useTranslate(ns?: string | string[]): {

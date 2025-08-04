@@ -4,13 +4,13 @@
 
 ## Installation
 
-```console
+```shell
 npm install-clean
 ```
 
 ## Local Development
 
-```console
+```shell
 npm run start
 ```
 
@@ -18,7 +18,7 @@ This command starts a local development server and open up a browser window. Mos
 
 ## Build
 
-```console
+```shell
 npm run build
 ```
 

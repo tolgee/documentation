@@ -16,6 +16,8 @@ First, select the keys you want to perform the batch operation on. You can do th
 After selecting one key, you can **select all keys** by clicking the "Select all" checkbox next to the batch operation dropdown list.
 When you use the "Select all" checkbox after performing a search or applying filters, it only selects all the keys that match the search query or filter conditions.
 
+> To select multiple keys, click the key checkbox while holding `shift`, which will select all keys between the current one and your last selected one
+
 Next, you can select the batch operation you want to perform from the dropdown list.
 
 <ScreenshotWrapper
@@ -26,7 +28,7 @@ Next, you can select the batch operation you want to perform from the dropdown l
 ## Available batch operations
 
 - **Machine translation** – When you pick this operation, you will be prompted to select languages to translate into.
-  The [primary Machine translation providers](/platform/projects_and_organizations/languages#machine-translation-settings) chosen for the languages will be used to translate the keys.
+  The [primary Machine translation providers](/platform/projects_and_organizations/machine-translation-settings) chosen for the languages will be used to translate the keys.
 
 - **Pre-translate by TM** – When you pick this operation, you will be asked to select what languages to pre-translate.
   Currently, this operation only supports pre-translating with 100% matches from the translation memory.
@@ -42,6 +44,14 @@ Next, you can select the batch operation you want to perform from the dropdown l
 - **Clear translations** – This batch operation clears translations for selected languages in selected keys.
 
 - **Export translations** – This allows you to select exactly which keys you want to export, otherwise it works the same as [Export page](../projects_and_organizations/export.mdx).
+
+- **Create task** – This operation allows you to create translation/review task with precisely selected keys.
+  
+- **Add keys to task** - Add aditional keys to existing task.
+
+- **Remove keys from task** - Remove keys from existing task (only available when task is open).
+
+- **Order professional translation** - Order translation from external agency for selected keys.
 
 - **Add tags** – With this operation, you can add one or multiple tags to selected keys.
 

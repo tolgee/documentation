@@ -151,7 +151,7 @@ In the process of selecting metrics and KPIs for your localization project, itâ€
 
 Roles and responsibilities **can make or break your localization** process. You should assign roles and responsibilities to your localization team and ensure everyone knows their responsibility. In an ideal world, you should have a **localization manager** responsible for the localization process and a team of localization and language specialists responsible for the localization itself.
 
-The responsibilities of the localization team could range from **localizing content**, through **evaluating localization quality**, to **developing localization workflows**. The responsibilities and size of the team depend on the complexity of your product, the target market, whether and how you want to [measure the success of the localization](#metrics-and-kpis), your budget and timeline, as well as other factors.
+The responsibilities of the localization team could range from **localizing content**, through **evaluating localization quality**, to **developing localization workflows**. The responsibilities and size of the team depend on the complexity of your product, the target market, whether and how you want to [measure the success of the localization](#3-metrics-and-kpis), your budget and timeline, as well as other factors.
 
 As localization heavily depends on the **source content**, you should also assign roles and responsibilities to your **content team**. The localization manager should then work closely with the content team to ensure the source content is suitable for localization.
 

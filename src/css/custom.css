@@ -31,6 +31,8 @@
   --light-home-text: #546074;
   --dark-home-text: #e0e4ea;
   --navbar-link-text-color: #303846;
+  --navbar-separator-color: #dbdde1;
+  --navbar-button-border: #c8c7cc;
   --home-text: var(--light-home-text);
   --text-secondary: #4e4d4d;
   --home-features-gradient-1: #ebedf0;
@@ -62,6 +64,7 @@ html[data-theme='dark'] {
   --emphasis-gradient-start: var(--ifm-color-primary-lighter);
   --emphasis-gradient-end: var(--ifm-color-primary-dark);
   --navbar-link-text-color: var(--dark-home-text);
+  --navbar-separator-color: #444950;
   --home-text: var(--dark-home-text);
   --text-secondary: #cccbcb;
   --home-features-gradient-1: var(--gradient-start-color);
@@ -125,14 +128,6 @@ body {
   font-weight: normal;
 }
 
-.navbar .DocSearch {
-  display: none;
-}
-
-.sidebar-search .DocSearch.DocSearch-Button {
-  width: 100%;
-}
-
 h1,
 h2,
 h3,
@@ -183,6 +178,10 @@ h6 {
   transition: background-color 0.3s;
 }
 
+.navbar__brand {
+  margin-right: 24px;
+}
+
 .navbar__brand:hover {
   color: inherit;
 }
@@ -190,8 +189,9 @@ h6 {
 .navbar__title {
   font-family: Righteous, Arial, sans-serif;
   font-weight: 500;
-  font-size: 18px;
+  font-size: 26px;
   color: #2c3c52;
+  margin: -10px 0px;
 }
 
 html[data-theme='dark'] .navbar__title {

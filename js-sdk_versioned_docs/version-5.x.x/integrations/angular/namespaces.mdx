@@ -1,0 +1,40 @@
+---
+id: namespaces
+title: Namespaces
+sidebar_label: Namespaces
+description: "Tolgee enables you to implement localization in your Angular application with ease. You can integrate Tolgee in your Angular application using Tolgee's integration library. You can split your i18n data into multiple namespaces using Tolgee. Learn more about using namespaces."
+---
+
+Tolgee allows you to split your i18n data into multiple namespaces. When using the [`translate pipe`](./translating#translate-pipe), [`t attribute`](./translating#t-attribute), or [`translation methods`](./translating#translation-methods), Tolgee automatically loads the namespace data for you.
+
+Ideally, you should split translations for each module into different namespaces. For a lazy module, wait for the i18n data to be fetched before loading the lazy module. You can achieve this with `NamespaceResolver`.
+
+```ts
+...
+import { NamespaceResolver } from '@tolgee/ngx';
+
+const routes: Routes = [
+  ...
+  {
+    path: 'lazy',
+    loadChildren: () => import('./lazy/lazy.module').then((m) => m.LazyModule),
+    data: { tolgeeNamespace: 'my-loaded-namespace' },
+    resolve: {
+      _namespace: NamespaceResolver,
+    },
+  },
+];
+
+@NgModule({
+  imports: [
+    RouterModule.forRoot(routes, ...),
+  ],
+  exports: [RouterModule],
+})
+export class AppRoutingModule {}
+```
+
+When using `NamespaceResolver`, provide `tolgeeNamespace` property to the `data` object
+of your route configuration as defined in the  above example.
+
+You can learn more in the [namespaces documentation](../../namespaces.mdx).

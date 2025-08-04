@@ -23,6 +23,7 @@ module.exports = {
                 'integrations/react/next/introduction',
                 'integrations/react/next/pages-router',
                 'integrations/react/next/app-router',
+                'integrations/react/next/app-router-next-intl',
               ],
             },
             'integrations/react/ssr',
@@ -99,6 +100,8 @@ module.exports = {
         'in_context',
         'wrapping',
         'providing_static_data',
+        'filter_by_tags',
+        'fetching_translations'
       ],
     },
     'keys_tagging',
@@ -137,17 +140,6 @@ module.exports = {
         },
       ],
     },
-    {
-      type: 'category',
-      label: 'Migration to v5',
-      items: [
-        'migration_to_v5/core',
-        'migration_to_v5/react',
-        'migration_to_v5/ngx',
-        'migration_to_v5/svelte',
-        'migration_to_v5/vue',
-        'migration_to_v5/i18next',
-      ],
-    },
+    'migration_to_v6'
   ],
 };

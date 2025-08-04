@@ -14,7 +14,7 @@ Some time ago I've came across an [article](https://null-byte.wonderhowto.com/ho
 
 ## Background
 
-At Tolgee we are offering localization SDKs, which enable you to insert your translated keys into web application. One of our main selling points is that we offer [in-context](/features/dev-tools) localization out of box. In-context localization means, that when you are in development mode, you can click on any translation and change the translation directly in the app.
+At Tolgee we are offering localization SDKs, which enable you to insert your translated keys into web application. One of our main selling points is that we offer [in-context](https://tolgee.io/features/dev-tools) localization out of box. In-context localization means, that when you are in development mode, you can click on any translation and change the translation directly in the app.
 
 To make this work, our SDKs need to somehow mark where the translations are. We might just search the DOM for occurrences of translations in given language, however that won't cover more advanced cases, when we for example need to support variables in translations. Then the easiest way is to wrap each translation with `span` element and give it some special attribute, so then we can find it. Easy peasy, no? Well there is a catch ... what if user needs to translate texts where you can't use HTML (e.g. element attributes)? Or what if the extra `span` element is not acceptable?
 

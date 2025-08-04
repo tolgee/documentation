@@ -12,6 +12,10 @@
       "description": "The url of Tolgee API.",
       "type": "string"
     },
+    "apiKey": {
+      "description": "Api key to Tolgee Platform.\n\nWARNING: Make sure you don't leak your API key\nUse `apiKey` only if you are loading it from an environment or other secured source (supported in .js or .yml files) or your config is not public.\n\nIn most cases, it's better to use a one-time `login` command or set it via the `TOLGEE_API_KEY` environment variable.",
+      "type": "string"
+    },
     "format": {
       "$ref": "#/$defs/format"
     },
@@ -46,8 +50,22 @@
     "push": {
       "type": "object",
       "properties": {
+        "filesTemplate": {
+          "description": "A template that describes the structure of the local files and their location with file [structure template format](https://docs.tolgee.io/tolgee-cli/push-pull-strings#file-structure-template-format).\n\nExample: `./public/{namespace}/{languageTag}.json`",
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "array",
+              "items": {
+                "type": "string"
+              }
+            }
+          ]
+        },
         "files": {
-          "description": "Define, which files should be pushed and attach language/namespace to them. By default Tolgee pushes all files specified here, you can filter them by languages and namespaces properties.",
+          "description": "More explicit alternative to `filesTemplate`. Define, which files should be pushed and attach language/namespace to them. By default Tolgee pushes all files specified here, you can filter them by languages and namespaces properties.",
           "type": "array",
           "items": {
             "$ref": "#/$defs/fileMatch"
@@ -84,6 +102,10 @@
           "items": {
             "type": "string"
           }
+        },
+        "removeOtherKeys": {
+          "description": "Remove keys which are not present in the import (within imported namespaces).",
+          "type": "boolean"
         }
       }
     },
@@ -138,7 +160,7 @@
           "type": "boolean"
         },
         "fileStructureTemplate": {
-          "description": "Defines exported file structure: https://tolgee.io/tolgee-cli/push-pull-strings#file-structure-template-format",
+          "description": "Defines exported file structure: https://docs.tolgee.io/tolgee-cli/push-pull-strings#file-structure-template-format",
           "type": "string"
         },
         "emptyDir": {
@@ -153,6 +175,85 @@
           ]
         }
       }
+    },
+    "sync": {
+      "type": "object",
+      "properties": {
+        "backup": {
+          "description": "Store translation files backup (only translation files, not states, comments, tags, etc.). If something goes wrong, the backup can be used to restore the project to its previous state.",
+          "type": "string"
+        },
+        "continueOnWarning": {
+          "description": "Continue the sync regardless of whether warnings are detected during string extraction. By default, as warnings may indicate an invalid extraction, the CLI will abort the sync.",
+          "type": "boolean"
+        },
+        "removeUnused": {
+          "description": "Delete unused keys from the Tolgee project (within selected namespaces if specified).",
+          "type": "boolean"
+        },
+        "namespaces": {
+          "description": "Specifies which namespaces should be synchronized.",
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        }
+      }
+    },
+    "tag": {
+      "type": "object",
+      "properties": {
+        "filterExtracted": {
+          "description": "Extract keys from code and filter by it.",
+          "type": "boolean"
+        },
+        "filterNotExtracted": {
+          "description": "Extract keys from code and filter them out.",
+          "type": "boolean"
+        },
+        "filterTag": {
+          "description": "Filter only keys with tag. Use * as a wildcard.",
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "filterNoTag": {
+          "description": "Filter only keys without tag. Use * as a wildcard.",
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "tag": {
+          "description": "Add tag to filtered keys.",
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "tagOther": {
+          "description": "Tag keys which are not filtered.",
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "untag": {
+          "description": "Remove tag from filtered keys. Use * as a wildcard.",
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "untagOther": {
+          "description": "Remove tag from keys which are not filtered. Use * as a wildcard.",
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        }
+      }
     }
   },
   "$defs": {
@@ -163,6 +264,7 @@
           "$ref": "#/$defs/path"
         },
         "language": {
+          "description": "Explicitly map file to language.\n\nIf not provided, backend will try to detect language from language name or it's content.",
           "type": "string"
         },
         "namespace": {
@@ -170,8 +272,7 @@
         }
       },
       "required": [
-        "path",
-        "language"
+        "path"
       ]
     },
     "forceMode": {
@@ -192,6 +293,7 @@
       "enum": [
         "JSON_TOLGEE",
         "JSON_ICU",
+        "JSON_I18NEXT",
         "JSON_JAVA",
         "JSON_PHP",
         "JSON_RUBY",
@@ -201,12 +303,19 @@
         "PO_JAVA",
         "PO_ICU",
         "PO_RUBY",
+        "PO_PYTHON",
         "APPLE_STRINGS",
         "APPLE_XLIFF",
+        "APPLE_XCSTRINGS",
         "PROPERTIES_ICU",
         "PROPERTIES_JAVA",
         "ANDROID_XML",
+        "COMPOSE_XML",
         "FLUTTER_ARB",
+        "CSV_ICU",
+        "CSV_JAVA",
+        "CSV_PHP",
+        "CSV_RUBY",
         "YAML_RUBY",
         "YAML_JAVA",
         "YAML_ICU",
@@ -214,7 +323,12 @@
         "XLIFF_ICU",
         "XLIFF_JAVA",
         "XLIFF_PHP",
-        "XLIFF_RUBY"
+        "XLIFF_RUBY",
+        "RESX_ICU",
+        "XLSX_ICU",
+        "XLSX_JAVA",
+        "XLSX_PHP",
+        "XLSX_RUBY"
       ]
     }
   }

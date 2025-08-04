@@ -1,0 +1,62 @@
+---
+id: sso_okta
+title: Single Sign-On (SSO) With Okta
+sidebar_label: SSO with Okta
+description: Learn how to set up Single Sign-On (SSO) using OpenID Connect with Okta.
+---
+
+import { ScreenshotWrapper } from '../shared/_ScreenshotWrapper';
+
+:::info Feature availability
+Single Sign-On is available for enterprise plans. [Upgrade your plan](https://tolgee.io/pricing) to use this feature.
+
+If you use the self-hosted version, you must [set up the license](/platform/self_hosting/licensing) and then follow the [sso server setup guide](/platform/sso/sso_server_setup) to use this feature.
+:::
+
+This guide will help you set up Single Sign-On (SSO) for your organization using OpenID Connect with Okta. See the [SSO Getting Started](/platform/sso/sso_getting_started) guide for more generalized steps on setting up SSO.
+
+## Set Up Okta
+
+First, you must set up an **OpenID Connect application** in Okta. To do this, log in to your Okta account
+and navigate to the **Admin** panel. Then find the **Applications** section and click on **Create App Integration**:
+<ScreenshotWrapper src="/img/docs/platform/sso/sso_okta_create_app.png" />
+
+Now select **OIDC - OpenID Connect** as the Sign-in method and **Web Application**  click **Next**:
+
+<ScreenshotWrapper src="/img/docs/platform/sso/sso_okta_app_settings.png" />
+
+Fill in the **Application settings**:
+- Grant type: **Authorization Code**
+- Login redirect URIs: **https://app.tolgee.io/login/auth_callback/sso** (if you use Tolgee cloud) or your Tolgee instance URL ending with `/login/auth_callback/sso`
+
+Click **Save**. Here is how the settings can look like:
+
+<ScreenshotWrapper src="/img/docs/platform/sso/sso_okta_general_settings.png" />
+
+Now you need to provide Client ID and Client Secret to Tolgee. You can find these in your Okta application's **General Settings**.
+Also, provide **Authorization URL** and **Token URL**.
+There is a **Well-Known configuration URL** in your Okta application's **Security - API** tab. You can use this URL to get all the necessary endpoints.
+
+<ScreenshotWrapper src="/img/docs/platform/sso/sso_okta_auth_server.png" />
+
+You can create a new **Authorization Server** or use the existing one here.
+Create an **Access Policy** for the **Authorization Server** and set the refresh token lifetime to unlimited.
+
+:::warning
+If the lifetime of the refresh token isn't set to unlimited, the user will be logged out after the token expires, and
+all user tokens will stop working until the user logs in again. This will break your pipelines and other automated processes.
+:::
+
+<ScreenshotWrapper src="/img/docs/platform/sso/sso_okta_access_policy.png" />
+
+To find the **Well-Known configuration URL**, click on the chosen **Authorization Server** and navigate to **Metadata URI**.
+
+## Set Up Tolgee
+
+When you have all the necessary information from Okta, you need to enable the SSO feature in your organization settings and provide the necessary information to Tolgee.
+You can find how to enable SSO in the [SSO Getting Started](/platform/sso/sso_getting_started) guide.
+
+## Log In with SSO
+
+Once you have set up SSO, you can log in to Tolgee using the **Log in with SSO** button on the login page and enter the domain name.
+After that, you will be redirected to the Okta login page to authenticate.

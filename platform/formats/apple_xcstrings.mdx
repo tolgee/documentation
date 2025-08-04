@@ -1,0 +1,113 @@
+---
+id: apple_xcstrings
+title: Apple String Catalog (.xcstrings)
+sidebar_label: Apple String Catalog
+---
+
+Apple String Catalog is the latest Apple approach to localization for Apple platforms.
+We recommend using it in favor of XLIFF since this format gives you
+better control over the strings and their translations.
+
+Tolgee supports simple values as well as plural values.
+
+Example of a Stringsdict file:
+```json
+{
+  "sourceLanguage": "en",
+  "version": "1.0",
+  "strings": {
+    "dog_count": {
+      "localizations": {
+        "en": {
+          "variations": {
+            "plural": {
+              "other": {
+                "stringUnit": {
+                  "state": "translated",
+                  "value": "I have %lld dogs."
+                }
+              }
+            }
+          }
+        },
+        "cs": {
+          "variations": {
+            "plural": {
+              "one": {
+                "stringUnit": {
+                  "state": "translated",
+                  "value": "Já mám jednoho psa."
+                }
+              },
+              "few": {
+                "stringUnit": {
+                  "state": "translated",
+                  "value": "Já mám %lld psi."
+                }
+              },
+              "other": {
+                "stringUnit": {
+                  "state": "translated",
+                  "value": "Já mám %lld psů."
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "hello": {
+      "en": {
+        "stringUnit": {
+          "state": "translated",
+          "value": "Hello!"
+        }
+      },
+      "localizations": {
+        "cs": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Ahoj!"
+          }
+        }
+      }
+    }
+  }
+}
+```
+
+We recommend using the semantic keys format as in the examples above. That enables you to change the base values without
+modifying the key and doesn't suggest keeping the keys in sync with the base language translation.
+
+import ApplePlaceholders from './components/_apple_placeholders.mdx';
+
+<ApplePlaceholders />
+
+import Importing from './components/_general_importing.mdx';
+
+<Importing />
+
+# Using with the CLI
+
+Apple String Catalog (.xcstrings) format differs slightly from other formats because it contains all the languages in a single file.
+
+You will probably want to push only the base language (usually English) since translating other languages will happen in the Tolgee Platform. That's why we set the `push.languages` to `["en"]`, so Tolgee will ignore all other languages included in the `.xcstrings`.
+
+For pulling, you usually want to use all the languages from the Tolgee platform, so we are keeping the default for the `pull` option.
+
+```json
+{
+  "$schema": "https://docs.tolgee.io/cli-schema.json",
+  "projectId": 123,           // project id in tolgee platform
+  "format": "APPLE_XCSTRINGS",
+  "push": {
+    "filesTemplate": "./i18n/Localizable.xcstrings",
+    "languages": ["en"]       // which languages should be pushed by default
+  },
+  "pull": {
+    "path": "./i18n"
+  }
+}
+```
+
+> Read [more about CLI](/tolgee-cli)

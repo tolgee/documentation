@@ -128,7 +128,7 @@ function writeItemHeading(
       stream.write(
         `- ${'#'.repeat(5)} ${
           item.removedIn ? `~~\`${name}\`~~` : `\`${name}\``
-        } {#${
+        } \\{#${
           displayOption === 'snake-upper-case'
             ? getName(item, 'kebab-case')
             : name
@@ -428,6 +428,11 @@ async function downloadProps() {
         Accept: 'application/json',
       },
     });
+
+    if (!response.ok) {
+      throw new Error(`HTTP error! Status: ${response.status}`);
+    }
+
     const data: Data[] = await response.json();
     return data;
   } catch (e) {

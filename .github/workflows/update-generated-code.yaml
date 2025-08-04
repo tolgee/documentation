@@ -15,10 +15,10 @@ jobs:
         with:
           token: "${{ secrets.TOLGEE_MACHINE_PAT }}"
 
-      - name: Setup node
-        uses: actions/setup-node@v3
+      - uses: actions/setup-node@v1
         with:
-          node-version: "20.x"
+          node-version: "22.x"
+      - run: corepack enable
 
       - name: Install npm dependencies
         run: npm ci
@@ -43,7 +43,7 @@ jobs:
 
       - name: Run the app & wait
         run: |
-          docker run --rm -d -p8080:8080 -e tolgee.billing.createSubscriptionsOnStartup=true ghcr.io/tolgee/tolgee-ee:${{ github.event.inputs.version }}
+          docker run --rm -d -p8080:8080 -e tolgee.billing.createPlansOnStartup=true ghcr.io/tolgee/tolgee-ee:${{ github.event.inputs.version }}
           curl --retry 200 --retry-delay 1 -s --retry-all-errors "http://localhost:8080/swagger-ui/index.html" > /dev/null
 
       - name: Generate the code

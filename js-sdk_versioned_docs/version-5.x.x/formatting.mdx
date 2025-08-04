@@ -1,0 +1,56 @@
+---
+id: formatting
+title: Formatting
+description: 'Learn how to use in-context translating feature in Tolgee tool and how to enable in-context translating on production.'
+---
+
+Formating is a way how to render translation into a final string, with variable parameters. Formatters are supported in form of [plugin](./plugins.mdx).
+
+## Simple formatter
+
+[`FormatSimple`](./api/core_package/format-simple) plugin if you just need to include variables in your translations. It is very minimalistic, only intended to interpolate your parameters and save your bundle size.
+
+```ts
+import { FormatSimple } from '@tolgee/web';
+...
+tolgee.use(FormatSimple());
+```
+
+### Example
+
+```ts
+tolgee.t('basket_items', '{count} items in the basket', { count: 10 })
+// -> 10 items in the basket
+```
+
+## Icu formatter
+
+For advanced formatting functionality install `FormatIcu` plugin, which is shipped in separate package.
+
+import { InstallationTabs } from '../../src/component/InstallationTabs';
+
+<InstallationTabs lib="@tolgee/format-icu" />
+
+Use it like this:
+
+```ts
+import { FormatIcu } from '@tolgee/format-icu';
+
+tolgee.use(FormatIcu());
+```
+
+### Examples
+
+```ts
+tolgee.t('progress', 'Progress: {progress, number, percent}', { progress: 0.1 })
+// -> Progress: 10%
+
+tolgee.t('basket_items', '{count, plural, one {# item} other {# items}} in the basket', { count: 10 })
+// -> 10 items in the basket
+```
+
+Read more about [ICU message format](/platform/translation_process/icu_message_format)
+
+:::info
+For react-native you might need to polyfill `Intl` object. Use [`@formatjs/intl-locale`](https://formatjs.github.io/docs/polyfills/intl-locale) and [`@formatjs/intl-pluralrules`](https://formatjs.github.io/docs/polyfills/intl-pluralrules) to make plurals work.
+:::

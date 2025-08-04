@@ -8,15 +8,21 @@ import { ScreenshotWrapper } from '../shared/_ScreenshotWrapper';
 
 In project settings, you can edit the basic properties of your project.
 
-- **project name**
-- **description** - displayed in the project dashboard (can be formatted with Markdown)
-- **base language** - the language that is used as a base for translating to other languages
-- **default namespace** - preselected namespace when creating a new key
+- **Project Name**
+- **Description** - displayed in the project dashboard (can be formatted with Markdown)
+- **Base language** - the language that is used as a base for translating to other languages
+- **Use namespaces** - a checkbox to enable namespaces
+- **Default namespace** - preselected namespace when creating a new key
 
 Then, there are the options to leave the project, delete it or transfer the ownership to another organization.
 
+## Enabling Namespaces
+
+Toggle "Use namespaces" checkbox in "Project settings" to choose your default namespace. After enabling it, a "Default namespace" tab will appear below it where you can choose one.
+You can read our article about [namespaces](https://docs.tolgee.io/platform/translation_keys/namespaces) to learn how to use them.
+
 <ScreenshotWrapper
-  src="/img/docs/platform/project-settings.webp"
+  src="/img/docs/platform/project-settings-example.webp"
   alt="Project settings"
 />
 
@@ -26,6 +32,6 @@ By default, Tolgee visualizes ICU placeholders in the translation editor and int
 If you want to disable this feature, you can do so in the advanced tab of the project settings.
 
 <ScreenshotWrapper
-  src="/img/docs/platform/project_settings_icu.webp"
+  src="/img/docs/platform/advanced-project-settings.webp"
   alt="Project settings > ICU placeholders support"
 />

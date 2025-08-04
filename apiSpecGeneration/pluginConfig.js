@@ -1,12 +1,12 @@
 module.exports = [
   'docusaurus-plugin-openapi-docs',
   {
-    id: 'openapi',
-    docsPluginId: 'rest-api',
+    id: "openapi", // plugin id
+    docsPluginId: "rest-api",
     config: {
       tolgee: {
         specPath: './apiSpecGeneration/apiSpecs.json', // path or URL to the OpenAPI spec
-        outputDir: 'api', // output directory for generated *.mdx and sidebar.js files
+        outputDir: 'api', 
         sidebarOptions: {
           categoryLinkSource: 'tag',
           sidebarCollapsible: false,
@@ -14,6 +14,6 @@ module.exports = [
           groupPathsBy: 'tag', // generate a sidebar.js slice that groups operations by tag
         },
       },
-    },
+    }
   },
 ];

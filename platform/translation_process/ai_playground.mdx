@@ -1,0 +1,194 @@
+---
+id: ai-playground
+title: AI Playground
+---
+
+import { ScreenshotWrapper } from '../shared/_ScreenshotWrapper';
+
+AI Playground allows you to test your custom AI prompt settings or write a completely custom prompt.
+
+To open the playground:
+
+ 1. Select `AI settings` in the project menu
+ 2. Click the `OpenAi playground` button (or the `+ Prompt` button if some prompts already exist)
+
+You can also quickly get there via the `Customize` button above machine translation suggestions (only if AI assistant is enabled in suggestions).
+
+<ScreenshotWrapper
+  alt="Providing project description"
+  src="/img/docs/platform/ai-playground/customize-button.webp"
+/>
+
+## Basic mode
+
+<ScreenshotWrapper
+  alt="Providing project description"
+  src="/img/docs/platform/ai-playground/basic-playground.webp"
+/>
+
+In this mode, you can influence what information will be included in the prompt. For example, if you don't want translation to be influenced by Translation Memory results, you can toggle `TM Suggestions` off.
+
+## Advanced mode
+
+:::info
+This feature is only available with the Business subscription plan.
+:::
+
+<ScreenshotWrapper
+  alt="Providing project description"
+  src="/img/docs/platform/ai-playground/advanced-playground.webp"
+/>
+
+In Advanced mode, you can edit the resulting prompt directly via text input. We use so-called "fragments," which are sections of the default prompt. You can hover any fragment to see its content, and you can also click the `Insert` button to edit the fragment in the editor.
+
+Other than fragments, you can also use variables, which give you direct access to information about the current key, source and target translations and so on.
+
+## Running prompts
+
+You can test your current prompt by hitting the `Preview` button, and it will run the prompt on the currently selected translation (if the button is disabled, you need to select some translation first).
+
+<ScreenshotWrapper
+  alt="Providing project description"
+  src="/img/docs/platform/ai-playground/prompt-preview-single.webp"
+/>
+
+Once the AI model returns the result, it is displayed in the `Result` section. This section shows what the resulting translation suggestion will look like. You can also click the `</>` button to see the raw output of the model.
+
+### Preview in batch
+
+You can also run your customized prompt on all currently filtered keys.
+
+ 1. Click the `Arrow` next to the `Preview` button
+ 2. Click `Preview all (x keys)`
+
+This will let you select which languages to preview and start the batch operation.
+
+<ScreenshotWrapper
+  alt="Providing project description"
+  src="/img/docs/platform/ai-playground/prompt-preview-all.webp"
+/>
+
+After the operation is done, you will see results next to existing translations. The results are only visible to the current user and don't influence currently active translations in any way.
+
+<ScreenshotWrapper
+  alt="Providing project description"
+  src="/img/docs/platform/ai-playground/prompt-preview-result.webp"
+/>
+
+### Preview of selected dataset
+
+If you have a bigger project, you might want to have some selected translations that will be used for testing in the AI playground. You can do this by tagging selected keys with the `ai-playground` tag and then selecting the `Preview on my dataset` option.
+
+<ScreenshotWrapper
+  alt="Providing project description"
+  src="/img/docs/platform/ai-playground/prompt-preview-dataset.webp"
+/>
+
+This will run the batch preview only on the tagged keys.
+
+## Saving prompts and using them in the platform
+
+To save your prompt, click the `Save as...` button. Then you'll see the following dialog:
+
+<ScreenshotWrapper
+  alt="Providing project description"
+  src="/img/docs/platform/ai-playground/prompt-save-dialog.webp"
+/>
+
+Name your prompt accordingly, and you can also check the `Use as default for machine translation` if you want to replace the default prompt.
+
+### Selecting prompt in language settings
+
+For more granular control, you can go to project language settings:
+
+  1. Select `Languages` in the project menu
+  2. Go to the `Machine translation` tab
+
+In this view, you can change each language's machine translation settings globally or individually. Select from your saved custom prompts or reset to the default one.
+
+<ScreenshotWrapper
+  alt="Providing project description"
+  src="/img/docs/platform/ai-playground/language-settings-prompt.webp"
+/>
+
+## Handlebars templating system
+
+To use a variable, start by typing `{{` (double curly bracket), and the editor will hint you at available variables and fragments.
+
+<ScreenshotWrapper
+  alt="Providing project description"
+  src="/img/docs/platform/ai-playground/editor-variables.webp"
+/>
+
+We use the Handlebars templating system, which has many more functions; read more at [Handlebars documentation](https://handlebarsjs.com/).
+
+
+## List of available variables
+
+{/* Tables generated with https://www.tablesgenerator.com/markdown_tables# */}
+
+Variables provide access to the translation data so that you can write your prompt as a template
+and then use it universally for all the translations.
+
+These variables are available in the prompt template:
+
+| Name                      | Description                                                                             | Example                                                                                                  |
+|---------------------------|-----------------------------------------------------------------------------------------|----------------------------------------------------------------------------------------------------------|
+| key.name                  | Name of the current key                                                                 | user_settings_save                                                                                       |
+| key.description           | User inserted description of the key                                                    | A button for saving user settings                                                                        |
+| project.name              | Name of the project                                                                     | Demo project                                                                                             |
+| project.description       | AI customization project description                                                    | This is a golfing app                                                                                    |
+| relatedKeys.json          | List of related keys based on Tolgee Context                                            | \{"source": "Add", "target": "Ajouter", "key": "add-item-add-button"} ...                                |
+| translationMemory.json    | List of related keys based on Translation Memory                                        | \{"source": "Add", "target": "Ajouter", "key": "add-item-add-button"} ...                                |
+| screenshots.first         | First screenshot in reduced size (max size 150px x 150px)                               | \[\[screenshot_small_*]] ([See system placeholders](#system-placeholders))                               |
+| screenshots.all           | All screenshots in reduced size (max size 150px x 150px)                                | \[\[screenshot_small_*]] ... ([See system placeholders](#system-placeholders))                           |
+| screenshots.firstFull     | First screenshot in full size                                                           | \[\[screenshot_full_*]] ([See system placeholders](#system-placeholders))                                |
+| screenshots.allFull       | All screenshots in full size                                                            | \[\[screenshot_full_*]] ... ([See system placeholders](#system-placeholders))                            |
+| source.*                  | Source translation/language information                                                 | [See translation properties](#translationlanguage-properties)                                            |
+| other.\{tag}.*            | Information for other (not source, not target) translations/languages                   | [See translation properties](#translationlanguage-properties)                                            |
+| target.*                  | Target translation/language information                                                 | [See translation properties](#translationlanguage-properties) (non-standard properties are listed below) |
+| target.pluralFormExamples | Lists plural forms for target language with example numerical values (only for plurals) | one (e.g., User has 1 item) other (e.g., User has 10 items)                                              |
+| target.exactForms         | Lists plural forms for the target language (only for plurals)                           | one other                                                                                                |
+| target.exampleIcuPlural   | Example format of a plural result for the target language (only for plurals)            | \{count, plural, one \{...} other \{...}}                                                                |
+### Translation/language properties
+
+Common properties for translation/language of `source`, `target` and `other.{tag}` variables.
+
+| Name                      | Description                                                                             | Example                                                               |
+|---------------------------|-----------------------------------------------------------------------------------------|-----------------------------------------------------------------------|
+| .translation              | Value of the translation in the given language                                          | Save settings                                                         |
+| .languageName             | Name of the language                                                                    | English                                                               |
+| .languageTag              | Language ISO code                                                                       | en                                                                    |
+| .languageNote             | AI customization language note                                                          | Use remove rather than delete                                         |
+| .isCJK                    | Is Chinese, Japanese or Korean                                                          | false                                                                 |
+
+
+## List of available fragments
+
+Fragments are logical sections for the default prompt. They are accessible the same way as
+variables, but the difference is that they are using variables within them. They are basically
+a utility feature that allows you to keep your prompts within a reasonable length.
+
+You can hover any used fragment and click `Insert` in the tooltip window. This will insert the content of the fragment directly into the editor so you can edit it as you like.
+
+| Name                        | Description                                                                                                                                                                                |
+|-----------------------------|--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| fragment.intro              | General info for the model about its role                                                                                                                                                  |
+| fragment.styleInfo          | Info about resulting translation style                                                                                                                                                     |
+| fragment.projectDescription | Provides project.description variable with a description                                                                                                                                   |
+| fragment.languageNote       | Provides target.languageNote variable with a description                                                                                                                                   |
+| fragment.icuInfo            | Description of ICU format and plurals                                                                                                                                                      |
+| fragment.screenshot         | Provides screenshots.first variable                                                                                                                                                        |
+| fragment.relatedKeys        | Provides relatedKeys.json variable with a description                                                                                                                                      |
+| fragment.translationMemory  | Provides translationMemory.json variable with a description                                                                                                                                |
+| fragment.keyName            | Provides key.name variable with a description                                                                                                                                              |
+| fragment.keyDescription     | Provides key.description variable with a description                                                                                                                                       |
+| fragment.translationInfo    | Tells the model what to translate a to what language                                                                                                                                       |
+| fragment.translateJson      | Tells the model what the resulting JSON format should be + uses [[output_valid_json]] placeholder, which indicates that the model should return valid JSON (for models that support that). |
+
+## System placeholders
+
+Rendered prompts can contain system text placeholders, which signify non-text information.
+
+ - `[[screenshot_*]]` signifies a place where the screenshot will be placed
+ - `[[output_valid_json]]` signifies that we want to force the model to return JSON. Some models support this, and some don't, so for the non-supporting one, this is just replaced with worded instructions.

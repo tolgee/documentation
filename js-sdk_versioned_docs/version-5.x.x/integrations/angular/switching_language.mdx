@@ -1,0 +1,38 @@
+---
+id: switching_language
+title: Switching language
+sidebar_label: Switching language
+slug: switching-language
+description: "Tolgee enables you to implement localization in your Angular application with ease. You can integrate Tolgee in your Angular application using Tolgee's integration library for Angular. Learn to manage language change using the TranslationService"
+---
+
+To manage an event like language change, the Tolgee integration provides the [`TranslationService`](./api#translateservice).
+
+Initialize the `TranslationService` in your component as follows:
+
+```ts title="language.component.ts"
+import { Component } from '@angular/core';
+import { TranslateService } from '@tolgee/ngx';
+
+@Component({
+  ...
+})
+export class AppComponent {
+  constructor(public translateService: TranslateService) {}
+  ...
+}
+```
+
+Next, in template use the [`changeLanguage` method](./api#method-changelanguage) and [`languageAsync` property](./api#property-languageasync) from `TranslateService` to handle the language change.
+
+```html title="language.component.html"
+<select
+  [value]="translateService.languageAsync | async"
+  (change)="translateService.changeLanguage($event.target.value)"
+>
+  <option value="en">🇬🇧 English</option>
+  <option value="cs">🇨🇿 Česky</option>
+</select>
+```
+
+> Learn more about language change, detection and storage on the [Language documentation page](../../language).

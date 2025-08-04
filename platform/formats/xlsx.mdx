@@ -1,0 +1,65 @@
+---
+id: xlsx
+title: XLSX
+sidebar_label: XLSX
+---
+
+XLSX (Microsoft Excel Open XML Spreadsheet) is a format for storing table-like data.
+In Tolgee, you can import and export your localization data in XLSX format.
+All sheets in an XLSX file are imported separately and treated individually.
+Each sheet must have its own header, which defines the key and language columns.
+
+Additionally, older XLS files are supported for importing, but exporting will always use the newer XLSX format.
+
+When exporting in this format, you can choose from various placeholder & message formats listed below.
+
+import { FormatList } from "../../src/component/docs/formats/FormatLinks";
+
+<FormatList formats={["ICU", "JAVA_STRING_FORMAT", "PHP_SPRINTF", "RUBY_SPRINTF"]} />
+
+Read more about [message & placeholder formats here.](./message_placeholder_format.mdx)
+
+Example of XLSX:
+
+| key          | en        | cs         |
+|--------------|-----------|------------|
+| save.button  | Save      | Uložit     |
+| form.label   | Form      | Formulář   |
+
+When importing XLSX, the first row in each sheet is used as a header, and the following rows are used as translations.
+The first column is used as a key, and the subsequent columns are used as translations for the specified languages.
+
+## The message format and placeholder conversion
+import {
+    GenericMessageAndPlaceholderConversion
+} from "../../src/component/docs/formats/GenericMessageAndPlaceholderConversion";
+
+<GenericMessageAndPlaceholderConversion formatName="XLSX"
+                                        placeholderExamples={<><code>%s</code>, <code>%d</code></>} />
+
+## Exporting via Tolgee CLI
+
+After installing [Tolgee CLI](/tolgee-cli/installation), you can use the `tolgee pull` command to export translations in XLSX format.
+
+Example with [CLI](/tolgee-cli):
+```bash
+tolgee-cli --api-key "<Your Project API key>" --format XLSX pull
+```
+
+### Exporting via REST API
+
+To export to XLSX via REST API, you have to set the following parameters:
+```json
+{
+  "format": "XLSX"
+}
+```
+
+Example with CURL:
+```bash
+curl "https://app.tolgee.io/v2/projects/export?format=XLSX&zip=false" -H "X-API-Key: <Your Project API key>" --output exported.xlsx
+```
+
+import Importing from './components/_general_importing.mdx';
+
+<Importing />

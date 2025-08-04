@@ -38,10 +38,6 @@ module.exports.redirects = {
       to: '/platform/self_hosting/configuration',
     },
     {
-      from: '/tolgee-for-svelte',
-      to: '/integrations/svelte',
-    },
-    {
       from: '/platform/managing_api_keys',
       to: '/platform/account_settings/api_keys_and_pat_tokens',
     },
@@ -49,8 +45,6 @@ module.exports.redirects = {
       from: '/docs/web/understanding_tolgee_for_web',
       to: '/js-sdk/',
     },
-    { from: '/docs/integrations', to: '/integrations/' },
-    { from: '/integrations/all', to: '/integrations/' },
     {
       from: '/docs/icu_message_format',
       to: '/platform/translation_process/icu_message_format',
@@ -188,6 +182,14 @@ module.exports.redirects = {
     {
       from: '/platform/formats/c_po',
       to: '/platform/formats/po',
+    },
+    {
+      from: '/platform/projects_and_organizations/ai-translation-customization',
+      to: '/platform/projects_and_organizations/ai-settings',
+    },
+    {
+      from: '/platform/translation_process/tolgee_translator',
+      to: '/platform/translation_process/ai_translator',
     },
   ],
   createRedirects(existingPath) {
