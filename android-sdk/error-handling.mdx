@@ -1,0 +1,182 @@
+---
+sidebar_position: 7
+id: error-handling
+title: Error Handling
+description: How to handle errors in Tolgee Android SDK
+---
+
+# Error Handling
+
+Tolgee Android SDK provides comprehensive error handling to ensure your app remains stable even when translations fail to load.
+
+## Error Types
+
+### Network Errors
+- **ConnectionTimeout**: Network timeout
+- **ServerError**: Server returned error
+- **Unauthorized**: Invalid API key
+- **NotFound**: Translation key not found
+
+### Cache Errors
+- **CacheMiss**: Translation not in cache
+- **CacheCorrupted**: Cache data corrupted
+
+### Configuration Errors
+- **InvalidConfiguration**: Invalid configuration
+- **MissingApiKey**: API key not provided
+
+## Error Handling Strategies
+
+### Global Error Handler
+
+```kotlin
+// Set global error handler
+Tolgee.setErrorHandler { error ->
+    Log.e("Tolgee", "Translation error: ${error.message}")
+    
+    when (error) {
+        is NetworkError -> handleNetworkError(error)
+        is CacheError -> handleCacheError(error)
+        is ConfigurationError -> handleConfigurationError(error)
+    }
+}
+
+private fun handleNetworkError(error: NetworkError) {
+    // Show offline message or use fallback
+    showToast("Translations unavailable - using defaults")
+}
+
+private fun handleCacheError(error: CacheError) {
+    // Attempt to refresh cache
+    Tolgee.refreshCache()
+}
+```
+
+### Per-Translation Error Handling
+
+```kotlin
+// Handle errors for specific translations
+val translation = Tolgee.t(
+    key = "welcome_message",
+    default = "Welcome",
+    onError = { error ->
+        Log.e("Tolgee", "Failed to load translation: ${error.message}")
+        "Welcome" // Return fallback
+    }
+)
+```
+
+## Fallback Strategies
+
+### Language Fallback
+
+```kotlin
+Tolgee.configure {
+    fallbackLanguage = "en"
+    fallbackStrategy = FallbackStrategy.LANGUAGE_THEN_KEY
+}
+
+enum class FallbackStrategy {
+    LANGUAGE_THEN_KEY,    // Try fallback language, then default
+    KEY_ONLY,           // Use default text only
+    LANGUAGE_ONLY       // Try fallback language only
+}
+```
+
+### Default Text Fallback
+
+```kotlin
+// Always provide default text
+val greeting = Tolgee.t(
+    key = "greeting",
+    default = "Hello World" // Always have fallback
+)
+```
+
+## Retry Mechanisms
+
+### Automatic Retry
+
+```kotlin
+Tolgee.configure {
+    retryCount = 3
+    retryDelay = 1000 // milliseconds
+    exponentialBackoff = true
+}
+```
+
+### Manual Retry
+
+```kotlin
+// Manual retry with exponential backoff
+fun retryTranslation(key: String, attempt: Int = 0) {
+    try {
+        val translation = Tolgee.t(key, "fallback")
+        // Success
+    } catch (e: Exception) {
+        if (attempt < 3) {
+            Handler(Looper.getMainLooper()).postDelayed({
+                retryTranslation(key, attempt + 1)
+            }, 1000 * (attempt + 1))
+        }
+    }
+}
+```
+
+## Error Monitoring
+
+### Crash Reporting Integration
+
+```kotlin
+// Integrate with crash reporting tools
+Tolgee.setErrorHandler { error ->
+    // Firebase Crashlytics
+    FirebaseCrashlytics.getInstance().recordException(error)
+    
+    // Sentry
+    Sentry.captureException(error)
+    
+    // Custom logging
+    Log.e("Tolgee", "Translation error", error)
+}
+```
+
+### Analytics Integration
+
+```kotlin
+// Track translation errors for analytics
+Tolgee.setErrorHandler { error ->
+    analytics.logEvent("translation_error", Bundle().apply {
+        putString("error_type", error.javaClass.simpleName)
+        putString("error_message", error.message)
+    })
+}
+```
+
+## User-Friendly Error Messages
+
+```kotlin
+// Provide user-friendly error handling
+fun getUserFriendlyErrorMessage(error: Throwable): String {
+    return when (error) {
+        is NetworkError -> "Translations unavailable. Check your connection."
+        is UnauthorizedError -> "Invalid configuration. Contact support."
+        else -> "Something went wrong. Please try again."
+    }
+}
+```
+
+## Testing Error Scenarios
+
+```kotlin
+// Test error scenarios
+@Test
+fun testNetworkErrorHandling() {
+    // Mock network failure
+    Tolgee.setTestMode(true)
+    Tolgee.setMockResponse(NetworkError("Connection failed"))
+    
+    val result = Tolgee.t("test_key", "fallback")
+    assertEquals("fallback", result)
+}
+```
