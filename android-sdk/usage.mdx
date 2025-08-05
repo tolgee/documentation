@@ -1,0 +1,156 @@
+---
+sidebar_position: 3
+id: usage
+title: Usage
+description: How to use Tolgee Android SDK in your Android application
+---
+
+# Usage
+
+## Basic Usage
+
+### Simple Translation
+
+```kotlin
+// Get a simple translation
+val greeting = Tolgee.t("greeting", "Hello World")
+textView.text = greeting
+```
+
+### With Parameters
+
+```kotlin
+// Translation with parameters
+val welcome = Tolgee.t("welcome_message", mapOf(
+    "username" to "John",
+    "count" to 5
+))
+textView.text = welcome
+```
+
+### In Layout XML
+
+```xml
+<TextView
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:text="@tolgee/hello_world" />
+```
+
+## Jetpack Compose Integration
+
+### Basic Translation
+
+```kotlin
+@Composable
+fun GreetingScreen() {
+    val greeting = rememberTolgeeTranslation("greeting", "Hello World")
+    
+    Text(text = greeting)
+}
+```
+
+### With Parameters
+
+```kotlin
+@Composable
+fun WelcomeMessage(username: String, count: Int) {
+    val message = rememberTolgeeTranslation(
+        key = "welcome_message",
+        default = "Welcome {username}! You have {count} messages",
+        params = mapOf(
+            "username" to username,
+            "count" to count
+        )
+    )
+    
+    Text(text = message)
+}
+```
+
+## Advanced Features
+
+### Language Switching
+
+```kotlin
+// Change language
+Tolgee.setLanguage("es") // Spanish
+
+// Listen for language changes
+Tolgee.addLanguageChangeListener { newLanguage ->
+    // Update UI when language changes
+    updateUI()
+}
+```
+
+### In-Context Editing
+
+```kotlin
+// Enable in-context editing (development only)
+Tolgee.enableDevMode()
+
+// Handle translation clicks
+Tolgee.setOnTranslationClickListener { key, translation ->
+    // Show edit dialog
+    showEditDialog(key, translation)
+}
+```
+
+### Caching
+
+```kotlin
+// Configure caching
+Tolgee.configure {
+    cacheEnabled = true
+    cacheExpiration = 24 * 60 * 60 * 1000 // 24 hours
+    maxCacheSize = 50 * 1024 * 1024 // 50MB
+}
+```
+
+## Error Handling
+
+```kotlin
+Tolgee.setErrorHandler { error ->
+    when (error) {
+        is NetworkError -> showNetworkError()
+        is ServerError -> showServerError()
+        else -> showGenericError()
+    }
+}
+```
+
+## Complete Example
+
+Here's a complete example of using Tolgee in an Activity:
+
+```kotlin
+class MainActivity : AppCompatActivity() {
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+        setContentView(R.layout.activity_main)
+        
+        // Initialize UI
+        val welcomeText = findViewById<TextView>(R.id.welcome_text)
+        val languageSpinner = findViewById<Spinner>(R.id.language_spinner)
+        
+        // Set welcome message
+        welcomeText.text = Tolgee.t("welcome", "Welcome to our app")
+        
+        // Setup language switching
+        languageSpinner.onItemSelectedListener = object : AdapterView.OnItemSelectedListener {
+            override fun onItemSelected(parent: AdapterView<*>?, view: View?, position: Int, id: Long) {
+                val selectedLanguage = parent?.getItemAtPosition(position).toString()
+                Tolgee.setLanguage(selectedLanguage)
+            }
+            
+            override fun onNothingSelected(parent: AdapterView<*>?) {}
+        }
+        
+        // Listen for language changes
+        Tolgee.addLanguageChangeListener { newLanguage ->
+            // Recreate activity to apply new language
+            recreate()
+        }
+    }
+}
+```

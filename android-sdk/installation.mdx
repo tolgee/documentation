@@ -1,0 +1,97 @@
+---
+sidebar_position: 2
+id: installation
+title: Installation
+description: How to install Tolgee Android SDK in your Android project
+---
+
+# Installation
+
+## Requirements
+
+- **Android API Level**: 21+ (Android 5.0+)
+- **Kotlin**: 1.8.0+
+- **Gradle**: 7.0+
+
+## Gradle Setup
+
+Add the Tolgee Android SDK to your app's `build.gradle` file:
+
+```kotlin
+dependencies {
+    implementation 'io.tolgee:tolgee-android:latest_version'
+}
+```
+
+## Maven Setup
+
+If you're using Maven instead of Gradle:
+
+```xml
+<dependency>
+    <groupId>io.tolgee</groupId>
+    <artifactId>tolgee-android</artifactId>
+    <version>latest_version</version>
+</dependency>
+```
+
+## Permissions
+
+Add the following permissions to your `AndroidManifest.xml`:
+
+```xml
+<uses-permission android:name="android.permission.INTERNET" />
+<uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+```
+
+## Configuration
+
+### 1. Add to Application Class
+
+Initialize Tolgee in your `Application` class:
+
+```kotlin
+class MyApplication : Application() {
+    override fun onCreate() {
+        super.onCreate()
+        
+        Tolgee.init(
+            context = this,
+            apiKey = "your-api-key",
+            apiUrl = "https://app.tolgee.io",
+            projectId = "your-project-id"
+        )
+    }
+}
+```
+
+### 2. ProGuard Rules
+
+If you're using ProGuard, add these rules:
+
+```proguard
+-keep class io.tolgee.** { *; }
+-keep class ** extends io.tolgee.** { *; }
+```
+
+## Verification
+
+To verify the installation, add this to your main activity:
+
+```kotlin
+class MainActivity : AppCompatActivity() {
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+        
+        // Test Tolgee initialization
+        val isInitialized = Tolgee.isInitialized()
+        Log.d("Tolgee", "Tolgee initialized: $isInitialized")
+    }
+}
+```
+
+## Next Steps
+
+- [Basic Usage](/android-sdk/usage)
+- [Configuration Options](/android-sdk/configuration)
+- [Jetpack Compose Integration](/android-sdk/jetpack-compose)

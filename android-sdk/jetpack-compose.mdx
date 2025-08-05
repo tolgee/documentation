@@ -1,0 +1,176 @@
+---
+sidebar_position: 5
+id: jetpack-compose
+title: Jetpack Compose Integration
+description: Using Tolgee Android SDK with Jetpack Compose
+---
+
+# Jetpack Compose Integration
+
+Tolgee Android SDK provides seamless integration with Jetpack Compose, allowing you to create localized composables with reactive updates.
+
+## Basic Setup
+
+### Add Dependencies
+
+```kotlin
+dependencies {
+    implementation 'io.tolgee:tolgee-android:latest_version'
+    implementation 'androidx.compose.ui:ui:latest_version'
+}
+```
+
+### Initialize in Application
+
+```kotlin
+class MyApplication : Application() {
+    override fun onCreate() {
+        super.onCreate()
+        Tolgee.init(this, "your-api-key", "your-project-id")
+    }
+}
+```
+
+## Core Composables
+
+### rememberTolgeeTranslation
+
+```kotlin
+@Composable
+fun GreetingScreen() {
+    val greeting = rememberTolgeeTranslation(
+        key = "greeting",
+        default = "Hello World"
+    )
+    
+    Text(text = greeting)
+}
+```
+
+### With Parameters
+
+```kotlin
+@Composable
+fun WelcomeMessage(username: String, count: Int) {
+    val message = rememberTolgeeTranslation(
+        key = "welcome_message",
+        default = "Welcome {username}! You have {count} messages",
+        params = mapOf(
+            "username" to username,
+            "count" to count
+        )
+    )
+    
+    Text(text = message)
+}
+```
+
+### Plural Forms
+
+```kotlin
+@Composable
+fun ItemCount(count: Int) {
+    val message = rememberTolgeeTranslation(
+        key = "item_count",
+        default = "{count, plural, one {# item} other {# items}}",
+        params = mapOf("count" to count)
+    )
+    
+    Text(text = message)
+}
+```
+
+## Advanced Usage
+
+### Language Switching
+
+```kotlin
+@Composable
+fun LanguageSelector() {
+    var selectedLanguage by remember { mutableStateOf(Tolgee.getCurrentLanguage()) }
+    
+    LaunchedEffect(selectedLanguage) {
+        Tolgee.setLanguage(selectedLanguage)
+    }
+    
+    Column {
+        Text("Select Language:")
+        DropdownMenu(
+            expanded = false,
+            onDismissRequest = { }
+        ) {
+            Tolgee.getAvailableLanguages().forEach { language ->
+                DropdownMenuItem(onClick = { selectedLanguage = language }) {
+                    Text(language)
+                }
+            }
+        }
+    }
+}
+```
+
+### Reactive Updates
+
+```kotlin
+@Composable
+fun LocalizedScreen() {
+    val translations by Tolgee.rememberTranslations()
+    
+    Column {
+        Text(translations["welcome"] ?: "Welcome")
+        Text(translations["description"] ?: "Description")
+    }
+}
+```
+
+### Custom Composables
+
+```kotlin
+@Composable
+fun TolgeeText(
+    key: String,
+    default: String,
+    params: Map<String, Any> = emptyMap(),
+    style: TextStyle = LocalTextStyle.current
+) {
+    val translation = rememberTolgeeTranslation(key, default, params)
+    Text(text = translation, style = style)
+}
+
+// Usage
+TolgeeText(
+    key = "welcome_message",
+    default = "Welcome {name}!",
+    params = mapOf("name" to "John")
+)
+```
+
+## Preview Support
+
+```kotlin
+@Preview
+@Composable
+fun GreetingPreview() {
+    // Provide mock translations for preview
+    Tolgee.setTestTranslations(mapOf(
+        "greeting" to "Hello Preview World"
+    ))
+    
+    GreetingScreen()
+}
+```
+
+## Theme Integration
+
+```kotlin
+@Composable
+fun LocalizedTheme(
+    content: @Composable () -> Unit
+) {
+    val strings = rememberTolgeeTranslations()
+    
+    MaterialTheme(
+        content = content
+    )
+}
+```
