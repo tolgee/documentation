@@ -1,71 +1,23 @@
 ---
-sidebar_position: 3
 id: usage
 title: Usage
 description: How to use Tolgee Android SDK in your Android application
 ---
 
-# Usage
-
-## Basic Usage
-
-### Simple Translation
+## Simple Translation
 
 ```kotlin
-// Get a simple translation
-val greeting = Tolgee.t("greeting", "Hello World")
-textView.text = greeting
+// Get a translation with fallback to Android resources
+val text = tolgee.t(context, R.string.string_key)
+textView.text = text
 ```
 
-### With Parameters
+## With Parameters
 
 ```kotlin
-// Translation with parameters
-val welcome = Tolgee.t("welcome_message", mapOf(
-    "username" to "John",
-    "count" to 5
-))
-textView.text = welcome
-```
-
-### In Layout XML
-
-```xml
-<TextView
-    android:layout_width="wrap_content"
-    android:layout_height="wrap_content"
-    android:text="@tolgee/hello_world" />
-```
-
-## Jetpack Compose Integration
-
-### Basic Translation
-
-```kotlin
-@Composable
-fun GreetingScreen() {
-    val greeting = rememberTolgeeTranslation("greeting", "Hello World")
-    
-    Text(text = greeting)
-}
-```
-
-### With Parameters
-
-```kotlin
-@Composable
-fun WelcomeMessage(username: String, count: Int) {
-    val message = rememberTolgeeTranslation(
-        key = "welcome_message",
-        default = "Welcome {username}! You have {count} messages",
-        params = mapOf(
-            "username" to username,
-            "count" to count
-        )
-    )
-    
-    Text(text = message)
-}
+// Get a translation with fallback to Android resources with parameters
+val textWithParams = tolgee.t(context, R.string.string_with_params, "param1", "param2")
+textView.text = textWithParams
 ```
 
 ## Advanced Features
@@ -73,84 +25,39 @@ fun WelcomeMessage(username: String, count: Int) {
 ### Language Switching
 
 ```kotlin
-// Change language
-Tolgee.setLanguage("es") // Spanish
+// Set locale
+tolgee.setLocale("en")
 
-// Listen for language changes
-Tolgee.addLanguageChangeListener { newLanguage ->
-    // Update UI when language changes
-    updateUI()
+// Get current locale
+val locale = tolgee.getLocale()
+
+// Listen for changes
+tolgee.changeFlow.collect {
+    // Locale or available translations changed, update UI if needed
 }
 ```
 
-### In-Context Editing
+### Advanced Configuration
+
+#### Formatter Configuration
 
 ```kotlin
-// Enable in-context editing (development only)
-Tolgee.enableDevMode()
-
-// Handle translation clicks
-Tolgee.setOnTranslationClickListener { key, translation ->
-    // Show edit dialog
-    showEditDialog(key, translation)
-}
-```
-
-### Caching
-
-```kotlin
-// Configure caching
-Tolgee.configure {
-    cacheEnabled = true
-    cacheExpiration = 24 * 60 * 60 * 1000 // 24 hours
-    maxCacheSize = 50 * 1024 * 1024 // 50MB
-}
-```
-
-## Error Handling
-
-```kotlin
-Tolgee.setErrorHandler { error ->
-    when (error) {
-        is NetworkError -> showNetworkError()
-        is ServerError -> showServerError()
-        else -> showGenericError()
+Tolgee.init {
+    contentDelivery {
+        url = "https://cdn.tolg.ee/your-cdn-url-prefix"
+        // Configure formatters for parsing translations from CDN
+        format(Tolgee.Formatter.Sprintf) // Android SDK formatting (default)
+        // format(Tolgee.Formatter.ICU) // Tolgee Native Flat JSON formatting
     }
 }
 ```
 
-## Complete Example
-
-Here's a complete example of using Tolgee in an Activity:
+#### Preloading Translations
 
 ```kotlin
-class MainActivity : AppCompatActivity() {
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_main)
-        
-        // Initialize UI
-        val welcomeText = findViewById<TextView>(R.id.welcome_text)
-        val languageSpinner = findViewById<Spinner>(R.id.language_spinner)
-        
-        // Set welcome message
-        welcomeText.text = Tolgee.t("welcome", "Welcome to our app")
-        
-        // Setup language switching
-        languageSpinner.onItemSelectedListener = object : AdapterView.OnItemSelectedListener {
-            override fun onItemSelected(parent: AdapterView<*>?, view: View?, position: Int, id: Long) {
-                val selectedLanguage = parent?.getItemAtPosition(position).toString()
-                Tolgee.setLanguage(selectedLanguage)
-            }
-            
-            override fun onNothingSelected(parent: AdapterView<*>?) {}
-        }
-        
-        // Listen for language changes
-        Tolgee.addLanguageChangeListener { newLanguage ->
-            // Recreate activity to apply new language
-            recreate()
-        }
-    }
+// Preload translations for the current locale from Activity
+override fun onStart() {
+  super.onStart()
+  tolgee.preload(this)
 }
 ```
