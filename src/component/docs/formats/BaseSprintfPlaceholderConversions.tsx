@@ -5,36 +5,6 @@ type Props = {
   name: string;
 };
 
-export const BaseSprintfPlaceholderConversions: FC<Props> = (props) => {
-  return (
-    <>
-      <PlaceholderConversion
-        data={[
-          percentSprintfConversionItem,
-          stringSprintfConversionItem,
-          numberSprintfConversionItem,
-          floatSprintfConversionItem,
-          scientificSprintfConversionItem,
-        ]}
-      />
-      <SprintfPositionalArgumentsSupport name={props.name} />
-    </>
-  );
-};
-
-export const SprintfPositionalArgumentsSupport: FC<{ name: string }> = (
-  props
-) => {
-  return (
-    <>
-      {props.name} also supports <code>n$</code> positional specifiers. They are
-      converted to the zero-based argument index. E.g.{' '}
-      <code>I am %2$@, and I have %1$lld dogs.</code> is converted to
-      <code>{'I am {1} and I have {(0, number)} dogs'}</code>.
-    </>
-  );
-};
-
 export const percentSprintfConversionItem = {
   specifier: '%',
   icuType: 'N/A',
@@ -75,4 +45,34 @@ export const scientificSprintfConversionItem = {
   example: '%e',
   exampleConverted: '{0, number, scientific}',
   note: '%E is not supported',
+};
+
+export const SprintfPositionalArgumentsSupport: FC<{ name: string }> = (
+  props
+) => {
+  return (
+    <>
+      {props.name} also supports <code>n$</code> positional specifiers. They are
+      converted to the zero-based argument index. E.g.{' '}
+      <code>I am %2$@, and I have %1$lld dogs.</code> is converted to
+      <code>{'I am {1} and I have {(0, number)} dogs'}</code>.
+    </>
+  );
+};
+
+export const BaseSprintfPlaceholderConversions: FC<Props> = (props) => {
+  return (
+    <>
+      <PlaceholderConversion
+        data={[
+          percentSprintfConversionItem,
+          stringSprintfConversionItem,
+          numberSprintfConversionItem,
+          floatSprintfConversionItem,
+          scientificSprintfConversionItem,
+        ]}
+      />
+      <SprintfPositionalArgumentsSupport name={props.name} />
+    </>
+  );
 };
