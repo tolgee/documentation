@@ -1,176 +1,147 @@
 ---
-sidebar_position: 5
 id: jetpack-compose
 title: Jetpack Compose Integration
 description: Using Tolgee Android SDK with Jetpack Compose
 ---
 
+> **NOTE:**
+> For managing static translations, we recommend using [Tolgee CLI](https://github.com/tolgee/tolgee-cli).
+
 # Jetpack Compose Integration
 
 Tolgee Android SDK provides seamless integration with Jetpack Compose, allowing you to create localized composables with reactive updates.
 
-## Basic Setup
+## Setup
 
-### Add Dependencies
+Using Version Catalog is highly recommended to keep your versions aligned.
+
+```toml
+# gradle/libs.versions.toml
+[libraries]
+tolgee = { group = "io.tolgee.mobile-kotlin-sdk", name = "compose", version.ref = "tolgee" }
+```
 
 ```kotlin
+// build.gradle.kts
 dependencies {
-    implementation 'io.tolgee:tolgee-android:latest_version'
-    implementation 'androidx.compose.ui:ui:latest_version'
+    implementation(libs.tolgee)
 }
 ```
 
-### Initialize in Application
+## Initialization
+
+Initialize Tolgee in your Application class (Android):
 
 ```kotlin
 class MyApplication : Application() {
     override fun onCreate() {
         super.onCreate()
-        Tolgee.init(this, "your-api-key", "your-project-id")
-    }
-}
-```
 
-## Core Composables
-
-### rememberTolgeeTranslation
-
-```kotlin
-@Composable
-fun GreetingScreen() {
-    val greeting = rememberTolgeeTranslation(
-        key = "greeting",
-        default = "Hello World"
-    )
-    
-    Text(text = greeting)
-}
-```
-
-### With Parameters
-
-```kotlin
-@Composable
-fun WelcomeMessage(username: String, count: Int) {
-    val message = rememberTolgeeTranslation(
-        key = "welcome_message",
-        default = "Welcome {username}! You have {count} messages",
-        params = mapOf(
-            "username" to username,
-            "count" to count
-        )
-    )
-    
-    Text(text = message)
-}
-```
-
-### Plural Forms
-
-```kotlin
-@Composable
-fun ItemCount(count: Int) {
-    val message = rememberTolgeeTranslation(
-        key = "item_count",
-        default = "{count, plural, one {# item} other {# items}}",
-        params = mapOf("count" to count)
-    )
-    
-    Text(text = message)
-}
-```
-
-## Advanced Usage
-
-### Language Switching
-
-```kotlin
-@Composable
-fun LanguageSelector() {
-    var selectedLanguage by remember { mutableStateOf(Tolgee.getCurrentLanguage()) }
-    
-    LaunchedEffect(selectedLanguage) {
-        Tolgee.setLanguage(selectedLanguage)
-    }
-    
-    Column {
-        Text("Select Language:")
-        DropdownMenu(
-            expanded = false,
-            onDismissRequest = { }
-        ) {
-            Tolgee.getAvailableLanguages().forEach { language ->
-                DropdownMenuItem(onClick = { selectedLanguage = language }) {
-                    Text(language)
-                }
+        Tolgee.init {
+            contentDelivery {
+                url = "https://cdn.tolg.ee/your-cdn-url-prefix"
+                storage = TolgeeStorageProviderAndroid(this@MyApplication, BuildConfig.VERSION_CODE)
             }
         }
     }
 }
 ```
 
-### Reactive Updates
+## Usage
 
 ```kotlin
 @Composable
-fun LocalizedScreen() {
-    val translations by Tolgee.rememberTranslations()
-    
-    Column {
-        Text(translations["welcome"] ?: "Welcome")
-        Text(translations["description"] ?: "Description")
+fun SimpleText() {
+    // Use the stringResource extension function
+    Text(text = stringResource(R.string.welcome_message))
+}
+
+@Composable
+fun TextWithParameters(name: String) {
+    // Pass parameters to your translations
+    Text(text = stringResource(R.string.welcome_user, name))
+}
+
+@Composable
+fun PluralText(count: Int) {
+    // Handle plural forms
+    Text(text = pluralStringResource(R.plurals.item_count, count, count))
+}
+```
+
+## Advanced Usage
+
+### Explicit Tolgee Instance
+
+If you need to use a specific Tolgee instance (not the singleton), you can pass it explicitly:
+
+```kotlin
+@Composable
+fun ExplicitInstance() {
+    val tolgee = remember { /* your custom Tolgee instance */ }
+
+    Text(text = stringResource(tolgee, Res.string.welcome_message))
+}
+```
+
+### Locale Switching
+
+You can create a locale switcher component:
+
+```kotlin
+@Composable
+fun LocaleSwitcher() {
+    val tolgee = Tolgee.instance
+    val currentLocale = tolgee.changeFlow.mapLatest {
+        tolgee.getLocale()
+    }.collectAsState(initial = tolgee.getLocale())
+
+    Row {
+        Text(text = stringResource(tolgee, R.string.selected_locale, currentLocale.language))
+        Button(onClick = { tolgee.setLocale("en") }) {
+            Text("English")
+        }
+        Button(onClick = { tolgee.setLocale("fr") }) {
+            Text("Français")
+        }
+        Button(onClick = { tolgee.setLocale("cs") }) {
+            Text("Čeština")
+        }
     }
 }
 ```
 
-### Custom Composables
+### Observing Locale Changes
 
 ```kotlin
 @Composable
-fun TolgeeText(
-    key: String,
-    default: String,
-    params: Map<String, Any> = emptyMap(),
-    style: TextStyle = LocalTextStyle.current
-) {
-    val translation = rememberTolgeeTranslation(key, default, params)
-    Text(text = translation, style = style)
-}
+fun LocaleAwareComponent() {
+    val tolgee = Tolgee.instance
 
-// Usage
-TolgeeText(
-    key = "welcome_message",
-    default = "Welcome {name}!",
-    params = mapOf("name" to "John")
-)
-```
+    // This will cause recomposition when the locale changes
+    val currentLocale = tolgee.changeFlow.mapLatest {
+        tolgee.getLocale()
+    }.collectAsState(initial = tolgee.getLocale())
 
-## Preview Support
-
-```kotlin
-@Preview
-@Composable
-fun GreetingPreview() {
-    // Provide mock translations for preview
-    Tolgee.setTestTranslations(mapOf(
-        "greeting" to "Hello Preview World"
-    ))
-    
-    GreetingScreen()
+    // Your UI that depends on the current locale
+    Text(text = currentLocale.language)
 }
 ```
 
-## Theme Integration
+## Troubleshooting
 
-```kotlin
-@Composable
-fun LocalizedTheme(
-    content: @Composable () -> Unit
-) {
-    val strings = rememberTolgeeTranslations()
-    
-    MaterialTheme(
-        content = content
-    )
-}
-```
+### Translations Not Updating
+
+- Ensure you're using the `stringResource` and `pluralStringResource` functions from the Tolgee package
+- Check that your Tolgee instance is properly initialized
+- Verify that the translations are loaded correctly
+
+### Android Resource Integration Issues
+
+- Check that your Android resources are properly structured - Tolgee is using `resources.getResourceEntryName` to find key for the resource
+- Ensure that the Tolgee instance has access to the Android context
+
+### Compose Multiplatform Issues
+
+- Verify that your resource files are correctly set up and all keys present in resources are present in a Tolgee platform too
+- Ensure that you're using the correct resource references
