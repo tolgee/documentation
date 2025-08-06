@@ -7,7 +7,7 @@ sidebar_label: Suggestions
 import { ScreenshotWrapper } from '../shared/_ScreenshotWrapper';
 
 
-Suggestions allows users to add translations without editing them directly, translation is then changed only when the suggestion is approved by a reviewer.
+Suggestions allow users to add translations without editing them directly; the translation is changed only when a reviewer approves the suggestion.
 
 ### How to enable suggestions
 
@@ -20,7 +20,7 @@ Go to `Project settings` > `Advanced` > `Suggestions mode`.
 
 ### Adding a suggestion
 
-Once suggestions mode is enabled, users now have a choice to either edit a translation or add suggestion.
+Once suggestions mode is enabled, users can edit a translation or add a suggestion.
 
 <ScreenshotWrapper
   src="/img/docs/platform/suggestions/suggestion-menu.png"
@@ -29,7 +29,7 @@ Once suggestions mode is enabled, users now have a choice to either edit a trans
 
 ### Reviewing the suggestion
 
-When a translator adds a suggestion it is visible in the translations view, but not active (meaning if translations are exported there is still the old translation).
+When a translator adds a suggestion, it is visible in the translations view, but not active (meaning if translations are exported, there is still the old translation).
 
 <ScreenshotWrapper
   src="/img/docs/platform/suggestions/suggestion-created.png"
@@ -43,15 +43,16 @@ Once a reviewer comes along, he can accept the suggestion.
   alt="Accept suggestion"
 />
 
-And this is a moment when it replaces the existing translation.
+This is the moment when it will replace the existing translation.
 
 <ScreenshotWrapper
   src="/img/docs/platform/suggestions/suggestion-accepted.png"
   alt="Suggestion is accepted"
 />
 
-If there are multiple suggestions by accepting one you are declining the others.
-You can find all previously accepted/declined suggestions by under a "Show all" checkbox.
+If there are multiple suggestions, you are declining the others by accepting one.
+
+All previously accepted/declined suggestions are found under a "Show all" checkbox.
 
 <ScreenshotWrapper
   src="/img/docs/platform/suggestions/suggestions-inactive.png"
@@ -61,14 +62,14 @@ You can find all previously accepted/declined suggestions by under a "Show all" 
 
 ### Protecting reviewed translations
 
-Tolgee offers a mode where only non-reviewed translations can be edited directly by translators. You can enable this in advanced project settings:
+Tolgee offers a mode where translators can only edit non-reviewed translations directly. You can enable this in advanced project settings:
 
 <ScreenshotWrapper
   src="/img/docs/platform/suggestions/translation-protection-settings.png"
   alt="Translation protection settings"
 />
 
-So now when a translator opens a reviewed translation, I can only suggest.
+So now, when a translator opens a reviewed translation, he can only suggest.
 
 <ScreenshotWrapper
   src="/img/docs/platform/suggestions/translation-protection-suggest-only.png"
@@ -77,11 +78,10 @@ So now when a translator opens a reviewed translation, I can only suggest.
 
 #### Granular protection
 
-If you want more direct control over edit permissions and suggesting, you can do it through
+If you want more direct control over edit permissions and suggestions, you can do it through
 [Granular permissions](/platform/projects_and_organizations/members#granular-permissions).
 
-Here you can for example only allow user to `Suggest` and he can't edit any translation directly.
-
+Here you can, for example, only allow the user to `Suggest`, and they can't edit any translation directly.
 
 <ScreenshotWrapper
   src="/img/docs/platform/suggestions/suggestions-granular-permissions.png"
