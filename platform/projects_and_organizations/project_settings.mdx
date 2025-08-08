@@ -11,27 +11,39 @@ In project settings, you can edit the basic properties of your project.
 - **Project Name**
 - **Description** - displayed in the project dashboard (can be formatted with Markdown)
 - **Base language** - the language that is used as a base for translating to other languages
-- **Use namespaces** - a checkbox to enable namespaces
-- **Default namespace** - preselected namespace when creating a new key
+
 
 Then, there are the options to leave the project, delete it or transfer the ownership to another organization.
 
-## Enabling Namespaces
-
-Toggle "Use namespaces" checkbox in "Project settings" to choose your default namespace. After enabling it, a "Default namespace" tab will appear below it where you can choose one.
-You can read our article about [namespaces](https://docs.tolgee.io/platform/translation_keys/namespaces) to learn how to use them.
-
 <ScreenshotWrapper
-  src="/img/docs/platform/project-settings-example.webp"
+  src="/img/docs/platform/project-settings-example.png"
   alt="Project settings"
 />
 
-## Tolgee Universal ICU placeholders support
+## Advanced project settings
+
+### Suggestions mode
+
+When enabled, users can add suggestions instead of editing the translation directly. [Read more](./suggestions.mdx)
+
+### Translation protection
+
+This option protects reviewed translations from being switched back to an unreviewed state:
+ - Translators cannot edit reviewed translations (they can add suggestions if that is enabled)
+ - Reviewers can edit reviewed translations, but they are not reverted to an unreviewed state (it counts as the reviewer also made a review right away)
+
+To see a use case for this option [read more about suggestions](./suggestions.mdx#protecting-reviewed-translations).
+### Tolgee ICU placeholders
 
 By default, Tolgee visualizes ICU placeholders in the translation editor and interprets the strings as ICU messages.
-If you want to disable this feature, you can do so in the advanced tab of the project settings.
+If you want to turn off this feature, you can do so in the advanced tab of the project settings.
+
+### Enabling Namespaces
+
+Toggle the "Use namespaces" checkbox in "Project settings" to choose your default namespace. After enabling it, a "Default namespace" tab will appear below it, where you can select one.
+You can read our article about [namespaces](/platform/translation_keys/namespaces) to learn how to use them.
 
 <ScreenshotWrapper
-  src="/img/docs/platform/advanced-project-settings.webp"
-  alt="Project settings > ICU placeholders support"
+  src="/img/docs/platform/project-settings-advanced.png"
+  alt="Project settings > Advanced"
 />
