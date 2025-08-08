@@ -1,0 +1,63 @@
+---
+id: usage
+title: Usage
+description: How to use Tolgee Android SDK in your Android application
+---
+
+## Simple Translation
+
+```kotlin
+// Get a translation with fallback to Android resources
+val text = tolgee.t(context, R.string.string_key)
+textView.text = text
+```
+
+## With Parameters
+
+```kotlin
+// Get a translation with fallback to Android resources with parameters
+val textWithParams = tolgee.t(context, R.string.string_with_params, "param1", "param2")
+textView.text = textWithParams
+```
+
+## Advanced Features
+
+### Language Switching
+
+```kotlin
+// Set locale
+tolgee.setLocale("en")
+
+// Get current locale
+val locale = tolgee.getLocale()
+
+// Listen for changes
+tolgee.changeFlow.collect {
+    // Locale or available translations changed, update UI if needed
+}
+```
+
+### Advanced Configuration
+
+#### Formatter Configuration
+
+```kotlin
+Tolgee.init {
+    contentDelivery {
+        url = "https://cdn.tolg.ee/your-cdn-url-prefix"
+        // Configure formatters for parsing translations from CDN
+        format(Tolgee.Formatter.Sprintf) // Android SDK formatting (default)
+        // format(Tolgee.Formatter.ICU) // Tolgee Native Flat JSON formatting
+    }
+}
+```
+
+#### Preloading Translations
+
+```kotlin
+// Preload translations for the current locale from Activity
+override fun onStart() {
+  super.onStart()
+  tolgee.preload(this)
+}
+```

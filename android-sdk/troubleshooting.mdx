@@ -1,0 +1,24 @@
+---
+id: troubleshooting
+title: Troubleshooting
+description: Troubleshooting Tolgee Android SDK
+---
+
+## Translations Not Loading
+
+- Ensure you have the correct Content Delivery URL
+- Check that your storage provider is properly configured
+- Make sure you're calling `Tolgee.init` before accessing translations
+- Use `tolgee.preload` or `tolgee.tFlow` before calling `tolgee.t` to ensure translations are loaded
+
+## Locale Issues
+
+- Verify that your project supports the locale code you're using
+- Check that translations for the selected locale exist in your Tolgee project
+- Use `tolgee.changeFlow` to monitor locale changes and update your UI accordingly
+
+## Android Integration Issues
+
+- Ensure that the `TolgeeStorageProviderAndroid` is properly initialized with the context and version code which changes with each app update
+- Check that your Android resources are properly structured - Tolgee is using `resources.getResourceEntryName` to find key for the resource
+

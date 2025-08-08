@@ -1,0 +1,48 @@
+---
+id: installation
+title: Installation
+description: How to install Tolgee Android SDK in your Android project
+slug: /
+---
+
+> **NOTE:**
+> For managing static translations, we recommend using [Tolgee CLI](https://github.com/tolgee/tolgee-cli).
+
+## Requirements
+
+- **Android API Level**: 21+ (Android 5.0+)
+
+## Setup
+
+Using Version Catalog is highly recommended to keep your versions aligned.
+
+```toml
+# gradle/libs.versions.toml
+[libraries]
+tolgee = { group = "io.tolgee.mobile-kotlin-sdk", name = "core", version.ref = "tolgee" }
+```
+
+```kotlin
+// build.gradle.kts
+dependencies {
+    implementation(libs.tolgee)
+}
+```
+
+## Initialization and configuration
+
+Initialize Tolgee in your `Application` class:
+
+```kotlin
+class MyApplication : Application() {
+    override fun onCreate() {
+        super.onCreate()
+        Tolgee.init {
+            contentDelivery {
+                url = "https://cdn.tolg.ee/your-cdn-url-prefix"
+                storage = TolgeeStorageProviderAndroid(this@MyApplication, BuildConfig.VERSION_CODE)
+            }
+        }
+    }
+}
+```
