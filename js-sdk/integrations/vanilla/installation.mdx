@@ -17,7 +17,7 @@ import { Tolgee } from '@tolgee/web';
 ### With script tag
 
 ```jsx
-<script src="https://cdn.jsdelivr.net/npm/@tolgee/web/dist/tolgee-web.production.umd.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@tolgee/web@6/dist/tolgee-web.production.umd.min.js"></script>
 ```
 
 ```ts
@@ -27,32 +27,116 @@ const { Tolgee } = window['@tolgee/web'];
 ### With native es import
 
 ```ts
-import { Tolgee } from 'https://cdn.jsdelivr.net/npm/@tolgee/web/dist/tolgee-web.production.esm.min.mjs'
+import { Tolgee } from 'https://cdn.jsdelivr.net/npm/@tolgee/web@6/dist/tolgee-web.production.esm.min.mjs'
 ```
 
-## In-context (DevTools)
+## Using In-context translation without a bundler
 
-To use In-context in development mode, you can simply use [`DevTools`](../../api/web_package/plugins#devtools) from `@tolgee/web`
+### For Development
 
-```ts
-import { Tolgee, DevTools } from '@tolgee/web';
+For development, you can use the `.development.` bundle, which includes in-context tools. This allows you to translate your app in-context.
 
-const tolgee = Tolgee().use(DevTools()).init(...)
+```html
+<script src="https://cdn.jsdelivr.net/npm/@tolgee/web@6/dist/tolgee-web.development.umd.js"></script>
+<script>
+  const { Tolgee, DevTools } = window['@tolgee/web'];
+
+  const tolgee = Tolgee()
+    .use(DevTools())
+    .init({
+      // ...
+    });
+</script>
 ```
 
-If you use any standard FE setup with a bundler, `DevTools` will be automatically excluded in production (based on `process.env.NODE_ENV`). If you want the in-context to be always available, use [`InContextTools`](/api/web_package/tools.mdx#incontexttools) instead of `DevTools`- it is the same plugin, the only difference is that `DevTools` are exported conditionally.
+### For Production
 
-## Using dev tools without bundler
+For production, use the `.production.` bundle. It's smaller as it doesn't contain the in-context translating functionality.
 
-You can use separately bundled `in-context-tools` however, you'll have to make sure you won't include it in production.
+```html
+<script src="https://cdn.jsdelivr.net/npm/@tolgee/web@6/dist/tolgee-web.production.umd.min.js"></script>
+<script>
+  const { Tolgee } = window['@tolgee/web'];
+
+  const tolgee = Tolgee()
+    .init({
+      // ...
+    });
+</script>
+```
+
+### Environment Detection Example
+
+You can use environment detection to automatically switch between bundles:
+
+```html
+<!DOCTYPE html>
+<html>
+<head>
+  <title>My App with Tolgee</title>
+</head>
+<body>
+  <div id="app">
+    <h1 data-tolgee-key="title">Welcome</h1>
+  </div>
+
+  <script type="module">
+    // Detect if running locally or in development
+    const isDevelopment = window.location.hostname === 'localhost' || 
+                         window.location.hostname === '127.0.0.1' ||
+                         window.location.hostname.includes('vercel.app');
+
+    const moduleUrl = isDevelopment
+      ? 'https://cdn.jsdelivr.net/npm/@tolgee/web@6/dist/tolgee-web.development.esm.mjs'
+      : 'https://cdn.jsdelivr.net/npm/@tolgee/web@6/dist/tolgee-web.production.esm.min.mjs';
+
+    // Load the appropriate module
+    const { Tolgee, DevTools } = await import(moduleUrl);
+
+    const tolgee = Tolgee();
+
+    if (isDevelopment) {
+      tolgee.use(DevTools());
+    }
+
+    tolgee.init({
+      apiUrl: 'https://app.tolgee.io',
+      apiKey: isDevelopment ? 'dev-api-key' : 'prod-api-key',
+      // Add other configuration as needed
+    });
+
+    // Use tolgee for your translations
+    tolgee.run();
+  </script>
+</body>
+</html>
+```
+
+### Advanced: Dynamically loading In-context Tools
+
+For advanced scenarios, you might want to load the in-context tools dynamically on top of your production build. This allows you to enable the in-context editor on demand, for instance, by providing specific credentials. This is similar to how the Tolgee Tools browser extension works.
+
+The `InContextTools` are available in a separate bundle for this purpose.
+
+```javascript
+// app is running with production bundle
+const { Tolgee } = window['@tolgee/web'];
+const tolgee = Tolgee().init({
+  // your production config
+});
+
+// e.g. when a user provides a key in a special dialog
+async function enableDevTools() {
+  const { InContextTools } = await import('https://cdn.jsdelivr.net/npm/@tolgee/web@6/dist/tolgee-in-context-tools.esm.min.mjs');
+  tolgee.addPlugin(InContextTools());
+}
+```
+
+This approach keeps your production bundle small and only loads the development tools when explicitly needed.
 
 ```jsx
-<script src="https://cdn.jsdelivr.net/npm/@tolgee/web/dist/tolgee-in-context-tools.umd.min.js"></script>;
-const { InContextTools } = window['@tolgee/in-context-tools'];
-
-// or
-
-import { InContextTools } from 'https://cdn.jsdelivr.net/npm/@tolgee/web/dist/tolgee-in-context-tools.esm.min.mjs';
+// For ESM modules
+import { Tolgee, DevTools } from 'https://cdn.jsdelivr.net/npm/@tolgee/web@6/dist/tolgee-web.development.esm.js';
 ```
 
-Check the [complete list](https://cdn.jsdelivr.net/npm/@tolgee/web/dist/) of bundles.
+Check the [complete list](https://cdn.jsdelivr.net/npm/@tolgee/web@6/dist/) of bundles.
