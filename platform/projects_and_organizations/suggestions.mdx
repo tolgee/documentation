@@ -1,0 +1,93 @@
+---
+id: suggestions
+title: Suggestions
+sidebar_label: Suggestions
+---
+
+import { ScreenshotWrapper } from '../shared/_ScreenshotWrapper';
+
+
+Suggestions allow users to propose changes to strings without editing them directly. The actual string value is changed after a reviewer approves the suggestion.
+
+### How to enable suggestions
+
+Go to `Project settings` > `Advanced` > `Suggestions mode`.
+
+<ScreenshotWrapper
+  src="/img/docs/platform/suggestions/settings.webp"
+  alt="Project settings > Advanced > Suggestions mode"
+/>
+
+### Adding a suggestion
+
+Once suggestions mode is enabled, users can edit a translation or add a suggestion.
+
+<ScreenshotWrapper
+  src="/img/docs/platform/suggestions/suggestion-menu.webp"
+  alt="Adding suggestion via menu"
+/>
+
+### Reviewing the suggestion
+
+When a translator adds a suggestion, it is visible in the translations view, but not active (meaning if translations are exported, there is still the old translation).
+
+<ScreenshotWrapper
+  src="/img/docs/platform/suggestions/suggestion-created.webp"
+  alt="Created suggestion"
+/>
+
+Once a reviewer comes along, they can accept the suggestion.
+
+<ScreenshotWrapper
+  src="/img/docs/platform/suggestions/suggestion-accept.webp"
+  alt="Accept suggestion"
+/>
+
+This is the moment when it will replace the existing translation.
+
+<ScreenshotWrapper
+  src="/img/docs/platform/suggestions/suggestion-accepted.webp"
+  alt="Suggestion is accepted"
+/>
+
+If there are multiple suggestions, you are declining the others by accepting one.
+
+All previously accepted/declined suggestions are found under a "Show all" checkbox.
+
+<ScreenshotWrapper
+  src="/img/docs/platform/suggestions/suggestions-inactive.webp"
+  alt="Inactive suggestions"
+/>
+
+
+### Protecting reviewed translations
+
+Tolgee offers a mode where translators can only edit non-reviewed translations directly. You can enable this in advanced project settings:
+
+<ScreenshotWrapper
+  src="/img/docs/platform/suggestions/translation-protection-settings.webp"
+  alt="Translation protection settings"
+/>
+
+So now, when a translator opens a reviewed translation, they can only suggest.
+
+<ScreenshotWrapper
+  src="/img/docs/platform/suggestions/translation-protection-suggest-only.webp"
+  alt="Translation protection - suggest only"
+/>
+
+#### Granular protection
+
+If you want more direct control over edit permissions and suggestions, you can do it through
+[Granular permissions](/platform/projects_and_organizations/members#granular-permissions).
+
+Here you can, for example, only allow the user to `Suggest`, so they can't edit any translation directly.
+
+<ScreenshotWrapper
+  src="/img/docs/platform/suggestions/suggestions-granular-permissions.webp"
+  alt="Suggestions granular permissions"
+/>
+
+> Accepting the suggestions is tied to the "Change state" permission (which is what all reviewers have).
+
+

@@ -74,3 +74,10 @@ noliinyk:
   url: https://github.com/NazariiOliinyk
   image_url: /img/blog/profile-photos/NazariiOliinyk-photo.jpeg
   description: "Nazarii is a Developer Relations Manager at Tolgee who helps developers discover Tolgee and easily figure out how to use it."
+
+kdzieniszewski:
+  name: Kamil Dzieniszewski
+  title: Software Engineer & Developer
+  url: https://github.com/dzienisz
+  image_url: /img/blog/profile-photos/kdzieniszewski.jpeg
+  description: "Kamil is a software engineer passionate about localization and developer tools. He contributes to making Tolgee more powerful and user-friendly."
