@@ -50,7 +50,7 @@ const sidebar: SidebarsConfig = {
           type: "doc",
           id: "import-keys",
           label: "Import keys (resolvable)",
-          className: "api-method post",
+          className: "menu__list-item--deprecated api-method post",
         },
         {
           type: "doc",
@@ -672,8 +672,14 @@ const sidebar: SidebarsConfig = {
         },
         {
           type: "doc",
-          id: "do-import",
+          id: "single-step-from-files",
           label: "Single step import",
+          className: "api-method post",
+        },
+        {
+          type: "doc",
+          id: "single-step-resolvable-import",
+          label: "Single step import from body",
           className: "api-method post",
         },
       ],
@@ -715,7 +721,7 @@ const sidebar: SidebarsConfig = {
         {
           type: "doc",
           id: "get-possible-assignees",
-          label: "getPossibleAssignees",
+          label: "Get possible assignees",
           className: "api-method get",
         },
         {
@@ -1196,10 +1202,10 @@ const sidebar: SidebarsConfig = {
     },
     {
       type: "category",
-      label: "llm-provider-controller",
+      label: "Llm providers",
       link: {
         type: "doc",
-        id: "llm-provider-controller",
+        id: "llm-providers",
       },
       collapsible: false,
       collapsed: false,
@@ -1207,37 +1213,37 @@ const sidebar: SidebarsConfig = {
         {
           type: "doc",
           id: "get-all-13",
-          label: "getAll_13",
+          label: "Get all organization-specific providers",
           className: "api-method get",
         },
         {
           type: "doc",
           id: "create-provider",
-          label: "createProvider",
+          label: "Create organization-specific provider",
           className: "api-method post",
         },
         {
           type: "doc",
           id: "get-available-providers",
-          label: "getAvailableProviders",
+          label: "Get all available llm providers",
           className: "api-method get",
         },
         {
           type: "doc",
           id: "get-server-providers",
-          label: "getServerProviders",
+          label: "Get all server-configured providers",
           className: "api-method get",
         },
         {
           type: "doc",
           id: "update-provider",
-          label: "updateProvider",
+          label: "Update organization-specific provider",
           className: "api-method put",
         },
         {
           type: "doc",
           id: "delete-provider",
-          label: "deleteProvider",
+          label: "Delete organization-specific provider",
           className: "api-method delete",
         },
       ],
@@ -1346,7 +1352,7 @@ const sidebar: SidebarsConfig = {
     },
     {
       type: "category",
-      label: "ai-playground-result-controller",
+      label: "Ai Playground result controller",
       link: {
         type: "doc",
         id: "ai-playground-result-controller",
@@ -1357,17 +1363,17 @@ const sidebar: SidebarsConfig = {
         {
           type: "doc",
           id: "get-ai-playground-result",
-          label: "getAiPlaygroundResult",
+          label: "Get ai playground result",
           className: "api-method post",
         },
       ],
     },
     {
       type: "category",
-      label: "prompt-controller",
+      label: "Ai prompt controller",
       link: {
         type: "doc",
-        id: "prompt-controller",
+        id: "ai-prompt-controller",
       },
       collapsible: false,
       collapsed: false,
@@ -1375,19 +1381,19 @@ const sidebar: SidebarsConfig = {
         {
           type: "doc",
           id: "get-all-paged",
-          label: "getAllPaged",
+          label: "Get all prompts",
           className: "api-method get",
         },
         {
           type: "doc",
           id: "create-prompt",
-          label: "createPrompt",
+          label: "Create prompt",
           className: "api-method post",
         },
         {
           type: "doc",
           id: "get-default-prompt",
-          label: "getDefaultPrompt",
+          label: "Get default prompt",
           className: "api-method get",
         },
         {
@@ -1399,25 +1405,25 @@ const sidebar: SidebarsConfig = {
         {
           type: "doc",
           id: "run",
-          label: "run",
+          label: "Run prompt",
           className: "api-method post",
         },
         {
           type: "doc",
           id: "get-prompt",
-          label: "getPrompt",
+          label: "Get prompt by id",
           className: "api-method get",
         },
         {
           type: "doc",
           id: "update-prompt",
-          label: "updatePrompt",
+          label: "Update prompt",
           className: "api-method put",
         },
         {
           type: "doc",
           id: "delete-prompt",
-          label: "deletePrompt",
+          label: "Delete prompt",
           className: "api-method delete",
         },
       ],
@@ -2370,6 +2376,50 @@ const sidebar: SidebarsConfig = {
     },
     {
       type: "category",
+      label: "Suggestions",
+      collapsible: false,
+      collapsed: false,
+      items: [
+        {
+          type: "doc",
+          id: "get-suggestions",
+          label: "Get suggestions",
+          className: "api-method get",
+        },
+        {
+          type: "doc",
+          id: "create-suggestion",
+          label: "Create translation suggestion",
+          className: "api-method post",
+        },
+        {
+          type: "doc",
+          id: "delete-suggestion",
+          label: "Delete suggestion",
+          className: "api-method delete",
+        },
+        {
+          type: "doc",
+          id: "accept-suggestion",
+          label: "Accept suggestion",
+          className: "api-method put",
+        },
+        {
+          type: "doc",
+          id: "decline-suggestion",
+          label: "Decline suggestion",
+          className: "api-method put",
+        },
+        {
+          type: "doc",
+          id: "suggestion-set-active",
+          label: "Set suggestion active",
+          className: "api-method put",
+        },
+      ],
+    },
+    {
+      type: "category",
       label: "Machine Translation Settings",
       collapsible: false,
       collapsed: false,
@@ -2442,7 +2492,7 @@ const sidebar: SidebarsConfig = {
     },
     {
       type: "category",
-      label: "Translation suggestion",
+      label: "Translation suggestion panel tools",
       collapsible: false,
       collapsed: false,
       items: [
