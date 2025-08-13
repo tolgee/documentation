@@ -1,0 +1,85 @@
+---
+slug: introducing-translation-suggestions
+title: 'Introducing Translation Suggestions – Collaborative Translation Made Easy 🚀'
+description: "Discover how Tolgee's new Translation Suggestions feature enables seamless collaboration, allowing team members to propose and review translation improvements with granular permissions."
+image: '/img/blog/introducing-translation-suggestions/suggestions-light.webp'
+authors: [kdzieniszewski]   
+tags: [tolgee, feature, suggestions, collaboration, translation]
+---
+
+import { ScreenshotWrapper } from '../platform/shared/_ScreenshotWrapper';
+import ThemedImage from '@theme/ThemedImage';
+import useBaseUrl from '@docusaurus/useBaseUrl';
+
+<ThemedImage
+  alt="Translation Suggestions Feature"
+  sources={{
+    light: useBaseUrl(
+      '/img/blog/introducing-translation-suggestions/suggestions-light.webp'
+    ),
+    dark: useBaseUrl(
+      '/img/blog/introducing-translation-suggestions/suggestions-dark.webp'
+    ),
+  }}
+/>
+
+Ever had a team member suggest a better translation, but you're worried about giving them full editing access? Or maybe you're working with community translators who want to help, but you need to review their changes first?
+
+<!--truncate-->
+
+We've all been there. You want collaboration, but you also want control. That's exactly why we built **Translation Suggestions** – a feature that lets anyone propose translation improvements while keeping you in the driver's seat.
+
+## The Problem We All Face 😅
+
+Here's the classic scenario: Your Spanish-speaking colleague notices that "Remove item" should really be "Eliminar elemento" instead of "Quitar elemento" in your app. But giving them full translation access feels risky – what if they accidentally change something critical?
+
+Or maybe you're working with volunteer translators who want to help, but you need to review everything before it goes live. Traditional approaches are either too restrictive (no collaboration) or too risky (full access).
+
+## How Translation Suggestions Work
+
+It's beautifully simple. When someone wants to improve a translation, they click **"Suggest"** instead of directly editing:
+
+<ScreenshotWrapper
+  src="/img/docs/platform/suggestions/suggestion-menu.webp"
+  alt="Translation suggestion menu showing the Suggest button"
+/>
+
+They can propose their improvement, and you get to review it before it goes live:
+
+<ScreenshotWrapper
+  src="/img/docs/platform/suggestions/suggestion-created.webp"
+  alt="Creating a new translation suggestion with AI assistance"
+/>
+
+When you're ready, just click **"Accept"** and boom – the suggestion becomes the new translation:
+
+<ScreenshotWrapper
+  src="/img/docs/platform/suggestions/suggestion-accept.webp"
+  alt="Accepting a translation suggestion"
+/>
+
+## Smart Permissions 🎯
+
+The best part? You can configure exactly who can suggest what. Want your marketing team to suggest improvements for French, but only for marketing-related keys? Done. Need community translators to help with less critical content? Easy.
+
+<ScreenshotWrapper
+  src="/img/docs/platform/suggestions/suggestions-granular-permissions.webp"
+  alt="Granular permissions for translation suggestions"
+/>
+
+You can even set certain keys to be "suggest-only" – perfect for critical UI elements that absolutely need review:
+
+<ScreenshotWrapper
+  src="/img/docs/platform/suggestions/translation-protection-suggest-only.webp"
+  alt="Translation protection set to suggest-only mode"
+/>
+
+## Ready to Collaborate Better?
+
+Translation Suggestions are live now and work with all your existing workflows. No complicated setup – just enable the permissions you want and start collaborating.
+
+Your team (and your translations) will thank you! 🎉
+
+Check out the [Translation Suggestions documentation](/platform/projects_and_organizations/suggestions) to get started.
+
+[![Demo banner](/img/blog/blog-banners/banner-demo.webp)](https://calendly.com/tolgee/30min)
