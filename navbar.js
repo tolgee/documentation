@@ -20,8 +20,12 @@ module.exports.navbar = {
       label: 'Platform',
     },
     {
-      to: 'js-sdk',
-      label: 'SDK',
+      label: 'JavaScript SDK',
+      to: '/js-sdk',
+    },
+    {
+      label: 'Android SDK',
+      to: '/android-sdk',
     },
     {
       to: 'tolgee-cli',
