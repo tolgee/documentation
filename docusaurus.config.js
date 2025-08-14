@@ -6,6 +6,7 @@ const { redirects } = require('./redirects');
 const { navbar } = require('./navbar');
 const { footer } = require('./footer');
 const openApiPluginConfig = require('./apiSpecGeneration/pluginConfig');
+const tailwindPlugin = require('./plugins/tailwind-config.cjs');
 
 /** @type {import("@docusaurus/types").Config} */
 const config = {
@@ -72,20 +73,9 @@ const config = {
   plugins: [
     'docusaurus-plugin-image-zoom',
     ['@docusaurus/plugin-client-redirects', redirects],
-    async function tailwind() {
-      return {
-        name: 'docusaurus-tailwindcss',
-        configurePostCss(postcssOptions) {
-          postcssOptions.plugins = [
-            require('tailwindcss'),
-            require('autoprefixer'),
-          ];
-          return postcssOptions;
-        },
-      };
-    },
     openApiPluginConfig,
     ...docs,
+    tailwindPlugin,
   ],
   customFields: {
     googleTrackingId: process.env.DOCUSAURUS_GOOGLE_TRACKING_ID,
