@@ -202,7 +202,12 @@ module.exports.redirects = {
     if (existingPath.indexOf('/js-sdk/4.x.x') === 0) {
       return [existingPath.replace('/js-sdk/4.x.x', '/js-sdk')];
     }
-    if (existingPath.indexOf('/js-sdk') === 0) {
+    // Only create redirects for /js-sdk paths that don't conflict with existing content
+    if (existingPath.indexOf('/js-sdk') === 0 && 
+        !existingPath.startsWith('/js-sdk/4.x.x') && 
+        !existingPath.startsWith('/js-sdk/5.x.x') &&
+        existingPath !== '/js-sdk' &&
+        !existingPath.startsWith('/js-sdk/wrapping')) {
       return [existingPath.replace('/js-sdk', '/docs/web')];
     }
     if (existingPath.indexOf('/platform/3.x.x') === 0) {
