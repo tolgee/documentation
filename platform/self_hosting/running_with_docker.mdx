@@ -30,8 +30,6 @@ import ExampleYamlConfig from './shared/_exampleYamlConfig.mdx';
 Create a file named `docker-compose.yml` containing the following content:
 
 ```yaml title=docker-compose.yaml
-version: '3'
-
 services:
   app:
     image: tolgee/tolgee{{dockerTagVersion}}
@@ -58,8 +56,6 @@ You should be able to access Tolgee web application on [http://localhost:8080](h
 Alternatively, you can provide the configuration variables using environment variables or using `.env` file instead of the YAML configuration file.
 
 ```yaml title=docker-compose.yaml
-version: '3'
-
 services:
   app:
     image: tolgee/tolgee{{dockerTagVersion}}
@@ -107,8 +103,6 @@ Now you should be able to access Tolgee web application on [http://localhost:808
 For some users, running the PostgreSQL database in a separate container is beneficial. Here is how you can do it.
 
 ```yaml title=docker-compose.yaml
-version: '3'
-
 services:
   app:
     image: tolgee/tolgee:latest
