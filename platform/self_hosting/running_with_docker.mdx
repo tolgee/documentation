@@ -11,88 +11,56 @@ Since v2, Tolgee runs PostgreSQL database in its container by default. To disabl
 [described below](/platform/self_hosting/running_with_docker#running-with-docker-compose-with-external-postgresql-database).
 :::
 
-## Running Tolgee in single container (recommended)
+## Running with Docker Compose (recommended)
 
-To run server locally you should be fine just with running simple Docker image with mounted data volume.
-Tolgee has embedded PostgresSQL database, so you don't have to manually set it.
+The recommended way to run Tolgee is using Docker Compose with a configuration YAML file. This approach provides better configuration management and is more suitable for production environments.
 
-```
-docker run -v tolgee_data:/data/ -p 8085:8080 tolgee/tolgee{{dockerTagVersion}}
-```
-
-This will:
-
-- mount tolgee_data volume into it's directory inside the container
-- expose tolgee container port on port 8085
-- run the image!
-
-Now you should be able to access Tolgee web application on [http://localhost:8085](http://localhost:8085)
-
-## Running with compose
-
-To run it on company infrastructure it is better to use some more optimized database system. Tolgee supports PostgreSQL.
-You can run it using docker-compose.
-To start let's create and enter a folder to store Tolgee related files:
+To start, create and enter a folder to store Tolgee related files:
 
 ```
 mkdir tolgee && cd tolgee
 ```
 
-Create a file named `docker-compose.yml` containing following content.
-
-```yaml title=docker-compose.yaml
-version: '3'
-
-services:
-  app:
-    image: tolgee/tolgee{{dockerTagVersion}}
-    volumes:
-      - ./data:/data
-    ports:
-      - '25432:25432' # if you would like to access the DB
-      - '8080:8080'
-```
-
-### Configuring using configuration file
-
-The recommended way of configuring the application is using configuration file.
-
-To do so, you have to create the `config.yaml` file containing configuration properties in the same directory as `docker-compose.yaml`.
-You can find the list of all properties in [configuration reference](configuration?config-format=yaml).
-
-```yaml title=docker-compose.yaml
-version: '3'
-
-services:
-  app:
-    image: tolgee/tolgee{{dockerTagVersion}}
-    volumes:
-      - ./data:/data
-      - ./config.yaml:/config.yaml # <--- this line
-    ports:
-      - '25432:25432'
-      - '8080:8080'
-    environment:
-      spring.config.additional-location: file:///config.yaml # <--- this line
-```
+Create a `config.yaml` file containing your configuration properties. You can find the list of all properties in [configuration reference](configuration?config-format=yaml).
 
 import ExampleYamlConfig from './shared/_exampleYamlConfig.mdx';
 
 <ExampleYamlConfig />
 
-### Configuring using environmental variables
-
-You can provide the configuration variables using environment variables or using `.env` file.
+Create a file named `docker-compose.yml` containing the following content:
 
 ```yaml title=docker-compose.yaml
-version: '3'
-
 services:
   app:
     image: tolgee/tolgee{{dockerTagVersion}}
     volumes:
       - ./data:/data
       - ./config.yaml:/config.yaml
+    ports:
+      - '25432:25432' # if you would like to access the DB
+      - '8080:8080'
+    environment:
+      spring.config.additional-location: file:///config.yaml
+```
+
+Now you can start Tolgee by running:
+
+```
+docker-compose up -d
+```
+
+You should be able to access Tolgee web application on [http://localhost:8080](http://localhost:8080)
+
+### Alternative: Configuring using environmental variables
+
+Alternatively, you can provide the configuration variables using environment variables or using `.env` file instead of the YAML configuration file.
+
+```yaml title=docker-compose.yaml
+services:
+  app:
+    image: tolgee/tolgee{{dockerTagVersion}}
+    volumes:
+      - ./data:/data
     ports:
       - '25432:25432'
       - '8080:8080'
@@ -115,12 +83,26 @@ Tolgee container. You can print it by executing this:
 cat data/initial.pwd
 ```
 
+## Running Tolgee in single container (alternative)
+
+For simple local development or testing, you can run Tolgee in a single container with embedded PostgreSQL database.
+
+```
+docker run -v tolgee_data:/data/ -p 8085:8080 tolgee/tolgee{{dockerTagVersion}}
+```
+
+This will:
+
+- mount tolgee_data volume into it's directory inside the container
+- expose tolgee container port on port 8085
+- run the image!
+
+Now you should be able to access Tolgee web application on [http://localhost:8085](http://localhost:8085)
+
 ## Running with docker compose with external PostgreSQL database
 For some users, running the PostgreSQL database in a separate container is beneficial. Here is how you can do it.
 
 ```yaml title=docker-compose.yaml
-version: '3'
-
 services:
   app:
     image: tolgee/tolgee:latest
