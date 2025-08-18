@@ -1,0 +1,59 @@
+---
+id: about
+title: Overview
+slug: /
+description: Overview of Tolgee Android SDK and how to get started.
+---
+
+> NOTE:
+> For managing static translations in your repository, consider using the [Tolgee CLI](/tolgee-cli/installation).
+
+Tolgee Android SDK lets you localize Android apps with dynamic content delivery, reactive locale changes, and seamless integration with Views and Jetpack Compose.
+
+## What you can do
+
+- __Use with Views__: Fetch translations with fallbacks to Android resources.
+- __Use with Jetpack Compose__: Localized composables with `stringResource` helpers and reactive updates.
+- __Switch locales at runtime__: React to `Tolgee.changeFlow` to update UI.
+- __Self-host or Cloud__: Use Tolgee Cloud CDN or your own CDN.
+
+## Quickstart
+
+```kotlin
+class MyApplication : Application() {
+  override fun onCreate() {
+    super.onCreate()
+    Tolgee.init {
+      contentDelivery {
+        url = "https://cdn.tolg.ee/your-cdn-url-prefix"
+        storage = TolgeeStorageProviderAndroid(this@MyApplication, BuildConfig.VERSION_CODE)
+      }
+    }
+  }
+}
+```
+
+### Compatibility
+
+> NOTE:
+> Build configuration examples use Kotlin DSL (`build.gradle.kts`). Groovy DSL may work but is not officially supported/tested.
+
+### Plurals limitation
+
+> NOTE:
+> Plurals are supported via Android plural resources, but only one plural per string is supported (no nested or "double" plurals).
+
+## Get started
+
+- __Installation__: Set up dependencies and network security — [Installation](./installation.mdx)
+- __Modules overview__: Choose between Core and Compose — [Modules overview](./modules.mdx)
+- __Jetpack Compose__: `stringResource`/`pluralStringResource`, locale switching, best practices — [Jetpack Compose](./jetpack-compose.mdx)
+- __Usage with Views__: Simple keys, parameters, plurals, preloading, reactive flows — [Usage](./usage.mdx)
+- __Production guide__: OTA, caching, formatting, testing — [Production guide](./production.mdx)
+- __Troubleshooting__: Common issues and diagnostics — [Troubleshooting](./troubleshooting.mdx)
+
+## Next steps
+
+- Install and configure the SDK: [Installation](./installation.mdx)
+- Connect your app to the Tolgee Platform and manage translations collaboratively: [Platform docs](../platform/)
+- Generate or manage static strings with CLI: [Tolgee CLI](/tolgee-cli/installation)

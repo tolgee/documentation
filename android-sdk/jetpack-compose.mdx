@@ -22,7 +22,7 @@ tolgee = { group = "io.tolgee.mobile-kotlin-sdk", name = "compose", version.ref 
 ```
 
 ```kotlin
-// build.gradle.kts
+// build.gradle.kts (module)
 dependencies {
     implementation(libs.tolgee)
 }
@@ -165,3 +165,14 @@ fun LocaleAwareComponent() {
 
 - Verify that your resource files are correctly set up and all keys present in resources are present in a Tolgee platform too
 - Ensure that you're using the correct resource references
+
+### Best practices for Compose
+
+- Hoist Tolgee instance at the application level; avoid creating it in composables.
+- Use `collectAsState` on `changeFlow` to recompose on locale/translation updates.
+- Prefer `stringResource`/`pluralStringResource` helpers for readability.
+
+### Next steps
+
+- Using Tolgee with Views? See [`Usage`](./usage.mdx)
+- Problems? See [`Troubleshooting`](./troubleshooting.mdx)

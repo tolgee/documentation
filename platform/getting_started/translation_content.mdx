@@ -2,10 +2,10 @@
 id: files_and_integrations
 title: Translation Files and Integrations
 sidebar_label: Translation Files and Integrations
-description: Learn how you can import existing files into the project and use our JS SDK to seamlessly integrate your code with your Tolgee project.
+description: Learn how you can import existing files into the project and use our JS SDK or Android SDK to seamlessly integrate your code with your Tolgee project.
 ---
 
-After you have [created a project](creating_project), you can import existing files into the project, use our JS SDK to seamlessly integrate your code with your Tolgee project, or use our API to integrate your project with your own system.
+After you have [created a project](creating_project), you can import existing files into the project, use our JS SDK or Android SDK to seamlessly integrate your code with your Tolgee project, or use our API to integrate your project with your own system.
 
 ## Importing files
 
@@ -29,3 +29,13 @@ This way, you can use the same translation keys in your code as you use in your 
 In production mode, you should use data exported from the Tolgee platform.
 To export the translation files, see [exporting translations](/platform/projects_and_organizations/export).
 Then provide the data via Tolgee configuration options described in [Providing static data](/js-sdk/providing-static-data).
+
+## Android SDK
+
+Tolgee also provides an [Android SDK](/android-sdk) for native Android apps, including Jetpack Compose support. Follow the Android docs to:
+
+- Install and initialize the SDK: [Installation](/android-sdk/installation)
+- Use translations in Views and handle plurals/parameters: [Usage](/android-sdk/usage)
+- Use localized composables and react to locale changes: [Jetpack Compose](/android-sdk/jetpack-compose)
+
+In production, configure content delivery (CDN) as described in the Android [Installation](/android-sdk/installation) page and preload data as needed.

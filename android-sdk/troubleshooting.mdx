@@ -11,6 +11,12 @@ description: Troubleshooting Tolgee Android SDK
 - Make sure you're calling `Tolgee.init` before accessing translations
 - Use `tolgee.preload` or `tolgee.tFlow` before calling `tolgee.t` to ensure translations are loaded
 
+### CDN/Network
+
+- If using Tolgee Cloud, verify your `network_security.xml` includes `tolgee.io` and `tolg.ee` domains and that the `AndroidManifest.xml` references it via `android:networkSecurityConfig`.
+- If self-hosting, replace CDN URL with your domain and allow it in `network_security.xml`.
+- Test connectivity to the CDN URL prefix in a browser/curl to ensure it returns JSON bundles.
+
 ## Locale Issues
 
 - Verify that your project supports the locale code you're using
@@ -21,4 +27,22 @@ description: Troubleshooting Tolgee Android SDK
 
 - Ensure that the `TolgeeStorageProviderAndroid` is properly initialized with the context and version code which changes with each app update
 - Check that your Android resources are properly structured - Tolgee is using `resources.getResourceEntryName` to find key for the resource
+
+## Compose-specific Issues
+
+- Use `stringResource` and `pluralStringResource` from the Tolgee package in composables.
+- Collect `tolgee.changeFlow` with `collectAsState` to trigger recomposition on locale/translation updates.
+- Avoid creating Tolgee instances inside composables; hoist to application scope.
+
+## Version Mismatch
+
+- Make sure your app uses a consistent `tolgeeVersion` across `core` and `compose` artifacts.
+- If you migrated formats, confirm formatter configuration matches your data (e.g., `Sprintf` vs `ICU`).
+
+## Useful links
+
+- Installation: [`android-sdk/installation`](./installation.mdx)
+- Usage (Views): [`android-sdk/usage`](./usage.mdx)
+- Compose: [`android-sdk/jetpack-compose`](./jetpack-compose.mdx)
+- CLI for static strings: [`tolgee-cli`](/tolgee-cli/installation)
 

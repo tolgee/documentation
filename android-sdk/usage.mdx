@@ -20,6 +20,18 @@ val textWithParams = tolgee.t(context, R.string.string_with_params, "param1", "p
 textView.text = textWithParams
 ```
 
+## Plurals
+
+```kotlin
+// Handle Android plurals via resources
+val itemsText = tolgee.tPlural(context, R.plurals.items_count, count, count)
+textView.text = itemsText
+```
+
+> NOTE:
+> Tolgee resolves the key from your Android resource ID using `resources.getResourceEntryName`. Ensure the keys exist in Tolgee Platform as well.
+> Only one plural per string is supported (Android plural resources); nested or "double" plurals are not supported.
+
 ## Advanced Features
 
 ### Language Switching
@@ -61,3 +73,28 @@ override fun onStart() {
   tolgee.preload(this)
 }
 ```
+
+### Obtaining a Tolgee instance
+
+Most apps use the singleton:
+
+```kotlin
+val tolgee = Tolgee.instance
+```
+
+For DI or testing, you can hold a reference you created during initialization and pass it around explicitly.
+
+### Reactive UI updates
+
+If your UI should react to translation/locale changes, subscribe to `changeFlow` and update state accordingly. See Compose examples in [`Jetpack Compose Integration`](./jetpack-compose.mdx).
+
+### Best practices
+
+- **Preload** translations in `onStart` for Activities or when a Fragment becomes visible.
+- **Avoid blocking calls** on the main thread; use flows for reactivity.
+- **Keep keys in sync** between Android resources and Tolgee Platform.
+
+### Next steps
+
+- Using Compose? Continue with [`Jetpack Compose Integration`](./jetpack-compose.mdx)
+- Problems? See [`Troubleshooting`](./troubleshooting.mdx)

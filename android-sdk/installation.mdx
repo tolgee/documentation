@@ -2,7 +2,6 @@
 id: installation
 title: Installation
 description: How to install Tolgee Android SDK in your Android project
-slug: /
 ---
 
 > **NOTE:**
@@ -49,6 +48,9 @@ Add network security config to your `AndroidManifest.xml`:
 </application>
 ```
 
+> NOTE:
+> Allowing `tolgee.io` and `tolg.ee` domains is required when using Tolgee Cloud CDN. If you only access your own self-hosted CDN, include your domain(s) accordingly.
+
 ## Initialization and configuration
 
 Initialize Tolgee in your `Application` class:
@@ -66,3 +68,11 @@ class MyApplication : Application() {
     }
 }
 ```
+
+
+### Next steps
+
+- Learn how to fetch and render translations in Views: [`Usage`](./usage.mdx)
+- Using Jetpack Compose? See [`Jetpack Compose Integration`](./jetpack-compose.mdx)
+- Having issues? Check [`Troubleshooting`](./troubleshooting.mdx)
+
