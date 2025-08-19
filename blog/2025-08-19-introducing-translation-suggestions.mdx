@@ -1,0 +1,63 @@
+---
+slug: introducing-translation-suggestions
+title: 'Introducing Translation Suggestions'
+description: "Learn how Tolgee's Translation Suggestions feature allows team members to propose translation changes while maintaining review control and protecting approved content."
+image: '/img/blog/introducing-translation-suggestions/suggestions-light.webp'
+authors: [kdzieniszewski]   
+tags: [tolgee, feature, suggestions, collaboration, translation]
+---
+
+import { ScreenshotWrapper } from '../platform/shared/_ScreenshotWrapper';
+import ThemedImage from '@theme/ThemedImage';
+import useBaseUrl from '@docusaurus/useBaseUrl';
+
+<ThemedImage
+  alt="Translation Suggestions Feature"
+  sources={{
+    light: useBaseUrl(
+      '/img/blog/introducing-translation-suggestions/suggestions-light.webp'
+    ),
+    dark: useBaseUrl(
+      '/img/blog/introducing-translation-suggestions/suggestions-dark.webp'
+    ),
+  }}
+/>
+
+**Translation Suggestions** enables controlled collaboration by allowing team members to propose translation improvements while keeping reviewers in control of what gets published.
+
+<!--truncate-->
+
+## How Translation Suggestions Work
+
+Team members click **"Suggest"** to propose improvements, which reviewers can then accept or reject:
+
+<ScreenshotWrapper
+  src="/img/docs/platform/suggestions/suggestion-accept.webp"
+  alt="Accepting a translation suggestion"
+/>
+
+## Translation Protection and Permissions
+
+Translation protection prevents direct edits to reviewed translations. When enabled, translators can only suggest changes to already-reviewed content, ensuring approved translations remain stable while still allowing improvements.
+
+For more control, granular permissions (a paid feature) let you configure suggestion access per user. You can restrict users to suggestion-only mode, preventing them from making direct edits to any translations.
+
+<ScreenshotWrapper
+  src="/img/docs/platform/suggestions/suggestions-granular-permissions.webp"
+  alt="Granular permissions for translation suggestions"
+/>
+
+Here's how the protection works in practice. Reviewed translations become suggestion-only.
+
+<ScreenshotWrapper
+  src="/img/docs/platform/suggestions/translation-protection-suggest-only.webp"
+  alt="Translation protection set to suggest-only mode"
+/>
+
+## Ready to Collaborate Better?
+
+Translation Suggestions integrate with existing Tolgee workflows. Enable suggestions mode in your project settings, configure appropriate permissions, and your team can start proposing improvements while maintaining quality control.
+
+Check out the [Translation Suggestions documentation](/platform/projects_and_organizations/suggestions) to get started.
+
+[![Demo banner](/img/blog/blog-banners/banner-demo.webp)](https://calendly.com/tolgee/30min)
