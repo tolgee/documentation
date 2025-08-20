@@ -66,7 +66,7 @@ function Home() {
                 />
                 <DocsTile
                   title="Android SDK"
-                  text="Tolgee's Android SDK is coming soon, bringing seamless localization and in-context editing to your native Android apps."
+                  text="Tolgee's Android SDK brings seamless localization and in-context editing to your native Android apps."
                   link="/android-sdk"
                   linkText="Go to Android SDK docs"
                 />
