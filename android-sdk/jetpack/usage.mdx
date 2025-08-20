@@ -1,0 +1,88 @@
+---
+id: usage
+title: Usage
+description: How to use Tolgee Android SDK in your Android application with Jetpack Compose support
+---
+
+```kotlin
+@Composable
+fun SimpleText() {
+    // Use the stringResource extension function
+    Text(text = stringResource(R.string.welcome_message))
+}
+
+@Composable
+fun TextWithParameters(name: String) {
+    // Pass parameters to your translations
+    Text(text = stringResource(R.string.welcome_user, name))
+}
+
+@Composable
+fun PluralText(count: Int) {
+    // Handle plural forms
+    Text(text = pluralStringResource(R.plurals.item_count, count, count))
+}
+```
+
+## Advanced Usage
+
+### Explicit Tolgee Instance
+
+If you need to use a specific Tolgee instance (not the singleton), you can pass it explicitly:
+
+```kotlin
+@Composable
+fun ExplicitInstance() {
+    val tolgee = remember { /* your custom Tolgee instance */ }
+
+    Text(text = stringResource(tolgee, Res.string.welcome_message))
+}
+```
+
+### Locale Switching
+
+You can create a locale switcher component:
+
+```kotlin
+@Composable
+fun LocaleSwitcher() {
+    val tolgee = Tolgee.instance
+    val currentLocale = tolgee.changeFlow.mapLatest {
+        tolgee.getLocale()
+    }.collectAsState(initial = tolgee.getLocale())
+
+    Row {
+        Text(text = stringResource(tolgee, R.string.selected_locale, currentLocale.language))
+        Button(onClick = { tolgee.setLocale("en") }) {
+            Text("English")
+        }
+        Button(onClick = { tolgee.setLocale("fr") }) {
+            Text("Français")
+        }
+        Button(onClick = { tolgee.setLocale("cs") }) {
+            Text("Čeština")
+        }
+    }
+}
+```
+
+### Observing Locale Changes
+
+```kotlin
+@Composable
+fun LocaleAwareComponent() {
+    val tolgee = Tolgee.instance
+
+    // This will cause recomposition when the locale changes
+    val currentLocale = tolgee.changeFlow.mapLatest {
+        tolgee.getLocale()
+    }.collectAsState(initial = tolgee.getLocale())
+
+    // Your UI that depends on the current locale
+    Text(text = currentLocale.language)
+}
+```
+
+### Next steps
+
+- Problems? See [`Troubleshooting`](./troubleshooting.mdx)

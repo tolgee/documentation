@@ -1,7 +1,7 @@
 ---
 id: installation
 title: Installation
-description: How to install Tolgee Android SDK in your Android project
+description: How to install Tolgee Android SDK in your Android project with Jetpack Compose support
 ---
 
 > **NOTE:**
@@ -18,11 +18,11 @@ Using Version Catalog is highly recommended to keep your versions aligned.
 ```toml
 # gradle/libs.versions.toml
 [libraries]
-tolgee = { group = "io.tolgee.mobile-kotlin-sdk", name = "core", version.ref = "tolgee" }
+tolgee = { group = "io.tolgee.mobile-kotlin-sdk", name = "compose", version.ref = "tolgee" }
 ```
 
 ```kotlin
-// build.gradle.kts
+// build.gradle.kts (module)
 dependencies {
     implementation(libs.tolgee)
 }
@@ -48,17 +48,15 @@ Add network security config to your `AndroidManifest.xml`:
 </application>
 ```
 
-> NOTE:
-> Allowing `tolgee.io` and `tolg.ee` domains is required when using Tolgee Cloud CDN. If you only access your own self-hosted CDN, include your domain(s) accordingly.
+## Initialization
 
-## Initialization and configuration
-
-Initialize Tolgee in your `Application` class:
+Initialize Tolgee in your Application class (Android):
 
 ```kotlin
 class MyApplication : Application() {
     override fun onCreate() {
         super.onCreate()
+
         Tolgee.init {
             contentDelivery {
                 url = "https://cdn.tolg.ee/your-cdn-url-prefix"
@@ -69,9 +67,6 @@ class MyApplication : Application() {
 }
 ```
 
-
 ### Next steps
 
-- Learn how to fetch and render translations in Views: [`Usage`](./usage.mdx)
-- Having issues? Check [`Troubleshooting`](./troubleshooting.mdx)
-
+- Learn how to compose translations: [`Usage`](./usage.mdx)
