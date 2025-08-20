@@ -6,24 +6,27 @@ description: How to use Tolgee Android SDK in your Android application
 
 ## Simple Translation
 
+Get a translation with fallback to Android resources:
+
 ```kotlin
-// Get a translation with fallback to Android resources
 val text = tolgee.t(context, R.string.string_key)
 textView.text = text
 ```
 
 ## With Parameters
 
+Get a translation with fallback to Android resources with parameters:
+
 ```kotlin
-// Get a translation with fallback to Android resources with parameters
 val textWithParams = tolgee.t(context, R.string.string_with_params, "param1", "param2")
 textView.text = textWithParams
 ```
 
 ## Plurals
 
+Handle Android plurals via resources:
+
 ```kotlin
-// Handle Android plurals via resources
 val itemsText = tolgee.tPlural(context, R.plurals.items_count, count, count)
 textView.text = itemsText
 ```
@@ -36,14 +39,21 @@ textView.text = itemsText
 
 ### Language Switching
 
+Set locale:
+
 ```kotlin
-// Set locale
 tolgee.setLocale("en")
+```
 
-// Get current locale
+Get current locale:
+
+```kotlin
 val locale = tolgee.getLocale()
+```
 
-// Listen for changes
+Listen for changes:
+
+```kotlin
 tolgee.changeFlow.collect {
     // Locale or available translations changed, update UI if needed
 }
@@ -53,11 +63,12 @@ tolgee.changeFlow.collect {
 
 #### Formatter Configuration
 
+Configure formatters for parsing translations from CDN:
+
 ```kotlin
 Tolgee.init {
     contentDelivery {
         url = "https://cdn.tolg.ee/your-cdn-url-prefix"
-        // Configure formatters for parsing translations from CDN
         format(Tolgee.Formatter.Sprintf) // Android SDK formatting (default)
         // format(Tolgee.Formatter.ICU) // Tolgee Native Flat JSON formatting
     }
@@ -66,8 +77,9 @@ Tolgee.init {
 
 #### Preloading Translations
 
+Preload translations for the current locale from Activity:
+
 ```kotlin
-// Preload translations for the current locale from Activity
 override fun onStart() {
   super.onStart()
   tolgee.preload(this)
