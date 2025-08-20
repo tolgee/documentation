@@ -52,7 +52,7 @@ fun LocaleSwitcher() {
     }.collectAsState(initial = tolgee.getLocale())
 
     Row {
-        Text(text = stringResource(tolgee, R.string.selected_locale, currentLocale.language))
+        Text(text = stringResource(tolgee, R.string.selected_locale, currentLocale.value.language))
         Button(onClick = { tolgee.setLocale("en") }) {
             Text("English")
         }
@@ -79,10 +79,10 @@ fun LocaleAwareComponent() {
     }.collectAsState(initial = tolgee.getLocale())
 
     // Your UI that depends on the current locale
-    Text(text = currentLocale.language)
+    Text(text = currentLocale.value.language)
 }
 ```
 
 ### Next steps
 
-- Problems? See [`Troubleshooting`](./troubleshooting.mdx)
+- Problems? See [`Troubleshooting`](/android-sdk/jetpack/troubleshooting)
