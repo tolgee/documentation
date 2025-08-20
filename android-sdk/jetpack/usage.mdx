@@ -4,22 +4,29 @@ title: Usage
 description: How to use Tolgee Android SDK in your Android application with Jetpack Compose support
 ---
 
+Tolgee’s Jetpack Compose extensions let you fetch localized strings directly inside your composables. Below are the most common patterns you’ll use:
+
+* __Use `stringResource` for simple strings__ - retrieve a translation by its resource ID.
+
 ```kotlin
 @Composable
 fun SimpleText() {
-    // Use the stringResource extension function
     Text(text = stringResource(R.string.welcome_message))
 }
+```
+* __Pass parameters to translations__ - supply arguments for placeholders in your strings.
 
+```kotlin
 @Composable
 fun TextWithParameters(name: String) {
-    // Pass parameters to your translations
     Text(text = stringResource(R.string.welcome_user, name))
 }
+```
+* __Handle plurals with `pluralStringResource`__ - provide the count and any formatting args.
 
+```kotlin
 @Composable
 fun PluralText(count: Int) {
-    // Handle plural forms
     Text(text = pluralStringResource(R.plurals.item_count, count, count))
 }
 ```
@@ -33,7 +40,7 @@ If you need to use a specific Tolgee instance (not the singleton), you can pass 
 ```kotlin
 @Composable
 fun ExplicitInstance() {
-    val tolgee = remember { /* your custom Tolgee instance */ }
+    val tolgee = remember { myCustomTolgee }
 
     Text(text = stringResource(tolgee, Res.string.welcome_message))
 }
@@ -68,17 +75,17 @@ fun LocaleSwitcher() {
 
 ### Observing Locale Changes
 
+Collecting `Tolgee.changeFlow` as state ensures your composable recomposes whenever the locale changes, keeping the UI in sync with the active language.
+
 ```kotlin
 @Composable
 fun LocaleAwareComponent() {
     val tolgee = Tolgee.instance
 
-    // This will cause recomposition when the locale changes
     val currentLocale = tolgee.changeFlow.mapLatest {
         tolgee.getLocale()
     }.collectAsState(initial = tolgee.getLocale())
 
-    // Your UI that depends on the current locale
     Text(text = currentLocale.value.language)
 }
 ```
