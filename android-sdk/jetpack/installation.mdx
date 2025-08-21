@@ -50,7 +50,7 @@ Add network security config to your `AndroidManifest.xml`:
 
 ## Initialization
 
-Initialize Tolgee in your Application class (Android):
+Initialize Tolgee in your Application class (Android). You can find your CDN URL prefix in the Tolgee Platform under your Project settings (CDN/Content Delivery). Use different prefixes per environment.
 
 ```kotlin
 class MyApplication : Application() {
@@ -59,14 +59,18 @@ class MyApplication : Application() {
 
         Tolgee.init {
             contentDelivery {
-                url = "https://cdn.tolg.ee/your-cdn-url-prefix"
-                storage = TolgeeStorageProviderAndroid(this@MyApplication, BuildConfig.VERSION_CODE)
+                url = "https://cdn.tolg.ee/your-cdn-url-prefix" // e.g., from Tolgee Platform
+                storage = TolgeeStorageProviderAndroid(this@MyApplication, BuildConfig.VERSION_CODE) // cache invalidates on app update
             }
         }
     }
 }
 ```
 
+> TIP:
+> Compose uses its own `stringResource`/`pluralStringResource` helpers, no `ContextWrapper` needed.
+
 ### Next steps
 
 - Learn how to compose translations: [`Usage`](./usage.mdx)
+- Problems? See [`Troubleshooting`](./troubleshooting.mdx)

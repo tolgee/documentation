@@ -6,10 +6,19 @@ description: Troubleshooting Tolgee Android SDK
 
 ## Translations Not Loading
 
-- Ensure you have the correct Content Delivery URL
-- Check that your storage provider is properly configured
-- Make sure you're calling `Tolgee.init` before accessing translations
-- Use `tolgee.preload` or `tolgee.tFlow` before calling `tolgee.t` to ensure translations are loaded
+- Verify the CDN URL prefix (copy the full Content Delivery URL from Tolgee Platform → Developer settings → Content Delivery).
+- Ensure `Tolgee.init` runs early (e.g., in `Application.onCreate`).
+- Configure storage for caching: `TolgeeStorageProviderAndroid(context, BuildConfig.VERSION_CODE)`.
+- Load data before reading:
+  - Views: call `tolgee.preload(activity)` in `onStart`, or use `tolgee.tFlow` for reactive updates.
+  - Compose: use `stringResource`/`pluralStringResource` which handle updates automatically.
+- Test connectivity to your CDN URL prefix:
+
+```bash
+curl -I "https://cdn.tolg.ee/your-cdn-url-prefix/en.json"
+```
+
+Expect HTTP 200. For 403/404, re‑copy the prefix and check project permissions.
 
 ### CDN/Network
 
@@ -27,12 +36,18 @@ description: Troubleshooting Tolgee Android SDK
 
 - Ensure that the `TolgeeStorageProviderAndroid` is properly initialized with the context and version code which changes with each app update
 - Check that your Android resources are properly structured - Tolgee is using `resources.getResourceEntryName` to find key for the resource
+- Activity context isn't wrapped: Make sure Activities override `attachBaseContext` and call `TolgeeContextWrapper.wrap(newBase)` so `getString` uses Tolgee.
 
-## Compose-specific Issues
+### Common error messages and fixes
 
-- Use `stringResource` and `pluralStringResource` from the Tolgee package in composables.
-- Collect `tolgee.changeFlow` with `collectAsState` to trigger recomposition on locale/translation updates.
-- Avoid creating Tolgee instances inside composables; hoist to application scope.
+- java.net.UnknownServiceException: CLEARTEXT communication to `<domain>` not permitted
+  - Cause: Required domain(s) are using plain http and are not allowed in network security config.
+  - Fix: Add domains to res/xml/network_security.xml and reference it from AndroidManifest via android:networkSecurityConfig.
+
+- HTTP 403/404 when fetching from CDN prefix
+  - Cause: Incorrect CDN URL prefix.
+  - Fix: Copy the exact CDN URL prefix from Tolgee Platform, verify the environment, and test in a browser/curl.
+  - Note: If using namespaces, include the namespace in the URL prefix; The SDK does not support namespaces natively yet.
 
 ## Version Mismatch
 
@@ -41,8 +56,8 @@ description: Troubleshooting Tolgee Android SDK
 
 ## Useful links
 
-- Installation: [`android-sdk/installation`](./installation.mdx)
-- Usage (Views): [`android-sdk/usage`](./usage.mdx)
-- Compose: [`android-sdk/jetpack-compose`](./jetpack/installation.mdx)
-- CLI for static strings: [`tolgee-cli`](/tolgee-cli/installation)
+- Installation: [Installation](./installation.mdx)
+- Usage (Views): [Usage](./usage.mdx)
+- Jetpack Compose: [Installation](./jetpack/installation.mdx), [Usage](./jetpack/usage.mdx)
+- CLI for static strings: [Tolgee CLI](/tolgee-cli/installation)
 
