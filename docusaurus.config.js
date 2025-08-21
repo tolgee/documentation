@@ -72,6 +72,7 @@ const config = {
   plugins: [
     'docusaurus-plugin-image-zoom',
     ['@docusaurus/plugin-client-redirects', redirects],
+    '@signalwire/docusaurus-plugin-llms-txt',
     async function tailwind() {
       return {
         name: 'docusaurus-tailwindcss',
