@@ -18,7 +18,7 @@ const sidebar: SidebarsConfig = {
       items: [
         {
           type: "doc",
-          id: "get-all-9",
+          id: "get-all-7",
           label: "Get all keys",
           className: "api-method get",
         },
@@ -30,7 +30,7 @@ const sidebar: SidebarsConfig = {
         },
         {
           type: "doc",
-          id: "delete-6",
+          id: "delete-12",
           label: "Delete one or multiple keys (post)",
           className: "api-method delete",
         },
@@ -54,7 +54,7 @@ const sidebar: SidebarsConfig = {
         },
         {
           type: "doc",
-          id: "get-info",
+          id: "get-info-1",
           label: "Get key info",
           className: "api-method post",
         },
@@ -72,13 +72,13 @@ const sidebar: SidebarsConfig = {
         },
         {
           type: "doc",
-          id: "delete-4",
+          id: "delete-14",
           label: "Delete one or multiple keys",
           className: "api-method delete",
         },
         {
           type: "doc",
-          id: "get-14",
+          id: "get-8",
           label: "Get one key",
           className: "api-method get",
         },
@@ -126,7 +126,7 @@ const sidebar: SidebarsConfig = {
       items: [
         {
           type: "doc",
-          id: "get-all-3",
+          id: "get-all-1",
           label: "Get available project labels",
           className: "api-method get",
         },
@@ -204,7 +204,7 @@ const sidebar: SidebarsConfig = {
       items: [
         {
           type: "doc",
-          id: "list-4",
+          id: "list-2",
           label: "List existing Content Delivery Configs",
           className: "api-method get",
         },
@@ -216,7 +216,7 @@ const sidebar: SidebarsConfig = {
         },
         {
           type: "doc",
-          id: "get-17",
+          id: "get-11",
           label: "Get one Content Delivery Config",
           className: "api-method get",
         },
@@ -234,7 +234,7 @@ const sidebar: SidebarsConfig = {
         },
         {
           type: "doc",
-          id: "delete-9",
+          id: "delete-5",
           label: "Delete Content Delivery Config",
           className: "api-method delete",
         },
@@ -486,7 +486,7 @@ const sidebar: SidebarsConfig = {
       items: [
         {
           type: "doc",
-          id: "get-4",
+          id: "get",
           label: "Get Import Settings",
           className: "api-method get",
         },
@@ -510,7 +510,7 @@ const sidebar: SidebarsConfig = {
       items: [
         {
           type: "doc",
-          id: "get-all-7",
+          id: "get-all-5",
           label: "Get all languages",
           className: "api-method get",
         },
@@ -522,7 +522,7 @@ const sidebar: SidebarsConfig = {
         },
         {
           type: "doc",
-          id: "get-12",
+          id: "get-6",
           label: "Get one language",
           className: "api-method get",
         },
@@ -534,7 +534,7 @@ const sidebar: SidebarsConfig = {
         },
         {
           type: "doc",
-          id: "delete-language-2",
+          id: "delete-language",
           label: "Delete specific language",
           className: "api-method delete",
         },
@@ -636,7 +636,7 @@ const sidebar: SidebarsConfig = {
         },
         {
           type: "doc",
-          id: "delete-language",
+          id: "delete-language-2",
           label: "Delete language",
           className: "api-method delete",
         },
@@ -696,7 +696,7 @@ const sidebar: SidebarsConfig = {
       items: [
         {
           type: "doc",
-          id: "get-tasks-1",
+          id: "get-tasks",
           label: "Get tasks",
           className: "api-method get",
         },
@@ -846,7 +846,7 @@ const sidebar: SidebarsConfig = {
         },
         {
           type: "doc",
-          id: "delete-15",
+          id: "delete-10",
           label: "Delete API key",
           className: "api-method delete",
         },
@@ -858,7 +858,7 @@ const sidebar: SidebarsConfig = {
         },
         {
           type: "doc",
-          id: "get-25",
+          id: "get-26",
           label: "Get one API key",
           className: "api-method get",
         },
@@ -930,7 +930,7 @@ const sidebar: SidebarsConfig = {
       items: [
         {
           type: "doc",
-          id: "get-info-2",
+          id: "get-info",
           label: "Get user info",
           className: "api-method get",
         },
@@ -1092,7 +1092,7 @@ const sidebar: SidebarsConfig = {
         },
         {
           type: "doc",
-          id: "get-all-1",
+          id: "get-all-15",
           label: "Get tags",
           className: "api-method get",
         },
@@ -1164,7 +1164,7 @@ const sidebar: SidebarsConfig = {
         },
         {
           type: "doc",
-          id: "get-all-5",
+          id: "get-all-3",
           label: "Get translation comments",
           className: "api-method get",
         },
@@ -1176,7 +1176,7 @@ const sidebar: SidebarsConfig = {
         },
         {
           type: "doc",
-          id: "get-10",
+          id: "get-4",
           label: "Get one translation comment",
           className: "api-method get",
         },
@@ -1197,54 +1197,6 @@ const sidebar: SidebarsConfig = {
           id: "set-state",
           label: "Set state of translation comment",
           className: "api-method put",
-        },
-      ],
-    },
-    {
-      type: "category",
-      label: "Llm providers",
-      link: {
-        type: "doc",
-        id: "llm-providers",
-      },
-      collapsible: false,
-      collapsed: false,
-      items: [
-        {
-          type: "doc",
-          id: "get-all-13",
-          label: "Get all organization-specific providers",
-          className: "api-method get",
-        },
-        {
-          type: "doc",
-          id: "create-provider",
-          label: "Create organization-specific provider",
-          className: "api-method post",
-        },
-        {
-          type: "doc",
-          id: "get-available-providers",
-          label: "Get all available llm providers",
-          className: "api-method get",
-        },
-        {
-          type: "doc",
-          id: "get-server-providers",
-          label: "Get all server-configured providers",
-          className: "api-method get",
-        },
-        {
-          type: "doc",
-          id: "update-provider",
-          label: "Update organization-specific provider",
-          className: "api-method put",
-        },
-        {
-          type: "doc",
-          id: "delete-provider",
-          label: "Delete organization-specific provider",
-          className: "api-method delete",
         },
       ],
     },
@@ -1272,7 +1224,7 @@ const sidebar: SidebarsConfig = {
         },
         {
           type: "doc",
-          id: "get-8",
+          id: "get-2",
           label: "Get one project",
           className: "api-method get",
         },
@@ -1352,24 +1304,6 @@ const sidebar: SidebarsConfig = {
     },
     {
       type: "category",
-      label: "Ai Playground result controller",
-      link: {
-        type: "doc",
-        id: "ai-playground-result-controller",
-      },
-      collapsible: false,
-      collapsed: false,
-      items: [
-        {
-          type: "doc",
-          id: "get-ai-playground-result",
-          label: "Get ai playground result",
-          className: "api-method post",
-        },
-      ],
-    },
-    {
-      type: "category",
       label: "Ai prompt controller",
       link: {
         type: "doc",
@@ -1425,6 +1359,72 @@ const sidebar: SidebarsConfig = {
           id: "delete-prompt",
           label: "Delete prompt",
           className: "api-method delete",
+        },
+      ],
+    },
+    {
+      type: "category",
+      label: "Llm providers",
+      link: {
+        type: "doc",
+        id: "llm-providers",
+      },
+      collapsible: false,
+      collapsed: false,
+      items: [
+        {
+          type: "doc",
+          id: "get-all-11",
+          label: "Get all organization-specific providers",
+          className: "api-method get",
+        },
+        {
+          type: "doc",
+          id: "create-provider",
+          label: "Create organization-specific provider",
+          className: "api-method post",
+        },
+        {
+          type: "doc",
+          id: "get-available-providers",
+          label: "Get all available llm providers",
+          className: "api-method get",
+        },
+        {
+          type: "doc",
+          id: "get-server-providers",
+          label: "Get all server-configured providers",
+          className: "api-method get",
+        },
+        {
+          type: "doc",
+          id: "update-provider",
+          label: "Update organization-specific provider",
+          className: "api-method put",
+        },
+        {
+          type: "doc",
+          id: "delete-provider",
+          label: "Delete organization-specific provider",
+          className: "api-method delete",
+        },
+      ],
+    },
+    {
+      type: "category",
+      label: "Ai Playground result controller",
+      link: {
+        type: "doc",
+        id: "ai-playground-result-controller",
+      },
+      collapsible: false,
+      collapsed: false,
+      items: [
+        {
+          type: "doc",
+          id: "get-ai-playground-result",
+          label: "Get ai playground result",
+          className: "api-method post",
         },
       ],
     },
@@ -1584,7 +1584,7 @@ const sidebar: SidebarsConfig = {
         },
         {
           type: "doc",
-          id: "get-plans",
+          id: "get-plans-2",
           label: "Get all public plans",
           className: "api-method get",
         },
@@ -1668,7 +1668,7 @@ const sidebar: SidebarsConfig = {
         },
         {
           type: "doc",
-          id: "delete-14",
+          id: "delete-16",
           label: "Delete uploaded images",
           className: "api-method delete",
         },
@@ -1682,7 +1682,7 @@ const sidebar: SidebarsConfig = {
       items: [
         {
           type: "doc",
-          id: "get-all-12",
+          id: "get-all-10",
           label: "Get all permitted organizations",
           className: "api-method get",
         },
@@ -1694,7 +1694,7 @@ const sidebar: SidebarsConfig = {
         },
         {
           type: "doc",
-          id: "get-23",
+          id: "get-15",
           label: "Get one organization",
           className: "api-method get",
         },
@@ -1706,7 +1706,7 @@ const sidebar: SidebarsConfig = {
         },
         {
           type: "doc",
-          id: "delete-13",
+          id: "delete-9",
           label: "Delete organization",
           className: "api-method delete",
         },
@@ -1784,7 +1784,7 @@ const sidebar: SidebarsConfig = {
         },
         {
           type: "doc",
-          id: "get-19",
+          id: "get-23",
           label: "Get organization by slug",
           className: "api-method get",
         },
@@ -1874,7 +1874,7 @@ const sidebar: SidebarsConfig = {
       items: [
         {
           type: "doc",
-          id: "get-all-14",
+          id: "get-all-12",
           label: "Get all organization glossaries",
           className: "api-method get",
         },
@@ -1892,7 +1892,7 @@ const sidebar: SidebarsConfig = {
         },
         {
           type: "doc",
-          id: "get-20",
+          id: "get-13",
           label: "Get glossary",
           className: "api-method get",
         },
@@ -1904,7 +1904,7 @@ const sidebar: SidebarsConfig = {
         },
         {
           type: "doc",
-          id: "delete-11",
+          id: "delete-7",
           label: "Delete glossary",
           className: "api-method delete",
         },
@@ -1938,7 +1938,7 @@ const sidebar: SidebarsConfig = {
       items: [
         {
           type: "doc",
-          id: "get-all-15",
+          id: "get-all-13",
           label: "Get all glossary terms",
           className: "api-method get",
         },
@@ -1956,7 +1956,7 @@ const sidebar: SidebarsConfig = {
         },
         {
           type: "doc",
-          id: "get-21",
+          id: "get-14",
           label: "Get glossary term",
           className: "api-method get",
         },
@@ -1968,7 +1968,7 @@ const sidebar: SidebarsConfig = {
         },
         {
           type: "doc",
-          id: "delete-12",
+          id: "delete-8",
           label: "Delete glossary term",
           className: "api-method delete",
         },
@@ -2000,7 +2000,7 @@ const sidebar: SidebarsConfig = {
         },
         {
           type: "doc",
-          id: "get-22",
+          id: "get-24",
           label: "Get glossary term translation for language",
           className: "api-method get",
         },
@@ -2086,7 +2086,7 @@ const sidebar: SidebarsConfig = {
       items: [
         {
           type: "doc",
-          id: "get-all-11",
+          id: "get-all-9",
           label: "Get PAKs",
           className: "api-method get",
         },
@@ -2104,7 +2104,7 @@ const sidebar: SidebarsConfig = {
         },
         {
           type: "doc",
-          id: "get-18",
+          id: "get-12",
           label: "Get one PAK",
           className: "api-method get",
         },
@@ -2116,7 +2116,7 @@ const sidebar: SidebarsConfig = {
         },
         {
           type: "doc",
-          id: "delete-10",
+          id: "delete-6",
           label: "Delete PAK",
           className: "api-method delete",
         },
@@ -2168,13 +2168,13 @@ const sidebar: SidebarsConfig = {
       items: [
         {
           type: "doc",
-          id: "list",
+          id: "list-3",
           label: "List batch operations",
           className: "api-method get",
         },
         {
           type: "doc",
-          id: "get-6",
+          id: "get-21",
           label: "Get batch operation",
           className: "api-method get",
         },
@@ -2278,7 +2278,7 @@ const sidebar: SidebarsConfig = {
       items: [
         {
           type: "doc",
-          id: "list-3",
+          id: "list-1",
           label: "List Content Storages",
           className: "api-method get",
         },
@@ -2296,7 +2296,7 @@ const sidebar: SidebarsConfig = {
         },
         {
           type: "doc",
-          id: "get-16",
+          id: "get-10",
           label: "Get Content Storage",
           className: "api-method get",
         },
@@ -2308,7 +2308,7 @@ const sidebar: SidebarsConfig = {
         },
         {
           type: "doc",
-          id: "delete-8",
+          id: "delete-4",
           label: "Delete Content Storage",
           className: "api-method delete",
         },
@@ -2524,7 +2524,7 @@ const sidebar: SidebarsConfig = {
       items: [
         {
           type: "doc",
-          id: "list-2",
+          id: "list",
           label: "List webhook configurations",
           className: "api-method get",
         },
@@ -2536,7 +2536,7 @@ const sidebar: SidebarsConfig = {
         },
         {
           type: "doc",
-          id: "get-9",
+          id: "get-3",
           label: "Get one webhook configuration",
           className: "api-method get",
         },
@@ -2568,8 +2568,8 @@ const sidebar: SidebarsConfig = {
       items: [
         {
           type: "doc",
-          id: "get-2",
-          label: "get_2",
+          id: "get-19",
+          label: "get_19",
           className: "api-method get",
         },
       ],
@@ -2642,7 +2642,7 @@ const sidebar: SidebarsConfig = {
       items: [
         {
           type: "doc",
-          id: "get",
+          id: "get-17",
           label: "Get user's preferences",
           className: "api-method get",
         },
@@ -2668,7 +2668,7 @@ const sidebar: SidebarsConfig = {
       items: [
         {
           type: "doc",
-          id: "get-tasks",
+          id: "get-tasks-2",
           label: "Get user tasks",
           className: "api-method get",
         },
