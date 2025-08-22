@@ -5,6 +5,7 @@
   display: inline-grid;
   overflow: hidden;
 }
+
 .screen-wrapper--container img {
   max-width: 100%;
   width: auto;
