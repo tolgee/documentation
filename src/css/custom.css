@@ -1,7 +1,8 @@
+/* Import components first as per PostCSS best practices */
+@import './components.css';
+
 @tailwind components;
 @tailwind utilities;
-
-@import './components.css';
 /* stylelint-disable docusaurus/copyright-header */
 /**
  * Any CSS included here will be global. The classic template
