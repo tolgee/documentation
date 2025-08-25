@@ -38,6 +38,24 @@ const docs = [
   [
     '@docusaurus/plugin-content-docs',
     {
+      id: 'ios-sdk',
+      path: 'ios-sdk',
+      routeBasePath: 'ios-sdk',
+      sidebarPath: require.resolve('./sidebariOSSdk.js'),
+      lastVersion: 'current',
+      includeCurrentVersion: true,
+      editUrl: 'https://github.com/tolgee/documentation/tree/main',
+      versions: {
+        current: {
+          banner: 'none',
+          label: '1.x.x',
+        },
+      },
+    },
+  ],
+  [
+    '@docusaurus/plugin-content-docs',
+    {
       id: 'android-sdk',
       path: 'android-sdk',
       routeBasePath: 'android-sdk',

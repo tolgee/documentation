@@ -72,9 +72,9 @@ function Home() {
                 />
                 <DocsTile
                   title="iOS SDK"
-                  text="The iOS SDK is on its way! Get ready to integrate Tolgee's powerful localization tools directly into your native iOS applications."
-                  link="/"
-                  linkText="Coming soon"
+                  text="Tolgee's iOS SDK brings seamless localization and OTA updates to your native iOS apps."
+                  link="/ios-sdk"
+                  linkText="Go to iOS SDK docs"
                 />
                 <DocsTile
                   title="Tolgee CLI"

@@ -24,6 +24,10 @@ module.exports.navbar = {
       to: '/js-sdk',
     },
     {
+      label: 'iOS SDK',
+      to: '/ios-sdk',
+    },
+    {
       label: 'Android SDK',
       to: '/android-sdk',
     },
