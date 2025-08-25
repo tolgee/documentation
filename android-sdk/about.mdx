@@ -1,0 +1,51 @@
+---
+id: about
+title: Overview
+slug: /
+description: Overview of Tolgee Android SDK with Over‑the‑Air (OTA) localization updates and how to get started.
+---
+
+> NOTE:
+> For managing static translations in your repository, consider using the [Tolgee CLI](/tolgee-cli/installation).
+
+Tolgee Android SDK lets you localize Android apps with dynamic content delivery, Over‑the‑Air (OTA) translation updates, reactive locale changes, and seamless integration with Views and Jetpack Compose.
+
+## Why use it
+
+- __Avoid releases for copy changes__: Ship translation fixes and new languages without a new app build.
+- __Faster iteration__: Product/localization teams can push improvements instantly and validate in production.
+- __Consistent UX__: UI updates reactively on locale change; fewer stale or mismatched strings.
+- __Resilient by default__: Works offline with caching and resource fallbacks; fewer blank strings.
+
+## What you can do
+
+- __Over‑the‑Air (OTA) updates__: Deliver translations via CDN (Cloud or self‑host) with caching.
+- __Views and Compose support__: `stringResource`/`pluralStringResource`, parameters, and reactive updates.
+- __Runtime locale API__: Switch locales and react to `Tolgee.changeFlow`.
+- __Fallbacks and preloading__: Android resources fallback; preload critical namespaces/locales.
+- __Hosting options__: Tolgee Cloud CDN or your own CDN.
+
+## Demo apps
+
+- __Android Views demo__: https://github.com/tolgee/tolgee-mobile-kotlin-sdk/tree/master/demo/exampleandroid
+- __Jetpack Compose demo__: https://github.com/tolgee/tolgee-mobile-kotlin-sdk/tree/master/demo/examplejetpack
+
+## Compatibility
+
+> NOTE:
+> Build configuration examples use Kotlin DSL (`build.gradle.kts`). Groovy DSL may work but is not officially supported/tested.
+
+## Get started
+
+- __Installation__: Set up dependencies and network security — [Installation](./installation.mdx)
+- __Modules overview__: Choose between Core and Compose — [Modules overview](./modules.mdx)
+- __Jetpack Compose__: Install, use, and troubleshoot — [Installation](/android-sdk/jetpack/installation), [Usage](/android-sdk/jetpack/usage), [Troubleshooting](/android-sdk/jetpack/troubleshooting)
+- __Usage with Views (non‑Compose)__: Simple keys, parameters, plurals, preloading, reactive flows — [Usage](./usage.mdx)
+- __Production guide__: Over‑the‑Air (OTA) updates, caching, formatting, testing — [Production guide](./production.mdx)
+- __Troubleshooting__: Common issues and diagnostics — [Troubleshooting](./troubleshooting.mdx)
+
+## Next steps
+
+- Install and configure the SDK: [Installation](./installation.mdx)
+- Connect your app to the Tolgee Platform and manage translations collaboratively: [Platform docs](../platform/)
+- Generate or manage static strings with CLI: [Tolgee CLI](/tolgee-cli/installation)

@@ -24,7 +24,7 @@ Android Documentation](https://developer.android.com/guide/topics/resources/loca
     </string-array>
     <string name="with_xliff_gs">
         <b>Hello! <xliff:g>%d</xliff:g></b>
-        <xliff:g>Dont'translate this</xliff:g>
+        <xliff:g>Don't translate this</xliff:g>
     </string>
 </resources>
 ```
@@ -64,6 +64,29 @@ import JavaPlaceholders from './components/placeholderConversion/_java.mdx'
 
 ## Exporting
 When exporting the data back to the .xml file, the placeholders are converted back to the original format.
+
+## Using with Tolgee Android SDK
+
+When you integrate these XML resources with the [Tolgee Android SDK](/android-sdk):
+
+- **Resource key mapping**: the SDK derives keys from Android resource IDs using `resources.getResourceEntryName`, so ensure the same keys exist in your Tolgee project.
+- **Formatter compatibility**: Android XML typically uses printf-style placeholders (e.g., `%s`, `%d`). The Android SDK defaults to `Sprintf` formatting but can be switched to `ICU` if your data uses Tolgee Universal ICU placeholders.
+
+```kotlin
+// Example SDK formatter configuration
+Tolgee.init {
+    contentDelivery {
+        // Sprintf is default for Android-style placeholders
+        format(Tolgee.Formatter.Sprintf)
+        // Or use ICU if your data is in ICU format
+        // format(Tolgee.Formatter.ICU)
+    }
+}
+```
+
+See also:
+
+- Android SDK: [Installation](/android-sdk/installation) · [Usage](/android-sdk/usage) · [Jetpack Compose](/android-sdk/jetpack/installation)
 
 ## Array support
 When importing data to Tolgee from the Android XML files, the array elements are converted into flat keys with

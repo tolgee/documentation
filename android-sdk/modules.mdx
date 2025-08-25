@@ -1,0 +1,65 @@
+---
+id: modules
+title: Modules overview
+description: Choose between Core and Compose based on your app architecture.
+---
+
+Tolgee Android SDK is split into modules so you only add what you need.
+
+## When to use which module
+
+- **Core**
+  - Use with traditional Android Views or any non-Compose UI.
+  - Provides content delivery (CDN), key lookup, formatting (Sprintf/ICU), caching.
+  - Start here if you don't use Jetpack Compose.
+
+- **Compose**
+  - Use with Jetpack Compose or Compose Multiplatform.
+  - Adds localized composables and helpers (e.g., `stringResource`, `pluralStringResource`).
+  - Requires `core` transitively.
+
+> NOTE:
+> The Gradle compiler plugin is not released yet and is not part of the current installation options.
+
+## Installation snippets
+
+Using a Version Catalog is recommended.
+
+```toml
+# gradle/libs.versions.toml
+[libraries]
+tolgee = { group = "io.tolgee.mobile-kotlin-sdk", name = "core", version.ref = "tolgee" }
+```
+
+```kotlin
+// build.gradle.kts (Core)
+dependencies {
+    implementation(libs.tolgee)
+}
+```
+
+For Compose, use the `compose` artifact instead of `core`:
+
+```toml
+# gradle/libs.versions.toml
+[libraries]
+tolgee = { group = "io.tolgee.mobile-kotlin-sdk", name = "compose", version.ref = "tolgee" }
+```
+
+```kotlin
+// build.gradle.kts (Compose)
+dependencies {
+    implementation(libs.tolgee)
+}
+```
+
+
+## Demos
+
+- Views: https://github.com/tolgee/tolgee-mobile-kotlin-sdk/tree/HEAD/demo/exampleandroid
+- Compose: https://github.com/tolgee/tolgee-mobile-kotlin-sdk/tree/HEAD/demo/examplejetpack
+- Compose Multiplatform: https://github.com/tolgee/tolgee-mobile-kotlin-sdk/tree/HEAD/demo/multiplatform-compose
+
+## Next steps
+
+- Ship confidently: [Production guide](./production.mdx)

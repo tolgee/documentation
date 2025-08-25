@@ -1,0 +1,63 @@
+---
+id: troubleshooting
+title: Troubleshooting
+description: Troubleshooting Tolgee Android SDK
+---
+
+## Translations Not Loading
+
+- Verify the CDN URL prefix (copy the full Content Delivery URL from Tolgee Platform → Developer settings → Content Delivery).
+- Ensure `Tolgee.init` runs early (e.g., in `Application.onCreate`).
+- Configure storage for caching: `TolgeeStorageProviderAndroid(context, BuildConfig.VERSION_CODE)`.
+- Load data before reading:
+  - Views: call `tolgee.preload(activity)` in `onStart`, or use `tolgee.tFlow` for reactive updates.
+  - Compose: use `stringResource`/`pluralStringResource` which handle updates automatically.
+- Test connectivity to your CDN URL prefix:
+
+```bash
+curl -I "https://cdn.tolg.ee/your-cdn-url-prefix/en.json"
+```
+
+Expect HTTP 200. For 403/404, re‑copy the prefix and check project permissions.
+
+### CDN/Network
+
+- If using Tolgee Cloud, verify your `network_security.xml` includes `tolgee.io` and `tolg.ee` domains and that the `AndroidManifest.xml` references it via `android:networkSecurityConfig`.
+- If self-hosting, replace CDN URL with your domain and allow it in `network_security.xml`.
+- Test connectivity to the CDN URL prefix in a browser/curl to ensure it returns JSON bundles.
+
+## Locale Issues
+
+- Verify that your project supports the locale code you're using
+- Check that translations for the selected locale exist in your Tolgee project
+- Use `tolgee.changeFlow` to monitor locale changes and update your UI accordingly
+
+## Android Integration Issues
+
+- Ensure that the `TolgeeStorageProviderAndroid` is properly initialized with the context and version code which changes with each app update
+- Check that your Android resources are properly structured - Tolgee is using `resources.getResourceEntryName` to find key for the resource
+- Activity context isn't wrapped: Make sure Activities override `attachBaseContext` and call `TolgeeContextWrapper.wrap(newBase)` so `getString` uses Tolgee.
+
+### Common error messages and fixes
+
+- java.net.UnknownServiceException: CLEARTEXT communication to `<domain>` not permitted
+  - Cause: Required domain(s) are using plain http and are not allowed in network security config.
+  - Fix: Add domains to res/xml/network_security.xml and reference it from AndroidManifest via android:networkSecurityConfig.
+
+- HTTP 403/404 when fetching from CDN prefix
+  - Cause: Incorrect CDN URL prefix.
+  - Fix: Copy the exact CDN URL prefix from Tolgee Platform, verify the environment, and test in a browser/curl.
+  - Note: If using namespaces, include the namespace in the URL prefix; The SDK does not support namespaces natively yet.
+
+## Version Mismatch
+
+- Make sure your app uses a consistent `tolgeeVersion` across `core` and `compose` artifacts.
+- If you migrated formats, confirm formatter configuration matches your data (e.g., `Sprintf` vs `ICU`).
+
+## Useful links
+
+- Installation: [Installation](./installation.mdx)
+- Usage (Views): [Usage](./usage.mdx)
+- Jetpack Compose: [Installation](./jetpack/installation.mdx), [Usage](./jetpack/usage.mdx)
+- CLI for static strings: [Tolgee CLI](/tolgee-cli/installation)
+
