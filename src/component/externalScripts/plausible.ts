@@ -2,6 +2,21 @@ import { appendScript } from './appendScript';
 import { useEffect } from 'react';
 import useDocusaurusContext from '@docusaurus/useDocusaurusContext';
 
+export const appendPlausibleUrlScript = (trackingDomain: string) =>
+  appendScript(
+    '/js/script.hash.outbound-links.pageview-props.revenue.tagged-events.js',
+    false,
+    { domain: trackingDomain }
+  );
+
+export const appendPlausibleInlineScript = () => {
+  const innerHTML = `
+  window.plausible = window.plausible || function() { (window.plausible.q = window.plausible.q || []).push(arguments) }
+  `;
+
+  return appendScript(undefined, false, {}, innerHTML);
+};
+
 export const usePlausible = (
   callback?: (plausible: (...args: any[]) => void) => void
 ) => {
@@ -21,19 +36,4 @@ export const usePlausible = (
       };
     }
   }, []);
-};
-
-export const appendPlausibleUrlScript = (trackingDomain: string) =>
-  appendScript(
-    '/js/script.hash.outbound-links.pageview-props.revenue.tagged-events.js',
-    false,
-    { domain: trackingDomain }
-  );
-
-export const appendPlausibleInlineScript = () => {
-  const innerHTML = `
-  window.plausible = window.plausible || function() { (window.plausible.q = window.plausible.q || []).push(arguments) }
-  `;
-
-  return appendScript(undefined, false, {}, innerHTML);
 };

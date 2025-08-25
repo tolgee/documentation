@@ -12,6 +12,6 @@ const website = {
 } as const;
 
 // ensure that it's correct type
-<WithContext<WebSite>>website;
+void (<WithContext<WebSite>>website);
 
 export default website;

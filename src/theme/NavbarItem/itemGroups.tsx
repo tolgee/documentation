@@ -3,7 +3,7 @@ export const separateToGroups = (items) => {
   let currentGroup = undefined;
   for (const item of items) {
     if (item.type === 'html' && item.value?.startsWith('#')) {
-      currentGroup && itemGroups.push(currentGroup);
+      if (currentGroup) itemGroups.push(currentGroup);
       currentGroup = {
         title: item.value.substring(1),
         items: [],

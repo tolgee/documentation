@@ -7,6 +7,7 @@ import { navbar } from './navbar';
 import { footer } from './footer';
 import type { Config } from '@docusaurus/types';
 import openApiPluginConfig from './apiSpecGeneration/pluginConfig';
+import tailwindPlugin from './plugins/tailwind-config.cjs';
 
 const config: Config = {
   title: 'Tolgee',
@@ -72,21 +73,9 @@ const config: Config = {
   plugins: [
     'docusaurus-plugin-image-zoom',
     ['@docusaurus/plugin-client-redirects', redirects],
-    '@signalwire/docusaurus-plugin-llms-txt',
-    async function tailwind() {
-      return {
-        name: 'docusaurus-tailwindcss',
-        configurePostCss(postcssOptions) {
-          postcssOptions.plugins = [
-            require('tailwindcss'),
-            require('autoprefixer'),
-          ];
-          return postcssOptions;
-        },
-      };
-    },
     openApiPluginConfig,
     ...docs,
+    tailwindPlugin,
   ],
   customFields: {
     googleTrackingId: process.env.DOCUSAURUS_GOOGLE_TRACKING_ID,

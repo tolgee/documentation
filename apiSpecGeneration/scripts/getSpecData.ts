@@ -1,11 +1,21 @@
 import fs from 'fs';
 
+export const possibleExtensions = ['ee', 'cloud', 'self-hosted'] as const;
+type Extension = (typeof possibleExtensions)[number];
+
+function convertCamelToKebab(string: string) {
+  return string
+    .replace(/([a-z0-9]|(?=[A-Z]))([A-Z])/g, '$1-$2')
+    .replace('_', '-')
+    .toLowerCase();
+}
+
 export function getData() {
   const json = fs.readFileSync(__dirname + '/../apiSpecs.json').toString();
   const apis = JSON.parse(json);
 
-  const tags = {};
-  const operations = {};
+  const tags: Record<string, number> = {};
+  const operations: Record<string, number> = {};
   const extensions: Record<string, Extension[]> = {};
 
   for (const path in apis.paths) {
@@ -30,14 +40,4 @@ export function getData() {
     }
   }
   return { tags, operations, extensions };
-}
-
-export const possibleExtensions = ['ee', 'cloud', 'self-hosted'] as const;
-type Extension = (typeof possibleExtensions)[number];
-
-function convertCamelToKebab(string) {
-  return string
-    .replace(/([a-z0-9]|(?=[A-Z]))([A-Z])/g, '$1-$2')
-    .replace('_', '-')
-    .toLowerCase();
 }
