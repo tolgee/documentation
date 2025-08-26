@@ -1,0 +1,31 @@
+---
+id: swizzling
+title: Swizzling NSLocalizedString
+description: How to achieve (almost) zero-effort integration with existing NSLocalizedString usage.
+---
+
+## Swizzling of Apple's APIs
+Tolgee optionally supports swizzling of `Bundle.localizedString`, which is being used internally by `NSLocalizedString` function. 
+
+In order to enable swizzling, set enviromental variable `TOLGEE_ENABLE_SWIZZLING=true` in your scheme settings. Refer to our UIKit example to see it in action.
+
+Following calls will then be backed by the Tolgee SDK:
+```swift
+Bundle.main.localizedString(forKey: "welcome_message")
+NSLocalizedString("welcome_message", comment: "")
+```
+
+Regular string parameters are supported as well:
+```swift
+let userName = "John"
+let welcomeMessage = String(format: NSLocalizedString("welcome_user", comment: ""), userName)
+```
+
+> **NOTE:**
+> Plural strings are currently not supported and will fall back to using the string bundled with the app.
+
+:::warning
+
+Method swizzling is a powerful technique, but it can lead to unexpected behavior if not used carefully, especially if there is multiple SDKs swizzling the same APIs. Make sure to test your application thoroughly after enabling swizzling.
+
+:::

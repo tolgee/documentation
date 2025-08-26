@@ -1,0 +1,105 @@
+---
+id: get_started
+title: Get started
+description: How to install Tolgee iOS SDK and basic usage instructions.
+---
+
+## Platform Support
+
+| Platform | Minimum Version | 
+|----------|----------------|
+| iOS      | 16.0+          |
+| macOS    | 13.0+          |
+| tvOS     | 16.0+          |
+| watchOS  | 6.0+           |
+
+## Requirements
+
+- **Swift:** 6.0+
+- **Xcode:** 16.3+
+
+## Adding the SDK
+
+Add to your `Package.swift`:
+
+```swift
+dependencies: [
+    .package(url: "https://github.com/tolgee/tolgee-mobile-swift-sdk", from: "1.0.0")
+]
+```
+
+Or through Xcode:
+1. File → Add Package Dependencies...
+2. Enter: `https://github.com/tolgee/tolgee-mobile-swift-sdk`
+3. Choose version and add to your target
+
+## Initialization and configuration
+
+Initialize the SDK with your CDN URL, typically in your AppDelegate or similar startup location:
+
+```swift
+import Tolgee
+
+let cdnURL = URL(string: "https://cdn.tolgee.io/your-project-id")!
+Tolgee.shared.initialize(cdn: cdnURL)
+```
+:::warning
+
+Make sure that the format for your CDN files is set to `Apple SDK` in your Tolgee project developer/cdn settings.
+
+:::
+
+> **TIP**:
+> Refer to our SwiftUI and UIKit [examples](https://github.com/tolgee/tolgee-mobile-swift-sdk/tree/main/Examples) for a complete setup.
+
+
+You can customize the initialization with additional parameters:
+```swift
+// Initialize with specific language and namespaces
+Tolgee.shared.initialize(
+    cdn: URL(string: "https://cdn.tolgee.io/your-project-id")!,
+    language: "es", // Force Spanish instead of auto-detection
+    namespaces: ["buttons", "errors", "onboarding"], // Organize translations
+    enableDebugLogs: true // Enable detailed logging for development
+)
+```
+
+## Fetching remote translations
+You have to explicitly call the `fetch` method to fetch translations from the CDN.
+```swift
+await Tolgee.shared.remoteFetch()
+```
+
+## Basic Translation
+
+```swift
+// Simple string translation
+let title = Tolgee.shared.translate("app_title")
+
+// Translation with arguments
+let welcomeMessage = Tolgee.shared.translate("welcome_user", "John")
+let itemCount = Tolgee.shared.translate("items_count", 5)
+let nameAndAge = Tolgee.shared.translate("My name is %@ and I'm %lld years old", "John", 30)
+```
+> **NOTE:**
+> Strings with multiple pluralized parameters are currently **not supported**, 
+> for example `Tolgee.shared.translate("I have %lld apples and %lld oranges", 2, 3)`
+
+## Thread-safety
+
+Tolgee SDK is designed to be used synchronously on the main actor (except the `fetch` method). Access to the SDK from other actors generally has to be awaited.
+
+```swift
+Task.deattached {
+    // notice that the call has to be awaited outside of the main actor
+    let str = await Tolgee.shared.translate("key")
+}
+```
+
+## Next steps
+
+- __SwiftUI compatibility__: Learn how Tolgee iOS SDK works with your SwiftUI code — [SwiftUI](./swiftui.mdx)
+- __NSLocalizedString swizzling__: Learn how to achieve zero config integration by enabling method swizzling — [Swizzling](swizzling.mdx)
+- __Advanced usage__: Tips and tricks for debugging and using the SDK with advanced codebases — [Advanced usage](./advanced.mdx)
+
+
