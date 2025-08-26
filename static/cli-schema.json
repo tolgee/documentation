@@ -106,6 +106,12 @@
         "removeOtherKeys": {
           "description": "Remove keys which are not present in the import (within imported namespaces).",
           "type": "boolean"
+        },
+        "errorOnUnresolvedConflict": {
+          "$ref": "#/$defs/errorOnUnresolvedConflict"
+        },
+        "overrideMode": {
+          "$ref": "#/$defs/overrideMode"
         }
       }
     },
@@ -282,6 +288,23 @@
         "OVERRIDE",
         "KEEP",
         "NO_FORCE"
+      ]
+    },
+    "overrideMode": {
+      "description": "Specifies what is considered non-overridable translation: \n - RECOMMENDED - protected reviewed translations are considered as non-overridable\n - ALL - translations that user has permissions for",
+      "type": "string",
+      "enum": [
+        "ALL",
+        "RECOMMENDED"
+      ]
+    },
+    "errorOnUnresolvedConflict": {
+      "description": "Fail the whole import if there are unresolved conflicts in import: \n - yes - fail if any unresolved conflict is present\n no - don't fail and just print unresolved conflicts\n auto - fails when when forceMode=KEEP, otherwise doesn't fail",
+      "type": "string",
+      "enum": [
+        "yes",
+        "no",
+        "auto"
       ]
     },
     "path": {
