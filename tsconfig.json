@@ -1,10 +1,10 @@
 {
-  "extends": "@docusaurus/tsconfig/tsconfig.json",
+  "extends": "@docusaurus/tsconfig",
   "compilerOptions": {
     "types": ["@docusaurus/theme-classic"],
     "resolveJsonModule": true,
     "downlevelIteration": true
   },
   "include": ["src/"],
-  "exclude": ["node_modules"]
+  "exclude": [".docusaurus", "build", "node_modules"]
 }

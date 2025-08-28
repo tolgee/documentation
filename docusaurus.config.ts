@@ -1,14 +1,14 @@
-// @ts-check
-require('dotenv').config();
+import dotenv from 'dotenv';
+dotenv.config();
 
-const { docs } = require('./docs');
-const { redirects } = require('./redirects');
-const { navbar } = require('./navbar');
-const { footer } = require('./footer');
-const openApiPluginConfig = require('./apiSpecGeneration/pluginConfig');
+import { docs } from './docs';
+import { redirects } from './redirects';
+import { navbar } from './navbar';
+import { footer } from './footer';
+import type { Config } from '@docusaurus/types';
+import openApiPluginConfig from './apiSpecGeneration/pluginConfig';
 
-/** @type {import("@docusaurus/types").Config} */
-const config = {
+const config: Config = {
   title: 'Tolgee',
   tagline: 'Localization for everyone',
   url: 'https://docs.tolgee.io',
@@ -49,7 +49,7 @@ const config = {
       {
         docs: {
           sidebarPath: require.resolve('./sidebars.js'),
-          docItemComponent: '@theme/ApiItem', // Derived from docusaurus-theme-openapi
+          docItemComponent: '@theme/DocItem', // Derived from docusaurus-theme-openapi
           editUrl: 'https://github.com/tolgee/documentation/tree/main',
         },
         blog: {
