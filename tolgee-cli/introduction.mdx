@@ -13,6 +13,25 @@ You can find the **source code** of the CLI on [GitHub](https://github.com/tolge
   <source src="/tolgee-cli.webm"></source>
 </video>
 
+## Best Practices
+
+### Single Source of Truth
+
+Tolgee recommends using the **Tolgee Platform as the single source of truth** for all translations, rather than maintaining default values in your code. This approach:
+
+- **Prevents conflicts** between code changes and translator/PM updates
+- **Enables collaboration** - non-developers can manage translations directly
+- **Maintains consistency** across your entire localization workflow
+
+### Recommended Workflow
+
+1. **Extract keys without default values** from your code using the CLI
+2. **Manage all translation content** in the Tolgee Platform
+3. **Use `tolgee pull`** to download translations as local fallback files
+4. **Keep fallback files in version control** for offline functionality
+
+This workflow decouples translation content from code, allowing your team to iterate on wording without requiring code changes.
+
 ## Features
 
 ### Easy project configuration

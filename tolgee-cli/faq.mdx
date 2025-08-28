@@ -1,0 +1,101 @@
+---
+id: faq
+title: Frequently Asked Questions
+---
+
+This page addresses common questions and misconceptions about the Tolgee CLI.
+
+## Key Management and Default Values
+
+### Q: Does the CLI detect duplicate keys with different default values?
+
+**A: No, currently the CLI does not detect this scenario.** 
+
+If you have the same key with different default values in your code:
+
+```jsx
+<T keyName="save-btn" defaultValue="Save" />
+<T keyName="save-btn" defaultValue="Save (Changed)" />
+```
+
+The CLI will not warn you about this conflict. This is a known limitation.
+
+**Recommended approach**: Use consistent default values across your codebase, or better yet, rely on the Tolgee Platform as the single source of truth for all translations.
+
+### Q: Why don't default values automatically update my base language translations?
+
+**A: This is by design to prevent conflicts between code and platform translations.**
+
+When you first sync a key, the default value becomes the base language translation. However, subsequent changes to default values in code will not update the platform translation. This prevents situations where:
+
+- A developer changes a default value in code
+- A translator or PM has already refined the wording in the platform
+- The two sources of truth conflict with each other
+
+### Q: Can I search for strings in my code if I only store keys?
+
+**A: This depends on your approach to translation management.**
+
+If you follow Tolgee's recommended approach of using the platform as the single source of truth:
+- You would search for keys in your code: `grep -r "save-btn" src/`
+- Then look up the actual translation in the Tolgee Platform
+
+If you maintain fallback translations in your code:
+- You can search for both keys and translation strings
+- But you'll need to manage consistency between code and platform
+
+## Best Practices and Workflow
+
+### Q: Should I keep default values in my code?
+
+**A: Tolgee recommends against using default values as the source of truth.**
+
+Here's why:
+- **Single source of truth**: Having translations in both code and platform creates confusion
+- **Team collaboration**: PMs, UX designers, and translators can update wording directly in the platform
+- **Consistency**: Prevents conflicts between developer changes and translator/PM changes
+
+**Recommended approach**: Use keys without default values, and rely on the Tolgee Platform for all translation content.
+
+### Q: What about fallback translations for when the platform is unavailable?
+
+**A: Use the pull command to maintain local fallback files.**
+
+Instead of default values in code:
+1. Use `tolgee pull` to download translations to local files
+2. Configure your app to use these files as fallbacks
+3. Keep these files in version control
+4. Update them regularly via `tolgee pull`
+
+This approach gives you:
+- Reliable fallbacks without CDN dependency
+- Platform as single source of truth
+- Automatic updates via CLI
+
+### Q: How do I handle the workflow where I want to update translations from code?
+
+**A: Update translations directly in the Tolgee Platform, not in code.**
+
+Instead of changing default values in code:
+1. Update the translation in the Tolgee Platform UI
+2. Use the platform's features like translation memory, suggestions, and collaboration
+3. Pull the updated translations to your local files if needed
+
+This workflow:
+- Keeps the platform as the authoritative source
+- Allows non-developers to manage translations
+- Prevents conflicts and inconsistencies
+
+## Technical Limitations
+
+### Q: Will duplicate key detection be added in the future?
+
+**A: This is a known limitation that may be addressed in future versions.**
+
+Currently, the CLI focuses on extracting keys and syncing with the platform. Enhanced validation features like duplicate detection are being considered for future releases.
+
+### Q: Can I force the CLI to update base language translations from default values?
+
+**A: No, this is not supported and goes against Tolgee's recommended workflow.**
+
+The CLI is designed to treat the platform as the authoritative source for translations. If you need to update base language translations, do so directly in the Tolgee Platform.
