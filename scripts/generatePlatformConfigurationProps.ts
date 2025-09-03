@@ -11,7 +11,8 @@ interface Data {
   defaultExplanation: string | null;
   removedIn: string | null;
   children?: Data[];
-  prefix: string | null;
+  prefix?: string;
+  isList?: boolean;
 }
 
 type ConfigFileFormat = 'yaml' | 'env' | 'properties';
@@ -19,6 +20,7 @@ type DisplayOption = 'kebab-case' | 'snake-upper-case';
 type ConfigFormat = {
   value: ConfigFileFormat;
   label: string;
+  fileName: string;
   displayOption: DisplayOption;
 };
 
@@ -32,11 +34,22 @@ const definition: Definition = {
   url: 'http://localhost:8080/v2/public/configuration-properties',
   filename: 'platformConfigurationProps.json',
   configFormats: [
-    { value: 'yaml', label: 'YAML', displayOption: 'kebab-case' },
-    { value: 'env', label: '.env', displayOption: 'snake-upper-case' },
+    {
+      value: 'yaml',
+      label: 'YAML',
+      fileName: 'config.yaml',
+      displayOption: 'kebab-case'
+    },
+    {
+      value: 'env',
+      label: '.env',
+      fileName: '.env',
+      displayOption: 'snake-upper-case'
+    },
     {
       value: 'properties',
       label: 'application.properties',
+      fileName: 'application.properties',
       displayOption: 'kebab-case',
     },
   ],
@@ -68,10 +81,9 @@ function getName(item: Data, displayOption: DisplayOption) {
 function getNameWithoutDisplayName(item: Data, displayOption: DisplayOption) {
   let name: string;
   if (displayOption === 'kebab-case') {
-    name = item.prefix === null ? item.name : camelCaseToKebabCase(item.name);
+    name = camelCaseToKebabCase(item.name);
   } else if (displayOption === 'snake-upper-case') {
-    name =
-      item.prefix === null ? item.name : camelCaseToSnakeUpperCase(item.name);
+    name = camelCaseToSnakeUpperCase(item.name);
   } else {
     name = item.name;
   }
@@ -85,27 +97,36 @@ function writeItems(
   level = 2
 ) {
   items.forEach((item) => {
-    const displayOption =
-      definition.configFormats[configFormatIndex].displayOption;
-    const name = getName(item, displayOption);
-
-    writeItemHeading(
-      item,
-      configFormatIndex,
-      stream,
-      level,
-      name,
-      displayOption
-    );
-
-    writeItemPrefix(item, displayOption, stream);
-
-    writeItemDescription(item, stream);
-
-    if (item.children) {
-      writeItems(item.children, stream, configFormatIndex, level + 1);
-    }
+    writeItem(item, stream, configFormatIndex, level);
   });
+}
+
+function writeItem(
+  item: Data,
+  stream: fs.WriteStream,
+  configFormatIndex: number,
+  level = 2
+) {
+  const displayOption =
+    definition.configFormats[configFormatIndex].displayOption;
+  const name = getName(item, displayOption);
+
+  writeItemHeading(
+    item,
+    configFormatIndex,
+    stream,
+    level,
+    name,
+    displayOption
+  );
+
+  writeItemPrefix(item, displayOption, stream);
+
+  writeItemDescription(item, stream);
+
+  if (item.children) {
+    writeItems(item.children, stream, configFormatIndex, level + 1);
+  }
 }
 
 function writeItemHeading(
@@ -200,52 +221,50 @@ function writeFullConfig(
 ) {
   const name = 'Full configuration example';
   if (configFormatIndex === 0) {
-    stream.write(`## ${name}`);
+    stream.write(`## ${name}\n`);
   } else {
     const slugger = createSlugger();
-    stream.write(`<h2 id="${slugger.slug(name)}">${name}</h2>`);
+    stream.write(`<h2 id="${slugger.slug(name)}">${name}</h2>\n`);
   }
 
   stream.write(`
 
 <Tabs lazy groupId="config-format" queryString values={${JSON.stringify(
-    definition.configFormats
-  )}}>
+    definition.configFormats.map((format) => ({ value: format.value, label: format.label }))
+  )}} />
 `);
 
   const format = definition.configFormats[configFormatIndex];
-  stream.write(`<TabItem value="${format.value}">\n`);
+  // stream.write(`<TabItem value="${format.value}">\n`);
   stream.write('<details>');
   stream.write('\n\n');
 
+  stream.write('```' + format.value + ' title="' + format.fileName + '"\n');
+
   switch (format.value) {
     case 'yaml':
-      stream.write('```yaml title="config.yaml"\n');
       writeFullYamlConfig(items, format.displayOption, stream);
-      stream.write('```');
       break;
     case 'env':
-      stream.write('```env title=".env"\n');
       writeFullEnvConfig(items, format.displayOption, stream);
-      stream.write('```');
       break;
     case 'properties':
-      stream.write('```properties title="application.properties"\n');
       writeFullPropertiesConfig(items, format.displayOption, stream);
-      stream.write('```');
       break;
   }
+
+  stream.write('```');
 
   stream.write('\n\n');
 
   stream.write('</details>');
   stream.write('\n\n');
 
-  stream.write('</TabItem>');
-  stream.write('\n\n');
-
-  stream.write('</Tabs>');
-  stream.write('\n\n');
+  // stream.write('</TabItem>');
+  // stream.write('\n\n');
+  // //
+  // stream.write('</Tabs>');
+  // stream.write('\n\n');
 }
 
 function writeFullPropertiesConfig(
@@ -255,28 +274,42 @@ function writeFullPropertiesConfig(
   prefix = ''
 ) {
   items.forEach((item) => {
-    if (item.removedIn) return;
-    const name = getNameWithoutDisplayName(item, displayOption);
-    if (item.children) {
-      if (!item.prefix) {
-        writeFullPropertiesConfig(item.children, displayOption, stream);
-      } else {
-        writeFullPropertiesConfig(
-          item.children,
-          displayOption,
-          stream,
-          `${prefix ? `${prefix}.` : ''}${name}`
-        );
-      }
-    } else {
-      stream.write(
-        `${prefix ? `${prefix}.` : ''}${name} =${
-          item.defaultValue ? ` ${item.defaultValue}` : ''
-        }`
-      );
-      stream.write('\n');
-    }
+    writeItemPropertiesConfig(item, displayOption, stream, prefix);
   });
+}
+
+function writeItemPropertiesConfig(
+  item: Data,
+  displayOption: DisplayOption,
+  stream: fs.WriteStream,
+  prefix = ''
+) {
+  if (item.removedIn) return;
+  const name = getNameWithoutDisplayName(item, displayOption);
+  if (item.children) {
+    if (item.isList) {
+      writeFullPropertiesConfig(
+        item.children,
+        displayOption,
+        stream,
+        `${prefix ? `${prefix}.` : ''}${name}[0]`
+      )
+    } else {
+      writeFullPropertiesConfig(
+        item.children,
+        displayOption,
+        stream,
+        `${prefix ? `${prefix}.` : ''}${name}`
+      );
+    }
+  } else {
+    stream.write(
+      `${prefix ? `${prefix}.` : ''}${name} =${
+        item.defaultValue ? ` ${item.defaultValue}` : ''
+      }`
+    );
+    stream.write('\n');
+  }
 }
 
 function writeFullEnvConfig(
@@ -286,26 +319,40 @@ function writeFullEnvConfig(
   prefix = ''
 ) {
   items.forEach((item) => {
-    if (item.removedIn) return;
-    const name = getNameWithoutDisplayName(item, displayOption);
-    if (item.children) {
-      if (!item.prefix) {
-        writeFullEnvConfig(item.children, displayOption, stream, prefix);
-      } else {
-        writeFullEnvConfig(
-          item.children,
-          displayOption,
-          stream,
-          `${prefix ? `${prefix}_` : ''}${name}`
-        );
-      }
-    } else {
-      stream.write(
-        `${prefix ? `${prefix}_` : ''}${name}=${item.defaultValue ?? ''}`
-      );
-      stream.write('\n');
-    }
+    writeItemEnvConfig(item, displayOption, stream, prefix);
   });
+}
+
+function writeItemEnvConfig(
+  item: Data,
+  displayOption: DisplayOption,
+  stream: fs.WriteStream,
+  prefix = ''
+) {
+  if (item.removedIn) return;
+  const name = getNameWithoutDisplayName(item, displayOption);
+  if (item.children) {
+    if (item.isList) {
+      writeFullEnvConfig(
+        item.children,
+        displayOption,
+        stream,
+        `${prefix ? `${prefix}_` : ''}${name}_0`
+      );
+    } else {
+      writeFullEnvConfig(
+        item.children,
+        displayOption,
+        stream,
+        `${prefix ? `${prefix}_` : ''}${name}`
+      );
+    }
+  } else {
+    stream.write(
+      `${prefix ? `${prefix}_` : ''}${name}=${item.defaultValue ?? ''}`
+    );
+    stream.write('\n');
+  }
 }
 
 function writeFullYamlConfig(
@@ -315,28 +362,41 @@ function writeFullYamlConfig(
   level = 0
 ) {
   items.forEach((item) => {
-    if (item.removedIn) return;
-    const name = getNameWithoutDisplayName(item, displayOption);
-    if (item.children) {
-      if (!item.prefix) {
-        writeFullYamlConfig(item.children, displayOption, stream, level);
-      } else {
-        stream.write(`${' '.repeat(level * 2)}${name}:`);
-        stream.write('\n');
-        writeFullYamlConfig(item.children, displayOption, stream, level + 1);
-      }
-    } else {
-      stream.write(
-        `${' '.repeat(level * 2)}${name}:${
-          item.defaultValue ? ` ${item.defaultValue}` : ''
-        }`
-      );
-      stream.write('\n');
-    }
+    writeItemYamlConfig(item, displayOption, stream, level);
   });
 }
 
-async function generateDocsMdx(data: Data[]) {
+function writeItemYamlConfig(
+  item: Data,
+  displayOption: DisplayOption,
+  stream: fs.WriteStream,
+  level = 0
+) {
+  if (item.removedIn) return;
+  const name = getNameWithoutDisplayName(item, displayOption);
+  if (item.children) {
+    if (item.isList) {
+      stream.write(`${' '.repeat(level * 2)}${name}:`);
+      stream.write('\n');
+      stream.write(`${' '.repeat(level * 2)}-`);
+      stream.write('\n');
+      writeFullYamlConfig(item.children, displayOption, stream, level + 1);
+    } else {
+      stream.write(`${' '.repeat(level * 2)}${name}:`);
+      stream.write('\n');
+      writeFullYamlConfig(item.children, displayOption, stream, level + 1);
+    }
+  } else {
+    stream.write(
+      `${' '.repeat(level * 2)}${name}:${
+        item.defaultValue ? ` ${item.defaultValue}` : ''
+      }`
+    );
+    stream.write('\n');
+  }
+}
+
+function generateDocsMdx(data: Data[]) {
   const docsStream = fs.createWriteStream(
     Path.resolve(
       __dirname,
@@ -415,7 +475,7 @@ import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
 <Tabs lazy groupId="config-format" queryString values={${JSON.stringify(
-    definition.configFormats
+    definition.configFormats.map((format) => ({ value: format.value, label: format.label }))
   )}}>
 
 `);

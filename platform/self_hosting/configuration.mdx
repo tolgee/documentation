@@ -14,7 +14,7 @@ Example configuration files:
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-<Tabs lazy groupId="config-format" queryString values={[{"value":"yaml","label":"YAML","displayOption":"kebab-case"},{"value":"env","label":".env","displayOption":"snake-upper-case"},{"value":"properties","label":"application.properties","displayOption":"kebab-case"}]}>
+<Tabs lazy groupId="config-format" queryString values={[{"value":"yaml","label":"YAML"},{"value":"env","label":".env"},{"value":"properties","label":"application.properties"}]}>
 
 <TabItem value="yaml">
 
@@ -48,7 +48,7 @@ to configure its database connection. These properties can be omitted when using
 
 - ##### `url` \{#url}
 
-  The url of the datasource in format `jdbc:postgresql://<host>:<port>/<dbname>`. e.g. `jdbc:postgresql://db:5432/postgres`
+  The url of the datasource in format `jdbc:postgresql://host:port/dbname`. e.g. `jdbc:postgresql://db:5432/postgres`
 
 - ##### `username` \{#username}
 
@@ -175,6 +175,24 @@ Configuration of Tolgee's authentication.
   By default, when the user has no organization, one is created for them; this doesn't apply when this setting is set to `false`. In that case, the user without organization has no permissions on the server.
   
   When SSO authentication is enabled, users created by SSO don't have their own organization automatically created no matter the value of this setting. (default: `true`)
+
+- ##### ~~`create-initial-user`~~ \{#create-initial-user}
+
+  **Removed in:** 3.31.0
+
+  If true, Tolgee creates initial user on first start-up. (default: `true`)
+
+- ##### ~~`ldap.*`~~ \{#ldap.*}
+
+  **Removed in:** 3.31.0
+
+  LDAP-related settings.
+
+- ##### ~~`user-can-create-projects`~~ \{#user-can-create-projects}
+
+  **Removed in:** 2.33.0
+
+  Whether regular users are allowed to create projects. When disabled, only administrators can create projects (default: `true`)
 
 #### GitHub
 
@@ -325,24 +343,6 @@ There is a significant difference between global and per organization SSO: Globa
 
   Minutes after which the server will recheck the user's with the SSO provider to ensure the user account is still valid. This is to prevent the user from being able to access the server after the account has been disabled or deleted in the SSO provider. (default: `10`)
 
-- ##### ~~`user-can-create-projects`~~ \{#user-can-create-projects}
-
-  **Removed in:** 2.33.0
-
-  Whether regular users are allowed to create projects. When disabled, only administrators can create projects (default: `true`)
-
-- ##### ~~`create-initial-user`~~ \{#create-initial-user}
-
-  **Removed in:** 3.31.0
-
-  If true, Tolgee creates initial user on first start-up. (default: `true`)
-
-- ##### ~~`ldap.*`~~ \{#ldap.*}
-
-  **Removed in:** 3.31.0
-
-  LDAP-related settings.
-
 ### Batch operations
 
 Prefix: `tolgee.batch`
@@ -406,9 +406,11 @@ To get content delivery working, you have to configure the Storage (e.g. S3 or B
   
   For example, if you set this property to `https://cdn.example.com/`
 
-#### cache-purging
+#### Cache purging
 
 Prefix: `tolgee.content-delivery.cache-purging`
+
+Several services can be used as cache. Tolgee is able to purge the cache when new files are published when this configuration is set.
 
 ##### azure-front-door
 
@@ -459,9 +461,13 @@ Prefix: `tolgee.content-delivery.cache-purging.cloudflare`
 
 Prefix: `tolgee.content-delivery.storage`
 
+Configuration of the storage. You have to configure exactly one storage.
+
 ##### azure
 
 Prefix: `tolgee.content-delivery.storage.azure`
+
+Configuration of Azure Blob storage
 
 - ##### `connection-string` \{#connection-string}
 
@@ -470,6 +476,8 @@ Prefix: `tolgee.content-delivery.storage.azure`
 ##### s3
 
 Prefix: `tolgee.content-delivery.storage.s3`
+
+Configuration of S3 bucket
 
 - ##### `access-key` \{#access-key}
 
@@ -555,11 +563,13 @@ Properties for importing data to Tolgee and bulk-imports exported json files in 
   
   :::info
   Your folder structure should look like:
+  ```
   importDir
   └─Project # the foler name is the project name
     └─validation # the foler name is namespace
       ├─ en.json # the file name is the target language
       └─ de.json # second project language
+  ```
   :::
   
   
@@ -572,7 +582,7 @@ Properties for importing data to Tolgee and bulk-imports exported json files in 
 
 Prefix: `tolgee.llm`
 
-- ##### `-enable/disable -a-i translator (default: enabled if there is at least one provider)` \{#-enable/disable -a-i translator (default: enabled if there is at least one provider)}
+LLM Providers configuration
 
 - ##### `default-enabled` \{#default-enabled}
 
@@ -582,23 +592,80 @@ Prefix: `tolgee.llm`
 
   Whether to use llm machine translation as a primary translation engine. (default: `true`)
 
-- ##### `providers` \{#providers}
+- ##### `enabled` \{#enabled}
 
+  Enable/disable AI translator (default: enabled if there is at least one provider)
+
+#### providers
+
+
+    List of LLM providers. Example:
+    
+    ``` yaml
+    providers:
+      - name: openai-gpt-4o-mini
+        type: OPENAI
+        api-key: "myApiKey"
+        api-url: "https://api.openai.com"
+        model: gpt-4o-mini
+        format: "json_schema"
+    ```
+    
+    or using environment variables:
+    
+    ```
+    TOLGEE_LLM_PROVIDERS_0_NAME=MySuperDuperAI
+    TOLGEE_LLM_PROVIDERS_0_TYPE=OPENAI
+    TOLGEE_LLM_PROVIDERS_0_API_KEY=myApiKey
+    TOLGEE_LLM_PROVIDERS_0_API_URL=https://api.openai.com
+    TOLGEE_LLM_PROVIDERS_0_MODEL=gpt-4o-mini
+    TOLGEE_LLM_PROVIDERS_0_FORMAT=json_schema
+    ```
+    
+    Check [llm providers documentation](/platform/projects_and_organizations/llm-providers#self-hosted-server-configuration) for more information.
   
-      List of LLM providers. Example:
-      
-      ```
-      providers:
-        - name: openai-gpt-4o-mini
-          type: OPENAI
-          api-key: "<api key>"
-          api-url: "https://api.openai.com"
-          model: gpt-4o-mini
-          format: "json_schema"
-      ```
-      
-      Check [llm providers documentation](/platform/projects_and_organizations/llm-providers#self-hosted-server-configuration) for more information.
-     (default: `[]`)
+
+- ##### `api-key` \{#api-key}
+
+  Provider API Key (optional for some providers)
+
+- ##### `api-url` \{#api-url}
+
+  Provider API Url
+
+- ##### `attempts` \{#attempts}
+
+  Specify attempts timeout(s) (Example: [30, 30] - Tolgee will make two attempts, each with timeout of 30s)
+
+- ##### `deployment` \{#deployment}
+
+  Provider deployment (optional for some providers)
+
+- ##### `enabled` \{#enabled}
+
+  Enable/disable provider (default: `true`)
+
+- ##### `format` \{#format}
+
+- ##### `model` \{#model}
+
+  Provider model (optional for some providers)
+
+- ##### `name` \{#name}
+
+  User visible provider name (default: `default`)
+
+- ##### `priority` \{#priority}
+
+  Load-balancing instruction HIGH = used for suggestions, LOW = used for batch operations
+
+- ##### `reasoning-effort` \{#reasoning-effort}
+
+  ChatGPT reasoning effort
+
+- ##### `type` \{#type}
+
+  Provider type, an API type (default: `OPENAI`)
 
 ### Machine Translation
 
@@ -975,8 +1042,8 @@ Configuration specific to the use of Websocket.
 
 ## Full configuration example
 
-<Tabs lazy groupId="config-format" queryString values={[{"value":"yaml","label":"YAML","displayOption":"kebab-case"},{"value":"env","label":".env","displayOption":"snake-upper-case"},{"value":"properties","label":"application.properties","displayOption":"kebab-case"}]}>
-<TabItem value="yaml">
+
+<Tabs lazy groupId="config-format" queryString values={[{"value":"yaml","label":"YAML"},{"value":"env","label":".env"},{"value":"properties","label":"application.properties"}]} />
 <details>
 
 ```yaml title="config.yaml"
@@ -1094,11 +1161,23 @@ tolgee:
     create-implicit-api-key: false
     dir:
     store-files-for-debugging: false
-  llm-properties:
-    -enable/disable -a-i translator (default: enabled if there is at least one provider):
+  llm:
     default-enabled: true
     default-primary: true
-    providers: []
+    enabled:
+    providers:
+    -
+      api-key:
+      api-url:
+      attempts:
+      deployment:
+      enabled: true
+      format:
+      model:
+      name: default
+      priority:
+      reasoning-effort:
+      type: OPENAI
   machine-translation:
     free-credits-amount: -1
     aws:
@@ -1182,10 +1261,6 @@ tolgee:
 
 </TabItem>
 
-</Tabs>
-
-</TabItem>
-
 <TabItem value="env">
 
 import ExampleEnvConfig from "./shared/_exampleEnvConfig.mdx";
@@ -1218,7 +1293,7 @@ to configure its database connection. These properties can be omitted when using
 
 - <h5 id="url"><code>URL</code></h5>
 
-  The url of the datasource in format `jdbc:postgresql://<host>:<port>/<dbname>`. e.g. `jdbc:postgresql://db:5432/postgres`
+  The url of the datasource in format `jdbc:postgresql://host:port/dbname`. e.g. `jdbc:postgresql://db:5432/postgres`
 
 - <h5 id="username"><code>USERNAME</code></h5>
 
@@ -1345,6 +1420,24 @@ Configuration of Tolgee's authentication.
   By default, when the user has no organization, one is created for them; this doesn't apply when this setting is set to `false`. In that case, the user without organization has no permissions on the server.
   
   When SSO authentication is enabled, users created by SSO don't have their own organization automatically created no matter the value of this setting. (default: `true`)
+
+- <h5 id="create-initial-user"><del><code>CREATE_INITIAL_USER</code></del></h5>
+
+  **Removed in:** 3.31.0
+
+  If true, Tolgee creates initial user on first start-up. (default: `true`)
+
+- <h5 id="ldap.*"><del><code>LDAP_*</code></del></h5>
+
+  **Removed in:** 3.31.0
+
+  LDAP-related settings.
+
+- <h5 id="user-can-create-projects"><del><code>USER_CAN_CREATE_PROJECTS</code></del></h5>
+
+  **Removed in:** 2.33.0
+
+  Whether regular users are allowed to create projects. When disabled, only administrators can create projects (default: `true`)
 
 <h4 id="github">GitHub</h4>
 
@@ -1495,24 +1588,6 @@ There is a significant difference between global and per organization SSO: Globa
 
   Minutes after which the server will recheck the user's with the SSO provider to ensure the user account is still valid. This is to prevent the user from being able to access the server after the account has been disabled or deleted in the SSO provider. (default: `10`)
 
-- <h5 id="user-can-create-projects"><del><code>USER_CAN_CREATE_PROJECTS</code></del></h5>
-
-  **Removed in:** 2.33.0
-
-  Whether regular users are allowed to create projects. When disabled, only administrators can create projects (default: `true`)
-
-- <h5 id="create-initial-user"><del><code>CREATE_INITIAL_USER</code></del></h5>
-
-  **Removed in:** 3.31.0
-
-  If true, Tolgee creates initial user on first start-up. (default: `true`)
-
-- <h5 id="ldap.*"><del><code>LDAP_*</code></del></h5>
-
-  **Removed in:** 3.31.0
-
-  LDAP-related settings.
-
 <h3 id="batch-operations">Batch operations</h3>
 
 Prefix: `TOLGEE_BATCH`
@@ -1576,9 +1651,11 @@ To get content delivery working, you have to configure the Storage (e.g. S3 or B
   
   For example, if you set this property to `https://cdn.example.com/`
 
-<h4 id="cache_purging">CACHE_PURGING</h4>
+<h4 id="cache-purging">Cache purging</h4>
 
 Prefix: `TOLGEE_CONTENT_DELIVERY_CACHE_PURGING`
+
+Several services can be used as cache. Tolgee is able to purge the cache when new files are published when this configuration is set.
 
 <h5 id="azure_front_door">AZURE_FRONT_DOOR</h5>
 
@@ -1629,9 +1706,13 @@ Prefix: `TOLGEE_CONTENT_DELIVERY_CACHE_PURGING_CLOUDFLARE`
 
 Prefix: `TOLGEE_CONTENT_DELIVERY_STORAGE`
 
+Configuration of the storage. You have to configure exactly one storage.
+
 <h5 id="azure">AZURE</h5>
 
 Prefix: `TOLGEE_CONTENT_DELIVERY_STORAGE_AZURE`
+
+Configuration of Azure Blob storage
 
 - <h5 id="connection-string"><code>CONNECTION_STRING</code></h5>
 
@@ -1640,6 +1721,8 @@ Prefix: `TOLGEE_CONTENT_DELIVERY_STORAGE_AZURE`
 <h5 id="s3">S3</h5>
 
 Prefix: `TOLGEE_CONTENT_DELIVERY_STORAGE_S3`
+
+Configuration of S3 bucket
 
 - <h5 id="access-key"><code>ACCESS_KEY</code></h5>
 
@@ -1725,11 +1808,13 @@ Properties for importing data to Tolgee and bulk-imports exported json files in 
   
   :::info
   Your folder structure should look like:
+  ```
   importDir
   └─Project # the foler name is the project name
     └─validation # the foler name is namespace
       ├─ en.json # the file name is the target language
       └─ de.json # second project language
+  ```
   :::
   
   
@@ -1742,7 +1827,7 @@ Properties for importing data to Tolgee and bulk-imports exported json files in 
 
 Prefix: `TOLGEE_LLM`
 
-- <h5 id="-enable/disable -a-i translator (default: enabled if there is at least one provider)"><code>_ENABLE/DISABLE _A_I TRANSLATOR (DEFAULT: ENABLED IF THERE IS AT LEAST ONE PROVIDER)</code></h5>
+LLM Providers configuration
 
 - <h5 id="default-enabled"><code>DEFAULT_ENABLED</code></h5>
 
@@ -1752,23 +1837,80 @@ Prefix: `TOLGEE_LLM`
 
   Whether to use llm machine translation as a primary translation engine. (default: `true`)
 
-- <h5 id="providers"><code>PROVIDERS</code></h5>
+- <h5 id="enabled"><code>ENABLED</code></h5>
 
+  Enable/disable AI translator (default: enabled if there is at least one provider)
+
+<h4 id="providers">PROVIDERS</h4>
+
+
+    List of LLM providers. Example:
+    
+    ``` yaml
+    providers:
+      - name: openai-gpt-4o-mini
+        type: OPENAI
+        api-key: "myApiKey"
+        api-url: "https://api.openai.com"
+        model: gpt-4o-mini
+        format: "json_schema"
+    ```
+    
+    or using environment variables:
+    
+    ```
+    TOLGEE_LLM_PROVIDERS_0_NAME=MySuperDuperAI
+    TOLGEE_LLM_PROVIDERS_0_TYPE=OPENAI
+    TOLGEE_LLM_PROVIDERS_0_API_KEY=myApiKey
+    TOLGEE_LLM_PROVIDERS_0_API_URL=https://api.openai.com
+    TOLGEE_LLM_PROVIDERS_0_MODEL=gpt-4o-mini
+    TOLGEE_LLM_PROVIDERS_0_FORMAT=json_schema
+    ```
+    
+    Check [llm providers documentation](/platform/projects_and_organizations/llm-providers#self-hosted-server-configuration) for more information.
   
-      List of LLM providers. Example:
-      
-      ```
-      providers:
-        - name: openai-gpt-4o-mini
-          type: OPENAI
-          api-key: "<api key>"
-          api-url: "https://api.openai.com"
-          model: gpt-4o-mini
-          format: "json_schema"
-      ```
-      
-      Check [llm providers documentation](/platform/projects_and_organizations/llm-providers#self-hosted-server-configuration) for more information.
-     (default: `[]`)
+
+- <h5 id="api-key"><code>API_KEY</code></h5>
+
+  Provider API Key (optional for some providers)
+
+- <h5 id="api-url"><code>API_URL</code></h5>
+
+  Provider API Url
+
+- <h5 id="attempts"><code>ATTEMPTS</code></h5>
+
+  Specify attempts timeout(s) (Example: [30, 30] - Tolgee will make two attempts, each with timeout of 30s)
+
+- <h5 id="deployment"><code>DEPLOYMENT</code></h5>
+
+  Provider deployment (optional for some providers)
+
+- <h5 id="enabled"><code>ENABLED</code></h5>
+
+  Enable/disable provider (default: `true`)
+
+- <h5 id="format"><code>FORMAT</code></h5>
+
+- <h5 id="model"><code>MODEL</code></h5>
+
+  Provider model (optional for some providers)
+
+- <h5 id="name"><code>NAME</code></h5>
+
+  User visible provider name (default: `default`)
+
+- <h5 id="priority"><code>PRIORITY</code></h5>
+
+  Load-balancing instruction HIGH = used for suggestions, LOW = used for batch operations
+
+- <h5 id="reasoning-effort"><code>REASONING_EFFORT</code></h5>
+
+  ChatGPT reasoning effort
+
+- <h5 id="type"><code>TYPE</code></h5>
+
+  Provider type, an API type (default: `OPENAI`)
 
 <h3 id="machine-translation">Machine Translation</h3>
 
@@ -2145,8 +2287,8 @@ Configuration specific to the use of Websocket.
 
 <h2 id="full-configuration-example">Full configuration example</h2>
 
-<Tabs lazy groupId="config-format" queryString values={[{"value":"yaml","label":"YAML","displayOption":"kebab-case"},{"value":"env","label":".env","displayOption":"snake-upper-case"},{"value":"properties","label":"application.properties","displayOption":"kebab-case"}]}>
-<TabItem value="env">
+
+<Tabs lazy groupId="config-format" queryString values={[{"value":"yaml","label":"YAML"},{"value":"env","label":".env"},{"value":"properties","label":"application.properties"}]} />
 <details>
 
 ```env title=".env"
@@ -2242,10 +2384,20 @@ TOLGEE_IMPORT_BASE_LANGUAGE_TAG=en
 TOLGEE_IMPORT_CREATE_IMPLICIT_API_KEY=false
 TOLGEE_IMPORT_DIR=
 TOLGEE_IMPORT_STORE_FILES_FOR_DEBUGGING=false
-TOLGEE_LLM_PROPERTIES__ENABLE/DISABLE _A_I TRANSLATOR (DEFAULT: ENABLED IF THERE IS AT LEAST ONE PROVIDER)=
-TOLGEE_LLM_PROPERTIES_DEFAULT_ENABLED=true
-TOLGEE_LLM_PROPERTIES_DEFAULT_PRIMARY=true
-TOLGEE_LLM_PROPERTIES_PROVIDERS=[]
+TOLGEE_LLM_DEFAULT_ENABLED=true
+TOLGEE_LLM_DEFAULT_PRIMARY=true
+TOLGEE_LLM_ENABLED=
+TOLGEE_LLM_PROVIDERS_0_API_KEY=
+TOLGEE_LLM_PROVIDERS_0_API_URL=
+TOLGEE_LLM_PROVIDERS_0_ATTEMPTS=
+TOLGEE_LLM_PROVIDERS_0_DEPLOYMENT=
+TOLGEE_LLM_PROVIDERS_0_ENABLED=true
+TOLGEE_LLM_PROVIDERS_0_FORMAT=
+TOLGEE_LLM_PROVIDERS_0_MODEL=
+TOLGEE_LLM_PROVIDERS_0_NAME=default
+TOLGEE_LLM_PROVIDERS_0_PRIORITY=
+TOLGEE_LLM_PROVIDERS_0_REASONING_EFFORT=
+TOLGEE_LLM_PROVIDERS_0_TYPE=OPENAI
 TOLGEE_MACHINE_TRANSLATION_FREE_CREDITS_AMOUNT=-1
 TOLGEE_MACHINE_TRANSLATION_AWS_ACCESS_KEY=
 TOLGEE_MACHINE_TRANSLATION_AWS_DEFAULT_ENABLED=true
@@ -2315,10 +2467,6 @@ TOLGEE_WEBSOCKET_USE_REDIS=false
 
 </TabItem>
 
-</Tabs>
-
-</TabItem>
-
 <TabItem value="properties">
 
 import ExamplePropertiesConfig from "./shared/_examplePropertiesConfig.mdx";
@@ -2351,7 +2499,7 @@ to configure its database connection. These properties can be omitted when using
 
 - <h5 id="url"><code>url</code></h5>
 
-  The url of the datasource in format `jdbc:postgresql://<host>:<port>/<dbname>`. e.g. `jdbc:postgresql://db:5432/postgres`
+  The url of the datasource in format `jdbc:postgresql://host:port/dbname`. e.g. `jdbc:postgresql://db:5432/postgres`
 
 - <h5 id="username"><code>username</code></h5>
 
@@ -2478,6 +2626,24 @@ Configuration of Tolgee's authentication.
   By default, when the user has no organization, one is created for them; this doesn't apply when this setting is set to `false`. In that case, the user without organization has no permissions on the server.
   
   When SSO authentication is enabled, users created by SSO don't have their own organization automatically created no matter the value of this setting. (default: `true`)
+
+- <h5 id="create-initial-user"><del><code>create-initial-user</code></del></h5>
+
+  **Removed in:** 3.31.0
+
+  If true, Tolgee creates initial user on first start-up. (default: `true`)
+
+- <h5 id="ldap.*"><del><code>ldap.*</code></del></h5>
+
+  **Removed in:** 3.31.0
+
+  LDAP-related settings.
+
+- <h5 id="user-can-create-projects"><del><code>user-can-create-projects</code></del></h5>
+
+  **Removed in:** 2.33.0
+
+  Whether regular users are allowed to create projects. When disabled, only administrators can create projects (default: `true`)
 
 <h4 id="github">GitHub</h4>
 
@@ -2628,24 +2794,6 @@ There is a significant difference between global and per organization SSO: Globa
 
   Minutes after which the server will recheck the user's with the SSO provider to ensure the user account is still valid. This is to prevent the user from being able to access the server after the account has been disabled or deleted in the SSO provider. (default: `10`)
 
-- <h5 id="user-can-create-projects"><del><code>user-can-create-projects</code></del></h5>
-
-  **Removed in:** 2.33.0
-
-  Whether regular users are allowed to create projects. When disabled, only administrators can create projects (default: `true`)
-
-- <h5 id="create-initial-user"><del><code>create-initial-user</code></del></h5>
-
-  **Removed in:** 3.31.0
-
-  If true, Tolgee creates initial user on first start-up. (default: `true`)
-
-- <h5 id="ldap.*"><del><code>ldap.*</code></del></h5>
-
-  **Removed in:** 3.31.0
-
-  LDAP-related settings.
-
 <h3 id="batch-operations">Batch operations</h3>
 
 Prefix: `tolgee.batch`
@@ -2709,9 +2857,11 @@ To get content delivery working, you have to configure the Storage (e.g. S3 or B
   
   For example, if you set this property to `https://cdn.example.com/`
 
-<h4 id="cache-purging">cache-purging</h4>
+<h4 id="cache-purging">Cache purging</h4>
 
 Prefix: `tolgee.content-delivery.cache-purging`
+
+Several services can be used as cache. Tolgee is able to purge the cache when new files are published when this configuration is set.
 
 <h5 id="azure-front-door">azure-front-door</h5>
 
@@ -2762,9 +2912,13 @@ Prefix: `tolgee.content-delivery.cache-purging.cloudflare`
 
 Prefix: `tolgee.content-delivery.storage`
 
+Configuration of the storage. You have to configure exactly one storage.
+
 <h5 id="azure">azure</h5>
 
 Prefix: `tolgee.content-delivery.storage.azure`
+
+Configuration of Azure Blob storage
 
 - <h5 id="connection-string"><code>connection-string</code></h5>
 
@@ -2773,6 +2927,8 @@ Prefix: `tolgee.content-delivery.storage.azure`
 <h5 id="s3">s3</h5>
 
 Prefix: `tolgee.content-delivery.storage.s3`
+
+Configuration of S3 bucket
 
 - <h5 id="access-key"><code>access-key</code></h5>
 
@@ -2858,11 +3014,13 @@ Properties for importing data to Tolgee and bulk-imports exported json files in 
   
   :::info
   Your folder structure should look like:
+  ```
   importDir
   └─Project # the foler name is the project name
     └─validation # the foler name is namespace
       ├─ en.json # the file name is the target language
       └─ de.json # second project language
+  ```
   :::
   
   
@@ -2875,7 +3033,7 @@ Properties for importing data to Tolgee and bulk-imports exported json files in 
 
 Prefix: `tolgee.llm`
 
-- <h5 id="-enable/disable -a-i translator (default: enabled if there is at least one provider)"><code>-enable/disable -a-i translator (default: enabled if there is at least one provider)</code></h5>
+LLM Providers configuration
 
 - <h5 id="default-enabled"><code>default-enabled</code></h5>
 
@@ -2885,23 +3043,80 @@ Prefix: `tolgee.llm`
 
   Whether to use llm machine translation as a primary translation engine. (default: `true`)
 
-- <h5 id="providers"><code>providers</code></h5>
+- <h5 id="enabled"><code>enabled</code></h5>
 
+  Enable/disable AI translator (default: enabled if there is at least one provider)
+
+<h4 id="providers">providers</h4>
+
+
+    List of LLM providers. Example:
+    
+    ``` yaml
+    providers:
+      - name: openai-gpt-4o-mini
+        type: OPENAI
+        api-key: "myApiKey"
+        api-url: "https://api.openai.com"
+        model: gpt-4o-mini
+        format: "json_schema"
+    ```
+    
+    or using environment variables:
+    
+    ```
+    TOLGEE_LLM_PROVIDERS_0_NAME=MySuperDuperAI
+    TOLGEE_LLM_PROVIDERS_0_TYPE=OPENAI
+    TOLGEE_LLM_PROVIDERS_0_API_KEY=myApiKey
+    TOLGEE_LLM_PROVIDERS_0_API_URL=https://api.openai.com
+    TOLGEE_LLM_PROVIDERS_0_MODEL=gpt-4o-mini
+    TOLGEE_LLM_PROVIDERS_0_FORMAT=json_schema
+    ```
+    
+    Check [llm providers documentation](/platform/projects_and_organizations/llm-providers#self-hosted-server-configuration) for more information.
   
-      List of LLM providers. Example:
-      
-      ```
-      providers:
-        - name: openai-gpt-4o-mini
-          type: OPENAI
-          api-key: "<api key>"
-          api-url: "https://api.openai.com"
-          model: gpt-4o-mini
-          format: "json_schema"
-      ```
-      
-      Check [llm providers documentation](/platform/projects_and_organizations/llm-providers#self-hosted-server-configuration) for more information.
-     (default: `[]`)
+
+- <h5 id="api-key"><code>api-key</code></h5>
+
+  Provider API Key (optional for some providers)
+
+- <h5 id="api-url"><code>api-url</code></h5>
+
+  Provider API Url
+
+- <h5 id="attempts"><code>attempts</code></h5>
+
+  Specify attempts timeout(s) (Example: [30, 30] - Tolgee will make two attempts, each with timeout of 30s)
+
+- <h5 id="deployment"><code>deployment</code></h5>
+
+  Provider deployment (optional for some providers)
+
+- <h5 id="enabled"><code>enabled</code></h5>
+
+  Enable/disable provider (default: `true`)
+
+- <h5 id="format"><code>format</code></h5>
+
+- <h5 id="model"><code>model</code></h5>
+
+  Provider model (optional for some providers)
+
+- <h5 id="name"><code>name</code></h5>
+
+  User visible provider name (default: `default`)
+
+- <h5 id="priority"><code>priority</code></h5>
+
+  Load-balancing instruction HIGH = used for suggestions, LOW = used for batch operations
+
+- <h5 id="reasoning-effort"><code>reasoning-effort</code></h5>
+
+  ChatGPT reasoning effort
+
+- <h5 id="type"><code>type</code></h5>
+
+  Provider type, an API type (default: `OPENAI`)
 
 <h3 id="machine-translation">Machine Translation</h3>
 
@@ -3278,8 +3493,8 @@ Configuration specific to the use of Websocket.
 
 <h2 id="full-configuration-example">Full configuration example</h2>
 
-<Tabs lazy groupId="config-format" queryString values={[{"value":"yaml","label":"YAML","displayOption":"kebab-case"},{"value":"env","label":".env","displayOption":"snake-upper-case"},{"value":"properties","label":"application.properties","displayOption":"kebab-case"}]}>
-<TabItem value="properties">
+
+<Tabs lazy groupId="config-format" queryString values={[{"value":"yaml","label":"YAML"},{"value":"env","label":".env"},{"value":"properties","label":"application.properties"}]} />
 <details>
 
 ```properties title="application.properties"
@@ -3375,10 +3590,20 @@ tolgee.import.base-language-tag = en
 tolgee.import.create-implicit-api-key = false
 tolgee.import.dir =
 tolgee.import.store-files-for-debugging = false
-tolgee.llm-properties.-enable/disable -a-i translator (default: enabled if there is at least one provider) =
-tolgee.llm-properties.default-enabled = true
-tolgee.llm-properties.default-primary = true
-tolgee.llm-properties.providers = []
+tolgee.llm.default-enabled = true
+tolgee.llm.default-primary = true
+tolgee.llm.enabled =
+tolgee.llm.providers[0].api-key =
+tolgee.llm.providers[0].api-url =
+tolgee.llm.providers[0].attempts =
+tolgee.llm.providers[0].deployment =
+tolgee.llm.providers[0].enabled = true
+tolgee.llm.providers[0].format =
+tolgee.llm.providers[0].model =
+tolgee.llm.providers[0].name = default
+tolgee.llm.providers[0].priority =
+tolgee.llm.providers[0].reasoning-effort =
+tolgee.llm.providers[0].type = OPENAI
 tolgee.machine-translation.free-credits-amount = -1
 tolgee.machine-translation.aws.access-key =
 tolgee.machine-translation.aws.default-enabled = true
@@ -3445,10 +3670,6 @@ tolgee.websocket.use-redis = false
 ```
 
 </details>
-
-</TabItem>
-
-</Tabs>
 
 </TabItem>
 
