@@ -59,7 +59,7 @@ Since version 2 of the Tolgee Platform, Postgres is embedded in the
 server automatically on its startup. So you can still run Tolgee with no configuration just by running the
 single Docker container.
 
-There is also `DOCKER` mode of [`tolgee-autostart`](/platform/self_hosting/configuration#postgres-autostart),
+There is also `DOCKER` mode of [`tolgee-autostart`](/platform/self_hosting/configuration#tolgee-postgresautostart-_-postgresautostart),
 which tries to start Postgres Docker container on the host machine.
 This mode is introduced primarily for development, but it can be helpful also for users who would like to run Tolgee
 outside of Docker container with Java, and they don't want to configure Postgres themselves.
