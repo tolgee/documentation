@@ -17,24 +17,24 @@ After installing the plugin from the [Figma plugin page](https://www.figma.com/c
 
 1. Access the plugin by clicking the **Actions** icon in the toolbar (shortcut CTRL + K or ⌘ + K), or click the Figma button in the top left corner, then select **Plugins → Manage Plugins…**
 2. Find and open “Tolgee”
-3. Insert your [API key](https://docs.tolgee.io/platform/account_settings/api_keys_and_pat_tokens)
+3. Insert your [API key](/platform/account_settings/api_keys_and_pat_tokens)
 4. Keep the Tolgee URL default if you are not self-hosting
-5. Click “Validate” and then “Save”
+5. Click **Validate** and then **Next**
 6. Done!
 
-A full guide can be found on the [Setup](https://docs.tolgee.io/platform/integrations/figma_plugin/setup) docs page
+A full guide can be found on the [Setup](/platform/integrations/figma_plugin/setup) docs page
 
 ![Installing and Connecting the Plugin Video Guide](/img/docs/platform/figma-plugin/installing-and-connecting-the-plugin.gif)
 
 ## Push: Adding New Strings and Translations
 
-If you are working on a **new project** and would like to start localizing, you need to provide key names to each text that you want to translate with Tolgee. To add the keys, you should**:**
+If you are working on a **new project** and would like to start localizing, you need to provide key names to each text that you want to translate with Tolgee. To add the keys, you should:
 
 1. Choose the frame or just the text for which you want to add the keys
 2. [Name your key](https://docs.tolgee.io/blog/naming-translation-keys)
-3. Click Push to upload the changes to Tolgee
-4. By default, the plugin will create (or update) screenshots to the keys - you can disable this by unchecking the checkbox.
-5. Then, if everything is okay, click “Push to Togee” to add the new keys
+3. Click **Push** to upload the changes to Tolgee
+4. By default, the plugin will create (or update) screenshots to the keys - you can disable this by unchecking the checkbox in the settings.
+5. Then, if everything is okay, click **Push to Togee** to add the new keys
 6. Now you should be able to find the key on the Tolgee platform, together with the screenshot of the text in your base language
 
 > The plugin uses Figma `frames` to decide what a "screen" is, so if the screenshots are not properly created, check if you wrap each screen in a `frame`. If a string occurs in multiple frames, the top-level one is taken.
@@ -44,7 +44,7 @@ If you are working on a **new project** and would like to start localizing, you 
 
 ## Pull: Working with existing translations and keys
 
-If you are working on **a Figma file that** **already has the [keys](https://docs.tolgee.io/platform/translation_keys/keys)** added on Tolgee, you can select the whole frame or just the text string and click “**Pull**” in the Tolgee plugin window to update them. 
+If you are working on **a Figma file that** **already has the [keys](/platform/translation_keys/keys)** added on Tolgee, you can select the whole frame or just the text string and click “**Pull**” in the Tolgee plugin window to update them. 
 
 ### Connecting Figma to Existing Translations on Toggle
 
@@ -54,21 +54,21 @@ First, click on the “Link” icon.
 
 <FigmaScreenshotWrapper
   aria-label="Usage - connect to existing key"
-  src="/img/docs/platform/figma-plugin/usage-connect-to-existing-key.png"
+  src="/img/docs/platform/figma-plugin/usage-connect-to-existing-key.webp"
 />
 
 Second, select a key from the list of keys that you want to connect the text to. You can edit the text in the Search field to find any key in Tolgee. After you connect an existing key to the text, the "link" icon will be darker (or lighter when using the Dark theme).
 
 <FigmaScreenshotWrapper
   aria-label="Usage - select existing key"
-  src="/img/docs/platform/figma-plugin/usage-connect-key-select.png"
+  src="/img/docs/platform/figma-plugin/usage-connect-key-select.webp"
 />
 
 To **remove a connection**, click on the "link" icon again and click **Remove connection**
 
 <FigmaScreenshotWrapper
   aria-label="Usage - remove connection to key"
-  src="/img/docs/platform/figma-plugin/usage-remove-connection.png"
+  src="/img/docs/platform/figma-plugin/usage-remove-connection.webp"
 />
 
 ## How to Switch Languages and Add New Translations from the Platform
@@ -92,9 +92,12 @@ If you want to update only some translations, select the keys and click **Pull**
 
 If you want to update new translations for all texts, click **Pull all**.
 
+> It works similarly for pushing, where you can select objects or push all.
+>
+
 <FigmaScreenshotWrapper
   aria-label="Usage - pull all"
-  src="/img/docs/platform/figma-plugin/usage-pull-all.png"
+  src="/img/docs/platform/figma-plugin/usage-pull-all.webp"
 />
 
 ## Creating and Updating Page Copies
@@ -103,7 +106,7 @@ Copies can be used to work with the translated versions of the project without c
 
 - **Copy with key names** - this creates a copy with all texts replaced with the corresponding key names. Duplicate pages that contain key names are particularly useful for developers, as they provide clear guidance on which key names to use in the code.
 - **Copy with languages** - this creates a copy for each selected language with texts replaced with their translation in given language.
-1. To create a page copy, first click ”**Create a copy”**
+1. To create a page copy, first click **"Create a copy"**
 2. Choose whether you would like to create a copy with key names or with translations:
 3. After you click **Create**, the plugin will automatically create new page(s) according to what you selected.
 
@@ -119,11 +122,20 @@ If you want to update only translations of some text, first select the text and 
 
 ![Updating A Copy Video Guide](/img/docs/platform/figma-plugin/updating-a-copy.gif)
 
-## Locating translation on the page
+## Locating Translation on the Page
 
 If you want to locate a string on the page, click on the **more** button and then on the **Move to string** button, which will align your Figma view so that the text is in the center of your screen.
 
 <FigmaScreenshotWrapper
   aria-label="Usage - locate string on the page"
-  src="/img/docs/platform/figma-plugin/usage-locate-string.png"
+  src="/img/docs/platform/figma-plugin/usage-locate-string.webp"
+/>
+
+## Changing Window Size
+
+There is an "icon" in the bottom right corner. Click and hold to change the window size using it. It can help to see more data, especially when you have long lists of keys.
+
+<FigmaScreenshotWrapper
+  aria-label="Usage - locate string on the page"
+  src="/img/docs/platform/figma-plugin/window-resize.gif"
 />
