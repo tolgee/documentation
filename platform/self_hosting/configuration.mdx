@@ -20,90 +20,90 @@ Example configuration files:
 import ExampleYamlConfig from "./shared/_exampleYamlConfig.mdx";
 
 <ExampleYamlConfig />
-## Server settings \{#server-_-server}
+## Server settings \{#server}
 
 Prefix: `server`
 
 These properties are used to configure the server.
 
-- ##### `port` \{#server-port-_-port}
+- ##### `port` \{#server-_-port}
 
   Port on which Tolgee exposes itself. (default: `8080`)
 
-## Spring settings \{#spring-_-spring}
+## Spring settings \{#spring}
 
 Prefix: `spring`
 
 These properties are used to configure Spring framework.
 
-### Data source settings \{#spring-datasource-_-datasource}
+### Data source settings \{#spring-_-datasource}
 
 Prefix: `spring.datasource`
 
 Since Tolgee is built on Spring framework, you have to edit following configuration props
 to configure its database connection. These properties can be omitted when using
-[Postgres autostart](#tolgee-postgresautostart-_-postgresautostart), which is enabled by default.
+[Postgres autostart](#tolgee-_-postgres-autostart), which is enabled by default.
 
-- ##### `url` \{#spring-datasource-url-_-url}
+- ##### `url` \{#spring-datasource-_-url}
 
   The url of the datasource in format `jdbc:postgresql://host:port/dbname`. e.g. `jdbc:postgresql://db:5432/postgres`
 
-- ##### `username` \{#spring-datasource-username-_-username}
+- ##### `username` \{#spring-datasource-_-username}
 
   Database username. e.g. `postgres`
 
-- ##### `password` \{#spring-datasource-password-_-password}
+- ##### `password` \{#spring-datasource-_-password}
 
   Database password. e.g. `postgres`
 
-## Tolgee \{#tolgee-_-tolgee}
+## Tolgee \{#tolgee}
 
 Prefix: `tolgee`
 
 Configuration specific to Tolgee.
 
-- ##### `file-storage-url` \{#tolgee-filestorageurl-_-filestorageurl}
+- ##### `file-storage-url` \{#tolgee-_-file-storage-url}
 
   Public base path where files are accessible. Used by the user interface.
 
-- ##### `front-end-url` \{#tolgee-frontendurl-_-frontendurl}
+- ##### `front-end-url` \{#tolgee-_-front-end-url}
 
   Public URL where Tolgee is accessible. Used to generate links to Tolgee (e.g. email confirmation link).
   
   **Warning:** Not providing this property leads to security issues.Providing this property is highly recommended especially if you are managing publicly accessible Tolgee instance. 
 
-- ##### `max-screenshots-per-key` \{#tolgee-maxscreenshotsperkey-_-maxscreenshotsperkey}
+- ##### `max-screenshots-per-key` \{#tolgee-_-max-screenshots-per-key}
 
   Maximum amount of screenshots which can be uploaded per API key. (default: `20`)
 
-- ##### `max-translation-text-length` \{#tolgee-maxtranslationtextlength-_-maxtranslationtextlength}
+- ##### `max-translation-text-length` \{#tolgee-_-max-translation-text-length}
 
   Maximum length of translations. (default: `10000`)
 
-- ##### `max-upload-file-size` \{#tolgee-maxuploadfilesize-_-maxuploadfilesize}
+- ##### `max-upload-file-size` \{#tolgee-_-max-upload-file-size}
 
   Maximum size of uploaded files (in kilobytes). (default: `51200` ≈ 50MB)
 
-- ##### `translations-view-languages-limit` \{#tolgee-translationsviewlanguageslimit-_-translationsviewlanguageslimit}
+- ##### `translations-view-languages-limit` \{#tolgee-_-translations-view-languages-limit}
 
   Maximum amount of languages that can be selected in the Translations view (default: `10`)
 
-### Authentication \{#tolgee-authentication-_-authentication}
+### Authentication \{#tolgee-_-authentication}
 
 Prefix: `tolgee.authentication`
 
 Configuration of Tolgee's authentication.
 
-- ##### `create-demo-for-initial-user` \{#tolgee-authentication-createdemoforinitialuser-_-createdemoforinitialuser}
+- ##### `create-demo-for-initial-user` \{#tolgee-authentication-_-create-demo-for-initial-user}
 
   When enabled, creates Demo project and quick start guide for inital user
    (default: `true`)
 
-- ##### `enabled` \{#tolgee-authentication-enabled-_-enabled}
+- ##### `enabled` \{#tolgee-authentication-_-enabled}
 
   Whether authentication is enabled. When authentication is disabled, there are no login screen and no permission control. Users get automatically logged in as the administrator account of the Tolgee instance. This is very useful, when you want to use Tolgee on your local machine, or you just want to test it.  (default: `true` when running with Java directly, `false` when running via Docker.)
 
-- ##### `initial-password` \{#tolgee-authentication-initialpassword-_-initialpassword}
+- ##### `initial-password` \{#tolgee-authentication-_-initial-password}
 
   Password of initial user. If unspecified, a random password will be generated and stored in the `initial.pwd` file, located at the root of Tolgee's data path.
   
@@ -115,7 +115,7 @@ Configuration of Tolgee's authentication.
   
   
 
-- ##### `initial-username` \{#tolgee-authentication-initialusername-_-initialusername}
+- ##### `initial-username` \{#tolgee-authentication-_-initial-username}
 
   Username of initial user.
   
@@ -125,11 +125,11 @@ Configuration of Tolgee's authentication.
   
    (default: `admin`)
 
-- ##### `jwt-expiration` \{#tolgee-authentication-jwtexpiration-_-jwtexpiration}
+- ##### `jwt-expiration` \{#tolgee-authentication-_-jwt-expiration}
 
   Expiration time of generated JWT tokens in milliseconds. (default: `604800000` = 7 days)
 
-- ##### `jwt-secret` \{#tolgee-authentication-jwtsecret-_-jwtsecret}
+- ##### `jwt-secret` \{#tolgee-authentication-_-jwt-secret}
 
   Secret used to sign JWT authentication tokens with. It will be generated automatically, if not provided. You will be fine with 64 characters long random string.
   
@@ -139,60 +139,60 @@ Configuration of Tolgee's authentication.
   
   
 
-- ##### `jwt-super-expiration` \{#tolgee-authentication-jwtsuperexpiration-_-jwtsuperexpiration}
+- ##### `jwt-super-expiration` \{#tolgee-authentication-_-jwt-super-expiration}
 
   Expiration time of generated JWT tokens for superuser in milliseconds. (default: `3600000` = 1 hour)
 
-- ##### `native-enabled` \{#tolgee-authentication-nativeenabled-_-nativeenabled}
+- ##### `native-enabled` \{#tolgee-authentication-_-native-enabled}
 
   Whether to enable Tolgee-native authentication and registration.
   When set to `false`, users will only be able to register and login via third-party SSO options (e.g. OAuth). (default: `true`)
 
-- ##### `needs-email-verification` \{#tolgee-authentication-needsemailverification-_-needsemailverification}
+- ##### `needs-email-verification` \{#tolgee-authentication-_-needs-email-verification}
 
-  Whether users need to verify their email addresses when creating their account. Requires a valid [SMTP configuration](#tolgee-smtp-_-smtp). (default: `false`)
+  Whether users need to verify their email addresses when creating their account. Requires a valid [SMTP configuration](#tolgee-_-smtp). (default: `false`)
 
-- ##### `registrations-allowed` \{#tolgee-authentication-registrationsallowed-_-registrationsallowed}
+- ##### `registrations-allowed` \{#tolgee-authentication-_-registrations-allowed}
 
   Whether users are allowed to register on Tolgee.
   When set to `false`, existing users must send invites to projects to new users for them to be able to register.
   When SSO is enabled, users can still register via SSO, even if this setting is set to `false`. (default: `false`)
 
-- ##### `secured-image-retrieval` \{#tolgee-authentication-securedimageretrieval-_-securedimageretrieval}
+- ##### `secured-image-retrieval` \{#tolgee-authentication-_-secured-image-retrieval}
 
   Whether image assets should be protected by Tolgee. When enabled, all images are served with an access token valid for
   a set period of time to prevent unauthorized access to images. (default: `false`)
 
-- ##### `secured-image-timestamp-max-age` \{#tolgee-authentication-securedimagetimestampmaxage-_-securedimagetimestampmaxage}
+- ##### `secured-image-timestamp-max-age` \{#tolgee-authentication-_-secured-image-timestamp-max-age}
 
   Expiration time of a generated image access token in milliseconds. (default: `7200000` = 2 hours)
 
-- ##### `user-can-create-organizations` \{#tolgee-authentication-usercancreateorganizations-_-usercancreateorganizations}
+- ##### `user-can-create-organizations` \{#tolgee-authentication-_-user-can-create-organizations}
 
   Whether regular users are allowed to create organizations. When `false`, only administrators can create organizations.
   By default, when the user has no organization, one is created for them; this doesn't apply when this setting is set to `false`. In that case, the user without organization has no permissions on the server.
   
   When SSO authentication is enabled, users created by SSO don't have their own organization automatically created no matter the value of this setting. (default: `true`)
 
-- ##### ~~`create-initial-user`~~ \{#tolgee-authentication-createinitialuser-_-createinitialuser}
+- ##### ~~`create-initial-user`~~ \{#tolgee-authentication-_-create-initial-user}
 
   **Removed in:** 3.31.0
 
   If true, Tolgee creates initial user on first start-up. (default: `true`)
 
-- ##### ~~`ldap.*`~~ \{#tolgee-authentication-ldap-_-ldap}
+- ##### ~~`ldap.*`~~ \{#tolgee-authentication-_-ldap}
 
   **Removed in:** 3.31.0
 
   LDAP-related settings.
 
-- ##### ~~`user-can-create-projects`~~ \{#tolgee-authentication-usercancreateprojects-_-usercancreateprojects}
+- ##### ~~`user-can-create-projects`~~ \{#tolgee-authentication-_-user-can-create-projects}
 
   **Removed in:** 2.33.0
 
   Whether regular users are allowed to create projects. When disabled, only administrators can create projects (default: `true`)
 
-#### GitHub \{#tolgee-authentication-github-_-github}
+#### GitHub \{#tolgee-authentication-_-github}
 
 Prefix: `tolgee.authentication.github`
 
@@ -202,82 +202,82 @@ GitHub authentication can be used in combination with native authentication.
 
 
 
-- ##### `authorization-url` \{#tolgee-authentication-github-authorizationurl-_-authorizationurl}
+- ##### `authorization-url` \{#tolgee-authentication-github-_-authorization-url}
 
   URL to the OAuth authorization screen. Useful if you want to authenticate against a self-hosted GitHub Enterprise Server. (default: `https://github.com/login/oauth/access_token`)
 
-- ##### `client-id` \{#tolgee-authentication-github-clientid-_-clientid}
+- ##### `client-id` \{#tolgee-authentication-github-_-client-id}
 
   OAuth Client ID, obtained in GitHub administration.
 
-- ##### `client-secret` \{#tolgee-authentication-github-clientsecret-_-clientsecret}
+- ##### `client-secret` \{#tolgee-authentication-github-_-client-secret}
 
   OAuth Client secret, obtained in GitHub administration.
 
-- ##### `user-url` \{#tolgee-authentication-github-userurl-_-userurl}
+- ##### `user-url` \{#tolgee-authentication-github-_-user-url}
 
   URL to GitHub's `/user` API endpoint. Useful if you want to authenticate against a self-hosted GitHub Enterprise Server. (default: `https://api.github.com/user`)
 
-#### Google \{#tolgee-authentication-google-_-google}
+#### Google \{#tolgee-authentication-_-google}
 
 Prefix: `tolgee.authentication.google`
 
 The following instructions explain how to set up Google OAuth. [Setting up OAuth 2.0](https://support.google.com/cloud/answer/6158849).
 
-- ##### `authorization-url` \{#tolgee-authentication-google-authorizationurl-_-authorizationurl}
+- ##### `authorization-url` \{#tolgee-authentication-google-_-authorization-url}
 
   URL to Google `/token` API endpoint. This usually does not need to be changed. (default: `https://oauth2.googleapis.com/token`)
 
-- ##### `client-id` \{#tolgee-authentication-google-clientid-_-clientid}
+- ##### `client-id` \{#tolgee-authentication-google-_-client-id}
 
   OAuth Client ID, obtained in Google Cloud Console.
 
-- ##### `client-secret` \{#tolgee-authentication-google-clientsecret-_-clientsecret}
+- ##### `client-secret` \{#tolgee-authentication-google-_-client-secret}
 
   OAuth Client secret, obtained in Google Cloud Console.
 
-- ##### `user-url` \{#tolgee-authentication-google-userurl-_-userurl}
+- ##### `user-url` \{#tolgee-authentication-google-_-user-url}
 
   URL to Google `/userinfo` API endpoint. This usually does not need to be changed. (default: `https://www.googleapis.com/oauth2/v3/userinfo`)
 
-- ##### `workspace-domain` \{#tolgee-authentication-google-workspacedomain-_-workspacedomain}
+- ##### `workspace-domain` \{#tolgee-authentication-google-_-workspace-domain}
 
   The registration can be limited to users of a Google Workspace domain. Multiple Google Workspace domains can be separated by a comma `,`. If nothing is set, anyone can log in with their Google account.
 
-#### OAuth2 \{#tolgee-authentication-oauth2-_-oauth2}
+#### OAuth2 \{#tolgee-authentication-_-oauth2}
 
 Prefix: `tolgee.authentication.oauth2`
 
 OAuth 2.0 is the industry-standard protocol for authorization.
 This enables the integration of a wide range of authorization providers into tolgee, such as Auth0, KeyCloak, Okta and others.
 
-- ##### `authorization-url` \{#tolgee-authentication-oauth2-authorizationurl-_-authorizationurl}
+- ##### `authorization-url` \{#tolgee-authentication-oauth2-_-authorization-url}
 
   URL to OAuth2 authorize API endpoint. This endpoint will exposed to the frontend.
 
-- ##### `client-id` \{#tolgee-authentication-oauth2-clientid-_-clientid}
+- ##### `client-id` \{#tolgee-authentication-oauth2-_-client-id}
 
   OAuth2 Client ID
 
-- ##### `client-secret` \{#tolgee-authentication-oauth2-clientsecret-_-clientsecret}
+- ##### `client-secret` \{#tolgee-authentication-oauth2-_-client-secret}
 
   OAuth2 Client secret
 
-- ##### `scopes` \{#tolgee-authentication-oauth2-scopes-_-scopes}
+- ##### `scopes` \{#tolgee-authentication-oauth2-_-scopes}
 
   Oauth2 scopes (as list)
   Tolgee absolutely requires rights to view the email and user information (also known as openid data).
   In most cases the scopes `openid email profile` is used for this. (But can also be different depending on the provider) (default: `[]`)
 
-- ##### `token-url` \{#tolgee-authentication-oauth2-tokenurl-_-tokenurl}
+- ##### `token-url` \{#tolgee-authentication-oauth2-_-token-url}
 
   URL to OAuth2 token API endpoint.
 
-- ##### `user-url` \{#tolgee-authentication-oauth2-userurl-_-userurl}
+- ##### `user-url` \{#tolgee-authentication-oauth2-_-user-url}
 
   URL to OAuth2 userinfo API endpoint.
 
-#### Server wide Single Sign-On \{#tolgee-authentication-ssoglobal-_-ssoglobal}
+#### Server wide Single Sign-On \{#tolgee-authentication-_-sso-global}
 
 Prefix: `tolgee.authentication.sso-global`
 
@@ -285,47 +285,47 @@ Single sign-on (SSO) is an authentication process that allows a user to access m
 
 There is a significant difference between global and per organization SSO: Global SSO can handle authentication for all server users no matter which organizations they belong to, while per organization SSO can handle authentication only for users of the organization and such users cannot be members of any other organization. SSO users associated with per organization SSO have no rights to create or manage organizations. Global SSO users should be invited to organizations they need to have access to. Per organization SSO users are automatically added to the organization they belong to.
 
-- ##### `authorization-uri` \{#tolgee-authentication-ssoglobal-authorizationuri-_-authorizationuri}
+- ##### `authorization-uri` \{#tolgee-authentication-sso-global-_-authorization-uri}
 
   URL to redirect users for authentication
 
-- ##### `client-id` \{#tolgee-authentication-ssoglobal-clientid-_-clientid}
+- ##### `client-id` \{#tolgee-authentication-sso-global-_-client-id}
 
   Unique identifier for an application
 
-- ##### `client-secret` \{#tolgee-authentication-ssoglobal-clientsecret-_-clientsecret}
+- ##### `client-secret` \{#tolgee-authentication-sso-global-_-client-secret}
 
   Key used to authenticate the application
 
-- ##### `custom-login-text` \{#tolgee-authentication-ssoglobal-customlogintext-_-customlogintext}
+- ##### `custom-login-text` \{#tolgee-authentication-sso-global-_-custom-login-text}
 
   Custom text for the SSO login page.
 
-- ##### `custom-logo-url` \{#tolgee-authentication-ssoglobal-customlogourl-_-customlogourl}
+- ##### `custom-logo-url` \{#tolgee-authentication-sso-global-_-custom-logo-url}
 
   Custom logo URL to be displayed on the login screen. Can be set only when `nativeEnabled` is `false`.
 
-- ##### `domain` \{#tolgee-authentication-ssoglobal-domain-_-domain}
+- ##### `domain` \{#tolgee-authentication-sso-global-_-domain}
 
   Used to identify the organization on login page
 
-- ##### `enabled` \{#tolgee-authentication-ssoglobal-enabled-_-enabled}
+- ##### `enabled` \{#tolgee-authentication-sso-global-_-enabled}
 
   Enables SSO authentication on global level - as a login method for the whole server (default: `false`)
 
-- ##### `force` \{#tolgee-authentication-ssoglobal-force-_-force}
+- ##### `force` \{#tolgee-authentication-sso-global-_-force}
 
   When true, users with an email matching the organization's domain must sign in using SSO (default: `false`)
 
-- ##### `session-expiration-minutes` \{#tolgee-authentication-ssoglobal-sessionexpirationminutes-_-sessionexpirationminutes}
+- ##### `session-expiration-minutes` \{#tolgee-authentication-sso-global-_-session-expiration-minutes}
 
   Minutes after which the server will recheck the user's with the SSO provider to ensure the user account is still valid. This is to prevent the user from being able to access the server after the account has been disabled or deleted in the SSO provider. (default: `10`)
 
-- ##### `token-uri` \{#tolgee-authentication-ssoglobal-tokenuri-_-tokenuri}
+- ##### `token-uri` \{#tolgee-authentication-sso-global-_-token-uri}
 
   URL for exchanging authorization code for tokens
 
-#### Per-Organization Single Sign-On \{#tolgee-authentication-ssoorganizations-_-ssoorganizations}
+#### Per-Organization Single Sign-On \{#tolgee-authentication-_-sso-organizations}
 
 Prefix: `tolgee.authentication.sso-organizations`
 
@@ -333,50 +333,50 @@ Single sign-on (SSO) is an authentication process that allows a user to access m
 
 There is a significant difference between global and per organization SSO: Global SSO can handle authentication for all server users no matter which organizations they belong to, while per organization SSO can handle authentication only for users of the organization and such users cannot be members of any other organization. SSO users associated with per organization SSO have no rights to create or manage organizations. Global SSO users should be invited to organizations they need to have access to. Per organization SSO users are automatically added to the organization they belong to.
 
-- ##### `enabled` \{#tolgee-authentication-ssoorganizations-enabled-_-enabled}
+- ##### `enabled` \{#tolgee-authentication-sso-organizations-_-enabled}
 
   Enables SSO authentication (default: `false`)
 
-- ##### `session-expiration-minutes` \{#tolgee-authentication-ssoorganizations-sessionexpirationminutes-_-sessionexpirationminutes}
+- ##### `session-expiration-minutes` \{#tolgee-authentication-sso-organizations-_-session-expiration-minutes}
 
   Minutes after which the server will recheck the user's with the SSO provider to ensure the user account is still valid. This is to prevent the user from being able to access the server after the account has been disabled or deleted in the SSO provider. (default: `10`)
 
-### Batch operations \{#tolgee-batch-_-batch}
+### Batch operations \{#tolgee-_-batch}
 
 Prefix: `tolgee.batch`
 
 Configuration of batch operations.
 
-- ##### `concurrency` \{#tolgee-batch-concurrency-_-concurrency}
+- ##### `concurrency` \{#tolgee-batch-_-concurrency}
 
   How many parallel jobs can be run at once on single Tolgee instance (default: `1`)
 
-### Cache \{#tolgee-cache-_-cache}
+### Cache \{#tolgee-_-cache}
 
 Prefix: `tolgee.cache`
 
 At the expense of higher memory footprint, Tolgee can use a cache to reduce the stress on the database and fetch the
 data it needs faster. Cache is also used to track certain states, such as rate limits.
 
-- ##### `caffeine-max-size` \{#tolgee-cache-caffeinemaxsize-_-caffeinemaxsize}
+- ##### `caffeine-max-size` \{#tolgee-cache-_-caffeine-max-size}
 
   Maximum size of the Caffeine cache. When exceeded, some entries will be purged from cache. Set to -1 to disable size limitation.
   This has no effect when Redis cache is used. See
   [Caffeine's documentation about size-based eviction](https://github.com/ben-manes/caffeine/wiki/Eviction#size-based) (default: `-1`)
 
-- ##### `clean-on-startup` \{#tolgee-cache-cleanonstartup-_-cleanonstartup}
+- ##### `clean-on-startup` \{#tolgee-cache-_-clean-on-startup}
 
   Whether to clean the cache on Tolgee startup (default: `true`)
 
-- ##### `default-ttl` \{#tolgee-cache-defaultttl-_-defaultttl}
+- ##### `default-ttl` \{#tolgee-cache-_-default-ttl}
 
   TTL of cache data, in milliseconds. (default: `7200000` ≈ 2 hours)
 
-- ##### `enabled` \{#tolgee-cache-enabled-_-enabled}
+- ##### `enabled` \{#tolgee-cache-_-enabled}
 
   Whether Tolgee should use a cache. (default: `false`)
 
-- ##### `use-redis` \{#tolgee-cache-useredis-_-useredis}
+- ##### `use-redis` \{#tolgee-cache-_-use-redis}
 
   Whether Tolgee should use Redis to store cache data instead of storing it in-memory.
   :::info
@@ -390,7 +390,7 @@ data it needs faster. Cache is also used to track certain states, such as rate l
   
    (default: `false`)
 
-### Content Delivery \{#tolgee-contentdelivery-_-contentdelivery}
+### Content Delivery \{#tolgee-_-content-delivery}
 
 Prefix: `tolgee.content-delivery`
 
@@ -398,152 +398,152 @@ These properties are used to configure default server content delivery storage.
  
 To get content delivery working, you have to configure the Storage (e.g. S3 or Blob).
 
-- ##### `public-url-prefix` \{#tolgee-contentdelivery-publicurlprefix-_-publicurlprefix}
+- ##### `public-url-prefix` \{#tolgee-content-delivery-_-public-url-prefix}
 
   The prefix URL where the content is accessible from the public. If this property is not null, content delivery will be enabled on your server.
   
   For example, if you set this property to `https://cdn.example.com/`
 
-#### Cache purging \{#tolgee-contentdelivery-cachepurging-_-cachepurging}
+#### Cache purging \{#tolgee-content-delivery-_-cache-purging}
 
 Prefix: `tolgee.content-delivery.cache-purging`
 
 Several services can be used as cache. Tolgee is able to purge the cache when new files are published when this configuration is set.
 
-##### azure-front-door \{#tolgee-contentdelivery-cachepurging-azurefrontdoor-_-azurefrontdoor}
+##### azure-front-door \{#tolgee-content-delivery-cache-purging-_-azure-front-door}
 
 Prefix: `tolgee.content-delivery.cache-purging.azure-front-door`
 
-- ##### `client-id` \{#tolgee-contentdelivery-cachepurging-azurefrontdoor-clientid-_-clientid}
+- ##### `client-id` \{#tolgee-content-delivery-cache-purging-azure-front-door-_-client-id}
 
-- ##### `client-secret` \{#tolgee-contentdelivery-cachepurging-azurefrontdoor-clientsecret-_-clientsecret}
+- ##### `client-secret` \{#tolgee-content-delivery-cache-purging-azure-front-door-_-client-secret}
 
-- ##### `content-root` \{#tolgee-contentdelivery-cachepurging-azurefrontdoor-contentroot-_-contentroot}
+- ##### `content-root` \{#tolgee-content-delivery-cache-purging-azure-front-door-_-content-root}
 
-- ##### `endpoint-name` \{#tolgee-contentdelivery-cachepurging-azurefrontdoor-endpointname-_-endpointname}
+- ##### `endpoint-name` \{#tolgee-content-delivery-cache-purging-azure-front-door-_-endpoint-name}
 
-- ##### `profile-name` \{#tolgee-contentdelivery-cachepurging-azurefrontdoor-profilename-_-profilename}
+- ##### `profile-name` \{#tolgee-content-delivery-cache-purging-azure-front-door-_-profile-name}
 
-- ##### `resource-group-name` \{#tolgee-contentdelivery-cachepurging-azurefrontdoor-resourcegroupname-_-resourcegroupname}
+- ##### `resource-group-name` \{#tolgee-content-delivery-cache-purging-azure-front-door-_-resource-group-name}
 
-- ##### `subscription-id` \{#tolgee-contentdelivery-cachepurging-azurefrontdoor-subscriptionid-_-subscriptionid}
+- ##### `subscription-id` \{#tolgee-content-delivery-cache-purging-azure-front-door-_-subscription-id}
 
-- ##### `tenant-id` \{#tolgee-contentdelivery-cachepurging-azurefrontdoor-tenantid-_-tenantid}
+- ##### `tenant-id` \{#tolgee-content-delivery-cache-purging-azure-front-door-_-tenant-id}
 
-##### cloudflare \{#tolgee-contentdelivery-cachepurging-cloudflare-_-cloudflare}
+##### cloudflare \{#tolgee-content-delivery-cache-purging-_-cloudflare}
 
 Prefix: `tolgee.content-delivery.cache-purging.cloudflare`
 
-- ##### `api-key` \{#tolgee-contentdelivery-cachepurging-cloudflare-apikey-_-apikey}
+- ##### `api-key` \{#tolgee-content-delivery-cache-purging-cloudflare-_-api-key}
 
-- ##### `content-delivery-cache-purging-type` \{#tolgee-contentdelivery-cachepurging-cloudflare-contentdeliverycachepurgingtype-_-contentdeliverycachepurgingtype}
+- ##### `content-delivery-cache-purging-type` \{#tolgee-content-delivery-cache-purging-cloudflare-_-content-delivery-cache-purging-type}
 
-- ##### `enabled` \{#tolgee-contentdelivery-cachepurging-cloudflare-enabled-_-enabled}
+- ##### `enabled` \{#tolgee-content-delivery-cache-purging-cloudflare-_-enabled}
 
-- ##### `max-files-per-request` \{#tolgee-contentdelivery-cachepurging-cloudflare-maxfilesperrequest-_-maxfilesperrequest}
+- ##### `max-files-per-request` \{#tolgee-content-delivery-cache-purging-cloudflare-_-max-files-per-request}
 
   Number of paths to purge in one request. (Cloudflare limit is 30 now, but it might be subject to change) (default: `30`)
 
-- ##### `origins` \{#tolgee-contentdelivery-cachepurging-cloudflare-origins-_-origins}
+- ##### `origins` \{#tolgee-content-delivery-cache-purging-cloudflare-_-origins}
 
   If cache is filled with specific Origin header, it can be purged only if the purge request specifies the same Origin header. Here you can specify comma separated list of origins.
   e.g. `https://example.com,https://example2.com`
   
   Read more in the Cloudflare [docs](https://developers.cloudflare.com/cache/how-to/purge-cache/purge-by-single-file/).
 
-- ##### `url-prefix` \{#tolgee-contentdelivery-cachepurging-cloudflare-urlprefix-_-urlprefix}
+- ##### `url-prefix` \{#tolgee-content-delivery-cache-purging-cloudflare-_-url-prefix}
 
-- ##### `zone-id` \{#tolgee-contentdelivery-cachepurging-cloudflare-zoneid-_-zoneid}
+- ##### `zone-id` \{#tolgee-content-delivery-cache-purging-cloudflare-_-zone-id}
 
-#### storage \{#tolgee-contentdelivery-storage-_-storage}
+#### storage \{#tolgee-content-delivery-_-storage}
 
 Prefix: `tolgee.content-delivery.storage`
 
 Configuration of the storage. You have to configure exactly one storage.
 
-##### azure \{#tolgee-contentdelivery-storage-azure-_-azure}
+##### azure \{#tolgee-content-delivery-storage-_-azure}
 
 Prefix: `tolgee.content-delivery.storage.azure`
 
 Configuration of Azure Blob storage
 
-- ##### `connection-string` \{#tolgee-contentdelivery-storage-azure-connectionstring-_-connectionstring}
+- ##### `connection-string` \{#tolgee-content-delivery-storage-azure-_-connection-string}
 
-- ##### `container-name` \{#tolgee-contentdelivery-storage-azure-containername-_-containername}
+- ##### `container-name` \{#tolgee-content-delivery-storage-azure-_-container-name}
 
-##### s3 \{#tolgee-contentdelivery-storage-s3-_-s3}
+##### s3 \{#tolgee-content-delivery-storage-_-s3}
 
 Prefix: `tolgee.content-delivery.storage.s3`
 
 Configuration of S3 bucket
 
-- ##### `access-key` \{#tolgee-contentdelivery-storage-s3-accesskey-_-accesskey}
+- ##### `access-key` \{#tolgee-content-delivery-storage-s3-_-access-key}
 
-- ##### `bucket-name` \{#tolgee-contentdelivery-storage-s3-bucketname-_-bucketname}
+- ##### `bucket-name` \{#tolgee-content-delivery-storage-s3-_-bucket-name}
 
-- ##### `endpoint` \{#tolgee-contentdelivery-storage-s3-endpoint-_-endpoint}
+- ##### `endpoint` \{#tolgee-content-delivery-storage-s3-_-endpoint}
 
-- ##### `path` \{#tolgee-contentdelivery-storage-s3-path-_-path}
+- ##### `path` \{#tolgee-content-delivery-storage-s3-_-path}
 
-- ##### `secret-key` \{#tolgee-contentdelivery-storage-s3-secretkey-_-secretkey}
+- ##### `secret-key` \{#tolgee-content-delivery-storage-s3-_-secret-key}
 
-- ##### `signing-region` \{#tolgee-contentdelivery-storage-s3-signingregion-_-signingregion}
+- ##### `signing-region` \{#tolgee-content-delivery-storage-s3-_-signing-region}
 
-### File storage \{#tolgee-filestorage-_-filestorage}
+### File storage \{#tolgee-_-file-storage}
 
 Prefix: `tolgee.file-storage`
 
 Configuration of Tolgee file storage.
 
-- ##### `fs-data-path` \{#tolgee-filestorage-fsdatapath-_-fsdatapath}
+- ##### `fs-data-path` \{#tolgee-file-storage-_-fs-data-path}
 
   Path to directory where Tolgee will store its files. (default: `~/.tolgee/` , with docker `/data/`)
 
-#### S3 \{#tolgee-filestorage-s3-_-s3}
+#### S3 \{#tolgee-file-storage-_-s3}
 
 Prefix: `tolgee.file-storage.s3`
 
 Tolgee supports storing its files on an S3-compatible storage server. When enabled, Tolgee will store all its files on the S3 server rather than in filesystem.
 
-- ##### `access-key` \{#tolgee-filestorage-s3-accesskey-_-accesskey}
+- ##### `access-key` \{#tolgee-file-storage-s3-_-access-key}
 
   Access key for the S3 server. (optional if you are authenticating with a different method, like STS Web Identity)
 
-- ##### `bucket-name` \{#tolgee-filestorage-s3-bucketname-_-bucketname}
+- ##### `bucket-name` \{#tolgee-file-storage-s3-_-bucket-name}
 
   Name of the bucket where Tolgee will store its files.
 
-- ##### `enabled` \{#tolgee-filestorage-s3-enabled-_-enabled}
+- ##### `enabled` \{#tolgee-file-storage-s3-_-enabled}
 
   Whether S3 is enabled. If enabled, you need to set all remaining properties below. (default: `false`)
 
-- ##### `endpoint` \{#tolgee-filestorage-s3-endpoint-_-endpoint}
+- ##### `endpoint` \{#tolgee-file-storage-s3-_-endpoint}
 
   Has to be set to a service endpoint: https://docs.aws.amazon.com/general/latest/gr/s3.html
 
-- ##### `path` \{#tolgee-filestorage-s3-path-_-path}
+- ##### `path` \{#tolgee-file-storage-s3-_-path}
 
   Optional subfolder structure within s3 bucket to which content will be stored
 
-- ##### `secret-key` \{#tolgee-filestorage-s3-secretkey-_-secretkey}
+- ##### `secret-key` \{#tolgee-file-storage-s3-_-secret-key}
 
   Secret key for the access key. (optional if you are authenticating with a different method, like STS Web Identity)
 
-- ##### `signing-region` \{#tolgee-filestorage-s3-signingregion-_-signingregion}
+- ##### `signing-region` \{#tolgee-file-storage-s3-_-signing-region}
 
   Has to be set to a signing region: https://docs.aws.amazon.com/general/latest/gr/s3.html
 
-### Import \{#tolgee-import-_-import}
+### Import \{#tolgee-_-import}
 
 Prefix: `tolgee.import`
 
 Properties for importing data to Tolgee and bulk-imports exported json files in the database during startup. Useful to quickly provision a development server, and used for testing.
 
-- ##### `base-language-tag` \{#tolgee-import-baselanguagetag-_-baselanguagetag}
+- ##### `base-language-tag` \{#tolgee-import-_-base-language-tag}
 
   The language tag of the base language of the imported project (for importing data on startup). (default: `en`)
 
-- ##### `create-implicit-api-key` \{#tolgee-import-createimplicitapikey-_-createimplicitapikey}
+- ##### `create-implicit-api-key` \{#tolgee-import-_-create-implicit-api-key}
 
   Whether an implicit API key should be created when importing data on startup.
   
@@ -555,7 +555,7 @@ Properties for importing data to Tolgee and bulk-imports exported json files in 
   
    (default: `false`)
 
-- ##### `dir` \{#tolgee-import-dir-_-dir}
+- ##### `dir` \{#tolgee-import-_-dir}
 
   File path of the directory where the files to import on startup are located.
   
@@ -572,29 +572,29 @@ Properties for importing data to Tolgee and bulk-imports exported json files in 
   
   
 
-- ##### `store-files-for-debugging` \{#tolgee-import-storefilesfordebugging-_-storefilesfordebugging}
+- ##### `store-files-for-debugging` \{#tolgee-import-_-store-files-for-debugging}
 
   If true, uploaded files will be stored in configured file storage for future debugging. Such data is not automatically removed after successful import. You have to clean-up manually! (default: `false`)
 
-### LLM Providers \{#tolgee-llm-_-llm}
+### LLM Providers \{#tolgee-_-llm}
 
 Prefix: `tolgee.llm`
 
 LLM Providers configuration
 
-- ##### `default-enabled` \{#tolgee-llm-defaultenabled-_-defaultenabled}
+- ##### `default-enabled` \{#tolgee-llm-_-default-enabled}
 
   Whether llm-powered machine translation is enabled. (default: `true`)
 
-- ##### `default-primary` \{#tolgee-llm-defaultprimary-_-defaultprimary}
+- ##### `default-primary` \{#tolgee-llm-_-default-primary}
 
   Whether to use llm machine translation as a primary translation engine. (default: `true`)
 
-- ##### `enabled` \{#tolgee-llm-enabled-_-enabled}
+- ##### `enabled` \{#tolgee-llm-_-enabled}
 
   Enable/disable AI translator (default: enabled if there is at least one provider)
 
-#### providers \{#tolgee-llm-providers-_-providers}
+#### providers \{#tolgee-llm-_-providers}
 
 
     List of LLM providers. Example:
@@ -623,201 +623,201 @@ LLM Providers configuration
     Check [llm providers documentation](/platform/projects_and_organizations/llm-providers#self-hosted-server-configuration) for more information.
   
 
-- ##### `api-key` \{#tolgee-llm-providers-apikey-_-apikey}
+- ##### `api-key` \{#tolgee-llm-providers-_-api-key}
 
   Provider API Key (optional for some providers)
 
-- ##### `api-url` \{#tolgee-llm-providers-apiurl-_-apiurl}
+- ##### `api-url` \{#tolgee-llm-providers-_-api-url}
 
   Provider API Url
 
-- ##### `attempts` \{#tolgee-llm-providers-attempts-_-attempts}
+- ##### `attempts` \{#tolgee-llm-providers-_-attempts}
 
   Specify attempts timeout(s) (Example: [30, 30] - Tolgee will make two attempts, each with timeout of 30s)
 
-- ##### `deployment` \{#tolgee-llm-providers-deployment-_-deployment}
+- ##### `deployment` \{#tolgee-llm-providers-_-deployment}
 
   Provider deployment (optional for some providers)
 
-- ##### `enabled` \{#tolgee-llm-providers-enabled-_-enabled}
+- ##### `enabled` \{#tolgee-llm-providers-_-enabled}
 
   Enable/disable provider (default: `true`)
 
-- ##### `format` \{#tolgee-llm-providers-format-_-format}
+- ##### `format` \{#tolgee-llm-providers-_-format}
 
-- ##### `model` \{#tolgee-llm-providers-model-_-model}
+- ##### `model` \{#tolgee-llm-providers-_-model}
 
   Provider model (optional for some providers)
 
-- ##### `name` \{#tolgee-llm-providers-name-_-name}
+- ##### `name` \{#tolgee-llm-providers-_-name}
 
   User visible provider name (default: `default`)
 
-- ##### `priority` \{#tolgee-llm-providers-priority-_-priority}
+- ##### `priority` \{#tolgee-llm-providers-_-priority}
 
   Load-balancing instruction HIGH = used for suggestions, LOW = used for batch operations
 
-- ##### `reasoning-effort` \{#tolgee-llm-providers-reasoningeffort-_-reasoningeffort}
+- ##### `reasoning-effort` \{#tolgee-llm-providers-_-reasoning-effort}
 
   ChatGPT reasoning effort
 
-- ##### `type` \{#tolgee-llm-providers-type-_-type}
+- ##### `type` \{#tolgee-llm-providers-_-type}
 
   Provider type, an API type (default: `OPENAI`)
 
-### Machine Translation \{#tolgee-machinetranslation-_-machinetranslation}
+### Machine Translation \{#tolgee-_-machine-translation}
 
 Prefix: `tolgee.machine-translation`
 
 Configuration of Machine Translation services.
 
-- ##### `free-credits-amount` \{#tolgee-machinetranslation-freecreditsamount-_-freecreditsamount}
+- ##### `free-credits-amount` \{#tolgee-machine-translation-_-free-credits-amount}
 
   Amount of machine translations users of the Free tier can request per month. Used by Tolgee Cloud, see [pricing](https://tolgee.io/pricing). Set to `-1` to disable credit-based limitation. (default: `-1`)
 
-#### AWS Amazon Translate \{#tolgee-machinetranslation-aws-_-aws}
+#### AWS Amazon Translate \{#tolgee-machine-translation-_-aws}
 
 Prefix: `tolgee.machine-translation.aws`
 
 See [AWS's Amazon Translate](https://aws.amazon.com/translate) page for more information and applicable pricing.
 
-- ##### `access-key` \{#tolgee-machinetranslation-aws-accesskey-_-accesskey}
+- ##### `access-key` \{#tolgee-machine-translation-aws-_-access-key}
 
   AWS access key. (optional if you are authenticating with a different method, like STS Web Identity)
 
-- ##### `default-enabled` \{#tolgee-machinetranslation-aws-defaultenabled-_-defaultenabled}
+- ##### `default-enabled` \{#tolgee-machine-translation-aws-_-default-enabled}
 
   Whether AWS-powered machine translation is enabled. (default: `true`)
 
-- ##### `default-primary` \{#tolgee-machinetranslation-aws-defaultprimary-_-defaultprimary}
+- ##### `default-primary` \{#tolgee-machine-translation-aws-_-default-primary}
 
   Whether to use AWS Amazon Translate as a primary translation engine. (default: `false`)
 
-- ##### `enabled` \{#tolgee-machinetranslation-aws-enabled-_-enabled}
+- ##### `enabled` \{#tolgee-machine-translation-aws-_-enabled}
 
   If you are authenticating using a different method than explicit access key and secret key, which implicitly enable AWS Translate, you should enable AWS Translate using this option.
 
-- ##### `region` \{#tolgee-machinetranslation-aws-region-_-region}
+- ##### `region` \{#tolgee-machine-translation-aws-_-region}
 
   AWS region. (default: `eu-central-1`)
 
-- ##### `secret-key` \{#tolgee-machinetranslation-aws-secretkey-_-secretkey}
+- ##### `secret-key` \{#tolgee-machine-translation-aws-_-secret-key}
 
   AWS secret key. (optional if you are authenticating with a different method, like STS Web Identity)
 
-#### Azure Cognitive Translation \{#tolgee-machinetranslation-azure-_-azure}
+#### Azure Cognitive Translation \{#tolgee-machine-translation-_-azure}
 
 Prefix: `tolgee.machine-translation.azurecognitive`
 
 See [Azure Cognitive Translation](https://azure.microsoft.com/en-us/services/cognitive-services/translator-text-api/) page for more information and applicable pricing.
 
-- ##### `auth-key` \{#tolgee-machinetranslation-azure-authkey-_-authkey}
+- ##### `auth-key` \{#tolgee-machine-translation-azure-_-auth-key}
 
   Azure Cognitive Translation auth key.
 
-- ##### `default-enabled` \{#tolgee-machinetranslation-azure-defaultenabled-_-defaultenabled}
+- ##### `default-enabled` \{#tolgee-machine-translation-azure-_-default-enabled}
 
   Whether Azure Cognitive Translation is enabled. (default: `true`)
 
-- ##### `default-primary` \{#tolgee-machinetranslation-azure-defaultprimary-_-defaultprimary}
+- ##### `default-primary` \{#tolgee-machine-translation-azure-_-default-primary}
 
   Whether to use Azure Cognitive Translation as a primary translation engine. (default: `false`)
 
-- ##### `region` \{#tolgee-machinetranslation-azure-region-_-region}
+- ##### `region` \{#tolgee-machine-translation-azure-_-region}
 
   Azure Cognitive Translation region.
 
-#### Baidu Translate \{#tolgee-machinetranslation-baidu-_-baidu}
+#### Baidu Translate \{#tolgee-machine-translation-_-baidu}
 
 Prefix: `tolgee.machine-translation.baidu`
 
 See [Baidu's](https://fanyi-api.baidu.com/product/11) page (in Chinese) for more information and applicable pricing.
 
-- ##### `action` \{#tolgee-machinetranslation-baidu-action-_-action}
+- ##### `action` \{#tolgee-machine-translation-baidu-_-action}
 
   Whether the resulting translation should be changed according to the user-defined dictionary.
   The dictionary used can be modified at [Manage Terms](https://fanyi-api.baidu.com/manage/term) (login required). (default: `false`)
 
-- ##### `app-id` \{#tolgee-machinetranslation-baidu-appid-_-appid}
+- ##### `app-id` \{#tolgee-machine-translation-baidu-_-app-id}
 
   Baidu Translate App ID.
 
-- ##### `app-secret` \{#tolgee-machinetranslation-baidu-appsecret-_-appsecret}
+- ##### `app-secret` \{#tolgee-machine-translation-baidu-_-app-secret}
 
   Baidu Translate Secret key.
 
-- ##### `default-enabled` \{#tolgee-machinetranslation-baidu-defaultenabled-_-defaultenabled}
+- ##### `default-enabled` \{#tolgee-machine-translation-baidu-_-default-enabled}
 
   Whether Baidu-powered machine translation is enabled. (default: `true`)
 
-- ##### `default-primary` \{#tolgee-machinetranslation-baidu-defaultprimary-_-defaultprimary}
+- ##### `default-primary` \{#tolgee-machine-translation-baidu-_-default-primary}
 
   Whether to use Baidu Translate as a primary translation engine. (default: `false`)
 
-#### DeepL \{#tolgee-machinetranslation-deepl-_-deepl}
+#### DeepL \{#tolgee-machine-translation-_-deepl}
 
 Prefix: `tolgee.machine-translation.deepl`
 
 See [DeepL's](https://www.deepl.com/) page for more information and applicable pricing.
 
-- ##### `auth-key` \{#tolgee-machinetranslation-deepl-authkey-_-authkey}
+- ##### `auth-key` \{#tolgee-machine-translation-deepl-_-auth-key}
 
   DeepL auth key. Both key types (commercial and free) are supported.
 
-- ##### `default-enabled` \{#tolgee-machinetranslation-deepl-defaultenabled-_-defaultenabled}
+- ##### `default-enabled` \{#tolgee-machine-translation-deepl-_-default-enabled}
 
   Whether DeepL-powered machine translation is enabled. (default: `true`)
 
-- ##### `default-primary` \{#tolgee-machinetranslation-deepl-defaultprimary-_-defaultprimary}
+- ##### `default-primary` \{#tolgee-machine-translation-deepl-_-default-primary}
 
   Whether to use DeepL as a primary translation engine. (default: `false`)
 
-- ##### `optional-parameters` \{#tolgee-machinetranslation-deepl-optionalparameters-_-optionalparameters}
+- ##### `optional-parameters` \{#tolgee-machine-translation-deepl-_-optional-parameters}
 
   DeepL parameters which should be set for deepl api usage (Optional)
 
-#### Google Cloud Translation \{#tolgee-machinetranslation-google-_-google}
+#### Google Cloud Translation \{#tolgee-machine-translation-_-google}
 
 Prefix: `tolgee.machine-translation.google`
 
 See [Google Cloud Translation](https://cloud.google.com/translate) page for more information and applicable pricing.
 
-- ##### `api-key` \{#tolgee-machinetranslation-google-apikey-_-apikey}
+- ##### `api-key` \{#tolgee-machine-translation-google-_-api-key}
 
   Google Cloud Translation API key.
 
-- ##### `default-enabled` \{#tolgee-machinetranslation-google-defaultenabled-_-defaultenabled}
+- ##### `default-enabled` \{#tolgee-machine-translation-google-_-default-enabled}
 
   Whether Google-powered machine translation is enabled. (default: `true`)
 
-- ##### `default-primary` \{#tolgee-machinetranslation-google-defaultprimary-_-defaultprimary}
+- ##### `default-primary` \{#tolgee-machine-translation-google-_-default-primary}
 
   Whether to use Google Cloud Translation as a primary translation engine. (default: `true`)
 
-### Postgres autostart \{#tolgee-postgresautostart-_-postgresautostart}
+### Postgres autostart \{#tolgee-_-postgres-autostart}
 
 Prefix: `tolgee.postgres-autostart`
 
 Defines whether and how is PostgreSQL started on Tolgee startup.
 
-- ##### `container-name` \{#tolgee-postgresautostart-containername-_-containername}
+- ##### `container-name` \{#tolgee-postgres-autostart-_-container-name}
 
   The container name of the Postgres container.
   This setting is applicable only for `DOCKER` mode. (default: `tolgee_postgres`)
 
-- ##### `database-name` \{#tolgee-postgresautostart-databasename-_-databasename}
+- ##### `database-name` \{#tolgee-postgres-autostart-_-database-name}
 
   The name of the database created to store Tolgee data. (default: `postgres`)
 
-- ##### `enabled` \{#tolgee-postgresautostart-enabled-_-enabled}
+- ##### `enabled` \{#tolgee-postgres-autostart-_-enabled}
 
   Whether to start PostgreSQL on Tolgee startup. (default: `true`)
 
-- ##### `max-wait-time` \{#tolgee-postgresautostart-maxwaittime-_-maxwaittime}
+- ##### `max-wait-time` \{#tolgee-postgres-autostart-_-max-wait-time}
 
   The max time to wait for running postgres in seconds. (default: `300`)
 
-- ##### `mode` \{#tolgee-postgresautostart-mode-_-mode}
+- ##### `mode` \{#tolgee-postgres-autostart-_-mode}
 
   How is Tolgee running PostgreSQL.
   
@@ -825,24 +825,24 @@ Defines whether and how is PostgreSQL started on Tolgee startup.
   - `DOCKER` - Tolgee tries to run Postgres Docker container in your machine. This is default option when running Tolgee using Java. See [Running with Java](/self_hosting/running_with_java.mdx).
   - `EMBEDDED` - Tolgee tries to run it's embedded PostgreSQL which is bundled in the `tolgee/tolgee` Docker image. (default: `DOCKER`)
 
-- ##### `password` \{#tolgee-postgresautostart-password-_-password}
+- ##### `password` \{#tolgee-postgres-autostart-_-password}
 
   Database password to bootstrap Postgres with. (default: `postgres`)
 
-- ##### `port` \{#tolgee-postgresautostart-port-_-port}
+- ##### `port` \{#tolgee-postgres-autostart-_-port}
 
   The port of Postgres to listen on host machine.
   This setting is applicable only for `DOCKER` mode. (default: `25432`)
 
-- ##### `stop` \{#tolgee-postgresautostart-stop-_-stop}
+- ##### `stop` \{#tolgee-postgres-autostart-_-stop}
 
   When true, Tolgee will stop the Postgres container on Tolgee shutdown. This setting is applicable only for `DOCKER` mode. (default: `true`)
 
-- ##### `user` \{#tolgee-postgresautostart-user-_-user}
+- ##### `user` \{#tolgee-postgres-autostart-_-user}
 
   Database user to bootstrap Postgres with. (default: `postgres`)
 
-### Rate limits \{#tolgee-ratelimit-_-ratelimit}
+### Rate limits \{#tolgee-_-rate-limit}
 
 Prefix: `tolgee.rate-limits`
 
@@ -854,7 +854,7 @@ Per-endpoint and auth-related rate limits are fixed and cannot be configured.
 
 
 
-- ##### `authentication-limits` \{#tolgee-ratelimit-authenticationlimits-_-authenticationlimits}
+- ##### `authentication-limits` \{#tolgee-rate-limit-_-authentication-limits}
 
   Control whether per-endpoint limits on authentication-related endpoints are enabled or not.
   :::warning
@@ -864,13 +864,13 @@ Per-endpoint and auth-related rate limits are fixed and cannot be configured.
   
    (default: `true`)
 
-- ##### `email-verification-request-limit` \{#tolgee-ratelimit-emailverificationrequestlimit-_-emailverificationrequestlimit}
+- ##### `email-verification-request-limit` \{#tolgee-rate-limit-_-email-verification-request-limit}
 
-- ##### `email-verification-request-limit-enabled` \{#tolgee-ratelimit-emailverificationrequestlimitenabled-_-emailverificationrequestlimitenabled}
+- ##### `email-verification-request-limit-enabled` \{#tolgee-rate-limit-_-email-verification-request-limit-enabled}
 
-- ##### `email-verification-request-window` \{#tolgee-ratelimit-emailverificationrequestwindow-_-emailverificationrequestwindow}
+- ##### `email-verification-request-window` \{#tolgee-rate-limit-_-email-verification-request-window}
 
-- ##### `enabled` \{#tolgee-ratelimit-enabled-_-enabled}
+- ##### `enabled` \{#tolgee-rate-limit-_-enabled}
 
   To turn all rate limits off, set this value to `false`.
   
@@ -882,32 +882,32 @@ Per-endpoint and auth-related rate limits are fixed and cannot be configured.
   
    (default: `true`)
 
-- ##### `endpoint-limits` \{#tolgee-ratelimit-endpointlimits-_-endpointlimits}
+- ##### `endpoint-limits` \{#tolgee-rate-limit-_-endpoint-limits}
 
   Control whether per-endpoint limits on the API are enabled or not.
   Does not affect authentication-related endpoints, these are controlled by `authentication-limits`. (default: `true`)
 
-- ##### `global-limits` \{#tolgee-ratelimit-globallimits-_-globallimits}
+- ##### `global-limits` \{#tolgee-rate-limit-_-global-limits}
 
   Control whether global limits on the API are enabled or not. (default: `true`)
 
-- ##### `ip-request-limit` \{#tolgee-ratelimit-iprequestlimit-_-iprequestlimit}
+- ##### `ip-request-limit` \{#tolgee-rate-limit-_-ip-request-limit}
 
   Amount of requests an IP address can do in a single time window. (default: `20000`)
 
-- ##### `ip-request-window` \{#tolgee-ratelimit-iprequestwindow-_-iprequestwindow}
+- ##### `ip-request-window` \{#tolgee-rate-limit-_-ip-request-window}
 
   Size, in milliseconds, of the time window for IP-based limiting. (default: `300000` = 5 minutes)
 
-- ##### `user-request-limit` \{#tolgee-ratelimit-userrequestlimit-_-userrequestlimit}
+- ##### `user-request-limit` \{#tolgee-rate-limit-_-user-request-limit}
 
   Amount of requests a user can do in a single time window. (default: `400`)
 
-- ##### `user-request-window` \{#tolgee-ratelimit-userrequestwindow-_-userrequestwindow}
+- ##### `user-request-window` \{#tolgee-rate-limit-_-user-request-window}
 
   Size, in milliseconds, of the time window for user-based limiting. (default: `60000` = 1 minute)
 
-### reCAPTCHA \{#tolgee-recaptcha-_-recaptcha}
+### reCAPTCHA \{#tolgee-_-recaptcha}
 
 Prefix: `tolgee.recaptcha`
 
@@ -915,45 +915,45 @@ When configured, reCAPTCHA v3 is used to protect the sign up page against bots. 
 
 To enable it, you first need to [register a new site on reCAPTCHA](https://www.google.com/recaptcha/admin). Make sure to select reCAPTCHA v3 when registering your site.
 
-- ##### `secret-key` \{#tolgee-recaptcha-secretkey-_-secretkey}
+- ##### `secret-key` \{#tolgee-recaptcha-_-secret-key}
 
   Secret key for communication between your site and reCAPTCHA.
 
-- ##### `site-key` \{#tolgee-recaptcha-sitekey-_-sitekey}
+- ##### `site-key` \{#tolgee-recaptcha-_-site-key}
 
   Site key for use the HTML code your site serves to users.
 
-### Sentry \{#tolgee-sentry-_-sentry}
+### Sentry \{#tolgee-_-sentry}
 
 Prefix: `tolgee.sentry`
 
 Tolgee uses [Sentry](https://sentry.io/) for error reporting.
 
-- ##### `client-dsn` \{#tolgee-sentry-clientdsn-_-clientdsn}
+- ##### `client-dsn` \{#tolgee-sentry-_-client-dsn}
 
   Client DSN. If unset, error reporting is disabled on the server.
 
-- ##### `server-dsn` \{#tolgee-sentry-serverdsn-_-serverdsn}
+- ##### `server-dsn` \{#tolgee-sentry-_-server-dsn}
 
   Server DSN. If unset, error reporting is disabled on the server.
 
-- ##### `traces-sample-rate` \{#tolgee-sentry-tracessamplerate-_-tracessamplerate}
+- ##### `traces-sample-rate` \{#tolgee-sentry-_-traces-sample-rate}
 
   Sample rate for Sentry traces. If unset, traces are disabled on the server.
 
-### slack \{#tolgee-slack-_-slack}
+### slack \{#tolgee-_-slack}
 
 Prefix: `tolgee.slack`
 
-- ##### `client-id` \{#tolgee-slack-clientid-_-clientid}
+- ##### `client-id` \{#tolgee-slack-_-client-id}
 
-- ##### `client-secret` \{#tolgee-slack-clientsecret-_-clientsecret}
+- ##### `client-secret` \{#tolgee-slack-_-client-secret}
 
-- ##### `signing-secret` \{#tolgee-slack-signingsecret-_-signingsecret}
+- ##### `signing-secret` \{#tolgee-slack-_-signing-secret}
 
-- ##### `token` \{#tolgee-slack-token-_-token}
+- ##### `token` \{#tolgee-slack-_-token}
 
-### SMTP \{#tolgee-smtp-_-smtp}
+### SMTP \{#tolgee-_-smtp}
 
 Prefix: `tolgee.smtp`
 
@@ -970,43 +970,43 @@ tolgee.smtp.ssl-enabled=true
 tolgee.smtp.from=Tolgee <no-reply@tolgee.yourserver.something>
 ```
 
-- ##### `auth` \{#tolgee-smtp-auth-_-auth}
+- ##### `auth` \{#tolgee-smtp-_-auth}
 
   Whether authentication is enabled. (default: `false`)
 
-- ##### `from` \{#tolgee-smtp-from-_-from}
+- ##### `from` \{#tolgee-smtp-_-from}
 
   The sender name and address in standard SMTP format.
 
-- ##### `host` \{#tolgee-smtp-host-_-host}
+- ##### `host` \{#tolgee-smtp-_-host}
 
   SMTP server host
 
-- ##### `password` \{#tolgee-smtp-password-_-password}
+- ##### `password` \{#tolgee-smtp-_-password}
 
   Password for SMTP authentication
 
-- ##### `port` \{#tolgee-smtp-port-_-port}
+- ##### `port` \{#tolgee-smtp-_-port}
 
   SMTP server port (default: `25`)
 
-- ##### `ssl-enabled` \{#tolgee-smtp-sslenabled-_-sslenabled}
+- ##### `ssl-enabled` \{#tolgee-smtp-_-ssl-enabled}
 
   Whether SSL is enabled. (default: `false`)
 
-- ##### `tls-enabled` \{#tolgee-smtp-tlsenabled-_-tlsenabled}
+- ##### `tls-enabled` \{#tolgee-smtp-_-tls-enabled}
 
   Whether TLS is enabled. (default: `false`)
 
-- ##### `tls-required` \{#tolgee-smtp-tlsrequired-_-tlsrequired}
+- ##### `tls-required` \{#tolgee-smtp-_-tls-required}
 
   Whether TLS is required. (default: `false`)
 
-- ##### `username` \{#tolgee-smtp-username-_-username}
+- ##### `username` \{#tolgee-smtp-_-username}
 
   The username for SMTP authentication
 
-### Telemetry \{#tolgee-telemetry-_-telemetry}
+### Telemetry \{#tolgee-_-telemetry}
 
 Prefix: `tolgee.telemetry`
 
@@ -1024,21 +1024,21 @@ Once a day we collect following data
 
 We don't collect any other data. Please leave telemetry enabled to help us improve Tolgee.
 
-- ##### `enabled` \{#tolgee-telemetry-enabled-_-enabled}
+- ##### `enabled` \{#tolgee-telemetry-_-enabled}
 
   Whether telemetry is enabled (default: `true`)
 
-### Websocket \{#tolgee-websocket-_-websocket}
+### Websocket \{#tolgee-_-websocket}
 
 Prefix: `tolgee.websocket`
 
 Configuration specific to the use of Websocket.
 
-- ##### `use-redis` \{#tolgee-websocket-useredis-_-useredis}
+- ##### `use-redis` \{#tolgee-websocket-_-use-redis}
 
   Whether to use Redis for Websocket events (default: `false`)
 
-## Full configuration example \{#full-configuration-example}
+## Full configuration example \{#-full-configuration-example}
 <Tabs lazy groupId="config-format" queryString defaultValue='yaml' values={[{"value":"yaml","label":"YAML"},{"value":"env","label":".env"},{"value":"properties","label":"application.properties"}]}>
 </Tabs>
 <details>
@@ -1261,90 +1261,90 @@ tolgee:
 import ExampleEnvConfig from "./shared/_exampleEnvConfig.mdx";
 
 <ExampleEnvConfig />
-## Server settings \{#server-_-server}
+## Server settings \{#server}
 
 Prefix: `SERVER`
 
 These properties are used to configure the server.
 
-- ##### `PORT` \{#server-port-_-port}
+- ##### `PORT` \{#server-_-port}
 
   Port on which Tolgee exposes itself. (default: `8080`)
 
-## Spring settings \{#spring-_-spring}
+## Spring settings \{#spring}
 
 Prefix: `SPRING`
 
 These properties are used to configure Spring framework.
 
-### Data source settings \{#spring-datasource-_-datasource}
+### Data source settings \{#spring-_-datasource}
 
 Prefix: `SPRING_DATASOURCE`
 
 Since Tolgee is built on Spring framework, you have to edit following configuration props
 to configure its database connection. These properties can be omitted when using
-[Postgres autostart](#tolgee-postgresautostart-_-postgresautostart), which is enabled by default.
+[Postgres autostart](#tolgee-_-postgres-autostart), which is enabled by default.
 
-- ##### `URL` \{#spring-datasource-url-_-url}
+- ##### `URL` \{#spring-datasource-_-url}
 
   The url of the datasource in format `jdbc:postgresql://host:port/dbname`. e.g. `jdbc:postgresql://db:5432/postgres`
 
-- ##### `USERNAME` \{#spring-datasource-username-_-username}
+- ##### `USERNAME` \{#spring-datasource-_-username}
 
   Database username. e.g. `postgres`
 
-- ##### `PASSWORD` \{#spring-datasource-password-_-password}
+- ##### `PASSWORD` \{#spring-datasource-_-password}
 
   Database password. e.g. `postgres`
 
-## Tolgee \{#tolgee-_-tolgee}
+## Tolgee \{#tolgee}
 
 Prefix: `TOLGEE`
 
 Configuration specific to Tolgee.
 
-- ##### `FILE_STORAGE_URL` \{#tolgee-filestorageurl-_-filestorageurl}
+- ##### `FILE_STORAGE_URL` \{#tolgee-_-file-storage-url}
 
   Public base path where files are accessible. Used by the user interface.
 
-- ##### `FRONT_END_URL` \{#tolgee-frontendurl-_-frontendurl}
+- ##### `FRONT_END_URL` \{#tolgee-_-front-end-url}
 
   Public URL where Tolgee is accessible. Used to generate links to Tolgee (e.g. email confirmation link).
   
   **Warning:** Not providing this property leads to security issues.Providing this property is highly recommended especially if you are managing publicly accessible Tolgee instance. 
 
-- ##### `MAX_SCREENSHOTS_PER_KEY` \{#tolgee-maxscreenshotsperkey-_-maxscreenshotsperkey}
+- ##### `MAX_SCREENSHOTS_PER_KEY` \{#tolgee-_-max-screenshots-per-key}
 
   Maximum amount of screenshots which can be uploaded per API key. (default: `20`)
 
-- ##### `MAX_TRANSLATION_TEXT_LENGTH` \{#tolgee-maxtranslationtextlength-_-maxtranslationtextlength}
+- ##### `MAX_TRANSLATION_TEXT_LENGTH` \{#tolgee-_-max-translation-text-length}
 
   Maximum length of translations. (default: `10000`)
 
-- ##### `MAX_UPLOAD_FILE_SIZE` \{#tolgee-maxuploadfilesize-_-maxuploadfilesize}
+- ##### `MAX_UPLOAD_FILE_SIZE` \{#tolgee-_-max-upload-file-size}
 
   Maximum size of uploaded files (in kilobytes). (default: `51200` ≈ 50MB)
 
-- ##### `TRANSLATIONS_VIEW_LANGUAGES_LIMIT` \{#tolgee-translationsviewlanguageslimit-_-translationsviewlanguageslimit}
+- ##### `TRANSLATIONS_VIEW_LANGUAGES_LIMIT` \{#tolgee-_-translations-view-languages-limit}
 
   Maximum amount of languages that can be selected in the Translations view (default: `10`)
 
-### Authentication \{#tolgee-authentication-_-authentication}
+### Authentication \{#tolgee-_-authentication}
 
 Prefix: `TOLGEE_AUTHENTICATION`
 
 Configuration of Tolgee's authentication.
 
-- ##### `CREATE_DEMO_FOR_INITIAL_USER` \{#tolgee-authentication-createdemoforinitialuser-_-createdemoforinitialuser}
+- ##### `CREATE_DEMO_FOR_INITIAL_USER` \{#tolgee-authentication-_-create-demo-for-initial-user}
 
   When enabled, creates Demo project and quick start guide for inital user
    (default: `true`)
 
-- ##### `ENABLED` \{#tolgee-authentication-enabled-_-enabled}
+- ##### `ENABLED` \{#tolgee-authentication-_-enabled}
 
   Whether authentication is enabled. When authentication is disabled, there are no login screen and no permission control. Users get automatically logged in as the administrator account of the Tolgee instance. This is very useful, when you want to use Tolgee on your local machine, or you just want to test it.  (default: `true` when running with Java directly, `false` when running via Docker.)
 
-- ##### `INITIAL_PASSWORD` \{#tolgee-authentication-initialpassword-_-initialpassword}
+- ##### `INITIAL_PASSWORD` \{#tolgee-authentication-_-initial-password}
 
   Password of initial user. If unspecified, a random password will be generated and stored in the `initial.pwd` file, located at the root of Tolgee's data path.
   
@@ -1356,7 +1356,7 @@ Configuration of Tolgee's authentication.
   
   
 
-- ##### `INITIAL_USERNAME` \{#tolgee-authentication-initialusername-_-initialusername}
+- ##### `INITIAL_USERNAME` \{#tolgee-authentication-_-initial-username}
 
   Username of initial user.
   
@@ -1366,11 +1366,11 @@ Configuration of Tolgee's authentication.
   
    (default: `admin`)
 
-- ##### `JWT_EXPIRATION` \{#tolgee-authentication-jwtexpiration-_-jwtexpiration}
+- ##### `JWT_EXPIRATION` \{#tolgee-authentication-_-jwt-expiration}
 
   Expiration time of generated JWT tokens in milliseconds. (default: `604800000` = 7 days)
 
-- ##### `JWT_SECRET` \{#tolgee-authentication-jwtsecret-_-jwtsecret}
+- ##### `JWT_SECRET` \{#tolgee-authentication-_-jwt-secret}
 
   Secret used to sign JWT authentication tokens with. It will be generated automatically, if not provided. You will be fine with 64 characters long random string.
   
@@ -1380,60 +1380,60 @@ Configuration of Tolgee's authentication.
   
   
 
-- ##### `JWT_SUPER_EXPIRATION` \{#tolgee-authentication-jwtsuperexpiration-_-jwtsuperexpiration}
+- ##### `JWT_SUPER_EXPIRATION` \{#tolgee-authentication-_-jwt-super-expiration}
 
   Expiration time of generated JWT tokens for superuser in milliseconds. (default: `3600000` = 1 hour)
 
-- ##### `NATIVE_ENABLED` \{#tolgee-authentication-nativeenabled-_-nativeenabled}
+- ##### `NATIVE_ENABLED` \{#tolgee-authentication-_-native-enabled}
 
   Whether to enable Tolgee-native authentication and registration.
   When set to `false`, users will only be able to register and login via third-party SSO options (e.g. OAuth). (default: `true`)
 
-- ##### `NEEDS_EMAIL_VERIFICATION` \{#tolgee-authentication-needsemailverification-_-needsemailverification}
+- ##### `NEEDS_EMAIL_VERIFICATION` \{#tolgee-authentication-_-needs-email-verification}
 
-  Whether users need to verify their email addresses when creating their account. Requires a valid [SMTP configuration](#tolgee-smtp-_-smtp). (default: `false`)
+  Whether users need to verify their email addresses when creating their account. Requires a valid [SMTP configuration](#tolgee-_-smtp). (default: `false`)
 
-- ##### `REGISTRATIONS_ALLOWED` \{#tolgee-authentication-registrationsallowed-_-registrationsallowed}
+- ##### `REGISTRATIONS_ALLOWED` \{#tolgee-authentication-_-registrations-allowed}
 
   Whether users are allowed to register on Tolgee.
   When set to `false`, existing users must send invites to projects to new users for them to be able to register.
   When SSO is enabled, users can still register via SSO, even if this setting is set to `false`. (default: `false`)
 
-- ##### `SECURED_IMAGE_RETRIEVAL` \{#tolgee-authentication-securedimageretrieval-_-securedimageretrieval}
+- ##### `SECURED_IMAGE_RETRIEVAL` \{#tolgee-authentication-_-secured-image-retrieval}
 
   Whether image assets should be protected by Tolgee. When enabled, all images are served with an access token valid for
   a set period of time to prevent unauthorized access to images. (default: `false`)
 
-- ##### `SECURED_IMAGE_TIMESTAMP_MAX_AGE` \{#tolgee-authentication-securedimagetimestampmaxage-_-securedimagetimestampmaxage}
+- ##### `SECURED_IMAGE_TIMESTAMP_MAX_AGE` \{#tolgee-authentication-_-secured-image-timestamp-max-age}
 
   Expiration time of a generated image access token in milliseconds. (default: `7200000` = 2 hours)
 
-- ##### `USER_CAN_CREATE_ORGANIZATIONS` \{#tolgee-authentication-usercancreateorganizations-_-usercancreateorganizations}
+- ##### `USER_CAN_CREATE_ORGANIZATIONS` \{#tolgee-authentication-_-user-can-create-organizations}
 
   Whether regular users are allowed to create organizations. When `false`, only administrators can create organizations.
   By default, when the user has no organization, one is created for them; this doesn't apply when this setting is set to `false`. In that case, the user without organization has no permissions on the server.
   
   When SSO authentication is enabled, users created by SSO don't have their own organization automatically created no matter the value of this setting. (default: `true`)
 
-- ##### ~~`CREATE_INITIAL_USER`~~ \{#tolgee-authentication-createinitialuser-_-createinitialuser}
+- ##### ~~`CREATE_INITIAL_USER`~~ \{#tolgee-authentication-_-create-initial-user}
 
   **Removed in:** 3.31.0
 
   If true, Tolgee creates initial user on first start-up. (default: `true`)
 
-- ##### ~~`LDAP_*`~~ \{#tolgee-authentication-ldap-_-ldap}
+- ##### ~~`LDAP_*`~~ \{#tolgee-authentication-_-ldap}
 
   **Removed in:** 3.31.0
 
   LDAP-related settings.
 
-- ##### ~~`USER_CAN_CREATE_PROJECTS`~~ \{#tolgee-authentication-usercancreateprojects-_-usercancreateprojects}
+- ##### ~~`USER_CAN_CREATE_PROJECTS`~~ \{#tolgee-authentication-_-user-can-create-projects}
 
   **Removed in:** 2.33.0
 
   Whether regular users are allowed to create projects. When disabled, only administrators can create projects (default: `true`)
 
-#### GitHub \{#tolgee-authentication-github-_-github}
+#### GitHub \{#tolgee-authentication-_-github}
 
 Prefix: `TOLGEE_AUTHENTICATION_GITHUB`
 
@@ -1443,82 +1443,82 @@ GitHub authentication can be used in combination with native authentication.
 
 
 
-- ##### `AUTHORIZATION_URL` \{#tolgee-authentication-github-authorizationurl-_-authorizationurl}
+- ##### `AUTHORIZATION_URL` \{#tolgee-authentication-github-_-authorization-url}
 
   URL to the OAuth authorization screen. Useful if you want to authenticate against a self-hosted GitHub Enterprise Server. (default: `https://github.com/login/oauth/access_token`)
 
-- ##### `CLIENT_ID` \{#tolgee-authentication-github-clientid-_-clientid}
+- ##### `CLIENT_ID` \{#tolgee-authentication-github-_-client-id}
 
   OAuth Client ID, obtained in GitHub administration.
 
-- ##### `CLIENT_SECRET` \{#tolgee-authentication-github-clientsecret-_-clientsecret}
+- ##### `CLIENT_SECRET` \{#tolgee-authentication-github-_-client-secret}
 
   OAuth Client secret, obtained in GitHub administration.
 
-- ##### `USER_URL` \{#tolgee-authentication-github-userurl-_-userurl}
+- ##### `USER_URL` \{#tolgee-authentication-github-_-user-url}
 
   URL to GitHub's `/user` API endpoint. Useful if you want to authenticate against a self-hosted GitHub Enterprise Server. (default: `https://api.github.com/user`)
 
-#### Google \{#tolgee-authentication-google-_-google}
+#### Google \{#tolgee-authentication-_-google}
 
 Prefix: `TOLGEE_AUTHENTICATION_GOOGLE`
 
 The following instructions explain how to set up Google OAuth. [Setting up OAuth 2.0](https://support.google.com/cloud/answer/6158849).
 
-- ##### `AUTHORIZATION_URL` \{#tolgee-authentication-google-authorizationurl-_-authorizationurl}
+- ##### `AUTHORIZATION_URL` \{#tolgee-authentication-google-_-authorization-url}
 
   URL to Google `/token` API endpoint. This usually does not need to be changed. (default: `https://oauth2.googleapis.com/token`)
 
-- ##### `CLIENT_ID` \{#tolgee-authentication-google-clientid-_-clientid}
+- ##### `CLIENT_ID` \{#tolgee-authentication-google-_-client-id}
 
   OAuth Client ID, obtained in Google Cloud Console.
 
-- ##### `CLIENT_SECRET` \{#tolgee-authentication-google-clientsecret-_-clientsecret}
+- ##### `CLIENT_SECRET` \{#tolgee-authentication-google-_-client-secret}
 
   OAuth Client secret, obtained in Google Cloud Console.
 
-- ##### `USER_URL` \{#tolgee-authentication-google-userurl-_-userurl}
+- ##### `USER_URL` \{#tolgee-authentication-google-_-user-url}
 
   URL to Google `/userinfo` API endpoint. This usually does not need to be changed. (default: `https://www.googleapis.com/oauth2/v3/userinfo`)
 
-- ##### `WORKSPACE_DOMAIN` \{#tolgee-authentication-google-workspacedomain-_-workspacedomain}
+- ##### `WORKSPACE_DOMAIN` \{#tolgee-authentication-google-_-workspace-domain}
 
   The registration can be limited to users of a Google Workspace domain. Multiple Google Workspace domains can be separated by a comma `,`. If nothing is set, anyone can log in with their Google account.
 
-#### OAuth2 \{#tolgee-authentication-oauth2-_-oauth2}
+#### OAuth2 \{#tolgee-authentication-_-oauth2}
 
 Prefix: `TOLGEE_AUTHENTICATION_OAUTH2`
 
 OAuth 2.0 is the industry-standard protocol for authorization.
 This enables the integration of a wide range of authorization providers into tolgee, such as Auth0, KeyCloak, Okta and others.
 
-- ##### `AUTHORIZATION_URL` \{#tolgee-authentication-oauth2-authorizationurl-_-authorizationurl}
+- ##### `AUTHORIZATION_URL` \{#tolgee-authentication-oauth2-_-authorization-url}
 
   URL to OAuth2 authorize API endpoint. This endpoint will exposed to the frontend.
 
-- ##### `CLIENT_ID` \{#tolgee-authentication-oauth2-clientid-_-clientid}
+- ##### `CLIENT_ID` \{#tolgee-authentication-oauth2-_-client-id}
 
   OAuth2 Client ID
 
-- ##### `CLIENT_SECRET` \{#tolgee-authentication-oauth2-clientsecret-_-clientsecret}
+- ##### `CLIENT_SECRET` \{#tolgee-authentication-oauth2-_-client-secret}
 
   OAuth2 Client secret
 
-- ##### `SCOPES` \{#tolgee-authentication-oauth2-scopes-_-scopes}
+- ##### `SCOPES` \{#tolgee-authentication-oauth2-_-scopes}
 
   Oauth2 scopes (as list)
   Tolgee absolutely requires rights to view the email and user information (also known as openid data).
   In most cases the scopes `openid email profile` is used for this. (But can also be different depending on the provider) (default: `[]`)
 
-- ##### `TOKEN_URL` \{#tolgee-authentication-oauth2-tokenurl-_-tokenurl}
+- ##### `TOKEN_URL` \{#tolgee-authentication-oauth2-_-token-url}
 
   URL to OAuth2 token API endpoint.
 
-- ##### `USER_URL` \{#tolgee-authentication-oauth2-userurl-_-userurl}
+- ##### `USER_URL` \{#tolgee-authentication-oauth2-_-user-url}
 
   URL to OAuth2 userinfo API endpoint.
 
-#### Server wide Single Sign-On \{#tolgee-authentication-ssoglobal-_-ssoglobal}
+#### Server wide Single Sign-On \{#tolgee-authentication-_-sso-global}
 
 Prefix: `TOLGEE_AUTHENTICATION_SSO_GLOBAL`
 
@@ -1526,47 +1526,47 @@ Single sign-on (SSO) is an authentication process that allows a user to access m
 
 There is a significant difference between global and per organization SSO: Global SSO can handle authentication for all server users no matter which organizations they belong to, while per organization SSO can handle authentication only for users of the organization and such users cannot be members of any other organization. SSO users associated with per organization SSO have no rights to create or manage organizations. Global SSO users should be invited to organizations they need to have access to. Per organization SSO users are automatically added to the organization they belong to.
 
-- ##### `AUTHORIZATION_URI` \{#tolgee-authentication-ssoglobal-authorizationuri-_-authorizationuri}
+- ##### `AUTHORIZATION_URI` \{#tolgee-authentication-sso-global-_-authorization-uri}
 
   URL to redirect users for authentication
 
-- ##### `CLIENT_ID` \{#tolgee-authentication-ssoglobal-clientid-_-clientid}
+- ##### `CLIENT_ID` \{#tolgee-authentication-sso-global-_-client-id}
 
   Unique identifier for an application
 
-- ##### `CLIENT_SECRET` \{#tolgee-authentication-ssoglobal-clientsecret-_-clientsecret}
+- ##### `CLIENT_SECRET` \{#tolgee-authentication-sso-global-_-client-secret}
 
   Key used to authenticate the application
 
-- ##### `CUSTOM_LOGIN_TEXT` \{#tolgee-authentication-ssoglobal-customlogintext-_-customlogintext}
+- ##### `CUSTOM_LOGIN_TEXT` \{#tolgee-authentication-sso-global-_-custom-login-text}
 
   Custom text for the SSO login page.
 
-- ##### `CUSTOM_LOGO_URL` \{#tolgee-authentication-ssoglobal-customlogourl-_-customlogourl}
+- ##### `CUSTOM_LOGO_URL` \{#tolgee-authentication-sso-global-_-custom-logo-url}
 
   Custom logo URL to be displayed on the login screen. Can be set only when `nativeEnabled` is `false`.
 
-- ##### `DOMAIN` \{#tolgee-authentication-ssoglobal-domain-_-domain}
+- ##### `DOMAIN` \{#tolgee-authentication-sso-global-_-domain}
 
   Used to identify the organization on login page
 
-- ##### `ENABLED` \{#tolgee-authentication-ssoglobal-enabled-_-enabled}
+- ##### `ENABLED` \{#tolgee-authentication-sso-global-_-enabled}
 
   Enables SSO authentication on global level - as a login method for the whole server (default: `false`)
 
-- ##### `FORCE` \{#tolgee-authentication-ssoglobal-force-_-force}
+- ##### `FORCE` \{#tolgee-authentication-sso-global-_-force}
 
   When true, users with an email matching the organization's domain must sign in using SSO (default: `false`)
 
-- ##### `SESSION_EXPIRATION_MINUTES` \{#tolgee-authentication-ssoglobal-sessionexpirationminutes-_-sessionexpirationminutes}
+- ##### `SESSION_EXPIRATION_MINUTES` \{#tolgee-authentication-sso-global-_-session-expiration-minutes}
 
   Minutes after which the server will recheck the user's with the SSO provider to ensure the user account is still valid. This is to prevent the user from being able to access the server after the account has been disabled or deleted in the SSO provider. (default: `10`)
 
-- ##### `TOKEN_URI` \{#tolgee-authentication-ssoglobal-tokenuri-_-tokenuri}
+- ##### `TOKEN_URI` \{#tolgee-authentication-sso-global-_-token-uri}
 
   URL for exchanging authorization code for tokens
 
-#### Per-Organization Single Sign-On \{#tolgee-authentication-ssoorganizations-_-ssoorganizations}
+#### Per-Organization Single Sign-On \{#tolgee-authentication-_-sso-organizations}
 
 Prefix: `TOLGEE_AUTHENTICATION_SSO_ORGANIZATIONS`
 
@@ -1574,50 +1574,50 @@ Single sign-on (SSO) is an authentication process that allows a user to access m
 
 There is a significant difference between global and per organization SSO: Global SSO can handle authentication for all server users no matter which organizations they belong to, while per organization SSO can handle authentication only for users of the organization and such users cannot be members of any other organization. SSO users associated with per organization SSO have no rights to create or manage organizations. Global SSO users should be invited to organizations they need to have access to. Per organization SSO users are automatically added to the organization they belong to.
 
-- ##### `ENABLED` \{#tolgee-authentication-ssoorganizations-enabled-_-enabled}
+- ##### `ENABLED` \{#tolgee-authentication-sso-organizations-_-enabled}
 
   Enables SSO authentication (default: `false`)
 
-- ##### `SESSION_EXPIRATION_MINUTES` \{#tolgee-authentication-ssoorganizations-sessionexpirationminutes-_-sessionexpirationminutes}
+- ##### `SESSION_EXPIRATION_MINUTES` \{#tolgee-authentication-sso-organizations-_-session-expiration-minutes}
 
   Minutes after which the server will recheck the user's with the SSO provider to ensure the user account is still valid. This is to prevent the user from being able to access the server after the account has been disabled or deleted in the SSO provider. (default: `10`)
 
-### Batch operations \{#tolgee-batch-_-batch}
+### Batch operations \{#tolgee-_-batch}
 
 Prefix: `TOLGEE_BATCH`
 
 Configuration of batch operations.
 
-- ##### `CONCURRENCY` \{#tolgee-batch-concurrency-_-concurrency}
+- ##### `CONCURRENCY` \{#tolgee-batch-_-concurrency}
 
   How many parallel jobs can be run at once on single Tolgee instance (default: `1`)
 
-### Cache \{#tolgee-cache-_-cache}
+### Cache \{#tolgee-_-cache}
 
 Prefix: `TOLGEE_CACHE`
 
 At the expense of higher memory footprint, Tolgee can use a cache to reduce the stress on the database and fetch the
 data it needs faster. Cache is also used to track certain states, such as rate limits.
 
-- ##### `CAFFEINE_MAX_SIZE` \{#tolgee-cache-caffeinemaxsize-_-caffeinemaxsize}
+- ##### `CAFFEINE_MAX_SIZE` \{#tolgee-cache-_-caffeine-max-size}
 
   Maximum size of the Caffeine cache. When exceeded, some entries will be purged from cache. Set to -1 to disable size limitation.
   This has no effect when Redis cache is used. See
   [Caffeine's documentation about size-based eviction](https://github.com/ben-manes/caffeine/wiki/Eviction#size-based) (default: `-1`)
 
-- ##### `CLEAN_ON_STARTUP` \{#tolgee-cache-cleanonstartup-_-cleanonstartup}
+- ##### `CLEAN_ON_STARTUP` \{#tolgee-cache-_-clean-on-startup}
 
   Whether to clean the cache on Tolgee startup (default: `true`)
 
-- ##### `DEFAULT_TTL` \{#tolgee-cache-defaultttl-_-defaultttl}
+- ##### `DEFAULT_TTL` \{#tolgee-cache-_-default-ttl}
 
   TTL of cache data, in milliseconds. (default: `7200000` ≈ 2 hours)
 
-- ##### `ENABLED` \{#tolgee-cache-enabled-_-enabled}
+- ##### `ENABLED` \{#tolgee-cache-_-enabled}
 
   Whether Tolgee should use a cache. (default: `false`)
 
-- ##### `USE_REDIS` \{#tolgee-cache-useredis-_-useredis}
+- ##### `USE_REDIS` \{#tolgee-cache-_-use-redis}
 
   Whether Tolgee should use Redis to store cache data instead of storing it in-memory.
   :::info
@@ -1631,7 +1631,7 @@ data it needs faster. Cache is also used to track certain states, such as rate l
   
    (default: `false`)
 
-### Content Delivery \{#tolgee-contentdelivery-_-contentdelivery}
+### Content Delivery \{#tolgee-_-content-delivery}
 
 Prefix: `TOLGEE_CONTENT_DELIVERY`
 
@@ -1639,152 +1639,152 @@ These properties are used to configure default server content delivery storage.
  
 To get content delivery working, you have to configure the Storage (e.g. S3 or Blob).
 
-- ##### `PUBLIC_URL_PREFIX` \{#tolgee-contentdelivery-publicurlprefix-_-publicurlprefix}
+- ##### `PUBLIC_URL_PREFIX` \{#tolgee-content-delivery-_-public-url-prefix}
 
   The prefix URL where the content is accessible from the public. If this property is not null, content delivery will be enabled on your server.
   
   For example, if you set this property to `https://cdn.example.com/`
 
-#### Cache purging \{#tolgee-contentdelivery-cachepurging-_-cachepurging}
+#### Cache purging \{#tolgee-content-delivery-_-cache-purging}
 
 Prefix: `TOLGEE_CONTENT_DELIVERY_CACHE_PURGING`
 
 Several services can be used as cache. Tolgee is able to purge the cache when new files are published when this configuration is set.
 
-##### AZURE_FRONT_DOOR \{#tolgee-contentdelivery-cachepurging-azurefrontdoor-_-azurefrontdoor}
+##### AZURE_FRONT_DOOR \{#tolgee-content-delivery-cache-purging-_-azure-front-door}
 
 Prefix: `TOLGEE_CONTENT_DELIVERY_CACHE_PURGING_AZURE_FRONT_DOOR`
 
-- ##### `CLIENT_ID` \{#tolgee-contentdelivery-cachepurging-azurefrontdoor-clientid-_-clientid}
+- ##### `CLIENT_ID` \{#tolgee-content-delivery-cache-purging-azure-front-door-_-client-id}
 
-- ##### `CLIENT_SECRET` \{#tolgee-contentdelivery-cachepurging-azurefrontdoor-clientsecret-_-clientsecret}
+- ##### `CLIENT_SECRET` \{#tolgee-content-delivery-cache-purging-azure-front-door-_-client-secret}
 
-- ##### `CONTENT_ROOT` \{#tolgee-contentdelivery-cachepurging-azurefrontdoor-contentroot-_-contentroot}
+- ##### `CONTENT_ROOT` \{#tolgee-content-delivery-cache-purging-azure-front-door-_-content-root}
 
-- ##### `ENDPOINT_NAME` \{#tolgee-contentdelivery-cachepurging-azurefrontdoor-endpointname-_-endpointname}
+- ##### `ENDPOINT_NAME` \{#tolgee-content-delivery-cache-purging-azure-front-door-_-endpoint-name}
 
-- ##### `PROFILE_NAME` \{#tolgee-contentdelivery-cachepurging-azurefrontdoor-profilename-_-profilename}
+- ##### `PROFILE_NAME` \{#tolgee-content-delivery-cache-purging-azure-front-door-_-profile-name}
 
-- ##### `RESOURCE_GROUP_NAME` \{#tolgee-contentdelivery-cachepurging-azurefrontdoor-resourcegroupname-_-resourcegroupname}
+- ##### `RESOURCE_GROUP_NAME` \{#tolgee-content-delivery-cache-purging-azure-front-door-_-resource-group-name}
 
-- ##### `SUBSCRIPTION_ID` \{#tolgee-contentdelivery-cachepurging-azurefrontdoor-subscriptionid-_-subscriptionid}
+- ##### `SUBSCRIPTION_ID` \{#tolgee-content-delivery-cache-purging-azure-front-door-_-subscription-id}
 
-- ##### `TENANT_ID` \{#tolgee-contentdelivery-cachepurging-azurefrontdoor-tenantid-_-tenantid}
+- ##### `TENANT_ID` \{#tolgee-content-delivery-cache-purging-azure-front-door-_-tenant-id}
 
-##### CLOUDFLARE \{#tolgee-contentdelivery-cachepurging-cloudflare-_-cloudflare}
+##### CLOUDFLARE \{#tolgee-content-delivery-cache-purging-_-cloudflare}
 
 Prefix: `TOLGEE_CONTENT_DELIVERY_CACHE_PURGING_CLOUDFLARE`
 
-- ##### `API_KEY` \{#tolgee-contentdelivery-cachepurging-cloudflare-apikey-_-apikey}
+- ##### `API_KEY` \{#tolgee-content-delivery-cache-purging-cloudflare-_-api-key}
 
-- ##### `CONTENT_DELIVERY_CACHE_PURGING_TYPE` \{#tolgee-contentdelivery-cachepurging-cloudflare-contentdeliverycachepurgingtype-_-contentdeliverycachepurgingtype}
+- ##### `CONTENT_DELIVERY_CACHE_PURGING_TYPE` \{#tolgee-content-delivery-cache-purging-cloudflare-_-content-delivery-cache-purging-type}
 
-- ##### `ENABLED` \{#tolgee-contentdelivery-cachepurging-cloudflare-enabled-_-enabled}
+- ##### `ENABLED` \{#tolgee-content-delivery-cache-purging-cloudflare-_-enabled}
 
-- ##### `MAX_FILES_PER_REQUEST` \{#tolgee-contentdelivery-cachepurging-cloudflare-maxfilesperrequest-_-maxfilesperrequest}
+- ##### `MAX_FILES_PER_REQUEST` \{#tolgee-content-delivery-cache-purging-cloudflare-_-max-files-per-request}
 
   Number of paths to purge in one request. (Cloudflare limit is 30 now, but it might be subject to change) (default: `30`)
 
-- ##### `ORIGINS` \{#tolgee-contentdelivery-cachepurging-cloudflare-origins-_-origins}
+- ##### `ORIGINS` \{#tolgee-content-delivery-cache-purging-cloudflare-_-origins}
 
   If cache is filled with specific Origin header, it can be purged only if the purge request specifies the same Origin header. Here you can specify comma separated list of origins.
   e.g. `https://example.com,https://example2.com`
   
   Read more in the Cloudflare [docs](https://developers.cloudflare.com/cache/how-to/purge-cache/purge-by-single-file/).
 
-- ##### `URL_PREFIX` \{#tolgee-contentdelivery-cachepurging-cloudflare-urlprefix-_-urlprefix}
+- ##### `URL_PREFIX` \{#tolgee-content-delivery-cache-purging-cloudflare-_-url-prefix}
 
-- ##### `ZONE_ID` \{#tolgee-contentdelivery-cachepurging-cloudflare-zoneid-_-zoneid}
+- ##### `ZONE_ID` \{#tolgee-content-delivery-cache-purging-cloudflare-_-zone-id}
 
-#### STORAGE \{#tolgee-contentdelivery-storage-_-storage}
+#### STORAGE \{#tolgee-content-delivery-_-storage}
 
 Prefix: `TOLGEE_CONTENT_DELIVERY_STORAGE`
 
 Configuration of the storage. You have to configure exactly one storage.
 
-##### AZURE \{#tolgee-contentdelivery-storage-azure-_-azure}
+##### AZURE \{#tolgee-content-delivery-storage-_-azure}
 
 Prefix: `TOLGEE_CONTENT_DELIVERY_STORAGE_AZURE`
 
 Configuration of Azure Blob storage
 
-- ##### `CONNECTION_STRING` \{#tolgee-contentdelivery-storage-azure-connectionstring-_-connectionstring}
+- ##### `CONNECTION_STRING` \{#tolgee-content-delivery-storage-azure-_-connection-string}
 
-- ##### `CONTAINER_NAME` \{#tolgee-contentdelivery-storage-azure-containername-_-containername}
+- ##### `CONTAINER_NAME` \{#tolgee-content-delivery-storage-azure-_-container-name}
 
-##### S3 \{#tolgee-contentdelivery-storage-s3-_-s3}
+##### S3 \{#tolgee-content-delivery-storage-_-s3}
 
 Prefix: `TOLGEE_CONTENT_DELIVERY_STORAGE_S3`
 
 Configuration of S3 bucket
 
-- ##### `ACCESS_KEY` \{#tolgee-contentdelivery-storage-s3-accesskey-_-accesskey}
+- ##### `ACCESS_KEY` \{#tolgee-content-delivery-storage-s3-_-access-key}
 
-- ##### `BUCKET_NAME` \{#tolgee-contentdelivery-storage-s3-bucketname-_-bucketname}
+- ##### `BUCKET_NAME` \{#tolgee-content-delivery-storage-s3-_-bucket-name}
 
-- ##### `ENDPOINT` \{#tolgee-contentdelivery-storage-s3-endpoint-_-endpoint}
+- ##### `ENDPOINT` \{#tolgee-content-delivery-storage-s3-_-endpoint}
 
-- ##### `PATH` \{#tolgee-contentdelivery-storage-s3-path-_-path}
+- ##### `PATH` \{#tolgee-content-delivery-storage-s3-_-path}
 
-- ##### `SECRET_KEY` \{#tolgee-contentdelivery-storage-s3-secretkey-_-secretkey}
+- ##### `SECRET_KEY` \{#tolgee-content-delivery-storage-s3-_-secret-key}
 
-- ##### `SIGNING_REGION` \{#tolgee-contentdelivery-storage-s3-signingregion-_-signingregion}
+- ##### `SIGNING_REGION` \{#tolgee-content-delivery-storage-s3-_-signing-region}
 
-### File storage \{#tolgee-filestorage-_-filestorage}
+### File storage \{#tolgee-_-file-storage}
 
 Prefix: `TOLGEE_FILE_STORAGE`
 
 Configuration of Tolgee file storage.
 
-- ##### `FS_DATA_PATH` \{#tolgee-filestorage-fsdatapath-_-fsdatapath}
+- ##### `FS_DATA_PATH` \{#tolgee-file-storage-_-fs-data-path}
 
   Path to directory where Tolgee will store its files. (default: `~/.tolgee/` , with docker `/data/`)
 
-#### S3 \{#tolgee-filestorage-s3-_-s3}
+#### S3 \{#tolgee-file-storage-_-s3}
 
 Prefix: `TOLGEE_FILE_STORAGE_S3`
 
 Tolgee supports storing its files on an S3-compatible storage server. When enabled, Tolgee will store all its files on the S3 server rather than in filesystem.
 
-- ##### `ACCESS_KEY` \{#tolgee-filestorage-s3-accesskey-_-accesskey}
+- ##### `ACCESS_KEY` \{#tolgee-file-storage-s3-_-access-key}
 
   Access key for the S3 server. (optional if you are authenticating with a different method, like STS Web Identity)
 
-- ##### `BUCKET_NAME` \{#tolgee-filestorage-s3-bucketname-_-bucketname}
+- ##### `BUCKET_NAME` \{#tolgee-file-storage-s3-_-bucket-name}
 
   Name of the bucket where Tolgee will store its files.
 
-- ##### `ENABLED` \{#tolgee-filestorage-s3-enabled-_-enabled}
+- ##### `ENABLED` \{#tolgee-file-storage-s3-_-enabled}
 
   Whether S3 is enabled. If enabled, you need to set all remaining properties below. (default: `false`)
 
-- ##### `ENDPOINT` \{#tolgee-filestorage-s3-endpoint-_-endpoint}
+- ##### `ENDPOINT` \{#tolgee-file-storage-s3-_-endpoint}
 
   Has to be set to a service endpoint: https://docs.aws.amazon.com/general/latest/gr/s3.html
 
-- ##### `PATH` \{#tolgee-filestorage-s3-path-_-path}
+- ##### `PATH` \{#tolgee-file-storage-s3-_-path}
 
   Optional subfolder structure within s3 bucket to which content will be stored
 
-- ##### `SECRET_KEY` \{#tolgee-filestorage-s3-secretkey-_-secretkey}
+- ##### `SECRET_KEY` \{#tolgee-file-storage-s3-_-secret-key}
 
   Secret key for the access key. (optional if you are authenticating with a different method, like STS Web Identity)
 
-- ##### `SIGNING_REGION` \{#tolgee-filestorage-s3-signingregion-_-signingregion}
+- ##### `SIGNING_REGION` \{#tolgee-file-storage-s3-_-signing-region}
 
   Has to be set to a signing region: https://docs.aws.amazon.com/general/latest/gr/s3.html
 
-### Import \{#tolgee-import-_-import}
+### Import \{#tolgee-_-import}
 
 Prefix: `TOLGEE_IMPORT`
 
 Properties for importing data to Tolgee and bulk-imports exported json files in the database during startup. Useful to quickly provision a development server, and used for testing.
 
-- ##### `BASE_LANGUAGE_TAG` \{#tolgee-import-baselanguagetag-_-baselanguagetag}
+- ##### `BASE_LANGUAGE_TAG` \{#tolgee-import-_-base-language-tag}
 
   The language tag of the base language of the imported project (for importing data on startup). (default: `en`)
 
-- ##### `CREATE_IMPLICIT_API_KEY` \{#tolgee-import-createimplicitapikey-_-createimplicitapikey}
+- ##### `CREATE_IMPLICIT_API_KEY` \{#tolgee-import-_-create-implicit-api-key}
 
   Whether an implicit API key should be created when importing data on startup.
   
@@ -1796,7 +1796,7 @@ Properties for importing data to Tolgee and bulk-imports exported json files in 
   
    (default: `false`)
 
-- ##### `DIR` \{#tolgee-import-dir-_-dir}
+- ##### `DIR` \{#tolgee-import-_-dir}
 
   File path of the directory where the files to import on startup are located.
   
@@ -1813,29 +1813,29 @@ Properties for importing data to Tolgee and bulk-imports exported json files in 
   
   
 
-- ##### `STORE_FILES_FOR_DEBUGGING` \{#tolgee-import-storefilesfordebugging-_-storefilesfordebugging}
+- ##### `STORE_FILES_FOR_DEBUGGING` \{#tolgee-import-_-store-files-for-debugging}
 
   If true, uploaded files will be stored in configured file storage for future debugging. Such data is not automatically removed after successful import. You have to clean-up manually! (default: `false`)
 
-### LLM Providers \{#tolgee-llm-_-llm}
+### LLM Providers \{#tolgee-_-llm}
 
 Prefix: `TOLGEE_LLM`
 
 LLM Providers configuration
 
-- ##### `DEFAULT_ENABLED` \{#tolgee-llm-defaultenabled-_-defaultenabled}
+- ##### `DEFAULT_ENABLED` \{#tolgee-llm-_-default-enabled}
 
   Whether llm-powered machine translation is enabled. (default: `true`)
 
-- ##### `DEFAULT_PRIMARY` \{#tolgee-llm-defaultprimary-_-defaultprimary}
+- ##### `DEFAULT_PRIMARY` \{#tolgee-llm-_-default-primary}
 
   Whether to use llm machine translation as a primary translation engine. (default: `true`)
 
-- ##### `ENABLED` \{#tolgee-llm-enabled-_-enabled}
+- ##### `ENABLED` \{#tolgee-llm-_-enabled}
 
   Enable/disable AI translator (default: enabled if there is at least one provider)
 
-#### PROVIDERS \{#tolgee-llm-providers-_-providers}
+#### PROVIDERS \{#tolgee-llm-_-providers}
 
 
     List of LLM providers. Example:
@@ -1864,201 +1864,201 @@ LLM Providers configuration
     Check [llm providers documentation](/platform/projects_and_organizations/llm-providers#self-hosted-server-configuration) for more information.
   
 
-- ##### `API_KEY` \{#tolgee-llm-providers-apikey-_-apikey}
+- ##### `API_KEY` \{#tolgee-llm-providers-_-api-key}
 
   Provider API Key (optional for some providers)
 
-- ##### `API_URL` \{#tolgee-llm-providers-apiurl-_-apiurl}
+- ##### `API_URL` \{#tolgee-llm-providers-_-api-url}
 
   Provider API Url
 
-- ##### `ATTEMPTS` \{#tolgee-llm-providers-attempts-_-attempts}
+- ##### `ATTEMPTS` \{#tolgee-llm-providers-_-attempts}
 
   Specify attempts timeout(s) (Example: [30, 30] - Tolgee will make two attempts, each with timeout of 30s)
 
-- ##### `DEPLOYMENT` \{#tolgee-llm-providers-deployment-_-deployment}
+- ##### `DEPLOYMENT` \{#tolgee-llm-providers-_-deployment}
 
   Provider deployment (optional for some providers)
 
-- ##### `ENABLED` \{#tolgee-llm-providers-enabled-_-enabled}
+- ##### `ENABLED` \{#tolgee-llm-providers-_-enabled}
 
   Enable/disable provider (default: `true`)
 
-- ##### `FORMAT` \{#tolgee-llm-providers-format-_-format}
+- ##### `FORMAT` \{#tolgee-llm-providers-_-format}
 
-- ##### `MODEL` \{#tolgee-llm-providers-model-_-model}
+- ##### `MODEL` \{#tolgee-llm-providers-_-model}
 
   Provider model (optional for some providers)
 
-- ##### `NAME` \{#tolgee-llm-providers-name-_-name}
+- ##### `NAME` \{#tolgee-llm-providers-_-name}
 
   User visible provider name (default: `default`)
 
-- ##### `PRIORITY` \{#tolgee-llm-providers-priority-_-priority}
+- ##### `PRIORITY` \{#tolgee-llm-providers-_-priority}
 
   Load-balancing instruction HIGH = used for suggestions, LOW = used for batch operations
 
-- ##### `REASONING_EFFORT` \{#tolgee-llm-providers-reasoningeffort-_-reasoningeffort}
+- ##### `REASONING_EFFORT` \{#tolgee-llm-providers-_-reasoning-effort}
 
   ChatGPT reasoning effort
 
-- ##### `TYPE` \{#tolgee-llm-providers-type-_-type}
+- ##### `TYPE` \{#tolgee-llm-providers-_-type}
 
   Provider type, an API type (default: `OPENAI`)
 
-### Machine Translation \{#tolgee-machinetranslation-_-machinetranslation}
+### Machine Translation \{#tolgee-_-machine-translation}
 
 Prefix: `TOLGEE_MACHINE_TRANSLATION`
 
 Configuration of Machine Translation services.
 
-- ##### `FREE_CREDITS_AMOUNT` \{#tolgee-machinetranslation-freecreditsamount-_-freecreditsamount}
+- ##### `FREE_CREDITS_AMOUNT` \{#tolgee-machine-translation-_-free-credits-amount}
 
   Amount of machine translations users of the Free tier can request per month. Used by Tolgee Cloud, see [pricing](https://tolgee.io/pricing). Set to `-1` to disable credit-based limitation. (default: `-1`)
 
-#### AWS Amazon Translate \{#tolgee-machinetranslation-aws-_-aws}
+#### AWS Amazon Translate \{#tolgee-machine-translation-_-aws}
 
 Prefix: `TOLGEE_MACHINE_TRANSLATION_AWS`
 
 See [AWS's Amazon Translate](https://aws.amazon.com/translate) page for more information and applicable pricing.
 
-- ##### `ACCESS_KEY` \{#tolgee-machinetranslation-aws-accesskey-_-accesskey}
+- ##### `ACCESS_KEY` \{#tolgee-machine-translation-aws-_-access-key}
 
   AWS access key. (optional if you are authenticating with a different method, like STS Web Identity)
 
-- ##### `DEFAULT_ENABLED` \{#tolgee-machinetranslation-aws-defaultenabled-_-defaultenabled}
+- ##### `DEFAULT_ENABLED` \{#tolgee-machine-translation-aws-_-default-enabled}
 
   Whether AWS-powered machine translation is enabled. (default: `true`)
 
-- ##### `DEFAULT_PRIMARY` \{#tolgee-machinetranslation-aws-defaultprimary-_-defaultprimary}
+- ##### `DEFAULT_PRIMARY` \{#tolgee-machine-translation-aws-_-default-primary}
 
   Whether to use AWS Amazon Translate as a primary translation engine. (default: `false`)
 
-- ##### `ENABLED` \{#tolgee-machinetranslation-aws-enabled-_-enabled}
+- ##### `ENABLED` \{#tolgee-machine-translation-aws-_-enabled}
 
   If you are authenticating using a different method than explicit access key and secret key, which implicitly enable AWS Translate, you should enable AWS Translate using this option.
 
-- ##### `REGION` \{#tolgee-machinetranslation-aws-region-_-region}
+- ##### `REGION` \{#tolgee-machine-translation-aws-_-region}
 
   AWS region. (default: `eu-central-1`)
 
-- ##### `SECRET_KEY` \{#tolgee-machinetranslation-aws-secretkey-_-secretkey}
+- ##### `SECRET_KEY` \{#tolgee-machine-translation-aws-_-secret-key}
 
   AWS secret key. (optional if you are authenticating with a different method, like STS Web Identity)
 
-#### Azure Cognitive Translation \{#tolgee-machinetranslation-azure-_-azure}
+#### Azure Cognitive Translation \{#tolgee-machine-translation-_-azure}
 
 Prefix: `TOLGEE_MACHINE_TRANSLATION_AZURECOGNITIVE`
 
 See [Azure Cognitive Translation](https://azure.microsoft.com/en-us/services/cognitive-services/translator-text-api/) page for more information and applicable pricing.
 
-- ##### `AUTH_KEY` \{#tolgee-machinetranslation-azure-authkey-_-authkey}
+- ##### `AUTH_KEY` \{#tolgee-machine-translation-azure-_-auth-key}
 
   Azure Cognitive Translation auth key.
 
-- ##### `DEFAULT_ENABLED` \{#tolgee-machinetranslation-azure-defaultenabled-_-defaultenabled}
+- ##### `DEFAULT_ENABLED` \{#tolgee-machine-translation-azure-_-default-enabled}
 
   Whether Azure Cognitive Translation is enabled. (default: `true`)
 
-- ##### `DEFAULT_PRIMARY` \{#tolgee-machinetranslation-azure-defaultprimary-_-defaultprimary}
+- ##### `DEFAULT_PRIMARY` \{#tolgee-machine-translation-azure-_-default-primary}
 
   Whether to use Azure Cognitive Translation as a primary translation engine. (default: `false`)
 
-- ##### `REGION` \{#tolgee-machinetranslation-azure-region-_-region}
+- ##### `REGION` \{#tolgee-machine-translation-azure-_-region}
 
   Azure Cognitive Translation region.
 
-#### Baidu Translate \{#tolgee-machinetranslation-baidu-_-baidu}
+#### Baidu Translate \{#tolgee-machine-translation-_-baidu}
 
 Prefix: `TOLGEE_MACHINE_TRANSLATION_BAIDU`
 
 See [Baidu's](https://fanyi-api.baidu.com/product/11) page (in Chinese) for more information and applicable pricing.
 
-- ##### `ACTION` \{#tolgee-machinetranslation-baidu-action-_-action}
+- ##### `ACTION` \{#tolgee-machine-translation-baidu-_-action}
 
   Whether the resulting translation should be changed according to the user-defined dictionary.
   The dictionary used can be modified at [Manage Terms](https://fanyi-api.baidu.com/manage/term) (login required). (default: `false`)
 
-- ##### `APP_ID` \{#tolgee-machinetranslation-baidu-appid-_-appid}
+- ##### `APP_ID` \{#tolgee-machine-translation-baidu-_-app-id}
 
   Baidu Translate App ID.
 
-- ##### `APP_SECRET` \{#tolgee-machinetranslation-baidu-appsecret-_-appsecret}
+- ##### `APP_SECRET` \{#tolgee-machine-translation-baidu-_-app-secret}
 
   Baidu Translate Secret key.
 
-- ##### `DEFAULT_ENABLED` \{#tolgee-machinetranslation-baidu-defaultenabled-_-defaultenabled}
+- ##### `DEFAULT_ENABLED` \{#tolgee-machine-translation-baidu-_-default-enabled}
 
   Whether Baidu-powered machine translation is enabled. (default: `true`)
 
-- ##### `DEFAULT_PRIMARY` \{#tolgee-machinetranslation-baidu-defaultprimary-_-defaultprimary}
+- ##### `DEFAULT_PRIMARY` \{#tolgee-machine-translation-baidu-_-default-primary}
 
   Whether to use Baidu Translate as a primary translation engine. (default: `false`)
 
-#### DeepL \{#tolgee-machinetranslation-deepl-_-deepl}
+#### DeepL \{#tolgee-machine-translation-_-deepl}
 
 Prefix: `TOLGEE_MACHINE_TRANSLATION_DEEPL`
 
 See [DeepL's](https://www.deepl.com/) page for more information and applicable pricing.
 
-- ##### `AUTH_KEY` \{#tolgee-machinetranslation-deepl-authkey-_-authkey}
+- ##### `AUTH_KEY` \{#tolgee-machine-translation-deepl-_-auth-key}
 
   DeepL auth key. Both key types (commercial and free) are supported.
 
-- ##### `DEFAULT_ENABLED` \{#tolgee-machinetranslation-deepl-defaultenabled-_-defaultenabled}
+- ##### `DEFAULT_ENABLED` \{#tolgee-machine-translation-deepl-_-default-enabled}
 
   Whether DeepL-powered machine translation is enabled. (default: `true`)
 
-- ##### `DEFAULT_PRIMARY` \{#tolgee-machinetranslation-deepl-defaultprimary-_-defaultprimary}
+- ##### `DEFAULT_PRIMARY` \{#tolgee-machine-translation-deepl-_-default-primary}
 
   Whether to use DeepL as a primary translation engine. (default: `false`)
 
-- ##### `OPTIONAL_PARAMETERS` \{#tolgee-machinetranslation-deepl-optionalparameters-_-optionalparameters}
+- ##### `OPTIONAL_PARAMETERS` \{#tolgee-machine-translation-deepl-_-optional-parameters}
 
   DeepL parameters which should be set for deepl api usage (Optional)
 
-#### Google Cloud Translation \{#tolgee-machinetranslation-google-_-google}
+#### Google Cloud Translation \{#tolgee-machine-translation-_-google}
 
 Prefix: `TOLGEE_MACHINE_TRANSLATION_GOOGLE`
 
 See [Google Cloud Translation](https://cloud.google.com/translate) page for more information and applicable pricing.
 
-- ##### `API_KEY` \{#tolgee-machinetranslation-google-apikey-_-apikey}
+- ##### `API_KEY` \{#tolgee-machine-translation-google-_-api-key}
 
   Google Cloud Translation API key.
 
-- ##### `DEFAULT_ENABLED` \{#tolgee-machinetranslation-google-defaultenabled-_-defaultenabled}
+- ##### `DEFAULT_ENABLED` \{#tolgee-machine-translation-google-_-default-enabled}
 
   Whether Google-powered machine translation is enabled. (default: `true`)
 
-- ##### `DEFAULT_PRIMARY` \{#tolgee-machinetranslation-google-defaultprimary-_-defaultprimary}
+- ##### `DEFAULT_PRIMARY` \{#tolgee-machine-translation-google-_-default-primary}
 
   Whether to use Google Cloud Translation as a primary translation engine. (default: `true`)
 
-### Postgres autostart \{#tolgee-postgresautostart-_-postgresautostart}
+### Postgres autostart \{#tolgee-_-postgres-autostart}
 
 Prefix: `TOLGEE_POSTGRES_AUTOSTART`
 
 Defines whether and how is PostgreSQL started on Tolgee startup.
 
-- ##### `CONTAINER_NAME` \{#tolgee-postgresautostart-containername-_-containername}
+- ##### `CONTAINER_NAME` \{#tolgee-postgres-autostart-_-container-name}
 
   The container name of the Postgres container.
   This setting is applicable only for `DOCKER` mode. (default: `tolgee_postgres`)
 
-- ##### `DATABASE_NAME` \{#tolgee-postgresautostart-databasename-_-databasename}
+- ##### `DATABASE_NAME` \{#tolgee-postgres-autostart-_-database-name}
 
   The name of the database created to store Tolgee data. (default: `postgres`)
 
-- ##### `ENABLED` \{#tolgee-postgresautostart-enabled-_-enabled}
+- ##### `ENABLED` \{#tolgee-postgres-autostart-_-enabled}
 
   Whether to start PostgreSQL on Tolgee startup. (default: `true`)
 
-- ##### `MAX_WAIT_TIME` \{#tolgee-postgresautostart-maxwaittime-_-maxwaittime}
+- ##### `MAX_WAIT_TIME` \{#tolgee-postgres-autostart-_-max-wait-time}
 
   The max time to wait for running postgres in seconds. (default: `300`)
 
-- ##### `MODE` \{#tolgee-postgresautostart-mode-_-mode}
+- ##### `MODE` \{#tolgee-postgres-autostart-_-mode}
 
   How is Tolgee running PostgreSQL.
   
@@ -2066,24 +2066,24 @@ Defines whether and how is PostgreSQL started on Tolgee startup.
   - `DOCKER` - Tolgee tries to run Postgres Docker container in your machine. This is default option when running Tolgee using Java. See [Running with Java](/self_hosting/running_with_java.mdx).
   - `EMBEDDED` - Tolgee tries to run it's embedded PostgreSQL which is bundled in the `tolgee/tolgee` Docker image. (default: `DOCKER`)
 
-- ##### `PASSWORD` \{#tolgee-postgresautostart-password-_-password}
+- ##### `PASSWORD` \{#tolgee-postgres-autostart-_-password}
 
   Database password to bootstrap Postgres with. (default: `postgres`)
 
-- ##### `PORT` \{#tolgee-postgresautostart-port-_-port}
+- ##### `PORT` \{#tolgee-postgres-autostart-_-port}
 
   The port of Postgres to listen on host machine.
   This setting is applicable only for `DOCKER` mode. (default: `25432`)
 
-- ##### `STOP` \{#tolgee-postgresautostart-stop-_-stop}
+- ##### `STOP` \{#tolgee-postgres-autostart-_-stop}
 
   When true, Tolgee will stop the Postgres container on Tolgee shutdown. This setting is applicable only for `DOCKER` mode. (default: `true`)
 
-- ##### `USER` \{#tolgee-postgresautostart-user-_-user}
+- ##### `USER` \{#tolgee-postgres-autostart-_-user}
 
   Database user to bootstrap Postgres with. (default: `postgres`)
 
-### Rate limits \{#tolgee-ratelimit-_-ratelimit}
+### Rate limits \{#tolgee-_-rate-limit}
 
 Prefix: `TOLGEE_RATE_LIMITS`
 
@@ -2095,7 +2095,7 @@ Per-endpoint and auth-related rate limits are fixed and cannot be configured.
 
 
 
-- ##### `AUTHENTICATION_LIMITS` \{#tolgee-ratelimit-authenticationlimits-_-authenticationlimits}
+- ##### `AUTHENTICATION_LIMITS` \{#tolgee-rate-limit-_-authentication-limits}
 
   Control whether per-endpoint limits on authentication-related endpoints are enabled or not.
   :::warning
@@ -2105,13 +2105,13 @@ Per-endpoint and auth-related rate limits are fixed and cannot be configured.
   
    (default: `true`)
 
-- ##### `EMAIL_VERIFICATION_REQUEST_LIMIT` \{#tolgee-ratelimit-emailverificationrequestlimit-_-emailverificationrequestlimit}
+- ##### `EMAIL_VERIFICATION_REQUEST_LIMIT` \{#tolgee-rate-limit-_-email-verification-request-limit}
 
-- ##### `EMAIL_VERIFICATION_REQUEST_LIMIT_ENABLED` \{#tolgee-ratelimit-emailverificationrequestlimitenabled-_-emailverificationrequestlimitenabled}
+- ##### `EMAIL_VERIFICATION_REQUEST_LIMIT_ENABLED` \{#tolgee-rate-limit-_-email-verification-request-limit-enabled}
 
-- ##### `EMAIL_VERIFICATION_REQUEST_WINDOW` \{#tolgee-ratelimit-emailverificationrequestwindow-_-emailverificationrequestwindow}
+- ##### `EMAIL_VERIFICATION_REQUEST_WINDOW` \{#tolgee-rate-limit-_-email-verification-request-window}
 
-- ##### `ENABLED` \{#tolgee-ratelimit-enabled-_-enabled}
+- ##### `ENABLED` \{#tolgee-rate-limit-_-enabled}
 
   To turn all rate limits off, set this value to `false`.
   
@@ -2123,32 +2123,32 @@ Per-endpoint and auth-related rate limits are fixed and cannot be configured.
   
    (default: `true`)
 
-- ##### `ENDPOINT_LIMITS` \{#tolgee-ratelimit-endpointlimits-_-endpointlimits}
+- ##### `ENDPOINT_LIMITS` \{#tolgee-rate-limit-_-endpoint-limits}
 
   Control whether per-endpoint limits on the API are enabled or not.
   Does not affect authentication-related endpoints, these are controlled by `authentication-limits`. (default: `true`)
 
-- ##### `GLOBAL_LIMITS` \{#tolgee-ratelimit-globallimits-_-globallimits}
+- ##### `GLOBAL_LIMITS` \{#tolgee-rate-limit-_-global-limits}
 
   Control whether global limits on the API are enabled or not. (default: `true`)
 
-- ##### `IP_REQUEST_LIMIT` \{#tolgee-ratelimit-iprequestlimit-_-iprequestlimit}
+- ##### `IP_REQUEST_LIMIT` \{#tolgee-rate-limit-_-ip-request-limit}
 
   Amount of requests an IP address can do in a single time window. (default: `20000`)
 
-- ##### `IP_REQUEST_WINDOW` \{#tolgee-ratelimit-iprequestwindow-_-iprequestwindow}
+- ##### `IP_REQUEST_WINDOW` \{#tolgee-rate-limit-_-ip-request-window}
 
   Size, in milliseconds, of the time window for IP-based limiting. (default: `300000` = 5 minutes)
 
-- ##### `USER_REQUEST_LIMIT` \{#tolgee-ratelimit-userrequestlimit-_-userrequestlimit}
+- ##### `USER_REQUEST_LIMIT` \{#tolgee-rate-limit-_-user-request-limit}
 
   Amount of requests a user can do in a single time window. (default: `400`)
 
-- ##### `USER_REQUEST_WINDOW` \{#tolgee-ratelimit-userrequestwindow-_-userrequestwindow}
+- ##### `USER_REQUEST_WINDOW` \{#tolgee-rate-limit-_-user-request-window}
 
   Size, in milliseconds, of the time window for user-based limiting. (default: `60000` = 1 minute)
 
-### reCAPTCHA \{#tolgee-recaptcha-_-recaptcha}
+### reCAPTCHA \{#tolgee-_-recaptcha}
 
 Prefix: `TOLGEE_RECAPTCHA`
 
@@ -2156,45 +2156,45 @@ When configured, reCAPTCHA v3 is used to protect the sign up page against bots. 
 
 To enable it, you first need to [register a new site on reCAPTCHA](https://www.google.com/recaptcha/admin). Make sure to select reCAPTCHA v3 when registering your site.
 
-- ##### `SECRET_KEY` \{#tolgee-recaptcha-secretkey-_-secretkey}
+- ##### `SECRET_KEY` \{#tolgee-recaptcha-_-secret-key}
 
   Secret key for communication between your site and reCAPTCHA.
 
-- ##### `SITE_KEY` \{#tolgee-recaptcha-sitekey-_-sitekey}
+- ##### `SITE_KEY` \{#tolgee-recaptcha-_-site-key}
 
   Site key for use the HTML code your site serves to users.
 
-### Sentry \{#tolgee-sentry-_-sentry}
+### Sentry \{#tolgee-_-sentry}
 
 Prefix: `TOLGEE_SENTRY`
 
 Tolgee uses [Sentry](https://sentry.io/) for error reporting.
 
-- ##### `CLIENT_DSN` \{#tolgee-sentry-clientdsn-_-clientdsn}
+- ##### `CLIENT_DSN` \{#tolgee-sentry-_-client-dsn}
 
   Client DSN. If unset, error reporting is disabled on the server.
 
-- ##### `SERVER_DSN` \{#tolgee-sentry-serverdsn-_-serverdsn}
+- ##### `SERVER_DSN` \{#tolgee-sentry-_-server-dsn}
 
   Server DSN. If unset, error reporting is disabled on the server.
 
-- ##### `TRACES_SAMPLE_RATE` \{#tolgee-sentry-tracessamplerate-_-tracessamplerate}
+- ##### `TRACES_SAMPLE_RATE` \{#tolgee-sentry-_-traces-sample-rate}
 
   Sample rate for Sentry traces. If unset, traces are disabled on the server.
 
-### SLACK \{#tolgee-slack-_-slack}
+### SLACK \{#tolgee-_-slack}
 
 Prefix: `TOLGEE_SLACK`
 
-- ##### `CLIENT_ID` \{#tolgee-slack-clientid-_-clientid}
+- ##### `CLIENT_ID` \{#tolgee-slack-_-client-id}
 
-- ##### `CLIENT_SECRET` \{#tolgee-slack-clientsecret-_-clientsecret}
+- ##### `CLIENT_SECRET` \{#tolgee-slack-_-client-secret}
 
-- ##### `SIGNING_SECRET` \{#tolgee-slack-signingsecret-_-signingsecret}
+- ##### `SIGNING_SECRET` \{#tolgee-slack-_-signing-secret}
 
-- ##### `TOKEN` \{#tolgee-slack-token-_-token}
+- ##### `TOKEN` \{#tolgee-slack-_-token}
 
-### SMTP \{#tolgee-smtp-_-smtp}
+### SMTP \{#tolgee-_-smtp}
 
 Prefix: `TOLGEE_SMTP`
 
@@ -2211,43 +2211,43 @@ tolgee.smtp.ssl-enabled=true
 tolgee.smtp.from=Tolgee <no-reply@tolgee.yourserver.something>
 ```
 
-- ##### `AUTH` \{#tolgee-smtp-auth-_-auth}
+- ##### `AUTH` \{#tolgee-smtp-_-auth}
 
   Whether authentication is enabled. (default: `false`)
 
-- ##### `FROM` \{#tolgee-smtp-from-_-from}
+- ##### `FROM` \{#tolgee-smtp-_-from}
 
   The sender name and address in standard SMTP format.
 
-- ##### `HOST` \{#tolgee-smtp-host-_-host}
+- ##### `HOST` \{#tolgee-smtp-_-host}
 
   SMTP server host
 
-- ##### `PASSWORD` \{#tolgee-smtp-password-_-password}
+- ##### `PASSWORD` \{#tolgee-smtp-_-password}
 
   Password for SMTP authentication
 
-- ##### `PORT` \{#tolgee-smtp-port-_-port}
+- ##### `PORT` \{#tolgee-smtp-_-port}
 
   SMTP server port (default: `25`)
 
-- ##### `SSL_ENABLED` \{#tolgee-smtp-sslenabled-_-sslenabled}
+- ##### `SSL_ENABLED` \{#tolgee-smtp-_-ssl-enabled}
 
   Whether SSL is enabled. (default: `false`)
 
-- ##### `TLS_ENABLED` \{#tolgee-smtp-tlsenabled-_-tlsenabled}
+- ##### `TLS_ENABLED` \{#tolgee-smtp-_-tls-enabled}
 
   Whether TLS is enabled. (default: `false`)
 
-- ##### `TLS_REQUIRED` \{#tolgee-smtp-tlsrequired-_-tlsrequired}
+- ##### `TLS_REQUIRED` \{#tolgee-smtp-_-tls-required}
 
   Whether TLS is required. (default: `false`)
 
-- ##### `USERNAME` \{#tolgee-smtp-username-_-username}
+- ##### `USERNAME` \{#tolgee-smtp-_-username}
 
   The username for SMTP authentication
 
-### Telemetry \{#tolgee-telemetry-_-telemetry}
+### Telemetry \{#tolgee-_-telemetry}
 
 Prefix: `TOLGEE_TELEMETRY`
 
@@ -2265,21 +2265,21 @@ Once a day we collect following data
 
 We don't collect any other data. Please leave telemetry enabled to help us improve Tolgee.
 
-- ##### `ENABLED` \{#tolgee-telemetry-enabled-_-enabled}
+- ##### `ENABLED` \{#tolgee-telemetry-_-enabled}
 
   Whether telemetry is enabled (default: `true`)
 
-### Websocket \{#tolgee-websocket-_-websocket}
+### Websocket \{#tolgee-_-websocket}
 
 Prefix: `TOLGEE_WEBSOCKET`
 
 Configuration specific to the use of Websocket.
 
-- ##### `USE_REDIS` \{#tolgee-websocket-useredis-_-useredis}
+- ##### `USE_REDIS` \{#tolgee-websocket-_-use-redis}
 
   Whether to use Redis for Websocket events (default: `false`)
 
-## Full configuration example \{#full-configuration-example}
+## Full configuration example \{#-full-configuration-example}
 <Tabs lazy groupId="config-format" queryString defaultValue='yaml' values={[{"value":"yaml","label":"YAML"},{"value":"env","label":".env"},{"value":"properties","label":"application.properties"}]}>
 </Tabs>
 <details>
@@ -2463,90 +2463,90 @@ TOLGEE_WEBSOCKET_USE_REDIS=false
 import ExamplePropertiesConfig from "./shared/_examplePropertiesConfig.mdx";
 
 <ExamplePropertiesConfig />
-## Server settings \{#server-_-server}
+## Server settings \{#server}
 
 Prefix: `server`
 
 These properties are used to configure the server.
 
-- ##### `port` \{#server-port-_-port}
+- ##### `port` \{#server-_-port}
 
   Port on which Tolgee exposes itself. (default: `8080`)
 
-## Spring settings \{#spring-_-spring}
+## Spring settings \{#spring}
 
 Prefix: `spring`
 
 These properties are used to configure Spring framework.
 
-### Data source settings \{#spring-datasource-_-datasource}
+### Data source settings \{#spring-_-datasource}
 
 Prefix: `spring.datasource`
 
 Since Tolgee is built on Spring framework, you have to edit following configuration props
 to configure its database connection. These properties can be omitted when using
-[Postgres autostart](#tolgee-postgresautostart-_-postgresautostart), which is enabled by default.
+[Postgres autostart](#tolgee-_-postgres-autostart), which is enabled by default.
 
-- ##### `url` \{#spring-datasource-url-_-url}
+- ##### `url` \{#spring-datasource-_-url}
 
   The url of the datasource in format `jdbc:postgresql://host:port/dbname`. e.g. `jdbc:postgresql://db:5432/postgres`
 
-- ##### `username` \{#spring-datasource-username-_-username}
+- ##### `username` \{#spring-datasource-_-username}
 
   Database username. e.g. `postgres`
 
-- ##### `password` \{#spring-datasource-password-_-password}
+- ##### `password` \{#spring-datasource-_-password}
 
   Database password. e.g. `postgres`
 
-## Tolgee \{#tolgee-_-tolgee}
+## Tolgee \{#tolgee}
 
 Prefix: `tolgee`
 
 Configuration specific to Tolgee.
 
-- ##### `file-storage-url` \{#tolgee-filestorageurl-_-filestorageurl}
+- ##### `file-storage-url` \{#tolgee-_-file-storage-url}
 
   Public base path where files are accessible. Used by the user interface.
 
-- ##### `front-end-url` \{#tolgee-frontendurl-_-frontendurl}
+- ##### `front-end-url` \{#tolgee-_-front-end-url}
 
   Public URL where Tolgee is accessible. Used to generate links to Tolgee (e.g. email confirmation link).
   
   **Warning:** Not providing this property leads to security issues.Providing this property is highly recommended especially if you are managing publicly accessible Tolgee instance. 
 
-- ##### `max-screenshots-per-key` \{#tolgee-maxscreenshotsperkey-_-maxscreenshotsperkey}
+- ##### `max-screenshots-per-key` \{#tolgee-_-max-screenshots-per-key}
 
   Maximum amount of screenshots which can be uploaded per API key. (default: `20`)
 
-- ##### `max-translation-text-length` \{#tolgee-maxtranslationtextlength-_-maxtranslationtextlength}
+- ##### `max-translation-text-length` \{#tolgee-_-max-translation-text-length}
 
   Maximum length of translations. (default: `10000`)
 
-- ##### `max-upload-file-size` \{#tolgee-maxuploadfilesize-_-maxuploadfilesize}
+- ##### `max-upload-file-size` \{#tolgee-_-max-upload-file-size}
 
   Maximum size of uploaded files (in kilobytes). (default: `51200` ≈ 50MB)
 
-- ##### `translations-view-languages-limit` \{#tolgee-translationsviewlanguageslimit-_-translationsviewlanguageslimit}
+- ##### `translations-view-languages-limit` \{#tolgee-_-translations-view-languages-limit}
 
   Maximum amount of languages that can be selected in the Translations view (default: `10`)
 
-### Authentication \{#tolgee-authentication-_-authentication}
+### Authentication \{#tolgee-_-authentication}
 
 Prefix: `tolgee.authentication`
 
 Configuration of Tolgee's authentication.
 
-- ##### `create-demo-for-initial-user` \{#tolgee-authentication-createdemoforinitialuser-_-createdemoforinitialuser}
+- ##### `create-demo-for-initial-user` \{#tolgee-authentication-_-create-demo-for-initial-user}
 
   When enabled, creates Demo project and quick start guide for inital user
    (default: `true`)
 
-- ##### `enabled` \{#tolgee-authentication-enabled-_-enabled}
+- ##### `enabled` \{#tolgee-authentication-_-enabled}
 
   Whether authentication is enabled. When authentication is disabled, there are no login screen and no permission control. Users get automatically logged in as the administrator account of the Tolgee instance. This is very useful, when you want to use Tolgee on your local machine, or you just want to test it.  (default: `true` when running with Java directly, `false` when running via Docker.)
 
-- ##### `initial-password` \{#tolgee-authentication-initialpassword-_-initialpassword}
+- ##### `initial-password` \{#tolgee-authentication-_-initial-password}
 
   Password of initial user. If unspecified, a random password will be generated and stored in the `initial.pwd` file, located at the root of Tolgee's data path.
   
@@ -2558,7 +2558,7 @@ Configuration of Tolgee's authentication.
   
   
 
-- ##### `initial-username` \{#tolgee-authentication-initialusername-_-initialusername}
+- ##### `initial-username` \{#tolgee-authentication-_-initial-username}
 
   Username of initial user.
   
@@ -2568,11 +2568,11 @@ Configuration of Tolgee's authentication.
   
    (default: `admin`)
 
-- ##### `jwt-expiration` \{#tolgee-authentication-jwtexpiration-_-jwtexpiration}
+- ##### `jwt-expiration` \{#tolgee-authentication-_-jwt-expiration}
 
   Expiration time of generated JWT tokens in milliseconds. (default: `604800000` = 7 days)
 
-- ##### `jwt-secret` \{#tolgee-authentication-jwtsecret-_-jwtsecret}
+- ##### `jwt-secret` \{#tolgee-authentication-_-jwt-secret}
 
   Secret used to sign JWT authentication tokens with. It will be generated automatically, if not provided. You will be fine with 64 characters long random string.
   
@@ -2582,60 +2582,60 @@ Configuration of Tolgee's authentication.
   
   
 
-- ##### `jwt-super-expiration` \{#tolgee-authentication-jwtsuperexpiration-_-jwtsuperexpiration}
+- ##### `jwt-super-expiration` \{#tolgee-authentication-_-jwt-super-expiration}
 
   Expiration time of generated JWT tokens for superuser in milliseconds. (default: `3600000` = 1 hour)
 
-- ##### `native-enabled` \{#tolgee-authentication-nativeenabled-_-nativeenabled}
+- ##### `native-enabled` \{#tolgee-authentication-_-native-enabled}
 
   Whether to enable Tolgee-native authentication and registration.
   When set to `false`, users will only be able to register and login via third-party SSO options (e.g. OAuth). (default: `true`)
 
-- ##### `needs-email-verification` \{#tolgee-authentication-needsemailverification-_-needsemailverification}
+- ##### `needs-email-verification` \{#tolgee-authentication-_-needs-email-verification}
 
-  Whether users need to verify their email addresses when creating their account. Requires a valid [SMTP configuration](#tolgee-smtp-_-smtp). (default: `false`)
+  Whether users need to verify their email addresses when creating their account. Requires a valid [SMTP configuration](#tolgee-_-smtp). (default: `false`)
 
-- ##### `registrations-allowed` \{#tolgee-authentication-registrationsallowed-_-registrationsallowed}
+- ##### `registrations-allowed` \{#tolgee-authentication-_-registrations-allowed}
 
   Whether users are allowed to register on Tolgee.
   When set to `false`, existing users must send invites to projects to new users for them to be able to register.
   When SSO is enabled, users can still register via SSO, even if this setting is set to `false`. (default: `false`)
 
-- ##### `secured-image-retrieval` \{#tolgee-authentication-securedimageretrieval-_-securedimageretrieval}
+- ##### `secured-image-retrieval` \{#tolgee-authentication-_-secured-image-retrieval}
 
   Whether image assets should be protected by Tolgee. When enabled, all images are served with an access token valid for
   a set period of time to prevent unauthorized access to images. (default: `false`)
 
-- ##### `secured-image-timestamp-max-age` \{#tolgee-authentication-securedimagetimestampmaxage-_-securedimagetimestampmaxage}
+- ##### `secured-image-timestamp-max-age` \{#tolgee-authentication-_-secured-image-timestamp-max-age}
 
   Expiration time of a generated image access token in milliseconds. (default: `7200000` = 2 hours)
 
-- ##### `user-can-create-organizations` \{#tolgee-authentication-usercancreateorganizations-_-usercancreateorganizations}
+- ##### `user-can-create-organizations` \{#tolgee-authentication-_-user-can-create-organizations}
 
   Whether regular users are allowed to create organizations. When `false`, only administrators can create organizations.
   By default, when the user has no organization, one is created for them; this doesn't apply when this setting is set to `false`. In that case, the user without organization has no permissions on the server.
   
   When SSO authentication is enabled, users created by SSO don't have their own organization automatically created no matter the value of this setting. (default: `true`)
 
-- ##### ~~`create-initial-user`~~ \{#tolgee-authentication-createinitialuser-_-createinitialuser}
+- ##### ~~`create-initial-user`~~ \{#tolgee-authentication-_-create-initial-user}
 
   **Removed in:** 3.31.0
 
   If true, Tolgee creates initial user on first start-up. (default: `true`)
 
-- ##### ~~`ldap.*`~~ \{#tolgee-authentication-ldap-_-ldap}
+- ##### ~~`ldap.*`~~ \{#tolgee-authentication-_-ldap}
 
   **Removed in:** 3.31.0
 
   LDAP-related settings.
 
-- ##### ~~`user-can-create-projects`~~ \{#tolgee-authentication-usercancreateprojects-_-usercancreateprojects}
+- ##### ~~`user-can-create-projects`~~ \{#tolgee-authentication-_-user-can-create-projects}
 
   **Removed in:** 2.33.0
 
   Whether regular users are allowed to create projects. When disabled, only administrators can create projects (default: `true`)
 
-#### GitHub \{#tolgee-authentication-github-_-github}
+#### GitHub \{#tolgee-authentication-_-github}
 
 Prefix: `tolgee.authentication.github`
 
@@ -2645,82 +2645,82 @@ GitHub authentication can be used in combination with native authentication.
 
 
 
-- ##### `authorization-url` \{#tolgee-authentication-github-authorizationurl-_-authorizationurl}
+- ##### `authorization-url` \{#tolgee-authentication-github-_-authorization-url}
 
   URL to the OAuth authorization screen. Useful if you want to authenticate against a self-hosted GitHub Enterprise Server. (default: `https://github.com/login/oauth/access_token`)
 
-- ##### `client-id` \{#tolgee-authentication-github-clientid-_-clientid}
+- ##### `client-id` \{#tolgee-authentication-github-_-client-id}
 
   OAuth Client ID, obtained in GitHub administration.
 
-- ##### `client-secret` \{#tolgee-authentication-github-clientsecret-_-clientsecret}
+- ##### `client-secret` \{#tolgee-authentication-github-_-client-secret}
 
   OAuth Client secret, obtained in GitHub administration.
 
-- ##### `user-url` \{#tolgee-authentication-github-userurl-_-userurl}
+- ##### `user-url` \{#tolgee-authentication-github-_-user-url}
 
   URL to GitHub's `/user` API endpoint. Useful if you want to authenticate against a self-hosted GitHub Enterprise Server. (default: `https://api.github.com/user`)
 
-#### Google \{#tolgee-authentication-google-_-google}
+#### Google \{#tolgee-authentication-_-google}
 
 Prefix: `tolgee.authentication.google`
 
 The following instructions explain how to set up Google OAuth. [Setting up OAuth 2.0](https://support.google.com/cloud/answer/6158849).
 
-- ##### `authorization-url` \{#tolgee-authentication-google-authorizationurl-_-authorizationurl}
+- ##### `authorization-url` \{#tolgee-authentication-google-_-authorization-url}
 
   URL to Google `/token` API endpoint. This usually does not need to be changed. (default: `https://oauth2.googleapis.com/token`)
 
-- ##### `client-id` \{#tolgee-authentication-google-clientid-_-clientid}
+- ##### `client-id` \{#tolgee-authentication-google-_-client-id}
 
   OAuth Client ID, obtained in Google Cloud Console.
 
-- ##### `client-secret` \{#tolgee-authentication-google-clientsecret-_-clientsecret}
+- ##### `client-secret` \{#tolgee-authentication-google-_-client-secret}
 
   OAuth Client secret, obtained in Google Cloud Console.
 
-- ##### `user-url` \{#tolgee-authentication-google-userurl-_-userurl}
+- ##### `user-url` \{#tolgee-authentication-google-_-user-url}
 
   URL to Google `/userinfo` API endpoint. This usually does not need to be changed. (default: `https://www.googleapis.com/oauth2/v3/userinfo`)
 
-- ##### `workspace-domain` \{#tolgee-authentication-google-workspacedomain-_-workspacedomain}
+- ##### `workspace-domain` \{#tolgee-authentication-google-_-workspace-domain}
 
   The registration can be limited to users of a Google Workspace domain. Multiple Google Workspace domains can be separated by a comma `,`. If nothing is set, anyone can log in with their Google account.
 
-#### OAuth2 \{#tolgee-authentication-oauth2-_-oauth2}
+#### OAuth2 \{#tolgee-authentication-_-oauth2}
 
 Prefix: `tolgee.authentication.oauth2`
 
 OAuth 2.0 is the industry-standard protocol for authorization.
 This enables the integration of a wide range of authorization providers into tolgee, such as Auth0, KeyCloak, Okta and others.
 
-- ##### `authorization-url` \{#tolgee-authentication-oauth2-authorizationurl-_-authorizationurl}
+- ##### `authorization-url` \{#tolgee-authentication-oauth2-_-authorization-url}
 
   URL to OAuth2 authorize API endpoint. This endpoint will exposed to the frontend.
 
-- ##### `client-id` \{#tolgee-authentication-oauth2-clientid-_-clientid}
+- ##### `client-id` \{#tolgee-authentication-oauth2-_-client-id}
 
   OAuth2 Client ID
 
-- ##### `client-secret` \{#tolgee-authentication-oauth2-clientsecret-_-clientsecret}
+- ##### `client-secret` \{#tolgee-authentication-oauth2-_-client-secret}
 
   OAuth2 Client secret
 
-- ##### `scopes` \{#tolgee-authentication-oauth2-scopes-_-scopes}
+- ##### `scopes` \{#tolgee-authentication-oauth2-_-scopes}
 
   Oauth2 scopes (as list)
   Tolgee absolutely requires rights to view the email and user information (also known as openid data).
   In most cases the scopes `openid email profile` is used for this. (But can also be different depending on the provider) (default: `[]`)
 
-- ##### `token-url` \{#tolgee-authentication-oauth2-tokenurl-_-tokenurl}
+- ##### `token-url` \{#tolgee-authentication-oauth2-_-token-url}
 
   URL to OAuth2 token API endpoint.
 
-- ##### `user-url` \{#tolgee-authentication-oauth2-userurl-_-userurl}
+- ##### `user-url` \{#tolgee-authentication-oauth2-_-user-url}
 
   URL to OAuth2 userinfo API endpoint.
 
-#### Server wide Single Sign-On \{#tolgee-authentication-ssoglobal-_-ssoglobal}
+#### Server wide Single Sign-On \{#tolgee-authentication-_-sso-global}
 
 Prefix: `tolgee.authentication.sso-global`
 
@@ -2728,47 +2728,47 @@ Single sign-on (SSO) is an authentication process that allows a user to access m
 
 There is a significant difference between global and per organization SSO: Global SSO can handle authentication for all server users no matter which organizations they belong to, while per organization SSO can handle authentication only for users of the organization and such users cannot be members of any other organization. SSO users associated with per organization SSO have no rights to create or manage organizations. Global SSO users should be invited to organizations they need to have access to. Per organization SSO users are automatically added to the organization they belong to.
 
-- ##### `authorization-uri` \{#tolgee-authentication-ssoglobal-authorizationuri-_-authorizationuri}
+- ##### `authorization-uri` \{#tolgee-authentication-sso-global-_-authorization-uri}
 
   URL to redirect users for authentication
 
-- ##### `client-id` \{#tolgee-authentication-ssoglobal-clientid-_-clientid}
+- ##### `client-id` \{#tolgee-authentication-sso-global-_-client-id}
 
   Unique identifier for an application
 
-- ##### `client-secret` \{#tolgee-authentication-ssoglobal-clientsecret-_-clientsecret}
+- ##### `client-secret` \{#tolgee-authentication-sso-global-_-client-secret}
 
   Key used to authenticate the application
 
-- ##### `custom-login-text` \{#tolgee-authentication-ssoglobal-customlogintext-_-customlogintext}
+- ##### `custom-login-text` \{#tolgee-authentication-sso-global-_-custom-login-text}
 
   Custom text for the SSO login page.
 
-- ##### `custom-logo-url` \{#tolgee-authentication-ssoglobal-customlogourl-_-customlogourl}
+- ##### `custom-logo-url` \{#tolgee-authentication-sso-global-_-custom-logo-url}
 
   Custom logo URL to be displayed on the login screen. Can be set only when `nativeEnabled` is `false`.
 
-- ##### `domain` \{#tolgee-authentication-ssoglobal-domain-_-domain}
+- ##### `domain` \{#tolgee-authentication-sso-global-_-domain}
 
   Used to identify the organization on login page
 
-- ##### `enabled` \{#tolgee-authentication-ssoglobal-enabled-_-enabled}
+- ##### `enabled` \{#tolgee-authentication-sso-global-_-enabled}
 
   Enables SSO authentication on global level - as a login method for the whole server (default: `false`)
 
-- ##### `force` \{#tolgee-authentication-ssoglobal-force-_-force}
+- ##### `force` \{#tolgee-authentication-sso-global-_-force}
 
   When true, users with an email matching the organization's domain must sign in using SSO (default: `false`)
 
-- ##### `session-expiration-minutes` \{#tolgee-authentication-ssoglobal-sessionexpirationminutes-_-sessionexpirationminutes}
+- ##### `session-expiration-minutes` \{#tolgee-authentication-sso-global-_-session-expiration-minutes}
 
   Minutes after which the server will recheck the user's with the SSO provider to ensure the user account is still valid. This is to prevent the user from being able to access the server after the account has been disabled or deleted in the SSO provider. (default: `10`)
 
-- ##### `token-uri` \{#tolgee-authentication-ssoglobal-tokenuri-_-tokenuri}
+- ##### `token-uri` \{#tolgee-authentication-sso-global-_-token-uri}
 
   URL for exchanging authorization code for tokens
 
-#### Per-Organization Single Sign-On \{#tolgee-authentication-ssoorganizations-_-ssoorganizations}
+#### Per-Organization Single Sign-On \{#tolgee-authentication-_-sso-organizations}
 
 Prefix: `tolgee.authentication.sso-organizations`
 
@@ -2776,50 +2776,50 @@ Single sign-on (SSO) is an authentication process that allows a user to access m
 
 There is a significant difference between global and per organization SSO: Global SSO can handle authentication for all server users no matter which organizations they belong to, while per organization SSO can handle authentication only for users of the organization and such users cannot be members of any other organization. SSO users associated with per organization SSO have no rights to create or manage organizations. Global SSO users should be invited to organizations they need to have access to. Per organization SSO users are automatically added to the organization they belong to.
 
-- ##### `enabled` \{#tolgee-authentication-ssoorganizations-enabled-_-enabled}
+- ##### `enabled` \{#tolgee-authentication-sso-organizations-_-enabled}
 
   Enables SSO authentication (default: `false`)
 
-- ##### `session-expiration-minutes` \{#tolgee-authentication-ssoorganizations-sessionexpirationminutes-_-sessionexpirationminutes}
+- ##### `session-expiration-minutes` \{#tolgee-authentication-sso-organizations-_-session-expiration-minutes}
 
   Minutes after which the server will recheck the user's with the SSO provider to ensure the user account is still valid. This is to prevent the user from being able to access the server after the account has been disabled or deleted in the SSO provider. (default: `10`)
 
-### Batch operations \{#tolgee-batch-_-batch}
+### Batch operations \{#tolgee-_-batch}
 
 Prefix: `tolgee.batch`
 
 Configuration of batch operations.
 
-- ##### `concurrency` \{#tolgee-batch-concurrency-_-concurrency}
+- ##### `concurrency` \{#tolgee-batch-_-concurrency}
 
   How many parallel jobs can be run at once on single Tolgee instance (default: `1`)
 
-### Cache \{#tolgee-cache-_-cache}
+### Cache \{#tolgee-_-cache}
 
 Prefix: `tolgee.cache`
 
 At the expense of higher memory footprint, Tolgee can use a cache to reduce the stress on the database and fetch the
 data it needs faster. Cache is also used to track certain states, such as rate limits.
 
-- ##### `caffeine-max-size` \{#tolgee-cache-caffeinemaxsize-_-caffeinemaxsize}
+- ##### `caffeine-max-size` \{#tolgee-cache-_-caffeine-max-size}
 
   Maximum size of the Caffeine cache. When exceeded, some entries will be purged from cache. Set to -1 to disable size limitation.
   This has no effect when Redis cache is used. See
   [Caffeine's documentation about size-based eviction](https://github.com/ben-manes/caffeine/wiki/Eviction#size-based) (default: `-1`)
 
-- ##### `clean-on-startup` \{#tolgee-cache-cleanonstartup-_-cleanonstartup}
+- ##### `clean-on-startup` \{#tolgee-cache-_-clean-on-startup}
 
   Whether to clean the cache on Tolgee startup (default: `true`)
 
-- ##### `default-ttl` \{#tolgee-cache-defaultttl-_-defaultttl}
+- ##### `default-ttl` \{#tolgee-cache-_-default-ttl}
 
   TTL of cache data, in milliseconds. (default: `7200000` ≈ 2 hours)
 
-- ##### `enabled` \{#tolgee-cache-enabled-_-enabled}
+- ##### `enabled` \{#tolgee-cache-_-enabled}
 
   Whether Tolgee should use a cache. (default: `false`)
 
-- ##### `use-redis` \{#tolgee-cache-useredis-_-useredis}
+- ##### `use-redis` \{#tolgee-cache-_-use-redis}
 
   Whether Tolgee should use Redis to store cache data instead of storing it in-memory.
   :::info
@@ -2833,7 +2833,7 @@ data it needs faster. Cache is also used to track certain states, such as rate l
   
    (default: `false`)
 
-### Content Delivery \{#tolgee-contentdelivery-_-contentdelivery}
+### Content Delivery \{#tolgee-_-content-delivery}
 
 Prefix: `tolgee.content-delivery`
 
@@ -2841,152 +2841,152 @@ These properties are used to configure default server content delivery storage.
  
 To get content delivery working, you have to configure the Storage (e.g. S3 or Blob).
 
-- ##### `public-url-prefix` \{#tolgee-contentdelivery-publicurlprefix-_-publicurlprefix}
+- ##### `public-url-prefix` \{#tolgee-content-delivery-_-public-url-prefix}
 
   The prefix URL where the content is accessible from the public. If this property is not null, content delivery will be enabled on your server.
   
   For example, if you set this property to `https://cdn.example.com/`
 
-#### Cache purging \{#tolgee-contentdelivery-cachepurging-_-cachepurging}
+#### Cache purging \{#tolgee-content-delivery-_-cache-purging}
 
 Prefix: `tolgee.content-delivery.cache-purging`
 
 Several services can be used as cache. Tolgee is able to purge the cache when new files are published when this configuration is set.
 
-##### azure-front-door \{#tolgee-contentdelivery-cachepurging-azurefrontdoor-_-azurefrontdoor}
+##### azure-front-door \{#tolgee-content-delivery-cache-purging-_-azure-front-door}
 
 Prefix: `tolgee.content-delivery.cache-purging.azure-front-door`
 
-- ##### `client-id` \{#tolgee-contentdelivery-cachepurging-azurefrontdoor-clientid-_-clientid}
+- ##### `client-id` \{#tolgee-content-delivery-cache-purging-azure-front-door-_-client-id}
 
-- ##### `client-secret` \{#tolgee-contentdelivery-cachepurging-azurefrontdoor-clientsecret-_-clientsecret}
+- ##### `client-secret` \{#tolgee-content-delivery-cache-purging-azure-front-door-_-client-secret}
 
-- ##### `content-root` \{#tolgee-contentdelivery-cachepurging-azurefrontdoor-contentroot-_-contentroot}
+- ##### `content-root` \{#tolgee-content-delivery-cache-purging-azure-front-door-_-content-root}
 
-- ##### `endpoint-name` \{#tolgee-contentdelivery-cachepurging-azurefrontdoor-endpointname-_-endpointname}
+- ##### `endpoint-name` \{#tolgee-content-delivery-cache-purging-azure-front-door-_-endpoint-name}
 
-- ##### `profile-name` \{#tolgee-contentdelivery-cachepurging-azurefrontdoor-profilename-_-profilename}
+- ##### `profile-name` \{#tolgee-content-delivery-cache-purging-azure-front-door-_-profile-name}
 
-- ##### `resource-group-name` \{#tolgee-contentdelivery-cachepurging-azurefrontdoor-resourcegroupname-_-resourcegroupname}
+- ##### `resource-group-name` \{#tolgee-content-delivery-cache-purging-azure-front-door-_-resource-group-name}
 
-- ##### `subscription-id` \{#tolgee-contentdelivery-cachepurging-azurefrontdoor-subscriptionid-_-subscriptionid}
+- ##### `subscription-id` \{#tolgee-content-delivery-cache-purging-azure-front-door-_-subscription-id}
 
-- ##### `tenant-id` \{#tolgee-contentdelivery-cachepurging-azurefrontdoor-tenantid-_-tenantid}
+- ##### `tenant-id` \{#tolgee-content-delivery-cache-purging-azure-front-door-_-tenant-id}
 
-##### cloudflare \{#tolgee-contentdelivery-cachepurging-cloudflare-_-cloudflare}
+##### cloudflare \{#tolgee-content-delivery-cache-purging-_-cloudflare}
 
 Prefix: `tolgee.content-delivery.cache-purging.cloudflare`
 
-- ##### `api-key` \{#tolgee-contentdelivery-cachepurging-cloudflare-apikey-_-apikey}
+- ##### `api-key` \{#tolgee-content-delivery-cache-purging-cloudflare-_-api-key}
 
-- ##### `content-delivery-cache-purging-type` \{#tolgee-contentdelivery-cachepurging-cloudflare-contentdeliverycachepurgingtype-_-contentdeliverycachepurgingtype}
+- ##### `content-delivery-cache-purging-type` \{#tolgee-content-delivery-cache-purging-cloudflare-_-content-delivery-cache-purging-type}
 
-- ##### `enabled` \{#tolgee-contentdelivery-cachepurging-cloudflare-enabled-_-enabled}
+- ##### `enabled` \{#tolgee-content-delivery-cache-purging-cloudflare-_-enabled}
 
-- ##### `max-files-per-request` \{#tolgee-contentdelivery-cachepurging-cloudflare-maxfilesperrequest-_-maxfilesperrequest}
+- ##### `max-files-per-request` \{#tolgee-content-delivery-cache-purging-cloudflare-_-max-files-per-request}
 
   Number of paths to purge in one request. (Cloudflare limit is 30 now, but it might be subject to change) (default: `30`)
 
-- ##### `origins` \{#tolgee-contentdelivery-cachepurging-cloudflare-origins-_-origins}
+- ##### `origins` \{#tolgee-content-delivery-cache-purging-cloudflare-_-origins}
 
   If cache is filled with specific Origin header, it can be purged only if the purge request specifies the same Origin header. Here you can specify comma separated list of origins.
   e.g. `https://example.com,https://example2.com`
   
   Read more in the Cloudflare [docs](https://developers.cloudflare.com/cache/how-to/purge-cache/purge-by-single-file/).
 
-- ##### `url-prefix` \{#tolgee-contentdelivery-cachepurging-cloudflare-urlprefix-_-urlprefix}
+- ##### `url-prefix` \{#tolgee-content-delivery-cache-purging-cloudflare-_-url-prefix}
 
-- ##### `zone-id` \{#tolgee-contentdelivery-cachepurging-cloudflare-zoneid-_-zoneid}
+- ##### `zone-id` \{#tolgee-content-delivery-cache-purging-cloudflare-_-zone-id}
 
-#### storage \{#tolgee-contentdelivery-storage-_-storage}
+#### storage \{#tolgee-content-delivery-_-storage}
 
 Prefix: `tolgee.content-delivery.storage`
 
 Configuration of the storage. You have to configure exactly one storage.
 
-##### azure \{#tolgee-contentdelivery-storage-azure-_-azure}
+##### azure \{#tolgee-content-delivery-storage-_-azure}
 
 Prefix: `tolgee.content-delivery.storage.azure`
 
 Configuration of Azure Blob storage
 
-- ##### `connection-string` \{#tolgee-contentdelivery-storage-azure-connectionstring-_-connectionstring}
+- ##### `connection-string` \{#tolgee-content-delivery-storage-azure-_-connection-string}
 
-- ##### `container-name` \{#tolgee-contentdelivery-storage-azure-containername-_-containername}
+- ##### `container-name` \{#tolgee-content-delivery-storage-azure-_-container-name}
 
-##### s3 \{#tolgee-contentdelivery-storage-s3-_-s3}
+##### s3 \{#tolgee-content-delivery-storage-_-s3}
 
 Prefix: `tolgee.content-delivery.storage.s3`
 
 Configuration of S3 bucket
 
-- ##### `access-key` \{#tolgee-contentdelivery-storage-s3-accesskey-_-accesskey}
+- ##### `access-key` \{#tolgee-content-delivery-storage-s3-_-access-key}
 
-- ##### `bucket-name` \{#tolgee-contentdelivery-storage-s3-bucketname-_-bucketname}
+- ##### `bucket-name` \{#tolgee-content-delivery-storage-s3-_-bucket-name}
 
-- ##### `endpoint` \{#tolgee-contentdelivery-storage-s3-endpoint-_-endpoint}
+- ##### `endpoint` \{#tolgee-content-delivery-storage-s3-_-endpoint}
 
-- ##### `path` \{#tolgee-contentdelivery-storage-s3-path-_-path}
+- ##### `path` \{#tolgee-content-delivery-storage-s3-_-path}
 
-- ##### `secret-key` \{#tolgee-contentdelivery-storage-s3-secretkey-_-secretkey}
+- ##### `secret-key` \{#tolgee-content-delivery-storage-s3-_-secret-key}
 
-- ##### `signing-region` \{#tolgee-contentdelivery-storage-s3-signingregion-_-signingregion}
+- ##### `signing-region` \{#tolgee-content-delivery-storage-s3-_-signing-region}
 
-### File storage \{#tolgee-filestorage-_-filestorage}
+### File storage \{#tolgee-_-file-storage}
 
 Prefix: `tolgee.file-storage`
 
 Configuration of Tolgee file storage.
 
-- ##### `fs-data-path` \{#tolgee-filestorage-fsdatapath-_-fsdatapath}
+- ##### `fs-data-path` \{#tolgee-file-storage-_-fs-data-path}
 
   Path to directory where Tolgee will store its files. (default: `~/.tolgee/` , with docker `/data/`)
 
-#### S3 \{#tolgee-filestorage-s3-_-s3}
+#### S3 \{#tolgee-file-storage-_-s3}
 
 Prefix: `tolgee.file-storage.s3`
 
 Tolgee supports storing its files on an S3-compatible storage server. When enabled, Tolgee will store all its files on the S3 server rather than in filesystem.
 
-- ##### `access-key` \{#tolgee-filestorage-s3-accesskey-_-accesskey}
+- ##### `access-key` \{#tolgee-file-storage-s3-_-access-key}
 
   Access key for the S3 server. (optional if you are authenticating with a different method, like STS Web Identity)
 
-- ##### `bucket-name` \{#tolgee-filestorage-s3-bucketname-_-bucketname}
+- ##### `bucket-name` \{#tolgee-file-storage-s3-_-bucket-name}
 
   Name of the bucket where Tolgee will store its files.
 
-- ##### `enabled` \{#tolgee-filestorage-s3-enabled-_-enabled}
+- ##### `enabled` \{#tolgee-file-storage-s3-_-enabled}
 
   Whether S3 is enabled. If enabled, you need to set all remaining properties below. (default: `false`)
 
-- ##### `endpoint` \{#tolgee-filestorage-s3-endpoint-_-endpoint}
+- ##### `endpoint` \{#tolgee-file-storage-s3-_-endpoint}
 
   Has to be set to a service endpoint: https://docs.aws.amazon.com/general/latest/gr/s3.html
 
-- ##### `path` \{#tolgee-filestorage-s3-path-_-path}
+- ##### `path` \{#tolgee-file-storage-s3-_-path}
 
   Optional subfolder structure within s3 bucket to which content will be stored
 
-- ##### `secret-key` \{#tolgee-filestorage-s3-secretkey-_-secretkey}
+- ##### `secret-key` \{#tolgee-file-storage-s3-_-secret-key}
 
   Secret key for the access key. (optional if you are authenticating with a different method, like STS Web Identity)
 
-- ##### `signing-region` \{#tolgee-filestorage-s3-signingregion-_-signingregion}
+- ##### `signing-region` \{#tolgee-file-storage-s3-_-signing-region}
 
   Has to be set to a signing region: https://docs.aws.amazon.com/general/latest/gr/s3.html
 
-### Import \{#tolgee-import-_-import}
+### Import \{#tolgee-_-import}
 
 Prefix: `tolgee.import`
 
 Properties for importing data to Tolgee and bulk-imports exported json files in the database during startup. Useful to quickly provision a development server, and used for testing.
 
-- ##### `base-language-tag` \{#tolgee-import-baselanguagetag-_-baselanguagetag}
+- ##### `base-language-tag` \{#tolgee-import-_-base-language-tag}
 
   The language tag of the base language of the imported project (for importing data on startup). (default: `en`)
 
-- ##### `create-implicit-api-key` \{#tolgee-import-createimplicitapikey-_-createimplicitapikey}
+- ##### `create-implicit-api-key` \{#tolgee-import-_-create-implicit-api-key}
 
   Whether an implicit API key should be created when importing data on startup.
   
@@ -2998,7 +2998,7 @@ Properties for importing data to Tolgee and bulk-imports exported json files in 
   
    (default: `false`)
 
-- ##### `dir` \{#tolgee-import-dir-_-dir}
+- ##### `dir` \{#tolgee-import-_-dir}
 
   File path of the directory where the files to import on startup are located.
   
@@ -3015,29 +3015,29 @@ Properties for importing data to Tolgee and bulk-imports exported json files in 
   
   
 
-- ##### `store-files-for-debugging` \{#tolgee-import-storefilesfordebugging-_-storefilesfordebugging}
+- ##### `store-files-for-debugging` \{#tolgee-import-_-store-files-for-debugging}
 
   If true, uploaded files will be stored in configured file storage for future debugging. Such data is not automatically removed after successful import. You have to clean-up manually! (default: `false`)
 
-### LLM Providers \{#tolgee-llm-_-llm}
+### LLM Providers \{#tolgee-_-llm}
 
 Prefix: `tolgee.llm`
 
 LLM Providers configuration
 
-- ##### `default-enabled` \{#tolgee-llm-defaultenabled-_-defaultenabled}
+- ##### `default-enabled` \{#tolgee-llm-_-default-enabled}
 
   Whether llm-powered machine translation is enabled. (default: `true`)
 
-- ##### `default-primary` \{#tolgee-llm-defaultprimary-_-defaultprimary}
+- ##### `default-primary` \{#tolgee-llm-_-default-primary}
 
   Whether to use llm machine translation as a primary translation engine. (default: `true`)
 
-- ##### `enabled` \{#tolgee-llm-enabled-_-enabled}
+- ##### `enabled` \{#tolgee-llm-_-enabled}
 
   Enable/disable AI translator (default: enabled if there is at least one provider)
 
-#### providers \{#tolgee-llm-providers-_-providers}
+#### providers \{#tolgee-llm-_-providers}
 
 
     List of LLM providers. Example:
@@ -3066,201 +3066,201 @@ LLM Providers configuration
     Check [llm providers documentation](/platform/projects_and_organizations/llm-providers#self-hosted-server-configuration) for more information.
   
 
-- ##### `api-key` \{#tolgee-llm-providers-apikey-_-apikey}
+- ##### `api-key` \{#tolgee-llm-providers-_-api-key}
 
   Provider API Key (optional for some providers)
 
-- ##### `api-url` \{#tolgee-llm-providers-apiurl-_-apiurl}
+- ##### `api-url` \{#tolgee-llm-providers-_-api-url}
 
   Provider API Url
 
-- ##### `attempts` \{#tolgee-llm-providers-attempts-_-attempts}
+- ##### `attempts` \{#tolgee-llm-providers-_-attempts}
 
   Specify attempts timeout(s) (Example: [30, 30] - Tolgee will make two attempts, each with timeout of 30s)
 
-- ##### `deployment` \{#tolgee-llm-providers-deployment-_-deployment}
+- ##### `deployment` \{#tolgee-llm-providers-_-deployment}
 
   Provider deployment (optional for some providers)
 
-- ##### `enabled` \{#tolgee-llm-providers-enabled-_-enabled}
+- ##### `enabled` \{#tolgee-llm-providers-_-enabled}
 
   Enable/disable provider (default: `true`)
 
-- ##### `format` \{#tolgee-llm-providers-format-_-format}
+- ##### `format` \{#tolgee-llm-providers-_-format}
 
-- ##### `model` \{#tolgee-llm-providers-model-_-model}
+- ##### `model` \{#tolgee-llm-providers-_-model}
 
   Provider model (optional for some providers)
 
-- ##### `name` \{#tolgee-llm-providers-name-_-name}
+- ##### `name` \{#tolgee-llm-providers-_-name}
 
   User visible provider name (default: `default`)
 
-- ##### `priority` \{#tolgee-llm-providers-priority-_-priority}
+- ##### `priority` \{#tolgee-llm-providers-_-priority}
 
   Load-balancing instruction HIGH = used for suggestions, LOW = used for batch operations
 
-- ##### `reasoning-effort` \{#tolgee-llm-providers-reasoningeffort-_-reasoningeffort}
+- ##### `reasoning-effort` \{#tolgee-llm-providers-_-reasoning-effort}
 
   ChatGPT reasoning effort
 
-- ##### `type` \{#tolgee-llm-providers-type-_-type}
+- ##### `type` \{#tolgee-llm-providers-_-type}
 
   Provider type, an API type (default: `OPENAI`)
 
-### Machine Translation \{#tolgee-machinetranslation-_-machinetranslation}
+### Machine Translation \{#tolgee-_-machine-translation}
 
 Prefix: `tolgee.machine-translation`
 
 Configuration of Machine Translation services.
 
-- ##### `free-credits-amount` \{#tolgee-machinetranslation-freecreditsamount-_-freecreditsamount}
+- ##### `free-credits-amount` \{#tolgee-machine-translation-_-free-credits-amount}
 
   Amount of machine translations users of the Free tier can request per month. Used by Tolgee Cloud, see [pricing](https://tolgee.io/pricing). Set to `-1` to disable credit-based limitation. (default: `-1`)
 
-#### AWS Amazon Translate \{#tolgee-machinetranslation-aws-_-aws}
+#### AWS Amazon Translate \{#tolgee-machine-translation-_-aws}
 
 Prefix: `tolgee.machine-translation.aws`
 
 See [AWS's Amazon Translate](https://aws.amazon.com/translate) page for more information and applicable pricing.
 
-- ##### `access-key` \{#tolgee-machinetranslation-aws-accesskey-_-accesskey}
+- ##### `access-key` \{#tolgee-machine-translation-aws-_-access-key}
 
   AWS access key. (optional if you are authenticating with a different method, like STS Web Identity)
 
-- ##### `default-enabled` \{#tolgee-machinetranslation-aws-defaultenabled-_-defaultenabled}
+- ##### `default-enabled` \{#tolgee-machine-translation-aws-_-default-enabled}
 
   Whether AWS-powered machine translation is enabled. (default: `true`)
 
-- ##### `default-primary` \{#tolgee-machinetranslation-aws-defaultprimary-_-defaultprimary}
+- ##### `default-primary` \{#tolgee-machine-translation-aws-_-default-primary}
 
   Whether to use AWS Amazon Translate as a primary translation engine. (default: `false`)
 
-- ##### `enabled` \{#tolgee-machinetranslation-aws-enabled-_-enabled}
+- ##### `enabled` \{#tolgee-machine-translation-aws-_-enabled}
 
   If you are authenticating using a different method than explicit access key and secret key, which implicitly enable AWS Translate, you should enable AWS Translate using this option.
 
-- ##### `region` \{#tolgee-machinetranslation-aws-region-_-region}
+- ##### `region` \{#tolgee-machine-translation-aws-_-region}
 
   AWS region. (default: `eu-central-1`)
 
-- ##### `secret-key` \{#tolgee-machinetranslation-aws-secretkey-_-secretkey}
+- ##### `secret-key` \{#tolgee-machine-translation-aws-_-secret-key}
 
   AWS secret key. (optional if you are authenticating with a different method, like STS Web Identity)
 
-#### Azure Cognitive Translation \{#tolgee-machinetranslation-azure-_-azure}
+#### Azure Cognitive Translation \{#tolgee-machine-translation-_-azure}
 
 Prefix: `tolgee.machine-translation.azurecognitive`
 
 See [Azure Cognitive Translation](https://azure.microsoft.com/en-us/services/cognitive-services/translator-text-api/) page for more information and applicable pricing.
 
-- ##### `auth-key` \{#tolgee-machinetranslation-azure-authkey-_-authkey}
+- ##### `auth-key` \{#tolgee-machine-translation-azure-_-auth-key}
 
   Azure Cognitive Translation auth key.
 
-- ##### `default-enabled` \{#tolgee-machinetranslation-azure-defaultenabled-_-defaultenabled}
+- ##### `default-enabled` \{#tolgee-machine-translation-azure-_-default-enabled}
 
   Whether Azure Cognitive Translation is enabled. (default: `true`)
 
-- ##### `default-primary` \{#tolgee-machinetranslation-azure-defaultprimary-_-defaultprimary}
+- ##### `default-primary` \{#tolgee-machine-translation-azure-_-default-primary}
 
   Whether to use Azure Cognitive Translation as a primary translation engine. (default: `false`)
 
-- ##### `region` \{#tolgee-machinetranslation-azure-region-_-region}
+- ##### `region` \{#tolgee-machine-translation-azure-_-region}
 
   Azure Cognitive Translation region.
 
-#### Baidu Translate \{#tolgee-machinetranslation-baidu-_-baidu}
+#### Baidu Translate \{#tolgee-machine-translation-_-baidu}
 
 Prefix: `tolgee.machine-translation.baidu`
 
 See [Baidu's](https://fanyi-api.baidu.com/product/11) page (in Chinese) for more information and applicable pricing.
 
-- ##### `action` \{#tolgee-machinetranslation-baidu-action-_-action}
+- ##### `action` \{#tolgee-machine-translation-baidu-_-action}
 
   Whether the resulting translation should be changed according to the user-defined dictionary.
   The dictionary used can be modified at [Manage Terms](https://fanyi-api.baidu.com/manage/term) (login required). (default: `false`)
 
-- ##### `app-id` \{#tolgee-machinetranslation-baidu-appid-_-appid}
+- ##### `app-id` \{#tolgee-machine-translation-baidu-_-app-id}
 
   Baidu Translate App ID.
 
-- ##### `app-secret` \{#tolgee-machinetranslation-baidu-appsecret-_-appsecret}
+- ##### `app-secret` \{#tolgee-machine-translation-baidu-_-app-secret}
 
   Baidu Translate Secret key.
 
-- ##### `default-enabled` \{#tolgee-machinetranslation-baidu-defaultenabled-_-defaultenabled}
+- ##### `default-enabled` \{#tolgee-machine-translation-baidu-_-default-enabled}
 
   Whether Baidu-powered machine translation is enabled. (default: `true`)
 
-- ##### `default-primary` \{#tolgee-machinetranslation-baidu-defaultprimary-_-defaultprimary}
+- ##### `default-primary` \{#tolgee-machine-translation-baidu-_-default-primary}
 
   Whether to use Baidu Translate as a primary translation engine. (default: `false`)
 
-#### DeepL \{#tolgee-machinetranslation-deepl-_-deepl}
+#### DeepL \{#tolgee-machine-translation-_-deepl}
 
 Prefix: `tolgee.machine-translation.deepl`
 
 See [DeepL's](https://www.deepl.com/) page for more information and applicable pricing.
 
-- ##### `auth-key` \{#tolgee-machinetranslation-deepl-authkey-_-authkey}
+- ##### `auth-key` \{#tolgee-machine-translation-deepl-_-auth-key}
 
   DeepL auth key. Both key types (commercial and free) are supported.
 
-- ##### `default-enabled` \{#tolgee-machinetranslation-deepl-defaultenabled-_-defaultenabled}
+- ##### `default-enabled` \{#tolgee-machine-translation-deepl-_-default-enabled}
 
   Whether DeepL-powered machine translation is enabled. (default: `true`)
 
-- ##### `default-primary` \{#tolgee-machinetranslation-deepl-defaultprimary-_-defaultprimary}
+- ##### `default-primary` \{#tolgee-machine-translation-deepl-_-default-primary}
 
   Whether to use DeepL as a primary translation engine. (default: `false`)
 
-- ##### `optional-parameters` \{#tolgee-machinetranslation-deepl-optionalparameters-_-optionalparameters}
+- ##### `optional-parameters` \{#tolgee-machine-translation-deepl-_-optional-parameters}
 
   DeepL parameters which should be set for deepl api usage (Optional)
 
-#### Google Cloud Translation \{#tolgee-machinetranslation-google-_-google}
+#### Google Cloud Translation \{#tolgee-machine-translation-_-google}
 
 Prefix: `tolgee.machine-translation.google`
 
 See [Google Cloud Translation](https://cloud.google.com/translate) page for more information and applicable pricing.
 
-- ##### `api-key` \{#tolgee-machinetranslation-google-apikey-_-apikey}
+- ##### `api-key` \{#tolgee-machine-translation-google-_-api-key}
 
   Google Cloud Translation API key.
 
-- ##### `default-enabled` \{#tolgee-machinetranslation-google-defaultenabled-_-defaultenabled}
+- ##### `default-enabled` \{#tolgee-machine-translation-google-_-default-enabled}
 
   Whether Google-powered machine translation is enabled. (default: `true`)
 
-- ##### `default-primary` \{#tolgee-machinetranslation-google-defaultprimary-_-defaultprimary}
+- ##### `default-primary` \{#tolgee-machine-translation-google-_-default-primary}
 
   Whether to use Google Cloud Translation as a primary translation engine. (default: `true`)
 
-### Postgres autostart \{#tolgee-postgresautostart-_-postgresautostart}
+### Postgres autostart \{#tolgee-_-postgres-autostart}
 
 Prefix: `tolgee.postgres-autostart`
 
 Defines whether and how is PostgreSQL started on Tolgee startup.
 
-- ##### `container-name` \{#tolgee-postgresautostart-containername-_-containername}
+- ##### `container-name` \{#tolgee-postgres-autostart-_-container-name}
 
   The container name of the Postgres container.
   This setting is applicable only for `DOCKER` mode. (default: `tolgee_postgres`)
 
-- ##### `database-name` \{#tolgee-postgresautostart-databasename-_-databasename}
+- ##### `database-name` \{#tolgee-postgres-autostart-_-database-name}
 
   The name of the database created to store Tolgee data. (default: `postgres`)
 
-- ##### `enabled` \{#tolgee-postgresautostart-enabled-_-enabled}
+- ##### `enabled` \{#tolgee-postgres-autostart-_-enabled}
 
   Whether to start PostgreSQL on Tolgee startup. (default: `true`)
 
-- ##### `max-wait-time` \{#tolgee-postgresautostart-maxwaittime-_-maxwaittime}
+- ##### `max-wait-time` \{#tolgee-postgres-autostart-_-max-wait-time}
 
   The max time to wait for running postgres in seconds. (default: `300`)
 
-- ##### `mode` \{#tolgee-postgresautostart-mode-_-mode}
+- ##### `mode` \{#tolgee-postgres-autostart-_-mode}
 
   How is Tolgee running PostgreSQL.
   
@@ -3268,24 +3268,24 @@ Defines whether and how is PostgreSQL started on Tolgee startup.
   - `DOCKER` - Tolgee tries to run Postgres Docker container in your machine. This is default option when running Tolgee using Java. See [Running with Java](/self_hosting/running_with_java.mdx).
   - `EMBEDDED` - Tolgee tries to run it's embedded PostgreSQL which is bundled in the `tolgee/tolgee` Docker image. (default: `DOCKER`)
 
-- ##### `password` \{#tolgee-postgresautostart-password-_-password}
+- ##### `password` \{#tolgee-postgres-autostart-_-password}
 
   Database password to bootstrap Postgres with. (default: `postgres`)
 
-- ##### `port` \{#tolgee-postgresautostart-port-_-port}
+- ##### `port` \{#tolgee-postgres-autostart-_-port}
 
   The port of Postgres to listen on host machine.
   This setting is applicable only for `DOCKER` mode. (default: `25432`)
 
-- ##### `stop` \{#tolgee-postgresautostart-stop-_-stop}
+- ##### `stop` \{#tolgee-postgres-autostart-_-stop}
 
   When true, Tolgee will stop the Postgres container on Tolgee shutdown. This setting is applicable only for `DOCKER` mode. (default: `true`)
 
-- ##### `user` \{#tolgee-postgresautostart-user-_-user}
+- ##### `user` \{#tolgee-postgres-autostart-_-user}
 
   Database user to bootstrap Postgres with. (default: `postgres`)
 
-### Rate limits \{#tolgee-ratelimit-_-ratelimit}
+### Rate limits \{#tolgee-_-rate-limit}
 
 Prefix: `tolgee.rate-limits`
 
@@ -3297,7 +3297,7 @@ Per-endpoint and auth-related rate limits are fixed and cannot be configured.
 
 
 
-- ##### `authentication-limits` \{#tolgee-ratelimit-authenticationlimits-_-authenticationlimits}
+- ##### `authentication-limits` \{#tolgee-rate-limit-_-authentication-limits}
 
   Control whether per-endpoint limits on authentication-related endpoints are enabled or not.
   :::warning
@@ -3307,13 +3307,13 @@ Per-endpoint and auth-related rate limits are fixed and cannot be configured.
   
    (default: `true`)
 
-- ##### `email-verification-request-limit` \{#tolgee-ratelimit-emailverificationrequestlimit-_-emailverificationrequestlimit}
+- ##### `email-verification-request-limit` \{#tolgee-rate-limit-_-email-verification-request-limit}
 
-- ##### `email-verification-request-limit-enabled` \{#tolgee-ratelimit-emailverificationrequestlimitenabled-_-emailverificationrequestlimitenabled}
+- ##### `email-verification-request-limit-enabled` \{#tolgee-rate-limit-_-email-verification-request-limit-enabled}
 
-- ##### `email-verification-request-window` \{#tolgee-ratelimit-emailverificationrequestwindow-_-emailverificationrequestwindow}
+- ##### `email-verification-request-window` \{#tolgee-rate-limit-_-email-verification-request-window}
 
-- ##### `enabled` \{#tolgee-ratelimit-enabled-_-enabled}
+- ##### `enabled` \{#tolgee-rate-limit-_-enabled}
 
   To turn all rate limits off, set this value to `false`.
   
@@ -3325,32 +3325,32 @@ Per-endpoint and auth-related rate limits are fixed and cannot be configured.
   
    (default: `true`)
 
-- ##### `endpoint-limits` \{#tolgee-ratelimit-endpointlimits-_-endpointlimits}
+- ##### `endpoint-limits` \{#tolgee-rate-limit-_-endpoint-limits}
 
   Control whether per-endpoint limits on the API are enabled or not.
   Does not affect authentication-related endpoints, these are controlled by `authentication-limits`. (default: `true`)
 
-- ##### `global-limits` \{#tolgee-ratelimit-globallimits-_-globallimits}
+- ##### `global-limits` \{#tolgee-rate-limit-_-global-limits}
 
   Control whether global limits on the API are enabled or not. (default: `true`)
 
-- ##### `ip-request-limit` \{#tolgee-ratelimit-iprequestlimit-_-iprequestlimit}
+- ##### `ip-request-limit` \{#tolgee-rate-limit-_-ip-request-limit}
 
   Amount of requests an IP address can do in a single time window. (default: `20000`)
 
-- ##### `ip-request-window` \{#tolgee-ratelimit-iprequestwindow-_-iprequestwindow}
+- ##### `ip-request-window` \{#tolgee-rate-limit-_-ip-request-window}
 
   Size, in milliseconds, of the time window for IP-based limiting. (default: `300000` = 5 minutes)
 
-- ##### `user-request-limit` \{#tolgee-ratelimit-userrequestlimit-_-userrequestlimit}
+- ##### `user-request-limit` \{#tolgee-rate-limit-_-user-request-limit}
 
   Amount of requests a user can do in a single time window. (default: `400`)
 
-- ##### `user-request-window` \{#tolgee-ratelimit-userrequestwindow-_-userrequestwindow}
+- ##### `user-request-window` \{#tolgee-rate-limit-_-user-request-window}
 
   Size, in milliseconds, of the time window for user-based limiting. (default: `60000` = 1 minute)
 
-### reCAPTCHA \{#tolgee-recaptcha-_-recaptcha}
+### reCAPTCHA \{#tolgee-_-recaptcha}
 
 Prefix: `tolgee.recaptcha`
 
@@ -3358,45 +3358,45 @@ When configured, reCAPTCHA v3 is used to protect the sign up page against bots. 
 
 To enable it, you first need to [register a new site on reCAPTCHA](https://www.google.com/recaptcha/admin). Make sure to select reCAPTCHA v3 when registering your site.
 
-- ##### `secret-key` \{#tolgee-recaptcha-secretkey-_-secretkey}
+- ##### `secret-key` \{#tolgee-recaptcha-_-secret-key}
 
   Secret key for communication between your site and reCAPTCHA.
 
-- ##### `site-key` \{#tolgee-recaptcha-sitekey-_-sitekey}
+- ##### `site-key` \{#tolgee-recaptcha-_-site-key}
 
   Site key for use the HTML code your site serves to users.
 
-### Sentry \{#tolgee-sentry-_-sentry}
+### Sentry \{#tolgee-_-sentry}
 
 Prefix: `tolgee.sentry`
 
 Tolgee uses [Sentry](https://sentry.io/) for error reporting.
 
-- ##### `client-dsn` \{#tolgee-sentry-clientdsn-_-clientdsn}
+- ##### `client-dsn` \{#tolgee-sentry-_-client-dsn}
 
   Client DSN. If unset, error reporting is disabled on the server.
 
-- ##### `server-dsn` \{#tolgee-sentry-serverdsn-_-serverdsn}
+- ##### `server-dsn` \{#tolgee-sentry-_-server-dsn}
 
   Server DSN. If unset, error reporting is disabled on the server.
 
-- ##### `traces-sample-rate` \{#tolgee-sentry-tracessamplerate-_-tracessamplerate}
+- ##### `traces-sample-rate` \{#tolgee-sentry-_-traces-sample-rate}
 
   Sample rate for Sentry traces. If unset, traces are disabled on the server.
 
-### slack \{#tolgee-slack-_-slack}
+### slack \{#tolgee-_-slack}
 
 Prefix: `tolgee.slack`
 
-- ##### `client-id` \{#tolgee-slack-clientid-_-clientid}
+- ##### `client-id` \{#tolgee-slack-_-client-id}
 
-- ##### `client-secret` \{#tolgee-slack-clientsecret-_-clientsecret}
+- ##### `client-secret` \{#tolgee-slack-_-client-secret}
 
-- ##### `signing-secret` \{#tolgee-slack-signingsecret-_-signingsecret}
+- ##### `signing-secret` \{#tolgee-slack-_-signing-secret}
 
-- ##### `token` \{#tolgee-slack-token-_-token}
+- ##### `token` \{#tolgee-slack-_-token}
 
-### SMTP \{#tolgee-smtp-_-smtp}
+### SMTP \{#tolgee-_-smtp}
 
 Prefix: `tolgee.smtp`
 
@@ -3413,43 +3413,43 @@ tolgee.smtp.ssl-enabled=true
 tolgee.smtp.from=Tolgee <no-reply@tolgee.yourserver.something>
 ```
 
-- ##### `auth` \{#tolgee-smtp-auth-_-auth}
+- ##### `auth` \{#tolgee-smtp-_-auth}
 
   Whether authentication is enabled. (default: `false`)
 
-- ##### `from` \{#tolgee-smtp-from-_-from}
+- ##### `from` \{#tolgee-smtp-_-from}
 
   The sender name and address in standard SMTP format.
 
-- ##### `host` \{#tolgee-smtp-host-_-host}
+- ##### `host` \{#tolgee-smtp-_-host}
 
   SMTP server host
 
-- ##### `password` \{#tolgee-smtp-password-_-password}
+- ##### `password` \{#tolgee-smtp-_-password}
 
   Password for SMTP authentication
 
-- ##### `port` \{#tolgee-smtp-port-_-port}
+- ##### `port` \{#tolgee-smtp-_-port}
 
   SMTP server port (default: `25`)
 
-- ##### `ssl-enabled` \{#tolgee-smtp-sslenabled-_-sslenabled}
+- ##### `ssl-enabled` \{#tolgee-smtp-_-ssl-enabled}
 
   Whether SSL is enabled. (default: `false`)
 
-- ##### `tls-enabled` \{#tolgee-smtp-tlsenabled-_-tlsenabled}
+- ##### `tls-enabled` \{#tolgee-smtp-_-tls-enabled}
 
   Whether TLS is enabled. (default: `false`)
 
-- ##### `tls-required` \{#tolgee-smtp-tlsrequired-_-tlsrequired}
+- ##### `tls-required` \{#tolgee-smtp-_-tls-required}
 
   Whether TLS is required. (default: `false`)
 
-- ##### `username` \{#tolgee-smtp-username-_-username}
+- ##### `username` \{#tolgee-smtp-_-username}
 
   The username for SMTP authentication
 
-### Telemetry \{#tolgee-telemetry-_-telemetry}
+### Telemetry \{#tolgee-_-telemetry}
 
 Prefix: `tolgee.telemetry`
 
@@ -3467,21 +3467,21 @@ Once a day we collect following data
 
 We don't collect any other data. Please leave telemetry enabled to help us improve Tolgee.
 
-- ##### `enabled` \{#tolgee-telemetry-enabled-_-enabled}
+- ##### `enabled` \{#tolgee-telemetry-_-enabled}
 
   Whether telemetry is enabled (default: `true`)
 
-### Websocket \{#tolgee-websocket-_-websocket}
+### Websocket \{#tolgee-_-websocket}
 
 Prefix: `tolgee.websocket`
 
 Configuration specific to the use of Websocket.
 
-- ##### `use-redis` \{#tolgee-websocket-useredis-_-useredis}
+- ##### `use-redis` \{#tolgee-websocket-_-use-redis}
 
   Whether to use Redis for Websocket events (default: `false`)
 
-## Full configuration example \{#full-configuration-example}
+## Full configuration example \{#-full-configuration-example}
 <Tabs lazy groupId="config-format" queryString defaultValue='yaml' values={[{"value":"yaml","label":"YAML"},{"value":"env","label":".env"},{"value":"properties","label":"application.properties"}]}>
 </Tabs>
 <details>

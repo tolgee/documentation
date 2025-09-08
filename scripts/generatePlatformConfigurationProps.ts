@@ -146,15 +146,15 @@ function writeItem(
   level: number,
   parentIdPrefix: string | null
 ) {
-  const idPrefix = parentIdPrefix
-    ? `${parentIdPrefix} ${item.name}`
-    : item.prefix?.replace(/\./g, ' ') || item.name;
-
-  writeItemHeading(out, format, item, level, idPrefix);
+  writeItemHeading(out, format, item, level, parentIdPrefix);
   writeItemPrefix(out, format, item);
   writeItemDescription(out, item);
 
   if (item.children) {
+    const idPrefix = parentIdPrefix
+      ? `${parentIdPrefix} ${item.name}`
+      : item.prefix?.replace(/\./g, ' ') || item.name;
+
     writeItems(out, format, item.children, level + 1, idPrefix);
   }
 }
@@ -164,9 +164,9 @@ function writeItemHeading(
   format: ConfigFormat,
   item: Data,
   level: number,
-  idPrefix: string
+  parentIdPrefix: string | null
 ) {
-  const id = createSlugger().slug(idPrefix + ' _ ' + item.name);
+  const id = asId(parentIdPrefix, item.name);
   const name = getName(item, format.displayOption);
   if (item.children) {
     out.write(`${'#'.repeat(level)} ${name} \\{#${id}}\n`);
@@ -232,7 +232,7 @@ function writeFullConfig(
   items: Data[]
 ) {
   const name = 'Full configuration example';
-  const id = createSlugger().slug(name);
+  const id = asId(null, name);
   out.write(`## ${name} \\{#${id}}\n`);
 
   writeTabs(out);
@@ -451,6 +451,16 @@ function writeTabItem(
   out.write(`<TabItem value="${value}">\n`);
   body(out);
   out.write('</TabItem>\n');
+}
+
+function asId(path: string | null, name: string): string {
+  const slugger = createSlugger();
+  const n = camelCaseToKebabCase(name);
+  if (!path) {
+    return slugger.slug(n);
+  }
+  const p = camelCaseToKebabCase(path);
+  return slugger.slug(`${p} _ ${n}`);
 }
 
 function camelCaseToKebabCase(str: string): string {
