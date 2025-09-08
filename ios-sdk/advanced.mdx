@@ -1,0 +1,58 @@
+---
+id: advanced
+title: Advanced usage
+description: Tips and tricks for debugging and using the SDK with advanced codebases.
+---
+
+### Custom tables/namespaces
+Tolgee iOS SDK supports loading of local translations from multiple local tables by providing the `table` parameter. When using `.xcstrings` files, the names of the tables match the names of your files without the extension. You do not need to provide the table name when loading strings stored in the default `Localizable.xcstrings` file.
+
+To have the OTA updates working properly, make sure that you have enabled namespaces for your Tolgee project and that you have created namespaces matching the names of your local tables.
+
+```swift
+// Initialize with multiple namespaces for better organization
+Tolgee.shared.initialize(
+    cdn: cdnURL,
+    namespaces: ["common", "auth", "profile", "settings"]
+)
+
+// Use translations from specific namespaces
+let commonGreeting = Tolgee.shared.translate("hello", table: "common")
+// or for SwiftUI
+TolgeeText("hello", table: "common")
+```
+
+## Custom bundles
+
+You may have your strings resources stored in a dedicated XCFramework or a Swift Package.
+
+```swift
+let bundle: Bundle = ... // access the bundle
+
+// Use the SDK directly
+let commonGreeting = Tolgee.shared.translate("hello", bundle: bundle)
+// or for SwiftUI
+TolgeeText("hello", bundle: bundle)
+```
+
+## Listening for updates
+
+Tolgee provides a hook to allow the consumer of the SDK to be notified about when the translation cache has been updated.
+
+```swift
+Task {
+    for await _ in Tolgee.shared.onTranslationsUpdated() {
+        // update your UI
+    }
+}
+```
+
+## Log forwarding
+Tolgee allows forwarding of logs that are printed to the console by default.
+You can use this feature to forward errors and other logs into your analytics.
+
+```swift
+for await logMessage in Tolgee.shared.onLogMessage() {
+    // Here you can forward logs from Tolgee SDK to your analytics SDK.
+}
+```

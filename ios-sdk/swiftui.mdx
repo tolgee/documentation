@@ -1,0 +1,76 @@
+---
+id: swiftui
+title: SwiftUI
+description: How to use Tolgee iOS SDK with SwiftUI.
+---
+
+## SwiftUI support
+
+Tolgee works great with SwiftUI, including previewing views in different localizations using SwiftUI previews.
+
+You can use the `TolgeeText` component which will automatically use the injected locale on iOS 18.4+
+```swift
+import SwiftUI
+import Tolgee
+
+struct ContentView: View {
+    var body: some View {
+        TolgeeText("welcome_title")
+    }
+}
+
+#Preview("English") {
+    ContentView()
+        .environment(\.locale, Locale(identifier: "en"))
+}
+
+#Preview("Czech") {
+    ContentView()
+        .environment(\.locale, Locale(identifier: "cs"))
+}
+```
+
+or use a version of the `translate` method that accepts `locale` param on iOS 18.4 and newer. The older implementation will fall back to the system language.
+
+```swift
+struct ContentView: View {
+    @Environment(\.locale) var locale
+    
+    var body: some View {
+        if #available(iOS 18.4, *) {
+            Text(Tolgee.shared.translate("welcome_title", locale: locale))
+        } else {
+            Text(Tolgee.shared.translate("welcome_title"))
+        }
+    }
+}
+
+#Preview("English") {
+    ContentView()
+        .environment(\.locale, Locale(identifier: "en"))
+}
+
+#Preview("Czech") {
+    ContentView()
+        .environment(\.locale, Locale(identifier: "cs"))
+}
+```
+
+## Reactive updates
+
+Tolgee offers a convenience utility that automatically triggers a redraw of a view when the translations cache has been updated.
+
+```swift
+struct ContentView: View {
+    
+    // This will automatically re-render the view when
+    // the localization cache is updated from a CDN.
+    @StateObject private var updater = TolgeeSwiftUIUpdater()
+    
+    var body: some View {
+        VStack {
+            TolgeeText("My name is %@ and I have %lld apples", "John", 3)
+        }
+    }
+}
+```
