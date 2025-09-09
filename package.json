@@ -14,7 +14,7 @@
     "generate-platform-config": "tsx scripts/generatePlatformConfigurationProps.ts",
     "prettier": "prettier --write ./src --write ./scripts",
     "prettier-check": "prettier --check ./src --check ./scripts",
-    "eslint": "eslint --ext .ts,.tsx,.js,.jsx --max-warnings 0 --report-unused-disable-directives .",
+    "eslint": "eslint --ext .ts,.tsx,.js,.jsx --max-warnings 0 --report-unused-disable-directives",
     "tsc": "tsc --noEmit",
     "oss": "tsx scripts/downloadOssData.ts",
     "cli-schema": "tsx scripts/downloadCliSchema.ts",
