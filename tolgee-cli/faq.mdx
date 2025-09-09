@@ -18,9 +18,9 @@ If you have the same key with different default values in your code:
 <T keyName="save-btn" defaultValue="Save (Changed)" />
 ```
 
-The CLI will not warn you about this conflict. This is a known limitation.
+The CLI will not warn you about this conflict. This is a known limitation that may be addressed in future versions.
 
-**Recommended approach**: Use consistent default values across your codebase, or better yet, rely on the Tolgee Platform as the single source of truth for all translations.
+**Workaround**: Use consistent default values across your codebase, or rely on the Tolgee Platform as the single source of truth for translations rather than default values in code.
 
 ### Q: Why don't default values automatically update my base language translations?
 
@@ -32,13 +32,13 @@ When you first sync a key, the default value becomes the base language translati
 - A translator or PM has already refined the wording in the platform
 - The two sources of truth conflict with each other
 
-### Q: Can I search for strings in my code if I only store keys?
+### Q: How can I search for strings in my code if I only use keys and not default values?
 
 **A: This depends on your approach to translation management.**
 
 If you follow Tolgee's recommended approach of using the platform as the single source of truth:
-- You would search for keys in your code: `grep -r "save-btn" src/`
-- Then look up the actual translation in the Tolgee Platform
+- **Best approach**: Use in-context editing (available only for native JS SDKs with DevTools plugin) to click directly on the string in your app, then search for the key
+- **Alternative**: Search for keys in your code: `grep -r "save-btn" src/`, then look up the actual translation in the Tolgee Platform
 
 If you maintain fallback translations in your code:
 - You can search for both keys and translation strings
@@ -57,20 +57,25 @@ Here's why:
 
 **Recommended approach**: Use keys without default values, and rely on the Tolgee Platform for all translation content.
 
-### Q: What about fallback translations for when the platform is unavailable?
+### Q: How should I handle translations in production?
 
-**A: Use the pull command to maintain local fallback files.**
+**A: NEVER use API keys in production. You have two recommended options:**
 
-Instead of default values in code:
-1. Use `tolgee pull` to download translations to local files
-2. Configure your app to use these files as fallbacks
+**Option 1: Export translations as static assets**
+1. Use `tolgee pull` to download translations to local files during your build process
+2. Bundle these files with your application
 3. Keep these files in version control
-4. Update them regularly via `tolgee pull`
+4. Update them regularly via `tolgee pull` in your CI/CD pipeline
 
-This approach gives you:
-- Reliable fallbacks without CDN dependency
-- Platform as single source of truth
-- Automatic updates via CLI
+**Option 2: Use Tolgee Content Delivery**
+- Configure your app to load translations from Tolgee's Content Delivery using the `BackendFetch` plugin
+- No API keys required in production
+- Automatic updates when translations change (up to 15 minutes for global CDN propagation)
+
+Both approaches give you:
+- No API key exposure in production
+- Reliable performance without direct platform dependency
+- Platform as single source of truth during development
 
 ### Q: How do I handle the workflow where I want to update translations from code?
 
@@ -88,11 +93,17 @@ This workflow:
 
 ## Technical Limitations
 
-### Q: Will duplicate key detection be added in the future?
+### Q: Should I avoid having multiple keys with the same translation text?
 
-**A: This is a known limitation that may be addressed in future versions.**
+**A: No, Tolgee actually recommends against de-duplication of translation strings.**
 
-Currently, the CLI focuses on extracting keys and syncing with the platform. Enhanced validation features like duplicate detection are being considered for future releases.
+While some developers worry about translating the same phrase multiple times (e.g., having both `save-btn` and `submit-btn` keys with the text "Save"), this is actually beneficial because:
+
+- **Context matters**: The same text can have different meanings in different contexts
+- **Future flexibility**: You may want to change the wording in one place but not another
+- **Semantic clarity**: Keys should represent their purpose, not just their current text
+
+For example, `save-document` and `save-settings` might both currently say "Save", but you may later want to change one to "Save Document" while keeping the other as "Save".
 
 ### Q: Can I force the CLI to update base language translations from default values?
 
