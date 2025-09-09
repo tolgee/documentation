@@ -1,4 +1,5 @@
 import React, { FC } from 'react';
+import { Link } from 'react-router-dom';
 
 type Format =
   | 'ICU'
@@ -43,7 +44,7 @@ export const FormatList: FC<{
     <ul>
       {filteredFormats.map((format) => (
         <li key={format.name}>
-          <a href={format.link}>{format.name}</a>
+          <Link to={format.link}>{format.name}</Link>
         </li>
       ))}
     </ul>

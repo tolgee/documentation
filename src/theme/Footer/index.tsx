@@ -7,12 +7,13 @@ import FooterCopyright from '@theme/Footer/Copyright';
 import FooterLayout from '@theme/Footer/Layout';
 import { useDarkMode } from '../../utils';
 import styles from './styles.module.css';
+import Link from '@docusaurus/Link';
 
 function TechnologyIncubation() {
   const isDarkTheme = useDarkMode();
   return (
     <div className={styles.footerLogoSection}>
-      <a
+      <Link
         href="https://www.czechinvest.org/en?force"
         target="_blank"
         rel="noreferrer"
@@ -26,7 +27,7 @@ function TechnologyIncubation() {
           alt="CzechInvest Technology Incubation"
           className={styles.footerLogoImage}
         />
-      </a>
+      </Link>
       <p className={styles.textDescription}>
         This project was implemented with funding from the national budget via
         the&nbsp;Ministry&nbsp;of&nbsp;Industry&nbsp;and&nbsp;Trade of
