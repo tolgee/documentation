@@ -12,7 +12,7 @@ export const GenericMessageAndPlaceholderConversion: FC<{
         either enable or disable the conversion to the Tolgee Universal ICU
         placeholders. The conversion is enabled by default. You can also disable
         the conversion globally in the{' '}
-        <Link to="/platform/projects_and_organizations/project_settings#tolgee-universal-icu-placeholders-support">
+        <Link to="/platform/projects_and_organizations/project_settings#tolgee-icu-placeholders">
           project settings
         </Link>
         . We recommend keeping the conversion enabled, as it brings many
