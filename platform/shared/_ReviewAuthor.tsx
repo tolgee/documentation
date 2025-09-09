@@ -1,7 +1,8 @@
 import React from 'react';
 import { AuthorSummary } from '../../src/component/AuthorSummary';
 import Author from '@theme/Blog/Components/Author';
-import { Link, styled } from '@mui/material';
+import { styled } from '@mui/material';
+import Link from '@docusaurus/Link';
 
 const StyledContainer = styled('div')`
   border: 1px solid var(--ifm-color-gray-300);
