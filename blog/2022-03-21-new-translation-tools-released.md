@@ -41,7 +41,7 @@ credits you still have to spend.
 
 When self-hosting, you have to provide several configuration properties to enable machine translation. It is described
 in
-[self-hosting configuration section of docs](/platform/self_hosting/configuration#machine-translation).
+[self-hosting configuration section of docs](/platform/self_hosting/configuration#tolgee-_-machine-translation).
 
 ## Translation memory 🧠
 
