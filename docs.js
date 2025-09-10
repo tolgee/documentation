@@ -65,8 +65,8 @@ const docs = [
       editUrl: 'https://github.com/tolgee/documentation/tree/main',
       versions: {
         current: {
+          label: 'Android SDK',
           banner: 'none',
-          label: '1.x.x',
         },
       },
     },

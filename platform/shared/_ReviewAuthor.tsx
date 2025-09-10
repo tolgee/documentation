@@ -1,5 +1,6 @@
 import React from 'react';
-import { AuthorSummary, AuthorType } from '../../src/component/AuthorSummary';
+import { AuthorSummary } from '../../src/component/AuthorSummary';
+import Author from '@theme/Blog/Components/Author';
 import { styled } from '@mui/material';
 
 const StyledContainer = styled('div')`
@@ -10,7 +11,7 @@ const StyledContainer = styled('div')`
 `;
 
 type Props = {
-  author: AuthorType;
+  author: React.ComponentProps<typeof Author>['author'];
   description: string;
   capterraReview: string;
 };
@@ -24,22 +25,20 @@ export const ReviewAuthor = ({
     <div className="grid justify-center">
       <StyledContainer>
         <AuthorSummary
-          author={{
-            ...author,
-            description: (
-              <span className="italic">
-                {description}
-                <a
-                  style={{ float: 'right' }}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  href={capterraReview}
-                >
-                  See review
-                </a>
-              </span>
-            ),
-          }}
+          author={author}
+          description={
+            <span className="italic">
+              {description}
+              <a
+                style={{ float: 'right' }}
+                target="_blank"
+                rel="noopener noreferrer"
+                href={capterraReview}
+              >
+                See review
+              </a>
+            </span>
+          }
         />
       </StyledContainer>
     </div>

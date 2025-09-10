@@ -4,9 +4,8 @@
  *
  * Usage: ts-node scripts/optimizeSvg.ts <inputSvg> <targetWidth> <outputSvg>
  */
-const Path = require('path');
-const im = require('imagemagick');
-const fs = require('fs');
+import imagemagick from 'imagemagick';
+import fs from 'fs';
 
 const svgPath = process.argv[2];
 const targetWith = process.argv[3];
@@ -15,7 +14,7 @@ const output = process.argv[4] || svgPath;
 const convert = (base64str: string) =>
   new Promise((resolve, reject) => {
     const data = atob(base64str);
-    im.resize(
+    imagemagick.resize(
       {
         width: Number(targetWith),
         srcData: data,
@@ -24,14 +23,14 @@ const convert = (base64str: string) =>
         if (err) {
           reject(new Error(err));
         }
-        fs.writeFileSync('./output.png', result);
+        fs.writeFileSync(output, result);
         resolve(btoa(result));
       }
     );
   });
 
 (async () => {
-  const image = fs.readFileSync(Path.resolve(svgPath));
+  const image = fs.readFileSync(svgPath);
   const svg = image.toString('utf-8');
   const newSvg = await replaceAsync(
     svg,

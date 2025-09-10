@@ -1,6 +1,5 @@
 import * as fs from 'fs';
 import * as Path from 'path';
-import fetch from 'node-fetch';
 
 const definition = [
   {
