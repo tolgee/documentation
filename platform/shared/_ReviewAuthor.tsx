@@ -2,6 +2,7 @@ import React from 'react';
 import { AuthorSummary } from '../../src/component/AuthorSummary';
 import Author from '@theme/Blog/Components/Author';
 import { styled } from '@mui/material';
+import Link from '@docusaurus/Link';
 
 const StyledContainer = styled('div')`
   border: 1px solid var(--ifm-color-gray-300);
@@ -29,14 +30,14 @@ export const ReviewAuthor = ({
           description={
             <span className="italic">
               {description}
-              <a
+              <Link
                 style={{ float: 'right' }}
                 target="_blank"
                 rel="noopener noreferrer"
                 href={capterraReview}
               >
                 See review
-              </a>
+              </Link>
             </span>
           }
         />

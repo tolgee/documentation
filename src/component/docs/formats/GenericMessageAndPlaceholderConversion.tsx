@@ -1,5 +1,5 @@
-import React, { ReactNode } from 'react';
-import { FC } from 'react';
+import React, { ReactNode, FC } from 'react';
+import Link from '@docusaurus/Link';
 
 export const GenericMessageAndPlaceholderConversion: FC<{
   formatName: string;
@@ -12,14 +12,14 @@ export const GenericMessageAndPlaceholderConversion: FC<{
         either enable or disable the conversion to the Tolgee Universal ICU
         placeholders. The conversion is enabled by default. You can also disable
         the conversion globally in the{' '}
-        <a href="/platform/projects_and_organizations/project_settings#tolgee-universal-icu-placeholders-support">
+        <Link to="/platform/projects_and_organizations/project_settings#tolgee-icu-placeholders">
           project settings
-        </a>
+        </Link>
         . We recommend keeping the conversion enabled, as it brings many
         benefits.{' '}
-        <a href="/platform/translation_process/tolgee_universal_icu_placeholders">
+        <Link to="/platform/translation_process/tolgee_universal_icu_placeholders">
           Read more about the benefits of Tolgee Universal ICU placeholders.
-        </a>
+        </Link>
       </p>
       <p>
         When the conversion is disabled, the original placeholders (e.g.,{' '}

@@ -6,6 +6,8 @@ import DecoratedLayout from '../../theme/DecoratedLayout';
 import { PageHeader } from '../../component/pageComponents/header/PageHeader';
 import { PageHeaderSubtitle } from '../../component/pageComponents/header/PageHeaderSubtitle';
 import { PageHeaderTitle } from '../../component/pageComponents/header/PageHeaderTitle';
+import { Link } from 'react-router-dom';
+import Heading from '@theme/Heading';
 
 export default function OssFriends() {
   return (
@@ -27,12 +29,12 @@ export default function OssFriends() {
           .filter(({ name }) => name !== 'Tolgee')
           .map(({ name, description, href }, i) => (
             <div key={i} className="oss-friends--friend">
-              <a href={href}>
-                <h3>{name}</h3>
-              </a>
+              <Link to={href}>
+                <Heading as="h3">{name}</Heading>
+              </Link>
               <div>{description}</div>
               <div className="oss-friends--friend-learn-more">
-                <a href={href}>Learn more</a>
+                <Link to={href}>Learn more</Link>
               </div>
             </div>
           ))}

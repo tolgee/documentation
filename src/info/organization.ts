@@ -27,6 +27,6 @@ const organization = {
 } as const;
 
 // ensure that it's correct type
-<WithContext<Organization>>organization;
+void (<WithContext<Organization>>organization);
 
 export default organization;

@@ -4,6 +4,7 @@ import Head from '@docusaurus/Head';
 import baseSchema from '../info/organization';
 import DecoratedLayout from '../theme/DecoratedLayout';
 import { DocsTile } from '../component/docsIndex/DocsTile';
+import Heading from '@theme/Heading';
 
 function Home() {
   return (
@@ -30,7 +31,9 @@ function Home() {
         <div className="text-home-text pt-[60px]">
           <div className="max-w-[1200px] mx-auto px-6 md:px-12 py-[40px] md:py-[120px]">
             <div className="grid gap-10">
-              <h1 className="text-primary m-0">Welcome to Tolgee Docs</h1>
+              <Heading as="h1" className="text-primary m-0">
+                Welcome to Tolgee Docs
+              </Heading>
               <p className="m-0">
                 Tolgee is a localization platform that streamlines translations
                 for web, mobile, and desktop apps. With tools like the SDK, CLI,
