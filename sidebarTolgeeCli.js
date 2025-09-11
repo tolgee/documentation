@@ -18,5 +18,6 @@ module.exports = {
       ],
     },
     'migration-to-v2',
+    'faq',
   ],
 };
