@@ -38,8 +38,8 @@ function Home() {
                 Tolgee is a localization platform that streamlines translations
                 for web, mobile, and desktop apps. With tools like the SDK, CLI,
                 and REST API, it simplifies in-context translation and string
-                management for efficient localization. Explore the docs to get
-                started!
+                management for efficient internationalization. Explore the docs
+                to get started!
               </p>
               <div className="grid gap-5 grid-cols-1 md:grid-cols-2">
                 <DocsTile

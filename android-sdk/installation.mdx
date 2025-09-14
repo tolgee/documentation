@@ -4,24 +4,41 @@ title: Installation
 description: How to install Tolgee Android SDK in your Android project
 ---
 
-> **NOTE:**
-> For managing static translations, we recommend using [Tolgee CLI](https://github.com/tolgee/tolgee-cli).
+:::info
+For managing static translations, we recommend using [Tolgee CLI](https://github.com/tolgee/tolgee-cli).
+:::
 
 ## Requirements
 
-- **Android API Level**: 21+ (Android 5.0+)
+<div className="grid grid-cols-1 gap-4 my-6">
+  <div className="border border-gray-200 dark:border-gray-700 rounded-lg p-4 bg-blue-50 dark:bg-blue-900/20">
+    <div className="flex items-center gap-3">
+      <span className="text-2xl">📱</span>
+      <div>
+        <h4 className="text-lg font-semibold mb-1 text-blue-800 dark:text-blue-200">Android API Level</h4>
+        <p className="text-sm text-blue-700 dark:text-blue-300 mb-0">Minimum <a href="https://developer.android.com/guide/topics/manifest/uses-sdk-element#ApiLevels" className="text-blue-600 dark:text-blue-400 hover:underline">API Level 21+</a> (Android 5.0 and above)</p>
+      </div>
+    </div>
+  </div>
+</div>
 
 ## Quickstart (Views)
 
+:::info
+Using **Version Catalog** is recommended to keep your versions aligned, especially in bigger projects. This provides **readability, centralization, and consistency**. 
+:::
+
 1. Add dependency (Core):
 
-   Using Version Catalog is recommended to keep your versions aligned.
+ In `gradle/libs.versions.toml` <u>add an alias for Tolgee library</u>.
 
    ```toml
    # gradle/libs.versions.toml
    [libraries]
    tolgee = { group = "io.tolgee.mobile-kotlin-sdk", name = "core", version.ref = "tolgee" }
    ```
+
+Then, in `build.gradle.kts`, <u>use the created alias</u>. 
 
    ```kotlin
    // build.gradle.kts (module)
@@ -30,15 +47,34 @@ description: How to install Tolgee Android SDK in your Android project
    }
    ```
 
-   If you use Jetpack Compose, see the Compose variant: [Jetpack Installation](/android-sdk/jetpack/installation)
+For **smaller projects** you can also add dependency directly (the old way).
+
+   ```kotlin
+   // build.gradle.kts 
+   dependencies {
+       implementation("io.tolgee.mobile-kotlin-sdk:core:tolgee")
+   }
+   ```
+
+:::note
+If you use **Jetpack Compose**, see the Compose variant: [Jetpack Installation](/android-sdk/jetpack/installation)
+:::
 
 2. (If needed) Ensure repositories include Maven Central:
 
-   ```kotlin
-   // settings.gradle.kts or build.gradle.kts
-   pluginManagement { repositories { gradlePluginPortal(); google(); mavenCentral() } }
-   dependencyResolutionManagement { repositories { google(); mavenCentral() } }
-   ```
+```kotlin
+// settings.gradle.kts or build.gradle.kts
+pluginManagement { repositories { gradlePluginPortal(); google(); mavenCentral() } }
+dependencyResolutionManagement { repositories { google(); mavenCentral() } }
+```
+To use the library, **you need to have proper repositories configured** in your project.
+Otherwise an error like:
+
+```text
+Could not find io.tolgee.mobile-kotlin-sdk:core
+```
+might pop up.
+Make sure **Maven Central** is set up properly so the dependency can be resolved.
 
 3. Allow CDN networking (required when using Tolgee Cloud CDN):
 
@@ -62,8 +98,9 @@ Add network security config to your `AndroidManifest.xml`:
 </application>
 ```
 
-> NOTE:
-> Allowing `tolgee.io` and `tolg.ee` domains is required when using Tolgee Cloud CDN. If you only access your own self-hosted CDN, include your domain(s) accordingly.
+:::note
+Allowing `tolgee.io` and `tolg.ee` domains is required when using Tolgee Cloud CDN. If you only access your own self-hosted CDN, include your domain(s) accordingly.
+:::
 
 ## Initialization and configuration
 
@@ -83,19 +120,43 @@ class MyApplication : Application() {
 }
 ```
 
-How to get your CDN URL prefix (Content Delivery):
-- Open Tolgee Platform → your Project → Developer settings → Content Delivery.
-- Copy the full CDN URL prefix. You can use different prefixes per environment (dev/staging/prod).
-- Optional: Verify connectivity locally:
+When your app boots up, Tolgee is globally initialized. The translations are downloaded from CDN and cached locally. Other parts of your app (such as activities and fragments) can now use Tolgee without additional configuration.
+
+***Make sure that your app knows where to download translations***:
+
+For your app to download translation files, you need to provide a CDN URL prefix specific to your project. This prefix points to the catalog that contains your app’s translations.
+
+### How to get your CDN URL prefix (Content Delivery):
+1. Open Tolgee Platform → your Project → Developer settings → Content Delivery.
+2. Copy the full CDN URL prefix. 
+3. You can use different prefixes per environment (dev/staging/prod).
+
+### Optional: Verify connectivity locally:
 
 ```bash
 curl -I "https://cdn.tolg.ee/your-cdn-url-prefix/en.json"
 ```
 
-You should receive a 200 response. If you get 403/404, double‑check the prefix.
+You should receive a 200 response. 
+If you get 403 (Forbidden) or 404 (Not found), double‑check the prefix.
 
-> TIP:
-> For Activities, wrap the base context so `getString` and similar APIs use Tolgee. See step-by-step in [Usage](./usage.mdx).
+:::tip
+Dynamic updates without republishing
+:::
+
+To receive fresh translations without needing to publish new app versions, wrap the base context in your Activities.
+This way, APIs like getString() will use Tolgee dynamically.
+
+- With wrapped context → fresh translations from the Tolgee CDN will be provided automatically.
+
+- Without wrapped context → only the translations already bundled or previously cached will be available.
+
+See the step-by-step guide in Usage.
+
+:::note
+If you have a different integration setup (for example, using tolgee-cli and bundling JSON translation files in assets), the initialization may look different.
+:::
+
 
 ## Next steps
 

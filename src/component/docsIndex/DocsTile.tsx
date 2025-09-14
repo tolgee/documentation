@@ -12,7 +12,7 @@ type Props = {
 export const DocsTile = ({ title, text, link, linkText }: Props) => {
   return (
     <div
-      className="grid gap-4 p-5 border-[1px] border-solid border-emphasis-200 rounded-2xl shadow-sm"
+      className="grid gap-4 p-5 border-[1px] border-solid border-emphasis-200 rounded-2xl shadow-sm hover:shadow-lg transition-shadow duration-300"
       style={{ gridTemplateRows: 'auto 1fr auto' }}
     >
       <Heading as="h2" className="m-0">
