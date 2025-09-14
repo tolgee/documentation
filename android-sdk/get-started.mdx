@@ -1,0 +1,59 @@
+---
+id: get-started
+title: Get Started
+slug: /get-started
+description: Quick start guide for integrating Tolgee Android SDK into your project
+---
+
+import SystemCard from '@site/src/component/SystemCard';
+
+# Get Started with Tolgee Android SDK
+
+Follow these steps to integrate Tolgee into your Android project and start localizing your app with dynamic translations.
+
+## Quick Setup Overview
+
+<div className="grid grid-cols-1 md:grid-cols-2 gap-4 my-6">
+  <SystemCard
+    title="Installation"
+    emoji="📦"
+    description="Set up dependencies and network security configuration"
+    links={[
+      { href: "./installation", label: "Installation Guide", color: "blue" }
+    ]}
+  />
+  
+  <SystemCard
+    title="Modules Overview"
+    emoji="🔧"
+    description="Choose between Core and Compose modules for your project"
+    links={[
+      { href: "./modules", label: "Modules Guide", color: "green" }
+    ]}
+  />
+</div>
+
+## Integration Path
+
+1. **[Installation](./installation)** - Add Tolgee SDK to your project
+2. **[Modules Overview](./modules)** - Understand Core vs Compose modules
+3. **Choose your implementation:**
+   - **[Android Views](./usage)** - For traditional Android UI
+   - **[Jetpack Compose](./jetpack/installation)** - For modern Compose UI
+4. **[Production Setup](./production)** - Configure for production deployment
+
+## What You'll Achieve
+
+After completing the setup, your app will have:
+
+- ✅ **Dynamic translations** delivered via CDN
+- ✅ **Offline support** with local caching
+- ✅ **Runtime language switching** without app restart
+- ✅ **Fallback support** to bundled Android resources
+- ✅ **Over-the-Air updates** for translations without app republishing
+
+## Need Help?
+
+- Check our **[Troubleshooting Guide](./troubleshooting)** for common issues
+- Explore **[Demo Apps](./about#demo-apps)** for complete examples
+- Review **[Production Guide](./production)** for deployment best practices
