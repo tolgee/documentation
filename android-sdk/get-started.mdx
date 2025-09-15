@@ -2,24 +2,24 @@
 id: get-started
 title: Get Started
 slug: /get-started
-description: Quick start guide for integrating Tolgee Android SDK into your project
+description: Quick start guide for integrating Tolgee Mobile SDK into your project
 ---
 
 import SystemCard from '@site/src/component/SystemCard';
 
-# Get Started with Tolgee Android SDK
+# Get Started with Tolgee Mobile SDK
 
-Follow these steps to integrate Tolgee into your Android project and start localizing your app with dynamic translations.
+Follow these steps to integrate Tolgee into your Android project and start localizing your app with **dynamic translations**.
 
 ## Quick Setup Overview
 
 <div className="grid grid-cols-1 md:grid-cols-2 gap-4 my-6">
   <SystemCard
-    title="Installation"
+    title="Quickstart"
     emoji="📦"
     description="Set up dependencies and network security configuration"
     links={[
-      { href: "./installation", label: "Installation Guide", color: "blue" }
+      { href: "./quickstart", label: "Quickstart Guide", color: "blue" }
     ]}
   />
   
@@ -35,12 +35,43 @@ Follow these steps to integrate Tolgee into your Android project and start local
 
 ## Integration Path
 
-1. **[Installation](./installation)** - Add Tolgee SDK to your project
+1. **[Quickstart](./quickstart)** - Add Tolgee SDK to your project
 2. **[Modules Overview](./modules)** - Understand Core vs Compose modules
-3. **Choose your implementation:**
-   - **[Android Views](./usage)** - For traditional Android UI
-   - **[Jetpack Compose](./jetpack/installation)** - For modern Compose UI
+3. **Choose your implementation** (see cards below)
 4. **[Production Setup](./production)** - Configure for production deployment
+
+## Choose Your Implementation
+
+<div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 my-6">
+  <SystemCard
+    title="Jetpack Compose"
+    emoji="🚀"
+    description="Modern declarative UI with reactive translations"
+    links={[
+      { href: "/android-sdk/jetpack/overview", label: "Overview", color: "blue" },
+      { href: "/android-sdk/jetpack/installation", label: "Installation", color: "green" },
+      { href: "/android-sdk/jetpack/usage", label: "Usage", color: "orange" }
+    ]}
+  />
+  
+  <SystemCard
+    title="Android Views"
+    emoji="📱"
+    description="Traditional Android UI with dynamic translations"
+    links={[
+      { href: "./usage", label: "Usage Guide", color: "purple" }
+    ]}
+  />
+  
+  <SystemCard
+    title="CLI Integration"
+    emoji="⚡"
+    description="Generate and manage <strong>static translations</strong>"
+    links={[
+      { href: "/tolgee-cli/installation", label: "Tolgee CLI", color: "cyan" }
+    ]}
+  />
+</div>
 
 ## What You'll Achieve
 
@@ -52,8 +83,21 @@ After completing the setup, your app will have:
 - ✅ **Fallback support** to bundled Android resources
 - ✅ **Over-the-Air updates** for translations without app republishing
 
+## Production Deployment
+
+<div className="grid grid-cols-1 gap-4 my-6">
+  <SystemCard
+    title="Production Guide"
+    emoji="🚀"
+    description="Over‑the‑Air (OTA) updates, caching, formatting, and testing for production apps"
+    links={[
+      { href: "./production", label: "Production Setup", color: "blue" }
+    ]}
+  />
+</div>
+
 ## Need Help?
 
-- Check our **[Troubleshooting Guide](./troubleshooting)** for common issues
-- Explore **[Demo Apps](./about#demo-apps)** for complete examples
-- Review **[Production Guide](./production)** for deployment best practices
+- **Manage translations collaboratively**: Connect your app to the Tolgee Platform — [Platform docs](../platform/)
+- **Troubleshooting**: Common issues and diagnostics — [Troubleshooting](./troubleshooting.mdx)
+- **Demo Apps**: Complete example implementations — [Demo Apps](./about#demo-apps)

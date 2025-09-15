@@ -1,12 +1,18 @@
 ---
 id: usage
-title: Usage
-description: How to use Tolgee Android SDK in your Android application
+title: Usage (Core Module)
+description: How to use Tolgee Mobile SDK Core module in traditional Android Views applications
 ---
 
-## Quickstart
+# Usage (Core Module)
 
-1) Ensure you have completed Installation and Initialization in your Application class. See: [Installation](./installation.mdx)
+This guide shows you how to use the Tolgee Mobile SDK **Core module** in your traditional Android Views application.
+
+## Prerequisites
+
+1) Ensure you have completed the quickstart setup and initialization in your Application class. See: [Quickstart](./quickstart.mdx)
+
+## Basic Setup
 
 2) Wrap your Activity context so Android resource lookups (getString, etc.) use Tolgee:
 
@@ -18,8 +24,11 @@ class MyActivity : Activity() {
 }
 ```
 
-> TIP:
-> If you use AppCompatActivity, the same approach applies. Wrap the base context in `attachBaseContext`.
+:::tip
+If you use AppCompatActivity, the same approach applies. Wrap the base context in `attachBaseContext`.
+:::
+
+## Reactive UI Updates
 
 3) (If preferred) Recreate the Activity when translations change:
 
@@ -58,6 +67,8 @@ class MyActivity : Activity(), Tolgee.ChangeListener {
 }
 ```
 
+## Fetching Translations
+
 4) Fetch and display a translation with a safe fallback to your Android resources:
 
 ```kotlin
@@ -66,7 +77,7 @@ val text = tolgee.t(context, R.string.string_key)
 textView.text = text
 ```
 
-## With Parameters
+### With Parameters
 
 Provide arguments for placeholders in your strings:
 
@@ -75,10 +86,20 @@ val textWithParams = tolgee.t(context, R.string.string_with_params, "param1", "p
 textView.text = textWithParams
 ```
 
-> TIP:
-> Parameters map to Android-style placeholders in order (e.g., %1$s, %2$d).
+:::tip
+Parameters map to Android-style placeholders in order (e.g., %1$s, %2$d).
+:::
 
-## Plurals
+### Alternative Parameter Syntax
+
+You can also use a map for named parameters:
+
+```kotlin
+val textWithParams = tolgee.t("key_with_param", mapOf("param" to "value"))
+textView.text = textWithParams
+```
+
+### Plurals
 
 Handle Android plurals via resources:
 
@@ -87,10 +108,11 @@ val itemsText = tolgee.tPlural(context, R.plurals.items_count, count, count)
 textView.text = itemsText
 ```
 
-> NOTE:
-> - The second `count` argument is the formatting parameter used inside the string (typical Android pattern when you want to show the number).
-> - Tolgee resolves the key from your Android resource ID using `resources.getResourceEntryName`. Ensure the keys exist in Tolgee Platform as well.
-> - Limitation: Only one plural per string is supported (Android plural resources). Nested or multiple plurals in a single string are not supported.
+:::note
+- The second `count` argument is the formatting parameter used inside the string (typical Android pattern when you want to show the number).
+- Tolgee resolves the key from your Android resource ID using `resources.getResourceEntryName`. Ensure the keys exist in Tolgee Platform as well.
+- Limitation: Only one plural per string is supported (Android plural resources). Nested or multiple plurals in a single string are not supported.
+:::
 
 ## Language Switching
 
@@ -109,8 +131,10 @@ val locale = tolgee.getLocale()
 Listen for changes:
 
 ```kotlin
-tolgee.changeFlow.collect {
-    // Locale or available translations changed, update UI if needed
+lifecycleScope.launch {
+    tolgee.changeFlow.collect {
+        // Locale or available translations changed, update UI if needed
+    }
 }
 ```
 
@@ -153,8 +177,9 @@ lifecycleScope.launch {
 }
 ```
 
-> TIP:
-> `tFlow` updates when locale or available translations change. This can be used for live updates without the need for full activity recreate.
+:::tip
+`tFlow` updates when locale or available translations change. This can be used for live updates without the need for full activity recreate.
+:::
 
 ## Obtaining a Tolgee instance
 
@@ -166,17 +191,16 @@ val tolgee = Tolgee.instance
 
 For DI or testing, you can hold a reference you created during initialization and pass it around explicitly.
 
-## Reactive UI updates
+## Best Practices
 
-If your UI should react to translation/locale changes, subscribe to `changeFlow` and update state accordingly. See Compose examples in [Jetpack Compose Usage](./jetpack/usage.mdx).
+- **Preload** translations in `onStart` for Activities or when a Fragment becomes visible
+- **Avoid blocking calls** on the main thread; use flows for reactivity
+- **Keep keys in sync** between Android resources and Tolgee Platform
+- **Use context wrapping** for automatic translation updates
+- **Subscribe to changeFlow** for reactive UI updates when needed
 
-## Best practices
+## Next Steps
 
-- **Preload** translations in `onStart` for Activities or when a Fragment becomes visible.
-- **Avoid blocking calls** on the main thread; use flows for reactivity.
-- **Keep keys in sync** between Android resources and Tolgee Platform.
-
-## Next steps
-
-- Using Compose? Continue with [Jetpack Compose Usage](./jetpack/usage.mdx)
-- Problems? See [Troubleshooting](./troubleshooting.mdx)
+- **Using Compose?** Continue with [Jetpack Compose Usage](./jetpack/usage.mdx)
+- **Production deployment?** See [Production Guide](./production.mdx)
+- **Having issues?** Check [Troubleshooting](./troubleshooting.mdx)

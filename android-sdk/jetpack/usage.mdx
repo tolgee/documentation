@@ -1,14 +1,24 @@
 ---
 id: usage
-title: Usage
-description: How to use Tolgee Android SDK in your Android application with Jetpack Compose support
+title: Usage (Compose Module)
+description: How to use Tolgee Mobile SDK Compose module in Jetpack Compose and Compose Multiplatform applications
 ---
 
-> Prerequisite: Make sure you’ve installed and initialized the Tolgee for Compose. See: [Jetpack Compose Installation](./installation.mdx)
+# Usage (Compose Module)
 
-Tolgee’s Jetpack Compose extensions let you fetch localized strings directly inside your composables. Below are the most common patterns you’ll use:
+This guide shows you how to use the Tolgee Mobile SDK **Compose module** in your Jetpack Compose or Compose Multiplatform application.
 
-* __Use `stringResource` for simple strings__ - retrieve a translation by its resource ID.
+## Prerequisites
+
+Make sure you've completed the quickstart setup and initialized Tolgee for Compose. See: [Compose Quickstart](./installation.mdx)
+
+## Basic Usage
+
+Tolgee's Compose extensions let you fetch localized strings directly inside your composables. Below are the most common patterns you'll use:
+
+### Simple Strings
+
+Use `stringResource` for simple strings - retrieve a translation by its resource ID.
 
 ```kotlin
 @Composable
@@ -16,7 +26,10 @@ fun SimpleText() {
     Text(text = stringResource(R.string.welcome_message))
 }
 ```
-* __Pass parameters to translations__ - supply arguments for placeholders in your strings.
+
+### With Parameters
+
+Pass parameters to translations - supply arguments for placeholders in your strings.
 
 ```kotlin
 @Composable
@@ -24,7 +37,10 @@ fun TextWithParameters(name: String) {
     Text(text = stringResource(R.string.welcome_user, name))
 }
 ```
-* __Handle plurals with `pluralStringResource`__ - provide the count and any formatting args.
+
+### Plurals
+
+Handle plurals with `pluralStringResource` - provide the count and any formatting args.
 
 ```kotlin
 @Composable
@@ -90,7 +106,8 @@ fun LocaleAwareComponent() {
 }
 ```
 
-## Next steps
+## Next Steps
 
-- Learn the basics with Views: [`Usage`](/android-sdk/usage)
-- Problems? See [`Troubleshooting`](/android-sdk/jetpack/troubleshooting)
+- **Using traditional Views?** See [Core Module Usage](/android-sdk/usage)
+- **Production deployment?** Check [Production Guide](../production.mdx)
+- **Having issues?** See [Troubleshooting](./troubleshooting.mdx)

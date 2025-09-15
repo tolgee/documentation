@@ -8,7 +8,7 @@ module.exports = {
         type: 'doc',
         id: 'get-started',
       },
-      items: ['installation', 'modules'],
+      items: ['quickstart', 'modules'],
     },
     'usage',
     {

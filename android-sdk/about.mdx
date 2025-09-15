@@ -2,13 +2,14 @@
 id: about
 title: Overview
 slug: /
-description: Overview of Tolgee Android SDK with Over‑the‑Air (OTA) localization updates and how to get started.
+description: Overview of Tolgee Mobile SDK with Over‑the‑Air (OTA) localization updates for Android and Compose Multiplatform.
 ---
 
 import SystemCard from '@site/src/component/SystemCard';
+import FeatureGrid from '@site/src/component/FeatureGrid';
 import Tolgee from '@site/src/component/Tolgee';
 
-# Tolgee Android SDK
+# Tolgee Mobile SDK
 
 :::info
 For managing static translations in your repository, consider using the [Tolgee CLI](/tolgee-cli/installation).
@@ -16,37 +17,44 @@ For managing static translations in your repository, consider using the [Tolgee 
 
 ## Overview
 
-Tolgee Android SDK lets you localize Android apps with dynamic content delivery, and lets you provide translations dynamically without needing to publish new app versions.
+Tolgee Mobile SDK for Android and Compose Multiplatform lets you localize Kotlin-based applications with dynamic content delivery, providing translations dynamically without needing to publish new app versions.
 
-**Supports Over‑the‑Air (OTA)** translation updates, seamless integration with multiple systems, Android Views, Jetpack Compose and static translations.
+**Supports Over‑the‑Air (OTA)** translation updates, seamless integration with Android Views, Jetpack Compose, Compose Multiplatform, and static translation fallbacks.
 
 ## Why should you try it?
 
 Tolgee platform lets you ship translations and new languages faster and easier without a new app build.
 
-The platform works offline with caching, fallbacks to Android resources when needed, and preloading critical namespaces for a smooth user experience. Additionally, Tolgee keeps UX consistent by updating the UI automatically in response to translation or locale changes. These features result in fewer untranslated or mismatched strings of text.
+The platform works offline with caching, fallbacks to static translation resources when needed, and preloading critical namespaces for a smooth user experience. Additionally, Tolgee keeps UX consistent by updating the UI automatically in response to translation or locale changes. These features result in fewer untranslated or mismatched strings of text.
 
 ## Features
 
-### Over‑the‑Air (OTA) updates
-
-Delivers translations via CDN (Cloud or self‑hosting) with caching and offline support.
-
-### Change the app's language at runtime (Runtime locale API)
-
-Use `tolgee.changeFlow` to monitor locale changes and update your UI accordingly.
-
-### Works offline with fallbacks and preloading
-
-Provides fallbacks to Android resources and preloading of critical namespaces.
-
-### Support for Android Views, Jetpack Compose and static translations with CLI
-
-Support for both coding functions `stringResource`, `pluralStringResource` and reactive updates.
-
-### Hosting options
-
-You have multiple hosting options: CDN (Cloud or self‑hosting).
+<FeatureGrid features={[
+  {
+    emoji: '🚀',
+    title: 'Over-the-air updates',
+    description: 'Update your translations without releasing a new app version',
+    colorTheme: 'blue'
+  },
+  {
+    emoji: '🔧',
+    title: 'Multiple format support',
+    description: '• <strong>Sprintf</strong> (Android SDK) formatting<br/>• <strong>ICU</strong> (Tolgee Native Flat JSON) formatting',
+    colorTheme: 'green'
+  },
+  {
+    emoji: '⚡',
+    title: 'Compose integration',
+    description: 'Full integration with Jetpack Compose and Compose Multiplatform',
+    colorTheme: 'purple'
+  },
+  {
+    emoji: '🌐',
+    title: 'Kotlin Multiplatform',
+    description: 'Designed with multiplatform support in mind',
+    colorTheme: 'orange'
+  }
+]} />
 
 ## Demo apps
 
@@ -78,77 +86,15 @@ To build configuration examples use Kotlin DSL (build.gradle.kts). Groovy DSL ma
 
 ## Get Started
 
-Ready to integrate Tolgee into your Android project? Follow this step-by-step guide to add dynamic translations to your app.
-
-### Setup Overview
-
-<div className="grid grid-cols-1 md:grid-cols-2 gap-4 my-6">
-  <SystemCard
-    title="Installation"
-    emoji="📦"
-    description="Set up dependencies and network security configuration"
-    links={[
-      { href: "./installation", label: "Installation Guide", color: "blue" }
-    ]}
-  />
-  
-  <SystemCard
-    title="Modules Overview"
-    emoji="🔧"
-    description="Choose between Core and Compose modules for your project"
-    links={[
-      { href: "./modules", label: "Modules Guide", color: "green" }
-    ]}
-  />
-</div>
-
-### Choose Your Implementation
-
-<div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 my-6">
-  <SystemCard
-    title="Jetpack Compose"
-    emoji="🚀"
-    description="Modern declarative UI with reactive translations"
-    links={[
-      { href: "/android-sdk/jetpack/overview", label: "Overview", color: "blue" },
-      { href: "/android-sdk/jetpack/installation", label: "Installation", color: "green" },
-      { href: "/android-sdk/jetpack/usage", label: "Usage", color: "orange" }
-    ]}
-  />
-  
-  <SystemCard
-    title="Android Views"
-    emoji="📱"
-    description="Traditional Android UI with dynamic translations"
-    links={[
-      { href: "./usage", label: "Usage Guide", color: "purple" }
-    ]}
-  />
-  
-  <SystemCard
-    title="CLI Integration"
-    emoji="⚡"
-    description="Generate and manage <strong>static translations</strong>"
-    links={[
-      { href: "/tolgee-cli/installation", label: "Tolgee CLI", color: "cyan" }
-    ]}
-  />
-</div>
-
-### Production Deployment
+Ready to integrate Tolgee into your Android project? 
 
 <div className="grid grid-cols-1 gap-4 my-6">
   <SystemCard
-    title="Production Guide"
+    title="Get Started Guide"
     emoji="🚀"
-    description="Over‑the‑Air (OTA) updates, caching, formatting, and testing for production apps"
+    description="Complete step-by-step setup guide with installation, modules, and implementation choices"
     links={[
-      { href: "./production", label: "Production Setup", color: "blue" }
+      { href: "./get-started", label: "Start Here", color: "blue" }
     ]}
   />
 </div>
-
-### Need Help?
-
-- **Manage translations collaboratively**: Connect your app to the Tolgee Platform — [Platform docs](../platform/)
-- **Troubleshooting**: Common issues and diagnostics — [Troubleshooting](./troubleshooting.mdx)
