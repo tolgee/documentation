@@ -1,15 +1,9 @@
 module.exports = {
   someSidebar: [
     'about',
-    {
-      type: 'category',
-      label: 'Get started',
-      link: {
-        type: 'doc',
-        id: 'get-started',
-      },
-      items: ['quickstart', 'modules'],
-    },
+    'get-started',
+    'quickstart',
+    'modules',
     'usage',
     {
       type: 'category',
