@@ -1,6 +1,6 @@
 ---
 id: quickstart
-title: Quickstart
+title: Quickstart (Core Module)
 description: Quick start guide for Tolgee Mobile SDK with Core module (traditional Android Views)
 ---
 
@@ -15,21 +15,21 @@ For managing static translations, we recommend using [Tolgee CLI](https://github
     <div className="flex items-center gap-3">
       <span className="text-2xl">📱</span>
       <div>
-        <h4 className="text-lg font-semibold mb-1 text-blue-800 dark:text-blue-200">Android API Level</h4>
+      <h4 className="text-lg font-semibold mb-1 text-blue-800 dark:text-blue-200">Android API Level</h4>
         <p className="text-sm text-blue-700 dark:text-blue-300 mb-0">Minimum <a href="https://developer.android.com/guide/topics/manifest/uses-sdk-element#ApiLevels" className="text-blue-600 dark:text-blue-400 hover:underline">API Level 21+</a> (Android 5.0 and above)</p>
       </div>
     </div>
   </div>
 </div>
 
-# Quickstart (Core Module)
+# Quickstart
 
 This guide shows you how to integrate Tolgee Mobile SDK using the **Core module** for traditional Android Views.
 
 The **Core module** is a Kotlin Multiplatform library that provides runtime support for Tolgee translations in your app. With Tolgee, you can update your translations **over-the-air** without releasing a new app version.
 
 :::info
-Using **Version Catalog** is recommended to keep your versions aligned, especially in bigger projects. This provides **readability, centralization, and consistency**. 
+Using **Version Catalog** is recommended to keep your versions aligned, especially in bigger projects. This provides **readability, centralization, and consistency**.
 :::
 
 :::note
@@ -38,34 +38,34 @@ To build configuration examples use Kotlin DSL (build.gradle.kts). Groovy DSL ma
 
 1. Add dependency (Core):
 
- In `gradle/libs.versions.toml` <u>add an alias for Tolgee library</u>.
+In `gradle/libs.versions.toml` <u>add an alias for Tolgee library</u>.
 
-   ```toml
-   # gradle/libs.versions.toml
-   [libraries]
-   tolgee = { group = "io.tolgee.mobile-kotlin-sdk", name = "core", version.ref = "tolgee" }
-   ```
+```toml
+# gradle/libs.versions.toml
+[libraries]
+tolgee = { group = "io.tolgee.mobile-kotlin-sdk", name = "core", version.ref = "tolgee" }
+```
 
-Then, in `build.gradle.kts`, <u>use the created alias</u>. 
+Then, in `build.gradle.kts`, <u>use the created alias</u>.
 
-   ```kotlin
-   // build.gradle.kts (module)
-   dependencies {
-       implementation(libs.tolgee)
-   }
-   ```
+```kotlin
+// build.gradle.kts (module)
+dependencies {
+    implementation(libs.tolgee)
+}
+```
 
 For **smaller projects** you can also add dependency directly (the old way).
 
-   ```kotlin
-   // build.gradle.kts 
-   dependencies {
-       implementation("io.tolgee.mobile-kotlin-sdk:core:tolgee")
-   }
-   ```
+```kotlin
+// build.gradle.kts
+dependencies {
+    implementation("io.tolgee.mobile-kotlin-sdk:core:tolgee")
+}
+```
 
 :::note
-If you use **Jetpack Compose**, see the Compose variant: [Jetpack Quickstart](/android-sdk/jetpack/installation)
+If you use **Jetpack Compose**, see the Compose variant: [Jetpack Compose -> Quickstart](/android-sdk/jetpack/installation)
 :::
 
 2. (If needed) Ensure repositories include Maven Central:
@@ -75,12 +75,14 @@ If you use **Jetpack Compose**, see the Compose variant: [Jetpack Quickstart](/a
 pluginManagement { repositories { gradlePluginPortal(); google(); mavenCentral() } }
 dependencyResolutionManagement { repositories { google(); mavenCentral() } }
 ```
+
 To use the library, **you need to have proper repositories configured** in your project.
 Otherwise an error like:
 
 ```text
 Could not find io.tolgee.mobile-kotlin-sdk:core
 ```
+
 might pop up.
 Make sure **Maven Central** is set up properly so the dependency can be resolved.
 
@@ -106,7 +108,7 @@ Add network security config to your `AndroidManifest.xml`:
 </application>
 ```
 
-:::note
+:::info
 Allowing `tolgee.io` and `tolg.ee` domains is required when using Tolgee Cloud CDN. If you only access your own self-hosted CDN, include your domain(s) accordingly.
 :::
 
@@ -130,13 +132,14 @@ class MyApplication : Application() {
 
 When your app boots up, Tolgee is globally initialized. The translations are downloaded from CDN and cached locally. Other parts of your app (such as activities and fragments) can now use Tolgee without additional configuration.
 
-***Make sure that your app knows where to download translations***:
+**_Make sure that your app knows where to download translations_**:
 
 For your app to download translation files, you need to provide a CDN URL prefix specific to your project. This prefix points to the catalog that contains your app’s translations.
 
 ### How to get your CDN URL prefix (Content Delivery):
+
 1. Open Tolgee Platform → your Project → Developer settings → Content Delivery.
-2. Copy the full CDN URL prefix. 
+2. Copy the full CDN URL prefix.
 3. You can use different prefixes per environment (dev/staging/prod).
 
 ### Optional: Verify connectivity locally:
@@ -145,31 +148,29 @@ For your app to download translation files, you need to provide a CDN URL prefix
 curl -I "https://cdn.tolg.ee/your-cdn-url-prefix/en.json"
 ```
 
-You should receive a 200 response. 
+You should receive a 200 response.
 If you get 403 (Forbidden) or 404 (Not found), double‑check the prefix.
 
 :::tip
 Dynamic updates without republishing
 :::
 
-To receive fresh translations without needing to publish new app versions, wrap the base context in your Activities.
-This way, APIs like getString() will use Tolgee dynamically.
+To receive **fresh translations without needing to publish new app versions**, wrap the base context in your Activities.
+This way, APIs like getString will use Tolgee **dynamically**.
 
-- With wrapped context → fresh translations from the Tolgee CDN will be provided automatically.
+- **With wrapped context** → fresh translations from the Tolgee CDN will be provided automatically.
 
-- Without wrapped context → only the translations already bundled or previously cached will be available.
+- **Without wrapped context** → only the translations already bundled or previously cached will be available.
 
-See the step-by-step guide in Usage.
+**See the step-by-step guide in Usage.**
 
-:::note
+:::info
 If you have a different integration setup (for example, using tolgee-cli and bundling JSON translation files in assets), the initialization may look different.
 :::
 
-
 ## Next steps
 
-- Not sure which artifact to use? See [`Modules overview`](./modules.mdx)
+- Not sure which artifact to use? See ['overview`](./about.mdx)
 - Learn how to fetch and render translations in Views: [`Usage`](./usage.mdx)
 - Using Compose? Start here: [`Jetpack Installation`](./jetpack/installation.mdx)
 - Having issues? Check [`Troubleshooting`](./troubleshooting.mdx)
-

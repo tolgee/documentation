@@ -7,7 +7,6 @@ description: Overview of Tolgee Mobile SDK with Over‑the‑Air (OTA) localizat
 
 import SystemCard from '@site/src/component/SystemCard';
 import FeatureGrid from '@site/src/component/FeatureGrid';
-import Tolgee from '@site/src/component/Tolgee';
 
 # Tolgee Mobile SDK
 
@@ -17,9 +16,15 @@ For managing static translations in your repository, consider using the [Tolgee 
 
 ## Overview
 
-Tolgee Mobile SDK for **Android** and **Compose Multiplatform** lets you localize Kotlin-based applications with **dynamic content delivery**, providing translations dynamically without needing to publish new app versions.
+Tolgee Mobile SDK for **Android** and **Compose Multiplatform** lets you localize Kotlin-based applications with **dynamic content delivery**, adapting content to user behavior, preferences, and device data.
 
-**Supports Over‑the‑Air (OTA)** translation updates, seamless integration with **Android Views**, **Jetpack Compose**, **Compose Multiplatform**, and **static translation fallbacks**.
+**Supports Over‑the‑Air (OTA)** translation updates, providing translations dynamically **without needing to publish new app versions**.
+
+The platform works offline with **caching**, **fallbacks**, **device-aware resource selection**, and **preloading** of critical namespaces for a smooth user experience. Tolgee **keeps UX consistent** by updating the UI automatically in response to locale changes, resulting in **fewer untranslated or mismatched strings**.
+
+:::info
+Tolgee gives you multiple hosting options: Cloud CDN (Cloud or self‑hosting) or your own CDN.
+:::
 
 ## Features
 
@@ -49,6 +54,22 @@ Tolgee Mobile SDK for **Android** and **Compose Multiplatform** lets you localiz
     colorTheme: 'orange'
   }
 ]} />
+
+
+## Modules
+
+Tolgee Mobile SDK is split into modules so you only add what you need.
+
+### When to use which module
+- **Core**
+  - Use with traditional Android Views or any non-Compose UI.
+  - Provides content delivery (CDN), key lookup, formatting (Sprintf/ICU), caching.
+  - Start here if you don't use Jetpack Compose.
+- **Compose**
+  - Use with Jetpack Compose or Compose Multiplatform.
+  - Adds localized composables and helpers (e.g., stringResource, pluralStringResource).
+  - Requires core transitively.
+
 
 ## Demo apps
 

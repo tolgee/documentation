@@ -18,29 +18,15 @@ Follow these steps to integrate Tolgee into your Android project and start local
     title="Quickstart"
     emoji="📦"
     description="Set up dependencies and network security configuration"
-    links={[
-      { href: "./quickstart", label: "Quickstart Guide", color: "blue" }
-    ]}
-  />
-  
-  <SystemCard
-    title="Modules Overview"
-    emoji="🔧"
-    description="Choose between Core and Compose modules for your project"
-    links={[
-      { href: "./modules", label: "Modules Guide", color: "green" }
-    ]}
+    links={[{ href: './quickstart', label: 'Quickstart Guide', color: 'blue' }]}
   />
 </div>
 
 ## Integration Path
 
-1. **[Quickstart](./quickstart)** - Add Tolgee SDK to your project
-2. **[Modules Overview](./modules)** - Understand Core vs Compose modules
-3. **Choose your implementation** (see cards below)
-4. **[Production Setup](./production)** - Configure for production deployment
+### 1. **[Quickstart](./quickstart)** - Add Tolgee SDK to your project
 
-## Choose Your Implementation
+### 2. **Choose your implementation**
 
 <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 my-6">
   <SystemCard
@@ -48,30 +34,38 @@ Follow these steps to integrate Tolgee into your Android project and start local
     emoji="🚀"
     description="Modern declarative UI with reactive translations"
     links={[
-      { href: "/android-sdk/jetpack", label: "Overview", color: "blue" },
-      { href: "/android-sdk/jetpack/installation", label: "Installation", color: "green" },
-      { href: "/android-sdk/jetpack/usage", label: "Usage", color: "orange" }
+      { href: '/android-sdk/jetpack', label: 'Overview', color: 'blue' },
+      {
+        href: '/android-sdk/jetpack/installation',
+        label: 'Installation',
+        color: 'green',
+      },
+      { href: '/android-sdk/jetpack/usage', label: 'Usage', color: 'orange' },
     ]}
   />
-  
+
   <SystemCard
     title="Android Views"
     emoji="📱"
     description="Traditional Android UI with dynamic translations"
-    links={[
-      { href: "./usage", label: "Usage Guide", color: "purple" }
-    ]}
+    links={[{ href: './usage', label: 'Usage Guide', color: 'purple' }]}
   />
-  
+
   <SystemCard
     title="CLI Integration"
     emoji="⚡"
     description="Generate and manage <strong>static translations</strong>"
     links={[
-      { href: "/tolgee-cli/installation", label: "Tolgee CLI", color: "cyan" }
+      { href: '/tolgee-cli/installation', label: 'Tolgee CLI', color: 'cyan' },
     ]}
   />
 </div>
+
+### 3. **[Production guide](./production)** - Configure for production deployment
+
+:::warning
+The Gradle compiler plugin is not released yet and is not part of the current installation options.
+:::
 
 ## What You'll Achieve
 
@@ -90,9 +84,7 @@ After completing the setup, your app will have:
     title="Production Guide"
     emoji="🚀"
     description="Over‑the‑Air (OTA) updates, caching, formatting, and testing for production apps"
-    links={[
-      { href: "./production", label: "Production Setup", color: "blue" }
-    ]}
+    links={[{ href: './production', label: 'Production Setup', color: 'blue' }]}
   />
 </div>
 

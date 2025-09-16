@@ -3,7 +3,6 @@ module.exports = {
     'about',
     'get-started',
     'quickstart',
-    'modules',
     'usage',
     {
       type: 'category',
