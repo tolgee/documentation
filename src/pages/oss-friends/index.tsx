@@ -34,7 +34,9 @@ export default function OssFriends() {
               </a>
               <div>{description}</div>
               <div className="oss-friends--friend-learn-more">
-                <a href={href} target="_blank" rel="noopener noreferrer">Learn more</a>
+                <a href={href} target="_blank" rel="noopener noreferrer">
+                  Learn more
+                </a>
               </div>
             </div>
           ))}
