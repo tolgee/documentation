@@ -29,12 +29,14 @@ export default function OssFriends() {
           .filter(({ name }) => name !== 'Tolgee')
           .map(({ name, description, href }, i) => (
             <div key={i} className="oss-friends--friend">
-              <Link to={href}>
+              <a href={href} target="_blank" rel="noopener noreferrer">
                 <Heading as="h3">{name}</Heading>
-              </Link>
+              </a>
               <div>{description}</div>
               <div className="oss-friends--friend-learn-more">
-                <Link to={href}>Learn more</Link>
+                <a href={href} target="_blank" rel="noopener noreferrer">
+                  Learn more
+                </a>
               </div>
             </div>
           ))}
