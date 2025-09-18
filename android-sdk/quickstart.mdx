@@ -142,7 +142,26 @@ For your app to download translation files, you need to provide a CDN URL prefix
 2. Copy the full CDN URL prefix.
 3. You can use different prefixes per environment (dev/staging/prod).
 
-### Optional: Verify connectivity locally:
+:::info
+If you have a different integration setup (for example, using tolgee-cli and bundling JSON translation files in assets), the initialization may look different.
+:::
+
+### Other Platforms
+
+For non-Android platforms, initialization is similar but without the Android-specific storage provider:
+
+```kotlin
+fun initTolgee() {
+    Tolgee.init {
+        contentDelivery {
+            url = "https://cdn.tolg.ee/your-cdn-url-prefix"
+            // Create a custom storage provider for caching the latest translations from CDN if needed
+        }
+    }
+}
+```
+
+### **Optional**: Verify connectivity locally:
 
 ```bash
 curl -I "https://cdn.tolg.ee/your-cdn-url-prefix/en.json"
@@ -152,20 +171,7 @@ You should receive a 200 response.
 If you get 403 (Forbidden) or 404 (Not found), double‑check the prefix.
 
 :::tip
-Dynamic updates without republishing
-:::
-
-To receive **fresh translations without needing to publish new app versions**, wrap the base context in your Activities.
-This way, APIs like getString will use Tolgee **dynamically**.
-
-- **With wrapped context** → fresh translations from the Tolgee CDN will be provided automatically.
-
-- **Without wrapped context** → only the translations already bundled or previously cached will be available.
-
-**See the step-by-step guide in Usage.**
-
-:::info
-If you have a different integration setup (for example, using tolgee-cli and bundling JSON translation files in assets), the initialization may look different.
+Dynamic updates without republishing. See the step-by-step guide in [**Usage**](./usage.mdx).
 :::
 
 ## Next steps
