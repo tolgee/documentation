@@ -26,36 +26,6 @@ The platform works offline with **caching**, **fallbacks**, **device-aware resou
 Tolgee gives you multiple hosting options: Cloud CDN (Cloud or self‑hosting) or your own CDN.
 :::
 
-## Features
-
-<FeatureGrid features={[
-  {
-    emoji: '🚀',
-    title: 'Over-the-air updates',
-    description: 'Update your translations without releasing a new app version',
-    colorTheme: 'blue'
-  },
-  {
-    emoji: '🔧',
-    title: 'Multiple format support',
-    description: '• <strong>Sprintf</strong> (Android SDK) formatting<br/>• <strong>ICU</strong> (Tolgee Native Flat JSON) formatting',
-    colorTheme: 'green'
-  },
-  {
-    emoji: '⚡',
-    title: 'Compose integration',
-    description: 'Full integration with Jetpack Compose and Compose Multiplatform',
-    colorTheme: 'purple'
-  },
-  {
-    emoji: '🌐',
-    title: 'Kotlin Multiplatform',
-    description: 'Designed with multiplatform support in mind',
-    colorTheme: 'orange'
-  }
-]} />
-
-
 ## Modules
 
 Tolgee Mobile SDK is split into modules so you only add what you need.
@@ -65,11 +35,27 @@ Tolgee Mobile SDK is split into modules so you only add what you need.
   - Use with traditional Android Views or any non-Compose UI.
   - Provides content delivery (CDN), key lookup, formatting (Sprintf/ICU), caching.
   - Start here if you don't use Jetpack Compose.
+
+
 - **Compose**
   - Use with Jetpack Compose or Compose Multiplatform.
   - Adds localized composables and helpers (e.g., stringResource, pluralStringResource).
   - Requires core transitively.
 
+### Features
+- **Core**
+  - **Over-the-air updates**: Update your translations without releasing a new app version.
+  - **Multiple format support**: Sprintf (Android SDK) formatting, ICU (Tolgee Native Flat JSON) formatting.
+  - **Kotlin Multiplatform**: Designed with multiplatform support in mind.
+  - **Android integration**: Seamless integration with Android resources.
+  - **Dynamic locale switching**: Change languages at runtime.
+
+ - **Compose**
+   - **Compose Integration**: Use Tolgee translations in your Compose UI with familiar APIs.
+   - **Android Resource Support**: Seamless integration with Android string resources.
+   - **Parameter Support**: Pass parameters to your translations.
+   - **Plural Support**: Handles plural forms.
+   - **Reactive Updates**: UI automatically updates when translations or locale change.
 
 ## Demo apps
 
