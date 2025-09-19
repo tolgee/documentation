@@ -1,7 +1,7 @@
 ---
 id: troubleshooting
 title: Troubleshooting
-description: Troubleshooting Tolgee Mobile SDK
+description: Troubleshooting Tolgee Android SDK
 ---
 
 ## Translations Not Loading
@@ -41,6 +41,7 @@ Expect HTTP 200. For 403/404, re‑copy the prefix and check project permissions
 ### Common error messages and fixes
 
 - java.net.UnknownServiceException: CLEARTEXT communication to `<domain>` not permitted
+
   - Cause: Required domain(s) are using plain http and are not allowed in network security config.
   - Fix: Add domains to res/xml/network_security.xml and reference it from AndroidManifest via android:networkSecurityConfig.
 
@@ -60,4 +61,3 @@ Expect HTTP 200. For 403/404, re‑copy the prefix and check project permissions
 - Usage (Views): [Usage](./usage.mdx)
 - Jetpack Compose: [Installation](./jetpack/installation.mdx), [Usage](./jetpack/usage.mdx)
 - CLI for static strings: [Tolgee CLI](/tolgee-cli/installation)
-

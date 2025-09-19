@@ -1,13 +1,14 @@
 ---
 id: installation
 title: Quickstart (Compose Module)
-description: Quick start guide for Tolgee Mobile SDK Compose module with Jetpack Compose and Compose Multiplatform
+description: Quick start guide for Tolgee Android SDK Compose module with Jetpack Compose and Compose Multiplatform
 ---
 
 # Quickstart (Compose Module)
 
-This guide shows you how to integrate Tolgee Mobile SDK using the **Compose module** for Jetpack Compose and Compose Multiplatform.
+This guide shows you how to integrate Tolgee Android SDK using the **Compose module** for Jetpack Compose and Compose Multiplatform.
 
+The Compose module is Android’s modern **declarative UI toolkit**; it’s a **simpler** and **more reactive model** compared to Core module. It provides you with **instant access to Tolgee translations** directly in Composables/Compose Multiplatform projects, with **automatic updates**.
 :::info
 For managing static translations, we recommend using [Tolgee CLI](https://github.com/tolgee/tolgee-cli).
 :::
@@ -19,8 +20,19 @@ For managing static translations, we recommend using [Tolgee CLI](https://github
     <div className="flex items-center gap-3">
       <span className="text-2xl">📱</span>
       <div>
-        <h4 className="text-lg font-semibold mb-1 text-blue-800 dark:text-blue-200">Android API Level</h4>
-        <p className="text-sm text-blue-700 dark:text-blue-300 mb-0">Minimum <a href="https://developer.android.com/guide/topics/manifest/uses-sdk-element#ApiLevels" className="text-blue-600 dark:text-blue-400 hover:underline">API Level 21+</a> (Android 5.0 and above)</p>
+        <h4 className="text-lg font-semibold mb-1 text-blue-800 dark:text-blue-200">
+          Android API Level
+        </h4>
+        <p className="text-sm text-blue-700 dark:text-blue-300 mb-0">
+          Minimum{' '}
+          <a
+            href="https://developer.android.com/guide/topics/manifest/uses-sdk-element#ApiLevels"
+            className="text-blue-600 dark:text-blue-400 hover:underline"
+          >
+            API Level 21+
+          </a>{' '}
+          (Android 5.0 and above)
+        </p>
       </div>
     </div>
   </div>
@@ -58,7 +70,7 @@ dependencies {
 For **smaller projects** you can also add dependency directly (the old way).
 
 ```kotlin
-// build.gradle.kts 
+// build.gradle.kts
 dependencies {
     implementation("io.tolgee.mobile-kotlin-sdk:compose:tolgee")
 }
@@ -75,12 +87,14 @@ If you use **traditional Android Views**, see the Core variant: [Core Quickstart
 pluginManagement { repositories { gradlePluginPortal(); google(); mavenCentral() } }
 dependencyResolutionManagement { repositories { google(); mavenCentral() } }
 ```
+
 To use the library, **you need to have proper repositories configured** in your project.
 Otherwise an error like:
 
 ```text
 Could not find io.tolgee.mobile-kotlin-sdk:compose
 ```
+
 might pop up.
 Make sure **Maven Central** is set up properly so the dependency can be resolved.
 
@@ -114,6 +128,8 @@ Allowing `tolgee.io` and `tolg.ee` domains is required when using Tolgee Cloud C
 
 Initialize Tolgee in your `Application` class.
 
+### Android (Jetpack Compose)
+
 ```kotlin
 class MyApplication : Application() {
     override fun onCreate() {
@@ -128,15 +144,29 @@ class MyApplication : Application() {
 }
 ```
 
+### Multiplatform
+
+```kotlin
+fun initTolgee() {
+    Tolgee.init {
+        contentDelivery {
+            url = "https://cdn.tolg.ee/your-cdn-url-prefix"
+            // Create a custom storage provider for caching the latest translations from CDN if needed
+        }
+    }
+}
+```
+
 When your app boots up, Tolgee is globally initialized. The translations are downloaded from CDN and cached locally. Your Compose components can now use Tolgee without additional configuration.
 
-***Make sure that your app knows where to download translations***:
+**_Make sure that your app knows where to download translations_**:
 
 For your app to download translation files, you need to provide a CDN URL prefix specific to your project. This prefix points to the catalog that contains your app's translations.
 
 ### How to get your CDN URL prefix (Content Delivery):
+
 1. Open Tolgee Platform → your Project → Developer settings → Content Delivery.
-2. Copy the full CDN URL prefix. 
+2. Copy the full CDN URL prefix.
 3. You can use different prefixes per environment (dev/staging/prod).
 
 ### Optional: Verify connectivity locally:
@@ -145,7 +175,7 @@ For your app to download translation files, you need to provide a CDN URL prefix
 curl -I "https://cdn.tolg.ee/your-cdn-url-prefix/en.json"
 ```
 
-You should receive a 200 response. 
+You should receive a 200 response.
 If you get 403 (Forbidden) or 404 (Not found), double‑check the prefix.
 
 :::tip

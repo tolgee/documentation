@@ -2,13 +2,13 @@
 id: about
 title: Overview
 slug: /
-description: Overview of Tolgee Mobile SDK with Over‑the‑Air (OTA) localization updates for Android and Compose Multiplatform.
+description: Overview of Tolgee Android SDK with Over‑the‑Air (OTA) localization updates for Android and Compose Multiplatform.
 ---
 
 import SystemCard from '@site/src/component/SystemCard';
 import FeatureGrid from '@site/src/component/FeatureGrid';
 
-# Tolgee Mobile SDK
+# Tolgee Android SDK
 
 :::info
 For managing static translations in your repository, consider using the [Tolgee CLI](/tolgee-cli/installation).
@@ -16,7 +16,7 @@ For managing static translations in your repository, consider using the [Tolgee 
 
 ## Overview
 
-Tolgee Mobile SDK for **Android** and **Compose Multiplatform** lets you localize Kotlin-based applications with **dynamic content delivery**, adapting content to user behavior, preferences, and device data.
+Tolgee Android SDK for **Android** and **Compose Multiplatform** lets you localize Kotlin-based applications with **dynamic content delivery**, adapting content to user behavior, preferences, and device data.
 
 **Supports Over‑the‑Air (OTA)** translation updates, providing translations dynamically **without needing to publish new app versions**.
 
@@ -28,14 +28,15 @@ Tolgee gives you multiple hosting options: Cloud CDN (Cloud or self‑hosting) o
 
 ## Modules
 
-Tolgee Mobile SDK is split into modules so you only add what you need.
+Tolgee Android SDK is split into modules so you only add what you need.
 
 ### When to use which module
+
 - **Core**
+
   - Use with traditional Android Views or any non-Compose UI.
   - Provides content delivery (CDN), key lookup, formatting (Sprintf/ICU), caching.
   - Start here if you don't use Jetpack Compose.
-
 
 - **Compose**
   - Use with Jetpack Compose or Compose Multiplatform.
@@ -43,37 +44,45 @@ Tolgee Mobile SDK is split into modules so you only add what you need.
   - Requires core transitively.
 
 ### Features
+
 - **Core**
+
   - **Over-the-air updates**: Update your translations without releasing a new app version.
   - **Multiple format support**: Sprintf (Android SDK) formatting, ICU (Tolgee Native Flat JSON) formatting.
   - **Kotlin Multiplatform**: Designed with multiplatform support in mind.
   - **Android integration**: Seamless integration with Android resources.
   - **Dynamic locale switching**: Change languages at runtime.
 
- - **Compose**
-   - **Compose Integration**: Use Tolgee translations in your Compose UI with familiar APIs.
-   - **Android Resource Support**: Seamless integration with Android string resources.
-   - **Parameter Support**: Pass parameters to your translations.
-   - **Plural Support**: Handles plural forms.
-   - **Reactive Updates**: UI automatically updates when translations or locale change.
+- **Compose**
+  - **Compose Integration**: Use Tolgee translations in your Compose UI with familiar APIs.
+  - **Android Resource Support**: Seamless integration with Android string resources.
+  - **Parameter Support**: Pass parameters to your translations.
+  - **Plural Support**: Handles plural forms.
+  - **Reactive Updates**: UI automatically updates when translations or locale change.
 
 ## Demo apps
 
 ### 📱 Android Views Demo
+
 Complete example implementation using Android Views
+
 - [https://github.com/tolgee/tolgee-mobile-kotlin-sdk/tree/master/demo/exampleandroid](https://github.com/tolgee/tolgee-mobile-kotlin-sdk/tree/master/demo/exampleandroid)
 
 ### 🚀 Jetpack Compose Demo
+
 Complete example implementation using Jetpack Compose
+
 - [https://github.com/tolgee/tolgee-mobile-kotlin-sdk/tree/master/demo/examplejetpack](https://github.com/tolgee/tolgee-mobile-kotlin-sdk/tree/master/demo/examplejetpack)
 
 ### 🌐 Compose Multiplatform Demo
+
 Complete example implementation using Compose Multiplatform
+
 - [https://github.com/tolgee/tolgee-mobile-kotlin-sdk/tree/master/demo/examplecomposemultiplatform](https://github.com/tolgee/tolgee-mobile-kotlin-sdk/tree/master/demo/examplecomposemultiplatform)
 
 ## Get Started
 
-Ready to integrate Tolgee into your Android project? 
+Ready to integrate Tolgee into your Android project?
 
 <div className="grid grid-cols-1 gap-4 my-6">
   <SystemCard
@@ -81,7 +90,7 @@ Ready to integrate Tolgee into your Android project?
     emoji="🚀"
     description="Complete step-by-step setup guide with installation, modules, and implementation choices"
     links={[
-      { href: "/android-sdk/get-started", label: "Start Here", color: "blue" }
+      { href: '/android-sdk/get-started', label: 'Start Here', color: 'blue' },
     ]}
   />
 </div>

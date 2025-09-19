@@ -1,12 +1,12 @@
 ---
 id: usage
 title: Usage (Compose Module)
-description: How to use Tolgee Mobile SDK Compose module in Jetpack Compose and Compose Multiplatform applications
+description: How to use Tolgee Android SDK Compose module in Jetpack Compose and Compose Multiplatform applications
 ---
 
 # Usage (Compose Module)
 
-This guide shows you how to use the Tolgee Mobile SDK **Compose module** in your Jetpack Compose or Compose Multiplatform application.
+This guide shows you how to use the Tolgee Android SDK **Compose module** in your Jetpack Compose or Compose Multiplatform application.
 
 ## Prerequisites
 
@@ -14,11 +14,11 @@ Make sure you've completed the quickstart setup and initialized Tolgee for Compo
 
 ## Basic Usage
 
-Tolgee's Compose extensions let you fetch localized strings directly inside your composables. Below are the most common patterns you'll use:
+Tolgee's Compose extensions let you fetch localized strings directly inside your composables.
 
-### Simple Strings
+### 1. Simple Strings
 
-Use `stringResource` for simple strings - retrieve a translation by its resource ID.
+- **Jetpack Compose**
 
 ```kotlin
 @Composable
@@ -27,9 +27,26 @@ fun SimpleText() {
 }
 ```
 
-### With Parameters
+- **Compose Multiplatform**
+
+```kotlin
+@Composable
+fun SimpleText() {
+    Text(text = stringResource(Res.string.welcome_message))
+}
+```
+
+:::info
+In the Compose Multiplatform use `stringResource` extension function with `Res`.
+:::
+
+Use `stringResource` for **simple strings** (e. g., error messages, titles) - retrieve a translation by its resource ID.
+
+### 2. With Parameters
 
 Pass parameters to translations - supply arguments for placeholders in your strings.
+
+- **Jetpack Compose**
 
 ```kotlin
 @Composable
@@ -38,9 +55,26 @@ fun TextWithParameters(name: String) {
 }
 ```
 
-### Plurals
+- **Compose Multiplatform**
+
+```kotlin
+@Composable
+fun TextWithParameters(name: String) {
+    Text(text = stringResource(Res.string.welcome_user, name))
+}
+```
+
+Use for translation with **dynamic values**. Add data that changes during the app's runtime (e.g., dates, numbers, usernames).
+
+:::tip
+Android-style strings, placeholders follow Sprintf order (e.g., %1$s, %2$d).
+:::
+
+### 3. Plurals
 
 Handle plurals with `pluralStringResource` - provide the count and any formatting args.
+
+- **Jetpack Compose**
 
 ```kotlin
 @Composable
@@ -48,6 +82,18 @@ fun PluralText(count: Int) {
     Text(text = pluralStringResource(R.plurals.item_count, count, count))
 }
 ```
+
+- **Compose Multiplatform**
+
+```kotlin
+@Composable
+fun PluralText(count: Int) {
+    // Handle plural forms
+    Text(text = pluralStringResource(Res.plurals.item_count, count, count))
+}
+```
+
+**Use for lists, counters, notifications** — any situation where the grammar changes with quantity.
 
 ## Explicit Tolgee Instance
 
@@ -61,6 +107,8 @@ fun ExplicitInstance() {
     Text(text = stringResource(tolgee, R.string.welcome_message))
 }
 ```
+
+Handy when you need **more than one instance** (multiple projects/CDNs), when following **dependency injection** patterns (dependencies are “injected”, not created inside classes), and or **during testing/previews**.
 
 ## Locale Switching
 
@@ -89,6 +137,9 @@ fun LocaleSwitcher() {
 }
 ```
 
+Handy for apps, where “**choose language**” option is available, you want to use **Over‑the‑Air (OTA) translation updates** (translations refresh automatically when locale or content changes), and during **testing/debugging**.
+Most often used in **settings screens, onboarding flows, or debug menus** - anytime you want to allow **runtime language switching**.
+
 ## Observing Locale Changes
 
 Collecting `Tolgee.changeFlow` as state ensures your composable recomposes whenever the locale changes, keeping the UI in sync with the active language.
@@ -105,6 +156,8 @@ fun LocaleAwareComponent() {
     Text(text = locale.language)
 }
 ```
+
+Handy for **observing locale changes** in real time, **keeping track of current locale**, **showing chosen language** in app, **reactively updating translations** whenever user switches the language.
 
 ## Next Steps
 
