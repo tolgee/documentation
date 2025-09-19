@@ -1,15 +1,16 @@
 module.exports = {
   someSidebar: [
     'about',
-    {
-      type: 'category',
-      label: 'Get started',
-      items: ['installation', 'modules'],
-    },
+    'get-started',
+    'quickstart',
     'usage',
     {
       type: 'category',
       label: 'Jetpack Compose',
+      link: {
+        type: 'doc',
+        id: 'jetpack/overview',
+      },
       items: ['jetpack/installation', 'jetpack/usage', 'jetpack/troubleshooting'],
     },
     'production',

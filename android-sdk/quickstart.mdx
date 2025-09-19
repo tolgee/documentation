@@ -1,14 +1,9 @@
 ---
-id: installation
-title: Quickstart (Compose Module)
-description: Quick start guide for Tolgee Android SDK Compose module with Jetpack Compose and Compose Multiplatform
+id: quickstart
+title: Quickstart (Core Module)
+description: Quick start guide for Tolgee Android SDK with Core module (traditional Android Views)
 ---
 
-# Quickstart (Compose Module)
-
-This guide shows you how to integrate Tolgee Android SDK using the **Compose module** for Jetpack Compose and Compose Multiplatform.
-
-The Compose module is Android’s modern **declarative UI toolkit**; it’s a **simpler** and **more reactive model** compared to Core module. It provides you with **instant access to Tolgee translations** directly in Composables/Compose Multiplatform projects, with **automatic updates**.
 :::info
 For managing static translations, we recommend using [Tolgee CLI](https://github.com/tolgee/tolgee-cli).
 :::
@@ -27,7 +22,11 @@ For managing static translations, we recommend using [Tolgee CLI](https://github
   </div>
 </div>
 
-## Dependency Setup
+# Quickstart
+
+This guide shows you how to integrate Tolgee Android SDK using the **Core module** for traditional Android Views.
+
+The **Core module** is a Kotlin Multiplatform library that provides runtime support for Tolgee translations in your app. With Tolgee, you can update your translations **over-the-air** without releasing a new app version.
 
 :::info
 Using **Version Catalog** is recommended to keep your versions aligned, especially in bigger projects. This provides **readability, centralization, and consistency**.
@@ -37,14 +36,14 @@ Using **Version Catalog** is recommended to keep your versions aligned, especial
 To build configuration examples use Kotlin DSL (build.gradle.kts). Groovy DSL may work but is not officially supported/tested.
 :::
 
-1. Add dependency (Compose):
+1. Add dependency (Core):
 
-In `gradle/libs.versions.toml` <u>add an alias for Tolgee Compose library</u>.
+In `gradle/libs.versions.toml` <u>add an alias for Tolgee library</u>.
 
 ```toml
 # gradle/libs.versions.toml
 [libraries]
-tolgee = { group = "io.tolgee.mobile-kotlin-sdk", name = "compose", version.ref = "tolgee" }
+tolgee = { group = "io.tolgee.mobile-kotlin-sdk", name = "core", version.ref = "tolgee" }
 ```
 
 Then, in `build.gradle.kts`, <u>use the created alias</u>.
@@ -61,12 +60,12 @@ For **smaller projects** you can also add dependency directly (the old way).
 ```kotlin
 // build.gradle.kts
 dependencies {
-    implementation("io.tolgee.mobile-kotlin-sdk:compose:tolgee")
+    implementation("io.tolgee.mobile-kotlin-sdk:core:tolgee")
 }
 ```
 
 :::note
-If you use **traditional Android Views**, see the Core variant: [Core Quickstart](/android-sdk/quickstart)
+If you use **Jetpack Compose**, see the Compose variant: [Jetpack Compose -> Quickstart](/android-sdk/jetpack/installation)
 :::
 
 2. (If needed) Ensure repositories include Maven Central:
@@ -81,7 +80,7 @@ Make sure your repositories are configured to include **Maven Central** for depe
 If you encounter an error like:
 
 ```text
-Could not find io.tolgee.mobile-kotlin-sdk:compose
+Could not find io.tolgee.mobile-kotlin-sdk:core
 ```
 
 verify that Maven Central is included in your repository configuration.
@@ -108,15 +107,13 @@ Add network security config to your `AndroidManifest.xml`:
 </application>
 ```
 
-:::note
+:::info
 Allowing `tolgee.io` and `tolg.ee` domains is required when using Tolgee Cloud CDN. If you only access your own self-hosted CDN, include your domain(s) accordingly.
 :::
 
 ## Initialization and configuration
 
 Initialize Tolgee in your `Application` class.
-
-### Android (Jetpack Compose)
 
 ```kotlin
 class MyApplication : Application() {
@@ -132,7 +129,25 @@ class MyApplication : Application() {
 }
 ```
 
-### Multiplatform
+When your app boots up, Tolgee is globally initialized. The translations are downloaded from CDN and cached locally. Other parts of your app (such as activities and fragments) can now use Tolgee without additional configuration.
+
+**_Make sure that your app knows where to download translations_**:
+
+For your app to download translation files, you need to provide a CDN URL prefix specific to your project. This prefix points to the catalog that contains your app’s translations.
+
+### How to get your CDN URL prefix (Content Delivery):
+
+1. Open Tolgee Platform → your Project → Developer settings → Content Delivery.
+2. Copy the full CDN URL prefix.
+3. You can use different prefixes per environment (dev/staging/prod).
+
+:::info
+If you have a different integration setup (for example, using tolgee-cli and bundling JSON translation files in assets), the initialization may look different.
+:::
+
+### Other Platforms
+
+For non-Android platforms, initialization is similar but without the Android-specific storage provider:
 
 ```kotlin
 fun initTolgee() {
@@ -145,19 +160,7 @@ fun initTolgee() {
 }
 ```
 
-When your app boots up, Tolgee is globally initialized. The translations are downloaded from CDN and cached locally. Your Compose components can now use Tolgee without additional configuration.
-
-**_Make sure that your app knows where to download translations_**:
-
-For your app to download translation files, you need to provide a CDN URL prefix specific to your project. This prefix points to the catalog that contains your app's translations.
-
-### How to get your CDN URL prefix (Content Delivery):
-
-1. Open Tolgee Platform → your Project → Developer settings → Content Delivery.
-2. Copy the full CDN URL prefix.
-3. You can use different prefixes per environment (dev/staging/prod).
-
-### Optional: Verify connectivity locally:
+### **Optional**: Verify connectivity locally:
 
 ```bash
 curl -I "https://cdn.tolg.ee/your-cdn-url-prefix/en.json"
@@ -167,17 +170,12 @@ You should receive a 200 response.
 If you get 403 (Forbidden) or 404 (Not found), double‑check the prefix.
 
 :::tip
-Compose advantage: No context wrapping needed
-:::
-
-Unlike traditional Android Views, Compose uses its own `stringResource`/`pluralStringResource` helpers, so no `ContextWrapper` is needed for automatic translation updates.
-
-:::note
-If you have a different integration setup (for example, using tolgee-cli and bundling JSON translation files in assets), the initialization may look different.
+Dynamic updates without republishing. See the step-by-step guide in [**Usage**](./usage.mdx).
 :::
 
 ## Next steps
 
-- Learn how to use translations in Compose: [`Usage`](./usage.mdx)
-- Not sure which module to use? See [`Modules overview`](../about.mdx)
+- Not sure which artifact to use? See ['overview`](./about.mdx)
+- Learn how to fetch and render translations in Views: [`Usage`](./usage.mdx)
+- Using Compose? Start here: [`Jetpack Installation`](./jetpack/installation.mdx)
 - Having issues? Check [`Troubleshooting`](./troubleshooting.mdx)
