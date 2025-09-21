@@ -2,15 +2,19 @@ module.exports = {
   someSidebar: [
     'about',
     'get-started',
-    'quickstart',
-    'usage',
+    {
+      type: 'category',
+      label: 'Core Module',
+      items: [
+        'core-module/quickstart',
+        'core-module/usage',
+        'core-module/troubleshooting',
+      ],
+    },
+
     {
       type: 'category',
       label: 'Jetpack Compose',
-      link: {
-        type: 'doc',
-        id: 'jetpack/overview',
-      },
       items: [
         'jetpack/installation',
         'jetpack/usage',
@@ -18,6 +22,5 @@ module.exports = {
       ],
     },
     'reccomendations',
-    'troubleshooting',
   ],
 };
