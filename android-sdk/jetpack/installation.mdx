@@ -39,7 +39,7 @@ To build configuration examples use Kotlin DSL (build.gradle.kts). Groovy DSL ma
 
 1. Add dependency (Compose):
 
-In `gradle/libs.versions.toml` <u>add an alias for Tolgee Compose library</u>.
+In `gradle/libs.versions.toml` **add an alias for Tolgee Compose library**.
 
 ```toml
 # gradle/libs.versions.toml
@@ -47,7 +47,7 @@ In `gradle/libs.versions.toml` <u>add an alias for Tolgee Compose library</u>.
 tolgee = { group = "io.tolgee.mobile-kotlin-sdk", name = "compose", version.ref = "tolgee" }
 ```
 
-Then, in `build.gradle.kts`, <u>use the created alias</u>.
+Then, in `build.gradle.kts`, **use the created alias**.
 
 ```kotlin
 // build.gradle.kts (module)
@@ -153,7 +153,7 @@ For your app to download translation files, you need to provide a CDN URL prefix
 
 ### How to get your CDN URL prefix (Content Delivery):
 
-1. Open Tolgee Platform → your Project → Developer settings → Content Delivery.
+1. Open Tolgee Platform → your Project → Developer settings → Content Delivery(Add).
 2. Copy the full CDN URL prefix.
 3. You can use different prefixes per environment (dev/staging/prod).
 

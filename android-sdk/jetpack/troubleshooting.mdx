@@ -6,42 +6,79 @@ description: Troubleshooting Tolgee Android SDK Compose module for Jetpack Compo
 
 # Troubleshooting (Compose Module)
 
-Common issues and solutions when using the Tolgee Android SDK **Compose module**.
+## Fast Checklist & Diagnostics
 
-## Translations Not Updating
+Before diving into troubleshooting, quickly review this list to steer clear of the most common erroes.
 
-- Ensure you're using the `stringResource` and `pluralStringResource` functions from the Tolgee package
-- Check that your Tolgee instance is properly initialized
-- Verify that the translations are loaded correctly (preload or make sure you're using flow-based API - `tFlow` / `stringResource`)
+### General Setup
 
-## Android Resource Integration Issues
-
-- Check that your Android resources are properly structured - Tolgee is using `resources.getResourceEntryName` to find key for the resource
-- Ensure that the Tolgee instance has access to the Android context
-
-## Compose Multiplatform Issues
-
-- Verify that your resource files are correctly set up and all keys present in resources are present in a Tolgee platform too
-- Ensure that you're using the correct resource references
-
-## Best practices for Compose
-
-- Hoist Tolgee instance at the application level; avoid creating it in composables.
-- Use `collectAsState` on `changeFlow` to recompose on locale/translation updates.
-- Prefer `stringResource`/`pluralStringResource` helpers for readability.
-
-## CDN/Network
-
-- If using Tolgee Cloud, ensure `tolgee.io` and `tolg.ee` are allowed in `res/xml/network_security.xml` and referenced via `android:networkSecurityConfig`.
-- For self‑hosting, replace the CDN URL with your domain and allow it in `network_security.xml`.
-- Quick connectivity test:
+- **Check if Maven Central is in repositories** - `mavenCentral` in `settings.gradle.kts`.
+- **Check if CDN URL is proper and accessible** - test connection locally:
 
 ```bash
 curl -I "https://cdn.tolg.ee/your-cdn-url-prefix/en.json"
 ```
 
+- **Check if network security is configured** - (`network_security.xml` reference with `Android manifest`).
+- **Check if cache clears after an app update** (use `TolgeeStorageProviderAndroid`).
+
+### Code & Integration
+
+- **Check if Same strings are used in both code/resources and Tolgee Platform.**
+- **Check if Tolgee multiplatform helpers are shared among common code** (io.tolgee.compose.stringResource / pluralStringResource).
+- **Check if you are subscribed to tolgee.changeFlow** for UI recomposition.
+- **Check if single Tolgee instance is used per app.**
+- **Check if Correct formatter is used** (Sprintf vs ICU).
+
+## Common Issues
+
+**1. Dependency Issues**
+
+- Make sure Maven Central is included in your repositories.
+- Double-check the dependency in your build.gradle.kts.
+- If you are using a Version Catalog, confirm that version.ref = "tolgee" points to the correct version.
+
+**2. Translations Issues**
+
+- Make sure you're using the stringResource and pluralStringResource functions from the Tolgee package.
+- Check that your Tolgee instance is properly initialized.
+- Verify that the translations are loaded correctly.
+- Verify CDN URL prefix in Tolgee Platform.
+- Use TolgeeStorageProviderAndroid so cache clears automatically on an app update.
+
+**3. Network Security Issues**
+
+- Add a `network_security.xml` in your `res/xml` folder (You can reference it in `AndroidManifest.xml`).
+
+**4. Locale Issues**
+
+- Make sure you are using `stringResource` / `pluralStringResource` functions from the Tolgee package.
+- Call tolgee.preload(this) in onStart() for critical screens (e.g., login, onboarding).
+- Use cached translations to show UI instantly while fetching updates in the background.
+- Use an explicit instance for tests/previews.
+
+**5. Plurals Issues**
+
+- Make sure plural resources exist both in Android resources (`plurals.xml`) and in Tolgee Platform.
+- Use `stringResource` / `pluralStringResource` functions.
+- Use a correct formatter (Sprintf vs ICU).
+- Make sure translations in Tolgee Platform match the expected format style.
+
+**6. Android Resource Integration Issues**
+
+- Check if your Android resources are properly structured - Tolgee is using `resources.getResourceEntryName` to find key for the resource.
+- Make sure that the Tolgee instance has access to the Android context.
+
+**7. Compose Multiplatform Issues**
+
+- Verify that your resource files are correctly set up and all strings present in resources are also in a Tolgee platform.
+- Make sure that you're using the correct resource references.
+
 ## Useful links
 
 - Views troubleshooting: [/android-sdk/troubleshooting](/android-sdk/troubleshooting)
-- Installation (Compose): [Installation](./installation.mdx)
+- Quickstart (Compose): [Installation](./installation.mdx)
 - Usage (Compose): [Usage](./usage.mdx)
+- For complete examples of how to use the Tolgee Compose module, check out the demo projects:
+  - Jetpack Compose example - https://github.com/tolgee/tolgee-mobile-kotlin-sdk/tree/master/demo/examplejetpack
+  - Compose Multiplatform example - https://github.com/tolgee/tolgee-mobile-kotlin-sdk/tree/master/demo/multiplatform-compose
