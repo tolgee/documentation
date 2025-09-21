@@ -11,9 +11,13 @@ module.exports = {
         type: 'doc',
         id: 'jetpack/overview',
       },
-      items: ['jetpack/installation', 'jetpack/usage', 'jetpack/troubleshooting'],
+      items: [
+        'jetpack/installation',
+        'jetpack/usage',
+        'jetpack/troubleshooting',
+      ],
     },
-    'production',
+    'reccomendations',
     'troubleshooting',
   ],
 };
