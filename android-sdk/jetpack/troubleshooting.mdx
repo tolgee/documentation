@@ -6,7 +6,7 @@ description: Troubleshooting Tolgee Android SDK Compose module for Jetpack Compo
 
 # Troubleshooting (Compose Module)
 
-## Fast Checklist & Diagnostics
+## Fast Checklist
 
 Before diving into troubleshooting, quickly review this list to steer clear of the most common erroes.
 
@@ -29,6 +29,16 @@ curl -I "https://cdn.tolg.ee/your-cdn-url-prefix/en.json"
 - **Check if you are subscribed to tolgee.changeFlow** for UI recomposition.
 - **Check if single Tolgee instance is used per app.**
 - **Check if Correct formatter is used** (Sprintf vs ICU).
+
+## Error handling
+
+- Log fetch failures and fall back to cache/static values.
+- Consider retry/backoff for transient network errors.
+
+## Testing
+
+- Provide test doubles for content delivery to return deterministic values.
+- For UI tests, inject a test Tolgee instance with preloaded data.
 
 ## Common Issues
 
@@ -63,6 +73,9 @@ curl -I "https://cdn.tolg.ee/your-cdn-url-prefix/en.json"
 - Use `stringResource` / `pluralStringResource` functions.
 - Use a correct formatter (Sprintf vs ICU).
 - Make sure translations in Tolgee Platform match the expected format style.
+
+See also: [Android XML format](/platform/formats/android_xml) · [Tolgee Universal ICU placeholders](/platform/translation_process/tolgee_universal_icu_placeholders)
+
 
 **6. Android Resource Integration Issues**
 

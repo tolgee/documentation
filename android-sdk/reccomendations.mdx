@@ -1,0 +1,53 @@
+---
+id: reccomendations
+title: Reccomendations
+description: OTA updates, caching, formatting, and deployment tips for shipping to production.
+---
+
+# Reccomendations
+
+This guide summarizes recommendations for using Tolgee Android SDK in production.
+
+## Best Practices
+
+### Jetpack Compose
+
+- Use Tolgee’s helpers: `io.tolgee.compose.stringResource` and `pluralStringResource`.
+- Subscribe to `tolgee.changeFlow` and collect with `collectAsState` to trigger automatic recomposition on locale change.
+- Always tie `remember` with cached translations to the current locale (you may also call `stringResource` directly).
+- Preload translations (`tolgee.preload()`) on critical screens to reduce flicker.
+- Turn on `minifyEnabled true` + `shrinkResources true` early in development. Test your app with this configuration to catch issues early.
+
+### Android Views
+
+- Initialize Tolgee once in `Application` with `applicationContext`.
+- Use `ViewModel` + `LiveData/Flow` to observe translation changes and update views reactively.
+- Call `tolgee.setLocale("xx")` to switch language, and rely on observers—no activity restart needed.
+- Do not hardcode translations in static fields or singletons—always fetch dynamically via Tolgee.
+- Preload translations during onboarding/login to avoid showing empty or fallback texts.
+
+## General Production Hygiene
+
+**Single source of truth**: One Tolgee instance (DI/singleton) created, initialized in `Application` with `applicationContext`.
+
+**Release build checks**: Test early with `minifyEnabled true` + `shrinkResources true`; verify translations render as expected in `Release`.
+
+**R8/ProGuard rules**: Keep Tolgee classes when needed by reflection and keep dynamically referenced resources (e.g., using `tools:keep`).
+
+**Network security**: Use HTTPS; include `network_security.xml` and mention it in the manifest; allow `tolg.ee / tolgee.io` domains.
+
+**CDN health**: Monitor CDN prefix correctness; (optional test: curl -I https://cdn.tolg.ee/[prefix]/en.json).
+
+**String synchronization in CI**: Compare keys used in code/resources with Tolgee Platform.
+
+**Caching strategy**: Save with `BuildConfig.VERSION_CODE` so app updates make out-of-date translation caches obsolete.
+
+**Preload critical paths**: Preload on `splash/login` so first paint is from cache; load updates in background.
+
+**Observability**: Log missing strings clearly in debug.
+
+**Accessibility & i18n QA**: Test long strings (DE/RU), RTL (AR/HE), and narrow screens; content descriptions and talkback labels must be localized.
+
+**Formatting discipline**: Each project should have one formatter type (ICU for %s/%d or Sprintf for %s/%d) and consistent translations.
+
+**Offline behavior**: Design fallbacks when CDN is unavailable; ensure cached translations are used.
