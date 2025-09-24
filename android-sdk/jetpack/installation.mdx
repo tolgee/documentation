@@ -34,7 +34,7 @@ Using **Version Catalog** is recommended to keep your versions aligned, especial
 :::
 
 :::note
-To build configuration examples use Kotlin DSL (build.gradle.kts). Groovy DSL may work but is not officially supported/tested.
+Configuration exaples below are written in Kotlin DSL. Groovy DSL should work but is not officially supported/tested.
 :::
 
 1. Add dependency (Compose):
@@ -42,7 +42,6 @@ To build configuration examples use Kotlin DSL (build.gradle.kts). Groovy DSL ma
 In `gradle/libs.versions.toml` **add an alias for Tolgee Compose library**.
 
 ```toml
-# gradle/libs.versions.toml
 [libraries]
 tolgee = { group = "io.tolgee.mobile-kotlin-sdk", name = "compose", version.ref = "tolgee" }
 ```
@@ -50,7 +49,6 @@ tolgee = { group = "io.tolgee.mobile-kotlin-sdk", name = "compose", version.ref 
 Then, in `build.gradle.kts`, **use the created alias**.
 
 ```kotlin
-// build.gradle.kts (module)
 dependencies {
     implementation(libs.tolgee)
 }
@@ -59,7 +57,6 @@ dependencies {
 For **smaller projects** you can also add dependency directly (the old way).
 
 ```kotlin
-// build.gradle.kts
 dependencies {
     implementation("io.tolgee.mobile-kotlin-sdk:compose:tolgee")
 }
@@ -69,10 +66,9 @@ dependencies {
 If you use **traditional Android Views**, see the Core variant: [Core Quickstart](/android-sdk/quickstart)
 :::
 
-2. (If needed) Ensure repositories include Maven Central:
+2. (If needed) Ensure repositories include Maven Central in `settings.gradle.kts` or `build.gradle.kts`:
 
 ```kotlin
-// settings.gradle.kts or build.gradle.kts
 pluginManagement { repositories { gradlePluginPortal(); google(); mavenCentral() } }
 dependencyResolutionManagement { repositories { google(); mavenCentral() } }
 ```
@@ -86,9 +82,13 @@ Could not find io.tolgee.mobile-kotlin-sdk:compose
 
 verify that Maven Central is included in your repository configuration.
 
-3. Allow CDN networking (required when using Tolgee Cloud CDN):
+3. Allow CDN networking:
 
-   Create a network security config file `network_security.xml` in your `res/xml` folder:
+:::info
+Allowing `tolgee.io` and `tolg.ee` domains is required when using Tolgee Cloud CDN. If you access your own self-hosted CDN, here is where you should add the domain of your CDN.
+:::
+
+Create a network security config file `network_security.xml` in your `res/xml` folder:
 
 ```xml
 <?xml version="1.0" encoding="utf-8"?>

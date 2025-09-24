@@ -18,37 +18,31 @@ Ensure you have completed the quickstart setup and initialization in your Applic
 val tolgee = Tolgee.instance
 ```
 
-From now on you can use:
+From now on you can:
 
-- translations: `tolgee.t("key")`, `tolgee.tFlow("key")`,
-- change system: `tolgee.changeFlow`,
-- locale changes: `tolgee.setLocale("cs")`.
+- get translations: `tolgee.t("key")`, `tolgee.tFlow("key")`,
+- change locales: `tolgee.setLocale("xx")`,
+- listen for changes: `tolgee.changeFlow`; and respond to them: `tolgee.addChangeListener.
 
 ## Getting Translations
 
-### 1. One time translations:
+### One time translations:
 
 ```kotlin
 val text: String? = tolgee.t("key")
 ```
 
-Returns null if isn’t loaded yet (e.g.,SDK hasn't downloaded data)
+Returns null if translations are not yet loaded (e.g., SDK hasn't downloaded data).
 
-Returns string when loaded.
+Returns a string when translations are loaded.
 
 **Use for simple/static text** (e. g., error messages, titles).
 
-### Get a translation with fallback to Android resources
-
-```kotlin
-val text = tolgee.t(context, R.string.string_key)
-```
-
-:::info
-Fallbacks provide a safety net in case of any problems with loading the translation or pulling from Android resources.
+:::note
+If you choose this function for your app, creating a **global corutine** with `Tolgee.preload()` is reccomended. See a tip under **A) Preload translations for the current locale from Activity** section.
 :::
 
-### 2. Translation with parameters:
+### Translation with parameters:
 
 ```kotlin
 val textWithParams: String? = tolgee.t("key_with_param", mapOf("param" to "value"))
@@ -56,23 +50,53 @@ val textWithParams: String? = tolgee.t("key_with_param", mapOf("param" to "value
 
 **_Use for translation with dynamic values._** Add data that changes during the app's runtime (e.g., dates, numbers, usernames).
 
-:::tip
-Android-style strings, placeholders follow Sprintf order (e.g., %1$s, %2$d).
+:::note
+To use parameters with Android fallbacks and ensure that translations from CDN can be interpreted, follow ICU order.
 :::
 
-### Get a translation with fallback to Android resources with parameters
+:::note
+If you choose this function for your app, creating a **global corutine** with `Tolgee.preload()` is reccomended. See a tip under **A) Preload translations for the current locale from Activity** section.
+:::
+
+#### a) Preload translations for the current locale
+
+```kotlin
+override fun onStart() {
+  super.onStart()
+  tolgee.preload(this)
+}
+```
+
+Improves perceived performance - ensures strings are ready sooner for the current locale.
+**Use for UI’s where the translations are critical (e.g., login, onboarding).**
+
+:::tip
+**Create a global corutine by calling `Tolgee.preload()` function with both, mentioned, one-time translations and translations with parameters.
+:::
+
+#### b) Get a translation with fallback to Android resources
+
+Fallbacks provide a safety net in case of any problems with loading the translation or pulling from Android resources.
+
+**- One time translation with fallbacks:**
+
+```kotlin
+val text = tolgee.t(context, R.string.string_key)
+```
+
+**- Translation with parameters & fallbacks:**
 
 ```kotlin
 val textWithParams = tolgee.t(context, R.string.string_with_params, "param1", "param2")
 ```
 
-### Semi-dynamic updates for classic Views
+#### c) Semi-dynamic updates for classic Views
 
 :::info
 To receive fresh translations without needing to publish new app versions follow these steps:
 :::
 
-a) Wrap your Activity context so Android resource lookups use Tolgee:
+**- Wrap your Activity context so Android resource lookups use Tolgee:**
 
 ```kotlin
 class MyActivity : Activity() {
@@ -82,7 +106,7 @@ class MyActivity : Activity() {
 }
 ```
 
-b) Trigger a UI refresh when locale/translations change:
+**- Trigger a UI refresh when locale/translations change:**
 
 ```kotlin
 lifecycleScope.launch {
@@ -92,9 +116,9 @@ lifecycleScope.launch {
 }
 ```
 
-Combining those two approaches gives **semi-dynamic behavior**: translations update after an Activity reload, not instantly. These methods can be used with ways mentioned above (**a one-time translation** and **translations with parameters**).
+Combining those two approaches gives you **semi-dynamic behavior**: translations update after an Activity reload, not instantly. This setup works with both one-time translations and translations with parameters.
 
-### 3. Get dynamic (reactive) translations.
+### Get dynamic (reactive) translations.
 
 ```kotlin
 val textFlow: Flow<String> = tolgee.tFlow("key")
@@ -105,11 +129,13 @@ textFlow.collect { text ->
 
 **Use for reactive UI.** Translations update **immediately and automatically** whenever the language or CDN data changes.
 
-### Get a reactive translation with fallback to Android resources
+#### **- Reactive translation with fallback to Android resources**
 
+```kotlin
 val textFlow = tolgee.tFlow(context, R.string.string_key)
+```
 
-:::tip
+:::note
 In Compose, use `collectAsState()` function for a more idiomatic integration. See more in [**Jetpack Compose Usage**](./jetpack/usage.mdx).
 :::
 
@@ -128,7 +154,6 @@ textView.text = itemsText
 **Use for lists, counters, notifications** — any situation where the grammar changes with quantity.
 
 See also: [Android XML format](/platform/formats/android_xml) · [Tolgee Universal ICU placeholders](/platform/translation_process/tolgee_universal_icu_placeholders)
-
 
 ## Locale Management
 
@@ -185,9 +210,10 @@ Tolgee.init {
 }
 ```
 
-**Use for easy scenarios**, when you are using classic formatters (`%s, %d, %1$s`).
+**Use for easy scenarios**, when you are using classic formatters (`%s, %d, %1$s`). 
+**These parameters won't work with fallbacks to Android Resources** - it's not functional for apps with any offline activity.
 
-2.  ICU (advanced)
+2.  ICU (Native Flat JSON)
 
 ```kotlin
 Tolgee.init {
@@ -198,32 +224,23 @@ Tolgee.init {
 }
 ```
 
-**Use for more advanced translations**, when you need formatters like (**few, may, female, complex lingual principles**).
-
-## Preload translations for the current locale from Activity
-
-```kotlin
-override fun onStart() {
-  super.onStart()
-  tolgee.preload(this)
-}
-```
-
-Improves perceived performance and avoids empty/late.
-**Use for UI’s where the translations are critical (e.g., login, onboarding).**
+**Use for more advanced translations and ICU features**, when you need nested formats or formatters like e.g. few, may, female, complex lingual principles. 
+:::info
+As mentioned in 
 
 ## Example Projects
 
 **For complete examples of how to use the Tolgee Core module**, check out the demo projects:
 
-**Example Android**- https://github.com/tolgee/tolgee-mobile-kotlin-sdk/tree/master/demo/exampleandroid .
+**Example Android:** https://github.com/tolgee/tolgee-mobile-kotlin-sdk/tree/master/demo/exampleandroid
 
 ## Best Practices
 
-- **Preload translations** in `onStart`/Fragment visibility → prevents blank UI.
+- **Preload translations** in `onStart` → ensures strings for the current locale are ready sooner.
 - **Avoid main-thread blocking**; use Flows → keeps UI responsive.
 - **Keep keys in sync** between Android resources and Tolgee → avoids fallback issues.
-- **Wrap context** in Activities → automatic updates in classic Views.
+- **Wrap context** in Activities → ensures translations come from Tolgee.
+- **Call `recreate()`** in Activities → automatic updates in classic Views.
 - **Subscribe to `changeFlow`** → enables fully reactive UIs.
 
 ## Next Steps

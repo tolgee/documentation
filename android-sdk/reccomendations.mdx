@@ -15,8 +15,7 @@ This guide summarizes recommendations for using Tolgee Android SDK in production
 - Use Tolgee’s helpers: `io.tolgee.compose.stringResource` and `pluralStringResource`.
 - Subscribe to `tolgee.changeFlow` and collect with `collectAsState` to trigger automatic recomposition on locale change.
 - Always tie `remember` with cached translations to the current locale (you may also call `stringResource` directly).
-- Preload translations (`tolgee.preload()`) on critical screens to reduce flicker.
-- Turn on `minifyEnabled true` + `shrinkResources true` early in development. Test your app with this configuration to catch issues early.
+- Preload translations (`tolgee.preload()`) on critical screens so strings are ready sooner for current locale.
 
 ### Android Views
 
