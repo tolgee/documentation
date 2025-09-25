@@ -1,66 +1,52 @@
 ---
 id: production
-title: Production guide
+title: Production
 description: OTA updates, caching, formatting, and deployment tips for shipping to production.
 ---
 
+# Production
+
 This guide summarizes recommendations for using Tolgee Android SDK in production.
 
-## Over‑the‑air (OTA) updates & caching
+## Best Practices
 
-- **CDN**: Configure your CDN URL prefix and a stable path per project/environment.
-- **Caching**: Use `TolgeeStorageProviderAndroid(context, BuildConfig.VERSION_CODE)` so cache invalidates on app updates.
-- **Offline behavior**: SDK serves cached values when offline; provide static fallbacks where needed.
+### Jetpack Compose
 
-```kotlin
-Tolgee.init {
-  contentDelivery {
-    url = "https://cdn.tolg.ee/your-cdn-url-prefix"
-    storage = TolgeeStorageProviderAndroid(appContext, BuildConfig.VERSION_CODE)
-  }
-}
-```
+- Use Tolgee’s helpers: `io.tolgee.compose.stringResource` and `pluralStringResource`.
+- Subscribe to `tolgee.changeFlow` and collect with `collectAsState` to trigger automatic recomposition on locale change.
+- Always tie `remember` with cached translations to the current locale (you may also call `stringResource` directly).
+- Preload translations (`tolgee.preload()`) on critical screens so strings are ready sooner for current locale.
 
-## Formatting mode (Sprintf vs ICU)
+### Android Views
 
-- **Sprintf**: Natural when your source data comes from Android XML (`%s`, `%d`, plurals).
-- **ICU**: Use when your data uses Tolgee Universal ICU placeholders.
+- Initialize Tolgee once in `Application` with `applicationContext`.
+- Use `ViewModel` + `LiveData/Flow` to observe translation changes and update views reactively.
+- Call `tolgee.setLocale("xx")` to switch language, and rely on observers—no activity restart needed.
+- Do not hardcode translations in static fields or singletons—always fetch dynamically via Tolgee.
+- Preload translations during onboarding/login to avoid showing empty or fallback texts.
 
-```kotlin
-Tolgee.init {
-  contentDelivery {
-    // Default is Sprintf for Android-style placeholders
-    format(Tolgee.Formatter.Sprintf)
-    // Or switch to ICU:
-    // format(Tolgee.Formatter.ICU)
-  }
-}
-```
+## General Production Hygiene
 
-See also: [Android XML format](/platform/formats/android_xml) · [Tolgee Universal ICU placeholders](/platform/translation_process/tolgee_universal_icu_placeholders)
+**Single source of truth**: One Tolgee instance (DI/singleton) created, initialized in `Application` with `applicationContext`.
 
-## Preloading & startup
+**Release build checks**: Test early with `minifyEnabled true` + `shrinkResources true`; verify translations render as expected in `Release`.
 
-- Preload critical namespaces/locales on splash or application init.
-- Defer non-critical content until after first frame to keep startup fast.
-- Show fallback strings while loading.
+**R8/ProGuard rules**: Keep Tolgee classes when needed by reflection and keep dynamically referenced resources (e.g., using `tools:keep`).
 
-## Environments
+**Network security**: Use HTTPS; include `network_security.xml` and mention it in the manifest; allow `tolg.ee / tolgee.io` domains.
 
-- Use separate CDN prefixes for dev/staging/prod.
-- Verify cache busting between releases (via `BuildConfig.VERSION_CODE`).
+**CDN health**: Monitor CDN prefix correctness; (optional test: curl -I https://cdn.tolg.ee/[prefix]/en.json).
 
-## Error handling
+**String synchronization in CI**: Compare keys used in code/resources with Tolgee Platform.
 
-- Log fetch failures and fall back to cache/static values.
-- Consider retry/backoff for transient network errors.
+**Caching strategy**: Save with `BuildConfig.VERSION_CODE` so app updates make out-of-date translation caches obsolete.
 
-## Security & networking
+**Preload critical paths**: Preload on `splash/login` so first paint is from cache; load updates in background.
 
-- Add only required domains in your `network_security.xml`.
-- For self-hosting, ensure TLS and set correct domain(s). See [Self‑hosting](/platform/self_hosting/getting_started).
+**Observability**: Log missing strings clearly in debug.
 
-## Testing
+**Accessibility & i18n QA**: Test long strings (DE/RU), RTL (AR/HE), and narrow screens; content descriptions and talkback labels must be localized.
 
-- Provide test doubles for content delivery to return deterministic values.
-- For UI tests, inject a test Tolgee instance with preloaded data.
+**Formatting discipline**: Each project should have one formatter type (ICU for %s/%d or Sprintf for %s/%d) and consistent translations.
+
+**Offline behavior**: Design fallbacks when CDN is unavailable; ensure cached translations are used.

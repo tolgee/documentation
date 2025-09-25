@@ -2,50 +2,94 @@
 id: about
 title: Overview
 slug: /
-description: Overview of Tolgee Android SDK with Over‑the‑Air (OTA) localization updates and how to get started.
+description: Overview of Tolgee Android SDK with Over‑the‑Air (OTA) localization updates for Android and Compose Multiplatform.
 ---
 
-> NOTE:
-> For managing static translations in your repository, consider using the [Tolgee CLI](/tolgee-cli/installation).
+import SystemCard from '@site/src/component/SystemCard';
+import FeatureGrid from '@site/src/component/FeatureGrid';
 
-Tolgee Android SDK lets you localize Android apps with dynamic content delivery, Over‑the‑Air (OTA) translation updates, reactive locale changes, and seamless integration with Views and Jetpack Compose.
+# Tolgee Android SDK
 
-## Why use it
+:::info
+For managing static translations in your repository, consider using the [Tolgee CLI](/tolgee-cli/installation).
+:::
 
-- __Avoid releases for copy changes__: Ship translation fixes and new languages without a new app build.
-- __Faster iteration__: Product/localization teams can push improvements instantly and validate in production.
-- __Consistent UX__: UI updates reactively on locale change; fewer stale or mismatched strings.
-- __Resilient by default__: Works offline with caching and resource fallbacks; fewer blank strings.
+## Overview
 
-## What you can do
+Tolgee Android SDK for **Android** and **Compose Multiplatform** lets you you update strings, without needing to publish new app versions or fixes.
 
-- __Over‑the‑Air (OTA) updates__: Deliver translations via CDN (Cloud or self‑host) with caching.
-- __Views and Compose support__: `stringResource`/`pluralStringResource`, parameters, and reactive updates.
-- __Runtime locale API__: Switch locales and react to `Tolgee.changeFlow`.
-- __Fallbacks and preloading__: Android resources fallback; preload critical namespaces/locales.
-- __Hosting options__: Tolgee Cloud CDN or your own CDN.
+**Supports Over‑the‑Air (OTA)** translation updates, providing translations dynamically **without needing to publish new app versions**.
+
+The platform works offline with **caching**, **fallbacks**, **device-aware resource selection**, and **preloading**. Tolgee **keeps UX consistent** by updating the UI automatically in response to locale changes, resulting in **fewer untranslated or mismatched strings**.
+
+:::info
+Tolgee gives you multiple hosting options: Cloud CDN (Cloud or self‑hosting) or your own CDN.
+:::
+
+## Modules
+
+Tolgee Android SDK is split into modules so you only add what you need.
+
+### When to use which module
+
+- **Core**
+
+  - Use with traditional Android Views or any non-Compose UI.
+  - Provides content delivery (CDN), key lookup, formatting (Sprintf/ICU), caching.
+  - Start here if you don't use Jetpack Compose.
+
+- **Compose**
+  - Use with Jetpack Compose or Compose Multiplatform.
+  - Adds localized composables and helpers (e.g., stringResource, pluralStringResource).
+  - Requires core transitively.
+
+### Features
+
+- **Core**
+
+  - **Over-the-air updates**: Update your translations without releasing a new app version.
+  - **Kotlin Multiplatform**: Designed with multiplatform support in mind.
+  - **Android Resource Support**: Seamless integration with Android string resources.
+  - **Parameter** (ICU)  **and Plural  Support**.
+
+- **Compose**
+  - **Over-the-air updates**: Update your translations without releasing a new app version.
+  - **Compose Integration**: Use Tolgee translations in your Compose UI with familiar APIs.
+  - **Android Resource Support**: Seamless integration with Android string resources.
+  - **Parameter** (ICU)  **and Plural  Support**.
+  - **Reactive Updates**: UI automatically updates when translations/locale change.
 
 ## Demo apps
 
-- __Android Views demo__: https://github.com/tolgee/tolgee-mobile-kotlin-sdk/tree/master/demo/exampleandroid
-- __Jetpack Compose demo__: https://github.com/tolgee/tolgee-mobile-kotlin-sdk/tree/master/demo/examplejetpack
+### 📱 Android Views Demo
 
-## Compatibility
+Complete example implementation using Android Views
 
-> NOTE:
-> Build configuration examples use Kotlin DSL (`build.gradle.kts`). Groovy DSL may work but is not officially supported/tested.
+- [https://github.com/tolgee/tolgee-mobile-kotlin-sdk/tree/master/demo/exampleandroid](https://github.com/tolgee/tolgee-mobile-kotlin-sdk/tree/master/demo/exampleandroid)
 
-## Get started
+### 🚀 Jetpack Compose Demo
 
-- __Installation__: Set up dependencies and network security — [Installation](./installation.mdx)
-- __Modules overview__: Choose between Core and Compose — [Modules overview](./modules.mdx)
-- __Jetpack Compose__: Install, use, and troubleshoot — [Installation](/android-sdk/jetpack/installation), [Usage](/android-sdk/jetpack/usage), [Troubleshooting](/android-sdk/jetpack/troubleshooting)
-- __Usage with Views (non‑Compose)__: Simple keys, parameters, plurals, preloading, reactive flows — [Usage](./usage.mdx)
-- __Production guide__: Over‑the‑Air (OTA) updates, caching, formatting, testing — [Production guide](./production.mdx)
-- __Troubleshooting__: Common issues and diagnostics — [Troubleshooting](./troubleshooting.mdx)
+Complete example implementation using Jetpack Compose
 
-## Next steps
+- [https://github.com/tolgee/tolgee-mobile-kotlin-sdk/tree/master/demo/examplejetpack](https://github.com/tolgee/tolgee-mobile-kotlin-sdk/tree/master/demo/examplejetpack)
 
-- Install and configure the SDK: [Installation](./installation.mdx)
-- Connect your app to the Tolgee Platform and manage translations collaboratively: [Platform docs](../platform/)
-- Generate or manage static strings with CLI: [Tolgee CLI](/tolgee-cli/installation)
+### 🌐 Compose Multiplatform Demo
+
+Complete example implementation using Compose Multiplatform
+
+- [https://github.com/tolgee/tolgee-mobile-kotlin-sdk/tree/master/demo/examplecomposemultiplatform](https://github.com/tolgee/tolgee-mobile-kotlin-sdk/tree/master/demo/examplecomposemultiplatform)
+
+## Get Started
+
+Ready to integrate Tolgee into your Android project?
+
+<div className="grid grid-cols-1 gap-4 my-6">
+  <SystemCard
+    title="Get Started Guide"
+    emoji="🚀"
+    description="Complete step-by-step setup guide with installation, modules, and implementation choices"
+    links={[
+      { href: '/android-sdk/get-started', label: 'Start Here', color: 'blue' },
+    ]}
+  />
+</div>
