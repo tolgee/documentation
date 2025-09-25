@@ -11,7 +11,6 @@ module.exports = {
         'core-module/troubleshooting',
       ],
     },
-
     {
       type: 'category',
       label: 'Jetpack Compose',
@@ -21,6 +20,6 @@ module.exports = {
         'jetpack/troubleshooting',
       ],
     },
-    'reccomendations',
+    'production',
   ],
 };
