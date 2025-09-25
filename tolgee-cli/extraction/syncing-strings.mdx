@@ -35,6 +35,31 @@ When running this command on CI, the CLI automatically adds review annotation wa
 See an example [here](https://github.com/tolgee/tolgee-platform/commit/ddfff41#diff-84dc9ca52993f2d66eda975f622361460f83d659ce6ddf1a0c086e6ca8c328ccR46).
 :::
 
+### Duplicate key detection limitations
+
+Currently, the CLI does **not** detect when the same key appears multiple times in your code with different default values. For example, if you have:
+
+```jsx
+<T keyName="save-btn" defaultValue="Save" />
+<T keyName="save-btn" defaultValue="Save (Changed)" />
+```
+
+The CLI will not warn you about this conflict. This is a known limitation that may be addressed in future versions.
+
+**Workaround**: Use consistent default values across your codebase, or rely on the Tolgee Platform as the single source of truth for translations rather than default values in code.
+
+### Default values and base language behavior
+
+When you first sync a key with a default value, the CLI will create the key in your Tolgee project and set the default value as the translation for your base language. However, **subsequent changes to default values in your code will not automatically update the base language translation** in Tolgee.
+
+For example:
+1. You add `<T keyName="welcome" defaultValue="Welcome" />` and run `tolgee sync`
+2. Tolgee creates the key "welcome" with "Welcome" as the English (base language) translation
+3. Later, you change the code to `<T keyName="welcome" defaultValue="Welcome Back" />`
+4. Running `tolgee sync` again will **not** update the English translation to "Welcome Back"
+
+This is by design to prevent conflicts between code changes and translations managed in the Tolgee Platform.
+
 ## Comparing projects
 
 You can think of this utility as a dry-run of `tolgee sync`. You can use it to see the added/removed strings and
