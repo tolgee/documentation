@@ -16,7 +16,11 @@ const config: Config = {
   baseUrl: '/',
   onBrokenLinks: 'throw',
   favicon: 'img/favicon.svg',
-  onBrokenMarkdownLinks: 'warn',
+  markdown: {
+    hooks: {
+      onBrokenMarkdownLinks: 'warn',
+    },
+  },
   organizationName: 'Tolgee',
   projectName: 'Tolgee',
   themes: ['docusaurus-theme-openapi-docs'],
