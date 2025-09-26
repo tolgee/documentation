@@ -276,7 +276,7 @@ export default withNextIntl(nextConfig);
 
 The `i18n/request.ts` is required by `next-intl` package, we don't actually need it, so we are only doing necessary actions to stop `next-intl` from complaining.
 
-```ts title="src/i18n.ts"
+```ts title="src/i18n/request.ts"
 import { getRequestConfig } from 'next-intl/server';
 
 export default getRequestConfig(async ({ requestLocale }) => {
