@@ -10,13 +10,14 @@ import { ScreenshotWrapper } from '../shared/_ScreenshotWrapper';
 
 This page shows the **list of all members in your organization**.
 
-You can invite new members by clicking the **Invite user** button. Then **enter their email address or create an invitation link** to share with them.
+You can invite new members by clicking the **Invite user** button in the upper right corner. 
+Use the toggle on the right-hand side to choose between **entering their email address or creating an invitation link**, to share with them.
 
-You can **set the role of the member**. The role can be one of the following:
+Before sending an invite **set the role of a member**. The role can be one of the following:
 
 - **Member**: The member has basic access to all organization projects.
-- **Maintainer**: Same as the member, but also can create new projects and create/edit glossaries.
-- **Owner**: The owner of the organization. The owner can manage the organization settings, manage the glossaries, manage the projects, and manage the members.
+- **Maintainer**: Same as the member, additionally can create new projects and create/edit glossaries.
+- **Owner**: The owner of the organization. The owner can manage: the organization settings, the glossaries, the projects and the members.
 
 <ScreenshotWrapper
   src="/img/docs/platform/new-invitation.webp"
@@ -25,7 +26,7 @@ You can **set the role of the member**. The role can be one of the following:
 
 ## Member permissions
 
-This page allows you to select the default permissions for all organization members. You can change the permissions for each member on a per-project basis in the [Members section](members) of the project.
+This page allows you to **select the default permissions for all organization members**. You can change the permissions for each member on a per-project basis in the [Members section](members) of the project.
 
 <ScreenshotWrapper
   src="/img/docs/platform/organization-member-permissions.webp"
@@ -36,7 +37,10 @@ You can also set the permissions granularly. The **granular permissions are a pa
 
 ## Subscriptions
 
-This page shows your organization's subscription information, including the current plan and usage. You can also change your plan to a different one.
+This page shows your **organization's subscription information**, including the current plan and usage.
+
+You can also **change your plan** to a different one here.
+Plans differ based on the chosen hosting option- you can choose between Tolgee Cloud or self hosted. To switch between them click the toggle in the centre.
 
 <ScreenshotWrapper
   src="/img/docs/platform/subscriptions.webp"
@@ -45,34 +49,34 @@ This page shows your organization's subscription information, including the curr
 
 The usage shown on this page is the **total usage of all projects in your organization**. The information regarding usage covers the following:
 
-- **Used strings** – The total number of strings used in your organization, including strings in the base language.
+- **Used keys** – The total number of keys used in your organization, regardless of how many langauages they are translated to.
+- **Used seats** - The total number of users who are a part of your organization or any project owned by the organization.
 - **Used MT credits** – The number of Machine Translation credits that have been used in your organization since the last refill.
 - **Next credits refill** – The date when your MT credits will be refilled.
-- **Extra MT credits** – The number of extra MT credits you purchased separately from your plan.
 
+:::info
+A **key** is a unique identifier for a translatable text. Each distinct key in your project (regardless of how many languages it covers) counts towards your usage.
+Each user, regardless of the role, occupies one seat.
+:::
+
+:::tip
 More information about the plans can be found on the [Pricing](https://tolgee.io/pricing) page.
+:::
 
 ## Invoices
 
-This page shows the list of all invoices for your organization. In addition, you can download the invoices by clicking the **Download** button (if you have a paid plan).
+This page shows the list of all invoices for your organization. You can download the invoices by clicking the **Download** button (if you have a paid plan).
 
-### Changing billing details or payment method
-
-To make payments easier, Tolge partners with Stripe.
-**Customer postal** is where you get redirected to update your **payment method**.
-
-You can see the option to enter **Customer Portal** on the right-hand side of the screen, highlighted in pink.
+Additionally you can see the option to enter **Customer Portal**, button on the right-hand side of the screen. To make payments easier, Tolgee partners with Stripe and the **Customer portal** is where you get redirected to **manage your payment method**.
 
 <ScreenshotWrapper
   src="/img/docs/platform/Invoices-customer-portal.webp"
   alt="Screenshot from the Invoices with the view of invoices and Customer Portal button"
 />
 
-This is your view in the **Customer Portal**:
+**Here you can change your payment data; update the address, tax ID and email.** Then press the "update data" button, on the bottom of the list.
 
 <ScreenshotWrapper
   src="/img/docs/platform/customer_portal.webp"
   alt="Screenshot from redirected stripe website with the view of Payment methods and transaction data"
 />
-
-Below **Payment method** there is "Add payment method" option, as well below **Transaction Data** you can see "update data" option.
