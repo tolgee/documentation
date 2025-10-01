@@ -4,34 +4,25 @@ title: Quickstart (Compose Module)
 description: Quick start guide for Tolgee Android SDK Compose module with Jetpack Compose and Compose Multiplatform
 ---
 
+import AndroidApiRequirement from '@site/src/component/AndroidApiRequirement';
+
 # Quickstart (Compose Module)
 
 This guide shows you how to integrate Tolgee Android SDK using the **Compose module** for Jetpack Compose and Compose Multiplatform.
 
-The Compose module is Android’s modern **declarative UI toolkit**; it’s a **simpler** and **more reactive model** compared to Core module. It provides you with **instant access to Tolgee translations** directly in Composables/Compose Multiplatform projects, with **automatic updates**.
+The Compose module is Android's modern **declarative UI toolkit**; it's a **simpler** and **more reactive model** compared to Core module. It provides you with **instant access to Tolgee translations** directly in Composables/Compose Multiplatform projects, with **automatic updates**.
 :::info
 For managing static translations, we recommend using [Tolgee CLI](https://github.com/tolgee/tolgee-cli).
 :::
 
 ## Requirements
 
-<div className="grid grid-cols-1 gap-4 my-6">
-  <div className="border border-gray-200 dark:border-gray-700 rounded-lg p-4 bg-blue-50 dark:bg-blue-900/20">
-    <div className="flex items-center gap-3">
-      <span className="text-2xl">📱</span>
-      <div>
-      <h4 className="text-lg font-semibold mb-1 text-blue-800 dark:text-blue-200">Android API Level</h4>
-        <p className="text-sm text-blue-700 dark:text-blue-300 mb-0">Minimum <a href="https://developer.android.com/guide/topics/manifest/uses-sdk-element#ApiLevels" className="text-blue-600 dark:text-blue-400 hover:underline">API Level 21+</a> (Android 5.0 and above)</p>
-      </div>
-    </div>
-  </div>
-</div>
+<AndroidApiRequirement />
 
 ## Dependency Setup
 
 :::info
 Using **Version Catalog** is recommended to keep your versions aligned, especially in bigger projects. This provides **readability, centralization, and consistency**.
-:::
 
 :::note
 Configuration exaples below are written in Kotlin DSL. Groovy DSL should work but is not officially supported/tested.
