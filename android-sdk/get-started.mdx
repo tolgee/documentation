@@ -7,26 +7,44 @@ description: Quick start guide for integrating Tolgee Android SDK into your proj
 
 import SystemCard from '@site/src/component/SystemCard';
 
+## What You'll Achieve
+
+After completing the setup, your app will have:
+
+- **Translations** delivered via CDN.
+- **Offline support** with local caching.
+- **Runtime language switching** without app restart.
+- **Fallback support** to bundled Android resources.
+- **Over-the-Air updates** for translations without app republishing.
+
+
 # Get Started with Tolgee Android SDK
 
-Follow these steps to integrate Tolgee into your Android project and start localizing your app with **dynamic translations**.
+Here you can see a **quick setup overview**. Follow these steps to **integrate Tolgee into your Android project**. 
 
-## Quick Setup Overview
+
+## Integration Path
+
+### 1. **Choose your implementation** 
+### See more about modules in: 
 
 <div className="grid grid-cols-1 md:grid-cols-2 gap-4 my-6">
   <SystemCard
-    title="Quickstart"
-    emoji="📦"
-    description="Set up dependencies and network security configuration"
+    title="Overview"
+    emoji=""
+    description="General, modules overview and demo apps"
     links={[{ href: './core-module/quickstart', label: 'Quickstart Guide', color: 'blue' }]}
   />
 </div>
 
-## Integration Path
+### Implementations:
 
-### 1. **[Quickstart](./core-module/quickstart)** - Add Tolgee SDK to your project
-
-### 2. **Choose your implementation**
+<SystemCard
+  title="Android Views"
+  emoji="📱"
+  description="Traditional Android UI with dynamic translations"
+  links={[{ href: './core-module/usage', label: 'Usage Guide', color: 'purple' }]}
+/>
 
 <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 my-6">
   <SystemCard
@@ -45,12 +63,6 @@ Follow these steps to integrate Tolgee into your Android project and start local
   />
 
 {' '}
-<SystemCard
-  title="Android Views"
-  emoji="📱"
-  description="Traditional Android UI with dynamic translations"
-  links={[{ href: './core-module/usage', label: 'Usage Guide', color: 'purple' }]}
-/>
 
   <SystemCard
     title="CLI Integration"
@@ -62,30 +74,49 @@ Follow these steps to integrate Tolgee into your Android project and start local
   />
 </div>
 
-### 3. **[Production guide](./production)** - Configure for production deployment
+### 2. Add Tolgee SDK to your project
+
+<div className="grid grid-cols-1 md:grid-cols-2 gap-4 my-6">
+  <SystemCard
+    title="Quickstart"
+    emoji="📦"
+    description="Set up dependencies and network security configuration"
+    links={[{ href: './core-module/quickstart', label: 'Quickstart Guide', color: 'blue' }]}
+  />
+</div>
 
 :::warning
 The Gradle compiler plugin is not released yet and is not part of the current installation options.
 :::
 
-## What You'll Achieve
-
-After completing the setup, your app will have:
-
-- ✅ *Translations** delivered via CDN
-- ✅ **Offline support** with local caching
-- ✅ **Runtime language switching** without app restart
-- ✅ **Fallback support** to bundled Android resources
-- ✅ **Over-the-Air updates** for translations without app republishing
-
-## Production Deployment
+### 3. Optimize production performance
 
 <div className="grid grid-cols-1 gap-4 my-6">
   <SystemCard
-    title="Production Guide"
+    title="Production"
     emoji="🚀"
-    description="Over‑the‑Air (OTA) updates, caching, formatting, and testing for production apps"
+    description="Best practices and general production hygiene"
     links={[{ href: '/android-sdk/production', label: 'Production Setup', color: 'blue' }]}
+  />
+</div>
+
+### 4. Start using Tolgee
+
+<div className="grid grid-cols-1 md:grid-cols-2 gap-4 my-6">
+  <SystemCard
+    title="Usage (Core Module)"
+    emoji=""
+    description="Get translations manage locales and more"
+    links={[{ href: './core-module/quickstart', label: 'Quickstart Guide', color: 'blue' }]}
+  />
+</div>
+
+<div className="grid grid-cols-1 md:grid-cols-2 gap-4 my-6">
+  <SystemCard
+    title="Usage (Compose Module)"
+    emoji=""
+    description="Get translations manage locales and more"
+    links={[{ href: './core-module/quickstart', label: 'Quickstart Guide', color: 'blue' }]}
   />
 </div>
 

@@ -238,7 +238,7 @@ As mentioned in
 
 - **Preload translations** in `onStart` → ensures strings for the current locale are ready sooner.
 - **Avoid main-thread blocking**; use Flows → keeps UI responsive.
-- **Keep keys in sync** between Android resources and Tolgee → avoids fallback issues.
+- **Keep keys in sync** between Android resources and Tolgee → use Tolgee CLI.
 - **Wrap context** in Activities → ensures translations come from Tolgee.
 - **Call `recreate()`** in Activities → automatic updates in classic Views.
 - **Subscribe to `changeFlow`** → enables fully reactive UIs.

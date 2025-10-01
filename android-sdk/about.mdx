@@ -8,56 +8,59 @@ description: Overview of Tolgee Android SDK with Over‑the‑Air (OTA) localiza
 import SystemCard from '@site/src/component/SystemCard';
 import FeatureGrid from '@site/src/component/FeatureGrid';
 
-# Tolgee Android SDK
+# Tolgee for Android SDK
+
+### Preconditions:
+
+Use with Android and Compose Multiplatform.
+
+## Overview
+
+Tolgee is a **localization platform** that allows you to **translate your application into any language without code modifications**.
+The SDK also enables you to **connect seamlessly to the Tolgee Platform**.
+No more looking for keys in your source code, no more editing localization files, no more manually exporting data for translators, and no more publishing new app versions for translations.
+
+Tolgee is **developer-focused**, making it **easy to integrate** with your app.
+The platform provides **multiple hosting options**: Tolgee CDN or your own CDN.
+**Supports Over‑the‑Air (OTA)** translation updates, providing translations dynamically **without needing to publish new app versions**.
+**Works offline** with **caching**, **fallbacks**, **device-aware resource selection**, and **preloading**.
+
+## Modules
+
+Tolgee Android SDK is split into modules, so you only add what you need.
+
+### When to use which module:
 
 :::info
 For managing static translations in your repository, consider using the [Tolgee CLI](/tolgee-cli/installation).
 :::
 
-## Overview
+### **Core**
 
-Tolgee Android SDK for **Android** and **Compose Multiplatform** lets you you update strings, without needing to publish new app versions or fixes.
+Core is a base library for fetching translations from CDN and querying them.
+It's designed for use with **Android Views** or **any non Compose UI**.
 
-**Supports Over‑the‑Air (OTA)** translation updates, providing translations dynamically **without needing to publish new app versions**.
+**Features:**
 
-The platform works offline with **caching**, **fallbacks**, **device-aware resource selection**, and **preloading**. Tolgee **keeps UX consistent** by updating the UI automatically in response to locale changes, resulting in **fewer untranslated or mismatched strings**.
+- **Over-the-air updates**: Update your translations without releasing a new app version.
+- **Kotlin Multiplatform**: Designed with multiplatform support in mind.
+- **Android Resource Support**: Seamless integration with Android string resources.
+- **Parameter** **and Plural Support**.
 
-:::info
-Tolgee gives you multiple hosting options: Cloud CDN (Cloud or self‑hosting) or your own CDN.
-:::
+### **Compose**
 
-## Modules
+Compose is an extension for using the library with **Jetpack Compose** or **Compose Multiplatform**.
+It **adds localized composables and helpers** (e.g., stringResource, pluralStringResource).
 
-Tolgee Android SDK is split into modules so you only add what you need.
+It requires core transitively.
 
-### When to use which module
+**Features**
 
-- **Core**
-
-  - Use with traditional Android Views or any non-Compose UI.
-  - Provides content delivery (CDN), key lookup, formatting (Sprintf/ICU), caching.
-  - Start here if you don't use Jetpack Compose.
-
-- **Compose**
-  - Use with Jetpack Compose or Compose Multiplatform.
-  - Adds localized composables and helpers (e.g., stringResource, pluralStringResource).
-  - Requires core transitively.
-
-### Features
-
-- **Core**
-
-  - **Over-the-air updates**: Update your translations without releasing a new app version.
-  - **Kotlin Multiplatform**: Designed with multiplatform support in mind.
-  - **Android Resource Support**: Seamless integration with Android string resources.
-  - **Parameter** (ICU)  **and Plural  Support**.
-
-- **Compose**
-  - **Over-the-air updates**: Update your translations without releasing a new app version.
-  - **Compose Integration**: Use Tolgee translations in your Compose UI with familiar APIs.
-  - **Android Resource Support**: Seamless integration with Android string resources.
-  - **Parameter** (ICU)  **and Plural  Support**.
-  - **Reactive Updates**: UI automatically updates when translations/locale change.
+- **Over-the-air updates**: Update your translations without releasing a new app version.
+- **Compose Integration**: Use Tolgee translations in your Compose UI with familiar APIs.
+- **Android Resource Support**: Seamless integration with Android string resources.
+- **Parameter** (ICU) **and Plural Support**.
+- **Reactive Updates**: UI automatically updates when translations/locale change.
 
 ## Demo apps
 
@@ -87,7 +90,7 @@ Ready to integrate Tolgee into your Android project?
   <SystemCard
     title="Get Started Guide"
     emoji="🚀"
-    description="Complete step-by-step setup guide with installation, modules, and implementation choices"
+    description="Set up and integration path overview"
     links={[
       { href: '/android-sdk/get-started', label: 'Start Here', color: 'blue' },
     ]}
