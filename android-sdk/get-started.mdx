@@ -33,43 +33,36 @@ Here you can see a **quick setup overview**. Follow these steps to **integrate T
     title="Overview"
     emoji=""
     description="General, modules overview and demo apps"
-    links={[{ href: './core-module/quickstart', label: 'Quickstart Guide', color: 'blue' }]}
+    links={[{ href: './', label: 'Overview', color: 'blue' }]}
   />
 </div>
 
 ### Implementations:
 
-<SystemCard
-  title="Android Views"
-  emoji="📱"
-  description="Traditional Android UI with dynamic translations"
-  links={[{ href: './core-module/usage', label: 'Usage Guide', color: 'purple' }]}
-/>
+<div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-4 my-6">
 
-<div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 my-6">
+  <SystemCard
+    title="Android Core"
+    emoji="📱"
+    description="Traditional Android UI with dynamic translations"
+    links={[
+      { href: './core-module/quickstart', label: 'Quickstart', color: 'green' }, 
+      { href: './core-module/usage', label: 'Usage', color: 'orange' }, 
+      { href: './core-module/troubleshooting', label: 'Troubleshooting', color: 'blue' }]}
+  />
+
   <SystemCard
     title="Jetpack Compose"
     emoji="🚀"
     description="Modern declarative UI with reactive translations"
     links={[
-      { href: '/android-sdk/jetpack/usage', label: 'Usage', color: 'orange' },
       {
-        href: '/android-sdk/jetpack/installation',
-        label: 'Installation',
+        href: '/android-sdk/jetpack/quickstart',
+        label: 'Quickstart',
         color: 'green',
       },
+      { href: '/android-sdk/jetpack/usage', label: 'Usage', color: 'orange' },
       { href: '/android-sdk/jetpack/troubleshooting', label: 'Troubleshooting', color: 'blue' },
-    ]}
-  />
-
-{' '}
-
-  <SystemCard
-    title="CLI Integration"
-    emoji="⚡"
-    description="Generate and manage <strong>static translations</strong>"
-    links={[
-      { href: '/tolgee-cli/installation', label: 'Tolgee CLI', color: 'cyan' },
     ]}
   />
 </div>
@@ -78,10 +71,17 @@ Here you can see a **quick setup overview**. Follow these steps to **integrate T
 
 <div className="grid grid-cols-1 md:grid-cols-2 gap-4 my-6">
   <SystemCard
-    title="Quickstart"
+    title="Android Core Quickstart"
     emoji="📦"
     description="Set up dependencies and network security configuration"
     links={[{ href: './core-module/quickstart', label: 'Quickstart Guide', color: 'blue' }]}
+  />
+
+  <SystemCard
+    title="Jetpack Compose Quickstart"
+    emoji="📦"
+    description="Set up dependencies and network security configuration"
+    links={[{ href: './jetpack/quickstart', label: 'Quickstart Guide', color: 'blue' }]}
   />
 </div>
 
@@ -91,7 +91,7 @@ The Gradle compiler plugin is not released yet and is not part of the current in
 
 ### 3. Optimize production performance
 
-<div className="grid grid-cols-1 gap-4 my-6">
+<div className="grid grid-cols-1 md:grid-cols-2 gap-4 my-6">
   <SystemCard
     title="Production"
     emoji="🚀"
@@ -107,16 +107,14 @@ The Gradle compiler plugin is not released yet and is not part of the current in
     title="Usage (Core Module)"
     emoji=""
     description="Get translations manage locales and more"
-    links={[{ href: './core-module/quickstart', label: 'Quickstart Guide', color: 'blue' }]}
+    links={[{ href: './core-module/usage', label: 'Usage Guide', color: 'blue' }]}
   />
-</div>
 
-<div className="grid grid-cols-1 md:grid-cols-2 gap-4 my-6">
   <SystemCard
     title="Usage (Compose Module)"
     emoji=""
     description="Get translations manage locales and more"
-    links={[{ href: './core-module/quickstart', label: 'Quickstart Guide', color: 'blue' }]}
+    links={[{ href: './jetpack/usage', label: 'Usage Guide', color: 'blue' }]}
   />
 </div>
 
