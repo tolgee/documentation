@@ -15,20 +15,17 @@ For managing static translations, we recommend using [Tolgee CLI](https://github
 The Tolgee **Core module** is a library that **simplifies the translation process and provides runtime support for translations in your app**.
 This guide shows you how to **integrate Tolgee Android SDK** using the **Core module** for traditional **Android Views**.
 
-### To use Tolgee in your Android Views application, follow these steps:
+### Integration Steps
 
-**1. Add dependency**
+To use Tolgee in your Android Views application, follow these steps:
 
-*If needed.
-
-2*. Include Maven Central in repositories
-
-3*. Allow CDN networking
-
-**4. Initialize Tolgee**
+1. **Add dependency**
+2. **Include Maven Central in repositories** (if needed)
+3. **Allow CDN networking**
+4. **Initialize Tolgee**
 
 :::note
-Configuration exaples below are written in Kotlin DSL. Groovy DSL should work but is not officially supported/tested.
+Configuration examples below are written in Kotlin DSL. Groovy DSL should work but is not officially supported/tested.
 :::
 
 ## Requirements
@@ -63,7 +60,7 @@ dependencies {
 }
 ```
 
-For **smaller projects** you can also add dependency directly (the old way).
+For **smaller projects**, you can also add the dependency directly:
 
 ```kotlin
 dependencies {
@@ -77,8 +74,7 @@ If you use **Jetpack Compose**, see the Compose variant: [Jetpack Compose -> Qui
 
 **2. (If needed) Ensure repositories include Maven Central**
 
-When you add a dependency, **your app needs to know where to download the library from**. 
-So sure your repositories are configured to **include Maven Central for dependency resolution**.
+When you add a dependency, **your app needs to know where to download the library from**. So, make sure your repositories are configured to **include Maven Central for dependency resolution**.
 
 
 **In `settings.gradle.kts` or `build.gradle.kts`, add:**
@@ -96,9 +92,9 @@ Could not find io.tolgee.mobile-kotlin-sdk:core
 
 verify that Maven Central is included in your repository configuration.
 
-**3. Allow CDN networking:**
+**3. Allow CDN networking**
 
-**Enable Tolgee to fetch translations from the cloud at runtime**. To do that you need to **configure network access**.
+**Enable Tolgee to fetch translations from the cloud at runtime**. To do this, you need to **configure network access**.
 
 :::info
 Allowing `tolgee.io` and `tolg.ee` domains is required when using Tolgee Cloud CDN.
@@ -131,7 +127,7 @@ In Android, **the network security config must be explicitly linked in your `And
 
 When your app boots up, Tolgee is globally initialized. 
 The translations are downloaded from CDN and cached locally. 
-After initialization, other parts of your app (such as activities and fragments), can use Tolgee without additional configuration.
+After initialization, other parts of your app (such as activities and fragments) can use Tolgee without additional configuration.
 
 **Initialize Tolgee in your `Application` class:**
 
@@ -151,16 +147,14 @@ class MyApplication : Application() {
 
 **_Make sure that your app knows where to download translations_**:
 
-**For your app to download translation files, you need to provide a CDN URL prefix specific to your project.**
-This prefix points to the catalog that contains your app’s translations.
+For your app to download translation files, you need to provide a CDN URL prefix specific to your project.
+This prefix points to the catalog that contains your app's translations.
 
-### How to get your CDN URL prefix (Content Delivery):
+**To get your CDN URL prefix:**
 
-**1. Open Tolgee Platform → your Project → Developer settings → Content Delivery(Add).**
-
-**2. Copy the full CDN URL prefix.**
-
-**3. You can use different prefixes per environment (dev/staging/prod).**
+1. Open **Tolgee Platform → your Project → Developer settings → Content Delivery (Add)**
+2. Copy the full CDN URL prefix
+3. You can use different prefixes per environment (dev/staging/prod)
 
 :::info
 If you have a different integration setup (for example, using tolgee-cli and bundling JSON translation files in assets), the initialization may look different.
@@ -168,7 +162,7 @@ If you have a different integration setup (for example, using tolgee-cli and bun
 
 ### Other Platforms
 
-**For non-Android platforms, initialization is similar** but no storage provider is implemented:
+For non-Android platforms, initialization is similar but no storage provider is implemented:
 
 ```kotlin
 fun initTolgee() {
@@ -180,11 +174,14 @@ fun initTolgee() {
     }
 }
 ```
+
 :::note
 If you want to implement your own storage provider, do it here.
 :::
 
-#### **Optional**: Verify connectivity locally:
+### Verify connectivity (optional)
+
+You can verify your CDN connection locally:
 
 ```bash
 curl -I "https://cdn.tolg.ee/your-cdn-url-prefix/en.json"
@@ -198,9 +195,9 @@ If you get **403** (Forbidden) or **404** (Not found), **double‑check the pref
 Dynamic updates without republishing. See the step-by-step guide in [**Usage**](./usage.mdx).
 :::
 
-## Next steps
+## Next Steps
 
-- Not sure which artifact to use? See [overview](../overview.mdx)
-- Learn how to fetch and render translations in Views: [`Usage`](./usage.mdx)
+- Not sure which artifact to use? See [Overview](../overview.mdx)
+- Learn how to fetch and render translations in Views: [Usage](./usage.mdx)
 - Using Compose? Start here: [Jetpack Quickstart](../jetpack/quickstart.mdx)
-- Having issues? Check [`Troubleshooting`](./troubleshooting.mdx)
+- Having issues? Check [Troubleshooting](./troubleshooting.mdx)
