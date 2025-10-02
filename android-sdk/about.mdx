@@ -7,6 +7,7 @@ description: Overview of Tolgee Android SDK with Over‑the‑Air (OTA) localiza
 
 import SystemCard from '@site/src/component/SystemCard';
 import FeatureGrid from '@site/src/component/FeatureGrid';
+import { ScreenshotWrapper } from '../platform/shared/_ScreenshotWrapper';
 
 # Tolgee for Android SDK
 
@@ -37,6 +38,8 @@ For managing static translations in your repository, consider using the [Tolgee 
 
 ### **Core**
 
+<img src="/img/docs/sdk/android.svg" alt="Android" width="100" />
+
 Core is a base library for fetching translations from CDN and querying them.
 It's designed for use with **Android Views** or **any non Compose UI**.
 
@@ -48,6 +51,8 @@ It's designed for use with **Android Views** or **any non Compose UI**.
 - **Parameter** **and Plural Support**.
 
 ### **Compose**
+
+<img src="/img/docs/sdk/jetpack-compose.png" alt="Jetpack Compose" width="100" />
 
 Compose is an extension for using the library with **Jetpack Compose** or **Compose Multiplatform**.
 It **adds localized composables and helpers** (e.g., stringResource, pluralStringResource).
@@ -81,6 +86,11 @@ Complete example implementation using Jetpack Compose
 Complete example implementation using Compose Multiplatform
 
 - [https://github.com/tolgee/tolgee-mobile-kotlin-sdk/tree/master/demo/examplecomposemultiplatform](https://github.com/tolgee/tolgee-mobile-kotlin-sdk/tree/master/demo/examplecomposemultiplatform)
+
+<ScreenshotWrapper
+  src="/img/docs/sdk/android-studio.png"
+  alt="Android Studio"
+/>
 
 ## Get Started
 
