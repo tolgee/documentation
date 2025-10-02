@@ -42,12 +42,12 @@ curl -I "https://cdn.tolg.ee/your-cdn-url-prefix/en.json"
 
 ## Common Issues
 
-**1. Dependency Issues**
+### Dependency Issues
 
 - Make sure Maven Central is included in your repositories - check the dependency in your build.gradle.kts.
 - If using a Version Catalog, confirm that version.ref = "tolgee" points to the correct version.
 
-**2. Translation Issues**
+### Translation Issues
 
 - Check that your Tolgee instance is properly initialized (in Application with applicationContext).
 - Verify CDN URL prefix in Tolgee Platform.
@@ -56,11 +56,11 @@ curl -I "https://cdn.tolg.ee/your-cdn-url-prefix/en.json"
 - Make sure you're calling Tolgee.init before accessing translations.
 - Use tolgee.preload or tolgee.tFlow before calling tolgee.t to ensure translations are loaded.
 
-**3. Network Security Issues**
+### Network Security Issues
 
 - Add a network_security.xml in your res/xml folder (You can reference it in AndroidManifest.xml).
 
-**4. Locale Issues**
+### Locale Issues
 
 - Use tolgee.changeFlow to monitor locale changes and update your UI accordingly.
 - Call tolgee.preload(this) function for critical screens (e.g., login, onboarding).
@@ -68,7 +68,7 @@ curl -I "https://cdn.tolg.ee/your-cdn-url-prefix/en.json"
 - Check that translations for the selected locale exist in your Tolgee project.
 - Use a mock or explicit instance for tests/previews.
 
-**5. Plurals & Formatting Issues**
+### Plurals & Formatting Issues
 
 - Make sure plural resources exist both in Android (plurals.xml) and Tolgee Platform.
 - Use the correct formatter (Sprintf vs ICU).
@@ -76,13 +76,13 @@ curl -I "https://cdn.tolg.ee/your-cdn-url-prefix/en.json"
 
 See also: [Android XML format](/platform/formats/android_xml) · [Tolgee Universal ICU placeholders](/platform/translation_process/tolgee_universal_icu_placeholders)
 
-**6. Android Resource Integration Issues**
+### Android Resource Integration Issues
 
 - Check that your Android resources are properly structured - Tolgee is using resources.getResourceEntryName to find key for the resource.
 - Make sure the Tolgee instance has access to the Android application context.
 - Ensure that the TolgeeStorageProviderAndroid is properly initialized with the context and version code which changes with each app update.
 
-**7. Multiplatform (KMP) Issues**
+### Multiplatform (KMP) Issues
 
 - Verify that your resource files are correctly set up and all strings present in resources are also in Tolgee Platform.
 - Make sure that you are using the correct resource references.
