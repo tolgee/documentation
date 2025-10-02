@@ -10,31 +10,52 @@ import AndroidApiRequirement from '@site/src/component/AndroidApiRequirement';
 For managing static translations, we recommend using [Tolgee CLI](https://github.com/tolgee/tolgee-cli).
 :::
 
-## Requirements
-
-<AndroidApiRequirement />
-
 ## Quickstart
 
-This guide shows you how to integrate Tolgee Android SDK using the **Core module** for traditional Android Views. The **Core module** is a library that provides runtime support for Tolgee translations in your app.
-:::info
-Using **Version Catalog** is recommended to keep your versions aligned, especially in bigger projects. This provides **readability, centralization, and consistency**.
-:::
+The Tolgee **Core module** is a library that **simplifies the translation process and provides runtime support for translations in your app**.
+This guide shows you how to **integrate Tolgee Android SDK** using the **Core module** for traditional **Android Views**.
+
+### To use Tolgee in your Android Views application, follow these steps:
+
+**1. Add dependency**
+
+*If needed.
+
+2*. Include Maven Central in repositories
+
+3*. Allow CDN networking
+
+**4. Initialize Tolgee**
 
 :::note
 Configuration exaples below are written in Kotlin DSL. Groovy DSL should work but is not officially supported/tested.
 :::
 
-### 1. Add dependency (Core):
+## Requirements
 
-In `gradle/libs.versions.toml` **add an alias for Tolgee library**.
+<AndroidApiRequirement />
+
+## Installing Tolgee Core
+
+:::info
+Using **Version Catalog** is recommended to keep your versions aligned, especially in bigger projects.
+This **provides readability, centralization, and consistency**.
+:::
+
+**1. Add dependency (Core):**
+
+**The translations in your code depend on the base Tolgee library**, which is responsible for fetching and querying them. 
+**To use the library, you need to add the dependency to your project.**
+
+
+**In `gradle/libs.versions.toml` add an alias for Tolgee library**:
 
 ```toml
 [libraries]
 tolgee = { group = "io.tolgee.mobile-kotlin-sdk", name = "core", version.ref = "tolgee" }
 ```
 
-Then, in `build.gradle.kts`, **use the created alias**.
+Then, **in `build.gradle.kts`, use the created alias**:
 
 ```kotlin
 dependencies {
@@ -54,14 +75,19 @@ dependencies {
 If you use **Jetpack Compose**, see the Compose variant: [Jetpack Compose -> Quickstart](/android-sdk/jetpack/quickstart)
 :::
 
-### 2. (If needed) Ensure repositories include Maven Central in `settings.gradle.kts` or `build.gradle.kts`:
+**2. (If needed) Ensure repositories include Maven Central**
+
+When you add a dependency, **your app needs to know where to download the library from**. 
+So sure your repositories are configured to **include Maven Central for dependency resolution**.
+
+
+**In `settings.gradle.kts` or `build.gradle.kts`, add:**
 
 ```kotlin
 pluginManagement { repositories { gradlePluginPortal(); google(); mavenCentral() } }
 dependencyResolutionManagement { repositories { google(); mavenCentral() } }
 ```
 
-Make sure your repositories are configured to include **Maven Central** for dependency resolution.
 If you encounter an error like:
 
 ```text
@@ -70,13 +96,16 @@ Could not find io.tolgee.mobile-kotlin-sdk:core
 
 verify that Maven Central is included in your repository configuration.
 
-### 3. Allow CDN networking:
+**3. Allow CDN networking:**
+
+**Enable Tolgee to fetch translations from the cloud at runtime**. To do that you need to **configure network access**.
 
 :::info
-Allowing `tolgee.io` and `tolg.ee` domains is required when using Tolgee Cloud CDN. If you access your own self-hosted CDN, here is where you should add the domain of your CDN.
+Allowing `tolgee.io` and `tolg.ee` domains is required when using Tolgee Cloud CDN.
+If you access your own self-hosted CDN, here is where you should add the domain of your CDN.
 :::
 
-   Create a network security config file `network_security.xml` in your `res/xml` folder:
+**Create a network security config file `network_security.xml` in your `res/xml` folder:**
 
 ```xml
 <?xml version="1.0" encoding="utf-8"?>
@@ -88,7 +117,9 @@ Allowing `tolgee.io` and `tolg.ee` domains is required when using Tolgee Cloud C
 </network-security-config>
 ```
 
-Add network security config to your `AndroidManifest.xml`:
+In Android, **the network security config must be explicitly linked in your `AndroidManifest.xml`**, so the system knows to apply it.
+
+**Add network security config to your `AndroidManifest.xml`:**
 
 ```xml
 <application
@@ -96,9 +127,13 @@ Add network security config to your `AndroidManifest.xml`:
 </application>
 ```
 
-## Initialization and configuration
+## Initialization And Configuration
 
-### Initialize Tolgee in your `Application` class.
+When your app boots up, Tolgee is globally initialized. 
+The translations are downloaded from CDN and cached locally. 
+After initialization, other parts of your app (such as activities and fragments), can use Tolgee without additional configuration.
+
+**Initialize Tolgee in your `Application` class:**
 
 ```kotlin
 class MyApplication : Application() {
@@ -114,17 +149,18 @@ class MyApplication : Application() {
 }
 ```
 
-When your app boots up, Tolgee is globally initialized. The translations are downloaded from CDN and cached locally. Other parts of your app (such as activities and fragments) can now use Tolgee without additional configuration.
-
 **_Make sure that your app knows where to download translations_**:
 
-For your app to download translation files, you need to provide a CDN URL prefix specific to your project. This prefix points to the catalog that contains your app’s translations.
+**For your app to download translation files, you need to provide a CDN URL prefix specific to your project.**
+This prefix points to the catalog that contains your app’s translations.
 
 ### How to get your CDN URL prefix (Content Delivery):
 
-1. Open Tolgee Platform → your Project → Developer settings → Content Delivery(Add).
-2. Copy the full CDN URL prefix.
-3. You can use different prefixes per environment (dev/staging/prod).
+**1. Open Tolgee Platform → your Project → Developer settings → Content Delivery(Add).**
+
+**2. Copy the full CDN URL prefix.**
+
+**3. You can use different prefixes per environment (dev/staging/prod).**
 
 :::info
 If you have a different integration setup (for example, using tolgee-cli and bundling JSON translation files in assets), the initialization may look different.
@@ -132,7 +168,7 @@ If you have a different integration setup (for example, using tolgee-cli and bun
 
 ### Other Platforms
 
-For non-Android platforms, initialization is similar but without the Android-specific storage provider:
+**For non-Android platforms, initialization is similar** but no storage provider is implemented:
 
 ```kotlin
 fun initTolgee() {
@@ -144,15 +180,19 @@ fun initTolgee() {
     }
 }
 ```
+:::note
+If you want to implement your own storage provider, do it here.
+:::
 
-### **Optional**: Verify connectivity locally:
+#### **Optional**: Verify connectivity locally:
 
 ```bash
 curl -I "https://cdn.tolg.ee/your-cdn-url-prefix/en.json"
 ```
 
-You should receive a 200 response.
-If you get 403 (Forbidden) or 404 (Not found), double‑check the prefix.
+You should receive a **200** response.
+
+If you get **403** (Forbidden) or **404** (Not found), **double‑check the prefix**.
 
 :::tip
 Dynamic updates without republishing. See the step-by-step guide in [**Usage**](./usage.mdx).
