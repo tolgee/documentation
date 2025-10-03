@@ -1,14 +1,44 @@
 ---
 id: usage
-title: Usage
-description: How to use Tolgee Android SDK in your Android application with Jetpack Compose support
+title: Usage (Compose Module)
+description: How to use Tolgee Android SDK Compose module in Jetpack Compose and Compose Multiplatform applications
 ---
 
-> Prerequisite: Make sure you’ve installed and initialized the Tolgee for Compose. See: [Jetpack Compose Installation](./installation.mdx)
+# Usage (Compose Module)
 
-Tolgee’s Jetpack Compose extensions let you fetch localized strings directly inside your composables. Below are the most common patterns you’ll use:
+This guide shows you how to use the Tolgee Android SDK Compose module**.
 
-* __Use `stringResource` for simple strings__ - retrieve a translation by its resource ID.
+
+To use Tolgee in your **Jetpack Compose or Compose Multiplatform application**, you need to follow these steps:
+
+**1. Choose your translation type**
+
+**2. Learn how to handle plurals with Tolgee**
+
+**3. Create an explicit Tolgee instance** (If needed)
+
+**4. Create a locale switcher**
+
+**5. Observe locale changes**
+
+## Prerequisites
+
+**Make sure you've completed the quickstart setup and initialized Tolgee for Compose.** See: [Quickstart (Compose Module)](./quickstart.mdx)
+
+## Basic Usage
+
+Tolgee's Compose extensions lets you fetch localized keys directly inside your composables.
+
+:::note
+If you are unsure of which translation type to choose, notice a “Use for...” section under every explanation.
+:::
+
+
+## Getting translations
+
+### 1. Simple Strings
+
+- **Jetpack Compose**
 
 ```kotlin
 @Composable
@@ -16,7 +46,27 @@ fun SimpleText() {
     Text(text = stringResource(R.string.welcome_message))
 }
 ```
-* __Pass parameters to translations__ - supply arguments for placeholders in your strings.
+
+- **Compose Multiplatform**
+
+```kotlin
+@Composable
+fun SimpleText() {
+    Text(text = stringResource(Res.string.welcome_message))
+}
+```
+
+:::info
+In the Compose Multiplatform use `stringResource` function with `Res`.
+:::
+
+Use `stringResource` for **simple strings** (e. g., error messages, titles), retrieve a translation by its resource ID.
+
+### 2. With Parameters
+
+Pass parameters to translations, supply arguments for placeholders in your keys.
+
+- **Jetpack Compose**
 
 ```kotlin
 @Composable
@@ -24,7 +74,63 @@ fun TextWithParameters(name: String) {
     Text(text = stringResource(R.string.welcome_user, name))
 }
 ```
-* __Handle plurals with `pluralStringResource`__ - provide the count and any formatting args.
+
+- **Compose Multiplatform**
+
+```kotlin
+@Composable
+fun TextWithParameters(name: String) {
+    Text(text = stringResource(Res.string.welcome_user, name))
+}
+```
+
+Use for translation with **dynamic values**. Add data that changes during the app's runtime (e.g., dates, numbers, usernames).
+
+### Formatter Configuration
+
+**Choose how placeholders are parsed and rendered.**
+Use when you have translations with placeholders, SDK must know how to exchange the placeholders for wanted values.
+**Example**: "`Hello %s`" or"`You have {count} items`"
+
+See also: [Android XML format](/platform/formats/android_xml) · [Tolgee Universal ICU placeholders](/platform/translation_process/tolgee_universal_icu_placeholders)
+
+
+**1. Sprintf**
+
+```kotlin
+Tolgee.init {
+    contentDelivery {
+        url = "https://cdn.tolg.ee/your-cdn-url-prefix"
+        format(Tolgee.Formatter.Sprintf)
+    }
+}
+```
+
+**Use for easy scenarios**, when you are using formatters, like `%s, %d, %1$s`.
+
+:::warning
+**This parameter type won't work with fallbacks to Android Resources** - it's not functional for apps with any offline activity.
+:::
+
+**2.  ICU**
+
+```kotlin
+Tolgee.init {
+    contentDelivery {
+        url = "https://cdn.tolg.ee/your-cdn-url-prefix"
+        format(Tolgee.Formatter.ICU)
+    }
+}
+```
+
+**Use for more advanced translations and ICU features**, when you need nested formats or formatters,
+ like e.g. few, may, female, and complex lingual principles.
+
+### 3. Plurals
+
+Handle plurals with `pluralStringResource` - provide the count and any formatting arguments.
+
+- **Jetpack Compose**
 
 ```kotlin
 @Composable
@@ -32,6 +138,19 @@ fun PluralText(count: Int) {
     Text(text = pluralStringResource(R.plurals.item_count, count, count))
 }
 ```
+
+- **Compose Multiplatform**
+
+```kotlin
+@Composable
+fun PluralText(count: Int) {
+    // Handle plural forms
+    Text(text = pluralStringResource(Res.plurals.item_count, count, count))
+}
+```
+
+**Use for lists, counters, notifications**, any situation where the grammar changes with quantity.
+
 
 ## Explicit Tolgee Instance
 
@@ -46,9 +165,11 @@ fun ExplicitInstance() {
 }
 ```
 
+Handy when you need **more than one instance** (multiple projects/CDNs), when following **dependency injection** patterns (dependencies are “injected”, not created inside classes), and or **during testing/previews**.
+
 ## Locale Switching
 
-You can create a locale switcher component:
+**You can create a locale switcher component:**
 
 ```kotlin
 @Composable
@@ -73,9 +194,14 @@ fun LocaleSwitcher() {
 }
 ```
 
+Handy for apps, where “**choose language**” option is available, you want to use **Over‑the‑Air (OTA) translation updates** (translations refresh automatically when locale or content changes), and during **testing/debugging**.
+
+Most often used in **settings screens, onboarding flows, or debug menus** - anytime you want to allow **runtime language switching**.
+
 ## Observing Locale Changes
 
-Collecting `Tolgee.changeFlow` as state ensures your composable recomposes whenever the locale changes, keeping the UI in sync with the active language.
+**Collecting `Tolgee.changeFlow` as state ensures your composable recomposes whenever the locale changes**, 
+keeping the UI in sync with the active language.
 
 ```kotlin
 @Composable
@@ -90,7 +216,10 @@ fun LocaleAwareComponent() {
 }
 ```
 
-## Next steps
+Handy for **observing locale changes** in real time, **keeping track of current locale**, **showing chosen language** in app, **reactively updating translations** whenever user switches the language.
 
-- Learn the basics with Views: [`Usage`](/android-sdk/usage)
-- Problems? See [`Troubleshooting`](/android-sdk/jetpack/troubleshooting)
+## Next Steps
+
+- **Using traditional Views?** See [Core Module Usage](/android-sdk/core-module/usage)
+- **Production deployment?** Check [Production](/android-sdk/production)
+- **Having issues?** See [Troubleshooting](./troubleshooting.mdx)
