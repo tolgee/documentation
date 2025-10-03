@@ -21,6 +21,11 @@
       "href": "https://argos-ci.com"
     },
     {
+      "name": "Bitfrost",
+      "description": "Bifrost is a high-performance LLM gateway that connects 1000+ models through a single API interface with extremely high throughput.",
+      "href": "https://www.getmaxim.ai/bifrost"
+    },
+    {
       "name": "Cal.com",
       "description": "Cal.com is a scheduling tool that helps you schedule meetings without the back-and-forth emails.",
       "href": "https://cal.com"
