@@ -6,13 +6,13 @@ description: How to use Tolgee Android SDK Core module in traditional Android Vi
 
 # Usage (Core Module)
 
-**This guide shows you how to use the Tolgee Android SDK Core module in your Android Views application.**
+This guide shows you how to use the Tolgee Android SDK Core module in your Android Views application.
 
 To use Tolgee in your application, you need to follow these steps:
 
 **1. Get the Tolgee instance**
 
-**2 Choose translation type**
+**2. Choose translation type**
 
 **3. Implement translation type**
 
@@ -22,9 +22,7 @@ You can also find **information about formatter configuration and plurals** here
 
 ## Prerequisites
 
-**Ensure you have completed the quickstart guide and initialized Tolgee in your Application class.** See: [Quickstart (Core Module)](./quickstart.mdx)
-
-# Basic Usage
+Ensure you have completed the quickstart guide and initialized Tolgee in your Application class. See: [Quickstart (Core Module)](./quickstart.mdx)
 
 ## Get The Global Tolgee Instance
 
@@ -101,13 +99,13 @@ Create a global corutine by calling `Tolgee.preload()` function with mentioned a
 
 **Fallbacks provide a safety net** in case of any problems with loading the translation or pulling from Android resources.
 
-- One time translation with fallbacks:
+One time translation with fallbacks:
 
 ```kotlin
 val text = tolgee.t(context, R.string.string_key)
 ```
 
-- Translation with parameters & fallbacks:
+Translation with parameters & fallbacks:
 
 ```kotlin
 val textWithParams = tolgee.t(context, R.string.string_with_params, "param1", "param2")
@@ -120,7 +118,7 @@ To use parameters with Android fallbacks and ensure that translations from CDN c
 
 To receive **fresh translations without needing to publish new app versions** follow these steps:
 
-- Wrap your Activity context, so Android resource lookups use Tolgee:
+Wrap your Activity context, so Android resource lookups use Tolgee:
 
 ```kotlin
 class MyActivity : Activity() {
@@ -130,7 +128,7 @@ class MyActivity : Activity() {
 }
 ```
 
-- Trigger a UI refresh when locale/translations change:
+Trigger a UI refresh when locale/translations change:
 
 ```kotlin
 lifecycleScope.launch {
@@ -171,7 +169,6 @@ Use when you have translations with placeholders, SDK must know how to exchange 
 **Example**: "`Hello %s`" or"`You have {count} items`"
 
 See also: [Android XML format](/platform/formats/android_xml) · [Tolgee Universal ICU placeholders](/platform/translation_process/tolgee_universal_icu_placeholders)
-
 
 **1. Sprintf**
 
