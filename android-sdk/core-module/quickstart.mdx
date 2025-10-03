@@ -41,9 +41,8 @@ This **provides readability, centralization, and consistency**.
 
 **1. Add dependency (Core):**
 
-**The translations in your code depend on the base Tolgee library**, which is responsible for fetching and querying them. 
+**The translations in your code depend on the base Tolgee library**, which is responsible for fetching and querying them.
 **To use the library, you need to add the dependency to your project.**
-
 
 **In `gradle/libs.versions.toml` add an alias for Tolgee library**:
 
@@ -75,7 +74,6 @@ If you use **Jetpack Compose**, see the Compose variant: [Jetpack Compose -> Qui
 **2. (If needed) Ensure repositories include Maven Central**
 
 When you add a dependency, **your app needs to know where to download the library from**. So, make sure your repositories are configured to **include Maven Central for dependency resolution**.
-
 
 **In `settings.gradle.kts` or `build.gradle.kts`, add:**
 
@@ -125,8 +123,8 @@ In Android, **the network security config must be explicitly linked in your `And
 
 ## Initialization And Configuration
 
-When your app boots up, Tolgee is globally initialized. 
-The translations are downloaded from CDN and cached locally. 
+When your app boots up, Tolgee is globally initialized.
+The translations are downloaded from CDN and cached locally.
 After initialization, other parts of your app (such as activities and fragments) can use Tolgee without additional configuration.
 
 **Initialize Tolgee in your `Application` class:**
@@ -147,7 +145,7 @@ class MyApplication : Application() {
 
 **_Make sure that your app knows where to download translations_**:
 
-For your app to download translation files, you need to provide a CDN URL prefix specific to your project.
+**For your app to download translation files, you need to provide a CDN URL prefix specific to your project.**
 This prefix points to the catalog that contains your app's translations.
 
 **To get your CDN URL prefix:**

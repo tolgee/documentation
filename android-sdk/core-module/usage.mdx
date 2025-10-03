@@ -6,13 +6,30 @@ description: How to use Tolgee Android SDK Core module in traditional Android Vi
 
 # Usage (Core Module)
 
+**This guide shows you how to use the Tolgee Android SDK Core module in your Android Views application.**
+
+To use Tolgee in your application, you need to follow these steps:
+
+**1. Get the Tolgee instance**
+
+**2 Choose translation type**
+
+**3. Implement translation type**
+
+**4. Manage locales**
+
+You can also find **information about formatter configuration and plurals** here.
+
 ## Prerequisites
 
-Ensure you have completed the quickstart setup and initialization in your Application class. See: [Quickstart](./quickstart.mdx)
+**Ensure you have completed the quickstart guide and initialized Tolgee in your Application class.** See: [Quickstart (Core Module)](./quickstart.mdx)
 
-## Basic Usage
+# Basic Usage
 
-### Get the global Tolgee instance:
+## Get The Global Tolgee Instance
+
+After you have initialized Tolgee in your app, following the quickstart guide.
+Set up a singleton Tolgee global instance, this allows you to use Tolgee.
 
 ```kotlin
 val tolgee = Tolgee.instance
@@ -22,9 +39,15 @@ From now on you can:
 
 - get translations: `tolgee.t("key")`, `tolgee.tFlow("key")`,
 - change locales: `tolgee.setLocale("xx")`,
-- listen for changes: `tolgee.changeFlow`; and respond to them: `tolgee.addChangeListener.
+- listen for changes: `tolgee.changeFlow`; and respond to them: `tolgee.addChangeListener`.
 
 ## Getting Translations
+
+In this section, the translation types are demonstrated. Here you can see a quick overview:
+
+:::note
+If you are unsure of which translation type to choose, notice a “Use for...” section under every explanation.
+:::
 
 ### One time translations:
 
@@ -34,12 +57,13 @@ val text: String? = tolgee.t("key")
 
 Returns null if translations are not yet loaded (e.g., SDK hasn't downloaded data).
 
-Returns a string when translations are loaded.
+Returns a key when translations are loaded.
 
 **Use for simple/static text** (e. g., error messages, titles).
 
-:::note
-If you choose this function for your app, creating a **global corutine** with `Tolgee.preload()` is reccomended. See a tip under **A) Preload translations for the current locale from Activity** section.
+:::warning
+If you choose this function for your app, create a **global corutine** with `Tolgee.preload()`.
+See a tip under **a) Preload translations for the current locale from Activity** section.
 :::
 
 ### Translation with parameters:
@@ -50,12 +74,10 @@ val textWithParams: String? = tolgee.t("key_with_param", mapOf("param" to "value
 
 **_Use for translation with dynamic values._** Add data that changes during the app's runtime (e.g., dates, numbers, usernames).
 
-:::note
-To use parameters with Android fallbacks and ensure that translations from CDN can be interpreted, follow ICU order.
-:::
 
-:::note
-If you choose this function for your app, creating a **global corutine** with `Tolgee.preload()` is reccomended. See a tip under **A) Preload translations for the current locale from Activity** section.
+:::warning
+If you choose this function for your app, creating a **global corutine** with `Tolgee.preload()` is reccomended.
+See a tip under **a) Preload translations for the current locale from Activity** section, below.
 :::
 
 #### a) Preload translations for the current locale
@@ -67,36 +89,38 @@ override fun onStart() {
 }
 ```
 
-Improves perceived performance - ensures strings are ready sooner for the current locale.
+Improves perceived performance - ensures keys are ready sooner for the current locale.
+
 **Use for UI’s where the translations are critical (e.g., login, onboarding).**
 
 :::tip
-**Create a global corutine by calling `Tolgee.preload()` function with both, mentioned, one-time translations and translations with parameters.
+Create a global corutine by calling `Tolgee.preload()` function with mentioned above one-time translations and translations with parameters.
 :::
 
 #### b) Get a translation with fallback to Android resources
 
-Fallbacks provide a safety net in case of any problems with loading the translation or pulling from Android resources.
+**Fallbacks provide a safety net** in case of any problems with loading the translation or pulling from Android resources.
 
-**- One time translation with fallbacks:**
+- One time translation with fallbacks:
 
 ```kotlin
 val text = tolgee.t(context, R.string.string_key)
 ```
 
-**- Translation with parameters & fallbacks:**
+- Translation with parameters & fallbacks:
 
 ```kotlin
 val textWithParams = tolgee.t(context, R.string.string_with_params, "param1", "param2")
 ```
+:::warning
+To use parameters with Android fallbacks and ensure that translations from CDN can be interpreted, follow ICU order.
+:::
 
 #### c) Semi-dynamic updates for classic Views
 
-:::info
-To receive fresh translations without needing to publish new app versions follow these steps:
-:::
+To receive **fresh translations without needing to publish new app versions** follow these steps:
 
-**- Wrap your Activity context so Android resource lookups use Tolgee:**
+- Wrap your Activity context, so Android resource lookups use Tolgee:
 
 ```kotlin
 class MyActivity : Activity() {
@@ -106,7 +130,7 @@ class MyActivity : Activity() {
 }
 ```
 
-**- Trigger a UI refresh when locale/translations change:**
+- Trigger a UI refresh when locale/translations change:
 
 ```kotlin
 lifecycleScope.launch {
@@ -116,7 +140,8 @@ lifecycleScope.launch {
 }
 ```
 
-Combining those two approaches gives you **semi-dynamic behavior**: translations update after an Activity reload, not instantly. This setup works with both one-time translations and translations with parameters.
+Combining those two approaches gives you **semi-dynamic behavior, translations update after an Activity reload, not instantly**. 
+This setup works with both one-time translations and translations with parameters.
 
 ### Get dynamic (reactive) translations.
 
@@ -129,7 +154,7 @@ textFlow.collect { text ->
 
 **Use for reactive UI.** Translations update **immediately and automatically** whenever the language or CDN data changes.
 
-#### **- Reactive translation with fallback to Android resources**
+#### - Dynamic translation with fallback to Android resources
 
 ```kotlin
 val textFlow = tolgee.tFlow(context, R.string.string_key)
@@ -139,14 +164,57 @@ val textFlow = tolgee.tFlow(context, R.string.string_key)
 In Compose, use `collectAsState()` function for a more idiomatic integration. See more in [**Jetpack Compose Usage**](../jetpack/usage.mdx).
 :::
 
+### Formatter Configuration
+
+**Choose how placeholders are parsed and rendered.**
+Use when you have translations with placeholders, SDK must know how to exchange the placeholders for wanted values.
+**Example**: "`Hello %s`" or"`You have {count} items`"
+
+See also: [Android XML format](/platform/formats/android_xml) · [Tolgee Universal ICU placeholders](/platform/translation_process/tolgee_universal_icu_placeholders)
+
+
+**1. Sprintf**
+
+```kotlin
+Tolgee.init {
+    contentDelivery {
+        url = "https://cdn.tolg.ee/your-cdn-url-prefix"
+        format(Tolgee.Formatter.Sprintf)
+    }
+}
+```
+
+**Use for easy scenarios**, when you are using formatters, like `%s, %d, %1$s`.
+
+:::warning
+**This parameter type won't work with fallbacks to Android Resources** - it's not functional for apps with any offline activity.
+:::
+
+**2.  ICU**
+
+```kotlin
+Tolgee.init {
+    contentDelivery {
+        url = "https://cdn.tolg.ee/your-cdn-url-prefix"
+        format(Tolgee.Formatter.ICU)
+    }
+}
+```
+
+**Use for more advanced translations and ICU features**, when you need nested formats or formatters,
+ like e.g. few, may, female, and complex lingual principles.
+
 ## Plurals
+
+Plurals ensure your app displays grammatically correct text based on the count, so users always see localized phrases.
 
 :::info
 Tolgee advantage: keeps plural rules and translations in sync across languages, without you needing to hardcode them.
 :::
 
+**Handle Android plurals via resources:**
+
 ```kotlin
-Handle Android plurals via resources:
 val itemsText = tolgee.tPlural(context, R.plurals.items_count, count, count)
 textView.text = itemsText
 ```
@@ -156,6 +224,8 @@ textView.text = itemsText
 See also: [Android XML format](/platform/formats/android_xml) · [Tolgee Universal ICU placeholders](/platform/translation_process/tolgee_universal_icu_placeholders)
 
 ## Locale Management
+
+This section addresses deciding and controlling what **language and region** your app uses.
 
 ### 1. Set the locale manually.
 
@@ -191,58 +261,17 @@ lifecycleScope.launch {
 **Use for building dynamically updated UI.**
 Enables you to create UI that stays in sync with locale changes and new translations.
 
-## Advanced Configuration
-
-### Formatter Configuration
-
-**Choose how placeholders are parsed and rendered.**
-Use when you have translations with placeholders, SDK must know how to exchange the placeholders for wanted values.
-**Example**: "`Hello %s`" or"`You have {count} items`"
-
-1. Sprintf (default – Android style)
-
-```kotlin
-Tolgee.init {
-    contentDelivery {
-        url = "https://cdn.tolg.ee/your-cdn-url-prefix"
-        format(Tolgee.Formatter.Sprintf)
-    }
-}
-```
-
-**Use for easy scenarios**, when you are using classic formatters (`%s, %d, %1$s`). 
-**These parameters won't work with fallbacks to Android Resources** - it's not functional for apps with any offline activity.
-
-2.  ICU (Native Flat JSON)
-
-```kotlin
-Tolgee.init {
-    contentDelivery {
-        url = "https://cdn.tolg.ee/your-cdn-url-prefix"
-        format(Tolgee.Formatter.ICU)
-    }
-}
-```
-
-**Use for more advanced translations and ICU features**, when you need nested formats or formatters like e.g. few, may, female, complex lingual principles.
+:::info
 
 ## Example Projects
 
 **For complete examples of how to use the Tolgee Core module**, check out the demo projects:
 
 **Example Android:** https://github.com/tolgee/tolgee-mobile-kotlin-sdk/tree/master/demo/exampleandroid
-
-## Best Practices
-
-- **Preload translations** in `onStart` → ensures strings for the current locale are ready sooner.
-- **Avoid main-thread blocking**; use Flows → keeps UI responsive.
-- **Keep keys in sync** between Android resources and Tolgee → use Tolgee CLI.
-- **Wrap context** in Activities → ensures translations come from Tolgee.
-- **Call `recreate()`** in Activities → automatic updates in classic Views.
-- **Subscribe to `changeFlow`** → enables fully reactive UIs.
+:::
 
 ## Next Steps
 
 - **Using Compose?** Continue with [Jetpack Compose Usage](../jetpack/usage.mdx)
-- **Production deployment?** See [Production Guide](/android-sdk/production)
-- **Having issues?** Check [Troubleshooting](./troubleshooting.mdx)
+- **Production deployment?** See [Production](/android-sdk/production)
+- **Having issues?** Check [Troubleshooting (Core Module)](./troubleshooting.mdx)

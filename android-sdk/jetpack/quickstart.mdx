@@ -8,37 +8,55 @@ import AndroidApiRequirement from '@site/src/component/AndroidApiRequirement';
 
 # Quickstart (Compose Module)
 
-This guide shows you how to integrate Tolgee Android SDK using the **Compose module** for Jetpack Compose and Compose Multiplatform.
-
-The Compose module is Android's modern **declarative UI toolkit**; it's a **simpler** and **more reactive model** compared to Core module. It provides you with **instant access to Tolgee translations** directly in Composables/Compose Multiplatform projects, with **automatic updates**.
 :::info
 For managing static translations, we recommend using [Tolgee CLI](https://github.com/tolgee/tolgee-cli).
+:::
+
+## Quickstart
+
+This guide shows you how to integrate Tolgee Android SDK using the **Compose module** for Jetpack Compose and Compose Multiplatform.
+
+The Compose module is Android's modern **declarative UI toolkit**; it's a **simpler** and **more reactive model** compared to Core module. 
+It provides you with **instant access to Tolgee translations** directly in Composables/Compose Multiplatform projects, with **automatic updates**.
+
+### Integration Steps
+
+To use Tolgee in your Android Views application, follow these steps:
+
+**1. Add dependency**
+**2. Include Maven Central in repositories** (If needed)
+**3. Allow CDN networking**
+**4. Initialize Tolgee**
+
+:::note
+Configuration exaples below are written in Kotlin DSL. Groovy DSL should work but is not officially supported/tested.
 :::
 
 ## Requirements
 
 <AndroidApiRequirement />
 
-## Dependency Setup
+## Instaling Tolgee Compose
 
 :::info
 Using **Version Catalog** is recommended to keep your versions aligned, especially in bigger projects. This provides **readability, centralization, and consistency**.
 :::
 
-:::note
-Configuration exaples below are written in Kotlin DSL. Groovy DSL should work but is not officially supported/tested.
-:::
 
-1. Add dependency (Compose):
+**1. Add dependency (Compose):**
 
-In `gradle/libs.versions.toml` **add an alias for Tolgee Compose library**.
+**The translations in your code depend on the base Tolgee library**, which is responsible for fetching and querying them. 
+**To use the library, you need to add the dependency to your project.**
+
+
+**In `gradle/libs.versions.toml` **add an alias for Tolgee Compose library**.
 
 ```toml
 [libraries]
 tolgee = { group = "io.tolgee.mobile-kotlin-sdk", name = "compose", version.ref = "tolgee" }
 ```
 
-Then, in `build.gradle.kts`, **use the created alias**.
+**Then, in `build.gradle.kts`, use the created alias**.
 
 ```kotlin
 dependencies {
@@ -58,14 +76,19 @@ dependencies {
 If you use **traditional Android Views**, see the Core variant: [Core Quickstart](/android-sdk/core-module/quickstart)
 :::
 
-2. (If needed) Ensure repositories include Maven Central in `settings.gradle.kts` or `build.gradle.kts`:
+**2. (If needed) Ensure repositories include Maven Central**
+
+When you add a dependency, **your app needs to know where to download the library from.**
+So, make sure your repositories are configured to **include Maven Central for dependency resolution.**
+
+
+ **In `settings.gradle.kts` or `build.gradle.kts`:**
 
 ```kotlin
 pluginManagement { repositories { gradlePluginPortal(); google(); mavenCentral() } }
 dependencyResolutionManagement { repositories { google(); mavenCentral() } }
 ```
 
-Make sure your repositories are configured to include **Maven Central** for dependency resolution.
 If you encounter an error like:
 
 ```text
@@ -74,13 +97,15 @@ Could not find io.tolgee.mobile-kotlin-sdk:compose
 
 verify that Maven Central is included in your repository configuration.
 
-3. Allow CDN networking:
+**3. Allow CDN networking:**
+
+**Enable Tolgee to fetch translations from the cloud at runtime.** To do this, you need to **configure network access**.
 
 :::info
 Allowing `tolgee.io` and `tolg.ee` domains is required when using Tolgee Cloud CDN. If you access your own self-hosted CDN, here is where you should add the domain of your CDN.
 :::
 
-Create a network security config file `network_security.xml` in your `res/xml` folder:
+**Create a network security config file `network_security.xml` in your `res/xml` folder:**
 
 ```xml
 <?xml version="1.0" encoding="utf-8"?>
@@ -92,7 +117,9 @@ Create a network security config file `network_security.xml` in your `res/xml` f
 </network-security-config>
 ```
 
-Add network security config to your `AndroidManifest.xml`:
+In Android, **the network security config must be explicitly linked in your `AndroidManifest.xml`**, so the system knows to apply it.
+
+**Add network security config to your `AndroidManifest.xml`:**
 
 ```xml
 <application
@@ -104,9 +131,14 @@ Add network security config to your `AndroidManifest.xml`:
 Allowing `tolgee.io` and `tolg.ee` domains is required when using Tolgee Cloud CDN. If you only access your own self-hosted CDN, include your domain(s) accordingly.
 :::
 
-## Initialization and configuration
+## Initialization And Configuration
 
-Initialize Tolgee in your `Application` class.
+When your app boots up, Tolgee is globally initialized. 
+The translations are downloaded from CDN and cached locally. 
+After initialization, other parts of your app (such as activities and fragments) can use Tolgee without additional configuration.
+
+
+**Initialize Tolgee in your `Application` class.**
 
 ### Android (Jetpack Compose)
 
@@ -137,39 +169,40 @@ fun initTolgee() {
 }
 ```
 
-When your app boots up, Tolgee is globally initialized. The translations are downloaded from CDN and cached locally. Your Compose components can now use Tolgee without additional configuration.
-
 **_Make sure that your app knows where to download translations_**:
 
-For your app to download translation files, you need to provide a CDN URL prefix specific to your project. This prefix points to the catalog that contains your app's translations.
+**For your app to download translation files, you need to provide a CDN URL prefix specific to your project.** 
+This prefix points to the catalog that contains your app's translations.
 
-### How to get your CDN URL prefix (Content Delivery):
+#### How to get your CDN URL prefix (Content Delivery):
 
-1. Open Tolgee Platform → your Project → Developer settings → Content Delivery(Add).
-2. Copy the full CDN URL prefix.
+1. Open **Tolgee Platform → your Project → Developer settings → Content Delivery (Add)**
+
+2. Copy the full CDN URL prefix
+
 3. You can use different prefixes per environment (dev/staging/prod).
 
-### Optional: Verify connectivity locally:
+#### **Verify connectivity locally (optional):**
 
 ```bash
 curl -I "https://cdn.tolg.ee/your-cdn-url-prefix/en.json"
 ```
 
-You should receive a 200 response.
-If you get 403 (Forbidden) or 404 (Not found), double‑check the prefix.
+You should receive a **200** response.
 
-:::tip
-Compose advantage: No context wrapping needed
-:::
+If you get **403** (Forbidden) or **404** (Not found), double‑check the prefix.
 
-Unlike traditional Android Views, Compose uses its own `stringResource`/`pluralStringResource` helpers, so no `ContextWrapper` is needed for automatic translation updates.
+
+Unlike traditional Android Views, Compose uses its own `stringResource`/`pluralStringResource` helpers, 
+so no `ContextWrapper` is needed for automatic translation updates.
 
 :::note
-If you have a different integration setup (for example, using tolgee-cli and bundling JSON translation files in assets), the initialization may look different.
+If you have a different integration setup (for example, using tolgee-cli and bundling JSON translation files in assets), 
+the initialization may look different.
 :::
 
 ## Next steps
 
-- Learn how to use translations in Compose: [`Usage`](./usage.mdx)
-- Not sure which module to use? See [`Modules overview`](../overview.mdx)
-- Having issues? Check [`Troubleshooting`](./troubleshooting.mdx)
+- Learn how to use translations in Compose: [Usage](./usage.mdx)
+- Not sure which module to use? See [Modules overview](../overview.mdx)
+- Having issues? Check [Troubleshooting](./troubleshooting.mdx)
