@@ -6,26 +6,53 @@ description: Quick start guide for integrating Tolgee Android SDK into your proj
 ---
 
 import SystemCard from '@site/src/component/SystemCard';
-
-## What You'll Achieve
-
-After completing the setup, your app will have:
-
-- **Translations** delivered via CDN.
-- **Offline support** with local caching.
-- **Runtime language switching** without app restart.
-- **Fallback support** to bundled Android resources.
-- **Over-the-Air updates** for translations without app republishing.
-
-
-# Get Started with Tolgee Android SDK
+import FeatureGrid from '@site/src/component/FeatureGrid';
 
 Here you can see a **quick setup overview**. Follow these steps to **integrate Tolgee into your Android project**. 
 
 
+## Features
+
+After completing the setup, your app will have:
+
+<FeatureGrid
+  features={[
+    {
+      emoji: '🌐',
+      title: 'CDN Delivery',
+      description: 'Translations delivered via CDN with automatic updates',
+      colorTheme: 'blue',
+    },
+    {
+      emoji: '📴',
+      title: 'Offline Support',
+      description: 'Local caching ensures your app works without internet',
+      colorTheme: 'green',
+    },
+    {
+      emoji: '🔄',
+      title: 'Runtime Switching',
+      description: 'Change languages instantly without app restart',
+      colorTheme: 'purple',
+    },
+    {
+      emoji: '🛡️',
+      title: 'Fallback Support',
+      description: 'Bundled Android resources as reliable fallback',
+      colorTheme: 'orange',
+    },
+    {
+      emoji: '🚀',
+      title: 'OTA Updates',
+      description: 'Update translations without republishing your app',
+      colorTheme: 'blue',
+    },
+  ]}
+/>
+
 ## Integration Path
 
-### 1. **Choose your implementation** 
+### **Choose your implementation** 
 
 <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-4 my-6">
 
@@ -55,7 +82,7 @@ Here you can see a **quick setup overview**. Follow these steps to **integrate T
   />
 </div>
 
-### 2. Add Tolgee SDK to your project
+### **Add Tolgee SDK to your project**
 
 <div className="grid grid-cols-1 md:grid-cols-2 gap-4 my-6">
   <SystemCard
@@ -77,7 +104,7 @@ Here you can see a **quick setup overview**. Follow these steps to **integrate T
 The Gradle compiler plugin is not released yet and is not part of the current installation options.
 :::
 
-### 3. Optimize production performance
+### **Optimize production performance**
 
 <div className="grid grid-cols-1 md:grid-cols-2 gap-4 my-6">
   <SystemCard
@@ -88,7 +115,7 @@ The Gradle compiler plugin is not released yet and is not part of the current in
   />
 </div>
 
-### 4. Start using Tolgee
+### **Start using Tolgee**
 
 <div className="grid grid-cols-1 md:grid-cols-2 gap-4 my-6">
   <SystemCard
