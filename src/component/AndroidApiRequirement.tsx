@@ -7,7 +7,12 @@ export default function AndroidApiRequirement() {
     <div className="grid grid-cols-1 gap-4 my-6">
       <div className="border border-gray-300 dark:border-gray-500 rounded-lg p-4 bg-gray-100 dark:bg-gray-700/50">
         <div className="flex items-center gap-3">
-          <span className="text-2xl">📱</span>
+          <img
+            src="/img/docs/sdk/android.svg"
+            alt="Android"
+            width="40"
+            height="40"
+          />
           <div>
             <Heading
               as="h4"

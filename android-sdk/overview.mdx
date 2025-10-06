@@ -14,166 +14,36 @@ import AndroidApiRequirement from '@site/src/component/AndroidApiRequirement';
 
 ## Overview
 
-Tolgee Android SDK allows your app to receive updated translations directly from [Tolgee Platform](../platform/). After the initial setup, translations can be updated **without code changes or developer involvement**.
+Tolgee Android SDK provides localization support for Kotlin-based projects, with a primary focus on Android applications. It enables **Over-the-Air (OTA)** translation updates, allowing you to deliver new or updated translations at runtime **without rebuilding or publishing a new version of your app**.
 
-Supports **Over‑the‑Air (OTA)** translation updates to deliver translations dynamically at runtime. No more searching for keys in your source code, editing localization files, rebuilding after every translation update, manually exporting data for translators, waiting for the next release to update, and publishing new app versions just for translations.
-**Android SDK is easy to integrate** with your app and provides multiple hosting options: Tolgee Cloud or your own CDN. 
+Once integrated, the SDK handles fetching and applying translations dynamically, so developers no longer need to manually manage string resources, export localization files, or coordinate translation updates through app releases.
 
-## Requirements
+The SDK integrates seamlessly with both **Android Views** and **Jetpack Compose**, supports reactive locale changes, and is built with **Kotlin Multiplatform** compatibility in mind.
 
-<AndroidApiRequirement />
+## Features
 
-## Supported UI frameworks
+### Over-the-Air (OTA) Content Delivery
 
-Compatible with **Android Views**, **Jetpack Compose**, and **Compose Multiplatform**
+Update translations dynamically at runtime. Save a lot of time when releasing new or updated translations. No need to wait for them to be published via Google Play or App Store.
 
-## Modules
+### Multiple format support
 
-Tolgee Android SDK is split into modules, so you only add what you need.
+- **Android XML format** with [sprintf-style placeholders](/platform/formats/android_xml) (`%s`, `%d`, etc.)
+- **ICU Message Format** with [Tolgee Universal ICU placeholders](/platform/translation_process/icu_message_format) (advanced formatting)
 
-### **Core**
+### Compose integration
 
-<img src="/img/docs/sdk/android.svg" alt="Android" width="100" />
+Full integration with Jetpack Compose and Compose Multiplatform
 
-Core is a base library for fetching translations from CDN and querying them.
-It's designed for use with **Android Views** or **any non Compose UI**.
+### Kotlin Multiplatform support
 
-**Features:**
+Designed with multiplatform projects in mind.
 
-- **Over-the-air updates**: Update your translations without releasing a new app version.
-- **Kotlin Multiplatform**: Designed with multiplatform support in mind.
-- **Android Resource Support**: Seamless integration with Android string resources.
-- **Parameter** **and Plural Support**.
+### Flexible hosting options
 
-### **Compose**
+Connect to [Tolgee Cloud](/platform/) or [self-hosted](/platform/self_hosting/getting_started) instances.
 
-<img
-  src="/img/docs/sdk/jetpack-compose.png"
-  alt="Jetpack Compose"
-  width="100"
-/>
-
-Compose is an extension for using the library with **Jetpack Compose** or **Compose Multiplatform**.
-It adds localized composables and helpers (e.g., stringResource, pluralStringResource).
-
-It requires core transitively.
-
-**Features**
-
-- **Over-the-air updates**: Update your translations without releasing a new app version.
-- **Compose Integration**: Use Tolgee translations in your Compose UI with familiar APIs.
-- **Android Resource Support**: Seamless integration with Android string resources.
-- **Parameter** (ICU) **and Plural Support**.
-- **Reactive Updates**: UI automatically updates when translations/locale change.
-
-# Get Started
-
-Here you can see a **quick setup overview**. Follow these steps to integrate Tolgee into your Android project.
-
-## Integration Path
-
-### 1. **Choose your implementation**
-
-<div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-4 my-6">
-
-{' '}
-<SystemCard
-  title="Android Core"
-  emoji="📱"
-  description="Traditional Android UI with dynamic translations"
-  links={[
-    { href: './core-module/quickstart', label: 'Quickstart', color: 'green' },
-    { href: './core-module/usage', label: 'Usage', color: 'orange' },
-    {
-      href: './core-module/troubleshooting',
-      label: 'Troubleshooting',
-      color: 'blue',
-    },
-  ]}
-/>
-
-  <SystemCard
-    title="Jetpack Compose"
-    emoji="🚀"
-    description="Modern declarative UI with reactive translations"
-    links={[
-      {
-        href: '/android-sdk/jetpack/quickstart',
-        label: 'Quickstart',
-        color: 'green',
-      },
-      { href: '/android-sdk/jetpack/usage', label: 'Usage', color: 'orange' },
-      { href: '/android-sdk/jetpack/troubleshooting', label: 'Troubleshooting', color: 'blue' },
-    ]}
-  />
-</div>
-
-### 2. Add Tolgee SDK to your project
-
-<div className="grid grid-cols-1 md:grid-cols-2 gap-4 my-6">
-  <SystemCard
-    title="Android Core Quickstart"
-    emoji="📦"
-    description="Set up dependencies and network security configuration"
-    links={[{ href: './core-module/quickstart', label: 'Quickstart Guide', color: 'blue' }]}
-  />
-
-  <SystemCard
-    title="Jetpack Compose Quickstart"
-    emoji="📦"
-    description="Set up dependencies and network security configuration"
-    links={[{ href: './jetpack/quickstart', label: 'Quickstart Guide', color: 'blue' }]}
-  />
-</div>
-
-:::warning
-The Gradle compiler plugin is not released yet and is not part of the current installation options.
-:::
-
-### 3. Start using Tolgee
-
-<div className="grid grid-cols-1 md:grid-cols-2 gap-4 my-6">
-  <SystemCard
-    title="Usage (Core Module)"
-    emoji="📱"
-    description="Get translations manage locales and more"
-    links={[{ href: './core-module/usage', label: 'Usage Guide', color: 'blue' }]}
-  />
-
-  <SystemCard
-    title="Usage (Compose Module)"
-    emoji="🚀"
-    description="Get translations manage locales and more"
-    links={[{ href: './jetpack/usage', label: 'Usage Guide', color: 'blue' }]}
-  />
-</div>
-
-## Demo apps
-
-### 📱 Android Views Demo
-
-Complete example implementation using Android Views
-
-- [https://github.com/tolgee/tolgee-mobile-kotlin-sdk/tree/master/demo/exampleandroid](https://github.com/tolgee/tolgee-mobile-kotlin-sdk/tree/master/demo/exampleandroid)
-
-### 🚀 Jetpack Compose Demo
-
-Complete example implementation using Jetpack Compose
-
-- [https://github.com/tolgee/tolgee-mobile-kotlin-sdk/tree/master/demo/examplejetpack](https://github.com/tolgee/tolgee-mobile-kotlin-sdk/tree/master/demo/examplejetpack)
-
-### 🌐 Compose Multiplatform Demo
-
-Complete example implementation using Compose Multiplatform
-
-- [https://github.com/tolgee/tolgee-mobile-kotlin-sdk/tree/master/demo/examplecomposemultiplatform](https://github.com/tolgee/tolgee-mobile-kotlin-sdk/tree/master/demo/examplecomposemultiplatform)
-
-<ScreenshotWrapper
-  src="/img/docs/sdk/android-studio.png"
-  alt="Android Studio"
-/>
-
-## Need Help?
-
-- **Manage translations collaboratively**: Connect your app to the Tolgee Platform — [Platform docs](../platform/)
-- **Troubleshooting**: Common issues and diagnostics — [Troubleshooting](./core-module/troubleshooting)
+## Next steps
+- Install and configure the SDK: [Installation](./installation)
+- Connect your app to the Tolgee Platform and manage translations collaboratively: [Platform docs](../platform/)
+- Generate or manage static strings with CLI: [Tolgee CLI](/tolgee-cli)

@@ -6,28 +6,15 @@ description: How to use Tolgee Android SDK Compose module in Jetpack Compose and
 
 # Usage (Compose Module)
 
-This guide shows you how to use the Tolgee Android SDK Compose module**.
-
-
-To use Tolgee in your **Jetpack Compose or Compose Multiplatform application**, you need to follow these steps:
-
-**1. Choose your translation type**
-
-**2. Learn how to handle plurals with Tolgee**
-
-**3. Create an explicit Tolgee instance** (If needed)
-
-**4. Create a locale switcher**
-
-**5. Observe locale changes**
+This guide shows you how to use the Tolgee Android SDK Compose module in Jetpack Compose and Compose Multiplatform applications. For traditional Android Views usage, see [Android Views Usage](../usage.mdx).
 
 ## Prerequisites
 
-**Make sure you've completed the quickstart setup and initialized Tolgee for Compose.** See: [Quickstart (Compose Module)](./quickstart.mdx)
+**Make sure you've completed the quickstart setup and initialized Tolgee for Compose.** See: [Installation (Compose Module)](/android-sdk/installation.mdx)
 
 ## Basic Usage
 
-Tolgee's Compose extensions lets you fetch localized keys directly inside your composables.
+Tolgee's Compose extensions let you fetch localized keys directly inside your composables. Unlike traditional Android Views which require manual UI updates or Activity recreation, Compose integration automatically recomposes UI elements when translations change.
 
 :::note
 If you are unsure of which translation type to choose, notice a “Use for...” section under every explanation.
@@ -135,7 +122,9 @@ Handle plurals with `pluralStringResource` - provide the count and any formattin
 ```kotlin
 @Composable
 fun PluralText(count: Int) {
-    Text(text = pluralStringResource(R.plurals.item_count, count, count))
+    // First 'count' parameter determines which plural form to use
+    // Second 'count' parameter is passed as a value to the translation
+    Text(text = pluralStringResource(R.plurals.items_count, count, count))
 }
 ```
 
@@ -144,17 +133,28 @@ fun PluralText(count: Int) {
 ```kotlin
 @Composable
 fun PluralText(count: Int) {
-    // Handle plural forms
-    Text(text = pluralStringResource(Res.plurals.item_count, count, count))
+    Text(text = pluralStringResource(Res.plurals.items_count, count, count))
 }
 ```
 
-**Use for lists, counters, notifications**, any situation where the grammar changes with quantity.
+**Example plural resource:**
 
+```xml
+<!-- In res/values/plurals.xml -->
+<plurals name="items_count">
+    <item quantity="one">%d item</item>
+    <item quantity="other">%d items</item>
+</plurals>
+```
+
+The `pluralStringResource` function will:
+1. Select the correct plural form based on the count value
+2. Replace the placeholder with the provided value
+3. Automatically update the UI if the count changes or if translations are updated
+
+**Use for lists, counters, notifications** — any situation where the grammar changes with quantity.
 
 ## Explicit Tolgee Instance
-
-If you need to use a specific Tolgee instance (not the singleton), you can pass it explicitly:
 
 ```kotlin
 @Composable
@@ -175,12 +175,12 @@ Handy when you need **more than one instance** (multiple projects/CDNs), when fo
 @Composable
 fun LocaleSwitcher() {
     val tolgee = Tolgee.instance
-    val locale by tolgee.changeFlow
-        .map { tolgee.getLocale() }
-        .collectAsState(initial = tolgee.getLocale())
+    val currentLocale = tolgee.changeFlow.mapLatest {
+        tolgee.getLocale()
+    }.collectAsState(initial = tolgee.getLocale())
 
     Row {
-        Text(text = stringResource(tolgee, R.string.selected_locale, locale.language))
+        Text(text = stringResource(tolgee, R.string.selected_locale, currentLocale.language))
         Button(onClick = { tolgee.setLocale("en") }) {
             Text("English")
         }
@@ -193,11 +193,9 @@ fun LocaleSwitcher() {
     }
 }
 ```
-
 Handy for apps, where “**choose language**” option is available, you want to use **Over‑the‑Air (OTA) translation updates** (translations refresh automatically when locale or content changes), and during **testing/debugging**.
 
 Most often used in **settings screens, onboarding flows, or debug menus** - anytime you want to allow **runtime language switching**.
-
 ## Observing Locale Changes
 
 **Collecting `Tolgee.changeFlow` as state ensures your composable recomposes whenever the locale changes**, 
@@ -218,8 +216,29 @@ fun LocaleAwareComponent() {
 
 Handy for **observing locale changes** in real time, **keeping track of current locale**, **showing chosen language** in app, **reactively updating translations** whenever user switches the language.
 
+## How Compose Integration Differs from Android Views
+
+Tolgee's Compose integration offers several advantages over traditional Android Views:
+
+1. **Reactive by default** - Compose UI automatically updates when translations change, without manual intervention
+
+2. **No Activity recreation needed** - Unlike Android Views which require `recreate()` to refresh translations
+
+3. **Simplified API** - Familiar `stringResource()` and `pluralStringResource()` functions that match Compose's built-in functions
+
+4. **State-based** - Translations are part of the Compose state system, ensuring proper recomposition
+
+5. **Multiplatform support** - Works with both Jetpack Compose for Android and Compose Multiplatform
+
+## Example Projects
+
+For complete examples of how to use the Tolgee Compose module, check out the demo projects:
+
+- **[Example Jetpack](https://github.com/tolgee/tolgee-mobile-kotlin-sdk/tree/master/demo/examplejetpack)** - Jetpack Compose example
+- **[Multiplatform Compose](https://github.com/tolgee/tolgee-mobile-kotlin-sdk/tree/master/demo/examplecomposemultiplatform)** - Compose Multiplatform example
+
 ## Next Steps
 
-- **Using traditional Views?** See [Core Module Usage](/android-sdk/core-module/usage)
-- **Production deployment?** Check [Production](/android-sdk/production)
-- **Having issues?** See [Troubleshooting](./troubleshooting.mdx)
+- **Using traditional Views?** See [Android Views Usage](../usage.mdx)
+- **Having issues?** Check [Troubleshooting](./troubleshooting.mdx)
+- **Need example apps?** See [Example Apps](../example-apps.mdx)

@@ -1,0 +1,99 @@
+---
+id: installation
+title: Installation
+description: Installation guide for Tolgee Android SDK
+---
+
+import AndroidApiRequirement from '@site/src/component/AndroidApiRequirement';
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
+
+:::note
+Configuration examples below are written in Kotlin DSL. Groovy DSL should work but is not officially supported/tested.
+:::
+
+## Requirements
+
+<AndroidApiRequirement />
+
+## Setup dependencies
+
+To use the library, you need to add the dependency to your project.
+
+In `gradle/libs.versions.toml` add an alias for Tolgee Core library:
+
+:::info
+Using **Version Catalog** is recommended to keep your versions aligned, especially in bigger projects.
+This **provides readability, centralization, and consistency**.
+:::
+
+<Tabs
+    defaultValue="core"
+    values={[
+        {label: 'Core (Android Views)', value: 'core'},
+        {label: 'Compose (Jetpack/Multiplatform)', value: 'compose'},
+    ]}>
+<TabItem value="core">
+```toml
+[libraries]
+tolgee = { group = "io.tolgee.mobile-kotlin-sdk", name = "core", version.ref = "tolgee" }
+```
+</TabItem>
+<TabItem value="compose">
+```toml
+[libraries]
+tolgee = { group = "io.tolgee.mobile-kotlin-sdk", name = "compose", version.ref = "tolgee" }
+```
+</TabItem>
+</Tabs>
+
+
+Then, in `build.gradle.kts`, use the created alias:
+
+
+```kotlin
+dependencies {
+    implementation(libs.tolgee)
+}
+```
+
+:::info
+The Compose module includes Core transitively, so you don't need to add both.
+:::
+
+## Network Configuration
+
+Enable Tolgee to fetch translations from the cloud at runtime. To do this, you need to configure network access.
+
+Create a network security config file `network_security.xml` in your `res/xml` folder:
+
+```xml
+<?xml version="1.0" encoding="utf-8"?>
+<network-security-config xmlns:android="http://schemas.android.com/apk/res/android">
+    <domain-config>
+        <domain includeSubdomains="true">tolgee.io</domain>
+        <domain includeSubdomains="true">tolg.ee</domain>
+    </domain-config>
+</network-security-config>
+```
+
+In Android, the network security config must be explicitly linked in your `AndroidManifest.xml`, so the system knows to apply it.
+
+Add network security config to your `AndroidManifest.xml`:
+
+```xml
+<application
+    android:networkSecurityConfig="@xml/network_security"> <!-- Add this line to your existing application tag -->
+</application>
+```
+
+:::info
+Allowing `tolgee.io` and `tolg.ee` domains is required when using Tolgee Cloud CDN.
+If you access your own self-hosted CDN, here is where you should add the domain of your CDN.
+:::
+
+## Next Steps
+
+- Setup Tolgee Android SDK: [Setup](./setup.mdx)
+- Learn how to fetch and render translations in Views: [Usage](./usage.mdx)
+- Having issues? Check [Troubleshooting](./troubleshooting.mdx)

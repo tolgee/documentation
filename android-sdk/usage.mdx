@@ -1,28 +1,16 @@
 ---
 id: usage
-title: Usage (Core Module)
-description: How to use Tolgee Android SDK Core module in traditional Android Views applications
+title: Usage 
+description: How to use Tolgee Android SDK with traditional Android Views
 ---
 
-# Usage (Core Module)
+# Usage
 
-This guide shows you how to use the Tolgee Android SDK Core module in your Android Views application.
-
-To use Tolgee in your application, you need to follow these steps:
-
-**1. Get the Tolgee instance**
-
-**2. Choose translation type**
-
-**3. Implement translation type**
-
-**4. Manage locales**
-
-You can also find **information about formatter configuration and plurals** here.
+This guide shows you how to use the Tolgee Android SDK with traditional Android Views. For Jetpack Compose usage, see [Jetpack Compose Usage](./jetpack/usage.mdx).
 
 ## Prerequisites
 
-Ensure you have completed the quickstart guide and initialized Tolgee in your Application class. See: [Quickstart (Core Module)](./quickstart.mdx)
+Ensure you have completed the quickstart guide and initialized Tolgee in your Application class. See: [Installation](./installation.mdx)
 
 ## Get The Global Tolgee Instance
 
@@ -37,7 +25,7 @@ From now on you can:
 
 - get translations: `tolgee.t("key")`, `tolgee.tFlow("key")`,
 - change locales: `tolgee.setLocale("xx")`,
-- listen for changes: `tolgee.changeFlow`; and respond to them: `tolgee.addChangeListener`.
+- listen for changes: `tolgee.changeFlow`;
 
 ## Getting Translations
 
@@ -54,7 +42,6 @@ val text: String? = tolgee.t("key")
 ```
 
 Returns null if translations are not yet loaded (e.g., SDK hasn't downloaded data).
-
 Returns a key when translations are loaded.
 
 **Use for simple/static text** (e. g., error messages, titles).
@@ -75,10 +62,10 @@ val textWithParams: String? = tolgee.t("key_with_param", mapOf("param" to "value
 
 :::warning
 If you choose this function for your app, creating a **global corutine** with `Tolgee.preload()` is reccomended.
-See a tip under **a) Preload translations for the current locale from Activity** section, below.
+See a tip under **a) [Preload translations for the current locale from Activity](#a-preload-translations-for-the-current-locale-from-activity)** section, below.
 :::
 
-#### a) Preload translations for the current locale
+#### a) Preload translations for the current locale from Activity
 
 ```kotlin
 override fun onStart() {
@@ -92,7 +79,7 @@ Improves perceived performance - ensures keys are ready sooner for the current l
 **Use for UI’s where the translations are critical (e.g., login, onboarding).**
 
 :::tip
-Create a global corutine by calling `Tolgee.preload()` function with mentioned above one-time translations and translations with parameters.
+Create a global corutine by calling `tolgee.preload()` function with mentioned above one-time translations and translations with parameters.
 :::
 
 #### b) Get a translation with fallback to Android resources
@@ -118,7 +105,7 @@ To use parameters with Android fallbacks and ensure that translations from CDN c
 
 To receive **fresh translations without needing to publish new app versions** follow these steps:
 
-Wrap your Activity context, so Android resource lookups use Tolgee:
+1. **Wrap your Activity context** so Android resource lookups use Tolgee:
 
 ```kotlin
 class MyActivity : Activity() {
@@ -128,7 +115,9 @@ class MyActivity : Activity() {
 }
 ```
 
-Trigger a UI refresh when locale/translations change:
+The `TolgeeContextWrapper` intercepts all calls to `getString()`, `getQuantityString()`, and other resource methods, replacing them with Tolgee translations when available. This allows your existing Android code to use Tolgee translations without any changes to the code that calls `getString()`.  
+
+2. **Trigger a UI refresh** when locale or translations change:
 
 ```kotlin
 lifecycleScope.launch {
@@ -138,7 +127,7 @@ lifecycleScope.launch {
 }
 ```
 
-Combining those two approaches gives you **semi-dynamic behavior, translations update after an Activity reload, not instantly**. 
+Combining these two approaches gives you **semi-dynamic behavior, translations update after an Activity reload, not instantly**. 
 This setup works with both one-time translations and translations with parameters.
 
 ### Get dynamic (reactive) translations.
@@ -159,7 +148,7 @@ val textFlow = tolgee.tFlow(context, R.string.string_key)
 ```
 
 :::note
-In Compose, use `collectAsState()` function for a more idiomatic integration. See more in [**Jetpack Compose Usage**](../jetpack/usage.mdx).
+In Compose, use `collectAsState()` function for a more idiomatic integration.
 :::
 
 ### Formatter Configuration
@@ -258,17 +247,16 @@ lifecycleScope.launch {
 **Use for building dynamically updated UI.**
 Enables you to create UI that stays in sync with locale changes and new translations.
 
-:::info
+
 
 ## Example Projects
 
-**For complete examples of how to use the Tolgee Core module**, check out the demo projects:
+For a complete example of how to use the Tolgee Core module with Android Views, check out the demo project:
 
-**Example Android:** https://github.com/tolgee/tolgee-mobile-kotlin-sdk/tree/master/demo/exampleandroid
-:::
+**[Example Android](https://github.com/tolgee/tolgee-mobile-kotlin-sdk/tree/master/demo/exampleandroid)** - Traditional Android Views example
 
 ## Next Steps
 
-- **Using Compose?** Continue with [Jetpack Compose Usage](../jetpack/usage.mdx)
-- **Production deployment?** See [Production](/android-sdk/production)
-- **Having issues?** Check [Troubleshooting (Core Module)](./troubleshooting.mdx)
+- **Using Jetpack Compose?** See [Jetpack Compose Usage](./jetpack/usage.mdx)
+- **Having issues?** Check [Troubleshooting](./troubleshooting.mdx)
+- **Need example apps?** See [Example Apps](./example-apps.mdx)

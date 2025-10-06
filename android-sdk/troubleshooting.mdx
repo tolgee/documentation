@@ -1,0 +1,16 @@
+---
+id: troubleshooting
+title: Troubleshooting
+description: Troubleshooting Tolgee Android SDK
+---
+
+## Fast Checklist
+
+### General Setup
+
+- **Check if Maven Central is in repositories** - `mavenCentral` in `settings.gradle.kts`.
+- **Check if CDN URL is proper and accessible** - test connection locally:
+
+```bash
+curl -I "https://cdn.tolg.ee/your-cdn-url-prefix/en.json"
+```
