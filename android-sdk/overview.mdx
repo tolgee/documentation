@@ -29,7 +29,6 @@ And provides **multiple hosting options**: Tolgee CDN or your own CDN.
 
 Compatible with **Android Views**, **Jetpack Compose**, and **Compose Multiplatform**
 
-
 ## Modules
 
 Tolgee Android SDK is split into modules, so you only add what you need.
@@ -50,7 +49,11 @@ It's designed for use with **Android Views** or **any non Compose UI**.
 
 ### **Compose**
 
-<img src="/img/docs/sdk/jetpack-compose.png" alt="Jetpack Compose" width="100" />
+<img
+  src="/img/docs/sdk/jetpack-compose.png"
+  alt="Jetpack Compose"
+  width="100"
+/>
 
 Compose is an extension for using the library with **Jetpack Compose** or **Compose Multiplatform**.
 It **adds localized composables and helpers** (e.g., stringResource, pluralStringResource).
@@ -65,9 +68,87 @@ It requires core transitively.
 - **Parameter** (ICU) **and Plural Support**.
 - **Reactive Updates**: UI automatically updates when translations/locale change.
 
-:::info
-For managing static translations in your repository, consider using the [Tolgee CLI](/tolgee-cli/installation).
+# Get Started
+
+Here you can see a **quick setup overview**. Follow these steps to **integrate Tolgee into your Android project**.
+
+## Integration Path
+
+### 1. **Choose your implementation**
+
+<div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-4 my-6">
+
+{' '}
+<SystemCard
+  title="Android Core"
+  emoji="📱"
+  description="Traditional Android UI with dynamic translations"
+  links={[
+    { href: './core-module/quickstart', label: 'Quickstart', color: 'green' },
+    { href: './core-module/usage', label: 'Usage', color: 'orange' },
+    {
+      href: './core-module/troubleshooting',
+      label: 'Troubleshooting',
+      color: 'blue',
+    },
+  ]}
+/>
+
+  <SystemCard
+    title="Jetpack Compose"
+    emoji="🚀"
+    description="Modern declarative UI with reactive translations"
+    links={[
+      {
+        href: '/android-sdk/jetpack/quickstart',
+        label: 'Quickstart',
+        color: 'green',
+      },
+      { href: '/android-sdk/jetpack/usage', label: 'Usage', color: 'orange' },
+      { href: '/android-sdk/jetpack/troubleshooting', label: 'Troubleshooting', color: 'blue' },
+    ]}
+  />
+</div>
+
+### 2. Add Tolgee SDK to your project
+
+<div className="grid grid-cols-1 md:grid-cols-2 gap-4 my-6">
+  <SystemCard
+    title="Android Core Quickstart"
+    emoji="📦"
+    description="Set up dependencies and network security configuration"
+    links={[{ href: './core-module/quickstart', label: 'Quickstart Guide', color: 'blue' }]}
+  />
+
+  <SystemCard
+    title="Jetpack Compose Quickstart"
+    emoji="📦"
+    description="Set up dependencies and network security configuration"
+    links={[{ href: './jetpack/quickstart', label: 'Quickstart Guide', color: 'blue' }]}
+  />
+</div>
+
+:::warning
+The Gradle compiler plugin is not released yet and is not part of the current installation options.
 :::
+
+### 3. Start using Tolgee
+
+<div className="grid grid-cols-1 md:grid-cols-2 gap-4 my-6">
+  <SystemCard
+    title="Usage (Core Module)"
+    emoji="📱"
+    description="Get translations manage locales and more"
+    links={[{ href: './core-module/usage', label: 'Usage Guide', color: 'blue' }]}
+  />
+
+  <SystemCard
+    title="Usage (Compose Module)"
+    emoji="🚀"
+    description="Get translations manage locales and more"
+    links={[{ href: './jetpack/usage', label: 'Usage Guide', color: 'blue' }]}
+  />
+</div>
 
 ## Demo apps
 
@@ -94,17 +175,7 @@ Complete example implementation using Compose Multiplatform
   alt="Android Studio"
 />
 
-## Get Started
+## Need Help?
 
-Ready to integrate Tolgee into your Android project?
-
-<div className="grid grid-cols-1 gap-4 my-6">
-  <SystemCard
-    title="Get Started Guide"
-    emoji="🚀"
-    description="Set up and integration path overview"
-    links={[
-      { href: '/android-sdk/get-started', label: 'Start Here', color: 'blue' },
-    ]}
-  />
-</div>
+- **Manage translations collaboratively**: Connect your app to the Tolgee Platform — [Platform docs](../platform/)
+- **Troubleshooting**: Common issues and diagnostics — [Troubleshooting](./core-module/troubleshooting)
