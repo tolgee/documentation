@@ -23,7 +23,7 @@ If you are unsure of which translation type to choose, notice a “Use for...”
 
 ## Getting translations
 
-### 1. Simple Strings
+### Simple Strings
 
 - **Jetpack Compose**
 
@@ -49,7 +49,7 @@ In the Compose Multiplatform use `stringResource` function with `Res`.
 
 Use `stringResource` for **simple strings** (e. g., error messages, titles), retrieve a translation by its resource ID.
 
-### 2. With Parameters
+### With Parameters
 
 Pass parameters to translations, supply arguments for placeholders in your keys.
 
@@ -73,47 +73,7 @@ fun TextWithParameters(name: String) {
 
 Use for translation with **dynamic values**. Add data that changes during the app's runtime (e.g., dates, numbers, usernames).
 
-### Formatter Configuration
-
-**Choose how placeholders are parsed and rendered.**
-Use when you have translations with placeholders, SDK must know how to exchange the placeholders for wanted values.
-**Example**: "`Hello %s`" or"`You have {count} items`"
-
-See also: [Android XML format](/platform/formats/android_xml) · [Tolgee Universal ICU placeholders](/platform/translation_process/tolgee_universal_icu_placeholders)
-
-
-**1. Sprintf**
-
-```kotlin
-Tolgee.init {
-    contentDelivery {
-        url = "https://cdn.tolg.ee/your-cdn-url-prefix"
-        format(Tolgee.Formatter.Sprintf)
-    }
-}
-```
-
-**Use for easy scenarios**, when you are using formatters, like `%s, %d, %1$s`.
-
-:::warning
-**This parameter type won't work with fallbacks to Android Resources** - it's not functional for apps with any offline activity.
-:::
-
-**2.  ICU**
-
-```kotlin
-Tolgee.init {
-    contentDelivery {
-        url = "https://cdn.tolg.ee/your-cdn-url-prefix"
-        format(Tolgee.Formatter.ICU)
-    }
-}
-```
-
-**Use for more advanced translations and ICU features**, when you need nested formats or formatters,
- like e.g. few, may, female, and complex lingual principles.
-
-### 3. Plurals
+### Plurals
 
 Handle plurals with `pluralStringResource` - provide the count and any formatting arguments.
 
@@ -220,15 +180,15 @@ Handy for **observing locale changes** in real time, **keeping track of current 
 
 Tolgee's Compose integration offers several advantages over traditional Android Views:
 
-1. **Reactive by default** - Compose UI automatically updates when translations change, without manual intervention
+**Reactive by default** - Compose UI automatically updates when translations change, without manual intervention
 
-2. **No Activity recreation needed** - Unlike Android Views which require `recreate()` to refresh translations
+**No Activity recreation needed** - Unlike Android Views which require `recreate()` to refresh translations
 
-3. **Simplified API** - Familiar `stringResource()` and `pluralStringResource()` functions that match Compose's built-in functions
+**Simplified API** - Familiar `stringResource()` and `pluralStringResource()` functions that match Compose's built-in functions
 
-4. **State-based** - Translations are part of the Compose state system, ensuring proper recomposition
+**State-based** - Translations are part of the Compose state system, ensuring proper recomposition
 
-5. **Multiplatform support** - Works with both Jetpack Compose for Android and Compose Multiplatform
+**Multiplatform support** - Works with both Jetpack Compose for Android and Compose Multiplatform
 
 ## Example Projects
 
@@ -240,5 +200,5 @@ For complete examples of how to use the Tolgee Compose module, check out the dem
 ## Next Steps
 
 - **Using traditional Views?** See [Android Views Usage](../usage.mdx)
-- **Having issues?** Check [Troubleshooting](./troubleshooting.mdx)
+- **Having issues?** Check [Troubleshooting](../troubleshooting.mdx)
 - **Need example apps?** See [Example Apps](../example-apps.mdx)

@@ -9,7 +9,6 @@ module.exports = {
       label: 'Jetpack Compose',
       items: [
         'jetpack/usage',
-        'jetpack/troubleshooting',
       ],
     },
     'example-apps',
