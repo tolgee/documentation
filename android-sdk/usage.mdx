@@ -46,11 +46,6 @@ Returns a key when translations are loaded.
 
 **Use for simple/static text** (e. g., error messages, titles).
 
-:::warning
-If you choose this function for your app, create a **global corutine** with `Tolgee.preload()`.
-See a tip under **a) Preload translations for the current locale from Activity** section.
-:::
-
 ### Translation with parameters:
 
 ```kotlin
@@ -58,12 +53,6 @@ val textWithParams: String? = tolgee.t("key_with_param", mapOf("param" to "value
 ```
 
 **_Use for translation with dynamic values._** Add data that changes during the app's runtime (e.g., dates, numbers, usernames).
-
-
-:::warning
-If you choose this function for your app, creating a **global corutine** with `Tolgee.preload()` is reccomended.
-See a tip under **a) [Preload translations for the current locale from Activity](#a-preload-translations-for-the-current-locale-from-activity)** section, below.
-:::
 
 #### a) Preload translations for the current locale from Activity
 
@@ -141,7 +130,7 @@ textFlow.collect { text ->
 
 **Use for reactive UI.** Translations update **immediately and automatically** whenever the language or CDN data changes.
 
-#### - Dynamic translation with fallback to Android resources
+#### Dynamic translation with fallback to Android resources
 
 ```kotlin
 val textFlow = tolgee.tFlow(context, R.string.string_key)
