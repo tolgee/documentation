@@ -1,0 +1,87 @@
+---
+id: setup
+title: Setup
+description: Learn how to initialize and configure Tolgee Android SDK in your application
+---
+
+# Setup
+
+After installing the Tolgee SDK, you need to initialize it in your application. This one-time setup process:
+
+- Configures the SDK to connect to your translation content delivery network (CDN)
+- Sets up local caching for offline access and performance
+- Establishes the global Tolgee instance that your entire app can access
+- Enables over-the-air translation updates without releasing a new app version
+
+Once properly initialized, Tolgee will automatically handle translation fetching, caching, and updates throughout your application's lifecycle.
+
+## Initialization Configuration
+
+:::note Universal Setup
+This initialization applies to **all Tolgee Android SDK variants** - Android Views (Core), Jetpack Compose, and Kotlin Multiplatform.
+:::
+
+### Android
+
+Initialize Tolgee in your `Application` class:
+
+```kotlin
+class MyApplication : Application() {
+    override fun onCreate() {
+        super.onCreate()
+        Tolgee.init {
+            contentDelivery {
+                url = "https://cdn.tolg.ee/your-cdn-url-prefix" // from Tolgee Platform → Content Delivery
+                storage = TolgeeStorageProviderAndroid(this@MyApplication, BuildConfig.VERSION_CODE) // cache invalidates on app update
+            }
+        }
+    }
+}
+```
+
+Make sure that your app knows where to download translations
+
+**For your app to download translation files, you need to provide a CDN URL prefix specific to your project.**
+This prefix points to the catalog that contains your app's translations.
+
+**To get your CDN URL prefix:**
+
+1. Open **Tolgee Platform → your Project → Developer settings → [Content Delivery](/platform/projects_and_organizations/content_delivery)**
+2. Copy the full CDN URL prefix
+3. You can use different prefixes per environment (dev/staging/prod)
+
+:::info
+If you have a different integration setup (for example, using tolgee-cli and bundling JSON translation files in assets), the initialization may look different.
+:::
+
+### Kotlin Multiplatform (Non-Android Targets)
+
+For non-Android targets in Kotlin Multiplatform projects, initialization is similar but requires a custom storage provider:
+
+```kotlin
+fun initTolgee() {
+    Tolgee.init {
+        contentDelivery {
+            url = "https://cdn.tolg.ee/your-cdn-url-prefix"
+            // Create a custom storage provider for caching the latest translations from CDN if needed
+        }
+    }
+}
+```
+
+:::note
+You'll need to implement your own storage provider for non-Android platforms to enable caching of translations.
+:::
+
+## Alternative Setup: Using Static Data
+
+If you prefer to bundle translations with your app or need offline-first capabilities, you can use [Tolgee CLI](/tolgee-cli/installation) to manage translations as static files.
+
+
+:::tip
+Using Tolgee CLI with static files is ideal for:
+- Offline-first applications
+- Apps with strict security requirements
+- Development environments without internet access
+- CI/CD pipelines that need deterministic builds
+:::

@@ -1,0 +1,49 @@
+---
+id: overview
+title: Overview
+slug: /
+description: Overview of Tolgee Android SDK with Over‑the‑Air (OTA) localization updates for Android and Compose Multiplatform.
+---
+
+import SystemCard from '@site/src/component/SystemCard';
+import FeatureGrid from '@site/src/component/FeatureGrid';
+import { ScreenshotWrapper } from '../platform/shared/_ScreenshotWrapper';
+import AndroidApiRequirement from '@site/src/component/AndroidApiRequirement';
+
+# Tolgee Android SDK
+
+## Overview
+
+Tolgee Android SDK provides localization support for Kotlin-based projects, with a primary focus on Android applications. It enables **Over-the-Air (OTA)** translation updates, allowing you to deliver new or updated translations at runtime **without rebuilding or publishing a new version of your app**.
+
+Once integrated, the SDK handles fetching and applying translations dynamically, so developers no longer need to manually manage string resources, export localization files, or coordinate translation updates through app releases.
+
+The SDK integrates seamlessly with both **Android Views** and **Jetpack Compose**, supports reactive locale changes, and is built with **Kotlin Multiplatform** compatibility in mind.
+
+## Features
+
+### Over-the-Air (OTA) Content Delivery
+
+Update translations dynamically at runtime. Save a lot of time when releasing new or updated translations. No need to wait for them to be published via Google Play or App Store.
+
+### Multiple format support
+
+- **Android XML format** with [sprintf-style placeholders](/platform/formats/android_xml) (`%s`, `%d`, etc.)
+- **ICU Message Format** with [Tolgee Universal ICU placeholders](/platform/translation_process/icu_message_format) (advanced formatting)
+
+### Compose integration
+
+Full integration with Jetpack Compose and Compose Multiplatform
+
+### Kotlin Multiplatform support
+
+Designed with multiplatform projects in mind.
+
+### Flexible hosting options
+
+Connect to [Tolgee Cloud](/platform/) or [self-hosted](/platform/self_hosting/getting_started) instances.
+
+## Next steps
+- Install and configure the SDK: [Installation](./installation.mdx)
+- Connect your app to the Tolgee Platform and manage translations collaboratively: [Platform docs](../platform/)
+- Generate or manage static strings with CLI: [Tolgee CLI](/tolgee-cli)
