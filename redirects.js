@@ -75,10 +75,6 @@ module.exports.redirects = {
       to: '/js-sdk/integrations/svelte/installation',
     },
     {
-      from: '/blog/let-this-script-type-instead-of-you-when-you-record-your-browser',
-      to: '/blog/let-this-script-type-instead-of-you',
-    },
-    {
       from: '/docs/web/get_started/preparing_for_production',
       to: '/js-sdk/providing-static-data',
     },

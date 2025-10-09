@@ -36,7 +36,7 @@ What are these empty characters at the end? They are not actually empty, only ze
 Tolgee passes secret information into each translation, which is then detectable in the dom.
 We use [`MutationObserver`](https://developer.mozilla.org/en-US/docs/sdk/API/MutationObserver)
 to check all dom changes and search for these secret characters, to find the exact locations
-of translations. This method is very reliable and brings basically no overhead on the developer side. You can read more in this [blog post](/blog/2021/12/17/invisible-characters-for-better-localization).
+of translations. This method is very reliable and brings basically no overhead on the developer side. You can read more in this [blog post](https://tolgee.io/blog/2021/12/17/invisible-characters-for-better-localization).
 
 We call this mechanism wrapping. You can check the information, which is included with the translation by
 calling [`tolgee.unwrap`](./api/core_package/tolgee.mdx#unwrap) method, which will give you the information about the translation.

@@ -40,12 +40,6 @@ module.exports.navbar = {
       label: 'REST API',
     },
     {
-      to: 'blog',
-      label: 'Blog',
-      className: 'menu-item-blog',
-    },
-
-    {
       to: 'https://app.tolgee.io',
       label: 'Login',
       position: 'right',

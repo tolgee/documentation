@@ -53,17 +53,7 @@ const config: Config = {
           docItemComponent: '@theme/DocItem', // Derived from docusaurus-theme-openapi
           editUrl: 'https://github.com/tolgee/documentation/tree/main',
         },
-        blog: {
-          blogSidebarTitle: 'All posts',
-          blogSidebarCount: 'ALL',
-          showReadingTime: true,
-          editUrl: 'https://github.com/tolgee/documentation/tree/main',
-          feedOptions: {
-            type: 'all',
-            copyright: `Copyright © ${new Date().getFullYear()} Tolgee`,
-          },
-          archiveBasePath: null,
-        },
+        blog: false,
         theme: {
           customCss: './src/css/custom.css',
         },
