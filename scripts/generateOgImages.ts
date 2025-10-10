@@ -118,6 +118,27 @@ const IMAGE_CONFIGS: OgImageConfig[] = [
     category: 'THIRD-PARTY',
   },
   {
+    filename: 'i18next',
+    title: 'i18next Integration',
+    subtitle: 'Use Tolgee with i18next',
+    gradient: true,
+    category: 'I18NEXT',
+  },
+  {
+    filename: 'react-native',
+    title: 'React Native',
+    subtitle: 'Localize Your Mobile Apps',
+    gradient: true,
+    category: 'REACT NATIVE',
+  },
+  {
+    filename: 'vanilla',
+    title: 'Vanilla JavaScript',
+    subtitle: 'Pure JavaScript Integration',
+    gradient: true,
+    category: 'VANILLA JS',
+  },
+  {
     filename: 'self-hosting',
     title: 'Self-Hosting',
     subtitle: 'Deploy Your Own Tolgee Instance',
@@ -144,6 +165,20 @@ const IMAGE_CONFIGS: OgImageConfig[] = [
     subtitle: 'Extract Strings from Figma Designs',
     gradient: true,
     category: 'FIGMA',
+  },
+  {
+    filename: 'slack',
+    title: 'Slack Integration',
+    subtitle: 'Manage Translations in Slack',
+    gradient: true,
+    category: 'SLACK',
+  },
+  {
+    filename: 'unreal',
+    title: 'Unreal Engine Plugin',
+    subtitle: 'Localize Your Unreal Projects',
+    gradient: true,
+    category: 'UNREAL ENGINE',
   },
   {
     filename: 'homepage',
