@@ -230,24 +230,6 @@
   margin-top: -2px;
 }
 
-.menu-item-blog {
-  position: relative;
-  padding-top: 0px;
-  padding-bottom: 0px;
-  margin-left: 16px;
-  padding-right: 0px;
-}
-
-.menu-item-blog::before {
-  content: '';
-  border-left: 1px solid var(--navbar-separator-color);
-  position: absolute;
-  top: 0;
-  left: -8px;
-  bottom: 0;
-  width: 1;
-}
-
 .navbar__logo {
   display: flex;
   align-items: center;

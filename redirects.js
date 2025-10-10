@@ -1,3 +1,326 @@
+const BLOG_REDIRECTS = [
+  {
+    from: '/blog/introducing-translation-suggestions',
+    to: 'https://tolgee.io/blog/introducing-translation-suggestions',
+  },
+  {
+    from: '/blog/unreal-engine-update',
+    to: 'https://tolgee.io/blog/unreal-engine-update',
+  },
+  {
+    from: '/blog/ai-playground-and-glossaries',
+    to: 'https://tolgee.io/blog/ai-playground-and-glossaries',
+  },
+  {
+    from: '/blog/variables-in-figma',
+    to: 'https://tolgee.io/blog/variables-in-figma',
+  },
+  {
+    from: '/blog/deploying-tolgee-on-sealos',
+    to: 'https://tolgee.io/blog/deploying-tolgee-on-sealos',
+  },
+  {
+    from: '/blog/2025-03-05-apple-string-catalog-xcstrings-support',
+    to: 'https://tolgee.io/blog/2025-03-05-apple-string-catalog-xcstrings-support',
+  },
+  {
+    from: '/blog/2025-02-17-self-hosting-tolgee-with-content-delivery',
+    to: 'https://tolgee.io/blog/2025-02-17-self-hosting-tolgee-with-content-delivery',
+  },
+  {
+    from: '/blog/2025-01-15-dotnet-resx-import-export',
+    to: 'https://tolgee.io/blog/2025-01-15-dotnet-resx-import-export',
+  },
+  {
+    from: '/blog/2025-01-15-xlsx-import-export',
+    to: 'https://tolgee.io/blog/2025-01-15-xlsx-import-export',
+  },
+  {
+    from: '/blog/sdk-v6',
+    to: 'https://tolgee.io/blog/sdk-v6',
+  },
+  {
+    from: '/blog/order-professional-translation',
+    to: 'https://tolgee.io/blog/order-professional-translation',
+  },
+  {
+    from: '/blog/2024-12-28-compose-multiplatform-import-export',
+    to: 'https://tolgee.io/blog/2024-12-28-compose-multiplatform-import-export',
+  },
+  {
+    from: '/blog/2024-10-30-how-I-added-localization-to-dobco-using-tolgee',
+    to: 'https://tolgee.io/blog/2024-10-30-how-i-added-localization-to-dobco-using-tolgee',
+  },
+  {
+    from: '/blog/2024-10-08-csv-format-support-released',
+    to: 'https://tolgee.io/blog/2024-10-08-csv-format-support-released',
+  },
+  {
+    from: '/blog/new-feature-tasks',
+    to: 'https://tolgee.io/blog/new-feature-tasks',
+  },
+  {
+    from: '/blog/2024-10-01-i18next-format-support-released',
+    to: 'https://tolgee.io/blog/2024-10-01-i18next-format-support-released',
+  },
+  {
+    from: '/blog/we-are-hiring-full-stack-engineer-with-focus-on-mobile-development',
+    to: 'https://tolgee.io/blog/',
+  },
+  {
+    from: '/blog/we-are-hiring-full-stack-engineer-with-focus-on-the-backend',
+    to: 'https://tolgee.io/blog/',
+  },
+  {
+    from: '/blog/releasing-slack-integration',
+    to: 'https://tolgee.io/blog/releasing-slack-integration',
+  },
+  {
+    from: '/blog/organize-your-translation-keys-with-tags',
+    to: 'https://tolgee.io/blog/organize-your-translation-keys-with-tags',
+  },
+  {
+    from: '/blog/cli-2-features',
+    to: 'https://tolgee.io/blog/cli-2-features',
+  },
+  {
+    from: '/blog/implementing-localization-to-your-svelte-app',
+    to: 'https://tolgee.io/blog/implementing-localization-to-your-svelte-app',
+  },
+  {
+    from: '/blog/localize-your-react-app-the-simplest-way-you\'ve-ever-seen',
+    to: 'https://tolgee.io/blog/localize-your-react-app-the-simplest-way-you-ve-ever-seen',
+  },
+  {
+    from: '/blog/yaml-and-ruby-yaml-support-released',
+    to: 'https://tolgee.io/blog/yaml-and-ruby-yaml-support-released',
+  },
+  {
+    from: '/blog/case-study-scio',
+    to: 'https://tolgee.io/blog/case-study-scio',
+  },
+  {
+    from: '/blog/releasing-visual-editor-and-formats-support',
+    to: 'https://tolgee.io/blog/releasing-visual-editor-and-formats-support',
+  },
+  {
+    from: '/blog/context-gamechanger-localization',
+    to: 'https://tolgee.io/blog/context-gamechanger-localization',
+  },
+  {
+    from: '/blog/releasing-ai-customizations',
+    to: 'https://tolgee.io/blog/releasing-ai-customizations',
+  },
+  {
+    from: '/blog/new-pricing-2024-01',
+    to: 'https://tolgee.io/blog/new-pricing-2024-01',
+  },
+  {
+    from: '/blog/language-formality',
+    to: 'https://tolgee.io/blog/language-formality',
+  },
+  {
+    from: '/blog/tolgee-content-delivery-and-webhooks',
+    to: 'https://tolgee.io/blog/tolgee-content-delivery-and-webhooks',
+  },
+  {
+    from: '/blog/tolgee-new-look',
+    to: 'https://tolgee.io/blog/tolgee-new-look',
+  },
+  {
+    from: '/blog/case-study-whatspot',
+    to: 'https://tolgee.io/blog/case-study-whatspot',
+  },
+  {
+    from: '/blog/autonomous-localization',
+    to: 'https://tolgee.io/blog/autonomous-localization',
+  },
+  {
+    from: '/blog/how-to-setup-tolgee-with-nextjs-app-router',
+    to: 'https://tolgee.io/blog/how-to-setup-tolgee-with-nextjs-app-router',
+  },
+  {
+    from: '/blog/product-localization',
+    to: 'https://tolgee.io/blog/product-localization',
+  },
+  {
+    from: '/blog/importing-data-to-tolgee-using-axios',
+    to: 'https://tolgee.io/blog/importing-data-to-tolgee-using-axios',
+  },
+  {
+    from: '/blog/unreal-plugin',
+    to: 'https://tolgee.io/blog/unreal-plugin',
+  },
+  {
+    from: '/blog/how-to-localize-angular-app',
+    to: 'https://tolgee.io/blog/how-to-localize-angular-app',
+  },
+  {
+    from: '/blog/how-to-localize-vue-app',
+    to: 'https://tolgee.io/blog/how-to-localize-vue-app',
+  },
+  {
+    from: '/blog/tolgee-ai-translator',
+    to: 'https://tolgee.io/blog/tolgee-ai-translator',
+  },
+  {
+    from: '/blog/new-pricing-2023-05',
+    to: 'https://tolgee.io/blog/new-pricing-2023-05',
+  },
+  {
+    from: '/blog/naming-translation-keys',
+    to: 'https://tolgee.io/blog/naming-translation-keys',
+  },
+  {
+    from: '/blog/free-software-localization',
+    to: 'https://tolgee.io/blog/free-software-localization',
+  },
+  {
+    from: '/blog/case-study-fluent-search',
+    to: 'https://tolgee.io/blog/case-study-fluent-search',
+  },
+  {
+    from: '/blog/figma-plugin',
+    to: 'https://tolgee.io/blog/figma-plugin',
+  },
+  {
+    from: '/blog/localization-basics-S01E01',
+    to: 'https://tolgee.io/blog/localization-basics-s01e01',
+  },
+  {
+    from: '/blog/conditional-export',
+    to: 'https://tolgee.io/blog/conditional-export',
+  },
+  {
+    from: '/blog/benefits-challenges-software-localization',
+    to: 'https://tolgee.io/blog/benefits-challenges-software-localization',
+  },
+  {
+    from: '/blog/dont-create-your-own-i18n-library',
+    to: 'https://tolgee.io/blog/dont-create-your-own-i18n-library',
+  },
+  {
+    from: '/blog/machine-translation-in-tolgee',
+    to: 'https://tolgee.io/blog/machine-translation-in-tolgee',
+  },
+  {
+    from: '/blog/closure-objects',
+    to: 'https://tolgee.io/blog/closure-objects',
+  },
+  {
+    from: '/blog/software-localization-machine-translation',
+    to: 'https://tolgee.io/blog/software-localization-machine-translation',
+  },
+  {
+    from: '/blog/6-ways-how-to-contribute-to-open-source-and-to-tolgee',
+    to: 'https://tolgee.io/blog/6-ways-how-to-contribute-to-open-source-and-to-tolgee',
+  },
+  {
+    from: '/blog/roadmap-updated-cli-community-translations',
+    to: 'https://tolgee.io/blog/roadmap-updated-cli-community-translations',
+  },
+  {
+    from: '/blog/how-to-perform-localization-testing-in-tolgee',
+    to: 'https://tolgee.io/blog/how-to-perform-localization-testing-in-tolgee',
+  },
+  {
+    from: '/blog/best-localization-software-in-2022',
+    to: 'https://tolgee.io/blog/how-to-perform-localization-testing-in-tolgee',
+  },
+  {
+    from: '/blog/difference-between-i18n-and-i18next',
+    to: 'https://tolgee.io/blog/difference-between-i18n-and-i18next',
+  },
+  {
+    from: '/blog/let-this-script-type-instead-of-you',
+    to: 'https://tolgee.io/blog/let-this-script-type-instead-of-you',
+  },
+  {
+    from: '/blog/new-api-keys-and-pats',
+    to: 'https://tolgee.io/blog/new-api-keys-and-pats',
+  },
+  {
+    from: '/blog/launching-tolgee-pricing',
+    to: 'https://tolgee.io/blog/launching-tolgee-pricing',
+  },
+  {
+    from: '/blog/how-to-integrate-tolgee-with-vanilla-static-html-js-application',
+    to: 'https://tolgee.io/blog/how-to-integrate-tolgee-with-vanilla-static-html-js-application',
+  },
+  {
+    from: '/blog/how-to-localize-your-nextjs-application-with-tolgee',
+    to: 'https://tolgee.io/blog/how-to-localize-your-next-js-application-with-tolgee',
+  },
+  {
+    from: '/blog/new-translation-tools-released',
+    to: 'https://tolgee.io/blog/new-translation-tools-released',
+  },
+  {
+    from: '/blog/in-context-production',
+    to: 'https://tolgee.io/blog/in-context-production',
+  },
+  {
+    from: '/blog/optimizing-spring-boot-tests',
+    to: 'https://tolgee.io/blog/optimizing-spring-boot-tests',
+  },
+  {
+    from: '/blog/turborepo-overhyped',
+    to: 'https://tolgee.io/blog/turborepo-overhyped',
+  },
+  {
+    from: '/blog/moving-project-from-youtrack-to-github',
+    to: 'https://tolgee.io/blog/',
+  },
+  {
+    from: '/blog/updating-road-map',
+    to: 'https://tolgee.io/blog/updating-road-map',
+  },
+  {
+    from: '/blog/manage-user-avatar',
+    to: 'https://tolgee.io/blog/manage-user-avatar',
+  },
+  {
+    from: '/blog/super-fast-react-localization-i18n-with-i18next-and-tolgee',
+    to: 'https://tolgee.io/blog/super-fast-react-localization-i18n-with-i18next-and-tolgee',
+  },
+  {
+    from: '/blog/taking-localization-to-i18next-level',
+    to: 'https://tolgee.io/blog/taking-localization-to-i18next-level',
+  },
+  {
+    from: '/blog/tolgee-support-only-postgres-since-v2',
+    to: 'https://tolgee.io/blog/tolgee-support-only-postgres-since-v2',
+  },
+  {
+    from: '/blog/2021/12/17/invisible-characters-for-better-localization',
+    to: 'https://tolgee.io/blog/using-invisible-text-for-better-localization',
+  },
+  {
+    from: '/blog/why-you-should-prepare-your-project-for-localization-right-now',
+    to: 'https://tolgee.io/blog/why-you-should-prepare-your-project-for-localization-right-now',
+  },
+  {
+    from: '/blog/2021/11/29/same-logic-in-4-frameworks',
+    to: 'https://tolgee.io/blog/same-logic-in-4-frameworks',
+  },
+  {
+    from: '/blog/2021/11/24/optimizing-react-to-the-bone',
+    to: 'https://tolgee.io/blog/optimizing-react-to-the-bone',
+  },
+  {
+    from: '/blog/tolgee-for-svelte-released',
+    to: 'https://tolgee.io/blog/tolgee-for-svelte-released',
+  },
+  {
+    from: '/blog/what-do-open-source-and-raspberry-cupcakes-have-in-common',
+    to: 'https://tolgee.io/blog/what-do-open-source-and-raspberry-cupcakes-have-in-common',
+  },
+  {
+    from: '/blog/',
+    to: 'https://tolgee.io/blog/',
+  },
+];
+
 module.exports.redirects = {
   redirects: [
     // fixing legacy backlinks
@@ -73,10 +396,6 @@ module.exports.redirects = {
     {
       from: '/docs/web/using_with_svelte/installation',
       to: '/js-sdk/integrations/svelte/installation',
-    },
-    {
-      from: '/blog/let-this-script-type-instead-of-you-when-you-record-your-browser',
-      to: '/blog/let-this-script-type-instead-of-you',
     },
     {
       from: '/docs/web/get_started/preparing_for_production',
@@ -191,6 +510,7 @@ module.exports.redirects = {
       from: '/platform/translation_process/tolgee_translator',
       to: '/platform/translation_process/ai_translator',
     },
+    ...BLOG_REDIRECTS,
   ],
   createRedirects(existingPath) {
     if (existingPath.indexOf('/js-sdk/5.x.x') === 0) {
