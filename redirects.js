@@ -113,7 +113,7 @@ const BLOG_REDIRECTS = [
   },
   {
     from: '/blog/new-pricing-2024-01',
-    to: 'https://tolgee.io/blog/new-pricing-2024-01',
+    to: 'https://tolgee.io/blog/',
   },
   {
     from: '/blog/language-formality',
@@ -165,7 +165,7 @@ const BLOG_REDIRECTS = [
   },
   {
     from: '/blog/new-pricing-2023-05',
-    to: 'https://tolgee.io/blog/new-pricing-2023-05',
+    to: 'https://tolgee.io/blog/',
   },
   {
     from: '/blog/naming-translation-keys',
@@ -213,11 +213,11 @@ const BLOG_REDIRECTS = [
   },
   {
     from: '/blog/6-ways-how-to-contribute-to-open-source-and-to-tolgee',
-    to: 'https://tolgee.io/blog/6-ways-how-to-contribute-to-open-source-and-to-tolgee',
+    to: 'https://tolgee.io/blog/',
   },
   {
     from: '/blog/roadmap-updated-cli-community-translations',
-    to: 'https://tolgee.io/blog/roadmap-updated-cli-community-translations',
+    to: 'https://tolgee.io/blog/',
   },
   {
     from: '/blog/how-to-perform-localization-testing-in-tolgee',
@@ -241,7 +241,7 @@ const BLOG_REDIRECTS = [
   },
   {
     from: '/blog/launching-tolgee-pricing',
-    to: 'https://tolgee.io/blog/launching-tolgee-pricing',
+    to: 'https://tolgee.io/blog/',
   },
   {
     from: '/blog/how-to-integrate-tolgee-with-vanilla-static-html-js-application',
