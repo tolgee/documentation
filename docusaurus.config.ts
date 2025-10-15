@@ -19,12 +19,20 @@ const config: Config = {
   markdown: {
     hooks: {
       onBrokenMarkdownLinks: 'warn',
+      onBrokenMarkdownImages: 'warn',
     },
   },
   organizationName: 'Tolgee',
   projectName: 'Tolgee',
   themes: ['docusaurus-theme-openapi-docs'],
   themeConfig: {
+    image: '/img/og-images/homepage.png',
+    metadata: [
+      { property: 'og:type', content: 'website' },
+      { property: 'og:image:width', content: '1200' },
+      { property: 'og:image:height', content: '630' },
+      { name: 'twitter:card', content: 'summary_large_image' },
+    ],
     navbar,
     footer,
     algolia: {
