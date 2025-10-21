@@ -3,6 +3,12 @@ import Translate, { translate } from '@docusaurus/Translate';
 import { PageMetadata } from '@docusaurus/theme-common';
 import Layout from '@theme/Layout';
 import Heading from '@theme/Heading';
+import blogRedirects from '../../blogRedirects.json';
+
+const BLOG_REDIRECT_FALLBACK = 'https://tolgee.io/blog/';
+const blogRedirectMap = new Map(
+  blogRedirects.map(({ from, to }) => [from, to] as const),
+);
 
 const variants = [
   {
@@ -24,6 +30,18 @@ const variants = [
 
 export default function NotFound() {
   const [variant, setVariant] = useState<(typeof variants)[number]>();
+
+  useEffect(() => {
+    if (typeof window === 'undefined') {
+      return;
+    }
+    const { pathname, search, hash } = window.location;
+    if (pathname.startsWith('/blog')) {
+      const target = blogRedirectMap.get(pathname) ?? BLOG_REDIRECT_FALLBACK;
+      const suffix = `${search}${hash}`;
+      window.location.replace(`${target}${suffix}`);
+    }
+  }, []);
 
   useEffect(() => {
     setVariant(variants[Math.floor(Math.random() * variants.length)]);
