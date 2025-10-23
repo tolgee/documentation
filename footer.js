@@ -34,8 +34,16 @@ module.exports.footer = {
       title: 'Community',
       items: [
         {
+          label: 'Discussions',
+          href: 'https://tolg.ee/discussions',
+        },
+        {
           label: 'Slack',
           href: 'https://tolg.ee/slack',
+        },
+        {
+          label: 'Discord',
+          href: 'https://tolgee.io/discord',
         },
         {
           label: 'GitHub',
@@ -43,7 +51,7 @@ module.exports.footer = {
         },
         {
           label: 'Discussions',
-          href: 'https://github.com/tolgee/tolgee-platform/discussions',
+          href: 'https://tolg.ee/discussions',
         },
         {
           label: 'Docker Hub',
