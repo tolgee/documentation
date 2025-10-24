@@ -7,7 +7,7 @@ import blogRedirects from '../../blogRedirects.json';
 
 const BLOG_REDIRECT_FALLBACK = 'https://tolgee.io/blog/';
 const blogRedirectMap = new Map(
-  blogRedirects.map(({ from, to }) => [from, to] as const),
+  blogRedirects.map(({ from, to }) => [from, to] as const)
 );
 
 const variants = [
