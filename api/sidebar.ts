@@ -1015,8 +1015,14 @@ const sidebar: SidebarsConfig = {
         {
           type: "doc",
           id: "accept-invitation",
+          label: "Accepts invitation to project or organization (deprecated: use PUT method instead)",
+          className: "menu__list-item--deprecated api-method get",
+        },
+        {
+          type: "doc",
+          id: "accept-invitation-put",
           label: "Accepts invitation to project or organization",
-          className: "api-method get",
+          className: "api-method put",
         },
         {
           type: "doc",
@@ -1274,6 +1280,72 @@ const sidebar: SidebarsConfig = {
     },
     {
       type: "category",
+      label: "Ai Playground result controller",
+      link: {
+        type: "doc",
+        id: "ai-playground-result-controller",
+      },
+      collapsible: false,
+      collapsed: false,
+      items: [
+        {
+          type: "doc",
+          id: "get-ai-playground-result",
+          label: "Get ai playground result",
+          className: "api-method post",
+        },
+      ],
+    },
+    {
+      type: "category",
+      label: "Llm providers",
+      link: {
+        type: "doc",
+        id: "llm-providers",
+      },
+      collapsible: false,
+      collapsed: false,
+      items: [
+        {
+          type: "doc",
+          id: "get-all-11",
+          label: "Get all organization-specific providers",
+          className: "api-method get",
+        },
+        {
+          type: "doc",
+          id: "create-provider",
+          label: "Create organization-specific provider",
+          className: "api-method post",
+        },
+        {
+          type: "doc",
+          id: "get-available-providers",
+          label: "Get all available llm providers",
+          className: "api-method get",
+        },
+        {
+          type: "doc",
+          id: "get-server-providers",
+          label: "Get all server-configured providers",
+          className: "api-method get",
+        },
+        {
+          type: "doc",
+          id: "update-provider",
+          label: "Update organization-specific provider",
+          className: "api-method put",
+        },
+        {
+          type: "doc",
+          id: "delete-provider",
+          label: "Delete organization-specific provider",
+          className: "api-method delete",
+        },
+      ],
+    },
+    {
+      type: "category",
       label: "Export",
       link: {
         type: "doc",
@@ -1392,7 +1464,7 @@ const sidebar: SidebarsConfig = {
         },
         {
           type: "doc",
-          id: "set-organization-base",
+          id: "remove-direct-project-permissions",
           label: "Remove direct project permission",
           className: "api-method put",
         },
@@ -1401,72 +1473,6 @@ const sidebar: SidebarsConfig = {
           id: "set-users-permissions-1",
           label: "Set direct permission to user",
           className: "api-method put",
-        },
-      ],
-    },
-    {
-      type: "category",
-      label: "Llm providers",
-      link: {
-        type: "doc",
-        id: "llm-providers",
-      },
-      collapsible: false,
-      collapsed: false,
-      items: [
-        {
-          type: "doc",
-          id: "get-all-11",
-          label: "Get all organization-specific providers",
-          className: "api-method get",
-        },
-        {
-          type: "doc",
-          id: "create-provider",
-          label: "Create organization-specific provider",
-          className: "api-method post",
-        },
-        {
-          type: "doc",
-          id: "get-available-providers",
-          label: "Get all available llm providers",
-          className: "api-method get",
-        },
-        {
-          type: "doc",
-          id: "get-server-providers",
-          label: "Get all server-configured providers",
-          className: "api-method get",
-        },
-        {
-          type: "doc",
-          id: "update-provider",
-          label: "Update organization-specific provider",
-          className: "api-method put",
-        },
-        {
-          type: "doc",
-          id: "delete-provider",
-          label: "Delete organization-specific provider",
-          className: "api-method delete",
-        },
-      ],
-    },
-    {
-      type: "category",
-      label: "Ai Playground result controller",
-      link: {
-        type: "doc",
-        id: "ai-playground-result-controller",
-      },
-      collapsible: false,
-      collapsed: false,
-      items: [
-        {
-          type: "doc",
-          id: "get-ai-playground-result",
-          label: "Get ai playground result",
-          className: "api-method post",
         },
       ],
     },
@@ -2161,7 +2167,7 @@ const sidebar: SidebarsConfig = {
         {
           type: "doc",
           id: "get-language-prompt-customizations",
-          label: "Sets project level prompt customization",
+          label: "Returns language level prompt customization",
           className: "api-method get",
         },
         {
