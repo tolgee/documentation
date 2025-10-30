@@ -14,19 +14,69 @@ Single Sign-On is available for enterprise plans. [Upgrade your plan](https://to
 If you use the self-hosted version, you must [set up the license](/platform/self_hosting/licensing) and then follow the [sso server setup guide](/platform/sso/sso_server_setup) to use this feature.
 :::
 
-This guide will help you set up Single Sign-On (SSO) for your organization using Keycloak. See the [SSO Getting Started](/platform/sso/sso_getting_started) guide for more generalized steps on setting up SSO.
+This guide will help you set up Single Sign-On (SSO) for your organization using Keycloak.
+See the [SSO Getting Started](/platform/sso/sso_getting_started) guide for more generalized steps on setting up SSO.
 
 ## Set Up Keycloak
 
-Coming soon...
-[//]: # (TODO)
+To enable SSO with Keycloak, you first need to create a **client** in your Keycloak instance.
+Log in to Keycloak, choose the correct **Realm**, then navigate to **Clients** and click **Create client**:
+
+<ScreenshotWrapper src="/img/docs/platform/sso/sso_keycloak_create_client.png" />
+
+Enter a **Client ID** (e.g., `tolgee`), select **OpenID Connect** as the **Client Type**, and click **Next**:
+
+<ScreenshotWrapper src="/img/docs/platform/sso/sso_keycloak_create_client_step1.png" />
+
+Now configure the capabilities:
+
+* **Client authentication**: Enabled
+* **Authentication flow**: Standard flow (Authorization Code)
+
+<ScreenshotWrapper src="/img/docs/platform/sso/sso_keycloak_create_client_step2.png" />
+
+Set login settings as follows:
+
+* **Root URL**: `https://app.tolgee.io` (for Tolgee Cloud) or your Tolgee instance URL
+* **Home URL**: Same as **Root URL**
+* **Valid redirect URIs**: `/login/auth_callback/sso`
+
+You can also set the **Valid post logout redirect URIs** and **Web origins** if you want to, though Tolgee handles
+logout and general account availability automatically by checking token validity
+every few minutes if a client tries to access Tolgee.
+
+<ScreenshotWrapper src="/img/docs/platform/sso/sso_keycloak_create_client_step3.png" />
+
+Once saved, navigate to the **Credentials** tab to get your **Client Secret**:
+
+<ScreenshotWrapper src="/img/docs/platform/sso/sso_keycloak_client_credentials.png" />
+
+### Finding the endpoints
+
+You can find all the required endpoints in Keycloak’s **OpenID Provider Configuration** (Well-Known URL):
+
+```
+https://<your-keycloak-domain>/realms/<your-realm-name>/.well-known/openid-configuration
+```
+
+Look for `authorization_endpoint` and `token_endpoint`.
+
 
 ## Set Up Tolgee
 
-When you have all the necessary information from Keycloak, you need to enable the SSO feature in your organization settings and provide the necessary information to Tolgee.
+You will need the following values for Tolgee:
+
+* **Client ID**: The same as the client ID you entered the first step above
+* **Client Secret**: Found in the **Credentials** tab
+* **Authorization endpoint**: Found in the response of the [well-known request](#finding-the-endpoints)
+* **Token endpoint**: Found in the response of the [well-known request](#finding-the-endpoints)
+
+When you have all the necessary information from Keycloak, you need to enable the SSO feature
+in your organization settings and provide the necessary information to Tolgee.
 You can find how to enable SSO in the [SSO Getting Started](/platform/sso/sso_getting_started) guide.
 
 ## Log In with SSO
 
-Once you have set up SSO, you can log in to Tolgee using the **Log in with SSO** button on the login page and enter the domain name.
+Once you have set up SSO, you can log in to Tolgee using the **Log in with SSO** button
+on the login page and enter the domain name.
 After that, you will be redirected to the Keycloak login page to authenticate.
