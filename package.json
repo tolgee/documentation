@@ -64,7 +64,7 @@
     ]
   },
   "devDependencies": {
-    "@docusaurus/eslint-plugin": "^3.9.1",
+    "@docusaurus/eslint-plugin": "^3.9.2",
     "@docusaurus/module-type-aliases": "^3.9.1",
     "@docusaurus/plugin-client-redirects": "^3.9.1",
     "@docusaurus/tsconfig": "^3.9.1",
