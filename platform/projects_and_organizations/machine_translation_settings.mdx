@@ -6,16 +6,19 @@ image: /img/og-images/platform.png
 ---
 import { ScreenshotWrapper } from "../shared/_ScreenshotWrapper";
 
-Machine translation (MT) uses external providers to translate base text to currently edited language.
+Machine translation (MT) uses external providers like AI providers, Google or DeepL for automated localization of the base text to currently edited language.
 Number of machine translations that you can use is limited by credits which are shown in language settings. You can **buy more credits** in the [billing settings](organization_settings#subscriptions).
 
+## Supported Machine Translation Providers
 Currently, we support the following machine translation providers:
 
-- Tolgee AI translator based on ChatGPT
-- Google Translate
+- Tolgee AI translation with context based on ChatGPT translation
+- Google Translate integration
 - Amazon Translate (AWS)
-- DeepL
+- DeepL integration
 - Microsoft Azure Translator (Azure Cognitive)
+
+## MT settings
 
 You can selectively **enable or disable machine translation suggestions** for each language and each MT provider.
 When you set a "primary" MT provider, it will be displayed first in the suggestions list and will be used for [automatic translation](#automatic-translation) and for [batch machine translations](/platform/translation_keys/batch_operations#available-batch-operations).
