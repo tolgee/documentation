@@ -1,6 +1,6 @@
 ---
 id: llm-providers
-title: LLM Providers
+title: LLM Providers - OpenAI, Claude & Custom Models
 image: /img/og-images/platform.png
 ---
 
@@ -12,7 +12,7 @@ The Tolgee platform allows you to set up custom LLM models. You can do so in the
 In this guide, we'll show setup via the UI, but the fields are mostly identical when you use the server
 configuration.
 
-## Configuration via UI
+## Setup via Organization Settings via UI (Cloud)
 
   1. Go to Organization settings
   2. Select LLM Providers in the side menu
@@ -36,7 +36,7 @@ From here, you can select `Edit` or `Delete`.
   alt="new member invitation"
 />
 
-## Adding custom provider
+## Add Custom AI Provider
 
 Click the `+ Provider` button to open a provider dialog.
 
@@ -45,7 +45,7 @@ Click the `+ Provider` button to open a provider dialog.
   alt="new member invitation"
 />
 
-### Provider naming
+## AI Provider Naming and Load Balancing
 
 The provider name is displayed in the UI, as well as the provider's ID.
 
@@ -63,12 +63,12 @@ but they usually handle more traffic. On the other hand,
 the translation suggestion in the UI is not repeatable.
 That's why it makes sense to give suggestions higher priority.
 
-## Provider types
+## Supported LLM Provider Types
 
 Provider type selects a type of API; it influences what other configuration fields are available
 based on the API requirements.
 
-### OpenAi
+### OpenAi (ChatGPT)
 
 It is designed to work with the official OpenAI API.
 
@@ -97,7 +97,7 @@ It is designed to work with the Azure version of OpenAI API.
  - `Deployment`: specify your AI Foundry deployment (e.g., gpt-4o)
  - `Format`: some older models don't support structured output, but for newer ones, select "json_schema"
 
-### Anthropic
+### Anthropic Claude
 
 It is designed to work with the Anthropic API.
 
@@ -105,7 +105,7 @@ It is designed to work with the Anthropic API.
  - `API key`: specify your Anthropic API key ("x-api-key" header)
  - `Model`: specify your model name (e.g., claude-sonnet-4-20250514)
 
-### Google AI
+### Google AI (Gemini)
 
 It is designed to work with the Google AI API.
 
