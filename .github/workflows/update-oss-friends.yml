@@ -29,16 +29,17 @@ jobs:
           git config --local user.email "machine@tolgee.io"
           git config --local user.name "Tolgee Machine"
 
-      - name: Commit and push changes
+      - name: Check for changes
+        id: changes
         run: |
           git add .
-          git diff --quiet && git diff --staged --quiet || git commit -m "Update oss friends"
+          git update-index --refresh
+          CHANGED=$(git diff-index --quiet HEAD --; echo $?)
+          echo "changed=${CHANGED}" >> $GITHUB_OUTPUT
 
-      - name: Create or update pull request
-        uses: peter-evans/create-pull-request@v3
-        with:
-          token: ${{ secrets.GITHUB_TOKEN }}
-          commit-message: 'Updating file'
-          title: 'Oss friends update'
-          body: 'This is an automated daily update.'
-          branch: oss-friends-update
+      - name: Commit and push changes
+        if: steps.changes.outputs.changed == '1'
+        run: |
+          git add .
+          git commit -m "chore: Update oss friends"
+          git push origin main
