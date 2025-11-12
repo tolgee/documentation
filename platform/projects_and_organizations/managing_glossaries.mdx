@@ -69,6 +69,70 @@ The base language and the glossary languages are derived from the projects that 
   alt="Create term dialog"
 />
 
+### Importing Terms to a Glossary
+
+1. After creating a new glossary, click the `Import glossary` button
+2. Select a CSV file in the recommended format
+3. Choose an option for how you want to import your terms to the glossary:
+   - Replace glossary
+   - Add to glossary 
+4. Click `Import`
+
+#### Import to an empty glossary
+<ScreenshotWrapper
+  src="/img/docs/platform/glossaries/glossary-import-csv.webp"
+  alt="Import a glossary from a CSV file"
+/>
+
+#### Import to an existing glossary
+<ScreenshotWrapper
+  src="/img/docs/platform/glossaries/glossary-import-from-table.webp"
+  alt="Import a glossary from a CSV file"
+/>
+
+#### Import with an option Replace glossary
+Choose this option if you want to delete all existing terms and import new ones from the CSV file. It is useful if you have a CSV file as your source of truth.
+
+<ScreenshotWrapper
+  src="/img/docs/platform/glossaries/glossary-import-replace.webp"
+  alt="Import with an option Replace glossary"
+/>
+
+
+#### Import with an option Add to glossary
+Choose this option if you want to add new terms from your CSV file to the glossary. It is useful if you have new terms and want to add them in bulk to the glossary. Do not use this option for CSV files with terms that already exist in the glossary, as this might create duplicates. By the definition of the glossary, there can be multiple identical terms with different meanings, so existing terms are not replaced.
+
+<ScreenshotWrapper
+  src="/img/docs/platform/glossaries/glossary-import-add-to.webp"
+  alt="Import with an option Add to glossary"
+/>
+
+#### Format of the CSV
+
+Ensure that the CSV file meets the recommended format. Copy the structure of the columns:
+- **term** - the term itself in the base language
+- **description** - description of the term's meaning. This will help translators or AI understand the term better
+- **translatable** - indicates whether the term is untranslatable (term is the same in all languages) or translatable (translation is different)
+- **casesensitive** - indicates the case matters
+- **abbreviation** - indicates the term is an abbreviation
+- **forbidden** - indicates the term is forbidden
+- **language columns** - use the language tag (short form) for languages used in the projects
+
+<ScreenshotWrapper
+  src="/img/docs/platform/glossaries/glossary-export-csv-format.webp"
+  alt="Format of the CSV file"
+/>
+
+### Exporting Terms from a Glossary
+
+1. If you need to download the glossary as a CSV file, click the `Export glossary` icon
+2. The glossary will be automatically downloaded
+
+<ScreenshotWrapper
+  src="/img/docs/platform/glossaries/glossary-export.webp"
+  alt="Export a glossary"
+/>
+
 ### Viewing and Editing a Glossary
 
 1. Open the tab Glossaries in Organization settings. 
@@ -137,3 +201,5 @@ Also, it is possible to bulk select and delete multiple terms at once.
     src="/img/docs/platform/glossaries/delete-terms.gif"
     alt="Translate term editor"
 />
+
+After you have defined your glossary, you can start to use it. Read more about how to use glossaries in the translation process in [Glossary in translation view](/platform/translation_process/using_glossaries_in_translations_view).
