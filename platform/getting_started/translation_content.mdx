@@ -1,28 +1,28 @@
 ---
 id: files_and_integrations
-title: Translation Files and Integrations
-sidebar_label: Translation Files and Integrations
+title: Import and Export Translation Files
+sidebar_label: Import and Export Files
 description: Learn how you can import existing files into the project and use our JS SDK or Android SDK to seamlessly integrate your code with your Tolgee project.
 image: /img/og-images/platform.png
 ---
 
 After you have [created a project](creating_project), you can import existing files into the project, use our JS SDK or Android SDK to seamlessly integrate your code with your Tolgee project, or use our API to integrate your project with your own system.
 
-## Importing files
+## How to Import Translation Files into Tolgee
 
-To import existing translation files into your project, open the created project and click on the `Import` menu item.
-Then select what language and [namespace](/platform/translation_keys/namespaces) (not required) you want to import the files into and click the `Import` button.
+To import existing translation files (or, in other words, localization files) into your project (like JSON translation files), open the created project and click on the `Import` menu item.
+Then select what language and [namespace](/platform/translation_keys/namespaces) (not required) you want to import the files into and click the `Import` button. This way you can bulk import translations and save time on manually adding translations.
 
-More information about importing files can be found in the [Import](/platform/projects_and_organizations/import) page.
+More information about importing files and file format can be found in the [Import](/platform/projects_and_organizations/import) page.
 
-## Exporting files
+## How to Export Translation Files into Tolgee
 
 To export the translations, open the project and click on the `Export` menu item.
 Then select what languages, file formats and [namespaces](/platform/translation_keys/namespaces) you want to export and click the `Export` button.
 
 More information about exporting files can be found in the [Export](/platform/projects_and_organizations/export) page.
 
-## JS SDK
+## JavaScript SDK Integration for Localization
 
 Tolgee provides a [JS SDK](/js-sdk) that can be used to easily integrate your Tolgee project with your codebase.
 This way, you can use the same translation keys in your code as you use in your Tolgee project.
@@ -31,11 +31,11 @@ In production mode, you should use data exported from the Tolgee platform.
 To export the translation files, see [exporting translations](/platform/projects_and_organizations/export).
 Then provide the data via Tolgee configuration options described in [Providing static data](/js-sdk/providing-static-data).
 
-## iOS SDK
+## iOS SDK for Localization
 
 Tolgee provides a native [iOS SDK](/ios-sdk) with a great support for SwiftUI that integrates with your app and supports OTA updates of strings from a CDN.
 
-## Android SDK
+## Android SDK for Localization
 
 Tolgee also provides an [Android SDK](/android-sdk) for native Android apps, including Jetpack Compose support. Follow the Android docs to:
 

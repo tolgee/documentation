@@ -1,7 +1,7 @@
 ---
 id: export
-title: Export
-sidebar_label: Export
+title: Export Translation Files
+sidebar_label: Export Translation Files
 description: Translations can be exported from Tolgee. You can currently export translations in two formats (JSON and XLIFF)
 image: /img/og-images/platform.png
 ---
@@ -10,7 +10,7 @@ import { ScreenshotWrapper } from '../shared/_ScreenshotWrapper';
 
 Translations can be exported from Tolgee. You can currently export translations in [many different formats](/platform/supported_formats), and you can also export only specific translations, e.g., only the ones that are not translated yet.
 
-## Exporting from Tolgee
+## Export Translations from Tolgee Dashboard
 
 To export translations from Tolgee, select project, and then choose the "Export" item from the sidebar.
 
@@ -18,11 +18,11 @@ To export translations from Tolgee, select project, and then choose the "Export"
 
 Then you can choose the following options:
 
-- **States** – which translations should be exported. You can choose multiple states.
-- **Languages** – which languages should be exported (all languages are exported by default).
-- **Format** – select the format of the exported file. Currently, we support only JSON and XLIFF formats.
-- **Namespaces** – which namespaces should be exported (all namespaces are exported by default). Learn more about namespaces in [this article](/platform/translation_keys/namespaces).
-- **Nested structure** – whether the exported file should be structured as nested objects or not (based on the "." separator in key names). This option is available **only for JSON format**.
+- **States** - which translations should be exported. You can choose multiple states.
+- **Languages** - which languages should be exported (all languages are exported by default).
+- **Format** - select the format of the exported file. Currently, we support only JSON and XLIFF formats.
+- **Namespaces** - which namespaces should be exported (all namespaces are exported by default). Learn more about namespaces in [this article](/platform/translation_keys/namespaces).
+- **Nested structure** - whether the exported file should be structured as nested objects or not (based on the "." separator in key names). This option is available **only for JSON format**.
 
 When you are done, click the `Export` button and the file will be downloaded.
 
@@ -30,7 +30,7 @@ When you are done, click the `Export` button and the file will be downloaded.
 
 > If you want to specify exactly which keys need to be exported, you can go to [Batch operations](../translation_keys/batch_operations.mdx) and export from there.
 
-## Exporting via CLI
+## Export Translations via CLI
 
 You can also export translations via [Tolgee CLI](/tolgee-cli). To do so, you need to have the Tolgee CLI installed. You can find the installation instructions [here](/tolgee-cli/installation).
 
@@ -38,7 +38,7 @@ Then you can use the [`tolgee pull`](/tolgee-cli/push-pull-strings#pulling-strin
 
 The command exports strings from the platform, and saves them in a folder of your choice. You can use this to download strings from Tolgee before bundling your app for production.
 
-## Exporting via API
+## Export Translations via REST API
 
 You can also export translations via REST API, e.g., via the `curl` utility:
 

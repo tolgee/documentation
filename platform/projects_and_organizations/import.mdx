@@ -1,15 +1,17 @@
 ---
 id: import
-title: Import
-sidebar_label: Import
+title: Import Translation Files
+sidebar_label: Import Translation Files
 image: /img/og-images/platform.png
 ---
 
-Tolgee supports importing existing translations from various formats. You can import translations from JSON, XLIFF, and PO files.
+Tolgee supports importing existing translations from various formats. Here is the list of [Tolgee supported formats](/platform/supported_formats).
+
+You can import translations from JSON, XLIFF, PHP, C/C++, Python, Apple Strings, Apple Stringsdict, Apple Strings Catalog, Apple XLIFF, Android XML, Compose Multiplatform XML, Flutter ARB, Ruby YAML, i18next, CSV, .NET RESX, and XLSX files.
 
 import { ScreenshotWrapper } from "../shared/_ScreenshotWrapper";
 
-## Importing to Tolgee
+## Importing Translation Files to Tolgee
 
 To import translations to Tolgee, you need to have a project created. You can create a project in the [Projects](/platform/getting_started/creating_project) section.
 After creating a project, you can import translations to it by navigating to the "Import" page.
@@ -26,7 +28,7 @@ When you are done, click the `Import` button and the file will be imported into 
 
 <ScreenshotWrapper src="/img/docs/platform/import/import_file.webp" alt="Import file" />
 
-### Resolving conflicts
+### Resolving conflicts during import
 
 When you import a file, Tolgee will check if the imported strings already exist in the project. If there are some **conflicts** in the strings, you will be prompted to **resolve them**.
 
