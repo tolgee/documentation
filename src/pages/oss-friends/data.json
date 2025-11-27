@@ -96,6 +96,11 @@
       "href": "https://openbb.co"
     },
     {
+      "name": "Onyx",
+      "description": "Onyx is the open-source AI chat connected to your docs, apps, and people.",
+      "href": "https://onyx.app"
+    },
+    {
       "name": "OpenStatus",
       "description": "Open-source monitoring platform with beautiful status pages",
       "href": "https://www.openstatus.dev"
@@ -124,6 +129,11 @@
       "name": "Rivet",
       "description": "Open-source solution to deploy, scale, and operate your multiplayer game.",
       "href": "https://rivet.gg"
+    },
+    {
+      "name": "Rybbit",
+      "description": "Next-gen, open source, lightweight, cookieless web & product analytics for everyone.",
+      "href": "https://rybbit.com"
     },
     {
       "name": "Shelf.nu",
