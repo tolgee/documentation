@@ -20,7 +20,8 @@
     "cli-schema": "tsx scripts/downloadCliSchema.ts",
     "download-api-spec": "tsx apiSpecGeneration/scripts/downloadApiSpec.ts",
     "enhance-docs": "tsx apiSpecGeneration/scripts/enhanceDocs.ts",
-    "generate-api-docs": "npm run download-api-spec && npm run docusaurus clean-api-docs tolgee && npm run docusaurus gen-api-docs tolgee && npm run enhance-docs",
+    "prefix-tag-ids": "tsx apiSpecGeneration/scripts/prefixTagIds.ts",
+    "generate-api-docs": "npm run download-api-spec && npm run docusaurus clean-api-docs tolgee && npm run docusaurus gen-api-docs tolgee && npm run prefix-tag-ids && npm run enhance-docs",
     "generate-og-images": "tsx scripts/generateOgImages.ts",
     "convert-og-images": "tsx scripts/convertOgImages.ts",
     "og-images": "npm run generate-og-images && npm run convert-og-images"
