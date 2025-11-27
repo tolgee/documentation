@@ -11,11 +11,14 @@ jobs:
     name: Update docs
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v3
+      - uses: actions/checkout@v6
+        with:
+          token: ${{ secrets.TOLGEE_MACHINE_PAT }}
 
-      - uses: actions/setup-node@v1
+      - uses: actions/setup-node@v6
         with:
           node-version: "22.x"
+
       - run: corepack enable
 
       - name: Install npm dependencies
