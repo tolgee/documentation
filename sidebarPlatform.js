@@ -25,7 +25,6 @@ module.exports = {
         'projects_and_organizations/export',
         'projects_and_organizations/suggestions',
         'projects_and_organizations/organization_settings',
-        'projects_and_organizations/managing_glossaries',
         'projects_and_organizations/llm-providers',
         'projects_and_organizations/content_delivery',
         'projects_and_organizations/webhooks',
@@ -52,7 +51,6 @@ module.exports = {
         'translation_process/ai_translator',
         'translation_process/ai-playground',
         'translation_process/comments',
-        'translation_process/using_glossaries_in_translations_view',
         'translation_process/labels',
         'translation_process/icu_message_format',
         'translation_process/tolgee_universal_icu_placeholders',
@@ -83,6 +81,16 @@ module.exports = {
         'formats/ruby_yaml',
         'formats/i18next_json',
         'formats/dotnet_resx',
+      ],
+    },
+    {
+      label: 'Glossaries',
+      type: 'category',
+      items: [
+        'glossaries/managing_glossaries',
+        'glossaries/importing_and_exporting_glossaries',
+        'glossaries/glossary_terms',
+        'glossaries/using_glossaries_in_translations_view',
       ],
     },
     {
