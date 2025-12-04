@@ -1,0 +1,77 @@
+---
+id: importing_and_exporting_glossaries
+title: Import and Export Terms to a Glossary
+sidebar_label: Import and Export Terms
+image: /img/og-images/platform.png
+---
+
+import { ScreenshotWrapper } from '../shared/_ScreenshotWrapper';
+
+# Import and Export Terms to a Glossary
+
+Importing and exporting glossary terms helps you manage terminology at scale and keep your projects consistent. 
+This page explains how to upload terms from a CSV file or download an existing glossary for external use. Basic glossary term actions, such as editing and deleting terms, are documented on the [Glossary Terms Actions](/platform/glossaries/glossary_terms) page.
+
+# Import Terms to a Glossary
+
+1. After creating a new glossary, click the `Import glossary` button
+2. Select a CSV file in the recommended format
+3. Choose an option for how you want to import your terms to the glossary:
+   - Replace glossary
+   - Add to glossary 
+4. Click `Import`
+
+## Import Terms to an Empty Glossary
+<ScreenshotWrapper
+  src="/img/docs/platform/glossaries/glossary-import-csv.webp"
+  alt="Import a glossary from a CSV file"
+/>
+
+## Import Terms to an Existing Glossary
+<ScreenshotWrapper
+  src="/img/docs/platform/glossaries/glossary-import-from-table.webp"
+  alt="Import a glossary from a CSV file"
+/>
+
+## Import With an Option to Replace a Glossary
+Choose this option if you want to delete all existing terms and import new ones from the CSV file. It is useful if you have a CSV file as your source of truth.
+
+<ScreenshotWrapper
+  src="/img/docs/platform/glossaries/glossary-import-replace.webp"
+  alt="Import with an option Replace glossary"
+/>
+
+
+## Import with an Option Add to Glossary
+Choose this option if you want to add new terms from your CSV file to the glossary. It is useful if you have new terms and want to add them in bulk to the glossary. Do not use this option for CSV files with terms that already exist in the glossary, as this might create duplicates. By the definition of the glossary, there can be multiple identical terms with different meanings, so existing terms are not replaced.
+
+<ScreenshotWrapper
+  src="/img/docs/platform/glossaries/glossary-import-add-to.webp"
+  alt="Import with an option Add to glossary"
+/>
+
+## Format of the CSV File
+
+Ensure that the CSV file meets the recommended format. Copy the structure of the columns:
+- **term** - the term itself in the base language
+- **description** - description of the term's meaning. This will help translators or AI understand the term better
+- **translatable** - indicates whether the term is untranslatable (term is the same in all languages) or translatable (translation is different)
+- **casesensitive** - indicates the case matters
+- **abbreviation** - indicates the term is an abbreviation
+- **forbidden** - indicates the term is forbidden
+- **language columns** - use the language tag (short form) for languages used in the projects
+
+<ScreenshotWrapper
+  src="/img/docs/platform/glossaries/glossary-export-csv-format.webp"
+  alt="Format of the CSV file"
+/>
+
+# Export Terms from a Glossary
+
+1. If you need to download the glossary as a CSV file, click the `Export glossary` icon
+2. The glossary will be automatically downloaded
+
+<ScreenshotWrapper
+  src="/img/docs/platform/glossaries/glossary-export.webp"
+  alt="Export a glossary"
+/>
