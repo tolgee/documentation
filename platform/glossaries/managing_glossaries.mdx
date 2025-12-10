@@ -9,26 +9,26 @@ import { ScreenshotWrapper } from '../shared/_ScreenshotWrapper';
 
 # Manage Glossaries - Translation Terminology
 
-Glossaries help you maintain consistent terminology across your translations.
+A glossary is a list of important terms in your product with their preferred translations. It helps translators and machine translation tools to know exactly how certain words should be used so everything stays consistent across languages. This prevents mistakes, avoids confusion, and makes your translations look professional.
 You can create glossaries at the organization level and assign them to projects.
-
-Glossaries can be called differently in other Translation Management Systems (TMS) or localization workflows. 
-To clarify, we use the term "Glossary" as it best describes the features we provide. The base functionality of a Glossary on Tolgee is a list of key terms and their preferred translations with some additional tags for special cases like abbreviations and foribdden terms.
-
-Other names for similar features include: termbase (or Term Base / TB), which can also contain data like usage and status, and terminology database / terminology management system / terminology repository / terminology list, which is a more generic term that often includes not only translations but also guidelines for how certain words should be used within an organization. 
 
 <ScreenshotWrapper
   src="/img/docs/platform/glossaries/glossary-overview.webp"
   alt="Glossaries example"
 />
 
-# Managing Glossaries (termbase)
+Glossaries can be called differently in other Translation Management Systems (TMS) or localization workflows. 
+To clarify, we use the term "Glossary" as it best describes the features we provide. The base functionality of a Glossary on Tolgee is a list of key terms and their preferred translations with some additional tags for special cases like abbreviations and foribdden terms.
+
+Other names for similar features include: termbase (or Term Base / TB), which can also contain data like usage and status, and terminology database / terminology management system / terminology repository / terminology list, which is a more generic term that often includes not only translations but also guidelines for how certain words should be used within an organization. 
+
+## Managing Glossaries (termbase)
 
 This section describes how to work with glossaries and the terms in them. Translation glossary helps with terminology management by keeping it consistent and standardized. This provides brand consistency by keeping track of non-translatable terms, case-sensitive terms, abbreviations and so on. 
 
-## How to Access Organization Glossaries
+## Access Organization Glossaries
 
-Here, you can see a list of glossaries in your organization.
+To see a list of glossaries in your organization, follow the steps below:
 
 1. Go to Organization settings
 2. Select Glossaries in the side menu
@@ -42,7 +42,9 @@ The user can add a glossary and edit it if the access is set to at least a maint
   alt="Glossaries list"
 />
 
-## How to Create a New Glossary
+## Create a New Glossary
+
+To create a new glossary in your organization and add it to a project, follow the steps below:
 
 1. Click the `+ Glossary` button to open the dialog window to create the glossary
 2. Enter a name for the glossary
@@ -58,7 +60,9 @@ The base language and the glossary languages are derived from the projects that 
   alt="Create glossary dialog"
 />
 
-## How to Add Terms to Your Glossary
+## Add Terms to Your Glossary
+
+You can [import terms](/platform/glossaries/importing_and_exporting_glossaries) or add them manually:
 
 1. In the glossary detail view, click the `+ Term` button
 2. Enter the term text
@@ -75,8 +79,9 @@ The base language and the glossary languages are derived from the projects that 
   alt="Create term dialog"
 />
 
+## Edit a Glossary
 
-# View and Edit a Glossary
+Editing a glossary is useful if you want to assign it to a different project or change its name and base language.
 
 1. Open the tab Glossaries in Organization settings. 
 2. Click on three dots 
@@ -89,7 +94,22 @@ Here you can edit the parameters of your glossary that you have set when creatin
   alt="Glossary detail view"
 />
 
-To see the terms of your glossary, click on the glossary you want in the list of all glossaries, and then you will be able to view the glossary terms.
+## Assign Glossary to a Project or Multiple Projects
+
+When [creating a glossary](/platform/glossaries/managing_glossaries#create-a-new-glossary), you can assign (connect) it to one or multiple projects by selecting the checkmarks.
+
+If you are working with an existing glossary, go to the [edit menu of the glossary](/platform/glossaries/managing_glossaries#edit-a-glossary) and select the checkmarks for the projects you want to assign it to.
+
+To disconnect a glossary from a project, follow the same steps and simply remove the checkmark.
+
+<ScreenshotWrapper
+  src="/img/docs/platform/glossaries/assign-glossary.webp"
+  alt="Assign Glossary to a Project"
+/>
+
+## View a Glossary 
+
+First, follow the steps to [access organization glossaries](/platform/glossaries/managing_glossaries#access-organization-glossaries). To see the terms of your glossary, click on the glossary you want in the list of all glossaries, and then you will be able to view the glossary terms.
 
 From here, you can:
 - Add new terms
@@ -103,7 +123,7 @@ To edit or add a term translation, click on the cell in the desired language col
 To edit a term or its details like the tags or the description, click on the term cell in its base language column (the first column).
 
 
-# How to Import or Export Glossary Terms
+## Import or Export Glossary Terms
 
 You can import glossary terms from a CSV file to quickly build or update your terminology database. 
 You can also export any glossary as a CSV file for external editing, sharing, or backup. Learn how to do that in the [Import and Export Terms to a Glossary](/platform/glossaries/importing_and_exporting_glossaries) section.
