@@ -649,6 +649,14 @@ LLM Providers configuration
 
 - ##### `format` \{#tolgee-llm-providers-_-format}
 
+  Set to `json_schema` if the API supports JSON Schema
+
+- ##### `max-tokens` \{#tolgee-llm-providers-_-max-tokens}
+
+  Maximum number of tokens to generate. 
+        `max_completion_tokens` option for OpenAI API.
+        `max_tokens` for Anthropic API.` (default: `2000`)
+
 - ##### `model` \{#tolgee-llm-providers-_-model}
 
   Provider model (optional for some providers)
@@ -1175,6 +1183,7 @@ tolgee:
       deployment:
       enabled: true
       format:
+      max-tokens: 2000
       model:
       name: default
       priority:
@@ -1895,6 +1904,14 @@ LLM Providers configuration
 
 - ##### `FORMAT` \{#tolgee-llm-providers-_-format}
 
+  Set to `json_schema` if the API supports JSON Schema
+
+- ##### `MAX_TOKENS` \{#tolgee-llm-providers-_-max-tokens}
+
+  Maximum number of tokens to generate. 
+        `max_completion_tokens` option for OpenAI API.
+        `max_tokens` for Anthropic API.` (default: `2000`)
+
 - ##### `MODEL` \{#tolgee-llm-providers-_-model}
 
   Provider model (optional for some providers)
@@ -2396,6 +2413,7 @@ TOLGEE_LLM_PROVIDERS_0_ATTEMPTS=
 TOLGEE_LLM_PROVIDERS_0_DEPLOYMENT=
 TOLGEE_LLM_PROVIDERS_0_ENABLED=true
 TOLGEE_LLM_PROVIDERS_0_FORMAT=
+TOLGEE_LLM_PROVIDERS_0_MAX_TOKENS=2000
 TOLGEE_LLM_PROVIDERS_0_MODEL=
 TOLGEE_LLM_PROVIDERS_0_NAME=default
 TOLGEE_LLM_PROVIDERS_0_PRIORITY=
@@ -3102,6 +3120,14 @@ LLM Providers configuration
 
 - ##### `format` \{#tolgee-llm-providers-_-format}
 
+  Set to `json_schema` if the API supports JSON Schema
+
+- ##### `max-tokens` \{#tolgee-llm-providers-_-max-tokens}
+
+  Maximum number of tokens to generate. 
+        `max_completion_tokens` option for OpenAI API.
+        `max_tokens` for Anthropic API.` (default: `2000`)
+
 - ##### `model` \{#tolgee-llm-providers-_-model}
 
   Provider model (optional for some providers)
@@ -3603,6 +3629,7 @@ tolgee.llm.providers[0].attempts =
 tolgee.llm.providers[0].deployment =
 tolgee.llm.providers[0].enabled = true
 tolgee.llm.providers[0].format =
+tolgee.llm.providers[0].max-tokens = 2000
 tolgee.llm.providers[0].model =
 tolgee.llm.providers[0].name = default
 tolgee.llm.providers[0].priority =
