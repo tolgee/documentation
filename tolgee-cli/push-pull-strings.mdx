@@ -33,6 +33,26 @@ Options:
 - `--support-arrays` - Export keys with array syntax (e.g. item[0]) as arrays. (default: false)
 - `--empty-dir` - Empty target directory before inserting pulled files.
 - `--file-structure-template <template>` - [Defines exported file structure](#file-structure-template-format).
+- `--watch` - Watch for changes and re-pull automatically when translations are modified on the server.
+
+### Pull watch mode
+
+The `--watch` option enables continuous monitoring of your Tolgee project for translation changes. When enabled, the CLI will:
+
+- Establish a WebSocket connection to your Tolgee server for real-time updates
+- Automatically re-pull translations whenever changes are detected
+- Use intelligent debouncing to prevent excessive pulls during rapid changes
+- Fall back to periodic polling (every 60 seconds) if WebSocket connection is unavailable
+- Cache responses using ETags to only download changed content
+
+```
+tolgee pull --path ./i18n --watch
+
+```
+
+::::info
+**Server version requirement:** Pull watch mode requires Tolgee server version 3.74.0 or higher to support WebSocket connections for real-time updates.
+::::
 
 ## Pushing strings
 
