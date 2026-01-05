@@ -907,6 +907,14 @@ Per-endpoint and auth-related rate limits are fixed and cannot be configured.
   Control whether per-endpoint limits on the API are enabled or not.
   Does not affect authentication-related endpoints, these are controlled by `authentication-limits`. (default: `true`)
 
+- ##### `export-request-limit` \{#tolgee-rate-limit-_-export-request-limit}
+
+  Amount of export requests a user can do in a single time window. (default: `10`)
+
+- ##### `export-request-window` \{#tolgee-rate-limit-_-export-request-window}
+
+  Size, in milliseconds, of the time window for export-based limiting. (default: `60000`)
+
 - ##### `global-limits` \{#tolgee-rate-limit-_-global-limits}
 
   Control whether global limits on the API are enabled or not. (default: `true`)
@@ -1244,6 +1252,8 @@ tolgee:
     email-verification-request-window: 60000
     enabled: true
     endpoint-limits: true
+    export-request-limit: 10
+    export-request-window: 60000
     global-limits: true
     ip-request-limit: 20000
     ip-request-window: 300000
@@ -2171,6 +2181,14 @@ Per-endpoint and auth-related rate limits are fixed and cannot be configured.
   Control whether per-endpoint limits on the API are enabled or not.
   Does not affect authentication-related endpoints, these are controlled by `authentication-limits`. (default: `true`)
 
+- ##### `EXPORT_REQUEST_LIMIT` \{#tolgee-rate-limit-_-export-request-limit}
+
+  Amount of export requests a user can do in a single time window. (default: `10`)
+
+- ##### `EXPORT_REQUEST_WINDOW` \{#tolgee-rate-limit-_-export-request-window}
+
+  Size, in milliseconds, of the time window for export-based limiting. (default: `60000`)
+
 - ##### `GLOBAL_LIMITS` \{#tolgee-rate-limit-_-global-limits}
 
   Control whether global limits on the API are enabled or not. (default: `true`)
@@ -2475,6 +2493,8 @@ TOLGEE_RATE_LIMIT_EMAIL_VERIFICATION_REQUEST_LIMIT_ENABLED=true
 TOLGEE_RATE_LIMIT_EMAIL_VERIFICATION_REQUEST_WINDOW=60000
 TOLGEE_RATE_LIMIT_ENABLED=true
 TOLGEE_RATE_LIMIT_ENDPOINT_LIMITS=true
+TOLGEE_RATE_LIMIT_EXPORT_REQUEST_LIMIT=10
+TOLGEE_RATE_LIMIT_EXPORT_REQUEST_WINDOW=60000
 TOLGEE_RATE_LIMIT_GLOBAL_LIMITS=true
 TOLGEE_RATE_LIMIT_IP_REQUEST_LIMIT=20000
 TOLGEE_RATE_LIMIT_IP_REQUEST_WINDOW=300000
@@ -3396,6 +3416,14 @@ Per-endpoint and auth-related rate limits are fixed and cannot be configured.
   Control whether per-endpoint limits on the API are enabled or not.
   Does not affect authentication-related endpoints, these are controlled by `authentication-limits`. (default: `true`)
 
+- ##### `export-request-limit` \{#tolgee-rate-limit-_-export-request-limit}
+
+  Amount of export requests a user can do in a single time window. (default: `10`)
+
+- ##### `export-request-window` \{#tolgee-rate-limit-_-export-request-window}
+
+  Size, in milliseconds, of the time window for export-based limiting. (default: `60000`)
+
 - ##### `global-limits` \{#tolgee-rate-limit-_-global-limits}
 
   Control whether global limits on the API are enabled or not. (default: `true`)
@@ -3700,6 +3728,8 @@ tolgee.rate-limit.email-verification-request-limit-enabled = true
 tolgee.rate-limit.email-verification-request-window = 60000
 tolgee.rate-limit.enabled = true
 tolgee.rate-limit.endpoint-limits = true
+tolgee.rate-limit.export-request-limit = 10
+tolgee.rate-limit.export-request-window = 60000
 tolgee.rate-limit.global-limits = true
 tolgee.rate-limit.ip-request-limit = 20000
 tolgee.rate-limit.ip-request-window = 300000
