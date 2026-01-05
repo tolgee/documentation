@@ -355,6 +355,14 @@ Configuration of batch operations.
 
   How many parallel jobs can be run at once on single Tolgee instance (default: `1`)
 
+- ##### `max-per-mt-job-concurrency` \{#tolgee-batch-_-max-per-mt-job-concurrency}
+
+  Concurrency among all tolgee instances per one machine translation job
+  .Higher concurrency provides faster and distributed processing, but can lead to hitting rate limit
+  on OpenAI, as well as getting over the limit of availableCredits: at the beginning, we only check, that
+  the organization has `availableCredits > 0` and only when we have the result from OpenAI,we are able to
+  calculate how many credits to charge the organization. In the Tolgee Cloud it is set to 1.  (default: `-1` Unlimited (within tolgee.batch.concurrency))
+
 ### Cache \{#tolgee-_-cache}
 
 Prefix: `tolgee.cache`
@@ -1119,6 +1127,7 @@ tolgee:
   batch:
     chunk-queue-population-size: 1000
     concurrency: 1
+    max-per-mt-job-concurrency: -1
   cache:
     caffeine-max-size: -1
     clean-on-startup: true
@@ -1609,6 +1618,14 @@ Configuration of batch operations.
 - ##### `CONCURRENCY` \{#tolgee-batch-_-concurrency}
 
   How many parallel jobs can be run at once on single Tolgee instance (default: `1`)
+
+- ##### `MAX_PER_MT_JOB_CONCURRENCY` \{#tolgee-batch-_-max-per-mt-job-concurrency}
+
+  Concurrency among all tolgee instances per one machine translation job
+  .Higher concurrency provides faster and distributed processing, but can lead to hitting rate limit
+  on OpenAI, as well as getting over the limit of availableCredits: at the beginning, we only check, that
+  the organization has `availableCredits > 0` and only when we have the result from OpenAI,we are able to
+  calculate how many credits to charge the organization. In the Tolgee Cloud it is set to 1.  (default: `-1` Unlimited (within tolgee.batch.concurrency))
 
 ### Cache \{#tolgee-_-cache}
 
@@ -2363,6 +2380,7 @@ TOLGEE_AUTHENTICATION_SSO_ORGANIZATIONS_ENABLED=false
 TOLGEE_AUTHENTICATION_SSO_ORGANIZATIONS_SESSION_EXPIRATION_MINUTES=10
 TOLGEE_BATCH_CHUNK_QUEUE_POPULATION_SIZE=1000
 TOLGEE_BATCH_CONCURRENCY=1
+TOLGEE_BATCH_MAX_PER_MT_JOB_CONCURRENCY=-1
 TOLGEE_CACHE_CAFFEINE_MAX_SIZE=-1
 TOLGEE_CACHE_CLEAN_ON_STARTUP=true
 TOLGEE_CACHE_DEFAULT_TTL=7200000
@@ -2825,6 +2843,14 @@ Configuration of batch operations.
 - ##### `concurrency` \{#tolgee-batch-_-concurrency}
 
   How many parallel jobs can be run at once on single Tolgee instance (default: `1`)
+
+- ##### `max-per-mt-job-concurrency` \{#tolgee-batch-_-max-per-mt-job-concurrency}
+
+  Concurrency among all tolgee instances per one machine translation job
+  .Higher concurrency provides faster and distributed processing, but can lead to hitting rate limit
+  on OpenAI, as well as getting over the limit of availableCredits: at the beginning, we only check, that
+  the organization has `availableCredits > 0` and only when we have the result from OpenAI,we are able to
+  calculate how many credits to charge the organization. In the Tolgee Cloud it is set to 1.  (default: `-1` Unlimited (within tolgee.batch.concurrency))
 
 ### Cache \{#tolgee-_-cache}
 
@@ -3579,6 +3605,7 @@ tolgee.authentication.sso-organizations.enabled = false
 tolgee.authentication.sso-organizations.session-expiration-minutes = 10
 tolgee.batch.chunk-queue-population-size = 1000
 tolgee.batch.concurrency = 1
+tolgee.batch.max-per-mt-job-concurrency = -1
 tolgee.cache.caffeine-max-size = -1
 tolgee.cache.clean-on-startup = true
 tolgee.cache.default-ttl = 7200000
