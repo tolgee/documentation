@@ -5,6 +5,70 @@ description: Tips and tricks for debugging and using the SDK with advanced codeb
 image: /img/og-images/ios-sdk.png
 ---
 
+### Language Overwrite
+
+You can override the default system language to display translations in a specific language. This is useful when implementing custom language switchers or when you want to force a specific language regardless of the device settings.
+
+#### Setting Language During Initialization
+
+You can set a custom language when initializing Tolgee:
+
+```swift
+// Override both locale and language
+Tolgee.shared.initialize(
+    cdn: cdnURL,
+    locale: Locale(identifier: "pt_BR"), // Override the system locale
+    language: "pt-BR" // Override the language name on Tolgee CDN
+)
+
+// Or just override the locale (language is extracted automatically)
+Tolgee.shared.initialize(
+    cdn: cdnURL,
+    locale: Locale(identifier: "pt_BR")
+)
+```
+
+#### Changing Language at Runtime
+
+Use `setCustomLocale(_:language:)` to change the language dynamically:
+
+```swift
+// Set custom locale (language is extracted automatically)
+try Tolgee.shared.setCustomLocale(Locale(identifier: "fr"))
+
+// Or specify a custom language for the CDN if it differs from the locale
+try Tolgee.shared.setCustomLocale(
+    Locale(identifier: "pt_BR"),
+    language: "pt-BR" // CDN language code
+)
+
+// Fetch translations for the new language
+await Tolgee.shared.remoteFetch()
+```
+
+#### Resetting to System Language
+
+To return to the device's system language:
+
+```swift
+try Tolgee.shared.setCustomLocale(.current)
+await Tolgee.shared.remoteFetch()
+```
+
+#### Pre-fetching all available languages from the CDN
+
+You can pre-fetch all languages supported by your app:
+
+```swift
+await withTaskGroup(of: Void.self) { group in
+    for language in Bundle.main.localizations {
+        group.addTask {
+            await Tolgee.shared.remoteFetch(language: language)
+        }
+    }
+}
+```
+
 ### Custom tables/namespaces
 Tolgee iOS SDK supports loading of local translations from multiple local tables by providing the `table` parameter. When using `.xcstrings` files, the names of the tables match the names of your files without the extension. You do not need to provide the table name when loading strings stored in the default `Localizable.xcstrings` file.
 
