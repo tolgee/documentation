@@ -12,58 +12,53 @@ import { ScreenshotWrapper } from '../shared/_ScreenshotWrapper';
 Importing and exporting glossary terms helps you manage terminology at scale and keep your projects consistent. 
 This page explains how to upload terms from a CSV file or download an existing glossary for external use. Basic glossary term actions, such as editing and deleting terms, are documented on the [Glossary Terms Actions](/platform/glossaries/glossary_terms) page.
 
-## Import Terms to a Glossary
+## Import Glossary Terms from a CSV File
 
-If you already have a CSV file containing terms you want to add to your glossary, you can import them by following these steps:
+Uploading glossary terms helps speed up your work if you already have a term base or are migrating from a different platform.
 
-1. After creating a new glossary, click the `Import glossary` button
+If you already have a CSV file in the [proper format](/platform/glossaries/importing_and_exporting_glossaries#format-of-the-csv-file) containing terms you want to add to your glossary, you can import them by following these steps:
+
+1. After creating a new glossary, click `Import a glossary` in the right column or select the second icon to the left of the “+ Term” button. 
 2. Select a CSV file in the recommended format
-3. Choose an option for how you want to import your terms to the glossary:
+3. Choose an option for how you want to import your terms to the glossary (usually applicable to an existing glossary):
    - Replace glossary
    - Add to glossary 
 4. Click `Import`
 
-## Import Terms to an Empty Glossary
-
-To import terms from a CSV file into an empty glossary, create a new glossary and open it. Then click “Import a glossary” in the right column or select the second icon to the left of the “+ Term” button. 
-
-Afterward, upload or drag and drop a CSV file, then click “Import.”
 <ScreenshotWrapper
   src="/img/docs/platform/glossaries/glossary-import-csv.webp"
   alt="Import a glossary from a CSV file"
 />
 
-## Import Terms to an Existing Glossary
+To import terms into an **existing glossary**, open the glossary you would like to import terms into. 
 
-To import terms into an existing glossary, first open the glossary you would like to import terms into. Then click the second icon to the left of the “+ Term” button.
-
-Afterwards, follow the steps to [Add to Glossary](/platform/glossaries/importing_and_exporting_glossaries#import-with-an-option-add-to-glossary) or to [Replace a Glossary](/platform/glossaries/importing_and_exporting_glossaries#import-with-an-option-to-replace-a-glossary).
+Then, click the second icon to the left of the “+ Term” button.
 
 <ScreenshotWrapper
   src="/img/docs/platform/glossaries/glossary-import-from-table.webp"
   alt="Import a glossary from a CSV file"
 />
 
-## Options While Importing to an Existing Glossary 
+When importing into an existing glossary, you have two options: adding new terms or replacing the entire glossary with the imported terms. The differences between these options are explained below.
 
-When importing to an existing glossary you have two options on how to add the terms. Here are the differences:
+### Import Terms by Adding Them to a Glossary
 
-### Import With an Option to Replace a Glossary
+After selecting a file to import, choose the “Add to Glossary” import mode if you want to add new terms from your CSV file to the glossary. This option is useful when you have new terms to add in bulk. 
+
+Do not use it with CSV files containing terms that already exist in the glossary, as this may create duplicates. Because a glossary can contain identical terms with different meanings, existing terms are not replaced.
+
+<ScreenshotWrapper
+  src="/img/docs/platform/glossaries/glossary-import-add-to.webp"
+  alt="Import with an option Add to glossary"
+/>
+
+### Import Terms by Replacing a Glossary
 
 After selecting a file to import, choose "Replace glossary" import mode if you want to delete all existing terms and import new ones from the CSV file. It is useful if you have a CSV file as your source of truth.
 
 <ScreenshotWrapper
   src="/img/docs/platform/glossaries/glossary-import-replace.webp"
   alt="Import with an option Replace glossary"
-/>
-
-### Import with an Option Add to Glossary
-
-After selecting a file to import, choose the “Add to Glossary” import mode if you want to add new terms from your CSV file to the glossary. This option is useful when you have new terms to add in bulk. Do not use it with CSV files containing terms that already exist in the glossary, as this may create duplicates. Because a glossary can contain identical terms with different meanings, existing terms are not replaced.
-
-<ScreenshotWrapper
-  src="/img/docs/platform/glossaries/glossary-import-add-to.webp"
-  alt="Import with an option Add to glossary"
 />
 
 ## Format of the CSV File
@@ -84,6 +79,8 @@ Ensure that the CSV file meets the recommended format. Copy the structure of the
 />
 
 ## Export Terms from a Glossary
+
+Exporting terms is useful when you want to use them elsewhere or edit them externally before reuploading them to Tolgee.
 
 To export all terms, open the glossary and click the first icon to the left of the “+ Term” button.
 
