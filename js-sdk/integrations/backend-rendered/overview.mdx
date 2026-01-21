@@ -111,7 +111,7 @@ To enable this functionality, you initialize Tolgee on the frontend with the `Ob
 
 The mutation observer also handles dynamically added content. If your backend application uses JavaScript to add new content to the page (perhaps through AJAX or dynamic DOM manipulation), and that new content includes wrapped translations, the observer will detect them automatically. You don't need to manually tell Tolgee to scan again – the mutation observer is continuously watching for changes.
 
-For production environments, you should omit the entire Tolgee script and initialization. Since your backend doesn't wrap translations in production mode, there's no reason to include Tolgee JS at all. Use a server-side condition to exclude the `<script>` tag entirely (see the [setup guide](./setup.mdx#production-configuration) for an example).
+For production environments, you should omit the entire Tolgee script and initialization. Since your backend doesn't wrap translations in production mode, there's no reason to include Tolgee JS at all. Use a server-side condition to exclude the `<script>` tag entirely (see the [setup guide](./setup.mdx#step-2-initialize-tolgee-js-with-the-observer) for an example).
 
 ## Limitation: Manual page refresh required to see changes
 
