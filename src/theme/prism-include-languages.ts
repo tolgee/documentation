@@ -25,6 +25,11 @@ export default function prismIncludeLanguages(
 
   // Load only the configured additional languages
   additionalLanguages.forEach((lang) => {
+    // PHP requires markup-templating as a dependency
+    if (lang === 'php') {
+      // eslint-disable-next-line @typescript-eslint/no-require-imports
+      require('prismjs/components/prism-markup-templating');
+    }
     // eslint-disable-next-line @typescript-eslint/no-require-imports
     require(`prismjs/components/prism-${lang}`);
   });

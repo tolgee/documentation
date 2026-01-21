@@ -1,0 +1,136 @@
+---
+id: overview
+title: In-Context Editing for Backend-Rendered Apps
+sidebar_label: Overview
+description: "Add Tolgee in-context translation editing to PHP, Ruby on Rails, Django, and Node.js server-side rendered applications without changing your backend rendering logic."
+keywords: [backend rendering, server-side rendering, SSR, PHP translation, Rails i18n, Django translation, in-context editing, localization]
+---
+
+This guide helps you to enable in-context translation for applications where translations are rendered on the backend (PHP, Rails, Django, etc.)
+
+This integration allows you to add Tolgee's in-context editing capabilities and edit content directly in the browser, providing a seamless translation workflow for backend-rendered applications.
+
+## How backend translation wrapping works
+
+To get in-context editing working, the backend needs to wrap strings with invisible characters.
+So Tolgee JS can detect these wrapped strings on the frontend. Since the markings are invisible, there is no risk of
+glitches or any other issues with the rendered output.
+
+The developer is responsible for updating the localizaton data on the backend, since Tolgee JS does not have control
+over what's rendered on the frontend. For this purpose, you can use Tolgee CLI `pull --watch` command, which watches
+for changes on the localization data and automatically updates data stored on your filesystem.
+
+## Key wrapping mechanism
+To prepare the translation for detection by Tolgee JS, you need to wrap the string with invisible characters.
+
+The wrapper encodes a JSON object containing the translation key and namespace (e.g., `{"k":"welcome","n":""}`) into binary. Each bit of this binary data becomes an invisible Unicode character: `0` maps to Zero-Width Non-Joiner (`\u200C`) and `1` maps to Zero-Width Joiner (`\u200D`).
+
+The output looks like this:
+```
+<the translated string><JSON-encoded key metadata as invisible characters>
+// e.g.
+hello\u{200C}\u{200D}\u{200C}\u{200D}...
+```
+<details>
+<summary>PHP example of invisible wrapping class</summary>
+
+```php
+class InvisibleWrapper
+{
+  const INVISIBLE_CHARACTERS = ["\u{200C}", "\u{200D}"];
+  const MESSAGE_END = "\x0A";
+
+  /**
+   * Wraps a translation with invisible encoded key data.
+   * Call this in development mode only.
+   */
+  public function wrap($key, $namespace, $translation)
+  {
+    $data = json_encode([
+      'k' => $key,
+      'n' => $namespace ?: ''
+    ]);
+
+    return $translation . $this->encodeToInvisible($data . self::MESSAGE_END);
+  }
+
+  private function encodeToInvisible($text)
+  {
+    $result = '';
+    $bytes = unpack('C*', $text);
+
+    foreach ($bytes as $byte) {
+      // Convert byte to 8-bit binary, then add separator bit
+      $binary = str_pad(decbin($byte), 8, '0', STR_PAD_LEFT) . '0';
+
+      for ($i = 0; $i < strlen($binary); $i++) {
+        $result .= self::INVISIBLE_CHARACTERS[(int)$binary[$i]];
+      }
+    }
+
+    return $result;
+  }
+}
+```
+
+</details>
+
+## How Tolgee JS detects server-rendered translations
+
+Understanding how Tolgee behaves on the frontend helps you avoid common confusion. Unlike typical frontend integrations where Tolgee controls the entire translation process, in backend-rendered apps Tolgee's role is more limited.
+
+When your page loads, it contains HTML with visible translated text and invisible character sequences appended to each translation. Your users see only the translated text because the Unicode characters used for encoding are genuinely invisible – they don't create any visual artifacts, spacing issues, or layout problems.
+
+Tolgee JS starts monitoring the DOM using a MutationObserver as soon as it initializes. This observer scans every text node in the document, looking for those invisible character sequences. When it finds one, it decodes the sequence back into the translation key and namespace. This decoded information tells Tolgee which translation key corresponds to which piece of text in your UI.
+
+Once Tolgee detects the translation key, it removes the invisible characters from DOM and adds event listeners to the parent element that enable the in-context editing experience. These wrapper elements are what make the translations interactive – when you hover over translated text in development mode while holding the Alt/Option key, Tolgee highlights the corresponding parent element.
+
+When a user clicks to edit a translation, Tolgee opens an editing dialog. The user makes their changes and saves. At this point, the change goes to the Tolgee platform via the API – your backend isn't involved in this step at all. This is important: the edited translation is now in the Tolgee platform, but your backend still has the old version in its local localization files (.json or other) on its filesystem.
+
+To update these translation files, you can use the Tolgee CLI `pull --watch` command. It will listen for changes in the Tolgee platform and update the translation files on your filesystem when something changes. In our example, the CLI will run in a separate docker container.
+
+No special frontend rendering logic is needed – Tolgee JS only observes and enhances existing DOM output. Your existing HTML structure remains unchanged, and the integration works with any frontend framework or even vanilla JavaScript. You don't need to refactor your existing rendering logic or change how your backend generates HTML.
+
+To enable this functionality, you initialize Tolgee on the frontend with the `ObserverPlugin` and set `observerOptions.fullKeyEncode` to `true`.
+
+```javascript
+  const {Tolgee, DevTools, ObserverPlugin} = window['@tolgee/web'];
+
+  const tolgee = Tolgee()
+    .use(DevTools())
+    .use(ObserverPlugin())
+    .init({
+      language: 'en',
+      apiKey: '<your api key>',
+      observerOptions: {
+        fullKeyEncode: true
+      },
+    })
+  tolgee.run()
+```
+
+The mutation observer also handles dynamically added content. If your backend application uses JavaScript to add new content to the page (perhaps through AJAX or dynamic DOM manipulation), and that new content includes wrapped translations, the observer will detect them automatically. You don't need to manually tell Tolgee to scan again – the mutation observer is continuously watching for changes.
+
+For production environments, you should omit the entire Tolgee script and initialization. Since your backend doesn't wrap translations in production mode, there's no reason to include Tolgee JS at all. Use a server-side condition to exclude the `<script>` tag entirely (see the [setup guide](./setup.mdx#production-configuration) for an example).
+
+## Limitation: Manual page refresh required to see changes
+
+When you edit a translation using in-context editing, the change is saved to the Tolgee platform immediately. However, you won't see the updated text on the page until you manually refresh.
+
+**How the standard JS SDK works:**
+
+With frontend integrations like React, Vue, or Svelte, Tolgee controls the entire translation lifecycle. When you call `t('key')`, Tolgee renders the translation and maintains a reference to that DOM element. After you edit a translation, Tolgee receives a notification via its API connection and immediately re-renders all instances of that key with the new value. The update appears instantly without any page refresh.
+
+**Why backend-rendered apps behave differently:**
+
+In backend-rendered applications, your server generates the HTML with already-translated text before the page reaches the browser. Tolgee JS only observes this pre-rendered content - it doesn't control how the text was generated or have any way to re-render it.
+
+When you edit a translation, Tolgee saves the change to the platform, but the text you see on the page came from your backend's translation files. Those files haven't changed yet. The CLI running in watch mode will detect the platform change and pull the updated translation to your local files, but your backend needs to serve a fresh page to use the new value.
+
+This is a fundamental architectural difference: the JS SDK owns the rendering, while in backend-rendered apps, Tolgee JS only enhances content that something else rendered.
+
+## Next steps
+
+Ready to implement this integration in your application? Start with the [setup guide](./setup.mdx), which walks you through the complete implementation process. The guide covers Docker Compose configuration for running both your application and the Tolgee CLI in watch mode, implementing the invisible character wrapping in your backend, and configuring the frontend JavaScript to detect and enable editing of your translations.
+
+For a working reference implementation, explore the [PHP example repository](https://github.com/tolgee/tolgee-php-demo). This complete example demonstrates all the concepts in practice, including the Docker setup, invisible wrapper implementation, translation loading logic, and frontend integration. You can use it as a template for implementing the integration in any backend technology.
