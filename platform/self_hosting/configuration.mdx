@@ -347,10 +347,6 @@ Prefix: `tolgee.batch`
 
 Configuration of batch operations.
 
-- ##### `chunk-queue-population-size` \{#tolgee-batch-_-chunk-queue-population-size}
-
-  How many job chunks are added to the internal queue on each scheduled run (default: `1000`)
-
 - ##### `completed-job-retention-days` \{#tolgee-batch-_-completed-job-retention-days}
 
   Retention period in days for completed batch jobs (SUCCESS, CANCELLED) (default: `3`)
@@ -1157,7 +1153,6 @@ tolgee:
       enabled: false
       session-expiration-minutes: 10
   batch:
-    chunk-queue-population-size: 1000
     completed-job-retention-days: 3
     concurrency: 1
     failed-job-retention-days: 30
@@ -1650,10 +1645,6 @@ There is a significant difference between global and per organization SSO: Globa
 Prefix: `TOLGEE_BATCH`
 
 Configuration of batch operations.
-
-- ##### `CHUNK_QUEUE_POPULATION_SIZE` \{#tolgee-batch-_-chunk-queue-population-size}
-
-  How many job chunks are added to the internal queue on each scheduled run (default: `1000`)
 
 - ##### `COMPLETED_JOB_RETENTION_DAYS` \{#tolgee-batch-_-completed-job-retention-days}
 
@@ -2450,7 +2441,6 @@ TOLGEE_AUTHENTICATION_SSO_GLOBAL_SESSION_EXPIRATION_MINUTES=10
 TOLGEE_AUTHENTICATION_SSO_GLOBAL_TOKEN_URI=
 TOLGEE_AUTHENTICATION_SSO_ORGANIZATIONS_ENABLED=false
 TOLGEE_AUTHENTICATION_SSO_ORGANIZATIONS_SESSION_EXPIRATION_MINUTES=10
-TOLGEE_BATCH_CHUNK_QUEUE_POPULATION_SIZE=1000
 TOLGEE_BATCH_COMPLETED_JOB_RETENTION_DAYS=3
 TOLGEE_BATCH_CONCURRENCY=1
 TOLGEE_BATCH_FAILED_JOB_RETENTION_DAYS=30
@@ -2915,10 +2905,6 @@ There is a significant difference between global and per organization SSO: Globa
 Prefix: `tolgee.batch`
 
 Configuration of batch operations.
-
-- ##### `chunk-queue-population-size` \{#tolgee-batch-_-chunk-queue-population-size}
-
-  How many job chunks are added to the internal queue on each scheduled run (default: `1000`)
 
 - ##### `completed-job-retention-days` \{#tolgee-batch-_-completed-job-retention-days}
 
@@ -3715,7 +3701,6 @@ tolgee.authentication.sso-global.session-expiration-minutes = 10
 tolgee.authentication.sso-global.token-uri =
 tolgee.authentication.sso-organizations.enabled = false
 tolgee.authentication.sso-organizations.session-expiration-minutes = 10
-tolgee.batch.chunk-queue-population-size = 1000
 tolgee.batch.completed-job-retention-days = 3
 tolgee.batch.concurrency = 1
 tolgee.batch.failed-job-retention-days = 30
