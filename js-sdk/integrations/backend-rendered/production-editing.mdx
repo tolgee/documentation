@@ -1,27 +1,44 @@
 ---
 id: production-editing
-title: In-Context Editing on Production for Backend-Rendered Apps
-sidebar_label: Production Editing
+title: Setup Editing in Production for Backend-Rendered Apps
+sidebar_label: Setup Editing in Production
 description: "Enable Tolgee in-context editing for translators on production without exposing API keys to end users. Use the Tolgee Browser Plugin for secure, on-demand translation editing."
 keywords: [production editing, browser plugin, Tolgee extension, secure translation, translator workflow]
 ---
 
+:::info TL;DR
+Enable in-context editing on production for your team without exposing API keys. Team members use the **Tolgee Browser Plugin** to inject credentials locally, while regular users see a normal site.
+:::
+
+:::warning Prerequisites
+Complete the [Setup for Development](./setup.mdx) guide first. This guide builds on that setup by adding a secure way to enable editing on production.
+:::
+
+## How it works
+
+```
+┌──────────────────────┐      ┌──────────────────┐      ┌─────────────────┐
+│ User visits with     │ ──▶  │ Server wraps     │ ──▶  │ Browser plugin  │
+│ ?tolgeeDevelopment   │      │ translations     │      │ injects API key │
+└──────────────────────┘      └──────────────────┘      └─────────────────┘
+```
+
+1. Team member visits your site with a trigger (e.g., `?tolgeeDevelopment` query param)
+2. Server enables wrapping and loads Tolgee JS—but **without** the API key
+3. The browser plugin detects Tolgee and injects the API key from local settings
+4. In-context editing works, but only for team members with the plugin configured
+
+Regular users see a normal production site. No credentials exposed.
+
+---
+
 By default, you don't want to expose Tolgee dev tools or in-context editing capabilities to end users in production. The API key should never be bundled into client-side code, and the invisible character wrapping adds unnecessary overhead.
 
-However, **translators and product managers often need to edit strings directly on production** - seeing translations in their real context is invaluable for quality.
+However, **translators and product managers often need to edit strings directly on production**—seeing translations in their real context is invaluable for quality.
 
 ## The Tolgee Browser Plugin solution
 
-The [Tolgee Browser Plugin](/js-sdk/in-context#1-tolgee-chrome-plugin) solves this elegantly. It can inject the API key and dev tools directly into Tolgee JS on the client side, enabling in-context editing without exposing credentials in your server code.
-
-Here's how it works:
-
-1. Your server enables development mode only when a specific trigger is present
-2. When triggered, the server wraps translations and loads Tolgee JS - but **without the API key**
-3. The browser plugin detects Tolgee JS and injects the API key from the user's local plugin settings
-4. In-context editing works, but only for team members who have the plugin configured
-
-This way, regular users see a normal production site, while team members with the plugin can edit translations.
+The [Tolgee Browser Plugin](/js-sdk/in-context#1-tolgee-chrome-plugin) solves this elegantly. It injects the API key and dev tools directly into Tolgee JS on the client side, enabling in-context editing without exposing credentials in your server code.
 
 ## Server-side implementation
 
