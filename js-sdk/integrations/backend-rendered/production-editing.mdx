@@ -1,0 +1,137 @@
+---
+id: production-editing
+title: Setup Editing in Production for Backend-Rendered Apps
+sidebar_label: Setup Editing in Production
+description: "Enable Tolgee in-context editing for translators on production without exposing API keys to end users. Use the Tolgee Browser Plugin for secure, on-demand translation editing."
+keywords: [production editing, browser plugin, Tolgee extension, secure translation, translator workflow]
+---
+
+:::info TL;DR
+Enable in-context editing on production for your team without exposing API keys. Team members use the **Tolgee Browser Plugin** to inject credentials locally, while regular users see a normal site.
+:::
+
+:::warning Prerequisites
+Complete the [Setup for Development](./setup.mdx) guide first. This guide builds on that setup by adding a secure way to enable editing on production.
+:::
+
+## How it works
+
+```
+┌──────────────────────┐      ┌──────────────────┐      ┌─────────────────┐
+│ User visits with     │ ──▶  │ Server wraps     │ ──▶  │ Browser plugin  │
+│ ?tolgeeDevelopment   │      │ translations     │      │ injects API key │
+└──────────────────────┘      └──────────────────┘      └─────────────────┘
+```
+
+1. Team member visits your site with a trigger (e.g., `?tolgeeDevelopment` query param)
+2. Server enables wrapping and loads Tolgee JS—but **without** the API key
+3. The browser plugin detects Tolgee and injects the API key from local settings
+4. In-context editing works, but only for team members with the plugin configured
+
+Regular users see a normal production site. No credentials exposed.
+
+---
+
+By default, you don't want to expose Tolgee dev tools or in-context editing capabilities to end users in production. The API key should never be bundled into client-side code, and the invisible character wrapping adds unnecessary overhead.
+
+However, **translators and product managers often need to edit strings directly on production**—seeing translations in their real context is invaluable for quality.
+
+## The Tolgee Browser Plugin solution
+
+The [Tolgee Browser Plugin](/js-sdk/in-context#1-tolgee-chrome-plugin) solves this elegantly. It injects the API key and dev tools directly into Tolgee JS on the client side, enabling in-context editing without exposing credentials in your server code.
+
+## Server-side implementation
+
+Update your development mode check to include a query parameter trigger:
+
+```php
+<?php
+// Development mode is enabled when:
+// - API key is present in environment (local development)
+// - ?tolgeeDevelopment query param is present (for browser plugin on production)
+$apiKey = getenv('TOLGEE_API_KEY') ?: '';
+$isDevelopment = !empty($apiKey) || isset($_GET['tolgeeDevelopment']);
+?>
+```
+
+Then conditionally load Tolgee JS. Note that the API key may be empty - the browser plugin will provide it:
+
+```php
+<?php if ($isDevelopment): ?>
+<script src="https://cdn.jsdelivr.net/npm/@tolgee/web/dist/tolgee-web.development.umd.min.js"></script>
+<script>
+  const { Tolgee, DevTools, ObserverPlugin } = window['@tolgee/web'];
+
+  Tolgee()
+    .use(DevTools())
+    .use(ObserverPlugin())
+    .init({
+      language: '<?= htmlspecialchars($lang) ?>',
+      apiUrl: '<?= htmlspecialchars(getenv('TOLGEE_API_URL') ?: 'https://app.tolgee.io') ?>',
+      apiKey: '<?= htmlspecialchars($apiKey) ?>', // May be empty - plugin injects it
+      observerOptions: { fullKeyEncode: true }
+    })
+    .run();
+</script>
+<?php endif; ?>
+```
+
+## Setting up the browser plugin
+
+Team members who need to edit translations on production:
+
+1. Install the [Tolgee Chrome Extension](https://chromewebstore.google.com/detail/tolgee-tools/hacnbapajkkfohnonhbmegojnddagfnj) or [Firefox Add-on](https://addons.mozilla.org/en-US/firefox/addon/tolgee-tools/)
+2. Open the plugin and configure:
+   - **API URL**: Your Tolgee instance (e.g., `https://app.tolgee.io`)
+   - **API Key**: A project API key with translation edit permissions
+3. Visit your production site with `?tolgeeDevelopment` in the URL
+4. The plugin injects the credentials, and in-context editing works
+
+## Alternative trigger methods
+
+The `?tolgeeDevelopment` query parameter is simple but visible in the URL. Depending on your security requirements, consider these alternatives:
+
+### Session-based toggle
+
+Store the preference in a session so the query param isn't needed on every page:
+
+```php
+// Enable via: /toggle-tolgee?enable=1
+if (isset($_GET['enable'])) {
+  $_SESSION['tolgee_dev'] = $_GET['enable'] === '1';
+}
+$isDevelopment = $_SESSION['tolgee_dev'] ?? false;
+```
+
+### Staging environment detection
+
+Auto-enable on staging subdomains:
+
+```php
+$host = $_SERVER['HTTP_HOST'] ?? '';
+$isDevelopment = str_contains($host, 'staging.')
+  || str_contains($host, 'dev.')
+  || $host === 'localhost';
+```
+
+### Authenticated users only
+
+Enable for logged-in users with a specific role:
+
+```php
+$isDevelopment = isLoggedIn() && currentUser()->hasRole('translator');
+```
+
+### IP allowlist
+
+Enable only for office or VPN IP ranges:
+
+```php
+$allowedIPs = ['192.168.1.0/24', '10.0.0.0/8'];
+$isDevelopment = ipInRange($_SERVER['REMOTE_ADDR'], $allowedIPs);
+```
+
+## Security considerations
+
+- **The query parameter itself is not a security risk** - it only enables the invisible wrapping and loads Tolgee JS. Without an API key (from environment or plugin), no editing is possible.
+- **The browser plugin stores the API key locally** - it's never sent to your server or exposed in the page source.

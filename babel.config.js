@@ -1,3 +1,3 @@
-export default {
+module.exports = {
   presets: ['@docusaurus/babel/preset'],
 };
