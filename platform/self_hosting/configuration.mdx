@@ -347,13 +347,29 @@ Prefix: `tolgee.batch`
 
 Configuration of batch operations.
 
-- ##### `chunk-queue-population-size` \{#tolgee-batch-_-chunk-queue-population-size}
+- ##### `cancellation-timeout-ms` \{#tolgee-batch-_-cancellation-timeout-ms}
 
-  How many job chunks are added to the internal queue on each scheduled run (default: `1000`)
+  Timeout in milliseconds to wait for running job chunks to complete when cancelling a batch job. AI translation operations can take longer, so this should be set high enough to accommodate them. (default: `30000` 30 seconds)
+
+- ##### `completed-job-retention-days` \{#tolgee-batch-_-completed-job-retention-days}
+
+  Retention period in days for completed batch jobs (SUCCESS, CANCELLED) (default: `3`)
 
 - ##### `concurrency` \{#tolgee-batch-_-concurrency}
 
   How many parallel jobs can be run at once on single Tolgee instance (default: `1`)
+
+- ##### `failed-job-retention-days` \{#tolgee-batch-_-failed-job-retention-days}
+
+  Retention period in days for failed batch jobs (default: `30`)
+
+- ##### `job-cleanup-batch-size` \{#tolgee-batch-_-job-cleanup-batch-size}
+
+  Batch size for deleting old jobs (to avoid long-running transactions) (default: `1000`)
+
+- ##### `job-cleanup-lock-lease-time-ms` \{#tolgee-batch-_-job-cleanup-lock-lease-time-ms}
+
+  Lock lease time in milliseconds for old job cleanup (to prevent lock expiration during long cleanups) (default: `86400000` 1 day)
 
 - ##### `max-per-mt-job-concurrency` \{#tolgee-batch-_-max-per-mt-job-concurrency}
 
@@ -362,6 +378,14 @@ Configuration of batch operations.
   on OpenAI, as well as getting over the limit of availableCredits: at the beginning, we only check, that
   the organization has `availableCredits > 0` and only when we have the result from OpenAI,we are able to
   calculate how many credits to charge the organization. In the Tolgee Cloud it is set to 1.  (default: `-1` Unlimited (within tolgee.batch.concurrency))
+
+- ##### `old-job-cleanup-delay-in-ms` \{#tolgee-batch-_-old-job-cleanup-delay-in-ms}
+
+  Delay between old batch job cleanup runs in milliseconds (default: `28800000` 8 hours)
+
+- ##### `old-job-cleanup-enabled` \{#tolgee-batch-_-old-job-cleanup-enabled}
+
+  Enable scheduled cleanup of old batch jobs (default: `true`)
 
 ### Cache \{#tolgee-_-cache}
 
@@ -1133,9 +1157,15 @@ tolgee:
       enabled: false
       session-expiration-minutes: 10
   batch:
-    chunk-queue-population-size: 1000
+    cancellation-timeout-ms: 30000
+    completed-job-retention-days: 3
     concurrency: 1
+    failed-job-retention-days: 30
+    job-cleanup-batch-size: 1000
+    job-cleanup-lock-lease-time-ms: 86400000
     max-per-mt-job-concurrency: -1
+    old-job-cleanup-delay-in-ms: 28800000
+    old-job-cleanup-enabled: true
   cache:
     caffeine-max-size: -1
     clean-on-startup: true
@@ -1621,13 +1651,29 @@ Prefix: `TOLGEE_BATCH`
 
 Configuration of batch operations.
 
-- ##### `CHUNK_QUEUE_POPULATION_SIZE` \{#tolgee-batch-_-chunk-queue-population-size}
+- ##### `CANCELLATION_TIMEOUT_MS` \{#tolgee-batch-_-cancellation-timeout-ms}
 
-  How many job chunks are added to the internal queue on each scheduled run (default: `1000`)
+  Timeout in milliseconds to wait for running job chunks to complete when cancelling a batch job. AI translation operations can take longer, so this should be set high enough to accommodate them. (default: `30000` 30 seconds)
+
+- ##### `COMPLETED_JOB_RETENTION_DAYS` \{#tolgee-batch-_-completed-job-retention-days}
+
+  Retention period in days for completed batch jobs (SUCCESS, CANCELLED) (default: `3`)
 
 - ##### `CONCURRENCY` \{#tolgee-batch-_-concurrency}
 
   How many parallel jobs can be run at once on single Tolgee instance (default: `1`)
+
+- ##### `FAILED_JOB_RETENTION_DAYS` \{#tolgee-batch-_-failed-job-retention-days}
+
+  Retention period in days for failed batch jobs (default: `30`)
+
+- ##### `JOB_CLEANUP_BATCH_SIZE` \{#tolgee-batch-_-job-cleanup-batch-size}
+
+  Batch size for deleting old jobs (to avoid long-running transactions) (default: `1000`)
+
+- ##### `JOB_CLEANUP_LOCK_LEASE_TIME_MS` \{#tolgee-batch-_-job-cleanup-lock-lease-time-ms}
+
+  Lock lease time in milliseconds for old job cleanup (to prevent lock expiration during long cleanups) (default: `86400000` 1 day)
 
 - ##### `MAX_PER_MT_JOB_CONCURRENCY` \{#tolgee-batch-_-max-per-mt-job-concurrency}
 
@@ -1636,6 +1682,14 @@ Configuration of batch operations.
   on OpenAI, as well as getting over the limit of availableCredits: at the beginning, we only check, that
   the organization has `availableCredits > 0` and only when we have the result from OpenAI,we are able to
   calculate how many credits to charge the organization. In the Tolgee Cloud it is set to 1.  (default: `-1` Unlimited (within tolgee.batch.concurrency))
+
+- ##### `OLD_JOB_CLEANUP_DELAY_IN_MS` \{#tolgee-batch-_-old-job-cleanup-delay-in-ms}
+
+  Delay between old batch job cleanup runs in milliseconds (default: `28800000` 8 hours)
+
+- ##### `OLD_JOB_CLEANUP_ENABLED` \{#tolgee-batch-_-old-job-cleanup-enabled}
+
+  Enable scheduled cleanup of old batch jobs (default: `true`)
 
 ### Cache \{#tolgee-_-cache}
 
@@ -2396,9 +2450,15 @@ TOLGEE_AUTHENTICATION_SSO_GLOBAL_SESSION_EXPIRATION_MINUTES=10
 TOLGEE_AUTHENTICATION_SSO_GLOBAL_TOKEN_URI=
 TOLGEE_AUTHENTICATION_SSO_ORGANIZATIONS_ENABLED=false
 TOLGEE_AUTHENTICATION_SSO_ORGANIZATIONS_SESSION_EXPIRATION_MINUTES=10
-TOLGEE_BATCH_CHUNK_QUEUE_POPULATION_SIZE=1000
+TOLGEE_BATCH_CANCELLATION_TIMEOUT_MS=30000
+TOLGEE_BATCH_COMPLETED_JOB_RETENTION_DAYS=3
 TOLGEE_BATCH_CONCURRENCY=1
+TOLGEE_BATCH_FAILED_JOB_RETENTION_DAYS=30
+TOLGEE_BATCH_JOB_CLEANUP_BATCH_SIZE=1000
+TOLGEE_BATCH_JOB_CLEANUP_LOCK_LEASE_TIME_MS=86400000
 TOLGEE_BATCH_MAX_PER_MT_JOB_CONCURRENCY=-1
+TOLGEE_BATCH_OLD_JOB_CLEANUP_DELAY_IN_MS=28800000
+TOLGEE_BATCH_OLD_JOB_CLEANUP_ENABLED=true
 TOLGEE_CACHE_CAFFEINE_MAX_SIZE=-1
 TOLGEE_CACHE_CLEAN_ON_STARTUP=true
 TOLGEE_CACHE_DEFAULT_TTL=7200000
@@ -2856,13 +2916,29 @@ Prefix: `tolgee.batch`
 
 Configuration of batch operations.
 
-- ##### `chunk-queue-population-size` \{#tolgee-batch-_-chunk-queue-population-size}
+- ##### `cancellation-timeout-ms` \{#tolgee-batch-_-cancellation-timeout-ms}
 
-  How many job chunks are added to the internal queue on each scheduled run (default: `1000`)
+  Timeout in milliseconds to wait for running job chunks to complete when cancelling a batch job. AI translation operations can take longer, so this should be set high enough to accommodate them. (default: `30000` 30 seconds)
+
+- ##### `completed-job-retention-days` \{#tolgee-batch-_-completed-job-retention-days}
+
+  Retention period in days for completed batch jobs (SUCCESS, CANCELLED) (default: `3`)
 
 - ##### `concurrency` \{#tolgee-batch-_-concurrency}
 
   How many parallel jobs can be run at once on single Tolgee instance (default: `1`)
+
+- ##### `failed-job-retention-days` \{#tolgee-batch-_-failed-job-retention-days}
+
+  Retention period in days for failed batch jobs (default: `30`)
+
+- ##### `job-cleanup-batch-size` \{#tolgee-batch-_-job-cleanup-batch-size}
+
+  Batch size for deleting old jobs (to avoid long-running transactions) (default: `1000`)
+
+- ##### `job-cleanup-lock-lease-time-ms` \{#tolgee-batch-_-job-cleanup-lock-lease-time-ms}
+
+  Lock lease time in milliseconds for old job cleanup (to prevent lock expiration during long cleanups) (default: `86400000` 1 day)
 
 - ##### `max-per-mt-job-concurrency` \{#tolgee-batch-_-max-per-mt-job-concurrency}
 
@@ -2871,6 +2947,14 @@ Configuration of batch operations.
   on OpenAI, as well as getting over the limit of availableCredits: at the beginning, we only check, that
   the organization has `availableCredits > 0` and only when we have the result from OpenAI,we are able to
   calculate how many credits to charge the organization. In the Tolgee Cloud it is set to 1.  (default: `-1` Unlimited (within tolgee.batch.concurrency))
+
+- ##### `old-job-cleanup-delay-in-ms` \{#tolgee-batch-_-old-job-cleanup-delay-in-ms}
+
+  Delay between old batch job cleanup runs in milliseconds (default: `28800000` 8 hours)
+
+- ##### `old-job-cleanup-enabled` \{#tolgee-batch-_-old-job-cleanup-enabled}
+
+  Enable scheduled cleanup of old batch jobs (default: `true`)
 
 ### Cache \{#tolgee-_-cache}
 
@@ -3631,9 +3715,15 @@ tolgee.authentication.sso-global.session-expiration-minutes = 10
 tolgee.authentication.sso-global.token-uri =
 tolgee.authentication.sso-organizations.enabled = false
 tolgee.authentication.sso-organizations.session-expiration-minutes = 10
-tolgee.batch.chunk-queue-population-size = 1000
+tolgee.batch.cancellation-timeout-ms = 30000
+tolgee.batch.completed-job-retention-days = 3
 tolgee.batch.concurrency = 1
+tolgee.batch.failed-job-retention-days = 30
+tolgee.batch.job-cleanup-batch-size = 1000
+tolgee.batch.job-cleanup-lock-lease-time-ms = 86400000
 tolgee.batch.max-per-mt-job-concurrency = -1
+tolgee.batch.old-job-cleanup-delay-in-ms = 28800000
+tolgee.batch.old-job-cleanup-enabled = true
 tolgee.cache.caffeine-max-size = -1
 tolgee.cache.clean-on-startup = true
 tolgee.cache.default-ttl = 7200000

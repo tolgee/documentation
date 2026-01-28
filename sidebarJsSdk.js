@@ -87,6 +87,15 @@ module.exports = {
             'integrations/vanilla/translating',
           ],
         },
+        {
+          label: 'Backend-rendered apps',
+          type: 'category',
+          items: [
+            'integrations/backend-rendered/overview',
+            'integrations/backend-rendered/setup',
+            'integrations/backend-rendered/production-editing',
+          ],
+        },
       ],
     },
     {
@@ -101,7 +110,7 @@ module.exports = {
         'wrapping',
         'providing_static_data',
         'filter_by_tags',
-        'fetching_translations'
+        'fetching_translations',
       ],
     },
     'keys_tagging',
@@ -140,6 +149,6 @@ module.exports = {
         },
       ],
     },
-    'migration_to_v6'
+    'migration_to_v6',
   ],
 };
