@@ -951,6 +951,17 @@ Per-endpoint and auth-related rate limits are fixed and cannot be configured.
 
   Size, in milliseconds, of the time window for IP-based limiting. (default: `300000` = 5 minutes)
 
+- ##### `max-strikes-before-block` \{#tolgee-rate-limits-_-max-strikes-before-block}
+
+  Number of rate limit violations before the server stops responding to the client.
+  After this threshold, the connection is dropped without sending a response body, saving bandwidth.
+  Set to 0 to disable connection dropping (always send 429 responses). (default: `3`)
+
+- ##### `strike-reset-window-ms` \{#tolgee-rate-limits-_-strike-reset-window-ms}
+
+  Time window, in milliseconds, after which strikes are reset if the client behaves well.
+  If a client doesn't hit rate limits for this duration, their strike count is reset to zero. (default: `60000` = 1 minute)
+
 - ##### `user-request-limit` \{#tolgee-rate-limits-_-user-request-limit}
 
   Amount of requests a user can do in a single time window. (default: `400`)
@@ -1287,6 +1298,8 @@ tolgee:
     global-limits: true
     ip-request-limit: 20000
     ip-request-window: 300000
+    max-strikes-before-block: 3
+    strike-reset-window-ms: 60000
     user-request-limit: 400
     user-request-window: 60000
   recaptcha:
@@ -2255,6 +2268,17 @@ Per-endpoint and auth-related rate limits are fixed and cannot be configured.
 
   Size, in milliseconds, of the time window for IP-based limiting. (default: `300000` = 5 minutes)
 
+- ##### `MAX_STRIKES_BEFORE_BLOCK` \{#tolgee-rate-limits-_-max-strikes-before-block}
+
+  Number of rate limit violations before the server stops responding to the client.
+  After this threshold, the connection is dropped without sending a response body, saving bandwidth.
+  Set to 0 to disable connection dropping (always send 429 responses). (default: `3`)
+
+- ##### `STRIKE_RESET_WINDOW_MS` \{#tolgee-rate-limits-_-strike-reset-window-ms}
+
+  Time window, in milliseconds, after which strikes are reset if the client behaves well.
+  If a client doesn't hit rate limits for this duration, their strike count is reset to zero. (default: `60000` = 1 minute)
+
 - ##### `USER_REQUEST_LIMIT` \{#tolgee-rate-limits-_-user-request-limit}
 
   Amount of requests a user can do in a single time window. (default: `400`)
@@ -2558,6 +2582,8 @@ TOLGEE_RATE_LIMITS_EXPORT_REQUEST_WINDOW=300000
 TOLGEE_RATE_LIMITS_GLOBAL_LIMITS=true
 TOLGEE_RATE_LIMITS_IP_REQUEST_LIMIT=20000
 TOLGEE_RATE_LIMITS_IP_REQUEST_WINDOW=300000
+TOLGEE_RATE_LIMITS_MAX_STRIKES_BEFORE_BLOCK=3
+TOLGEE_RATE_LIMITS_STRIKE_RESET_WINDOW_MS=60000
 TOLGEE_RATE_LIMITS_USER_REQUEST_LIMIT=400
 TOLGEE_RATE_LIMITS_USER_REQUEST_WINDOW=60000
 TOLGEE_RECAPTCHA_SECRET_KEY=
@@ -3520,6 +3546,17 @@ Per-endpoint and auth-related rate limits are fixed and cannot be configured.
 
   Size, in milliseconds, of the time window for IP-based limiting. (default: `300000` = 5 minutes)
 
+- ##### `max-strikes-before-block` \{#tolgee-rate-limits-_-max-strikes-before-block}
+
+  Number of rate limit violations before the server stops responding to the client.
+  After this threshold, the connection is dropped without sending a response body, saving bandwidth.
+  Set to 0 to disable connection dropping (always send 429 responses). (default: `3`)
+
+- ##### `strike-reset-window-ms` \{#tolgee-rate-limits-_-strike-reset-window-ms}
+
+  Time window, in milliseconds, after which strikes are reset if the client behaves well.
+  If a client doesn't hit rate limits for this duration, their strike count is reset to zero. (default: `60000` = 1 minute)
+
 - ##### `user-request-limit` \{#tolgee-rate-limits-_-user-request-limit}
 
   Amount of requests a user can do in a single time window. (default: `400`)
@@ -3823,6 +3860,8 @@ tolgee.rate-limits.export-request-window = 300000
 tolgee.rate-limits.global-limits = true
 tolgee.rate-limits.ip-request-limit = 20000
 tolgee.rate-limits.ip-request-window = 300000
+tolgee.rate-limits.max-strikes-before-block = 3
+tolgee.rate-limits.strike-reset-window-ms = 60000
 tolgee.rate-limits.user-request-limit = 400
 tolgee.rate-limits.user-request-window = 60000
 tolgee.recaptcha.secret-key =
