@@ -1,0 +1,27 @@
+---
+id: about
+title: Tolgee MCP Server Overview
+sidebar_label: About
+description: 'Connect AI assistants like Claude, Cursor, or ChatGPT to Tolgee using the Model Context Protocol (MCP) server.'
+---
+
+## What is MCP?
+
+The [Model Context Protocol (MCP)](https://modelcontextprotocol.io/) is an open standard that allows AI assistants to interact with external tools and services. Tolgee's MCP server lets you manage your localization projects directly from AI-powered tools like Claude Desktop, Cursor, Windsurf, ChatGPT, and others.
+
+Instead of switching between your IDE and the Tolgee UI, you can ask your AI assistant to list keys, update translations, trigger machine translation, and more — all through natural language.
+
+## Available Roles
+
+The MCP server currently exposes a single role-based endpoint:
+
+| Role | Endpoint | Description |
+|------|----------|-------------|
+| **Developer** | `/mcp/developer` | Full access to keys, translations, languages, tags, namespaces, branches, and batch operations. |
+
+More roles (e.g. translator, project manager) are planned for future releases.
+
+## How to Get Started
+
+1. Follow the [setup guide](/platform/integrations/mcp_server/setup) to connect your AI client to Tolgee.
+2. Check the [usage guide](/platform/integrations/mcp_server/usage) for example workflows and best practices.

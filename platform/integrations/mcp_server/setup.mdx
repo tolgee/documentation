@@ -1,0 +1,57 @@
+---
+id: setup
+title: Setup Tolgee MCP Server
+sidebar_label: Setup
+description: 'Learn how to connect your AI assistant to Tolgee via the MCP server.'
+---
+
+## Prerequisites
+
+- A Tolgee account (cloud or self-hosted)
+- A **Project API key (PAK)** or a **Personal Access Token (PAT)** — see [API keys and PAT tokens](/platform/account_settings/api_keys_and_pat_tokens)
+- An MCP-compatible AI client
+
+:::info
+**PAK vs PAT** — A Project API key is scoped to a single project, so you don't need to specify `projectId` in every request. A Personal Access Token gives access to all projects you have permissions for, but you must pass `projectId` explicitly when calling project-scoped tools.
+:::
+
+## Claude Desktop / Claude Code
+
+Add the following to your MCP configuration:
+
+```json
+{
+  "mcpServers": {
+    "tolgee": {
+      "type": "http",
+      "url": "https://app.tolgee.io/mcp/developer",
+      "headers": {
+        "X-API-Key": "<your_PAK_or_PAT>"
+      }
+    }
+  }
+}
+```
+
+Or using the CLI:
+
+```bash
+claude mcp add --transport http tolgee https://app.tolgee.io/mcp/developer \
+  --header "X-API-Key: <your_PAK_or_PAT>"
+```
+
+## Cursor
+
+Open **Settings > MCP** and add a new server with the HTTP transport pointing to `https://app.tolgee.io/mcp/developer`. Pass your token via the `X-API-Key` header.
+
+## Verifying the Connection
+
+After configuring your client, try a read-only command to confirm everything works:
+
+> **You:** List my Tolgee projects
+
+If the connection is successful, the AI assistant will return a list of projects accessible with your token.
+
+:::info
+For self-hosted instances, replace `https://app.tolgee.io` with your own Tolgee server URL.
+:::

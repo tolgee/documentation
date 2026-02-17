@@ -127,6 +127,15 @@ module.exports = {
             'integrations/unreal_plugin/usage',
           ],
         },
+        {
+          label: 'MCP Server',
+          type: 'category',
+          items: [
+            'integrations/mcp_server/about',
+            'integrations/mcp_server/setup',
+            'integrations/mcp_server/usage',
+          ],
+        },
         'integrations/other_integrations',
       ],
     },
