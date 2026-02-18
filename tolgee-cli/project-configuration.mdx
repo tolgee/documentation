@@ -12,6 +12,7 @@ Example configuration:
 {
   "$schema": "https://docs.tolgee.io/cli-schema.json",
   "projectId": 123,                   // project id in tolgee platform
+  "branch": "my-feature",             // project branch (when branching is enabled)
   "format": "JSON_TOLGEE",
   "patterns": ["./src/**/*.ts?(x)"],  // pattern for code extraction
   "push": {
@@ -65,6 +66,9 @@ Use `apiKey` only if you are loading it from an environment or other secured sou
 In most cases, it's better to use a one-time [login command](./usage.mdx#logging-in) or set it via the `TOLGEE_API_KEY` environment variable.
 :::
 
+### `branch`
+
+String. Project branch name. Use when [branching](./branching.mdx) is enabled for the project. Can also be set via the `TOLGEE_BRANCH` environment variable or `--branch` CLI option.
 
 ### `format`
 
