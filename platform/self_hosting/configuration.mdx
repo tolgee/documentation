@@ -630,6 +630,25 @@ LLM Providers configuration
 
   Enable/disable AI translator (default: enabled if there is at least one provider)
 
+- ##### `fallbacks` \{#tolgee-llm-_-fallbacks}
+
+  
+      Named fallback mapping. When a provider is not found, Tolgee will try the fallback provider.
+  
+      ``` yaml
+      fallbacks:
+        openai: anthropic
+        anthropic: google-ai
+      ```
+  
+      or using environment variables:
+  
+      ```
+      TOLGEE_LLM_FALLBACKS_OPENAI=anthropic
+      TOLGEE_LLM_FALLBACKS_ANTHROPIC=google-ai
+      ```
+     (default: `{}`)
+
 #### providers \{#tolgee-llm-_-providers}
 
 
@@ -1233,6 +1252,7 @@ tolgee:
     default-enabled: true
     default-primary: true
     enabled:
+    fallbacks: {}
     providers:
     -
       api-key:
@@ -1947,6 +1967,25 @@ LLM Providers configuration
 
   Enable/disable AI translator (default: enabled if there is at least one provider)
 
+- ##### `FALLBACKS` \{#tolgee-llm-_-fallbacks}
+
+  
+      Named fallback mapping. When a provider is not found, Tolgee will try the fallback provider.
+  
+      ``` yaml
+      fallbacks:
+        openai: anthropic
+        anthropic: google-ai
+      ```
+  
+      or using environment variables:
+  
+      ```
+      TOLGEE_LLM_FALLBACKS_OPENAI=anthropic
+      TOLGEE_LLM_FALLBACKS_ANTHROPIC=google-ai
+      ```
+     (default: `{}`)
+
 #### PROVIDERS \{#tolgee-llm-_-providers}
 
 
@@ -2527,6 +2566,7 @@ TOLGEE_IMPORT_STORE_FILES_FOR_DEBUGGING=false
 TOLGEE_LLM_DEFAULT_ENABLED=true
 TOLGEE_LLM_DEFAULT_PRIMARY=true
 TOLGEE_LLM_ENABLED=
+TOLGEE_LLM_FALLBACKS={}
 TOLGEE_LLM_PROVIDERS_0_API_KEY=
 TOLGEE_LLM_PROVIDERS_0_API_URL=
 TOLGEE_LLM_PROVIDERS_0_ATTEMPTS=
@@ -3225,6 +3265,25 @@ LLM Providers configuration
 
   Enable/disable AI translator (default: enabled if there is at least one provider)
 
+- ##### `fallbacks` \{#tolgee-llm-_-fallbacks}
+
+  
+      Named fallback mapping. When a provider is not found, Tolgee will try the fallback provider.
+  
+      ``` yaml
+      fallbacks:
+        openai: anthropic
+        anthropic: google-ai
+      ```
+  
+      or using environment variables:
+  
+      ```
+      TOLGEE_LLM_FALLBACKS_OPENAI=anthropic
+      TOLGEE_LLM_FALLBACKS_ANTHROPIC=google-ai
+      ```
+     (default: `{}`)
+
 #### providers \{#tolgee-llm-_-providers}
 
 
@@ -3805,6 +3864,7 @@ tolgee.import.store-files-for-debugging = false
 tolgee.llm.default-enabled = true
 tolgee.llm.default-primary = true
 tolgee.llm.enabled =
+tolgee.llm.fallbacks = {}
 tolgee.llm.providers[0].api-key =
 tolgee.llm.providers[0].api-url =
 tolgee.llm.providers[0].attempts =
