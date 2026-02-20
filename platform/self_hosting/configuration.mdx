@@ -917,6 +917,14 @@ Per-endpoint and auth-related rate limits are fixed and cannot be configured.
 
 
 
+- ##### `activity-request-limit` \{#tolgee-rate-limits-_-activity-request-limit}
+
+  Amount of activity requests a user can do in a single time window. (default: `100`)
+
+- ##### `activity-request-window` \{#tolgee-rate-limits-_-activity-request-window}
+
+  Size, in milliseconds, of the time window for activity-based limiting. (default: `300000` = 5 minutes)
+
 - ##### `authentication-limits` \{#tolgee-rate-limits-_-authentication-limits}
 
   Control whether per-endpoint limits on authentication-related endpoints are enabled or not.
@@ -980,6 +988,14 @@ Per-endpoint and auth-related rate limits are fixed and cannot be configured.
 
   Time window, in milliseconds, after which strikes are reset if the client behaves well.
   If a client doesn't hit rate limits for this duration, their strike count is reset to zero. (default: `60000` = 1 minute)
+
+- ##### `translation-request-limit` \{#tolgee-rate-limits-_-translation-request-limit}
+
+  Amount of translation requests a user can do in a single time window. (default: `100`)
+
+- ##### `translation-request-window` \{#tolgee-rate-limits-_-translation-request-window}
+
+  Size, in milliseconds, of the time window for translation-based limiting. (default: `300000` = 5 minutes)
 
 - ##### `user-request-limit` \{#tolgee-rate-limits-_-user-request-limit}
 
@@ -1307,6 +1323,8 @@ tolgee:
     stop: true
     user: postgres
   rate-limits:
+    activity-request-limit: 100
+    activity-request-window: 300000
     authentication-limits: true
     email-verification-request-limit: 2
     email-verification-request-limit-enabled: true
@@ -1320,6 +1338,8 @@ tolgee:
     ip-request-window: 300000
     max-strikes-before-block: 3
     strike-reset-window-ms: 60000
+    translation-request-limit: 100
+    translation-request-window: 300000
     user-request-limit: 400
     user-request-window: 60000
   recaptcha:
@@ -2254,6 +2274,14 @@ Per-endpoint and auth-related rate limits are fixed and cannot be configured.
 
 
 
+- ##### `ACTIVITY_REQUEST_LIMIT` \{#tolgee-rate-limits-_-activity-request-limit}
+
+  Amount of activity requests a user can do in a single time window. (default: `100`)
+
+- ##### `ACTIVITY_REQUEST_WINDOW` \{#tolgee-rate-limits-_-activity-request-window}
+
+  Size, in milliseconds, of the time window for activity-based limiting. (default: `300000` = 5 minutes)
+
 - ##### `AUTHENTICATION_LIMITS` \{#tolgee-rate-limits-_-authentication-limits}
 
   Control whether per-endpoint limits on authentication-related endpoints are enabled or not.
@@ -2317,6 +2345,14 @@ Per-endpoint and auth-related rate limits are fixed and cannot be configured.
 
   Time window, in milliseconds, after which strikes are reset if the client behaves well.
   If a client doesn't hit rate limits for this duration, their strike count is reset to zero. (default: `60000` = 1 minute)
+
+- ##### `TRANSLATION_REQUEST_LIMIT` \{#tolgee-rate-limits-_-translation-request-limit}
+
+  Amount of translation requests a user can do in a single time window. (default: `100`)
+
+- ##### `TRANSLATION_REQUEST_WINDOW` \{#tolgee-rate-limits-_-translation-request-window}
+
+  Size, in milliseconds, of the time window for translation-based limiting. (default: `300000` = 5 minutes)
 
 - ##### `USER_REQUEST_LIMIT` \{#tolgee-rate-limits-_-user-request-limit}
 
@@ -2611,6 +2647,8 @@ TOLGEE_POSTGRES_AUTOSTART_PASSWORD=postgres
 TOLGEE_POSTGRES_AUTOSTART_PORT=25432
 TOLGEE_POSTGRES_AUTOSTART_STOP=true
 TOLGEE_POSTGRES_AUTOSTART_USER=postgres
+TOLGEE_RATE_LIMITS_ACTIVITY_REQUEST_LIMIT=100
+TOLGEE_RATE_LIMITS_ACTIVITY_REQUEST_WINDOW=300000
 TOLGEE_RATE_LIMITS_AUTHENTICATION_LIMITS=true
 TOLGEE_RATE_LIMITS_EMAIL_VERIFICATION_REQUEST_LIMIT=2
 TOLGEE_RATE_LIMITS_EMAIL_VERIFICATION_REQUEST_LIMIT_ENABLED=true
@@ -2624,6 +2662,8 @@ TOLGEE_RATE_LIMITS_IP_REQUEST_LIMIT=20000
 TOLGEE_RATE_LIMITS_IP_REQUEST_WINDOW=300000
 TOLGEE_RATE_LIMITS_MAX_STRIKES_BEFORE_BLOCK=3
 TOLGEE_RATE_LIMITS_STRIKE_RESET_WINDOW_MS=60000
+TOLGEE_RATE_LIMITS_TRANSLATION_REQUEST_LIMIT=100
+TOLGEE_RATE_LIMITS_TRANSLATION_REQUEST_WINDOW=300000
 TOLGEE_RATE_LIMITS_USER_REQUEST_LIMIT=400
 TOLGEE_RATE_LIMITS_USER_REQUEST_WINDOW=60000
 TOLGEE_RECAPTCHA_SECRET_KEY=
@@ -3552,6 +3592,14 @@ Per-endpoint and auth-related rate limits are fixed and cannot be configured.
 
 
 
+- ##### `activity-request-limit` \{#tolgee-rate-limits-_-activity-request-limit}
+
+  Amount of activity requests a user can do in a single time window. (default: `100`)
+
+- ##### `activity-request-window` \{#tolgee-rate-limits-_-activity-request-window}
+
+  Size, in milliseconds, of the time window for activity-based limiting. (default: `300000` = 5 minutes)
+
 - ##### `authentication-limits` \{#tolgee-rate-limits-_-authentication-limits}
 
   Control whether per-endpoint limits on authentication-related endpoints are enabled or not.
@@ -3615,6 +3663,14 @@ Per-endpoint and auth-related rate limits are fixed and cannot be configured.
 
   Time window, in milliseconds, after which strikes are reset if the client behaves well.
   If a client doesn't hit rate limits for this duration, their strike count is reset to zero. (default: `60000` = 1 minute)
+
+- ##### `translation-request-limit` \{#tolgee-rate-limits-_-translation-request-limit}
+
+  Amount of translation requests a user can do in a single time window. (default: `100`)
+
+- ##### `translation-request-window` \{#tolgee-rate-limits-_-translation-request-window}
+
+  Size, in milliseconds, of the time window for translation-based limiting. (default: `300000` = 5 minutes)
 
 - ##### `user-request-limit` \{#tolgee-rate-limits-_-user-request-limit}
 
@@ -3909,6 +3965,8 @@ tolgee.postgres-autostart.password = postgres
 tolgee.postgres-autostart.port = 25432
 tolgee.postgres-autostart.stop = true
 tolgee.postgres-autostart.user = postgres
+tolgee.rate-limits.activity-request-limit = 100
+tolgee.rate-limits.activity-request-window = 300000
 tolgee.rate-limits.authentication-limits = true
 tolgee.rate-limits.email-verification-request-limit = 2
 tolgee.rate-limits.email-verification-request-limit-enabled = true
@@ -3922,6 +3980,8 @@ tolgee.rate-limits.ip-request-limit = 20000
 tolgee.rate-limits.ip-request-window = 300000
 tolgee.rate-limits.max-strikes-before-block = 3
 tolgee.rate-limits.strike-reset-window-ms = 60000
+tolgee.rate-limits.translation-request-limit = 100
+tolgee.rate-limits.translation-request-window = 300000
 tolgee.rate-limits.user-request-limit = 400
 tolgee.rate-limits.user-request-window = 60000
 tolgee.recaptcha.secret-key =
