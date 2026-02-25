@@ -14,9 +14,22 @@ Branching is available on Enterprise plans. [Upgrade your plan](https://tolgee.i
 If you use the self-hosted version, you must [set up the license](/platform/self_hosting/licensing) to use this feature.
 :::
 
-**Common use cases:**
-- **Managing multiple environments (production, staging, and similar):** Teams can map branches to environments so work in staging does not affect production data. This is often combined with environment-specific SDK or deployment setup.
-- **Changing translation values without affecting production data:** You can update existing keys in an isolated branch, review changes, and merge only when ready. This keeps production stable while translators and reviewers iterate safely.
+## Common Use Cases
+
+**Translating a new feature before release.** When a new feature is being developed, you can create a branch and add or update translation keys in isolation. The rest of the team continues working on the main branch without seeing incomplete or in-progress copy. Once the feature is ready, you merge the branch and all its translations land at once.
+
+**Preparing a release while translation work continues.** Branches let you freeze a snapshot of translations for an upcoming release while day-to-day translation work continues uninterrupted on the main branch. The release branch can be reviewed, approved, and merged independently.
+
+**Experimenting with copy changes safely.** If you want to try a different tone, rephrase key UI strings, or A/B test messaging, you can do it in a branch without any risk to production content. Discard the branch if the experiment is abandoned, or merge it when ready.
+
+## Enabling Branching
+
+Branching is disabled by default. To enable it, go to **Project settings → Advanced** and turn on **Use branching**.
+
+<ScreenshotWrapper
+  src="/img/docs/platform/branching/screenshot_11_project_settings_branching.png"
+  alt="Project settings Advanced tab with Use branching toggle enabled"
+/>
 
 ## Key Concepts
 
@@ -63,7 +76,7 @@ To start a merge, click the branch icon button next to a branch in the list. Thi
 
 ### Branch Actions
 
-Each branch has a **⋮** menu with the following actions:
+Each branch has a `⋮` menu with the following actions:
 
 <ScreenshotWrapper
   src="/img/docs/platform/branching/screenshot_05_branch_actions_menu.png"
