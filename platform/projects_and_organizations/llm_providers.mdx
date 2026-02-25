@@ -113,6 +113,23 @@ It is designed to work with the Google AI API.
  - `API key`: specify your Google Console API key ("api-key" header)
  - `Model`: specify your model name (e.g., gemini-2.0-flash)
 
+## Pricing Information
+
+To view pricing details for a server-configured provider, go to your organization settings,
+open the **LLM Providers** page, and switch to the **Server** tab.
+Each provider has an info icon that opens a pricing dialog.
+The dialog displays the cost per input and output token in MT credits, along with estimated
+costs for translating 1,000 strings under three scenarios — with context and screenshots,
+with context only, and without any context.
+If your organization has an active pay-as-you-go subscription, the dialog also shows the equivalent cost in EUR.
+
+<ScreenshotWrapper
+  src="/img/docs/platform/llm-providers/llm-provider-pricing-dialog.webp"
+  alt="LLM provider pricing information dialog"
+/>
+
+All values shown are estimates. Actual costs may vary depending on the language pair and how much context is provided.
+
 ## Self-hosted server configuration
 
 In the same way, as through UI, you can also configure llm providers through server configuration,
