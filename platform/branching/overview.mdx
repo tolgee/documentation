@@ -1,0 +1,104 @@
+---
+id: overview
+title: What is branching ?
+image: /img/og-images/platform.png
+---
+
+import { ScreenshotWrapper } from '../shared/_ScreenshotWrapper';
+
+Branching lets you create isolated copies of your project's data to work on independently. Different teams can work on separate branches simultaneously without affecting each other, then merge changes back when ready.
+
+:::info Feature availability
+Branching is available on Enterprise plans. [Upgrade your plan](https://tolgee.io/pricing) to use this feature.
+
+If you use the self-hosted version, you must [set up the license](/platform/self_hosting/licensing) to use this feature.
+:::
+
+## Common Use Cases
+
+**Translating a new feature before release.** When a new feature is being developed, you can create a branch and add or update translation keys in isolation. The rest of the team continues working on the main branch without seeing incomplete or in-progress copy. Once the feature is ready, you merge the branch and all its translations land at once.
+
+**Preparing a release while translation work continues.** Branches let you freeze a snapshot of translations for an upcoming release while day-to-day translation work continues uninterrupted on the main branch. The release branch can be reviewed, approved, and merged independently.
+
+**Experimenting with copy changes safely.** If you want to try a different tone, rephrase key UI strings, or A/B test messaging, you can do it in a branch without any risk to production content. Discard the branch if the experiment is abandoned, or merge it when ready.
+
+## Enabling Branching
+
+Branching is disabled by default. To enable it, go to **Project settings → Advanced** and turn on **Use branching**.
+
+<ScreenshotWrapper
+  src="/img/docs/platform/branching/screenshot_11_project_settings_branching.png"
+  alt="Project settings Advanced tab with Use branching toggle enabled"
+/>
+
+## Key Concepts
+
+Before working with branches, it helps to understand the following terms:
+
+- **Branch** — an isolated copy of all translation keys and their translations at the point of branching
+- **Default branch** (`main`) — the primary branch every project starts with; it always exists and cannot be deleted
+- **Protected branch** — read-only by default; translations are typically changed via merge, but users with permission can still edit directly
+- **Merge** — the process of applying changes from one branch into another, with conflict detection and resolution
+
+## Navigating Between Branches
+
+The **branch selector** in the breadcrumb bar lets you switch between branches. All views that work with translations — dashboard, translations, import, export, and tasks — reflect the currently selected branch.
+Click the branch selector to open the list of available branches and switch to a different one.
+
+<ScreenshotWrapper
+  src="/img/docs/platform/branching/screenshot_02_branch_selector_open.png"
+  alt="Branch selector open showing all branches"
+/>
+
+## Managing Branches
+
+Go to **Branching** in the project sidebar to manage all branches for the project.
+
+<ScreenshotWrapper
+  src="/img/docs/platform/branching/screenshot_03_branches_list.png"
+  alt="Branches list with multiple branches"
+/>
+
+### Creating a Branch
+
+Click **+ Branch** to open the create dialog. Give the branch a name and optionally choose a source branch to branch from (defaults to the default branch).
+
+<ScreenshotWrapper
+  src="/img/docs/platform/branching/screenshot_04_create_branch_dialog.png"
+  alt="Create new branch dialog"
+/>
+
+Branch names can contain letters, numbers, slashes, hyphens, and underscores. Slashes are commonly used to group branches by purpose, e.g. `feature/new-onboarding`.
+
+### Starting a Merge
+
+To start a merge, click the branch icon button next to a branch in the list. This starts a merge from that branch into its origin branch. See [Merging Branches](merging_branches) for the full merge workflow.
+
+### Branch Actions
+
+Each branch has a `⋮` menu with the following actions:
+
+<ScreenshotWrapper
+  src="/img/docs/platform/branching/screenshot_05_branch_actions_menu.png"
+  alt="Branch actions menu showing Rename, Protect, and Delete"
+/>
+
+- **Rename** — change the branch name
+- **Protect / Unprotect** — toggle the protected state. A protected branch is read-only by default; users with permission can still edit it directly. Useful for guarding stable branches.
+- **Delete** — permanently remove the branch and all its translations
+
+:::caution
+Deleting a branch is permanent. All translations that exist only in that branch will be lost.
+:::
+
+## Permissions
+
+All project members can view branches and switch between them.
+
+The table below summarizes actions that require explicit branching permissions:
+
+| Action | Required permission |
+|--------|-------------------|
+| Create, rename, delete, protect branches | Branch management |
+| Edit translations directly in a protected branch | Write to protected branch |
+| Merge branches | Branch management |
