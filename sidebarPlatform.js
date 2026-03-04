@@ -25,6 +25,9 @@ module.exports = {
           items: [
             'branching/overview',
             'branching/merging_branches',
+            'branching/tasks',
+            'branching/content_delivery',
+            'branching/scope_and_integrations',
           ],
         },
         'projects_and_organizations/order_translation',
