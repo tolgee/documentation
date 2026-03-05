@@ -72,6 +72,30 @@ const sidebar: SidebarsConfig = {
         },
         {
           type: "doc",
+          id: "list-5",
+          label: "List trashed keys",
+          className: "api-method get",
+        },
+        {
+          type: "doc",
+          id: "list-deleters",
+          label: "List users who deleted keys",
+          className: "api-method get",
+        },
+        {
+          type: "doc",
+          id: "permanently-delete",
+          label: "Permanently delete a trashed key",
+          className: "api-method delete",
+        },
+        {
+          type: "doc",
+          id: "restore",
+          label: "Restore a trashed key",
+          className: "api-method put",
+        },
+        {
+          type: "doc",
           id: "delete-16",
           label: "Delete one or multiple keys",
           className: "api-method delete",
@@ -1466,54 +1490,6 @@ const sidebar: SidebarsConfig = {
     },
     {
       type: "category",
-      label: "Llm providers",
-      link: {
-        type: "doc",
-        id: "tag_llm-providers",
-      },
-      collapsible: false,
-      collapsed: false,
-      items: [
-        {
-          type: "doc",
-          id: "get-all-11",
-          label: "Get all organization-specific providers",
-          className: "api-method get",
-        },
-        {
-          type: "doc",
-          id: "create-provider",
-          label: "Create organization-specific provider",
-          className: "api-method post",
-        },
-        {
-          type: "doc",
-          id: "get-available-providers",
-          label: "Get all available llm providers",
-          className: "api-method get",
-        },
-        {
-          type: "doc",
-          id: "get-server-providers",
-          label: "Get all server-configured providers",
-          className: "api-method get",
-        },
-        {
-          type: "doc",
-          id: "update-provider",
-          label: "Update organization-specific provider",
-          className: "api-method put",
-        },
-        {
-          type: "doc",
-          id: "delete-provider",
-          label: "Delete organization-specific provider",
-          className: "api-method delete",
-        },
-      ],
-    },
-    {
-      type: "category",
       label: "Ai prompt controller",
       link: {
         type: "doc",
@@ -1568,6 +1544,54 @@ const sidebar: SidebarsConfig = {
           type: "doc",
           id: "delete-prompt",
           label: "Delete prompt",
+          className: "api-method delete",
+        },
+      ],
+    },
+    {
+      type: "category",
+      label: "Llm providers",
+      link: {
+        type: "doc",
+        id: "tag_llm-providers",
+      },
+      collapsible: false,
+      collapsed: false,
+      items: [
+        {
+          type: "doc",
+          id: "get-all-11",
+          label: "Get all organization-specific providers",
+          className: "api-method get",
+        },
+        {
+          type: "doc",
+          id: "create-provider",
+          label: "Create organization-specific provider",
+          className: "api-method post",
+        },
+        {
+          type: "doc",
+          id: "get-available-providers",
+          label: "Get all available llm providers",
+          className: "api-method get",
+        },
+        {
+          type: "doc",
+          id: "get-server-providers",
+          label: "Get all server-configured providers",
+          className: "api-method get",
+        },
+        {
+          type: "doc",
+          id: "update-provider",
+          label: "Update organization-specific provider",
+          className: "api-method put",
+        },
+        {
+          type: "doc",
+          id: "delete-provider",
+          label: "Delete organization-specific provider",
           className: "api-method delete",
         },
       ],
@@ -2394,6 +2418,12 @@ const sidebar: SidebarsConfig = {
         },
         {
           type: "doc",
+          id: "hard-delete-keys",
+          label: "Permanently delete soft-deleted keys",
+          className: "api-method post",
+        },
+        {
+          type: "doc",
           id: "machine-translation",
           label: "Machine Translation",
           className: "api-method post",
@@ -2402,6 +2432,12 @@ const sidebar: SidebarsConfig = {
           type: "doc",
           id: "translate-1",
           label: "Pre-translate by TM",
+          className: "api-method post",
+        },
+        {
+          type: "doc",
+          id: "restore-keys",
+          label: "Restore soft-deleted keys",
           className: "api-method post",
         },
         {
