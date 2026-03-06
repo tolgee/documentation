@@ -50,6 +50,7 @@ module.exports = {
         'translation_keys/namespaces',
         'translation_keys/screenshots',
         'translation_keys/batch_operations',
+        'translation_keys/trash',
         'translation_keys/custom_values',
       ],
     },
