@@ -34,7 +34,7 @@ The merge preview shows a summary of all differences between the source and targ
 
 The tabs below the summary let you browse each category. Non-conflicting changes (Added, Modified, Deleted) are applied automatically.
 
-### Reviewing Modified Changes
+## Reviewing Modified Changes
 
 The **Modified** tab shows a three-column view: source branch on the left, merge preview in the centre, and the target branch on the right.
 
@@ -59,7 +59,7 @@ For each conflict, you see:
 - The **merge preview** (empty until resolved) in the centre
 - The **target branch** version on the right
 
-Click **Accept** on either side to choose that version. The merge preview in the centre updates to reflect your choice and the conflict is marked as resolved.
+Click `Accept` on either side to choose that version. The merge preview in the centre updates to reflect your choice and the conflict is marked as resolved.
 
 You can expand **All Translations** to see all languages for a key before deciding.
 
@@ -69,19 +69,19 @@ Tags, labels, and screenshots are always **combined** from both branches — the
 
 ## Completing the Merge
 
-Once all conflicts are resolved, the **Complete the merge** button becomes active and the conflicts counter shows all resolved.
+Once all conflicts are resolved, the `Complete the merge` button becomes active and the conflicts counter shows all resolved.
 
 <ScreenshotWrapper
   src="/img/docs/platform/branching/screenshot_10_merge_ready_to_complete.png"
   alt="Merge ready to complete with all conflicts resolved"
 />
 
-Optionally check **Delete [branch name] after merge** to automatically remove the source branch once the merge is applied.
+Optionally check `Delete [branch name] after merge` to automatically remove the source branch once the merge is applied.
 
-Click **Complete the merge** to apply all changes to the target branch.
+Click `Complete the merge` to apply all changes to the target branch.
 
 ## Merge Invalidation
 
-If the source or target branch is modified while the merge preview is open (for example, someone edits a translation in the meantime), the merge preview becomes stale. Tolgee will notify you and offer a **Refresh** option to re-analyse the differences with the latest state of both branches.
+If the source or target branch is modified while the merge preview is open (for example, someone edits a translation in the meantime), the merge preview becomes stale. Tolgee will notify you and offer a `Refresh` option to re-analyse the differences with the latest state of both branches.
 
 Any conflict resolutions you already made are preserved where possible after a refresh.
