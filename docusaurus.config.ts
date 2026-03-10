@@ -21,10 +21,11 @@ const config: Config = {
       onBrokenMarkdownLinks: 'warn',
       onBrokenMarkdownImages: 'warn',
     },
+    mermaid: true,
   },
   organizationName: 'Tolgee',
   projectName: 'Tolgee',
-  themes: ['docusaurus-theme-openapi-docs'],
+  themes: ['docusaurus-theme-openapi-docs', '@docusaurus/theme-mermaid'],
   themeConfig: {
     image: '/img/og-images/homepage.png',
     metadata: [
@@ -53,6 +54,13 @@ const config: Config = {
       },
       config: {
         // options you can specify via https://github.com/francoischalifour/medium-zoom#usage
+      },
+    },
+    mermaid: {
+      theme: { light: 'neutral', dark: 'forest' },
+      options: {
+        // Optional: Ensure text doesn't get cut off
+        maxTextSize: 500,
       },
     },
   },

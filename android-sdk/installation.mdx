@@ -5,8 +5,18 @@ description: How to install Tolgee Android SDK in your Android project
 image: /img/og-images/android-sdk.png
 ---
 
+import Mermaid from '@theme/Mermaid';
+
 > **NOTE:**
 > For managing static translations, we recommend using [Tolgee CLI](https://github.com/tolgee/tolgee-cli).
+
+{/* TODO */}
+## CLI Project Init for Android Project
+https://docs.tolgee.io/tolgee-cli/project-configuration
+
+More on Tolgee CLI file structure template for Android:
+
+https://docs.tolgee.io/tolgee-cli/push-pull-strings#file-structure-template-format:~:text=The%20Android%20specific%20%7BandroidLanguageTag%7D%20placeholder%20is%20the%20same%20as%20%7BlanguageTag%7D%20but%20in%20Android%20format.%20(e.g.%2C%20en%2DrUS)
 
 ## Requirements
 
@@ -14,12 +24,16 @@ image: /img/og-images/android-sdk.png
 
 ## Quickstart (Views)
 
+
 1. Add dependency (Core):
 
    Using Version Catalog is recommended to keep your versions aligned.
 
    ```toml
    # gradle/libs.versions.toml
+   [versions]
+   tolgee = "1.0.0-alpha04" # replace with the desired version
+   # ...
    [libraries]
    tolgee = { group = "io.tolgee.mobile-kotlin-sdk", name = "core", version.ref = "tolgee" }
    ```
@@ -41,34 +55,68 @@ image: /img/og-images/android-sdk.png
    dependencyResolutionManagement { repositories { google(); mavenCentral() } }
    ```
 
+{/* #TODO: Consider commenting on Cloud and CDN configuration in one sentence */}
 3. Allow CDN networking (required when using Tolgee Cloud CDN):
-
-   Create a network security config file `network_security.xml` in your `res/xml` folder:
-
-```xml
-<?xml version="1.0" encoding="utf-8"?>
-<network-security-config xmlns:android="http://schemas.android.com/apk/res/android">
-    <domain-config>
-        <domain includeSubdomains="true">tolgee.io</domain>
-        <domain includeSubdomains="true">tolg.ee</domain>
-    </domain-config>
-</network-security-config>
-```
-
-Add network security config to your `AndroidManifest.xml`:
-
-```xml
-<application
-        android:networkSecurityConfig="@xml/network_security"> <!-- Add this line to your existing application tag -->
-</application>
-```
+  
+  - Create a network security config file `network_security.xml` in your `res/xml` folder:
+    ```xml
+    <?xml version="1.0" encoding="utf-8"?>
+    <network-security-config xmlns:android="http://schemas.android.com/apk/res/android">
+        <domain-config>
+            <domain includeSubdomains="true">tolgee.io</domain>
+            <domain includeSubdomains="true">tolg.ee</domain>
+            ... <!-- Add your own CDN domain if using self-hosted -->
+            <!-- <domain includeSubdomains="true">example.com</domain> -->
+        </domain-config>
+    </network-security-config>
+    ```
+  - Add network security config to your `AndroidManifest.xml`:
+    ```xml
+    <application
+            android:networkSecurityConfig="@xml/network_security"> <!-- Add this line to your existing application tag -->
+    </application>
+    ```
 
 > NOTE:
 > Allowing `tolgee.io` and `tolg.ee` domains is required when using Tolgee Cloud CDN. If you only access your own self-hosted CDN, include your domain(s) accordingly.
 
-## Initialization and configuration
+## CDN configuration and Android SDK setup
 
-Initialize Tolgee in your `Application` class.
+In the diagram below, you can find the general flow of how Android developers use the SDK is illustrated.
+
+<Mermaid
+  value={`
+  flowchart TD;
+    A["Register App in Tolgee Platform"] --> B["Copy Tolgee CLI configuration\nfrom Integration tab"];
+    B --> C["Push translations with Tolgee CLI\nto Tolgee Platform"];
+    C --> D["Configure Content Delivery in\nDeveloper Settings (using strings.xml)"];
+    D --> E["Configure Tolgee.init in your app\nwith correct resource path config"];
+    `}
+/>
+
+### Tolgee Platform Setup
+
+In order to use translations in the app, make sure you have configured content delivery.
+> NOTE:
+> When using Tolgee CLI and pushing strings.xml resource files, make sure you set up `contentDelivery` configuration in Tolgee.init as such
+
+```kotlin
+    path = { "values-$it/strings.xml" }
+```
+
+otherwise default is used which is `"$it.json"` and you will not see any updates in the app. 
+See more in [Installation](/android-sdk/installation.mdx) and [Usage](/android-sdk/usage.mdx) docs.
+
+How to get your CDN URL prefix (Content Delivery):
+- Open Tolgee Platform → your Project → Developer settings → Content Delivery.
+- Copy the full CDN URL prefix. You can use different prefixes per environment (dev/staging/prod).
+- Optional: Verify connectivity locally:
+
+```bash
+curl -I "https://cdn.tolg.ee/your-cdn-url-prefix/en.json"
+```
+ 
+### Initialize Tolgee in your `Application` class with json format (default)
 
 ```kotlin
 class MyApplication : Application() {
@@ -84,20 +132,43 @@ class MyApplication : Application() {
 }
 ```
 
-How to get your CDN URL prefix (Content Delivery):
-- Open Tolgee Platform → your Project → Developer settings → Content Delivery.
-- Copy the full CDN URL prefix. You can use different prefixes per environment (dev/staging/prod).
-- Optional: Verify connectivity locally:
-
+You should receive a 200 response. If you get 403/404, double‑check the prefix.
 ```bash
 curl -I "https://cdn.tolg.ee/your-cdn-url-prefix/en.json"
 ```
 
-You should receive a 200 response. If you get 403/404, double‑check the prefix.
+---
 
+## Initialize Tolgee with Android resources (strings.xml)
+
+In order to use Tolgee with XML resources, you need to specify the path pattern ending with `strings.xml` in the configuration. For example:
+
+```kotlin
+// in Application class
+Tolgee.init {
+      contentDelivery {
+        url = "https://cdn.tolg.ee/083a55e896b5dcb9d358dc928e9f1234"
+        path = { "values-$it/strings.xml" }
+        storage = TolgeeStorageProviderAndroid(this@AndroidApp, BuildConfig.VERSION_CODE)
+        availableLocales(availableLocales)
+      }
+      defaultLanguage("cs")
+    }
+```
+
+You should receive a 200 response. If you get 403/404, double‑check the prefix.
+```bash
+curl -I "https://cdn.tolg.ee/your-cdn-url-prefix/values-cs/strings.xml"
+```
+
+<!-- #TODO: mention context in a traditional installation as a separate step -->
 > TIP:
 > For Activities, wrap the base context so `getString` and similar APIs use Tolgee. See step-by-step in [Usage](./usage.mdx).
 
+## More Resources
+- [Supported Android Formats](https://docs.tolgee.io/platform/supported_formats#android-resources-xml-xml)
+- Integration
+- configuration 
 ## Next steps
 
 - Not sure which artifact to use? See [`Modules overview`](./modules.mdx)
