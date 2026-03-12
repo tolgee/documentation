@@ -649,11 +649,46 @@ LLM Providers configuration
       ```
      (default: `{}`)
 
+- ##### `provider-defaults` \{#tolgee-llm-_-provider-defaults}
+
+  
+      Map of provider defaults keyed by provider name. Use this to separate non-secret configuration
+      (model, prices, type) from secrets (API keys) in Kubernetes deployments.
+  
+      ``` yaml
+      provider-defaults:
+        gpt-5-mini:
+          type: OPENAI
+          model: gpt-5-mini
+          token-price-in-credits-input: 2.0
+          token-price-in-credits-output: 1.5
+      ```
+  
+      or using environment variables (in a ConfigMap):
+  
+      ```
+      TOLGEE_LLM_PROVIDER_DEFAULTS_GPT_5_MINI_TYPE=OPENAI
+      TOLGEE_LLM_PROVIDER_DEFAULTS_GPT_5_MINI_MODEL=gpt-5-mini
+      TOLGEE_LLM_PROVIDER_DEFAULTS_GPT_5_MINI_TOKEN_PRICE_IN_CREDITS_INPUT=2.0
+      TOLGEE_LLM_PROVIDER_DEFAULTS_GPT_5_MINI_TOKEN_PRICE_IN_CREDITS_OUTPUT=1.5
+      ```
+  
+      Then supply only the API key via the `providers` list (in a Secret):
+  
+      ```
+      TOLGEE_LLM_PROVIDERS_0_NAME=gpt-5-mini
+      TOLGEE_LLM_PROVIDERS_0_API_KEY=sk-proj-...
+      ```
+     (default: `{}`)
+
 #### providers \{#tolgee-llm-_-providers}
 
 
-    List of LLM providers. Example:
-    
+    List of LLM providers. When `provider-defaults` is also set, list entries are merged with the
+    matching map entry (by name). List values override map defaults only when explicitly set
+    (non-null for nullable fields, non-default for `type` / `maxTokens`).
+    `enabled` is always taken from the list entry.
+
     ``` yaml
     providers:
       - name: openai-gpt-4o-mini
@@ -663,9 +698,9 @@ LLM Providers configuration
         model: gpt-4o-mini
         format: "json_schema"
     ```
-    
+
     or using environment variables:
-    
+
     ```
     TOLGEE_LLM_PROVIDERS_0_NAME=MySuperDuperAI
     TOLGEE_LLM_PROVIDERS_0_TYPE=OPENAI
@@ -674,7 +709,7 @@ LLM Providers configuration
     TOLGEE_LLM_PROVIDERS_0_MODEL=gpt-4o-mini
     TOLGEE_LLM_PROVIDERS_0_FORMAT=json_schema
     ```
-    
+
     Check [llm providers documentation](/platform/projects_and_organizations/llm-providers#self-hosted-server-configuration) for more information.
   
 
@@ -1269,6 +1304,7 @@ tolgee:
     default-primary: true
     enabled:
     fallbacks: {}
+    provider-defaults: {}
     providers:
     -
       api-key:
@@ -2006,11 +2042,46 @@ LLM Providers configuration
       ```
      (default: `{}`)
 
+- ##### `PROVIDER_DEFAULTS` \{#tolgee-llm-_-provider-defaults}
+
+  
+      Map of provider defaults keyed by provider name. Use this to separate non-secret configuration
+      (model, prices, type) from secrets (API keys) in Kubernetes deployments.
+  
+      ``` yaml
+      provider-defaults:
+        gpt-5-mini:
+          type: OPENAI
+          model: gpt-5-mini
+          token-price-in-credits-input: 2.0
+          token-price-in-credits-output: 1.5
+      ```
+  
+      or using environment variables (in a ConfigMap):
+  
+      ```
+      TOLGEE_LLM_PROVIDER_DEFAULTS_GPT_5_MINI_TYPE=OPENAI
+      TOLGEE_LLM_PROVIDER_DEFAULTS_GPT_5_MINI_MODEL=gpt-5-mini
+      TOLGEE_LLM_PROVIDER_DEFAULTS_GPT_5_MINI_TOKEN_PRICE_IN_CREDITS_INPUT=2.0
+      TOLGEE_LLM_PROVIDER_DEFAULTS_GPT_5_MINI_TOKEN_PRICE_IN_CREDITS_OUTPUT=1.5
+      ```
+  
+      Then supply only the API key via the `providers` list (in a Secret):
+  
+      ```
+      TOLGEE_LLM_PROVIDERS_0_NAME=gpt-5-mini
+      TOLGEE_LLM_PROVIDERS_0_API_KEY=sk-proj-...
+      ```
+     (default: `{}`)
+
 #### PROVIDERS \{#tolgee-llm-_-providers}
 
 
-    List of LLM providers. Example:
-    
+    List of LLM providers. When `provider-defaults` is also set, list entries are merged with the
+    matching map entry (by name). List values override map defaults only when explicitly set
+    (non-null for nullable fields, non-default for `type` / `maxTokens`).
+    `enabled` is always taken from the list entry.
+
     ``` yaml
     providers:
       - name: openai-gpt-4o-mini
@@ -2020,9 +2091,9 @@ LLM Providers configuration
         model: gpt-4o-mini
         format: "json_schema"
     ```
-    
+
     or using environment variables:
-    
+
     ```
     TOLGEE_LLM_PROVIDERS_0_NAME=MySuperDuperAI
     TOLGEE_LLM_PROVIDERS_0_TYPE=OPENAI
@@ -2031,7 +2102,7 @@ LLM Providers configuration
     TOLGEE_LLM_PROVIDERS_0_MODEL=gpt-4o-mini
     TOLGEE_LLM_PROVIDERS_0_FORMAT=json_schema
     ```
-    
+
     Check [llm providers documentation](/platform/projects_and_organizations/llm-providers#self-hosted-server-configuration) for more information.
   
 
@@ -2603,6 +2674,7 @@ TOLGEE_LLM_DEFAULT_ENABLED=true
 TOLGEE_LLM_DEFAULT_PRIMARY=true
 TOLGEE_LLM_ENABLED=
 TOLGEE_LLM_FALLBACKS={}
+TOLGEE_LLM_PROVIDER_DEFAULTS={}
 TOLGEE_LLM_PROVIDERS_0_API_KEY=
 TOLGEE_LLM_PROVIDERS_0_API_URL=
 TOLGEE_LLM_PROVIDERS_0_ATTEMPTS=
@@ -3324,11 +3396,46 @@ LLM Providers configuration
       ```
      (default: `{}`)
 
+- ##### `provider-defaults` \{#tolgee-llm-_-provider-defaults}
+
+  
+      Map of provider defaults keyed by provider name. Use this to separate non-secret configuration
+      (model, prices, type) from secrets (API keys) in Kubernetes deployments.
+  
+      ``` yaml
+      provider-defaults:
+        gpt-5-mini:
+          type: OPENAI
+          model: gpt-5-mini
+          token-price-in-credits-input: 2.0
+          token-price-in-credits-output: 1.5
+      ```
+  
+      or using environment variables (in a ConfigMap):
+  
+      ```
+      TOLGEE_LLM_PROVIDER_DEFAULTS_GPT_5_MINI_TYPE=OPENAI
+      TOLGEE_LLM_PROVIDER_DEFAULTS_GPT_5_MINI_MODEL=gpt-5-mini
+      TOLGEE_LLM_PROVIDER_DEFAULTS_GPT_5_MINI_TOKEN_PRICE_IN_CREDITS_INPUT=2.0
+      TOLGEE_LLM_PROVIDER_DEFAULTS_GPT_5_MINI_TOKEN_PRICE_IN_CREDITS_OUTPUT=1.5
+      ```
+  
+      Then supply only the API key via the `providers` list (in a Secret):
+  
+      ```
+      TOLGEE_LLM_PROVIDERS_0_NAME=gpt-5-mini
+      TOLGEE_LLM_PROVIDERS_0_API_KEY=sk-proj-...
+      ```
+     (default: `{}`)
+
 #### providers \{#tolgee-llm-_-providers}
 
 
-    List of LLM providers. Example:
-    
+    List of LLM providers. When `provider-defaults` is also set, list entries are merged with the
+    matching map entry (by name). List values override map defaults only when explicitly set
+    (non-null for nullable fields, non-default for `type` / `maxTokens`).
+    `enabled` is always taken from the list entry.
+
     ``` yaml
     providers:
       - name: openai-gpt-4o-mini
@@ -3338,9 +3445,9 @@ LLM Providers configuration
         model: gpt-4o-mini
         format: "json_schema"
     ```
-    
+
     or using environment variables:
-    
+
     ```
     TOLGEE_LLM_PROVIDERS_0_NAME=MySuperDuperAI
     TOLGEE_LLM_PROVIDERS_0_TYPE=OPENAI
@@ -3349,7 +3456,7 @@ LLM Providers configuration
     TOLGEE_LLM_PROVIDERS_0_MODEL=gpt-4o-mini
     TOLGEE_LLM_PROVIDERS_0_FORMAT=json_schema
     ```
-    
+
     Check [llm providers documentation](/platform/projects_and_organizations/llm-providers#self-hosted-server-configuration) for more information.
   
 
@@ -3921,6 +4028,7 @@ tolgee.llm.default-enabled = true
 tolgee.llm.default-primary = true
 tolgee.llm.enabled =
 tolgee.llm.fallbacks = {}
+tolgee.llm.provider-defaults = {}
 tolgee.llm.providers[0].api-key =
 tolgee.llm.providers[0].api-url =
 tolgee.llm.providers[0].attempts =
