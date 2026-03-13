@@ -86,3 +86,7 @@ By default, only non-empty values are exported. To export also `null` values, se
 curl "https://app.tolgee.io/v2/projects/export?filterState=UNTRANSLATED&filterState=TRANSLATED&filterState=REVIEWED" \
 -H "X-API-Key: <Your API key>" --output data.zip
 ```
+
+:::info Branching
+When branching is enabled, exported translations reflect the active branch. See [Scope and Integrations](/platform/branching/scope_and_integrations) for details.
+:::

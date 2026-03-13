@@ -1,0 +1,84 @@
+---
+id: scope_and_integrations
+title: Scope and Integrations
+image: /img/og-images/platform.png
+---
+
+This page explains which features are branch-scoped (isolated per branch) and which are project-wide (shared across all branches), and lists the tools and integrations that support branching.
+
+## What is Branch-scoped vs. Project-wide
+
+### Branch-scoped
+
+These features are isolated per branch. What you see or change depends on the active branch selected in the breadcrumb bar.
+
+| Feature | Notes |
+|---------|-------|
+| **Translations** | Each branch holds its own copy of key values. Changes on one branch do not affect another until merged. |
+| **Import** | Files imported while a branch is active land in that branch only. |
+| **Export** | Exported translations reflect the active branch. |
+| **Tasks** | Tasks are created and listed per branch. See [Tasks and Branches](tasks). |
+| **Content delivery** | Each CDN configuration is pinned to a specific branch. See [Content Delivery and Branches](content_delivery). |
+| **Dashboard** | Project dashboard stats (translation progress, key counts) reflect the active branch. |
+
+### Project-wide
+
+These features are shared across all branches and are not affected by the branch selector.
+
+| Feature | Notes |
+|---------|-------|
+| **Languages** | The set of languages configured for the project applies to all branches. |
+| **Team members & permissions** | Members and their roles are project-level. |
+| **Project settings** | All settings (name, machine translation, AI, etc.) apply to the whole project. |
+| **API keys** | API keys are project-level credentials. |
+| **Billing** | Plan and usage apply to the organization. |
+
+## Integrations
+
+### Tolgee CLI
+
+The CLI supports branching natively. Use `--branch <name>` (or `-b`) to scope `pull`, `push`, `sync`, `compare`, and `tag` commands to a specific branch. You can also create, list, and delete branches from the terminal.
+
+→ [Branching — Tolgee CLI](/tolgee-cli/branching)
+
+### REST API
+
+The REST API exposes branch-aware endpoints. Operations that work with translations (e.g. export, import, key listing) accept a `branch` query parameter to target a specific branch.
+
+→ [API Reference](/api)
+
+### Import & Export
+
+Both Import and Export in the platform UI use the active branch. Importing while on a feature branch adds keys and translations to that branch only. Exporting produces a snapshot of that branch's translations.
+
+→ [Import Translation Files](/platform/projects_and_organizations/import) · [Export Translation Files](/platform/projects_and_organizations/export)
+
+### Content Delivery
+
+CDN configurations are pinned to a branch, not the global selector. This lets you maintain parallel endpoints — for example, a production endpoint on `main` and a preview endpoint for a feature branch.
+
+→ [Content Delivery and Branches](content_delivery)
+
+### Tasks
+
+Tasks are scoped to the active branch. Each branch can have its own independent task list for tracking translation and review work.
+
+→ [Tasks and Branches](tasks)
+
+### Figma plugin
+
+:::note Coming soon
+The Tolgee Figma plugin will support branching, allowing designers to push and pull branch-specific translations.
+:::
+
+### Browser extension
+
+:::note Coming soon
+The Tolgee browser extension (Chrome / Firefox) will support targeting a specific branch when in-context editing.
+:::
+
+### SDKs
+
+:::note Coming soon
+Tolgee SDK support for branching is on the roadmap, enabling apps to load translations from a specific branch at runtime.
+:::
