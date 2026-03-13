@@ -72,6 +72,36 @@ const sidebar: SidebarsConfig = {
         },
         {
           type: "doc",
+          id: "list-5",
+          label: "List trashed keys",
+          className: "api-method get",
+        },
+        {
+          type: "doc",
+          id: "list-deleters",
+          label: "List users who deleted keys",
+          className: "api-method get",
+        },
+        {
+          type: "doc",
+          id: "select-all",
+          label: "Select all trashed key IDs matching the filter",
+          className: "api-method get",
+        },
+        {
+          type: "doc",
+          id: "permanently-delete",
+          label: "Permanently delete a trashed key",
+          className: "api-method delete",
+        },
+        {
+          type: "doc",
+          id: "restore",
+          label: "Restore a trashed key",
+          className: "api-method put",
+        },
+        {
+          type: "doc",
           id: "delete-16",
           label: "Delete one or multiple keys",
           className: "api-method delete",
@@ -507,6 +537,12 @@ const sidebar: SidebarsConfig = {
           id: "create-11",
           label: "Create branch",
           className: "api-method post",
+        },
+        {
+          type: "doc",
+          id: "find",
+          label: "Get branch by name, or the default branch if name is not provided",
+          className: "api-method get",
         },
         {
           type: "doc",
@@ -1328,66 +1364,6 @@ const sidebar: SidebarsConfig = {
     },
     {
       type: "category",
-      label: "Ai prompt controller",
-      link: {
-        type: "doc",
-        id: "tag_ai-prompt-controller",
-      },
-      collapsible: false,
-      collapsed: false,
-      items: [
-        {
-          type: "doc",
-          id: "get-all-paged",
-          label: "Get all prompts",
-          className: "api-method get",
-        },
-        {
-          type: "doc",
-          id: "create-prompt",
-          label: "Create prompt",
-          className: "api-method post",
-        },
-        {
-          type: "doc",
-          id: "get-default-prompt",
-          label: "Get default prompt",
-          className: "api-method get",
-        },
-        {
-          type: "doc",
-          id: "variables",
-          label: "Get variables",
-          className: "api-method get",
-        },
-        {
-          type: "doc",
-          id: "run",
-          label: "Run prompt",
-          className: "api-method post",
-        },
-        {
-          type: "doc",
-          id: "get-prompt",
-          label: "Get prompt by id",
-          className: "api-method get",
-        },
-        {
-          type: "doc",
-          id: "update-prompt",
-          label: "Update prompt",
-          className: "api-method put",
-        },
-        {
-          type: "doc",
-          id: "delete-prompt",
-          label: "Delete prompt",
-          className: "api-method delete",
-        },
-      ],
-    },
-    {
-      type: "category",
       label: "Projects",
       link: {
         type: "doc",
@@ -1490,36 +1466,6 @@ const sidebar: SidebarsConfig = {
     },
     {
       type: "category",
-      label: "Export",
-      link: {
-        type: "doc",
-        id: "tag_export",
-      },
-      collapsible: false,
-      collapsed: false,
-      items: [
-        {
-          type: "doc",
-          id: "do-export-json-zip",
-          label: "Export to ZIP of jsons",
-          className: "menu__list-item--deprecated api-method get",
-        },
-        {
-          type: "doc",
-          id: "export-data",
-          label: "Export data",
-          className: "api-method get",
-        },
-        {
-          type: "doc",
-          id: "export-post",
-          label: "Export data (post)",
-          className: "api-method post",
-        },
-      ],
-    },
-    {
-      type: "category",
       label: "Llm providers",
       link: {
         type: "doc",
@@ -1568,6 +1514,66 @@ const sidebar: SidebarsConfig = {
     },
     {
       type: "category",
+      label: "Ai prompt controller",
+      link: {
+        type: "doc",
+        id: "tag_ai-prompt-controller",
+      },
+      collapsible: false,
+      collapsed: false,
+      items: [
+        {
+          type: "doc",
+          id: "get-all-paged",
+          label: "Get all prompts",
+          className: "api-method get",
+        },
+        {
+          type: "doc",
+          id: "create-prompt",
+          label: "Create prompt",
+          className: "api-method post",
+        },
+        {
+          type: "doc",
+          id: "get-default-prompt",
+          label: "Get default prompt",
+          className: "api-method get",
+        },
+        {
+          type: "doc",
+          id: "variables",
+          label: "Get variables",
+          className: "api-method get",
+        },
+        {
+          type: "doc",
+          id: "run",
+          label: "Run prompt",
+          className: "api-method post",
+        },
+        {
+          type: "doc",
+          id: "get-prompt",
+          label: "Get prompt by id",
+          className: "api-method get",
+        },
+        {
+          type: "doc",
+          id: "update-prompt",
+          label: "Update prompt",
+          className: "api-method put",
+        },
+        {
+          type: "doc",
+          id: "delete-prompt",
+          label: "Delete prompt",
+          className: "api-method delete",
+        },
+      ],
+    },
+    {
+      type: "category",
       label: "Ai Playground result controller",
       link: {
         type: "doc",
@@ -1580,6 +1586,36 @@ const sidebar: SidebarsConfig = {
           type: "doc",
           id: "get-ai-playground-result",
           label: "Get ai playground result",
+          className: "api-method post",
+        },
+      ],
+    },
+    {
+      type: "category",
+      label: "Export",
+      link: {
+        type: "doc",
+        id: "tag_export",
+      },
+      collapsible: false,
+      collapsed: false,
+      items: [
+        {
+          type: "doc",
+          id: "do-export-json-zip",
+          label: "Export to ZIP of jsons",
+          className: "menu__list-item--deprecated api-method get",
+        },
+        {
+          type: "doc",
+          id: "export-data",
+          label: "Export data",
+          className: "api-method get",
+        },
+        {
+          type: "doc",
+          id: "export-post",
+          label: "Export data (post)",
           className: "api-method post",
         },
       ],
@@ -2388,6 +2424,12 @@ const sidebar: SidebarsConfig = {
         },
         {
           type: "doc",
+          id: "hard-delete-keys",
+          label: "Permanently delete soft-deleted keys",
+          className: "api-method post",
+        },
+        {
+          type: "doc",
           id: "machine-translation",
           label: "Machine Translation",
           className: "api-method post",
@@ -2396,6 +2438,12 @@ const sidebar: SidebarsConfig = {
           type: "doc",
           id: "translate-1",
           label: "Pre-translate by TM",
+          className: "api-method post",
+        },
+        {
+          type: "doc",
+          id: "restore-keys",
+          label: "Restore soft-deleted keys",
           className: "api-method post",
         },
         {
