@@ -82,3 +82,35 @@ You can see the description in the editor directly under the key name.
   src="/img/docs/platform/key_description.webp" />
 
 To modify the description, you can do so in the key editing dialog by clicking the key name or description.
+
+## Character Limit
+
+You can set a maximum character limit on a translation key to restrict how long translations can be.
+This is useful when translations are displayed in a UI with limited space, such as buttons, labels, or mobile screens.
+
+### Setting the character limit
+
+To enable a character limit, check the **Max character limit** checkbox when creating or editing a key, then enter the maximum number of characters allowed.
+
+<ScreenshotWrapper
+  alt="Create key form with character limit enabled"
+  src="/img/docs/platform/create_key_char_limit.webp"
+/>
+
+### What counts toward the limit
+
+The character limit counts only **visible text** — the characters that will be displayed to the end user. The following are **not** counted:
+
+- **HTML tags** — e.g., in `<b>Hello</b>`, only `Hello` (5 characters) is counted
+- **ICU placeholders** — e.g., in `Hello {name}`, only `Hello ` (6 characters) is counted
+- **Plural `#` symbol** — in plural translations, the `#` placeholder (which gets replaced by the actual number at runtime) is not counted
+
+For plural translations, the limit applies to each plural form individually — if any form exceeds the limit, the translation is considered over the limit.
+
+### Behavior when the limit is exceeded
+
+The character limit is enforced differently depending on the context:
+
+- **Creating a key**: When creating a new key with a character limit, the **Save** button is disabled if the base language translation exceeds the limit. The translation cannot be saved until it is shortened.
+- **Editing translations**: When editing an existing translation, a character counter is displayed showing the current count and the limit (e.g., `25/20`). If the translation exceeds the limit, a **confirmation dialog** is shown before saving, but the save is still allowed. This allows translators to temporarily exceed the limit while working on a translation.
+- **Importing translations**: When importing translation files, translations that exceed the character limit of their key are flagged with a warning in the import results. The import still proceeds, but the warnings help you identify translations that may need to be shortened.
