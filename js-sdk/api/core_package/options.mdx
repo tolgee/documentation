@@ -67,6 +67,14 @@ Project id is necessary if you are using PAT
 projectId: number | string;
 ```
 
+### branch
+
+Branch to use for translations. When set, translations are fetched from and edited on the specified branch. Only relevant when [branching](../../branching) is enabled for the project.
+
+```ts
+branch: string;
+```
+
 ### availableLanguages
 
 Specify all available languages. Required for language detection or loading all languages at once ([loadMatrix](./tolgee.mdx#loadmatrix)).

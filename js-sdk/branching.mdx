@@ -1,0 +1,47 @@
+---
+id: branching
+title: Branching
+description: 'Work with Tolgee branches directly from your app — fetch translations from a specific branch and edit them via the in-context editor.'
+image: /img/og-images/js-sdk.png
+---
+
+Tolgee supports project branching, allowing you to work on translations in isolated branches — similar to how Git branches work for code. The SDK lets you scope your app to a specific branch, so both translation fetching and in-context editing operate against that branch.
+
+## Setting the branch
+
+Pass the `branch` option when initializing Tolgee:
+
+```ts
+const tolgee = Tolgee()
+  .use(DevTools())
+  .use(FormatSimple())
+  .init({
+    apiUrl: 'https://app.tolgee.io',
+    apiKey: 'your-api-key',
+    branch: 'my-feature',
+  });
+```
+
+When `branch` is set:
+
+- **Translation fetching** pulls translations from that branch instead of the default one.
+- **In-context editor** creates and updates keys on that branch.
+- **"Open in platform" links** point to the correct branch in the Tolgee web app.
+
+If `branch` is omitted, the SDK uses the project's default branch (backward-compatible with projects that don't use branching).
+
+## Protected branches
+
+Branches can be marked as protected in the Tolgee platform. When working with a protected branch:
+
+- The in-context editor opens in **read-only mode** if your API key doesn't have the `branch.protected-modify` scope.
+- If you attempt to save a translation, the editor switches to read-only automatically and shows a notification.
+
+To edit translations on a protected branch, use an API key with the `branch.protected-modify` scope.
+
+## In-context editor behavior
+
+When branching is active, the in-context translation dialog shows the current branch name. The editor also handles branch-specific errors:
+
+- **Branch not found** — shown when the configured branch doesn't exist. Check the branch name or switch to an existing branch.
+- **Read-only mode** — shown when the branch is protected and your API key lacks the required scope.
