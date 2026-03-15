@@ -106,6 +106,7 @@ module.exports = {
         'formatting',
         'language',
         'namespaces',
+        'branching',
         'in_context',
         'wrapping',
         'providing_static_data',
