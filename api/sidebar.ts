@@ -1364,6 +1364,54 @@ const sidebar: SidebarsConfig = {
     },
     {
       type: "category",
+      label: "Llm providers",
+      link: {
+        type: "doc",
+        id: "tag_llm-providers",
+      },
+      collapsible: false,
+      collapsed: false,
+      items: [
+        {
+          type: "doc",
+          id: "get-all-11",
+          label: "Get all organization-specific providers",
+          className: "api-method get",
+        },
+        {
+          type: "doc",
+          id: "create-provider",
+          label: "Create organization-specific provider",
+          className: "api-method post",
+        },
+        {
+          type: "doc",
+          id: "get-available-providers",
+          label: "Get all available llm providers",
+          className: "api-method get",
+        },
+        {
+          type: "doc",
+          id: "get-server-providers",
+          label: "Get all server-configured providers",
+          className: "api-method get",
+        },
+        {
+          type: "doc",
+          id: "update-provider",
+          label: "Update organization-specific provider",
+          className: "api-method put",
+        },
+        {
+          type: "doc",
+          id: "delete-provider",
+          label: "Delete organization-specific provider",
+          className: "api-method delete",
+        },
+      ],
+    },
+    {
+      type: "category",
       label: "Projects",
       link: {
         type: "doc",
@@ -1520,54 +1568,6 @@ const sidebar: SidebarsConfig = {
           type: "doc",
           id: "delete-prompt",
           label: "Delete prompt",
-          className: "api-method delete",
-        },
-      ],
-    },
-    {
-      type: "category",
-      label: "Llm providers",
-      link: {
-        type: "doc",
-        id: "tag_llm-providers",
-      },
-      collapsible: false,
-      collapsed: false,
-      items: [
-        {
-          type: "doc",
-          id: "get-all-11",
-          label: "Get all organization-specific providers",
-          className: "api-method get",
-        },
-        {
-          type: "doc",
-          id: "create-provider",
-          label: "Create organization-specific provider",
-          className: "api-method post",
-        },
-        {
-          type: "doc",
-          id: "get-available-providers",
-          label: "Get all available llm providers",
-          className: "api-method get",
-        },
-        {
-          type: "doc",
-          id: "get-server-providers",
-          label: "Get all server-configured providers",
-          className: "api-method get",
-        },
-        {
-          type: "doc",
-          id: "update-provider",
-          label: "Update organization-specific provider",
-          className: "api-method put",
-        },
-        {
-          type: "doc",
-          id: "delete-provider",
-          label: "Delete organization-specific provider",
           className: "api-method delete",
         },
       ],
