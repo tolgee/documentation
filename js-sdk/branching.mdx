@@ -38,10 +38,3 @@ Branches can be marked as protected in the Tolgee platform. When working with a 
 - If you attempt to save a translation, the editor switches to read-only automatically and shows a notification.
 
 To edit translations on a protected branch, use an API key with the `branch.protected-modify` scope.
-
-## In-context editor behavior
-
-When branching is active, the in-context translation dialog shows the current branch name. The editor also handles branch-specific errors:
-
-- **Branch not found** — shown when the configured branch doesn't exist. Check the branch name or switch to an existing branch.
-- **Read-only mode** — shown when the branch is protected and your API key lacks the required scope.
