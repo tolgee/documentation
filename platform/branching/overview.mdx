@@ -82,17 +82,21 @@ Branch names can contain letters, numbers, slashes, hyphens, and underscores. Sl
 
 To start a merge, click the **Merge icon button** next to a branch in the list. This starts a merge from that branch into its origin branch. See [Merging Branches](merging_branches) for the full merge workflow.
 
-### Branch Actions
+### Renaming a Branch
 
-Each branch has a `⋮` menu with the following actions:
+Select **Rename** from the branch `⋮` menu to change its name.
 
-- **Rename** — change the branch name
-- **Protect / Unprotect** — toggle the protected state. A protected branch is read-only by default; users with permission can still edit it directly. Useful for guarding stable branches.
-- **Delete** — permanently remove the branch and all its translations
+### Protecting a Branch
+
+Select **Protect** from the branch `⋮` menu to make it read-only by default. Users with the **Write to protected branch** permission can still edit translations directly. Use this to guard stable branches like `main` or release branches. Select **Unprotect** to remove the protection.
+
+### Deleting a Branch
+
+Select **Delete** from the branch `⋮` menu to permanently remove it along with all its translations.
 
 <ScreenshotWrapper
-    src="/img/docs/platform/branching/screenshot_05_branch_actions_menu.png"
-    alt="Branch actions menu showing Rename, Protect, and Delete"
+  src="/img/docs/platform/branching/screenshot_05_branch_actions_menu.png"
+  alt="Branch actions menu showing Rename, Protect, and Delete"
 />
 
 :::caution
