@@ -18,6 +18,10 @@ If you use the self-hosted version, you must [set up the license](/platform/self
 
 ## Common Use Cases
 
+**Managing multiple environments.** Branches can mirror your deployment environments — for example, a `main` branch for production, a `staging` branch for QA, and feature branches for work in progress. Each environment's content delivery endpoint points to its own branch, so translations flow through the same promotion path as your code.
+
+**Updating translations without affecting production.** When you need to rephrase UI strings or fix a translation, you can make the change on a branch and review it before merging into `main`. Production content stays untouched until you explicitly merge, so there is no risk of shipping incomplete or unapproved copy.
+
 **Translating a new feature before release.** When a new feature is being developed, you can create a branch and add or update translation keys in isolation. The rest of the team continues working on the main branch without seeing incomplete or in-progress copy. Once the feature is ready, you merge the branch and all its translations land at once.
 
 **Preparing a release while translation work continues.** Branches let you freeze a snapshot of translations for an upcoming release while day-to-day translation work continues uninterrupted on the main branch. The release branch can be reviewed, approved, and merged independently.
@@ -82,14 +86,14 @@ To start a merge, click the **Merge icon button** next to a branch in the list. 
 
 Each branch has a `⋮` menu with the following actions:
 
-<ScreenshotWrapper
-  src="/img/docs/platform/branching/screenshot_05_branch_actions_menu.png"
-  alt="Branch actions menu showing Rename, Protect, and Delete"
-/>
-
 - **Rename** — change the branch name
 - **Protect / Unprotect** — toggle the protected state. A protected branch is read-only by default; users with permission can still edit it directly. Useful for guarding stable branches.
 - **Delete** — permanently remove the branch and all its translations
+
+<ScreenshotWrapper
+    src="/img/docs/platform/branching/screenshot_05_branch_actions_menu.png"
+    alt="Branch actions menu showing Rename, Protect, and Delete"
+/>
 
 :::caution
 Deleting a branch is permanent. All translations that exist only in that branch will be lost.

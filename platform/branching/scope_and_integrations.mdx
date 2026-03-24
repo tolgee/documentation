@@ -17,9 +17,9 @@ These features are isolated per branch. What you see or change depends on the ac
 | **Translations** | Each branch holds its own copy of key values. Changes on one branch do not affect another until merged. |
 | **Import** | Files imported while a branch is active land in that branch only. |
 | **Export** | Exported translations reflect the active branch. |
-| **Tasks** | Tasks are created and listed per branch. See [Tasks and Branches](tasks). |
+| **Project tasks** | Tasks are created and listed per branch. See [Tasks and Branches](tasks). |
 | **Content delivery** | Each CDN configuration is pinned to a specific branch. See [Content Delivery and Branches](content_delivery). |
-| **Dashboard** | Project dashboard stats (translation progress, key counts) reflect the active branch. |
+| **Project dashboard** | Project dashboard stats (translation progress, key counts) reflect the active branch. |
 
 ### Project-wide
 
@@ -28,10 +28,10 @@ These features are shared across all branches and are not affected by the branch
 | Feature | Notes |
 |---------|-------|
 | **Languages** | The set of languages configured for the project applies to all branches. |
-| **Team members & permissions** | Members and their roles are project-level. |
-| **Project settings** | All settings (name, machine translation, AI, etc.) apply to the whole project. |
-| **API keys** | API keys are project-level credentials. |
-| **Billing** | Plan and usage apply to the organization. |
+| **Members & permissions** | Members and their permissions are managed at the project level, regardless of the active branch. |
+| **Project Settings** | All project settings (name, machine translation, AI, etc.) apply across all branches. |
+| **Project API keys** | API keys are scoped to the project and work across all branches. |
+| **Billing** | Plans and usage are tracked at the organization level, it applies to all branches of all projects. A key is counted once regardless of how many branches it appears in. |
 
 ## Integrations
 
