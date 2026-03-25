@@ -19,6 +19,17 @@ module.exports = {
         'projects_and_organizations/machine-translation-settings',
         'projects_and_organizations/ai-settings',
         'projects_and_organizations/tasks',
+        {
+          label: 'Branching',
+          type: 'category',
+          items: [
+            'branching/overview',
+            'branching/merging_branches',
+            'branching/tasks',
+            'branching/content_delivery',
+            'branching/scope_and_integrations',
+          ],
+        },
         'projects_and_organizations/order_translation',
         'projects_and_organizations/members',
         'projects_and_organizations/import',
