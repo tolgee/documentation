@@ -62,6 +62,12 @@ Prefix: `tolgee`
 
 Configuration specific to Tolgee.
 
+- ##### `back-end-url` \{#tolgee-_-back-end-url}
+
+  Public URL of the Tolgee API endpoint. While this typically matches the 'frontEndUrl', it should be set separately when running the backend on a different URL.
+  
+  
+
 - ##### `file-storage-url` \{#tolgee-_-file-storage-url}
 
   Public base path where files are accessible. Used by the user interface.
@@ -370,6 +376,10 @@ Configuration of batch operations.
 - ##### `job-cleanup-lock-lease-time-ms` \{#tolgee-batch-_-job-cleanup-lock-lease-time-ms}
 
   Lock lease time in milliseconds for old job cleanup (to prevent lock expiration during long cleanups) (default: `86400000` 1 day)
+
+- ##### `job-type-overrides` \{#tolgee-batch-_-job-type-overrides}
+
+  Per-job-type overrides. Keys are batch job type names (e.g. MACHINE_TRANSLATE), values are settings objects. Currently supports 'exclusive' (boolean) to override whether a job type requires project-level exclusive locking. (default: `{}`)
 
 - ##### `max-per-mt-job-concurrency` \{#tolgee-batch-_-max-per-mt-job-concurrency}
 
@@ -1185,6 +1195,7 @@ spring:
     username:
     password:
 tolgee:
+  back-end-url:
   file-storage-url:
   front-end-url:
   max-screenshots-per-key: 20
@@ -1244,6 +1255,7 @@ tolgee:
     failed-job-retention-days: 30
     job-cleanup-batch-size: 1000
     job-cleanup-lock-lease-time-ms: 86400000
+    job-type-overrides: {}
     max-per-mt-job-concurrency: -1
     old-job-cleanup-delay-in-ms: 28800000
     old-job-cleanup-enabled: true
@@ -1454,6 +1466,12 @@ to configure its database connection. These properties can be omitted when using
 Prefix: `TOLGEE`
 
 Configuration specific to Tolgee.
+
+- ##### `BACK_END_URL` \{#tolgee-_-back-end-url}
+
+  Public URL of the Tolgee API endpoint. While this typically matches the 'frontEndUrl', it should be set separately when running the backend on a different URL.
+  
+  
 
 - ##### `FILE_STORAGE_URL` \{#tolgee-_-file-storage-url}
 
@@ -1763,6 +1781,10 @@ Configuration of batch operations.
 - ##### `JOB_CLEANUP_LOCK_LEASE_TIME_MS` \{#tolgee-batch-_-job-cleanup-lock-lease-time-ms}
 
   Lock lease time in milliseconds for old job cleanup (to prevent lock expiration during long cleanups) (default: `86400000` 1 day)
+
+- ##### `JOB_TYPE_OVERRIDES` \{#tolgee-batch-_-job-type-overrides}
+
+  Per-job-type overrides. Keys are batch job type names (e.g. MACHINE_TRANSLATE), values are settings objects. Currently supports 'exclusive' (boolean) to override whether a job type requires project-level exclusive locking. (default: `{}`)
 
 - ##### `MAX_PER_MT_JOB_CONCURRENCY` \{#tolgee-batch-_-max-per-mt-job-concurrency}
 
@@ -2574,6 +2596,7 @@ SERVER_PORT=8080
 SPRING_DATASOURCE_URL=
 SPRING_DATASOURCE_USERNAME=
 SPRING_DATASOURCE_PASSWORD=
+TOLGEE_BACK_END_URL=
 TOLGEE_FILE_STORAGE_URL=
 TOLGEE_FRONT_END_URL=
 TOLGEE_MAX_SCREENSHOTS_PER_KEY=20
@@ -2626,6 +2649,7 @@ TOLGEE_BATCH_CONCURRENCY=1
 TOLGEE_BATCH_FAILED_JOB_RETENTION_DAYS=30
 TOLGEE_BATCH_JOB_CLEANUP_BATCH_SIZE=1000
 TOLGEE_BATCH_JOB_CLEANUP_LOCK_LEASE_TIME_MS=86400000
+TOLGEE_BATCH_JOB_TYPE_OVERRIDES={}
 TOLGEE_BATCH_MAX_PER_MT_JOB_CONCURRENCY=-1
 TOLGEE_BATCH_OLD_JOB_CLEANUP_DELAY_IN_MS=28800000
 TOLGEE_BATCH_OLD_JOB_CLEANUP_ENABLED=true
@@ -2808,6 +2832,12 @@ to configure its database connection. These properties can be omitted when using
 Prefix: `tolgee`
 
 Configuration specific to Tolgee.
+
+- ##### `back-end-url` \{#tolgee-_-back-end-url}
+
+  Public URL of the Tolgee API endpoint. While this typically matches the 'frontEndUrl', it should be set separately when running the backend on a different URL.
+  
+  
 
 - ##### `file-storage-url` \{#tolgee-_-file-storage-url}
 
@@ -3117,6 +3147,10 @@ Configuration of batch operations.
 - ##### `job-cleanup-lock-lease-time-ms` \{#tolgee-batch-_-job-cleanup-lock-lease-time-ms}
 
   Lock lease time in milliseconds for old job cleanup (to prevent lock expiration during long cleanups) (default: `86400000` 1 day)
+
+- ##### `job-type-overrides` \{#tolgee-batch-_-job-type-overrides}
+
+  Per-job-type overrides. Keys are batch job type names (e.g. MACHINE_TRANSLATE), values are settings objects. Currently supports 'exclusive' (boolean) to override whether a job type requires project-level exclusive locking. (default: `{}`)
 
 - ##### `max-per-mt-job-concurrency` \{#tolgee-batch-_-max-per-mt-job-concurrency}
 
@@ -3928,6 +3962,7 @@ server.port = 8080
 spring.datasource.url =
 spring.datasource.username =
 spring.datasource.password =
+tolgee.back-end-url =
 tolgee.file-storage-url =
 tolgee.front-end-url =
 tolgee.max-screenshots-per-key = 20
@@ -3980,6 +4015,7 @@ tolgee.batch.concurrency = 1
 tolgee.batch.failed-job-retention-days = 30
 tolgee.batch.job-cleanup-batch-size = 1000
 tolgee.batch.job-cleanup-lock-lease-time-ms = 86400000
+tolgee.batch.job-type-overrides = {}
 tolgee.batch.max-per-mt-job-concurrency = -1
 tolgee.batch.old-job-cleanup-delay-in-ms = 28800000
 tolgee.batch.old-job-cleanup-enabled = true
