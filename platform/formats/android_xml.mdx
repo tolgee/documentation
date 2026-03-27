@@ -143,9 +143,81 @@ Tolgee imports this string as `Welcome <b>user</b>`. If we exported this string 
 `<string>Welcome <b>user</b></string>`, the `context.resources.getString` would return `Welcome user`. This means that
 the `user` won't be bold anymore in our app.
 
-## Escaping
+## Escaping and HTML Tag Handling
+
+### Character Escaping
 When importing data Tolgee unescapes escaped quote `\"`, apostrophe `\'`, backslash `\\`, new line `\n` and tab (`\t`) characters. When exporting,
 these characters are escaped back. e.g. `\"` is imported as `"` etc. Other characters (e.g. escaped unicode characters like `\u0020`) are not unescaped.
+
+### HTML Tag Escaping Behavior
+Tolgee handles HTML tags differently depending on the content and context of your strings. Understanding this behavior is crucial for proper Android XML exports:
+
+#### When HTML Tags Are Escaped
+HTML tags like `<b>`, `<i>`, etc. are escaped (converted to `&lt;b&gt;`, `&lt;i&gt;`, etc.) in the following situations:
+
+1. **Strings containing special XML characters**: If the string contains characters that require XML escaping (like `&` ampersand), the entire string including HTML tags will be escaped to maintain valid XML structure.
+
+2. **Strings with unclosed or malformed HTML tags**: To prevent invalid XML output, strings with incomplete HTML structures are fully escaped.
+
+**Example of escaped output:**
+```xml
+<string name="example_escaped">&lt;b&gt;Free&lt;/b&gt; inquiry &amp; referral to selected companies</string>
+```
+
+#### When HTML Tags Are NOT Escaped
+HTML tags remain unescaped in these cases:
+
+1. **Simple HTML formatting**: When the string contains only supported HTML tags without special XML characters.
+2. **CDATA wrapped content**: Strings marked with `_androidWrapWithCdata` custom value preserve HTML tags within CDATA sections.
+
+**Example of unescaped output:**
+```xml
+<string name="example_unescaped">
+  <b>Receive non-binding</b>
+  offers
+</string>
+```
+
+#### Inconsistent Escaping - Known Issues
+You may encounter situations where similar strings are handled differently:
+
+- Some strings with HTML tags get properly escaped: `&lt;b&gt;Text&lt;/b&gt;`
+- Similar strings remain unescaped: `<b>Text</b>`
+- Line breaks may be unexpectedly added to some exported strings
+
+**This inconsistent behavior can occur due to:**
+- Presence of special characters (like `&`) in some translations but not others
+- Different input methods (manual entry vs. import)
+- Automatic CDATA wrapping decisions based on content analysis
+
+### Troubleshooting HTML Escaping Issues
+
+#### Common Problems and Solutions
+
+**Problem**: HTML tags are not rendering correctly in your Android app
+
+**Solutions:**
+1. **Check your Android rendering method**: 
+   - Use `context.resources.getText()` for HTML-formatted strings (returns `SpannedString`)
+   - Use `context.resources.getString()` with `Html.fromHtml()` for manual HTML parsing
+
+2. **Verify CDATA wrapping**: Check if your key has the `_androidWrapWithCdata` custom value set:
+   - If present and causing issues, try removing it
+   - If absent and you need CDATA wrapping, add it manually
+
+3. **Consistent formatting**: Ensure similar strings are handled consistently:
+   - Avoid mixing special characters (like `&`) with HTML tags when possible
+   - Use consistent input methods for similar content types
+
+#### The escapeHtml Parameter Limitation
+**Important**: The `escapeHtml` parameter in export requests only applies to XLIFF format exports, **not Android XML**. Adding `escapeHtml=true` to your Android XML export URL will have no effect on the output.
+
+**Example - This parameter has no effect on Android XML:**
+```
+/export?format=ANDROID_XML&escapeHtml=true  # escapeHtml ignored for Android XML
+```
+
+For Android XML exports, escaping behavior is determined automatically based on content analysis as described above.
 
 ## Multiple spaces and quoting
 Since XML normalizes white spaces when parsing, Android enables us to preserve longer space sequences by wrapping them into

@@ -1,0 +1,81 @@
+---
+id: branching
+title: Branching
+image: /img/og-images/cli.png
+---
+
+Tolgee supports project branching, allowing you to work on translations in isolated branches — similar to how Git branches work for code. The CLI lets you scope commands to a specific branch and manage branches directly from the terminal.
+
+## Specifying a branch
+
+When branching is enabled for your project, you can scope commands to a specific branch using any of these methods (from highest to lowest priority):
+
+1. **CLI option**: `--branch <name>` (short: `-b`)
+2. **Environment variable**: `TOLGEE_BRANCH`
+3. **Project configuration**: `branch` field in [`.tolgeerc`](./project-configuration.mdx#branch)
+
+The branch option applies to the following commands: `pull`, `push`, `sync`, `compare`, `tag`.
+
+```
+tolgee pull --branch my-feature --path ./i18n
+TOLGEE_BRANCH=my-feature tolgee push
+```
+
+## `tolgee branch`
+
+List, create, or delete project branches.
+
+```
+tolgee branch [branch] [options]
+```
+
+When called without arguments or options, lists all branches in the project.
+
+Options:
+
+- `[branch]` – Branch name to create (positional argument).
+- `--create <branch>` – Create a new branch. Alternative to passing the branch name as a positional argument.
+- `-d, --delete <branch>` – Delete an existing branch.
+- `-o, --origin <branch>` – Origin branch to fork from. Defaults to the project's default branch.
+
+Examples:
+
+```bash
+# List branches
+tolgee branch
+
+# Create a branch from the default branch
+tolgee branch my-feature
+
+# Create a branch from a specific origin
+tolgee branch my-feature --origin develop
+
+# Delete a branch
+tolgee branch --delete my-feature
+```
+
+## `tolgee merge`
+
+Merge a branch into its origin branch.
+
+```
+tolgee merge [branch] [options]
+```
+
+The branch to merge can be specified either as a positional argument or via the global `--branch` option.
+
+The command previews changes before applying the merge. If there are unresolved conflicts, the merge is aborted and a link to the Tolgee web app is provided so you can resolve them there.
+
+Options:
+
+- `[branch]` – Branch name to merge (positional argument).
+
+Examples:
+
+```bash
+# Merge a branch
+tolgee merge my-feature
+
+# Merge using the global --branch option
+tolgee merge --branch my-feature
+```

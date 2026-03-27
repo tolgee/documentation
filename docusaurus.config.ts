@@ -15,7 +15,7 @@ const config: Config = {
   url: 'https://docs.tolgee.io',
   baseUrl: '/',
   onBrokenLinks: 'throw',
-  favicon: 'img/favicon.svg',
+  favicon: 'img/favicon.png',
   markdown: {
     hooks: {
       onBrokenMarkdownLinks: 'warn',
@@ -43,7 +43,7 @@ const config: Config = {
       searchPagePath: false,
     },
     prism: {
-      additionalLanguages: ['icu-message-format'],
+      additionalLanguages: ['icu-message-format', 'php'],
     },
     zoom: {
       selector: '.zoomable-image',

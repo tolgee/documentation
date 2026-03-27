@@ -347,13 +347,45 @@ Prefix: `tolgee.batch`
 
 Configuration of batch operations.
 
-- ##### `chunk-queue-population-size` \{#tolgee-batch-_-chunk-queue-population-size}
+- ##### `cancellation-timeout-ms` \{#tolgee-batch-_-cancellation-timeout-ms}
 
-  How many job chunks are added to the internal queue on each scheduled run (default: `1000`)
+  Timeout in milliseconds to wait for running job chunks to complete when cancelling a batch job. AI translation operations can take longer, so this should be set high enough to accommodate them. (default: `30000` 30 seconds)
+
+- ##### `completed-job-retention-days` \{#tolgee-batch-_-completed-job-retention-days}
+
+  Retention period in days for completed batch jobs (SUCCESS, CANCELLED) (default: `3`)
 
 - ##### `concurrency` \{#tolgee-batch-_-concurrency}
 
   How many parallel jobs can be run at once on single Tolgee instance (default: `1`)
+
+- ##### `failed-job-retention-days` \{#tolgee-batch-_-failed-job-retention-days}
+
+  Retention period in days for failed batch jobs (default: `30`)
+
+- ##### `job-cleanup-batch-size` \{#tolgee-batch-_-job-cleanup-batch-size}
+
+  Batch size for deleting old jobs (to avoid long-running transactions) (default: `1000`)
+
+- ##### `job-cleanup-lock-lease-time-ms` \{#tolgee-batch-_-job-cleanup-lock-lease-time-ms}
+
+  Lock lease time in milliseconds for old job cleanup (to prevent lock expiration during long cleanups) (default: `86400000` 1 day)
+
+- ##### `max-per-mt-job-concurrency` \{#tolgee-batch-_-max-per-mt-job-concurrency}
+
+  Concurrency among all tolgee instances per one machine translation job
+  .Higher concurrency provides faster and distributed processing, but can lead to hitting rate limit
+  on OpenAI, as well as getting over the limit of availableCredits: at the beginning, we only check, that
+  the organization has `availableCredits > 0` and only when we have the result from OpenAI,we are able to
+  calculate how many credits to charge the organization. In the Tolgee Cloud it is set to 1.  (default: `-1` Unlimited (within tolgee.batch.concurrency))
+
+- ##### `old-job-cleanup-delay-in-ms` \{#tolgee-batch-_-old-job-cleanup-delay-in-ms}
+
+  Delay between old batch job cleanup runs in milliseconds (default: `28800000` 8 hours)
+
+- ##### `old-job-cleanup-enabled` \{#tolgee-batch-_-old-job-cleanup-enabled}
+
+  Enable scheduled cleanup of old batch jobs (default: `true`)
 
 ### Cache \{#tolgee-_-cache}
 
@@ -598,11 +630,65 @@ LLM Providers configuration
 
   Enable/disable AI translator (default: enabled if there is at least one provider)
 
+- ##### `fallbacks` \{#tolgee-llm-_-fallbacks}
+
+  
+      Named fallback mapping. When a provider is not found, Tolgee will try the fallback provider.
+  
+      ``` yaml
+      fallbacks:
+        openai: anthropic
+        anthropic: google-ai
+      ```
+  
+      or using environment variables:
+  
+      ```
+      TOLGEE_LLM_FALLBACKS_OPENAI=anthropic
+      TOLGEE_LLM_FALLBACKS_ANTHROPIC=google-ai
+      ```
+     (default: `{}`)
+
+- ##### `provider-defaults` \{#tolgee-llm-_-provider-defaults}
+
+  
+      Map of provider defaults keyed by provider name. Use this to separate non-secret configuration
+      (model, prices, type) from secrets (API keys) in Kubernetes deployments.
+  
+      ``` yaml
+      provider-defaults:
+        gpt-5-mini:
+          type: OPENAI
+          model: gpt-5-mini
+          token-price-in-credits-input: 2.0
+          token-price-in-credits-output: 1.5
+      ```
+  
+      or using environment variables (in a ConfigMap):
+  
+      ```
+      TOLGEE_LLM_PROVIDER_DEFAULTS_GPT_5_MINI_TYPE=OPENAI
+      TOLGEE_LLM_PROVIDER_DEFAULTS_GPT_5_MINI_MODEL=gpt-5-mini
+      TOLGEE_LLM_PROVIDER_DEFAULTS_GPT_5_MINI_TOKEN_PRICE_IN_CREDITS_INPUT=2.0
+      TOLGEE_LLM_PROVIDER_DEFAULTS_GPT_5_MINI_TOKEN_PRICE_IN_CREDITS_OUTPUT=1.5
+      ```
+  
+      Then supply only the API key via the `providers` list (in a Secret):
+  
+      ```
+      TOLGEE_LLM_PROVIDERS_0_NAME=gpt-5-mini
+      TOLGEE_LLM_PROVIDERS_0_API_KEY=sk-proj-...
+      ```
+     (default: `{}`)
+
 #### providers \{#tolgee-llm-_-providers}
 
 
-    List of LLM providers. Example:
-    
+    List of LLM providers. When `provider-defaults` is also set, list entries are merged with the
+    matching map entry (by name). List values override map defaults only when explicitly set
+    (non-null for nullable fields, non-default for `type` / `maxTokens`).
+    `enabled` is always taken from the list entry.
+
     ``` yaml
     providers:
       - name: openai-gpt-4o-mini
@@ -612,9 +698,9 @@ LLM Providers configuration
         model: gpt-4o-mini
         format: "json_schema"
     ```
-    
+
     or using environment variables:
-    
+
     ```
     TOLGEE_LLM_PROVIDERS_0_NAME=MySuperDuperAI
     TOLGEE_LLM_PROVIDERS_0_TYPE=OPENAI
@@ -623,7 +709,7 @@ LLM Providers configuration
     TOLGEE_LLM_PROVIDERS_0_MODEL=gpt-4o-mini
     TOLGEE_LLM_PROVIDERS_0_FORMAT=json_schema
     ```
-    
+
     Check [llm providers documentation](/platform/projects_and_organizations/llm-providers#self-hosted-server-configuration) for more information.
   
 
@@ -648,6 +734,14 @@ LLM Providers configuration
   Enable/disable provider (default: `true`)
 
 - ##### `format` \{#tolgee-llm-providers-_-format}
+
+  Set to `json_schema` if the API supports JSON Schema
+
+- ##### `max-tokens` \{#tolgee-llm-providers-_-max-tokens}
+
+  Maximum number of tokens to generate. 
+        `max_completion_tokens` option for OpenAI API.
+        `max_tokens` for Anthropic API.` (default: `2000`)
 
 - ##### `model` \{#tolgee-llm-providers-_-model}
 
@@ -846,7 +940,7 @@ Defines whether and how is PostgreSQL started on Tolgee startup.
 
   Database user to bootstrap Postgres with. (default: `postgres`)
 
-### Rate limits \{#tolgee-_-rate-limit}
+### Rate limits \{#tolgee-_-rate-limits}
 
 Prefix: `tolgee.rate-limits`
 
@@ -858,7 +952,15 @@ Per-endpoint and auth-related rate limits are fixed and cannot be configured.
 
 
 
-- ##### `authentication-limits` \{#tolgee-rate-limit-_-authentication-limits}
+- ##### `activity-request-limit` \{#tolgee-rate-limits-_-activity-request-limit}
+
+  Amount of activity requests a user can do in a single time window. (default: `100`)
+
+- ##### `activity-request-window` \{#tolgee-rate-limits-_-activity-request-window}
+
+  Size, in milliseconds, of the time window for activity-based limiting. (default: `300000` = 5 minutes)
+
+- ##### `authentication-limits` \{#tolgee-rate-limits-_-authentication-limits}
 
   Control whether per-endpoint limits on authentication-related endpoints are enabled or not.
   :::warning
@@ -868,13 +970,13 @@ Per-endpoint and auth-related rate limits are fixed and cannot be configured.
   
    (default: `true`)
 
-- ##### `email-verification-request-limit` \{#tolgee-rate-limit-_-email-verification-request-limit}
+- ##### `email-verification-request-limit` \{#tolgee-rate-limits-_-email-verification-request-limit}
 
-- ##### `email-verification-request-limit-enabled` \{#tolgee-rate-limit-_-email-verification-request-limit-enabled}
+- ##### `email-verification-request-limit-enabled` \{#tolgee-rate-limits-_-email-verification-request-limit-enabled}
 
-- ##### `email-verification-request-window` \{#tolgee-rate-limit-_-email-verification-request-window}
+- ##### `email-verification-request-window` \{#tolgee-rate-limits-_-email-verification-request-window}
 
-- ##### `enabled` \{#tolgee-rate-limit-_-enabled}
+- ##### `enabled` \{#tolgee-rate-limits-_-enabled}
 
   To turn all rate limits off, set this value to `false`.
   
@@ -886,28 +988,55 @@ Per-endpoint and auth-related rate limits are fixed and cannot be configured.
   
    (default: `true`)
 
-- ##### `endpoint-limits` \{#tolgee-rate-limit-_-endpoint-limits}
+- ##### `endpoint-limits` \{#tolgee-rate-limits-_-endpoint-limits}
 
   Control whether per-endpoint limits on the API are enabled or not.
   Does not affect authentication-related endpoints, these are controlled by `authentication-limits`. (default: `true`)
 
-- ##### `global-limits` \{#tolgee-rate-limit-_-global-limits}
+- ##### `export-request-limit` \{#tolgee-rate-limits-_-export-request-limit}
+
+  Amount of export requests a user can do in a single time window. (default: `100`)
+
+- ##### `export-request-window` \{#tolgee-rate-limits-_-export-request-window}
+
+  Size, in milliseconds, of the time window for export-based limiting. (default: `300000`)
+
+- ##### `global-limits` \{#tolgee-rate-limits-_-global-limits}
 
   Control whether global limits on the API are enabled or not. (default: `true`)
 
-- ##### `ip-request-limit` \{#tolgee-rate-limit-_-ip-request-limit}
+- ##### `ip-request-limit` \{#tolgee-rate-limits-_-ip-request-limit}
 
   Amount of requests an IP address can do in a single time window. (default: `20000`)
 
-- ##### `ip-request-window` \{#tolgee-rate-limit-_-ip-request-window}
+- ##### `ip-request-window` \{#tolgee-rate-limits-_-ip-request-window}
 
   Size, in milliseconds, of the time window for IP-based limiting. (default: `300000` = 5 minutes)
 
-- ##### `user-request-limit` \{#tolgee-rate-limit-_-user-request-limit}
+- ##### `max-strikes-before-block` \{#tolgee-rate-limits-_-max-strikes-before-block}
+
+  Number of rate limit violations before the server stops responding to the client.
+  After this threshold, the connection is dropped without sending a response body, saving bandwidth.
+  Set to 0 to disable connection dropping (always send 429 responses). (default: `3`)
+
+- ##### `strike-reset-window-ms` \{#tolgee-rate-limits-_-strike-reset-window-ms}
+
+  Time window, in milliseconds, after which strikes are reset if the client behaves well.
+  If a client doesn't hit rate limits for this duration, their strike count is reset to zero. (default: `60000` = 1 minute)
+
+- ##### `translation-request-limit` \{#tolgee-rate-limits-_-translation-request-limit}
+
+  Amount of translation requests a user can do in a single time window. (default: `100`)
+
+- ##### `translation-request-window` \{#tolgee-rate-limits-_-translation-request-window}
+
+  Size, in milliseconds, of the time window for translation-based limiting. (default: `300000` = 5 minutes)
+
+- ##### `user-request-limit` \{#tolgee-rate-limits-_-user-request-limit}
 
   Amount of requests a user can do in a single time window. (default: `400`)
 
-- ##### `user-request-window` \{#tolgee-rate-limit-_-user-request-window}
+- ##### `user-request-window` \{#tolgee-rate-limits-_-user-request-window}
 
   Size, in milliseconds, of the time window for user-based limiting. (default: `60000` = 1 minute)
 
@@ -1109,8 +1238,15 @@ tolgee:
       enabled: false
       session-expiration-minutes: 10
   batch:
-    chunk-queue-population-size: 1000
+    cancellation-timeout-ms: 30000
+    completed-job-retention-days: 3
     concurrency: 1
+    failed-job-retention-days: 30
+    job-cleanup-batch-size: 1000
+    job-cleanup-lock-lease-time-ms: 86400000
+    max-per-mt-job-concurrency: -1
+    old-job-cleanup-delay-in-ms: 28800000
+    old-job-cleanup-enabled: true
   cache:
     caffeine-max-size: -1
     clean-on-startup: true
@@ -1167,6 +1303,8 @@ tolgee:
     default-enabled: true
     default-primary: true
     enabled:
+    fallbacks: {}
+    provider-defaults: {}
     providers:
     -
       api-key:
@@ -1175,6 +1313,7 @@ tolgee:
       deployment:
       enabled: true
       format:
+      max-tokens: 2000
       model:
       name: default
       priority:
@@ -1219,16 +1358,24 @@ tolgee:
     port: 25432
     stop: true
     user: postgres
-  rate-limit:
+  rate-limits:
+    activity-request-limit: 100
+    activity-request-window: 300000
     authentication-limits: true
     email-verification-request-limit: 2
     email-verification-request-limit-enabled: true
     email-verification-request-window: 60000
     enabled: true
     endpoint-limits: true
+    export-request-limit: 100
+    export-request-window: 300000
     global-limits: true
     ip-request-limit: 20000
     ip-request-window: 300000
+    max-strikes-before-block: 3
+    strike-reset-window-ms: 60000
+    translation-request-limit: 100
+    translation-request-window: 300000
     user-request-limit: 400
     user-request-window: 60000
   recaptcha:
@@ -1593,13 +1740,45 @@ Prefix: `TOLGEE_BATCH`
 
 Configuration of batch operations.
 
-- ##### `CHUNK_QUEUE_POPULATION_SIZE` \{#tolgee-batch-_-chunk-queue-population-size}
+- ##### `CANCELLATION_TIMEOUT_MS` \{#tolgee-batch-_-cancellation-timeout-ms}
 
-  How many job chunks are added to the internal queue on each scheduled run (default: `1000`)
+  Timeout in milliseconds to wait for running job chunks to complete when cancelling a batch job. AI translation operations can take longer, so this should be set high enough to accommodate them. (default: `30000` 30 seconds)
+
+- ##### `COMPLETED_JOB_RETENTION_DAYS` \{#tolgee-batch-_-completed-job-retention-days}
+
+  Retention period in days for completed batch jobs (SUCCESS, CANCELLED) (default: `3`)
 
 - ##### `CONCURRENCY` \{#tolgee-batch-_-concurrency}
 
   How many parallel jobs can be run at once on single Tolgee instance (default: `1`)
+
+- ##### `FAILED_JOB_RETENTION_DAYS` \{#tolgee-batch-_-failed-job-retention-days}
+
+  Retention period in days for failed batch jobs (default: `30`)
+
+- ##### `JOB_CLEANUP_BATCH_SIZE` \{#tolgee-batch-_-job-cleanup-batch-size}
+
+  Batch size for deleting old jobs (to avoid long-running transactions) (default: `1000`)
+
+- ##### `JOB_CLEANUP_LOCK_LEASE_TIME_MS` \{#tolgee-batch-_-job-cleanup-lock-lease-time-ms}
+
+  Lock lease time in milliseconds for old job cleanup (to prevent lock expiration during long cleanups) (default: `86400000` 1 day)
+
+- ##### `MAX_PER_MT_JOB_CONCURRENCY` \{#tolgee-batch-_-max-per-mt-job-concurrency}
+
+  Concurrency among all tolgee instances per one machine translation job
+  .Higher concurrency provides faster and distributed processing, but can lead to hitting rate limit
+  on OpenAI, as well as getting over the limit of availableCredits: at the beginning, we only check, that
+  the organization has `availableCredits > 0` and only when we have the result from OpenAI,we are able to
+  calculate how many credits to charge the organization. In the Tolgee Cloud it is set to 1.  (default: `-1` Unlimited (within tolgee.batch.concurrency))
+
+- ##### `OLD_JOB_CLEANUP_DELAY_IN_MS` \{#tolgee-batch-_-old-job-cleanup-delay-in-ms}
+
+  Delay between old batch job cleanup runs in milliseconds (default: `28800000` 8 hours)
+
+- ##### `OLD_JOB_CLEANUP_ENABLED` \{#tolgee-batch-_-old-job-cleanup-enabled}
+
+  Enable scheduled cleanup of old batch jobs (default: `true`)
 
 ### Cache \{#tolgee-_-cache}
 
@@ -1844,11 +2023,65 @@ LLM Providers configuration
 
   Enable/disable AI translator (default: enabled if there is at least one provider)
 
+- ##### `FALLBACKS` \{#tolgee-llm-_-fallbacks}
+
+  
+      Named fallback mapping. When a provider is not found, Tolgee will try the fallback provider.
+  
+      ``` yaml
+      fallbacks:
+        openai: anthropic
+        anthropic: google-ai
+      ```
+  
+      or using environment variables:
+  
+      ```
+      TOLGEE_LLM_FALLBACKS_OPENAI=anthropic
+      TOLGEE_LLM_FALLBACKS_ANTHROPIC=google-ai
+      ```
+     (default: `{}`)
+
+- ##### `PROVIDER_DEFAULTS` \{#tolgee-llm-_-provider-defaults}
+
+  
+      Map of provider defaults keyed by provider name. Use this to separate non-secret configuration
+      (model, prices, type) from secrets (API keys) in Kubernetes deployments.
+  
+      ``` yaml
+      provider-defaults:
+        gpt-5-mini:
+          type: OPENAI
+          model: gpt-5-mini
+          token-price-in-credits-input: 2.0
+          token-price-in-credits-output: 1.5
+      ```
+  
+      or using environment variables (in a ConfigMap):
+  
+      ```
+      TOLGEE_LLM_PROVIDER_DEFAULTS_GPT_5_MINI_TYPE=OPENAI
+      TOLGEE_LLM_PROVIDER_DEFAULTS_GPT_5_MINI_MODEL=gpt-5-mini
+      TOLGEE_LLM_PROVIDER_DEFAULTS_GPT_5_MINI_TOKEN_PRICE_IN_CREDITS_INPUT=2.0
+      TOLGEE_LLM_PROVIDER_DEFAULTS_GPT_5_MINI_TOKEN_PRICE_IN_CREDITS_OUTPUT=1.5
+      ```
+  
+      Then supply only the API key via the `providers` list (in a Secret):
+  
+      ```
+      TOLGEE_LLM_PROVIDERS_0_NAME=gpt-5-mini
+      TOLGEE_LLM_PROVIDERS_0_API_KEY=sk-proj-...
+      ```
+     (default: `{}`)
+
 #### PROVIDERS \{#tolgee-llm-_-providers}
 
 
-    List of LLM providers. Example:
-    
+    List of LLM providers. When `provider-defaults` is also set, list entries are merged with the
+    matching map entry (by name). List values override map defaults only when explicitly set
+    (non-null for nullable fields, non-default for `type` / `maxTokens`).
+    `enabled` is always taken from the list entry.
+
     ``` yaml
     providers:
       - name: openai-gpt-4o-mini
@@ -1858,9 +2091,9 @@ LLM Providers configuration
         model: gpt-4o-mini
         format: "json_schema"
     ```
-    
+
     or using environment variables:
-    
+
     ```
     TOLGEE_LLM_PROVIDERS_0_NAME=MySuperDuperAI
     TOLGEE_LLM_PROVIDERS_0_TYPE=OPENAI
@@ -1869,7 +2102,7 @@ LLM Providers configuration
     TOLGEE_LLM_PROVIDERS_0_MODEL=gpt-4o-mini
     TOLGEE_LLM_PROVIDERS_0_FORMAT=json_schema
     ```
-    
+
     Check [llm providers documentation](/platform/projects_and_organizations/llm-providers#self-hosted-server-configuration) for more information.
   
 
@@ -1894,6 +2127,14 @@ LLM Providers configuration
   Enable/disable provider (default: `true`)
 
 - ##### `FORMAT` \{#tolgee-llm-providers-_-format}
+
+  Set to `json_schema` if the API supports JSON Schema
+
+- ##### `MAX_TOKENS` \{#tolgee-llm-providers-_-max-tokens}
+
+  Maximum number of tokens to generate. 
+        `max_completion_tokens` option for OpenAI API.
+        `max_tokens` for Anthropic API.` (default: `2000`)
 
 - ##### `MODEL` \{#tolgee-llm-providers-_-model}
 
@@ -2092,7 +2333,7 @@ Defines whether and how is PostgreSQL started on Tolgee startup.
 
   Database user to bootstrap Postgres with. (default: `postgres`)
 
-### Rate limits \{#tolgee-_-rate-limit}
+### Rate limits \{#tolgee-_-rate-limits}
 
 Prefix: `TOLGEE_RATE_LIMITS`
 
@@ -2104,7 +2345,15 @@ Per-endpoint and auth-related rate limits are fixed and cannot be configured.
 
 
 
-- ##### `AUTHENTICATION_LIMITS` \{#tolgee-rate-limit-_-authentication-limits}
+- ##### `ACTIVITY_REQUEST_LIMIT` \{#tolgee-rate-limits-_-activity-request-limit}
+
+  Amount of activity requests a user can do in a single time window. (default: `100`)
+
+- ##### `ACTIVITY_REQUEST_WINDOW` \{#tolgee-rate-limits-_-activity-request-window}
+
+  Size, in milliseconds, of the time window for activity-based limiting. (default: `300000` = 5 minutes)
+
+- ##### `AUTHENTICATION_LIMITS` \{#tolgee-rate-limits-_-authentication-limits}
 
   Control whether per-endpoint limits on authentication-related endpoints are enabled or not.
   :::warning
@@ -2114,13 +2363,13 @@ Per-endpoint and auth-related rate limits are fixed and cannot be configured.
   
    (default: `true`)
 
-- ##### `EMAIL_VERIFICATION_REQUEST_LIMIT` \{#tolgee-rate-limit-_-email-verification-request-limit}
+- ##### `EMAIL_VERIFICATION_REQUEST_LIMIT` \{#tolgee-rate-limits-_-email-verification-request-limit}
 
-- ##### `EMAIL_VERIFICATION_REQUEST_LIMIT_ENABLED` \{#tolgee-rate-limit-_-email-verification-request-limit-enabled}
+- ##### `EMAIL_VERIFICATION_REQUEST_LIMIT_ENABLED` \{#tolgee-rate-limits-_-email-verification-request-limit-enabled}
 
-- ##### `EMAIL_VERIFICATION_REQUEST_WINDOW` \{#tolgee-rate-limit-_-email-verification-request-window}
+- ##### `EMAIL_VERIFICATION_REQUEST_WINDOW` \{#tolgee-rate-limits-_-email-verification-request-window}
 
-- ##### `ENABLED` \{#tolgee-rate-limit-_-enabled}
+- ##### `ENABLED` \{#tolgee-rate-limits-_-enabled}
 
   To turn all rate limits off, set this value to `false`.
   
@@ -2132,28 +2381,55 @@ Per-endpoint and auth-related rate limits are fixed and cannot be configured.
   
    (default: `true`)
 
-- ##### `ENDPOINT_LIMITS` \{#tolgee-rate-limit-_-endpoint-limits}
+- ##### `ENDPOINT_LIMITS` \{#tolgee-rate-limits-_-endpoint-limits}
 
   Control whether per-endpoint limits on the API are enabled or not.
   Does not affect authentication-related endpoints, these are controlled by `authentication-limits`. (default: `true`)
 
-- ##### `GLOBAL_LIMITS` \{#tolgee-rate-limit-_-global-limits}
+- ##### `EXPORT_REQUEST_LIMIT` \{#tolgee-rate-limits-_-export-request-limit}
+
+  Amount of export requests a user can do in a single time window. (default: `100`)
+
+- ##### `EXPORT_REQUEST_WINDOW` \{#tolgee-rate-limits-_-export-request-window}
+
+  Size, in milliseconds, of the time window for export-based limiting. (default: `300000`)
+
+- ##### `GLOBAL_LIMITS` \{#tolgee-rate-limits-_-global-limits}
 
   Control whether global limits on the API are enabled or not. (default: `true`)
 
-- ##### `IP_REQUEST_LIMIT` \{#tolgee-rate-limit-_-ip-request-limit}
+- ##### `IP_REQUEST_LIMIT` \{#tolgee-rate-limits-_-ip-request-limit}
 
   Amount of requests an IP address can do in a single time window. (default: `20000`)
 
-- ##### `IP_REQUEST_WINDOW` \{#tolgee-rate-limit-_-ip-request-window}
+- ##### `IP_REQUEST_WINDOW` \{#tolgee-rate-limits-_-ip-request-window}
 
   Size, in milliseconds, of the time window for IP-based limiting. (default: `300000` = 5 minutes)
 
-- ##### `USER_REQUEST_LIMIT` \{#tolgee-rate-limit-_-user-request-limit}
+- ##### `MAX_STRIKES_BEFORE_BLOCK` \{#tolgee-rate-limits-_-max-strikes-before-block}
+
+  Number of rate limit violations before the server stops responding to the client.
+  After this threshold, the connection is dropped without sending a response body, saving bandwidth.
+  Set to 0 to disable connection dropping (always send 429 responses). (default: `3`)
+
+- ##### `STRIKE_RESET_WINDOW_MS` \{#tolgee-rate-limits-_-strike-reset-window-ms}
+
+  Time window, in milliseconds, after which strikes are reset if the client behaves well.
+  If a client doesn't hit rate limits for this duration, their strike count is reset to zero. (default: `60000` = 1 minute)
+
+- ##### `TRANSLATION_REQUEST_LIMIT` \{#tolgee-rate-limits-_-translation-request-limit}
+
+  Amount of translation requests a user can do in a single time window. (default: `100`)
+
+- ##### `TRANSLATION_REQUEST_WINDOW` \{#tolgee-rate-limits-_-translation-request-window}
+
+  Size, in milliseconds, of the time window for translation-based limiting. (default: `300000` = 5 minutes)
+
+- ##### `USER_REQUEST_LIMIT` \{#tolgee-rate-limits-_-user-request-limit}
 
   Amount of requests a user can do in a single time window. (default: `400`)
 
-- ##### `USER_REQUEST_WINDOW` \{#tolgee-rate-limit-_-user-request-window}
+- ##### `USER_REQUEST_WINDOW` \{#tolgee-rate-limits-_-user-request-window}
 
   Size, in milliseconds, of the time window for user-based limiting. (default: `60000` = 1 minute)
 
@@ -2344,8 +2620,15 @@ TOLGEE_AUTHENTICATION_SSO_GLOBAL_SESSION_EXPIRATION_MINUTES=10
 TOLGEE_AUTHENTICATION_SSO_GLOBAL_TOKEN_URI=
 TOLGEE_AUTHENTICATION_SSO_ORGANIZATIONS_ENABLED=false
 TOLGEE_AUTHENTICATION_SSO_ORGANIZATIONS_SESSION_EXPIRATION_MINUTES=10
-TOLGEE_BATCH_CHUNK_QUEUE_POPULATION_SIZE=1000
+TOLGEE_BATCH_CANCELLATION_TIMEOUT_MS=30000
+TOLGEE_BATCH_COMPLETED_JOB_RETENTION_DAYS=3
 TOLGEE_BATCH_CONCURRENCY=1
+TOLGEE_BATCH_FAILED_JOB_RETENTION_DAYS=30
+TOLGEE_BATCH_JOB_CLEANUP_BATCH_SIZE=1000
+TOLGEE_BATCH_JOB_CLEANUP_LOCK_LEASE_TIME_MS=86400000
+TOLGEE_BATCH_MAX_PER_MT_JOB_CONCURRENCY=-1
+TOLGEE_BATCH_OLD_JOB_CLEANUP_DELAY_IN_MS=28800000
+TOLGEE_BATCH_OLD_JOB_CLEANUP_ENABLED=true
 TOLGEE_CACHE_CAFFEINE_MAX_SIZE=-1
 TOLGEE_CACHE_CLEAN_ON_STARTUP=true
 TOLGEE_CACHE_DEFAULT_TTL=7200000
@@ -2390,12 +2673,15 @@ TOLGEE_IMPORT_STORE_FILES_FOR_DEBUGGING=false
 TOLGEE_LLM_DEFAULT_ENABLED=true
 TOLGEE_LLM_DEFAULT_PRIMARY=true
 TOLGEE_LLM_ENABLED=
+TOLGEE_LLM_FALLBACKS={}
+TOLGEE_LLM_PROVIDER_DEFAULTS={}
 TOLGEE_LLM_PROVIDERS_0_API_KEY=
 TOLGEE_LLM_PROVIDERS_0_API_URL=
 TOLGEE_LLM_PROVIDERS_0_ATTEMPTS=
 TOLGEE_LLM_PROVIDERS_0_DEPLOYMENT=
 TOLGEE_LLM_PROVIDERS_0_ENABLED=true
 TOLGEE_LLM_PROVIDERS_0_FORMAT=
+TOLGEE_LLM_PROVIDERS_0_MAX_TOKENS=2000
 TOLGEE_LLM_PROVIDERS_0_MODEL=
 TOLGEE_LLM_PROVIDERS_0_NAME=default
 TOLGEE_LLM_PROVIDERS_0_PRIORITY=
@@ -2433,17 +2719,25 @@ TOLGEE_POSTGRES_AUTOSTART_PASSWORD=postgres
 TOLGEE_POSTGRES_AUTOSTART_PORT=25432
 TOLGEE_POSTGRES_AUTOSTART_STOP=true
 TOLGEE_POSTGRES_AUTOSTART_USER=postgres
-TOLGEE_RATE_LIMIT_AUTHENTICATION_LIMITS=true
-TOLGEE_RATE_LIMIT_EMAIL_VERIFICATION_REQUEST_LIMIT=2
-TOLGEE_RATE_LIMIT_EMAIL_VERIFICATION_REQUEST_LIMIT_ENABLED=true
-TOLGEE_RATE_LIMIT_EMAIL_VERIFICATION_REQUEST_WINDOW=60000
-TOLGEE_RATE_LIMIT_ENABLED=true
-TOLGEE_RATE_LIMIT_ENDPOINT_LIMITS=true
-TOLGEE_RATE_LIMIT_GLOBAL_LIMITS=true
-TOLGEE_RATE_LIMIT_IP_REQUEST_LIMIT=20000
-TOLGEE_RATE_LIMIT_IP_REQUEST_WINDOW=300000
-TOLGEE_RATE_LIMIT_USER_REQUEST_LIMIT=400
-TOLGEE_RATE_LIMIT_USER_REQUEST_WINDOW=60000
+TOLGEE_RATE_LIMITS_ACTIVITY_REQUEST_LIMIT=100
+TOLGEE_RATE_LIMITS_ACTIVITY_REQUEST_WINDOW=300000
+TOLGEE_RATE_LIMITS_AUTHENTICATION_LIMITS=true
+TOLGEE_RATE_LIMITS_EMAIL_VERIFICATION_REQUEST_LIMIT=2
+TOLGEE_RATE_LIMITS_EMAIL_VERIFICATION_REQUEST_LIMIT_ENABLED=true
+TOLGEE_RATE_LIMITS_EMAIL_VERIFICATION_REQUEST_WINDOW=60000
+TOLGEE_RATE_LIMITS_ENABLED=true
+TOLGEE_RATE_LIMITS_ENDPOINT_LIMITS=true
+TOLGEE_RATE_LIMITS_EXPORT_REQUEST_LIMIT=100
+TOLGEE_RATE_LIMITS_EXPORT_REQUEST_WINDOW=300000
+TOLGEE_RATE_LIMITS_GLOBAL_LIMITS=true
+TOLGEE_RATE_LIMITS_IP_REQUEST_LIMIT=20000
+TOLGEE_RATE_LIMITS_IP_REQUEST_WINDOW=300000
+TOLGEE_RATE_LIMITS_MAX_STRIKES_BEFORE_BLOCK=3
+TOLGEE_RATE_LIMITS_STRIKE_RESET_WINDOW_MS=60000
+TOLGEE_RATE_LIMITS_TRANSLATION_REQUEST_LIMIT=100
+TOLGEE_RATE_LIMITS_TRANSLATION_REQUEST_WINDOW=300000
+TOLGEE_RATE_LIMITS_USER_REQUEST_LIMIT=400
+TOLGEE_RATE_LIMITS_USER_REQUEST_WINDOW=60000
 TOLGEE_RECAPTCHA_SECRET_KEY=
 TOLGEE_RECAPTCHA_SITE_KEY=
 TOLGEE_SENTRY_CLIENT_DSN=
@@ -2800,13 +3094,45 @@ Prefix: `tolgee.batch`
 
 Configuration of batch operations.
 
-- ##### `chunk-queue-population-size` \{#tolgee-batch-_-chunk-queue-population-size}
+- ##### `cancellation-timeout-ms` \{#tolgee-batch-_-cancellation-timeout-ms}
 
-  How many job chunks are added to the internal queue on each scheduled run (default: `1000`)
+  Timeout in milliseconds to wait for running job chunks to complete when cancelling a batch job. AI translation operations can take longer, so this should be set high enough to accommodate them. (default: `30000` 30 seconds)
+
+- ##### `completed-job-retention-days` \{#tolgee-batch-_-completed-job-retention-days}
+
+  Retention period in days for completed batch jobs (SUCCESS, CANCELLED) (default: `3`)
 
 - ##### `concurrency` \{#tolgee-batch-_-concurrency}
 
   How many parallel jobs can be run at once on single Tolgee instance (default: `1`)
+
+- ##### `failed-job-retention-days` \{#tolgee-batch-_-failed-job-retention-days}
+
+  Retention period in days for failed batch jobs (default: `30`)
+
+- ##### `job-cleanup-batch-size` \{#tolgee-batch-_-job-cleanup-batch-size}
+
+  Batch size for deleting old jobs (to avoid long-running transactions) (default: `1000`)
+
+- ##### `job-cleanup-lock-lease-time-ms` \{#tolgee-batch-_-job-cleanup-lock-lease-time-ms}
+
+  Lock lease time in milliseconds for old job cleanup (to prevent lock expiration during long cleanups) (default: `86400000` 1 day)
+
+- ##### `max-per-mt-job-concurrency` \{#tolgee-batch-_-max-per-mt-job-concurrency}
+
+  Concurrency among all tolgee instances per one machine translation job
+  .Higher concurrency provides faster and distributed processing, but can lead to hitting rate limit
+  on OpenAI, as well as getting over the limit of availableCredits: at the beginning, we only check, that
+  the organization has `availableCredits > 0` and only when we have the result from OpenAI,we are able to
+  calculate how many credits to charge the organization. In the Tolgee Cloud it is set to 1.  (default: `-1` Unlimited (within tolgee.batch.concurrency))
+
+- ##### `old-job-cleanup-delay-in-ms` \{#tolgee-batch-_-old-job-cleanup-delay-in-ms}
+
+  Delay between old batch job cleanup runs in milliseconds (default: `28800000` 8 hours)
+
+- ##### `old-job-cleanup-enabled` \{#tolgee-batch-_-old-job-cleanup-enabled}
+
+  Enable scheduled cleanup of old batch jobs (default: `true`)
 
 ### Cache \{#tolgee-_-cache}
 
@@ -3051,11 +3377,65 @@ LLM Providers configuration
 
   Enable/disable AI translator (default: enabled if there is at least one provider)
 
+- ##### `fallbacks` \{#tolgee-llm-_-fallbacks}
+
+  
+      Named fallback mapping. When a provider is not found, Tolgee will try the fallback provider.
+  
+      ``` yaml
+      fallbacks:
+        openai: anthropic
+        anthropic: google-ai
+      ```
+  
+      or using environment variables:
+  
+      ```
+      TOLGEE_LLM_FALLBACKS_OPENAI=anthropic
+      TOLGEE_LLM_FALLBACKS_ANTHROPIC=google-ai
+      ```
+     (default: `{}`)
+
+- ##### `provider-defaults` \{#tolgee-llm-_-provider-defaults}
+
+  
+      Map of provider defaults keyed by provider name. Use this to separate non-secret configuration
+      (model, prices, type) from secrets (API keys) in Kubernetes deployments.
+  
+      ``` yaml
+      provider-defaults:
+        gpt-5-mini:
+          type: OPENAI
+          model: gpt-5-mini
+          token-price-in-credits-input: 2.0
+          token-price-in-credits-output: 1.5
+      ```
+  
+      or using environment variables (in a ConfigMap):
+  
+      ```
+      TOLGEE_LLM_PROVIDER_DEFAULTS_GPT_5_MINI_TYPE=OPENAI
+      TOLGEE_LLM_PROVIDER_DEFAULTS_GPT_5_MINI_MODEL=gpt-5-mini
+      TOLGEE_LLM_PROVIDER_DEFAULTS_GPT_5_MINI_TOKEN_PRICE_IN_CREDITS_INPUT=2.0
+      TOLGEE_LLM_PROVIDER_DEFAULTS_GPT_5_MINI_TOKEN_PRICE_IN_CREDITS_OUTPUT=1.5
+      ```
+  
+      Then supply only the API key via the `providers` list (in a Secret):
+  
+      ```
+      TOLGEE_LLM_PROVIDERS_0_NAME=gpt-5-mini
+      TOLGEE_LLM_PROVIDERS_0_API_KEY=sk-proj-...
+      ```
+     (default: `{}`)
+
 #### providers \{#tolgee-llm-_-providers}
 
 
-    List of LLM providers. Example:
-    
+    List of LLM providers. When `provider-defaults` is also set, list entries are merged with the
+    matching map entry (by name). List values override map defaults only when explicitly set
+    (non-null for nullable fields, non-default for `type` / `maxTokens`).
+    `enabled` is always taken from the list entry.
+
     ``` yaml
     providers:
       - name: openai-gpt-4o-mini
@@ -3065,9 +3445,9 @@ LLM Providers configuration
         model: gpt-4o-mini
         format: "json_schema"
     ```
-    
+
     or using environment variables:
-    
+
     ```
     TOLGEE_LLM_PROVIDERS_0_NAME=MySuperDuperAI
     TOLGEE_LLM_PROVIDERS_0_TYPE=OPENAI
@@ -3076,7 +3456,7 @@ LLM Providers configuration
     TOLGEE_LLM_PROVIDERS_0_MODEL=gpt-4o-mini
     TOLGEE_LLM_PROVIDERS_0_FORMAT=json_schema
     ```
-    
+
     Check [llm providers documentation](/platform/projects_and_organizations/llm-providers#self-hosted-server-configuration) for more information.
   
 
@@ -3101,6 +3481,14 @@ LLM Providers configuration
   Enable/disable provider (default: `true`)
 
 - ##### `format` \{#tolgee-llm-providers-_-format}
+
+  Set to `json_schema` if the API supports JSON Schema
+
+- ##### `max-tokens` \{#tolgee-llm-providers-_-max-tokens}
+
+  Maximum number of tokens to generate. 
+        `max_completion_tokens` option for OpenAI API.
+        `max_tokens` for Anthropic API.` (default: `2000`)
 
 - ##### `model` \{#tolgee-llm-providers-_-model}
 
@@ -3299,7 +3687,7 @@ Defines whether and how is PostgreSQL started on Tolgee startup.
 
   Database user to bootstrap Postgres with. (default: `postgres`)
 
-### Rate limits \{#tolgee-_-rate-limit}
+### Rate limits \{#tolgee-_-rate-limits}
 
 Prefix: `tolgee.rate-limits`
 
@@ -3311,7 +3699,15 @@ Per-endpoint and auth-related rate limits are fixed and cannot be configured.
 
 
 
-- ##### `authentication-limits` \{#tolgee-rate-limit-_-authentication-limits}
+- ##### `activity-request-limit` \{#tolgee-rate-limits-_-activity-request-limit}
+
+  Amount of activity requests a user can do in a single time window. (default: `100`)
+
+- ##### `activity-request-window` \{#tolgee-rate-limits-_-activity-request-window}
+
+  Size, in milliseconds, of the time window for activity-based limiting. (default: `300000` = 5 minutes)
+
+- ##### `authentication-limits` \{#tolgee-rate-limits-_-authentication-limits}
 
   Control whether per-endpoint limits on authentication-related endpoints are enabled or not.
   :::warning
@@ -3321,13 +3717,13 @@ Per-endpoint and auth-related rate limits are fixed and cannot be configured.
   
    (default: `true`)
 
-- ##### `email-verification-request-limit` \{#tolgee-rate-limit-_-email-verification-request-limit}
+- ##### `email-verification-request-limit` \{#tolgee-rate-limits-_-email-verification-request-limit}
 
-- ##### `email-verification-request-limit-enabled` \{#tolgee-rate-limit-_-email-verification-request-limit-enabled}
+- ##### `email-verification-request-limit-enabled` \{#tolgee-rate-limits-_-email-verification-request-limit-enabled}
 
-- ##### `email-verification-request-window` \{#tolgee-rate-limit-_-email-verification-request-window}
+- ##### `email-verification-request-window` \{#tolgee-rate-limits-_-email-verification-request-window}
 
-- ##### `enabled` \{#tolgee-rate-limit-_-enabled}
+- ##### `enabled` \{#tolgee-rate-limits-_-enabled}
 
   To turn all rate limits off, set this value to `false`.
   
@@ -3339,28 +3735,55 @@ Per-endpoint and auth-related rate limits are fixed and cannot be configured.
   
    (default: `true`)
 
-- ##### `endpoint-limits` \{#tolgee-rate-limit-_-endpoint-limits}
+- ##### `endpoint-limits` \{#tolgee-rate-limits-_-endpoint-limits}
 
   Control whether per-endpoint limits on the API are enabled or not.
   Does not affect authentication-related endpoints, these are controlled by `authentication-limits`. (default: `true`)
 
-- ##### `global-limits` \{#tolgee-rate-limit-_-global-limits}
+- ##### `export-request-limit` \{#tolgee-rate-limits-_-export-request-limit}
+
+  Amount of export requests a user can do in a single time window. (default: `100`)
+
+- ##### `export-request-window` \{#tolgee-rate-limits-_-export-request-window}
+
+  Size, in milliseconds, of the time window for export-based limiting. (default: `300000`)
+
+- ##### `global-limits` \{#tolgee-rate-limits-_-global-limits}
 
   Control whether global limits on the API are enabled or not. (default: `true`)
 
-- ##### `ip-request-limit` \{#tolgee-rate-limit-_-ip-request-limit}
+- ##### `ip-request-limit` \{#tolgee-rate-limits-_-ip-request-limit}
 
   Amount of requests an IP address can do in a single time window. (default: `20000`)
 
-- ##### `ip-request-window` \{#tolgee-rate-limit-_-ip-request-window}
+- ##### `ip-request-window` \{#tolgee-rate-limits-_-ip-request-window}
 
   Size, in milliseconds, of the time window for IP-based limiting. (default: `300000` = 5 minutes)
 
-- ##### `user-request-limit` \{#tolgee-rate-limit-_-user-request-limit}
+- ##### `max-strikes-before-block` \{#tolgee-rate-limits-_-max-strikes-before-block}
+
+  Number of rate limit violations before the server stops responding to the client.
+  After this threshold, the connection is dropped without sending a response body, saving bandwidth.
+  Set to 0 to disable connection dropping (always send 429 responses). (default: `3`)
+
+- ##### `strike-reset-window-ms` \{#tolgee-rate-limits-_-strike-reset-window-ms}
+
+  Time window, in milliseconds, after which strikes are reset if the client behaves well.
+  If a client doesn't hit rate limits for this duration, their strike count is reset to zero. (default: `60000` = 1 minute)
+
+- ##### `translation-request-limit` \{#tolgee-rate-limits-_-translation-request-limit}
+
+  Amount of translation requests a user can do in a single time window. (default: `100`)
+
+- ##### `translation-request-window` \{#tolgee-rate-limits-_-translation-request-window}
+
+  Size, in milliseconds, of the time window for translation-based limiting. (default: `300000` = 5 minutes)
+
+- ##### `user-request-limit` \{#tolgee-rate-limits-_-user-request-limit}
 
   Amount of requests a user can do in a single time window. (default: `400`)
 
-- ##### `user-request-window` \{#tolgee-rate-limit-_-user-request-window}
+- ##### `user-request-window` \{#tolgee-rate-limits-_-user-request-window}
 
   Size, in milliseconds, of the time window for user-based limiting. (default: `60000` = 1 minute)
 
@@ -3551,8 +3974,15 @@ tolgee.authentication.sso-global.session-expiration-minutes = 10
 tolgee.authentication.sso-global.token-uri =
 tolgee.authentication.sso-organizations.enabled = false
 tolgee.authentication.sso-organizations.session-expiration-minutes = 10
-tolgee.batch.chunk-queue-population-size = 1000
+tolgee.batch.cancellation-timeout-ms = 30000
+tolgee.batch.completed-job-retention-days = 3
 tolgee.batch.concurrency = 1
+tolgee.batch.failed-job-retention-days = 30
+tolgee.batch.job-cleanup-batch-size = 1000
+tolgee.batch.job-cleanup-lock-lease-time-ms = 86400000
+tolgee.batch.max-per-mt-job-concurrency = -1
+tolgee.batch.old-job-cleanup-delay-in-ms = 28800000
+tolgee.batch.old-job-cleanup-enabled = true
 tolgee.cache.caffeine-max-size = -1
 tolgee.cache.clean-on-startup = true
 tolgee.cache.default-ttl = 7200000
@@ -3597,12 +4027,15 @@ tolgee.import.store-files-for-debugging = false
 tolgee.llm.default-enabled = true
 tolgee.llm.default-primary = true
 tolgee.llm.enabled =
+tolgee.llm.fallbacks = {}
+tolgee.llm.provider-defaults = {}
 tolgee.llm.providers[0].api-key =
 tolgee.llm.providers[0].api-url =
 tolgee.llm.providers[0].attempts =
 tolgee.llm.providers[0].deployment =
 tolgee.llm.providers[0].enabled = true
 tolgee.llm.providers[0].format =
+tolgee.llm.providers[0].max-tokens = 2000
 tolgee.llm.providers[0].model =
 tolgee.llm.providers[0].name = default
 tolgee.llm.providers[0].priority =
@@ -3640,17 +4073,25 @@ tolgee.postgres-autostart.password = postgres
 tolgee.postgres-autostart.port = 25432
 tolgee.postgres-autostart.stop = true
 tolgee.postgres-autostart.user = postgres
-tolgee.rate-limit.authentication-limits = true
-tolgee.rate-limit.email-verification-request-limit = 2
-tolgee.rate-limit.email-verification-request-limit-enabled = true
-tolgee.rate-limit.email-verification-request-window = 60000
-tolgee.rate-limit.enabled = true
-tolgee.rate-limit.endpoint-limits = true
-tolgee.rate-limit.global-limits = true
-tolgee.rate-limit.ip-request-limit = 20000
-tolgee.rate-limit.ip-request-window = 300000
-tolgee.rate-limit.user-request-limit = 400
-tolgee.rate-limit.user-request-window = 60000
+tolgee.rate-limits.activity-request-limit = 100
+tolgee.rate-limits.activity-request-window = 300000
+tolgee.rate-limits.authentication-limits = true
+tolgee.rate-limits.email-verification-request-limit = 2
+tolgee.rate-limits.email-verification-request-limit-enabled = true
+tolgee.rate-limits.email-verification-request-window = 60000
+tolgee.rate-limits.enabled = true
+tolgee.rate-limits.endpoint-limits = true
+tolgee.rate-limits.export-request-limit = 100
+tolgee.rate-limits.export-request-window = 300000
+tolgee.rate-limits.global-limits = true
+tolgee.rate-limits.ip-request-limit = 20000
+tolgee.rate-limits.ip-request-window = 300000
+tolgee.rate-limits.max-strikes-before-block = 3
+tolgee.rate-limits.strike-reset-window-ms = 60000
+tolgee.rate-limits.translation-request-limit = 100
+tolgee.rate-limits.translation-request-window = 300000
+tolgee.rate-limits.user-request-limit = 400
+tolgee.rate-limits.user-request-window = 60000
 tolgee.recaptcha.secret-key =
 tolgee.recaptcha.site-key =
 tolgee.sentry.client-dsn =

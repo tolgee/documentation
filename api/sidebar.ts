@@ -11,7 +11,7 @@ const sidebar: SidebarsConfig = {
       label: "Localization keys",
       link: {
         type: "doc",
-        id: "localization-keys",
+        id: "tag_localization-keys",
       },
       collapsible: false,
       collapsed: false,
@@ -72,7 +72,37 @@ const sidebar: SidebarsConfig = {
         },
         {
           type: "doc",
-          id: "delete-14",
+          id: "list-5",
+          label: "List trashed keys",
+          className: "api-method get",
+        },
+        {
+          type: "doc",
+          id: "list-deleters",
+          label: "List users who deleted keys",
+          className: "api-method get",
+        },
+        {
+          type: "doc",
+          id: "select-all",
+          label: "Select all trashed key IDs matching the filter",
+          className: "api-method get",
+        },
+        {
+          type: "doc",
+          id: "permanently-delete",
+          label: "Permanently delete a trashed key",
+          className: "api-method delete",
+        },
+        {
+          type: "doc",
+          id: "restore",
+          label: "Restore a trashed key",
+          className: "api-method put",
+        },
+        {
+          type: "doc",
+          id: "delete-16",
           label: "Delete one or multiple keys",
           className: "api-method delete",
         },
@@ -119,7 +149,7 @@ const sidebar: SidebarsConfig = {
       label: "Translation labels",
       link: {
         type: "doc",
-        id: "translation-labels",
+        id: "tag_translation-labels",
       },
       collapsible: false,
       collapsed: false,
@@ -179,7 +209,7 @@ const sidebar: SidebarsConfig = {
       label: "Slack slack commands",
       link: {
         type: "doc",
-        id: "slack-slack-commands",
+        id: "tag_slack-slack-commands",
       },
       collapsible: false,
       collapsed: false,
@@ -197,7 +227,7 @@ const sidebar: SidebarsConfig = {
       label: "Content Delivery",
       link: {
         type: "doc",
-        id: "content-delivery",
+        id: "tag_content-delivery",
       },
       collapsible: false,
       collapsed: false,
@@ -245,7 +275,7 @@ const sidebar: SidebarsConfig = {
       label: "Notifications",
       link: {
         type: "doc",
-        id: "notifications",
+        id: "tag_notifications",
       },
       collapsible: false,
       collapsed: false,
@@ -281,7 +311,7 @@ const sidebar: SidebarsConfig = {
       label: "Namespaces",
       link: {
         type: "doc",
-        id: "namespaces",
+        id: "tag_namespaces",
       },
       collapsible: false,
       collapsed: false,
@@ -317,7 +347,7 @@ const sidebar: SidebarsConfig = {
       label: "Server Administration",
       link: {
         type: "doc",
-        id: "server-administration",
+        id: "tag_server-administration",
       },
       collapsible: false,
       collapsed: false,
@@ -330,7 +360,7 @@ const sidebar: SidebarsConfig = {
         },
         {
           type: "doc",
-          id: "get-organizations",
+          id: "get-organizations-1",
           label: "Get all server organizations",
           className: "api-method get",
         },
@@ -342,7 +372,7 @@ const sidebar: SidebarsConfig = {
         },
         {
           type: "doc",
-          id: "get-users",
+          id: "get-users-1",
           label: "Get all server users",
           className: "api-method get",
         },
@@ -383,7 +413,7 @@ const sidebar: SidebarsConfig = {
       label: "Translations",
       link: {
         type: "doc",
-        id: "translations",
+        id: "tag_translations",
       },
       collapsible: false,
       collapsed: false,
@@ -443,7 +473,7 @@ const sidebar: SidebarsConfig = {
       label: "Sso Tenant",
       link: {
         type: "doc",
-        id: "sso-tenant",
+        id: "tag_sso-tenant",
       },
       collapsible: false,
       collapsed: false,
@@ -467,7 +497,7 @@ const sidebar: SidebarsConfig = {
       label: "Big Meta",
       link: {
         type: "doc",
-        id: "big-meta",
+        id: "tag_big-meta",
       },
       collapsible: false,
       collapsed: false,
@@ -488,10 +518,124 @@ const sidebar: SidebarsConfig = {
     },
     {
       type: "category",
+      label: "Branches",
+      link: {
+        type: "doc",
+        id: "tag_branches",
+      },
+      collapsible: false,
+      collapsed: false,
+      items: [
+        {
+          type: "doc",
+          id: "all",
+          label: "Get all branches",
+          className: "api-method get",
+        },
+        {
+          type: "doc",
+          id: "create-11",
+          label: "Create branch",
+          className: "api-method post",
+        },
+        {
+          type: "doc",
+          id: "find",
+          label: "Get branch by name, or the default branch if name is not provided",
+          className: "api-method get",
+        },
+        {
+          type: "doc",
+          id: "get-branch-merges",
+          label: "Get branch merges",
+          className: "api-method get",
+        },
+        {
+          type: "doc",
+          id: "dry-run-merge",
+          label: "Creates a merge, dry-runs source branch to target branch and return preview",
+          className: "api-method post",
+        },
+        {
+          type: "doc",
+          id: "delete-branch-merge",
+          label: "Delete branch merge session",
+          className: "api-method delete",
+        },
+        {
+          type: "doc",
+          id: "merge",
+          label: "Merge source branch to target branch",
+          className: "api-method post",
+        },
+        {
+          type: "doc",
+          id: "get-branch-merge-session-changes",
+          label: "Get branch merge session changes",
+          className: "api-method get",
+        },
+        {
+          type: "doc",
+          id: "get-branch-merge-session-change",
+          label: "Get single branch merge session change",
+          className: "api-method get",
+        },
+        {
+          type: "doc",
+          id: "get-branch-merge-session-conflicts",
+          label: "Get branch merge session conflicts",
+          className: "api-method get",
+        },
+        {
+          type: "doc",
+          id: "get-branch-merge-session-preview",
+          label: "Get branch merge session preview",
+          className: "api-method get",
+        },
+        {
+          type: "doc",
+          id: "refresh-branch-merge",
+          label: "Refresh branch merge session preview",
+          className: "api-method post",
+        },
+        {
+          type: "doc",
+          id: "resolve-conflict",
+          label: "Resolve branch merge session conflicts",
+          className: "api-method put",
+        },
+        {
+          type: "doc",
+          id: "resolve-all-conflicts",
+          label: "Resolve all branch merge session conflicts",
+          className: "api-method put",
+        },
+        {
+          type: "doc",
+          id: "rename",
+          label: "Rename branch",
+          className: "api-method post",
+        },
+        {
+          type: "doc",
+          id: "delete-14",
+          label: "Delete branch",
+          className: "api-method delete",
+        },
+        {
+          type: "doc",
+          id: "set-protected",
+          label: "Set branch protected flag",
+          className: "api-method post",
+        },
+      ],
+    },
+    {
+      type: "category",
       label: "Import Settings",
       link: {
         type: "doc",
-        id: "import-settings",
+        id: "tag_import-settings",
       },
       collapsible: false,
       collapsed: false,
@@ -515,7 +659,7 @@ const sidebar: SidebarsConfig = {
       label: "Languages",
       link: {
         type: "doc",
-        id: "languages",
+        id: "tag_languages",
       },
       collapsible: false,
       collapsed: false,
@@ -557,7 +701,7 @@ const sidebar: SidebarsConfig = {
       label: "Professional translation",
       link: {
         type: "doc",
-        id: "professional-translation",
+        id: "tag_professional-translation",
       },
       collapsible: false,
       collapsed: false,
@@ -581,7 +725,7 @@ const sidebar: SidebarsConfig = {
       label: "Import",
       link: {
         type: "doc",
-        id: "import",
+        id: "tag_import",
       },
       collapsible: false,
       collapsed: false,
@@ -701,7 +845,7 @@ const sidebar: SidebarsConfig = {
       label: "Tasks",
       link: {
         type: "doc",
-        id: "tasks",
+        id: "tag_tasks",
       },
       collapsible: false,
       collapsed: false,
@@ -815,7 +959,7 @@ const sidebar: SidebarsConfig = {
       label: "API keys",
       link: {
         type: "doc",
-        id: "api-keys",
+        id: "tag_api-keys",
       },
       collapsible: false,
       collapsed: false,
@@ -828,7 +972,7 @@ const sidebar: SidebarsConfig = {
         },
         {
           type: "doc",
-          id: "create-15",
+          id: "create-17",
           label: "Create API key",
           className: "api-method post",
         },
@@ -887,7 +1031,7 @@ const sidebar: SidebarsConfig = {
       label: "All localization keys",
       link: {
         type: "doc",
-        id: "all-localization-keys",
+        id: "tag_all-localization-keys",
       },
       collapsible: false,
       collapsed: false,
@@ -911,7 +1055,7 @@ const sidebar: SidebarsConfig = {
       label: "Slack events",
       link: {
         type: "doc",
-        id: "slack-events",
+        id: "tag_slack-events",
       },
       collapsible: false,
       collapsed: false,
@@ -935,7 +1079,7 @@ const sidebar: SidebarsConfig = {
       label: "User",
       link: {
         type: "doc",
-        id: "user",
+        id: "tag_user",
       },
       collapsible: false,
       collapsed: false,
@@ -1007,7 +1151,7 @@ const sidebar: SidebarsConfig = {
       label: "Invitations",
       link: {
         type: "doc",
-        id: "invitations",
+        id: "tag_invitations",
       },
       collapsible: false,
       collapsed: false,
@@ -1015,8 +1159,14 @@ const sidebar: SidebarsConfig = {
         {
           type: "doc",
           id: "accept-invitation",
+          label: "Accepts invitation to project or organization (deprecated: use PUT method instead)",
+          className: "menu__list-item--deprecated api-method get",
+        },
+        {
+          type: "doc",
+          id: "accept-invitation-put",
           label: "Accepts invitation to project or organization",
-          className: "api-method get",
+          className: "api-method put",
         },
         {
           type: "doc",
@@ -1055,7 +1205,7 @@ const sidebar: SidebarsConfig = {
       label: "Project Transferring",
       link: {
         type: "doc",
-        id: "project-transferring",
+        id: "tag_project-transferring",
       },
       collapsible: false,
       collapsed: false,
@@ -1079,7 +1229,7 @@ const sidebar: SidebarsConfig = {
       label: "Tags",
       link: {
         type: "doc",
-        id: "tags",
+        id: "tag_tags",
       },
       collapsible: false,
       collapsed: false,
@@ -1115,7 +1265,7 @@ const sidebar: SidebarsConfig = {
       label: "Slack user login",
       link: {
         type: "doc",
-        id: "slack-user-login",
+        id: "tag_slack-user-login",
       },
       collapsible: false,
       collapsed: false,
@@ -1139,7 +1289,7 @@ const sidebar: SidebarsConfig = {
       label: "Scope Info",
       link: {
         type: "doc",
-        id: "scope-info",
+        id: "tag_scope-info",
       },
       collapsible: false,
       collapsed: false,
@@ -1163,7 +1313,7 @@ const sidebar: SidebarsConfig = {
       label: "Translation Comments",
       link: {
         type: "doc",
-        id: "translation-comments",
+        id: "tag_translation-comments",
       },
       collapsible: false,
       collapsed: false,
@@ -1214,100 +1364,10 @@ const sidebar: SidebarsConfig = {
     },
     {
       type: "category",
-      label: "Ai prompt controller",
-      link: {
-        type: "doc",
-        id: "ai-prompt-controller",
-      },
-      collapsible: false,
-      collapsed: false,
-      items: [
-        {
-          type: "doc",
-          id: "get-all-paged",
-          label: "Get all prompts",
-          className: "api-method get",
-        },
-        {
-          type: "doc",
-          id: "create-prompt",
-          label: "Create prompt",
-          className: "api-method post",
-        },
-        {
-          type: "doc",
-          id: "get-default-prompt",
-          label: "Get default prompt",
-          className: "api-method get",
-        },
-        {
-          type: "doc",
-          id: "variables",
-          label: "Get variables",
-          className: "api-method get",
-        },
-        {
-          type: "doc",
-          id: "run",
-          label: "Run prompt",
-          className: "api-method post",
-        },
-        {
-          type: "doc",
-          id: "get-prompt",
-          label: "Get prompt by id",
-          className: "api-method get",
-        },
-        {
-          type: "doc",
-          id: "update-prompt",
-          label: "Update prompt",
-          className: "api-method put",
-        },
-        {
-          type: "doc",
-          id: "delete-prompt",
-          label: "Delete prompt",
-          className: "api-method delete",
-        },
-      ],
-    },
-    {
-      type: "category",
-      label: "Export",
-      link: {
-        type: "doc",
-        id: "export",
-      },
-      collapsible: false,
-      collapsed: false,
-      items: [
-        {
-          type: "doc",
-          id: "do-export-json-zip",
-          label: "Export to ZIP of jsons",
-          className: "menu__list-item--deprecated api-method get",
-        },
-        {
-          type: "doc",
-          id: "export-data",
-          label: "Export data",
-          className: "api-method get",
-        },
-        {
-          type: "doc",
-          id: "export-post",
-          label: "Export data (post)",
-          className: "api-method post",
-        },
-      ],
-    },
-    {
-      type: "category",
       label: "Projects",
       link: {
         type: "doc",
-        id: "projects",
+        id: "tag_projects",
       },
       collapsible: false,
       collapsed: false,
@@ -1392,7 +1452,7 @@ const sidebar: SidebarsConfig = {
         },
         {
           type: "doc",
-          id: "set-organization-base",
+          id: "remove-direct-project-permissions",
           label: "Remove direct project permission",
           className: "api-method put",
         },
@@ -1406,10 +1466,118 @@ const sidebar: SidebarsConfig = {
     },
     {
       type: "category",
+      label: "Ai prompt controller",
+      link: {
+        type: "doc",
+        id: "tag_ai-prompt-controller",
+      },
+      collapsible: false,
+      collapsed: false,
+      items: [
+        {
+          type: "doc",
+          id: "get-all-paged",
+          label: "Get all prompts",
+          className: "api-method get",
+        },
+        {
+          type: "doc",
+          id: "create-prompt",
+          label: "Create prompt",
+          className: "api-method post",
+        },
+        {
+          type: "doc",
+          id: "get-default-prompt",
+          label: "Get default prompt",
+          className: "api-method get",
+        },
+        {
+          type: "doc",
+          id: "variables",
+          label: "Get variables",
+          className: "api-method get",
+        },
+        {
+          type: "doc",
+          id: "run",
+          label: "Run prompt",
+          className: "api-method post",
+        },
+        {
+          type: "doc",
+          id: "get-prompt",
+          label: "Get prompt by id",
+          className: "api-method get",
+        },
+        {
+          type: "doc",
+          id: "update-prompt",
+          label: "Update prompt",
+          className: "api-method put",
+        },
+        {
+          type: "doc",
+          id: "delete-prompt",
+          label: "Delete prompt",
+          className: "api-method delete",
+        },
+      ],
+    },
+    {
+      type: "category",
+      label: "Export",
+      link: {
+        type: "doc",
+        id: "tag_export",
+      },
+      collapsible: false,
+      collapsed: false,
+      items: [
+        {
+          type: "doc",
+          id: "do-export-json-zip",
+          label: "Export to ZIP of jsons",
+          className: "menu__list-item--deprecated api-method get",
+        },
+        {
+          type: "doc",
+          id: "export-data",
+          label: "Export data",
+          className: "api-method get",
+        },
+        {
+          type: "doc",
+          id: "export-post",
+          label: "Export data (post)",
+          className: "api-method post",
+        },
+      ],
+    },
+    {
+      type: "category",
+      label: "Ai Playground result controller",
+      link: {
+        type: "doc",
+        id: "tag_ai-playground-result-controller",
+      },
+      collapsible: false,
+      collapsed: false,
+      items: [
+        {
+          type: "doc",
+          id: "get-ai-playground-result",
+          label: "Get ai playground result",
+          className: "api-method post",
+        },
+      ],
+    },
+    {
+      type: "category",
       label: "Llm providers",
       link: {
         type: "doc",
-        id: "llm-providers",
+        id: "tag_llm-providers",
       },
       collapsible: false,
       collapsed: false,
@@ -1449,24 +1617,6 @@ const sidebar: SidebarsConfig = {
           id: "delete-provider",
           label: "Delete organization-specific provider",
           className: "api-method delete",
-        },
-      ],
-    },
-    {
-      type: "category",
-      label: "Ai Playground result controller",
-      link: {
-        type: "doc",
-        id: "ai-playground-result-controller",
-      },
-      collapsible: false,
-      collapsed: false,
-      items: [
-        {
-          type: "doc",
-          id: "get-ai-playground-result",
-          label: "Get ai playground result",
-          className: "api-method post",
         },
       ],
     },
@@ -1596,7 +1746,7 @@ const sidebar: SidebarsConfig = {
         },
         {
           type: "doc",
-          id: "get-plans-2",
+          id: "get-plans-3",
           label: "Get all public plans",
           className: "api-method get",
         },
@@ -1680,7 +1830,7 @@ const sidebar: SidebarsConfig = {
         },
         {
           type: "doc",
-          id: "delete-16",
+          id: "delete-18",
           label: "Delete uploaded images",
           className: "api-method delete",
         },
@@ -1700,7 +1850,7 @@ const sidebar: SidebarsConfig = {
         },
         {
           type: "doc",
-          id: "create-12",
+          id: "create-14",
           label: "Create organization",
           className: "api-method post",
         },
@@ -1892,7 +2042,7 @@ const sidebar: SidebarsConfig = {
         },
         {
           type: "doc",
-          id: "create-13",
+          id: "create-15",
           label: "Create glossary",
           className: "api-method post",
         },
@@ -1926,6 +2076,40 @@ const sidebar: SidebarsConfig = {
           label: "Get all projects assigned to glossary",
           className: "api-method get",
         },
+        {
+          type: "doc",
+          id: "get-assigned-glossaries",
+          label: "Get glossaries assigned to project",
+          className: "api-method get",
+        },
+      ],
+    },
+    {
+      type: "category",
+      label: "Glossary Export",
+      collapsible: false,
+      collapsed: false,
+      items: [
+        {
+          type: "doc",
+          id: "export",
+          label: "Export glossary terms as CSV",
+          className: "api-method get",
+        },
+      ],
+    },
+    {
+      type: "category",
+      label: "Glossary Import",
+      collapsible: false,
+      collapsed: false,
+      items: [
+        {
+          type: "doc",
+          id: "import-csv",
+          label: "Import glossary terms from CSV",
+          className: "api-method post",
+        },
       ],
     },
     {
@@ -1956,7 +2140,7 @@ const sidebar: SidebarsConfig = {
         },
         {
           type: "doc",
-          id: "create-14",
+          id: "create-16",
           label: "Create a new glossary term",
           className: "api-method post",
         },
@@ -2104,7 +2288,7 @@ const sidebar: SidebarsConfig = {
         },
         {
           type: "doc",
-          id: "create-11",
+          id: "create-13",
           label: "Create PAK",
           className: "api-method post",
         },
@@ -2161,7 +2345,7 @@ const sidebar: SidebarsConfig = {
         {
           type: "doc",
           id: "get-language-prompt-customizations",
-          label: "Sets project level prompt customization",
+          label: "Returns language level prompt customization",
           className: "api-method get",
         },
         {
@@ -2240,6 +2424,12 @@ const sidebar: SidebarsConfig = {
         },
         {
           type: "doc",
+          id: "hard-delete-keys",
+          label: "Permanently delete soft-deleted keys",
+          className: "api-method post",
+        },
+        {
+          type: "doc",
           id: "machine-translation",
           label: "Machine Translation",
           className: "api-method post",
@@ -2248,6 +2438,12 @@ const sidebar: SidebarsConfig = {
           type: "doc",
           id: "translate-1",
           label: "Pre-translate by TM",
+          className: "api-method post",
+        },
+        {
+          type: "doc",
+          id: "restore-keys",
+          label: "Restore soft-deleted keys",
           className: "api-method post",
         },
         {
@@ -2668,6 +2864,18 @@ const sidebar: SidebarsConfig = {
           type: "doc",
           id: "set-preferred-organization",
           label: "Set user preferred organization",
+          className: "api-method put",
+        },
+        {
+          type: "doc",
+          id: "get-storage-field",
+          label: "Get specific field from user's storage",
+          className: "api-method get",
+        },
+        {
+          type: "doc",
+          id: "set-storage-field",
+          label: "Set specific field in user storage",
           className: "api-method put",
         },
       ],
