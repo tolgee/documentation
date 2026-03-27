@@ -1,0 +1,32 @@
+---
+id: content_delivery
+title: Content Delivery and Branches
+image: /img/og-images/platform.png
+---
+
+import { ScreenshotWrapper } from '../shared/_ScreenshotWrapper';
+
+When branching is enabled in your project, content delivery configurations gain a **Branch** field. Each configuration is pinned to a specific branch — only translations from that branch are published to the CDN endpoint.
+
+<ScreenshotWrapper
+  src="/img/docs/platform/branching/screenshot_cdn_branch_config.png"
+  alt="Add content delivery dialog showing Branch field set to main"
+/>
+
+You can select any branch from the dropdown when creating or editing a configuration.
+
+<ScreenshotWrapper
+  src="/img/docs/platform/branching/screenshot_cdn_branch_selector.png"
+  alt="Branch dropdown in content delivery config showing available branches"
+/>
+
+This makes it straightforward to maintain separate endpoints for different stages of your workflow:
+
+- A content delivery pinned to `main` serves your production translations.
+- A content delivery pinned to a feature branch lets you preview or test branch translations before merging.
+
+When you are done with the feature branch and have merged it, you can delete the preview content delivery or update it to point to a different branch.
+
+:::caution
+Deleting a branch also deletes all content delivery configurations pinned to that branch.
+:::

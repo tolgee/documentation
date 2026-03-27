@@ -7,35 +7,41 @@ image: /img/og-images/platform.png
 
 import { ScreenshotWrapper } from '../shared/_ScreenshotWrapper';
 
-Especially when managing more extensive projects, storing all keys in a single localization file can be insufficient. That's where namespaces come into play.
-This feature enables you to structure keys into different namespaces. When Tolgee exports a project with namespaces, Tolgee stores the namespace data to separate files.
+Storing all keys in a single localization file can be insufficient (especially when managing more extensive projects). That's where namespaces come into play.
+When Tolgee exports a project with namespaces, Tolgee stores the namespace data to separate files.
 
 In the Translations view, namespaces are displayed on the top of each namespace group.
 
-## Selecting namespaces for a new key
+## Assign a Namespace to a New Key
 
-To select namespace while creating a new key
+Namespaces help to organize translation keys by context or responsibility, such as:
+-	feature or module (auth, checkout, settings)
+-	application area (common, errors, emails)
+
+To assign a namespace while creating a new key:
 
 1. Click `+ Add` in the top right of the Translations view
 2. Select the namespace in the `namespace` dropdown
    - If the desired namespace doesn't exist yet, fill in the namespace name in the dialog and click the `+` icon on the right to create it.
 
-## Filtering by namespace
+## Filter by a Namespace
+
+Filtering by a namespace gives you the option to see only the keys from the selected namespace. This way, you won’t confuse keys from different parts of the app.
 
 There are two ways how to filter keys by namespaces.
 
-### Using filter dropdown
+### Using Filter Dropdown Menu
 
 1. Click the `Filter...` dropdown in the Translations view
 2. Click `Namespaces`
 3. Select one or multiple namespaces
 
-### Using the namespace banner
+### Using the Namespace Banner
 
 1. Click the namespace banner on top of namespace key group
 2. Select `Filter by namespace`
 
-## Renaming namespaces
+## Rename a Namespace
 
 1. Click the filter banner on top of namespace key group
 2. Select `Rename namespace`
@@ -43,13 +49,13 @@ There are two ways how to filter keys by namespaces.
 4. Click rename
 5. Confirm the operation
 
-## Deleting namespace
+## Delete a Namespace
 
 Tolgee deletes namespaces automatically when there is no key assigned to them.
 
 To delete a namespace, just delete all keys in the namespace.
 
-## Exporting keys by namespaces
+## Export Keys by Namespaces
 
 When exporting keys, you can select which namespaces should be exported. If you don't select any namespace, all keys will be exported.
 

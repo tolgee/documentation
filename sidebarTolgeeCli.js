@@ -5,6 +5,7 @@ module.exports = {
     'usage',
     'project-configuration',
     'push-pull-strings',
+    'branching',
     {
       collapsed: false,
       label: 'Extracting from code',

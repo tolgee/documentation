@@ -16,6 +16,7 @@ in a [per-project configuration](./project-configuration.mdx).
   May be omitted if you are [logged in](#logging-in). You can also set it via the `TOLGEE_API_KEY` environment variable (recommended for CI server use).
 - `--project-id <ID>` (short: `-p`) – **Required**. Project ID on the Tolgee server. May be omitted if you explicitly
   specified a Project API Key via `--api-key` or `TOLGEE_API_KEY`. Can be [configured per-project](./project-configuration.mdx).
+- `--branch <name>` (short: `-b`) – Project branch. Use when [branching](./branching.mdx) is enabled for the project. Can be set via the `TOLGEE_BRANCH` environment variable or [configured per-project](./project-configuration.mdx#branch).
 - `--format <format>` - Localization files format. [See all possible formats](./project-configuration.mdx#format)
 - `--extractor <extractor>` (short: `-e`) - A path to a custom extractor to use instead of the default one.
 - `--patterns <patterns...>` (short: `-pt`) - File glob patterns to include (hint: make sure to escape it in quotes, or your shell might attempt to unroll some tokens like *)

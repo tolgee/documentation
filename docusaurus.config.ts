@@ -43,7 +43,7 @@ const config: Config = {
       searchPagePath: false,
     },
     prism: {
-      additionalLanguages: ['icu-message-format'],
+      additionalLanguages: ['icu-message-format', 'php'],
     },
     zoom: {
       selector: '.zoomable-image',

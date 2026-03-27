@@ -15,17 +15,15 @@ When working in bigger teams, this feature helps ensure consistency in translati
 Glossaries also support translators by clarifying the meaning, context, and preferred usage of terms, reducing ambiguity and errors. 
 A glossary is often defined by a topic expert or localization manager. It serves as a reference for all translations in the project. This tool strengthens quality control and speeds up the translation process by minimizing repetitive decision-making.
 
-When you translate a string that contains glossary terms, these terms are highlighted, and their definitions are displayed in the glossary panel while editing translations.
-
 ## How to Set Up Glossaries
 
 Before using glossaries and their features in the translation view, make sure you have set them up properly by referring to [Manage Glossaries](/platform/glossaries/managing_glossaries) page.
 
 ## Highlight Glossary Terms
 
-When you click on the translation field of a key that contains glossary terms, these terms are highlighted in the base text.
+When you click on the translation field of a key that contains glossary terms, these terms are highlighted in the base text, and their definitions are displayed in the glossary panel while editing translations. Hovering over highlights will display a tooltip containing the term, its suggested translation, description and tags.
 
-Hovering over highlights will display a tooltip containing the term, its suggested translation, description and tags.
+It helps not to miss any terms that are in your glossary during translation, see their tags and descriptions.
 
 <ScreenshotWrapper
   src="/img/docs/platform/translation_process/glossary-highlights.webp"
@@ -34,24 +32,26 @@ Hovering over highlights will display a tooltip containing the term, its suggest
 
 ## Glossary Panel
 
+In addition to being highlighted directly in the translation view, glossary terms are also displayed in the panel on the right. This panel allows you to quickly review term details, and by clicking the “Open term in glossary” button next to the terms on the right side, you can navigate directly to that term in the glossary for further review or editing.
+
 The glossary panel shows all glossary terms found in the base text in the right sidebar. For each term, you can see:
 
 - The term text
 - Any flags associated with the term (non-translatable, case-sensitive, abbreviation, forbidden)
 - The term description when hovering over the `(i)` icon
 
-If you click the button at the top right of the glossary panel, you can open the term in the glossary. This works as a shortcut in case the term needs to be edited or reviewed.
-
 <ScreenshotWrapper
   src="/img/docs/platform/translation_process/glossary-panel.webp"
   alt="Glossary panel showing terms"
 />
 
-## Using Glossary Terms
+## Tips for Using Glossary Terms
+
+In addition to seeing the suggested translation for a glossary term, it's important to consider its description and tags to ensure accurate proper localization without mistakes.
 
 When translating content with glossary terms:
 
-1. Check the glossary panel to see the terms and their descriptions
+1. Check the [glossary panel](/platform/glossaries/using_glossaries_in_translations_view#glossary-panel) to see the terms and their descriptions
 2. Pay attention to the flags:
    - Non-translatable: Do not translate these terms
    - Case-sensitive: Maintain the same case in your translation

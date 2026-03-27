@@ -1,0 +1,29 @@
+---
+id: usage
+title: Usage Tolgee MCP Server
+sidebar_label: Usage
+description: 'Examples and best practices for using Tolgee MCP Server with AI assistants.'
+---
+
+## Example Workflow
+
+Once connected, you can interact with Tolgee in natural language. For example:
+
+> **You:** List all keys in the "homepage" namespace that contain "welcome"
+>
+> **AI:** Found 3 keys in namespace "homepage":
+> - `homepage.welcome_title` — "Welcome to our platform"
+> - `homepage.welcome_subtitle` — "Get started in minutes"
+> - `homepage.welcome_cta` — "Sign up free"
+
+> **You:** Translate these keys to German and French using machine translation
+>
+> **AI:** Started machine translation batch job. Job ID: 42. Checking status... completed. All 3 keys have been translated to German (de) and French (fr).
+
+## Best Practices
+
+- **Start with read-only commands** — Use `list_keys`, `get_translations`, or `list_projects` first to verify that your connection works before making changes.
+- **Use a Project API key when working on a single project** — This avoids having to specify `projectId` with every request and limits the blast radius of accidental changes.
+- **Be careful with destructive operations** — Tools like `delete_keys` and `delete_branch` are irreversible. AI assistants are instructed to confirm with you before executing them, but always double-check.
+- **Keep tokens secure** — Store your API keys in environment variables or a secrets manager. Don't commit them to version control. Use the minimum required scopes and rotate tokens regularly.
+- **Leverage Big Meta for better MT quality** — If you're using machine translation, store key relationships with `store_big_meta` so Tolgee can use translations of related keys as context.

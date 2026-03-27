@@ -19,6 +19,17 @@ module.exports = {
         'projects_and_organizations/machine-translation-settings',
         'projects_and_organizations/ai-settings',
         'projects_and_organizations/tasks',
+        {
+          label: 'Branching',
+          type: 'category',
+          items: [
+            'branching/overview',
+            'branching/merging_branches',
+            'branching/tasks',
+            'branching/content_delivery',
+            'branching/scope_and_integrations',
+          ],
+        },
         'projects_and_organizations/order_translation',
         'projects_and_organizations/members',
         'projects_and_organizations/import',
@@ -39,6 +50,7 @@ module.exports = {
         'translation_keys/namespaces',
         'translation_keys/screenshots',
         'translation_keys/batch_operations',
+        'translation_keys/trash',
         'translation_keys/custom_values',
       ],
     },
@@ -125,6 +137,15 @@ module.exports = {
           items: [
             'integrations/unreal_plugin/setup',
             'integrations/unreal_plugin/usage',
+          ],
+        },
+        {
+          label: 'MCP Server',
+          type: 'category',
+          items: [
+            'integrations/mcp_server/about',
+            'integrations/mcp_server/setup',
+            'integrations/mcp_server/usage',
           ],
         },
         'integrations/other_integrations',
