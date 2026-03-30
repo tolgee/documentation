@@ -5,9 +5,25 @@ sidebar_label: Getting Started
 image: /img/og-images/self-hosting.png
 ---
 
-It is great to have you here! This guide will help you get started with the self-hosted version of Tolgee!
+This guide will help you get started with the self-hosted version of Tolgee.
+
+:::tip We recommend Tolgee Cloud
+For most teams, [**Tolgee Cloud**](https://app.tolgee.io/sign_up) is the better option. It requires no maintenance, comes with full support, and you always get the latest features automatically.
+
+Self-hosting comes with real trade-offs:
+
+- **Maintenance overhead** — you are responsible for keeping the server running, applying updates, managing backups, and handling incidents.
+- **Infrastructure cost** — you pay for your own servers, storage, and networking on top of any Tolgee license.
+- **Setup and configuration** — you need to deploy Tolgee, configure it, and integrate it with your environment yourself.
+- **Harder to support** — when something goes wrong, our team cannot access your servers, so diagnosing issues takes longer.
+
+If you don't have a specific requirement to keep data on your own servers, we recommend starting with [Tolgee Cloud](https://app.tolgee.io/sign_up).
+
+Learn more about all self-hosting options on the [self-hosting page](https://tolgee.io/pricing/self-hosted).
+:::
 
 ## Installation
+
 First, you need to decide whether you want to run Tolgee with Docker or Java.
 
 The easiest way to run Tolgee is with **Docker**. You can find more information about Docker installation [here](running_with_docker).
@@ -15,7 +31,8 @@ The easiest way to run Tolgee is with **Docker**. You can find more information 
 If you want to run Tolgee with **Java**, you can find more information about Java installation [here](running_with_java).
 
 ## System Requirements
-Depending on your usage, required system resource to run Tolgee may vary. Minimum system specification for running Tolgee is:
+
+Depending on your usage, required system resources to run Tolgee may vary. Minimum system specification for running Tolgee is:
 
 - 2 CPU cores
 - 4 GB RAM
@@ -27,7 +44,11 @@ Current recommended system specification for running Tolgee is:
 - 20 GB free disk storage space
 
 ## Configuration
+
 After you have installed Tolgee, you need to configure it. You can view the configuration guide for the self-hosted version [here](configuration).
 
-## Pricing
-Pricing for the self-hosted version is different from the cloud version. You can find the pricing [here](https://tolgee.io/pricing/self-hosted).
+## Free vs Licensed Self-Hosting
+
+The free self-hosted version includes core localization features, up to 10 seats, and machine translation via your own API keys. Advanced features like SSO or granular permissions require a [licensed plan](licensing).
+
+For more details, see the [self-hosting page](https://tolgee.io/pricing/self-hosted).
