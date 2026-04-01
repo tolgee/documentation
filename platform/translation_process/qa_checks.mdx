@@ -1,0 +1,164 @@
+---
+id: qa_checks
+title: QA Checks
+sidebar_label: QA Checks
+image: /img/og-images/platform.png
+description: Automatically detect translation quality issues like missing placeholders, inconsistent punctuation, broken ICU syntax, and more.
+---
+
+import { ScreenshotWrapper } from '../shared/_ScreenshotWrapper';
+
+:::info Feature availability
+QA Checks are available in paid plans. [Upgrade your plan](https://tolgee.io/pricing) to use this feature.
+
+If you use the self-hosted version, you must [set up the license](/platform/self_hosting/licensing) to use this feature.
+:::
+
+QA Checks automatically validate your translations and flag potential issues such as missing placeholders, broken ICU syntax, inconsistent punctuation, and more. Issues are detected **in real time** as you type and also run in the background when translations are imported or modified in bulk.
+
+{/* TODO: Screenshot - overview of QA checks panel in the translation editor showing a few issues */}
+
+## Enabling QA Checks
+
+QA Checks can be enabled per project in the project settings.
+
+1. Go to **Project settings**
+2. Find the **QA Checks** section
+3. Toggle QA Checks on
+
+{/* TODO: Screenshot - project settings page with QA Checks toggle */}
+
+Once enabled, Tolgee will automatically run checks on all translations in the project. You'll see a progress indicator while the initial check completes.
+
+## Available Check Types
+
+Tolgee provides **17 check types** organized into two categories.
+
+### Comparison Checks
+
+These checks compare each translation against the base language to detect inconsistencies:
+
+| Check | Description |
+|-------|-------------|
+| **Empty translation** | Detects blank or whitespace-only translations (off by default) |
+| **Spaces mismatch** | Leading/trailing space differences, doubled spaces, non-breaking spaces |
+| **Unmatched newlines** | Missing or extra line breaks compared to the base translation |
+| **Character case mismatch** | Capitalization differences (e.g., first letter case) |
+| **Missing numbers** | Numeric values present in the base but missing in the translation |
+| **Punctuation mismatch** | Missing, extra, or replaced punctuation marks |
+| **Brackets mismatch** | Missing or extra brackets compared to the base |
+| **Unbalanced brackets** | Unclosed or unopened brackets within the translation |
+| **Special character mismatch** | Missing or extra special characters (off by default) |
+| **Different URLs** | URLs that are missing, extra, or different from the base |
+| **Key length limit** | Translation exceeds the key's configured character limit |
+| **Spelling** | Spelling errors detected via LanguageTool |
+| **Grammar** | Grammar errors detected via LanguageTool |
+| **Repeated words** | Consecutive repeated words (e.g., "the the") |
+
+### Syntax Checks
+
+These checks validate the structure and syntax of the translation itself:
+
+| Check | Description |
+|-------|-------------|
+| **Inconsistent placeholders** | Variable placeholders (e.g., `{userName}`) missing or extra compared to the base |
+| **Inconsistent HTML** | HTML tags missing or extra compared to the base |
+| **HTML syntax** | Unclosed or unopened HTML tags |
+| **ICU syntax** | Invalid ICU message format (select, plural, choice expressions) |
+
+## Viewing QA Issues
+
+### In the Translation Editor
+
+When you open a translation for editing, the QA checks panel appears below the text field. Each issue shows:
+
+- The **check type** (e.g., "Spaces mismatch")
+- A **description** of what was detected
+- A **suggested replacement** when available, with highlighted differences
+
+{/* TODO: Screenshot - QA checks panel in editor showing multiple issues with highlights */}
+
+Issues are updated **in real time** as you type, so you get immediate feedback on your changes.
+
+### Inline Highlights
+
+Problematic text spans are highlighted directly in the translation editor. Hovering over a highlight shows the issue details and a suggested fix.
+
+{/* TODO: Screenshot - inline highlight in the editor with popover showing issue details */}
+
+### QA Badge
+
+A QA badge appears next to translations in the translations list view, giving you a quick overview of the quality status:
+
+- **Green checkmark** - no issues found
+- **Red badge with count** - number of open issues
+- **Spinner** - checks are still running
+
+{/* TODO: Screenshot - translations list showing QA badges with different states */}
+
+## Fixing Issues
+
+### One-Click Corrections
+
+When a check provides a suggested replacement, you can apply it with a single click on the **Correct** button. The fix is applied directly to the translation text.
+
+{/* TODO: Video - clicking "Correct" to fix a spacing issue */}
+
+### Ignoring Issues
+
+If an issue is a false positive or intentional, you can **Ignore** it. Ignored issues won't count toward the issue total and won't appear as warnings.
+
+To ignore an issue, click the **Ignore** button next to it in the QA panel. You can also **unignore** it later if needed.
+
+{/* TODO: Screenshot - QA panel showing an ignored issue with "Unignore" option */}
+
+## Configuring Check Severity
+
+You can customize which checks are active and their severity at both the **project level** and the **language level**.
+
+### Project-Level Settings
+
+To configure QA checks for your entire project:
+
+1. Go to **Project settings** > **QA Checks**
+2. For each check type, set the severity:
+   - **Warning** - the check is active and issues are reported
+   - **Off** - the check is disabled
+
+{/* TODO: Screenshot - QA settings page showing per-check severity toggles */}
+
+### Language-Level Overrides
+
+You can override project settings for specific languages. This is useful when certain checks aren't relevant for particular languages (e.g., disabling character case checks for languages without case distinctions).
+
+1. Go to **Project settings** > **QA Checks**
+2. Click on the **Language overrides** section
+3. Select a language and adjust the settings
+
+{/* TODO: Screenshot - language-specific QA settings dialog */}
+
+Language-level settings take precedence over project-level settings. You can reset a language back to project defaults at any time.
+
+## How QA Checks Run
+
+QA checks run at three different times:
+
+### Real-Time Preview
+As you type in the translation editor, checks run in real time via a WebSocket connection. Results appear instantly in the QA panel — no need to save first.
+
+### On Save
+When you save a translation, all enabled checks run and results are persisted. The QA badge and issue counts are updated accordingly.
+
+### Batch Processing
+When translations are imported or when you trigger a bulk recheck, QA checks run as a background batch job. You can see the progress in the QA badge (spinner state).
+
+Checks are also automatically re-run when:
+- The **base language translation** changes (comparison checks may produce different results)
+- A **language tag** is changed
+- **Branches are merged**
+
+## Batch Operations
+
+You can trigger a full QA recheck for all translations in a project from the translations view using batch operations. This is useful after bulk imports or when you've changed QA settings and want to revalidate everything.
+
+{/* TODO: Screenshot - batch operations menu showing QA recheck option */}

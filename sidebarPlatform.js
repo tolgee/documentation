@@ -66,6 +66,7 @@ module.exports = {
         'translation_process/labels',
         'translation_process/icu_message_format',
         'translation_process/tolgee_universal_icu_placeholders',
+        'translation_process/qa_checks',
         'translation_process/notifications',
       ],
     },
