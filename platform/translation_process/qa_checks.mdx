@@ -3,14 +3,14 @@ id: qa_checks
 title: Translation QA Checks
 sidebar_label: QA Checks
 image: /img/og-images/platform.png
-description: Automatically detect translation quality issues like missing placeholders, inconsistent punctuation, broken ICU syntax, spelling and grammar errors with Tolgee's built-in localization QA checks.
+description: Automatically detect translation quality issues like missing placeholders, inconsistent punctuation, broken ICU placeholders, spelling and grammar errors with Tolgee's built-in localization QA checks.
 ---
 
 import { ScreenshotWrapper } from '../shared/_ScreenshotWrapper';
 
-When managing translations across many languages, it's easy for localization errors to slip through. A translator might accidentally remove a placeholder, break [ICU message syntax](/platform/translation_process/icu_message_format), add extra spaces, or miss punctuation. These translation quality issues are hard to spot manually, especially at scale, and can lead to broken UI, missing data, or confusing user experiences.
+When managing translations across many languages, it's easy for localization errors to slip through. A translator might accidentally remove a placeholder, break [ICU placeholder](/platform/translation_process/icu_message_format) syntax, add extra spaces, or miss punctuation. These translation quality issues are hard to spot manually, especially at scale, and can lead to broken UI, missing data, or confusing user experiences.
 
-QA Checks solve this by automatically validating your translations and flagging potential issues such as missing placeholders, broken ICU syntax, inconsistent punctuation, spelling and grammar errors, and more. Issues are detected **in real time** as you type and also run in the background when translations are saved or modified in bulk.
+QA Checks solve this by automatically validating your translations and flagging potential issues such as missing placeholders, broken ICU placeholders, inconsistent punctuation, spelling and grammar errors, and more. Issues are detected **in real time** as you type and also run in the background when translations are saved or modified in bulk.
 
 {/* TODO: Screenshot - overview of QA checks panel in the translation editor showing a few issues */}
 
@@ -34,40 +34,7 @@ Once enabled, Tolgee will automatically run checks on all translations in the pr
 
 ## Available Check Types
 
-Tolgee provides check types organized into two categories. For a detailed description of each check type and the specific problems it catches, see [QA Check Types](./qa_check_types.mdx).
-
-### Comparison Checks
-
-These checks compare each translation against the [base language](/platform/projects_and_organizations/languages) to detect inconsistencies
-
-| Check | Description |
-|-------|-------------|
-| **Empty translation** | Detects blank or whitespace-only translations (off by default) |
-| **Spaces mismatch** | Leading/trailing space differences, doubled spaces, non-breaking spaces |
-| **Unmatched new lines** | Missing or extra line breaks compared to the base translation |
-| **Character case mismatch** | Capitalization differences (e.g., first letter case) |
-| **Missing numbers** | Numeric values present in the base but missing in the translation |
-| **Punctuation mismatch** | Missing, extra, or replaced punctuation marks |
-| **Brackets mismatch** | Missing or extra brackets compared to the base |
-| **Brackets unbalanced** | Unclosed or unopened brackets within the translation |
-| **Special character mismatch** | Missing or extra special characters (off by default) |
-| **Different URLs** | URLs that are missing, extra, or different from the base |
-| **Key length limit** | Translation exceeds the key's configured [character limit](/platform/translation_keys/keys#character-limit) |
-| **Spelling** | Spelling errors detected via LanguageTool |
-| **Grammar** | Grammar errors detected via LanguageTool |
-| **Repeated words** | Consecutive repeated words (e.g., "the the") |
-
-### Syntax Checks
-
-These checks validate the structure and syntax of the translation itself
-
-| Check | Description |
-|-------|-------------|
-| **Inconsistent placeholders** | Variable placeholders (e.g., `{userName}`) missing or extra compared to the base |
-| **Inconsistent HTML** | HTML tags missing or extra compared to the base |
-| **HTML syntax** | Unclosed or unopened HTML tags |
-| **ICU syntax** | Invalid [ICU message format](/platform/translation_process/icu_message_format) (select, plural, choice expressions) |
-| **Unresolved comments** | Translation has unresolved [comments](/platform/translation_process/comments) that should be addressed |
+Tolgee provides check types organized into two categories: **comparison checks** that validate translations against the [base language](/platform/projects_and_organizations/languages), and **syntax checks** that validate the structure of the translation itself. For a detailed description of each check type and the specific problems it catches, see [QA Check Types](./qa_check_types.mdx).
 
 ## Viewing QA Issues
 
