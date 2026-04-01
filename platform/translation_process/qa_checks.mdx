@@ -8,19 +8,21 @@ description: Automatically detect translation quality issues like missing placeh
 
 import { ScreenshotWrapper } from '../shared/_ScreenshotWrapper';
 
-:::info Feature availability
-QA Checks are available in paid plans. [Upgrade your plan](https://tolgee.io/pricing) to use this feature.
+When managing translations across many languages, it's easy for small errors to slip through. A translator might accidentally remove a placeholder, break ICU syntax, add extra spaces, or miss punctuation. These issues are hard to spot manually, especially at scale, and can lead to broken UI, missing data, or confusing user experiences.
 
-If you use the self-hosted version, you must [set up the license](/platform/self_hosting/licensing) to use this feature.
-:::
-
-QA Checks automatically validate your translations and flag potential issues such as missing placeholders, broken ICU syntax, inconsistent punctuation, and more. Issues are detected **in real time** as you type and also run in the background when translations are imported or modified in bulk.
+QA Checks solve this by automatically validating your translations and flagging potential issues such as missing placeholders, broken ICU syntax, inconsistent punctuation, and more. Issues are detected **in real time** as you type and also run in the background when translations are saved or modified in bulk.
 
 {/* TODO: Screenshot - overview of QA checks panel in the translation editor showing a few issues */}
 
+:::info Feature availability
+QA Checks are available in advanced plans. [Upgrade your plan](https://tolgee.io/pricing) to use this feature.
+
+If you use the self-hosted version, you must [set up the license](https://tolgee.io/pricing/self-hosted) to use this feature.
+:::
+
 ## Enabling QA Checks
 
-QA Checks can be enabled per project in the project settings.
+If you would like to start using QA checks, you have to enable them first. To enable QA checks
 
 1. Go to **Project settings**
 2. Find the **QA Checks** section
@@ -32,11 +34,11 @@ Once enabled, Tolgee will automatically run checks on all translations in the pr
 
 ## Available Check Types
 
-Tolgee provides **17 check types** organized into two categories.
+Tolgee provides check types organized into two categories. For a detailed description of each check type and the specific problems it catches, see [QA Check Types](./qa_check_types.mdx).
 
 ### Comparison Checks
 
-These checks compare each translation against the base language to detect inconsistencies:
+These checks compare each translation against the base language to detect inconsistencies
 
 | Check | Description |
 |-------|-------------|
@@ -57,7 +59,7 @@ These checks compare each translation against the base language to detect incons
 
 ### Syntax Checks
 
-These checks validate the structure and syntax of the translation itself:
+These checks validate the structure and syntax of the translation itself
 
 | Check | Description |
 |-------|-------------|
@@ -70,7 +72,7 @@ These checks validate the structure and syntax of the translation itself:
 
 ### In the Translation Editor
 
-When you open a translation for editing, the QA checks panel appears below the text field. Each issue shows:
+To help translators catch issues as they work, QA checks are shown directly in the translation editor. When you open a translation for editing, the QA checks panel appears below the text field. Each issue shows
 
 - The **check type** (e.g., "Spaces mismatch")
 - A **description** of what was detected
@@ -88,7 +90,7 @@ Problematic text spans are highlighted directly in the translation editor. Hover
 
 ### QA Badge
 
-A QA badge appears next to translations in the translations list view, giving you a quick overview of the quality status:
+A QA badge appears next to translations in the translations list view, giving you a quick overview of the quality status
 
 - **Green checkmark** - no issues found
 - **Red badge with count** - number of open issues
@@ -106,7 +108,7 @@ When a check provides a suggested replacement, you can apply it with a single cl
 
 ### Ignoring Issues
 
-If an issue is a false positive or intentional, you can **Ignore** it. Ignored issues won't count toward the issue total and won't appear as warnings.
+Sometimes a flagged issue is intentional or a false positive. For example, you might deliberately omit a placeholder in a specific language, or a grammar check might not understand a domain-specific term. In these cases, you can **Ignore** the issue. Ignored issues won't count toward the issue total and won't appear as warnings.
 
 To ignore an issue, click the **Ignore** button next to it in the QA panel. You can also **unignore** it later if needed.
 
@@ -118,10 +120,10 @@ You can customize which checks are active and their severity at both the **proje
 
 ### Project-Level Settings
 
-To configure QA checks for your entire project:
+To configure QA checks for your entire project
 
 1. Go to **Project settings** > **QA Checks**
-2. For each check type, set the severity:
+2. For each check type, set the severity
    - **Warning** - the check is active and issues are reported
    - **Off** - the check is disabled
 
@@ -129,7 +131,9 @@ To configure QA checks for your entire project:
 
 ### Language-Level Overrides
 
-You can override project settings for specific languages. This is useful when certain checks aren't relevant for particular languages (e.g., disabling character case checks for languages without case distinctions).
+Some checks may not be relevant for all languages. For example, character case checks don't apply to languages without case distinctions, and certain punctuation rules differ across writing systems. Language-level overrides let you fine-tune settings for these cases.
+
+To configure overrides for a specific language
 
 1. Go to **Project settings** > **QA Checks**
 2. Click on the **Language overrides** section
@@ -139,26 +143,12 @@ You can override project settings for specific languages. This is useful when ce
 
 Language-level settings take precedence over project-level settings. You can reset a language back to project defaults at any time.
 
-## How QA Checks Run
+## When QA Checks Run
 
-QA checks run at three different times:
+QA checks run in real time as you type in the translation editor, so you get immediate feedback without saving first. When you save a translation, all enabled checks run again and results are persisted. This also applies to imported translations. The QA badge and issue counts are updated accordingly.
 
-### Real-Time Preview
-As you type in the translation editor, checks run in real time via a WebSocket connection. Results appear instantly in the QA panel — no need to save first.
-
-### On Save
-When you save a translation, all enabled checks run and results are persisted. The QA badge and issue counts are updated accordingly.
-
-### Batch Processing
-When translations are imported or when you trigger a bulk recheck, QA checks run as a background batch job. You can see the progress in the QA badge (spinner state).
-
-Checks are also automatically re-run when:
-- The **base language translation** changes (comparison checks may produce different results)
-- A **language tag** is changed
-- **Branches are merged**
-
-## Batch Operations
-
-You can trigger a full QA recheck for all translations in a project from the translations view using batch operations. This is useful after bulk imports or when you've changed QA settings and want to revalidate everything.
+You can also manually trigger a full QA recheck for all translations in a project from the translations view using batch operations. This is useful when you've changed QA settings and want to revalidate everything.
 
 {/* TODO: Screenshot - batch operations menu showing QA recheck option */}
+
+Checks are also automatically re-run when the **base language translation** changes, a **language tag** is changed, or **branches are merged**.
