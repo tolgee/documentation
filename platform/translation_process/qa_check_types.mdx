@@ -20,7 +20,7 @@ Detects translations that are blank or contain only whitespace. This check is **
 
 Detects differences in spacing between the base translation and the target. This includes leading or trailing spaces that were added or removed, doubled spaces, and non-breaking space inconsistencies. Spacing issues can cause layout problems in the UI, especially in languages where text is concatenated with other elements.
 
-### Unmatched Newlines
+### Unmatched New Lines
 
 Detects missing or extra line breaks compared to the base translation. Newlines often matter for formatting in multi-line UI elements, tooltips, or email templates. A missing or extra newline can break the intended layout.
 
@@ -40,7 +40,7 @@ Detects missing, extra, or replaced punctuation marks compared to the base trans
 
 Detects brackets (parentheses, square brackets, curly braces) that are missing or extra compared to the base translation. Brackets often contain important contextual information or are part of technical syntax.
 
-### Unbalanced Brackets
+### Brackets Unbalanced
 
 Detects unclosed or unopened brackets within the translation itself, regardless of the base translation. An unclosed bracket is almost always a mistake and can cause display issues or parsing errors.
 
@@ -87,3 +87,7 @@ Detects unclosed or unopened HTML tags within the translation. For example, a `<
 ### ICU Syntax
 
 Validates ICU message format syntax, including `select`, `plural`, and `choice` expressions. ICU messages have strict syntax requirements, and even a small mistake (like a missing closing brace) will cause the entire message to fail at runtime, potentially crashing the application or showing an error to users.
+
+### Unresolved Comments
+
+Flags translations that have unresolved [comments](/platform/translation_process/comments). This check ensures that feedback from reviewers or other translators is addressed before a translation is considered complete. It is especially useful in team workflows where comments are used for discussion and review.

@@ -44,12 +44,12 @@ These checks compare each translation against the base language to detect incons
 |-------|-------------|
 | **Empty translation** | Detects blank or whitespace-only translations (off by default) |
 | **Spaces mismatch** | Leading/trailing space differences, doubled spaces, non-breaking spaces |
-| **Unmatched newlines** | Missing or extra line breaks compared to the base translation |
+| **Unmatched new lines** | Missing or extra line breaks compared to the base translation |
 | **Character case mismatch** | Capitalization differences (e.g., first letter case) |
 | **Missing numbers** | Numeric values present in the base but missing in the translation |
 | **Punctuation mismatch** | Missing, extra, or replaced punctuation marks |
 | **Brackets mismatch** | Missing or extra brackets compared to the base |
-| **Unbalanced brackets** | Unclosed or unopened brackets within the translation |
+| **Brackets unbalanced** | Unclosed or unopened brackets within the translation |
 | **Special character mismatch** | Missing or extra special characters (off by default) |
 | **Different URLs** | URLs that are missing, extra, or different from the base |
 | **Key length limit** | Translation exceeds the key's configured character limit |
@@ -67,6 +67,7 @@ These checks validate the structure and syntax of the translation itself
 | **Inconsistent HTML** | HTML tags missing or extra compared to the base |
 | **HTML syntax** | Unclosed or unopened HTML tags |
 | **ICU syntax** | Invalid ICU message format (select, plural, choice expressions) |
+| **Unresolved comments** | Translation has unresolved comments that should be addressed |
 
 ## Viewing QA Issues
 
