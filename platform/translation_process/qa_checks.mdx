@@ -1,16 +1,16 @@
 ---
 id: qa_checks
-title: QA Checks
+title: Translation QA Checks
 sidebar_label: QA Checks
 image: /img/og-images/platform.png
-description: Automatically detect translation quality issues like missing placeholders, inconsistent punctuation, broken ICU syntax, and more.
+description: Automatically detect translation quality issues like missing placeholders, inconsistent punctuation, broken ICU syntax, spelling and grammar errors with Tolgee's built-in localization QA checks.
 ---
 
 import { ScreenshotWrapper } from '../shared/_ScreenshotWrapper';
 
-When managing translations across many languages, it's easy for small errors to slip through. A translator might accidentally remove a placeholder, break ICU syntax, add extra spaces, or miss punctuation. These issues are hard to spot manually, especially at scale, and can lead to broken UI, missing data, or confusing user experiences.
+When managing translations across many languages, it's easy for localization errors to slip through. A translator might accidentally remove a placeholder, break [ICU message syntax](/platform/translation_process/icu_message_format), add extra spaces, or miss punctuation. These translation quality issues are hard to spot manually, especially at scale, and can lead to broken UI, missing data, or confusing user experiences.
 
-QA Checks solve this by automatically validating your translations and flagging potential issues such as missing placeholders, broken ICU syntax, inconsistent punctuation, and more. Issues are detected **in real time** as you type and also run in the background when translations are saved or modified in bulk.
+QA Checks solve this by automatically validating your translations and flagging potential issues such as missing placeholders, broken ICU syntax, inconsistent punctuation, spelling and grammar errors, and more. Issues are detected **in real time** as you type and also run in the background when translations are saved or modified in bulk.
 
 {/* TODO: Screenshot - overview of QA checks panel in the translation editor showing a few issues */}
 
@@ -38,7 +38,7 @@ Tolgee provides check types organized into two categories. For a detailed descri
 
 ### Comparison Checks
 
-These checks compare each translation against the base language to detect inconsistencies
+These checks compare each translation against the [base language](/platform/projects_and_organizations/languages) to detect inconsistencies
 
 | Check | Description |
 |-------|-------------|
@@ -52,7 +52,7 @@ These checks compare each translation against the base language to detect incons
 | **Brackets unbalanced** | Unclosed or unopened brackets within the translation |
 | **Special character mismatch** | Missing or extra special characters (off by default) |
 | **Different URLs** | URLs that are missing, extra, or different from the base |
-| **Key length limit** | Translation exceeds the key's configured character limit |
+| **Key length limit** | Translation exceeds the key's configured [character limit](/platform/translation_keys/keys#character-limit) |
 | **Spelling** | Spelling errors detected via LanguageTool |
 | **Grammar** | Grammar errors detected via LanguageTool |
 | **Repeated words** | Consecutive repeated words (e.g., "the the") |
@@ -66,8 +66,8 @@ These checks validate the structure and syntax of the translation itself
 | **Inconsistent placeholders** | Variable placeholders (e.g., `{userName}`) missing or extra compared to the base |
 | **Inconsistent HTML** | HTML tags missing or extra compared to the base |
 | **HTML syntax** | Unclosed or unopened HTML tags |
-| **ICU syntax** | Invalid ICU message format (select, plural, choice expressions) |
-| **Unresolved comments** | Translation has unresolved comments that should be addressed |
+| **ICU syntax** | Invalid [ICU message format](/platform/translation_process/icu_message_format) (select, plural, choice expressions) |
+| **Unresolved comments** | Translation has unresolved [comments](/platform/translation_process/comments) that should be addressed |
 
 ## Viewing QA Issues
 
@@ -91,11 +91,11 @@ Problematic text spans are highlighted directly in the translation editor. Hover
 
 ### QA Badge
 
-A QA badge appears next to translations in the translations list view, giving you a quick overview of the quality status
+A QA badge appears next to translations in the translations list view, giving you a quick overview of the translation quality status
 
 - **Green checkmark** - no issues found
 - **Red badge with count** - number of open issues
-- **Spinner** - checks are still running
+- **Spinner** - checks are still running (e.g., after an [import](/platform/projects_and_organizations/import) or settings change)
 
 {/* TODO: Screenshot - translations list showing QA badges with different states */}
 
@@ -128,6 +128,8 @@ To configure QA checks for your entire project
    - **Warning** - the check is active and issues are reported
    - **Off** - the check is disabled
 
+Most checks default to **Warning**. The exceptions are **Empty translation** and **Special character mismatch**, which default to **Off**.
+
 {/* TODO: Screenshot - QA settings page showing per-check severity toggles */}
 
 ### Language-Level Overrides
@@ -142,14 +144,18 @@ To configure overrides for a specific language
 
 {/* TODO: Screenshot - language-specific QA settings dialog */}
 
-Language-level settings take precedence over project-level settings. You can reset a language back to project defaults at any time.
+Language-level settings always take precedence over project-level settings. Changing project settings does not affect languages that already have overrides. You can reset a language back to project defaults at any time.
 
 ## When QA Checks Run
 
-QA checks run in real time as you type in the translation editor, so you get immediate feedback without saving first. When you save a translation, all enabled checks run again and results are persisted. This also applies to imported translations. The QA badge and issue counts are updated accordingly.
+QA checks run in real time as you type in the translation editor, so you get immediate feedback without saving first. When you save a translation, all enabled checks run again and results are persisted. This also applies to [imported](/platform/projects_and_organizations/import) translations. The QA badge and issue counts are updated accordingly.
 
-You can also manually trigger a full QA recheck for all translations in a project from the translations view using batch operations. This is useful when you've changed QA settings and want to revalidate everything.
+You can also manually trigger a full QA recheck for all translations in a project from the translations view using [batch operations](/platform/translation_keys/batch_operations). This is useful when you've changed QA settings and want to revalidate everything.
 
 {/* TODO: Screenshot - batch operations menu showing QA recheck option */}
 
-Checks are also automatically re-run when the **base language translation** changes, a **language tag** is changed, or **branches are merged**.
+Checks are also automatically re-run when the base language translation changes, a language tag is changed, or [branches are merged](/platform/branching/merging_branches).
+
+### Plural Translations
+
+For translations that use [ICU plural forms](/platform/translation_process/icu_message_format) (e.g., `{count, plural, one {# item} other {# items}}`), QA checks run separately on each plural variant. Issues are reported per variant, so you can see exactly which form has the problem.

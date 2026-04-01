@@ -1,16 +1,16 @@
 ---
 id: qa_check_types
-title: QA Check Types
+title: QA Check Types Reference
 sidebar_label: QA Check Types
 image: /img/og-images/platform.png
-description: Detailed reference for all QA check types available in Tolgee, explaining what each check detects and when to use it.
+description: Detailed reference for all translation QA check types in Tolgee, including placeholder validation, ICU syntax checks, spelling, grammar, and formatting consistency checks.
 ---
 
-This page describes each QA check type in detail, explaining what problems it detects and when it is useful.
+This page describes each QA check type in detail, explaining what problems it detects and when it is useful. To learn how to enable and configure these checks, see [QA Checks](./qa_checks.mdx).
 
 ## Comparison Checks
 
-Comparison checks compare each translation against the base language translation. They help ensure that structural elements like placeholders, formatting, and punctuation are consistent across all languages.
+Comparison checks compare each translation against the [base language](/platform/projects_and_organizations/languages) translation. They help ensure that structural elements like placeholders, formatting, and punctuation are consistent across all languages.
 
 ### Empty Translation
 
@@ -54,7 +54,7 @@ Detects URLs that are missing, extra, or different from those in the base transl
 
 ### Key Length Limit
 
-Detects translations that exceed the character limit configured on the translation key. Character limits are often set to match UI constraints (e.g., button widths, text fields). Exceeding the limit can cause text to overflow or get truncated.
+Detects translations that exceed the [character limit](/platform/translation_keys/keys#character-limit) configured on the translation key. Character limits are often set to match UI constraints (e.g., button widths, text fields). Exceeding the limit can cause text to overflow or get truncated.
 
 ### Spelling
 
@@ -74,7 +74,7 @@ Syntax checks validate the structure of the translation itself. They catch issue
 
 ### Inconsistent Placeholders
 
-Detects variable placeholders (e.g., `{userName}`, `{count}`) that are missing or extra compared to the base translation. Missing placeholders cause runtime errors or display raw placeholder syntax to users. Extra placeholders that don't exist in the code will also show as raw text.
+Detects variable placeholders (e.g., `{userName}`, `{count}`) that are missing or extra compared to the base translation. Missing placeholders cause runtime errors or display raw placeholder syntax to users. Extra placeholders that don't exist in the code will also show as raw text. See [Tolgee Universal ICU Placeholders](/platform/translation_process/tolgee_universal_icu_placeholders) for more about how Tolgee handles placeholders.
 
 ### Inconsistent HTML
 
@@ -86,7 +86,7 @@ Detects unclosed or unopened HTML tags within the translation. For example, a `<
 
 ### ICU Syntax
 
-Validates ICU message format syntax, including `select`, `plural`, and `choice` expressions. ICU messages have strict syntax requirements, and even a small mistake (like a missing closing brace) will cause the entire message to fail at runtime, potentially crashing the application or showing an error to users.
+Validates [ICU message format](/platform/translation_process/icu_message_format) syntax, including `select`, `plural`, and `choice` expressions. ICU messages have strict syntax requirements, and even a small mistake (like a missing closing brace) will cause the entire message to fail at runtime, potentially crashing the application or showing an error to users.
 
 ### Unresolved Comments
 
