@@ -148,6 +148,8 @@ To configure QA checks for your entire project
    - `Warning` - the check is active and issues are reported
    - `Off` - the check is disabled
 
+*Currently, only two severity levels are supported: `Warning` and `Off`. More severity levels may be added in the future.*
+
 Most checks default to `Warning`. The exceptions are **Empty translation**, **Special character mismatch**, **Spelling**, and **Grammar**, which default to `Off`.
 
 <ScreenRecording
@@ -176,7 +178,7 @@ Language-level settings always take precedence over project-level settings. Chan
 
 QA checks run in real time as you type in the translation editor, so you get immediate feedback without saving first. When you save a translation, all enabled checks run again and results are persisted. This also applies to [imported](/platform/projects_and_organizations/import) translations. The QA badge and issue counts are updated accordingly.
 
-You can also manually trigger a full QA recheck for all translations in a project from the translations view using [batch operations](/platform/translation_keys/batch_operations). This is useful when you've changed QA settings and want to revalidate everything.
+The system is designed to handle all rechecking automatically, so you should never need to trigger a manual recheck under normal circumstances. However, as a last resort, you can manually trigger a full QA recheck for all translations in a project from the translations view using [batch operations](/platform/translation_keys/batch_operations).
 
 <ScreenRecording
   src="/img/docs/platform/qa-checks/recheck_batch.webm"
