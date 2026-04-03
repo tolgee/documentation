@@ -7,6 +7,7 @@ description: Automatically detect translation quality issues like missing placeh
 ---
 
 import { ScreenshotWrapper } from '../shared/_ScreenshotWrapper';
+import { ScreenRecording } from '../shared/_ScreenRecording';
 
 When managing translations across many languages, it's easy for localization errors to slip through. A translator might accidentally remove a placeholder, break [placeholder syntax](/platform/translation_process/icu_message_format), add extra spaces, or miss punctuation. These translation quality issues are hard to spot manually, especially at scale, and can lead to broken UI, missing data, or confusing user experiences.
 
@@ -28,13 +29,49 @@ If you would like to start using QA checks, you have to enable them first. To en
 2. Find the `QA Checks` section
 3. Toggle QA Checks on
 
-{/* TODO: Screenshot - project settings page with QA Checks toggle */}
+<ScreenRecording
+  src="/img/docs/platform/qa-checks/enable.webm"
+  alt="Enabling QA checks in project settings"
+/>
 
 Once enabled, Tolgee will automatically run checks on all translations in the project. You'll see a progress indicator while the initial check completes.
 
 ## Available Check Types
 
-Tolgee provides check types organized into two categories: **comparison checks** that validate translations against the [base language](/platform/projects_and_organizations/languages), and **syntax checks** that validate the structure of the translation itself. For a detailed description of each check type and the specific problems it catches, see [QA Check Types](./qa_check_types.mdx).
+Tolgee provides check types organized into two categories: **general checks** that catch common translation issues, and **syntax checks** that validate the structure of the translation itself.
+
+### General Checks
+
+These checks catch common translation issues such as formatting inconsistencies, missing content, and spelling or grammar errors
+
+| Check | Description |
+|-------|-------------|
+| **Empty translation** | Detects blank or whitespace-only translations (off by default) |
+| **Spaces mismatch** | Leading/trailing space differences, doubled spaces, non-breaking spaces |
+| **Unmatched new lines** | Missing or extra line breaks compared to the base translation |
+| **Character case mismatch** | Capitalization differences (e.g., first letter case) |
+| **Missing numbers** | Numeric values present in the base but missing in the translation |
+| **Punctuation mismatch** | Missing, extra, or replaced punctuation marks |
+| **Brackets mismatch** | Missing or extra brackets compared to the base |
+| **Brackets unbalanced** | Unclosed or unopened brackets within the translation |
+| **Special character mismatch** | Missing or extra special characters (off by default) |
+| **Different URLs** | URLs that are missing, extra, or different from the base |
+| **Key length limit** | Translation exceeds the key's configured [character limit](/platform/translation_keys/keys#character-limit) |
+| **Spelling** | Spelling errors detected via LanguageTool (off by default) |
+| **Grammar** | Grammar errors detected via LanguageTool (off by default) |
+| **Repeated words** | Consecutive repeated words (e.g., "the the") |
+| **Unresolved comments** | Translation has unresolved [comments](/platform/translation_process/comments) that should be addressed |
+
+### Syntax Checks
+
+These checks validate the structure and syntax of the translation itself
+
+| Check | Description |
+|-------|-------------|
+| **Inconsistent placeholders** | Variable placeholders (e.g., `{userName}`) missing or extra compared to the base |
+| **Inconsistent HTML** | HTML tags missing or extra compared to the base |
+| **HTML syntax** | Unclosed or unopened HTML tags |
+| **ICU syntax** | Invalid [message format](/platform/translation_process/icu_message_format) (select, plural, choice expressions) |
 
 ## Viewing QA Issues
 
@@ -46,7 +83,10 @@ To help translators catch issues as they work, QA checks are shown directly in t
 - A **description** of what was detected
 - A **suggested replacement** when available, with highlighted differences
 
-{/* TODO: Screenshot - QA checks panel in editor showing multiple issues with highlights */}
+<ScreenRecording
+  src="/img/docs/platform/qa-checks/translations_view.webm"
+  alt="QA checks panel in the translation editor showing issues"
+/>
 
 Issues are updated **in real time** as you type, so you get immediate feedback on your changes.
 
@@ -58,13 +98,17 @@ Problematic text spans are highlighted directly in the translation editor. Hover
 
 ### QA Badge
 
-A QA badge appears next to translations in the translations list view, giving you a quick overview of the translation quality status
+A QA badge appears next to translations in the translations list view when there are open issues or checks are still running
 
-- **Green checkmark** - no issues found
-- **Red badge with count** - number of open issues
+- **Badge with count** - number of open issues
 - **Spinner** - checks are still running (e.g., after an [import](/platform/projects_and_organizations/import) or settings change)
 
-{/* TODO: Screenshot - translations list showing QA badges with different states */}
+When all issues are resolved, the badge disappears.
+
+<ScreenRecording
+  src="/img/docs/platform/qa-checks/spinner.webm"
+  alt="QA badge showing spinner while checks are running"
+/>
 
 ## Fixing Issues
 
@@ -72,7 +116,10 @@ A QA badge appears next to translations in the translations list view, giving yo
 
 When a check provides a suggested replacement, you can apply it with a single click on the `Correct` button. The fix is applied directly to the translation text.
 
-{/* TODO: Video - clicking "Correct" to fix a spacing issue */}
+<ScreenRecording
+  src="/img/docs/platform/qa-checks/correct.webm"
+  alt="Clicking Correct to apply a suggested fix"
+/>
 
 ### Ignoring Issues
 
@@ -80,7 +127,10 @@ Sometimes a flagged issue is intentional or a false positive. For example, you m
 
 To ignore an issue, click the `Ignore` button next to it in the QA panel. You can also `Unignore` it later if needed.
 
-{/* TODO: Screenshot - QA panel showing an ignored issue with "Unignore" option */}
+<ScreenRecording
+  src="/img/docs/platform/qa-checks/ignoer.webm"
+  alt="Ignoring and unignoring a QA issue"
+/>
 
 ## Configuring Check Severity
 
@@ -95,9 +145,12 @@ To configure QA checks for your entire project
    - `Warning` - the check is active and issues are reported
    - `Off` - the check is disabled
 
-Most checks default to `Warning`. The exceptions are **Empty translation** and **Special character mismatch**, which default to `Off`.
+Most checks default to `Warning`. The exceptions are **Empty translation**, **Special character mismatch**, **Spelling**, and **Grammar**, which default to `Off`.
 
-{/* TODO: Screenshot - QA settings page showing per-check severity toggles */}
+<ScreenRecording
+  src="/img/docs/platform/qa-checks/project_level_qa_settings.webm"
+  alt="Configuring QA check severity in project settings"
+/>
 
 ### Language-Level Overrides
 
@@ -109,7 +162,10 @@ To configure overrides for a specific language
 2. Click on the `Language overrides` section
 3. Select a language and adjust the settings
 
-{/* TODO: Screenshot - language-specific QA settings dialog */}
+<ScreenRecording
+  src="/img/docs/platform/qa-checks/language_level_qa_settings.webm"
+  alt="Configuring language-level QA check overrides"
+/>
 
 Language-level settings always take precedence over project-level settings. Changing project settings does not affect languages that already have overrides. You can reset a language back to project defaults at any time.
 
@@ -119,10 +175,13 @@ QA checks run in real time as you type in the translation editor, so you get imm
 
 You can also manually trigger a full QA recheck for all translations in a project from the translations view using [batch operations](/platform/translation_keys/batch_operations). This is useful when you've changed QA settings and want to revalidate everything.
 
-{/* TODO: Screenshot - batch operations menu showing QA recheck option */}
+<ScreenRecording
+  src="/img/docs/platform/qa-checks/recheck_batch.webm"
+  alt="Triggering a full QA recheck via batch operations"
+/>
 
 Checks are also automatically re-run when the base language translation changes, a language tag is changed, or [branches are merged](/platform/branching/merging_branches).
 
 ### Plural Translations
 
-For translations that use [ICU plural forms](/platform/translation_process/icu_message_format) (e.g., `{count, plural, one {# item} other {# items}}`), QA checks run separately on each plural variant. Issues are reported per variant, so you can see exactly which form has the problem.
+For translations that use plural forms, QA checks run separately on each plural variant. Issues are reported per variant, so you can see exactly which form has the problem.
