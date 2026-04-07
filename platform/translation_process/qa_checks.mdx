@@ -73,6 +73,37 @@ These checks validate the structure and syntax of the translation itself
 | **HTML syntax** | Unclosed or unopened HTML tags |
 | **ICU syntax** | Invalid [message format](/platform/translation_process/icu_message_format) (select, plural, choice expressions) |
 
+## Spelling and Grammar Checks
+
+Typos and grammar mistakes in translations are easy to miss during manual review, especially across many languages. The `Spelling` and `Grammar` checks help catch these errors automatically.
+
+Both checks are powered by an external spelling and grammar engine that uses dictionaries and pattern-matching rules. This means they are effective at catching common typos, misspellings, and basic grammar errors, but they have important limitations to be aware of.
+
+### What These Checks Can Do
+
+- Detect common **spelling mistakes** and suggest corrections
+- Flag basic **grammar errors** such as incorrect word forms or agreement issues
+- Provide **one-click corrections** for most detected issues
+
+### What These Checks Cannot Do
+
+These checks use rule-based pattern matching, not contextual understanding. They work best on standard prose and may not perform well in all situations
+
+- **Domain-specific terms, brand names, and abbreviations** are often flagged as errors. Use `Ignore` to dismiss these, or add them to your project [glossary](/platform/glossaries/managing_glossaries) so they are automatically excluded from spelling and grammar results.
+- **Short, non-sentence text** such as button labels, menu items, or single-word translations may trigger irrelevant suggestions. Tolgee already filters out some sentence-level rules (like "capitalize first letter") that don't apply to short text, but occasional false positives are expected.
+- **Language coverage varies.** The engine supports approximately 30 languages, with some having comprehensive rules and others having minimal coverage. If a language is not supported, the checks silently return no results for that language.
+- **Placeholders, HTML, and URLs are excluded.** To reduce noise, issues that overlap with [placeholders](/platform/translation_process/icu_message_format), HTML tags, or URLs are automatically filtered out. Dedicated checks already cover those elements.
+
+### Enable Spelling and Grammar Checks
+
+Both checks default to `Off` because they require additional setup for self-hosted instances and are best enabled intentionally after understanding their limitations.
+
+To enable them, go to `Project settings` > `QA Checks` and set `Spelling` and `Grammar` to `Warning`.
+
+:::note Self-hosted instances
+Spelling and grammar checks require a separate container to run. If you are self-hosting Tolgee, see the [self-hosting setup guide](/platform/self_hosting/running_with_docker#optional-spelling--grammar-checks-languagetool) for deployment instructions. Without it, these checks cannot be enabled.
+:::
+
 ## Viewing QA Issues
 
 ### In the Translation Editor
@@ -131,7 +162,7 @@ Sometimes a flagged issue is intentional or a false positive. For example, you m
 To ignore an issue, click the `Ignore` button next to it in the QA panel. You can also `Unignore` it later if needed.
 
 <ScreenRecording
-  src="/img/docs/platform/qa-checks/ignoer.webm"
+  src="/img/docs/platform/qa-checks/ignore.webm"
   alt="Ignoring and unignoring a QA issue"
 />
 
@@ -150,7 +181,7 @@ To configure QA checks for your entire project
 
 *Currently, only two severity levels are supported: `Warning` and `Off`. More severity levels may be added in the future.*
 
-Most checks default to `Warning`. The exceptions are **Spelling** and **Grammar**, which default to `Off`.
+Most checks default to `Warning`. The exceptions are **Spelling** and **Grammar**, which default to `Off`. See [Spelling and Grammar Checks](#spelling-and-grammar-checks) for details on their capabilities and limitations.
 
 :::note Self-hosted: Spelling and Grammar checks
 Spelling and Grammar checks require a separate [LanguageTool](https://languagetool.org/) container. If you are self-hosting Tolgee, see the [self-hosting setup guide](/platform/self_hosting/running_with_docker#optional-spelling--grammar-checks-languagetool) for how to deploy and configure the LanguageTool container. Without it, Spelling and Grammar checks cannot be enabled.
