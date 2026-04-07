@@ -46,21 +46,21 @@ These checks catch common translation issues such as formatting inconsistencies,
 
 | Check | Description |
 |-------|-------------|
-| **Empty translation** | Detects blank or whitespace-only translations (off by default) |
+| **Empty translation** | Detects blank or whitespace-only translations |
 | **Spaces mismatch** | Leading/trailing space differences, doubled spaces, non-breaking spaces |
 | **Unmatched new lines** | Missing or extra line breaks compared to the base translation |
+| **Trim check** | Detects leading/trailing spaces or new lines within the base translation |
 | **Character case mismatch** | Capitalization differences (e.g., first letter case) |
 | **Missing numbers** | Numeric values present in the base but missing in the translation |
-| **Punctuation mismatch** | Missing, extra, or replaced punctuation marks |
-| **Brackets mismatch** | Missing or extra brackets compared to the base |
-| **Brackets unbalanced** | Unclosed or unopened brackets within the translation |
-| **Special character mismatch** | Missing or extra special characters (off by default) |
-| **Different URLs** | URLs that are missing, extra, or different from the base |
-| **Key length limit** | Translation exceeds the key's configured [character limit](/platform/translation_keys/keys#character-limit) |
 | **Spelling** | Spelling errors (off by default) |
 | **Grammar** | Grammar errors (off by default) |
 | **Repeated words** | Consecutive repeated words (e.g., "the the") |
-| **Unresolved comments** | Translation has unresolved [comments](/platform/translation_process/comments) that should be addressed |
+| **Punctuation mismatch** | Missing, extra, or replaced punctuation marks |
+| **Brackets mismatch** | Missing or extra brackets compared to the base |
+| **Brackets unbalanced** | Unclosed or unopened brackets within the translation |
+| **Special character mismatch** | Missing or extra special characters |
+| **Different URLs** | URLs that are missing, extra, or different from the base |
+| **Key length limit** | Translation exceeds the key's configured [character limit](/platform/translation_keys/keys#character-limit) |
 
 ### Syntax Checks
 
@@ -150,7 +150,11 @@ To configure QA checks for your entire project
 
 *Currently, only two severity levels are supported: `Warning` and `Off`. More severity levels may be added in the future.*
 
-Most checks default to `Warning`. The exceptions are **Empty translation**, **Special character mismatch**, **Spelling**, and **Grammar**, which default to `Off`.
+Most checks default to `Warning`. The exceptions are **Spelling** and **Grammar**, which default to `Off`.
+
+:::note Self-hosted: Spelling and Grammar checks
+Spelling and Grammar checks require a separate [LanguageTool](https://languagetool.org/) container. If you are self-hosting Tolgee, see the [self-hosting setup guide](/platform/self_hosting/running_with_docker#optional-spelling--grammar-checks-languagetool) for how to deploy and configure the LanguageTool container. Without it, Spelling and Grammar checks cannot be enabled.
+:::
 
 <ScreenRecording
   src="/img/docs/platform/qa-checks/project_level_qa_settings.webm"
