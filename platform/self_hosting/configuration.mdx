@@ -622,6 +622,17 @@ Properties for importing data to Tolgee and bulk-imports exported json files in 
 
   If true, uploaded files will be stored in configured file storage for future debugging. Such data is not automatically removed after successful import. You have to clean-up manually! (default: `false`)
 
+### LanguageTool \{#tolgee-_-language-tool}
+
+Prefix: `tolgee.language-tool`
+
+Configuration for an external LanguageTool server used for spelling and grammar checks.
+LanguageTool container (erikvl87/languagetool:6.7) must be deployed as a separate container.
+
+- ##### `url` \{#tolgee-language-tool-_-url}
+
+  URL of the LanguageTool server (e.g. `http://languagetool:8010`). When empty, spelling and grammar checks are disabled.
+
 ### LLM Providers \{#tolgee-_-llm}
 
 Prefix: `tolgee.llm`
@@ -1311,6 +1322,8 @@ tolgee:
     create-implicit-api-key: false
     dir:
     store-files-for-debugging: false
+  language-tool:
+    url:
   llm:
     default-enabled: true
     default-primary: true
@@ -2027,6 +2040,17 @@ Properties for importing data to Tolgee and bulk-imports exported json files in 
 
   If true, uploaded files will be stored in configured file storage for future debugging. Such data is not automatically removed after successful import. You have to clean-up manually! (default: `false`)
 
+### LanguageTool \{#tolgee-_-language-tool}
+
+Prefix: `TOLGEE_LANGUAGE_TOOL`
+
+Configuration for an external LanguageTool server used for spelling and grammar checks.
+LanguageTool container (erikvl87/languagetool:6.7) must be deployed as a separate container.
+
+- ##### `URL` \{#tolgee-language-tool-_-url}
+
+  URL of the LanguageTool server (e.g. `http://languagetool:8010`). When empty, spelling and grammar checks are disabled.
+
 ### LLM Providers \{#tolgee-_-llm}
 
 Prefix: `TOLGEE_LLM`
@@ -2694,6 +2718,7 @@ TOLGEE_IMPORT_BASE_LANGUAGE_TAG=en
 TOLGEE_IMPORT_CREATE_IMPLICIT_API_KEY=false
 TOLGEE_IMPORT_DIR=
 TOLGEE_IMPORT_STORE_FILES_FOR_DEBUGGING=false
+TOLGEE_LANGUAGE_TOOL_URL=
 TOLGEE_LLM_DEFAULT_ENABLED=true
 TOLGEE_LLM_DEFAULT_PRIMARY=true
 TOLGEE_LLM_ENABLED=
@@ -3393,6 +3418,17 @@ Properties for importing data to Tolgee and bulk-imports exported json files in 
 
   If true, uploaded files will be stored in configured file storage for future debugging. Such data is not automatically removed after successful import. You have to clean-up manually! (default: `false`)
 
+### LanguageTool \{#tolgee-_-language-tool}
+
+Prefix: `tolgee.language-tool`
+
+Configuration for an external LanguageTool server used for spelling and grammar checks.
+LanguageTool container (erikvl87/languagetool:6.7) must be deployed as a separate container.
+
+- ##### `url` \{#tolgee-language-tool-_-url}
+
+  URL of the LanguageTool server (e.g. `http://languagetool:8010`). When empty, spelling and grammar checks are disabled.
+
 ### LLM Providers \{#tolgee-_-llm}
 
 Prefix: `tolgee.llm`
@@ -4060,6 +4096,7 @@ tolgee.import.base-language-tag = en
 tolgee.import.create-implicit-api-key = false
 tolgee.import.dir =
 tolgee.import.store-files-for-debugging = false
+tolgee.language-tool.url =
 tolgee.llm.default-enabled = true
 tolgee.llm.default-primary = true
 tolgee.llm.enabled =
