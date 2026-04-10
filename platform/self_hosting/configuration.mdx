@@ -629,6 +629,18 @@ Prefix: `tolgee.language-tool`
 Configuration for an external LanguageTool server used for spelling and grammar checks.
 LanguageTool container (erikvl87/languagetool:6.7) must be deployed as a separate container.
 
+- ##### `connect-timeout-seconds` \{#tolgee-language-tool-_-connect-timeout-seconds}
+
+  TCP connect timeout for LanguageTool HTTP calls, in seconds. (default: `5`)
+
+- ##### `max-concurrent-requests` \{#tolgee-language-tool-_-max-concurrent-requests}
+
+  Maximum number of concurrent `/v2/check` requests a single Tolgee instance is allowed to send to the LanguageTool server. (default: `2`)
+
+- ##### `read-timeout-seconds` \{#tolgee-language-tool-_-read-timeout-seconds}
+
+  Read (socket) timeout for LanguageTool HTTP calls, in seconds. (default: `60`)
+
 - ##### `url` \{#tolgee-language-tool-_-url}
 
   URL of the LanguageTool server (e.g. `http://languagetool:8010`). When empty, spelling and grammar checks are disabled.
@@ -1323,6 +1335,9 @@ tolgee:
     dir:
     store-files-for-debugging: false
   language-tool:
+    connect-timeout-seconds: 5
+    max-concurrent-requests: 2
+    read-timeout-seconds: 60
     url:
   llm:
     default-enabled: true
@@ -2047,6 +2062,18 @@ Prefix: `TOLGEE_LANGUAGE_TOOL`
 Configuration for an external LanguageTool server used for spelling and grammar checks.
 LanguageTool container (erikvl87/languagetool:6.7) must be deployed as a separate container.
 
+- ##### `CONNECT_TIMEOUT_SECONDS` \{#tolgee-language-tool-_-connect-timeout-seconds}
+
+  TCP connect timeout for LanguageTool HTTP calls, in seconds. (default: `5`)
+
+- ##### `MAX_CONCURRENT_REQUESTS` \{#tolgee-language-tool-_-max-concurrent-requests}
+
+  Maximum number of concurrent `/v2/check` requests a single Tolgee instance is allowed to send to the LanguageTool server. (default: `2`)
+
+- ##### `READ_TIMEOUT_SECONDS` \{#tolgee-language-tool-_-read-timeout-seconds}
+
+  Read (socket) timeout for LanguageTool HTTP calls, in seconds. (default: `60`)
+
 - ##### `URL` \{#tolgee-language-tool-_-url}
 
   URL of the LanguageTool server (e.g. `http://languagetool:8010`). When empty, spelling and grammar checks are disabled.
@@ -2718,6 +2745,9 @@ TOLGEE_IMPORT_BASE_LANGUAGE_TAG=en
 TOLGEE_IMPORT_CREATE_IMPLICIT_API_KEY=false
 TOLGEE_IMPORT_DIR=
 TOLGEE_IMPORT_STORE_FILES_FOR_DEBUGGING=false
+TOLGEE_LANGUAGE_TOOL_CONNECT_TIMEOUT_SECONDS=5
+TOLGEE_LANGUAGE_TOOL_MAX_CONCURRENT_REQUESTS=2
+TOLGEE_LANGUAGE_TOOL_READ_TIMEOUT_SECONDS=60
 TOLGEE_LANGUAGE_TOOL_URL=
 TOLGEE_LLM_DEFAULT_ENABLED=true
 TOLGEE_LLM_DEFAULT_PRIMARY=true
@@ -3425,6 +3455,18 @@ Prefix: `tolgee.language-tool`
 Configuration for an external LanguageTool server used for spelling and grammar checks.
 LanguageTool container (erikvl87/languagetool:6.7) must be deployed as a separate container.
 
+- ##### `connect-timeout-seconds` \{#tolgee-language-tool-_-connect-timeout-seconds}
+
+  TCP connect timeout for LanguageTool HTTP calls, in seconds. (default: `5`)
+
+- ##### `max-concurrent-requests` \{#tolgee-language-tool-_-max-concurrent-requests}
+
+  Maximum number of concurrent `/v2/check` requests a single Tolgee instance is allowed to send to the LanguageTool server. (default: `2`)
+
+- ##### `read-timeout-seconds` \{#tolgee-language-tool-_-read-timeout-seconds}
+
+  Read (socket) timeout for LanguageTool HTTP calls, in seconds. (default: `60`)
+
 - ##### `url` \{#tolgee-language-tool-_-url}
 
   URL of the LanguageTool server (e.g. `http://languagetool:8010`). When empty, spelling and grammar checks are disabled.
@@ -4096,6 +4138,9 @@ tolgee.import.base-language-tag = en
 tolgee.import.create-implicit-api-key = false
 tolgee.import.dir =
 tolgee.import.store-files-for-debugging = false
+tolgee.language-tool.connect-timeout-seconds = 5
+tolgee.language-tool.max-concurrent-requests = 2
+tolgee.language-tool.read-timeout-seconds = 60
 tolgee.language-tool.url =
 tolgee.llm.default-enabled = true
 tolgee.llm.default-primary = true
