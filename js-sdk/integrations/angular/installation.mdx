@@ -13,9 +13,10 @@ import ExampleBanner from '../../shared/ExampleBanner';
 To use Tolgee in your Angular application, you need to follow these steps:
 
 1. [Install the Tolgee integration library](#install-the-tolgee-integration-library)
-2. [Configure the Tolgee API](#configure-the-tolgee-module)
-3. [Set up the environment variables](#set-up-the-environment-variables)
-4. [Preparing for production](#preparing-for-production)
+2. [Configure the Tolgee provider](#configure-the-tolgee-provider)
+3. [Import Tolgee in standalone components](#import-tolgee-in-standalone-components)
+4. [Set up the environment variables](#set-up-the-environment-variables)
+5. [Preparing for production](#preparing-for-production)
 
 ## Install the Tolgee integration library
 
@@ -23,69 +24,112 @@ To install Tolgee integration library, run the following command:
 
 <InstallationTabs lib="@tolgee/ngx" />
 
-##  Configure the Tolgee module
+## Configure the Tolgee provider
 
-Once the library is installed, you need to import and initialize the `NgxTolgeeModule` in your module file (`app.module.ts` or other).
+Once the library is installed, register Tolgee in your application config with `provideTolgee`.
 
-The updated code should look like this:
+The setup can look like this:
 
 ```typescript
-...
+import { ApplicationConfig } from '@angular/core';
+import { environment } from '../environments/environment';
 import {
   DevTools,
-  NgxTolgeeModule,
+  FormatSimple,
+  LanguageDetector,
+  LanguageStorage,
   Tolgee,
-  TOLGEE_INSTANCE,
-  FormatSimple
+  provideTolgee,
 } from '@tolgee/ngx';
-...
-@NgModule({
-  declarations: [
-    ...
-  ],
-  imports: [
-    NgxTolgeeModule,
-    ...
-  ],
+
+export const appConfig: ApplicationConfig = {
   providers: [
-    {
-      provide: TOLGEE_INSTANCE,
-      useFactory: () => {
-        return Tolgee()
-          .use(DevTools())
-          .use(FormatSimple())
-          // replace with .use(FormatIcu()) for rendering plurals, foramatted numbers, etc.
-          .init({
-            language: 'en'
+    provideTolgee(() =>
+      Tolgee()
+        .use(DevTools())
+        .use(LanguageDetector())
+        .use(LanguageStorage())
+        .use(FormatSimple())
+        // replace with .use(FormatIcu()) for plurals and formatted numbers
+        .init({
+          availableLanguages: ['en', 'cs'],
+          defaultLanguage: 'en',
+          fallbackLanguage: 'en',
 
-            // for development
-            apiUrl: environment.tolgeeApiUrl,
-            apiKey: environment.tolgeeApiKey,
+          // for development
+          apiKey: environment.tolgeeApiKey,
+          apiUrl: environment.tolgeeApiUrl, // defaults to https://app.tolgee.io
 
-            // for production
-            staticData: {
-              ...
-            }
-          });
-      },
-    },
+          // for production
+          staticData: {
+            en: () => import('../i18n/en.json').then((m) => m.default),
+            cs: () => import('../i18n/cs.json').then((m) => m.default),
+          },
+        })
+    ),
   ],
-  bootstrap: [AppComponent],
-})
-export class AppModule {}
+};
 ```
 
 The above code does the following:
 
-- Imports the required moudle, classes, and plugins from the integration library.
-- Configures the module
-- Configures the Tolgee instance to use the [DevTools](../../api/web_package/plugins#devtools) and [FormatSimple](../../api/core_package/format-simple) plugins, and initializes it using the credentials.
+- Registers Tolgee during application bootstrap using `provideTolgee`
+- Provides `TranslateService` and starts Tolgee automatically through an app initializer
+- Configures the Tolgee instance with your language settings, static data, and optional plugins such as [DevTools](../../api/web_package/plugins#devtools), [LanguageDetector](../../api/web_package/plugins#languagedetector), and [LanguageStorage](../../api/web_package/plugins#languagestorage)
 
-> You can configure more options and plugins during initialization. Learn about these other [options](../../api/core_package/options) and [Tolgee plugins](../../plugins) in their respective documentation.
+> You can configure more options and plugins during initialization. Learn about the available [options](../../api/core_package/options) and [Tolgee plugins](../../plugins).
+
+## Import Tolgee in standalone components
+
+`TranslatePipe` and `TDirective` are standalone Angular primitives. Import them in each component where you use them.
+It is the best practice to not combine multiple translation approaches within the app or component templates.
+
+```typescript
+import { Component } from '@angular/core';
+import { TranslatePipe } from '@tolgee/ngx';
+
+@Component({
+  template: `<h1>{{ 'hello_world' | translate }}</h1>`,
+  imports: [TranslatePipe],
+})
+export class PipeExampleComponent {}
+```
+
+```typescript
+import { Component } from '@angular/core';
+import { TDirective } from '@tolgee/ngx';
+
+@Component({
+  template: `<p t key="providing_default_values"></p>`,
+  imports: [TDirective],
+})
+export class DirectiveExampleComponent {}
+```
+
+If you need imperative translations or language switching in component code, inject `TranslateService`.
+
+```typescript
+import { Component, inject } from '@angular/core';
+import { TranslateService } from '@tolgee/ngx';
+
+@Component({
+  template: `{{ currentLanguage }}`,
+})
+export class LanguageSwitcherComponent {
+  private readonly translateService = inject(TranslateService);
+
+  currentLanguage = this.translateService.language;
+
+  async switchToCzech() {
+    await this.translateService.changeLanguage('cs');
+    this.currentLanguage = this.translateService.language;
+  }
+}
+```
 
 ## Set up the environment variables
 
-Follow the instructions mentioned in the [angular application environments documentation](https://angular.io/guide/build#configuring-application-environments) to configure `apiUrl` and `apiKey`.
+Follow the instructions in Angular's environment configuration docs to configure `apiUrl` and `apiKey`.
 
 ## Preparing for production
 
