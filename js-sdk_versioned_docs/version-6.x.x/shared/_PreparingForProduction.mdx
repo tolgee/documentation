@@ -1,0 +1,8 @@
+Tolgee will automatically omit [`DevTools`](../api/web_package/plugins.mdx#devtools) from your bundle when you build your app for production. So it won't fetch translations directly from Tolgee Platform and it won't allow users to modify translations.
+
+There are generally two ways how to use translations in production:
+
+ - [Tolgee Content Delivery](/platform/projects_and_organizations/content_delivery) - translations are loaded dynamically from fast and reliable storage
+ - [Providing localization files directly](/providing_static_data.mdx#use-localization-files-directly) - your translations are bundled with your code
+
+**In production mode, you should never use localization data directly from Tolgee REST API**, because it can negatively affect your page performance.

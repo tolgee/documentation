@@ -3,37 +3,38 @@ id: switching_language
 title: Switching language
 sidebar_label: Switching language
 slug: switching-language
-description: "Tolgee enables you to implement localization in your Angular application with ease. You can integrate Tolgee in your Angular application using Tolgee's integration library for Angular. Learn to manage language change using the TranslationService"
+description: 'Tolgee enables you to implement localization in your Angular application with ease. Learn to manage language changes using TranslateService.'
 image: /img/og-images/angular.png
 ---
 
-To manage an event like language change, the Tolgee integration provides the [`TranslationService`](./api#translateservice).
+To manage language changes, inject [`TranslateService`](./api#translateservice).
 
-Initialize the `TranslationService` in your component as follows:
+In Angular 20, a convenient pattern is exposing `languageAsync` as a signal and calling `changeLanguage()` from an event handler.
 
 ```ts title="language.component.ts"
-import { Component } from '@angular/core';
+import { Component, inject } from '@angular/core';
+import { toSignal } from '@angular/core/rxjs-interop';
 import { TranslateService } from '@tolgee/ngx';
 
 @Component({
-  ...
+  template: `
+    <select [value]="language()" (change)="changeLanguage($event.target.value)">
+      <option value="en">🇬🇧 English</option>
+      <option value="cs">🇨🇿 Česky</option>
+    </select>
+  `,
 })
-export class AppComponent {
-  constructor(public translateService: TranslateService) {}
-  ...
+export class LanguageComponent {
+  private readonly translateService = inject(TranslateService);
+
+  readonly language = toSignal(this.translateService.languageAsync, {
+    requireSync: true,
+  });
+
+  async changeLanguage(value: 'en' | 'cs') {
+    await this.translateService.changeLanguage(value);
+  }
 }
-```
-
-Next, in template use the [`changeLanguage` method](./api#method-changelanguage) and [`languageAsync` property](./api#property-languageasync) from `TranslateService` to handle the language change.
-
-```html title="language.component.html"
-<select
-  [value]="translateService.languageAsync | async"
-  (change)="translateService.changeLanguage($event.target.value)"
->
-  <option value="en">🇬🇧 English</option>
-  <option value="cs">🇨🇿 Česky</option>
-</select>
 ```
 
 > Learn more about language change, detection and storage on the [Language documentation page](../../language).

@@ -6,7 +6,14 @@ description: "Get started with Tolgee's integration for Angular. Learn how to ad
 image: /img/og-images/angular.png
 ---
 
-Tolgee provides an SDK for Angular, based on the [`@tolgee/web`](../../api/web_package/about) package. Using the SDK [@tolgee/ngx](https://www.npmjs.com/package/@tolgee/ngx), you can connect your Angular application to the Tolgee platform. This SDK enables you to implement [in-context translations](../../in-context), [language detection](../../language#language-detection), interpolation, and other advanced features.
+Tolgee provides an Angular SDK built on top of [`@tolgee/web`](../../api/web_package/about). With [`@tolgee/ngx`](https://www.npmjs.com/package/@tolgee/ngx), you can connect an Angular 20 application to Tolgee using Angular's current standalone and application-config APIs.
+
+The SDK gives you:
+
+- `provideTolgee` for registering Tolgee during app bootstrap
+- `TranslatePipe` and `TDirective` for template translations
+- `TranslateService` for imperative translations and language switching
+- `namespaceResolver` for loading namespaces before lazy routes render
 
 - Follow the [installation guide](./installation) to add the Tolgee Angular SDK to your existing Angular application.
-- You can also check the [example application](https://github.com/tolgee/ngx-example) to see how to integrate Tolgee with Angular.
+- You can also check the [sample Angular app](https://github.com/tolgee/tolgee-js/tree/main/testapps/ngx/projects/sampleapp) for a complete integration example.

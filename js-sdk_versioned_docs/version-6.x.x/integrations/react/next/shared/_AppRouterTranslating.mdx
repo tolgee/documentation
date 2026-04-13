@@ -1,0 +1,45 @@
+
+## Localizing Server components
+
+Now that everything is setup, you can use the `getTranslate` function to render the translated text. Since this is a server component, you use `getTranslate` instead of the `useTranslate` hook.
+
+```tsx title="src/page.tsx"
+import { getTranslate } from '@/tolgee/server';
+
+export default async function IndexPage() {
+  // because this is server component, use `getTranslate`
+  // not useTranslate from '@tolgee/react'
+  const t = await getTranslate();
+  return (
+    <main>
+      <h1>{t('hello_world')}</h1>
+    </main>
+  );
+}
+```
+
+If everything is set up correctly, you could use in-context translation. Press and holde the `alt` (or `option`) key, and click `hello_world`. This will open the in-context pop-up window.
+
+## Localizing Client components
+
+For client components, you can use the `useTranslate` hook or the `t-component`.
+
+```tsx
+'use client';
+
+import { useTranslate } from '@tolgee/react';
+
+export const ExampleClientComponent = () => {
+  const { t } = useTranslate();
+
+  return (
+    <section>
+      <span>{t('example-key-in-client-component')}</span>
+    </section>
+  );
+};
+```
+
+:::info
+Make sure to use `@/tolgee/server` in server components and `@tolgee/react` in client components.
+:::
