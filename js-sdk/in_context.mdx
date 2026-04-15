@@ -18,10 +18,14 @@ For local development, supply `apiUrl`, `apiKey` options (see [Integration](/pla
 
 ## One-click screenshots
 
-To generate screenshots automatically, you have to have installed
-[Tolgee Tools](https://chrome.google.com/webstore/detail/tolgee-tools/hacnbapajkkfohnonhbmegojnddagfnj) plugin
-for Google Chrome browser. With this plugin, you can generate screenshots by clicking camera icon in Tolgee UI
-translation dialog.
+To generate screenshots automatically, you have to have installed Tolgee Tools extension for [Google Chrome](https://chrome.google.com/webstore/detail/tolgee-tools/hacnbapajkkfohnonhbmegojnddagfnj) or add-on for [Mozilla firefox](https://addons.mozilla.org/en-US/firefox/addon/tolgee-tools/). With this tool, you can generate screenshots by clicking camera icon in Tolgee UI translation dialog.
+
+import { ScreenshotWrapper } from '../platform/shared/_ScreenshotWrapper';
+
+<ScreenshotWrapper
+  src="/img/docs/sdk/take_screenshot_modal.webp"
+  alt="Open new window button"
+/>
 
 :::info
 [`DevTools`](./api/web_package/plugins#devtools) are automatically omitted in production builds (based on `NODE_ENV` variable).
