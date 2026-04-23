@@ -120,7 +120,7 @@ services:
     depends_on:
       - db
   db:
-    image: postgres:13
+    image: postgres:15
     environment:
       POSTGRES_DB: postgres
       POSTGRES_USER: postgres
@@ -131,7 +131,7 @@ services:
       - '25432:5432' # <-- If you want to access your postgres from outside of docker network
 ```
 
-This configuration creates a separate Postgres 13 container. Now, you have to modify the Tolgee configuration to use this database.
+This configuration creates a separate Postgres 15 container. Now, you have to modify the Tolgee configuration to use this database.
 
 ```yaml title=config.yaml
 tolgee:
@@ -145,3 +145,45 @@ spring:
 ```
 
 Don't forget to change the `POSTGRES_USER`, `POSTGRES_PASSWORD`, `username` and `password` properties to your values.
+
+## Optional: Spelling & Grammar checks (LanguageTool)
+
+Tolgee's [QA Checks](/platform/translation_process/qa_checks) include Spelling and Grammar checks powered by [LanguageTool](https://languagetool.org/). These checks require a separate LanguageTool container.
+
+Add the LanguageTool service to your `docker-compose.yml`:
+
+```yaml title=docker-compose.yaml
+services:
+  app:
+    image: tolgee/tolgee{{dockerTagVersion}}
+    volumes:
+      - ./data:/data
+      - ./config.yaml:/config.yaml
+    ports:
+      - '8080:8080'
+    environment:
+      spring.config.additional-location: file:///config.yaml
+    depends_on:
+      - languagetool
+  languagetool:
+    image: erikvl87/languagetool:6.7
+    environment:
+      - Java_Xms=256m
+      - Java_Xmx=1024m
+```
+
+Then add the LanguageTool URL to your `config.yaml`:
+
+```yaml title=config.yaml
+tolgee:
+  language-tool:
+    url: http://languagetool:8010
+```
+
+Or as an environment variable: `TOLGEE_LANGUAGE__TOOL_URL=http://languagetool:8010`
+
+Once configured, you can enable Spelling and Grammar checks in your project's QA settings (they default to Off).
+
+:::note
+The container loads all language models on startup, which can take a while and uses ~1-1.5 GB of memory. Adjust `Java_Xmx` based on your available resources.
+:::

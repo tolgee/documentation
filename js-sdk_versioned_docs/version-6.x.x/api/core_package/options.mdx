@@ -1,0 +1,180 @@
+---
+id: options
+title: Core Options
+sidebar_label: Options
+image: /img/og-images/js-sdk.png
+---
+
+Initial configuration object of tolgee.
+
+### language
+
+Initial language, you need to specify this, unless there is LanguageDetector plugin present.
+
+```ts
+language: string;
+```
+
+### defaultLanguage
+
+Used when LanguageDetector plugin fails.
+
+```ts
+defaultLanguage: string;
+```
+
+### fallbackLanguage
+
+A language(s) that is used when no translation is available for the current one.
+
+```ts
+fallbackLanguage: string | string[] | Object;
+```
+
+You can also specify which language should fallback to which individually:
+
+```ts
+fallbackLanguage: {
+  'en-GB': 'en',
+  'en-IN': ['en-GB', 'en'],
+  'es-MX': 'es',
+}
+```
+
+All the fallback languages will be fetched at the start of the application.
+
+### apiUrl
+
+Tolgee instance url (e.g. https://app.tolgee.io)
+
+```ts
+apiUrl: string;
+```
+
+### apiKey
+
+Project API key (PAK) or Personal Access Token (PAT)
+
+```ts
+apiKey: string;
+```
+
+### projectId
+
+Project id is necessary if you are using PAT
+
+```ts
+projectId: number | string;
+```
+
+### branch
+
+Branch to use for translations. When set, translations are fetched from and edited on the specified branch. Only relevant when [branching](../../branching) is enabled for the project.
+
+```ts
+branch: string;
+```
+
+### availableLanguages
+
+Specify all available languages. Required for language detection or loading all languages at once ([loadMatrix](./tolgee.mdx#loadmatrix)).
+It also limits which values can be stored. Is derrived from `staticData` keys if not provided.
+
+```ts
+availableLanguages: string[];
+```
+
+### ns
+
+Namespaces which should be always fetched
+
+```ts
+ns: string[];
+```
+
+### fallbackNs
+
+Namespaces to search when translation is not found.
+
+```ts
+fallbackNs: FallbackNs;
+```
+
+### defaultNs
+
+Default namespace when no namespace defined (default: empty string)
+
+```ts
+defaultNs: string;
+```
+
+### availableNs
+
+Specify all available namespaces. Required for loading all namespaces at once ([loadMatrix](./tolgee.mdx#loadmatrix)).
+
+```ts
+availableNs: string[];
+```
+
+### staticData
+
+These data go directly to cache or you can specify async
+function which will be used to get the data. Use `:` to add namespace:
+
+```ts
+staticData: TolgeeStaticData;
+```
+
+Example:
+
+```ts
+{
+  'locale': {
+    'key': 'translation'
+  },
+  // or
+  'locale': () => fetchTranslations(),
+  // or
+  'locale:namespace': ...
+}
+```
+
+### onFormatError
+
+Defines what gets displayed when formatter throws an error. (Default: "invalid")
+
+```ts
+onFormatError: string
+onFormatError(error: string, info: TranslationInfo): string
+```
+
+### onTranslationMissing
+
+Is called every time translation is missing.
+If no orEmpty or defaultValue are defined, return value is rendered. (function is called regardless)
+
+```ts
+onTranslationMissing(info: TranslationInfo): string
+```
+
+### tagNewKeys
+
+Specify tags that will be preselected for non-existent keys
+
+```ts
+tagNewKeys: string[]
+```
+
+
+### observerType
+
+Switches between invisible and text observer if present. (Default: "invisible")
+
+```ts
+observerType: 'invisible' | 'text';
+```
+
+### observerOptions
+
+[Observer options](./observer-options) object.
+
