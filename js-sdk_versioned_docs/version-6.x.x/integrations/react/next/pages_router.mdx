@@ -1,0 +1,184 @@
+---
+id: pages-router
+sidebar_label: Pages router
+title: Next.js with Pages Router
+description: "Get started with Tolgee's integration for Next.js. Learn how to add localization to your Next.js applications that uses the Pages Router."
+image: /img/og-images/next.png
+---
+
+import ExampleBanner from '../../../shared/ExampleBanner';
+import CdnFetchPlugin from './shared/_CdnFetchPlugin.mdx';
+
+
+<ExampleBanner framework="Next pages router" appName="next" />
+
+## Prerequisites
+
+1. An existing Next.js project. Install the [`@tolgee/react`](https://www.npmjs.com/package/@tolgee/react) package.
+2. An existing [project](../../../../../platform/getting_started/creating_project) on Tolgee platform with at least 2 languages. This guide uses English (en) and Czech (cs).
+3. Add localization keys and translations for both the languages. This guide uses the key name `hello_world`.
+4. [API key](../../../../../platform/account_settings/api_keys_and_pat_tokens) of your Tolgee project.
+5. Exported localization data in JSON format.
+
+## Install the required packages
+
+To implement localization to your app, you need to install the `@tolgee/react` package:
+
+```sh
+npm install @tolgee/react
+```
+
+## Folder structure
+
+The folder structure of your project should resemble the following:
+
+```
+├── .env.development.local    # ignored by git
+├── next.config.js
+├── messages
+│   ├── en.json
+│   └── cs.json
+└── src
+    ├── tolgee.ts
+    └── pages
+        └── _app.tsx
+```
+
+## Prepare your next-config
+
+Add the [`i18n` config](https://nextjs.org/docs/pages/building-your-application/routing/internationalization) into your `next-config.js` file as follow.
+
+```js title="next.config.js"
+module.exports = {
+  reactStrictMode: true,
+  i18n: {
+    locales: ['en', 'cs'],
+    defaultLocale: 'en',
+  },
+};
+```
+
+## Set up your environment
+
+Create the `.env.development.local` file if it does not exist. You will store the Tolgee credentials securely in this file.
+
+Paste the following in the newly created file. Replace `<your api key>` with your Tolgee API key.
+
+```sh title=".env.development.local"
+NEXT_PUBLIC_TOLGEE_API_KEY=<your api key>
+NEXT_PUBLIC_TOLGEE_API_URL=https://app.tolgee.io
+```
+
+## Save exported data
+
+Create an `messages` folder in the root of your project directory, if it does not already exists. Move the exported localization json files to the `messages` folder.
+
+## Create Tolgee setup file
+
+This file contains tolgee setup and helper function for loading static files.
+
+```ts title="src/tolgee.ts"
+import { FormatIcu } from '@tolgee/format-icu';
+import { Tolgee, DevTools } from '@tolgee/react';
+
+export const tolgee = Tolgee()
+  .use(FormatIcu())
+  .use(DevTools())
+  .init({
+    availableLanguages: ['en', 'cs'],
+    defaultLanguage: 'en',
+    apiKey: process.env.NEXT_PUBLIC_TOLGEE_API_KEY,
+    apiUrl: process.env.NEXT_PUBLIC_TOLGEE_API_URL,
+    staticData: {
+      en: () => import('../messages/en.json'),
+      cs: () => import('../messages/cs.json'),
+    }
+  });
+
+```
+
+
+## Add the TolgeeProvider
+
+The next step is to wrap the application's main component with the [`TolgeeProvider` component](../api#tolgeeprovider).
+
+Import the localization data and provide them to the `TolgeeProvider` using the `staticData` prop.
+
+```tsx title="src/pages/_app.tsx"
+import type { AppContext, AppInitialProps, AppProps } from 'next/app';
+import { getStaticData, tolgee } from '../tolgee';
+import App from 'next/app';
+import { TolgeeProvider, TolgeeStaticData } from '@tolgee/react';
+import { useRouter } from 'next/router';
+
+type AppOwnProps = { staticData: TolgeeStaticData };
+
+export default function MyApp({
+  Component,
+  pageProps,
+  staticData,
+}: AppProps & AppOwnProps) {
+  const router = useRouter();
+  return (
+    <TolgeeProvider
+      tolgee={tolgee}
+      ssr={{ language: router.locale, staticData }}
+    >
+      <Component {...pageProps} />
+    </TolgeeProvider>
+  );
+}
+
+
+MyApp.getInitialProps = async (
+  context: AppContext
+): Promise<AppOwnProps & AppInitialProps> => {
+  const ctx = await App.getInitialProps(context);
+  return {
+    ...ctx,
+    staticData: await tolgee.loadRequired({
+      language: context.ctx.locale!,
+    }),
+  };
+};
+```
+
+Similarly, you can use [`getServerSideProps`](https://nextjs.org/docs/pages/building-your-application/data-fetching/get-server-side-props) or [`getStaticProps`](https://nextjs.org/docs/pages/building-your-application/data-fetching/get-static-props) on each page.
+
+## Change language with the Next.js router
+
+The application needs locale information both on server and client. The application can get this infromation native way as follows.
+
+```tsx
+import { useRouter } from 'next/router';
+
+export const LangSelector: React.FC = () => {
+  const router = useRouter();
+  const setLanguage = (lang: string) => {
+    router.replace(router.pathname, undefined, { locale: lang });
+  };
+
+  return (
+    <select onChange={(e) => setLanguage(e.target.value)} value={router.locale}>
+      <option value="en">🇬🇧 English</option>
+      <option value="cs">🇨🇿 Česky</option>
+    </select>
+  );
+};
+```
+
+## Use T component for translation
+
+The next step is to render the translated text for the selected locale. Use the [`T` component](../api#t-component) to translate the text in your app.
+
+```tsx
+<h1>
+  <T key_name="hello_world" />
+</h1>
+```
+
+<CdnFetchPlugin />
+
+That's it! You have successfully implemented translation to your Next.js applicaiton. You can also use translation methods described in the [React Translating documentation](../translating.mdx).
+
+<ExampleBanner framework="Next pages router" appName="next" />

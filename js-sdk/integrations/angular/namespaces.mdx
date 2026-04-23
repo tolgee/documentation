@@ -6,36 +6,71 @@ description: "Tolgee enables you to implement localization in your Angular appli
 image: /img/og-images/angular.png
 ---
 
-Tolgee allows you to split your i18n data into multiple namespaces. When using the [`translate pipe`](./translating#translate-pipe), [`t attribute`](./translating#t-attribute), or [`translation methods`](./translating#translation-methods), Tolgee automatically loads the namespace data for you.
+Tolgee allows you to split your i18n data into multiple namespaces. When using the [`translate pipe`](./translating#translate-pipe), [`t` attribute](./translating#t-attribute), or [`translation methods`](./translating#translation-methods), Tolgee loads namespace data automatically when you specify `ns`.
 
-Ideally, you should split translations for each module into different namespaces. For a lazy module, wait for the i18n data to be fetched before loading the lazy module. You can achieve this with `NamespaceResolver`.
+For lazy routes, preload the namespace before the route renders. You can do that with `namespaceResolver`.
 
 ```ts
-...
-import { NamespaceResolver } from '@tolgee/ngx';
+import { Routes } from '@angular/router';
+import { namespaceResolver } from '@tolgee/ngx';
 
-const routes: Routes = [
-  ...
+export const routes: Routes = [
   {
     path: 'lazy',
-    loadChildren: () => import('./lazy/lazy.module').then((m) => m.LazyModule),
+    loadComponent: () => import('./lazy/lazy.component'),
     data: { tolgeeNamespace: 'my-loaded-namespace' },
     resolve: {
-      _namespace: NamespaceResolver,
+      _namespace: namespaceResolver,
     },
   },
 ];
-
-@NgModule({
-  imports: [
-    RouterModule.forRoot(routes, ...),
-  ],
-  exports: [RouterModule],
-})
-export class AppRoutingModule {}
 ```
 
-When using `NamespaceResolver`, provide `tolgeeNamespace` property to the `data` object
-of your route configuration as defined in the  above example.
+When using `namespaceResolver`, provide `tolgeeNamespace` on the route `data` object.
+
+You can then reference that namespace in templates or code:
+
+```html
+<div t key="this_is_a_key" ns="my-loaded-namespace"></div>
+```
+
+For pipe usage, pass the namespace in the translate options object:
+
+```html
+<h1>{{ 'this_is_a_key' | translate:{ ns: 'my-loaded-namespace' } }}</h1>
+```
+
+For service usage, pass the namespace to `translate()` or `instant()` the same way:
+
+```typescript
+import { Component, inject } from '@angular/core';
+import { toSignal } from '@angular/core/rxjs-interop';
+import { TranslateService } from '@tolgee/ngx';
+
+@Component({
+  template: `
+    <h1>{{ namespacedValue() }}</h1>
+    <h2>{{ namespacedInstant }}</h2>
+  `,
+})
+export class NamespacedComponent {
+  private readonly translateService = inject(TranslateService);
+
+  readonly namespacedValue = toSignal(
+    this.translateService.translate('this_is_a_key', {
+      ns: 'my-loaded-namespace',
+    }),
+    { initialValue: '' }
+  );
+
+  readonly namespacedInstant = this.translateService.instant('this_is_a_key', {
+    ns: 'my-loaded-namespace',
+  });
+}
+```
+
+Use `translate()` when you want Tolgee to react to async loading automatically. If you use `instant()`, make sure the namespace has already been loaded, for example by `namespaceResolver` on a lazy route.
+
+If you intentionally want to preload the default namespace, set `tolgeeNamespace` to an empty string.
 
 You can learn more in the [namespaces documentation](../../namespaces.mdx).

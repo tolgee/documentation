@@ -1,0 +1,92 @@
+---
+id: events
+title: Core Events
+sidebar_label: Events
+image: /img/og-images/js-sdk.png
+---
+
+Tolgee events which can be listened through `tolgee.on` method.
+
+### language
+
+Emitted on language change.
+
+```ts
+tolgee.on('language', handler: Handler<LanguageEvent>)
+```
+
+### pendingLanguage
+
+Emitted on language change. Before languages are loaded (when tolgee is running).
+
+```ts
+tolgee.on('pendingLanguage', handler: Handler<PendingLanguageEvent>)
+```
+
+### loading
+
+Emitted on loading change. Changes when tolgee is loading some data for the first time.
+
+```ts
+tolgee.on('loading', handler: Handler<LoadingEvent>)
+```
+
+### fetching
+
+Emitted on fetching change. Changes when tolgee is fetching any data.
+
+```ts
+tolgee.on('fetching', handler: Handler<FetchingEvent>)
+```
+
+### initialLoad
+
+Emitted when `run` method finishes.
+
+```ts
+tolgee.on('initialLoad', handler: Handler<InitialLoadEvent>)
+```
+
+### running
+
+Emitted when internal `running` state changes.
+
+```ts
+tolgee.on('running', handler: Handler<RunningEvent>)
+```
+
+### cache
+
+Emitted when cache changes.
+
+```ts
+tolgee.on('cache', handler: Handler<CacheEvent>)
+```
+
+### update
+
+Emitted when any key needs (or might need) to be re-rendered. It's derrived from other events
+(`initialLoad`, `language`, `cache`), the events are grouped when multiple happen at the same time,
+so it only results to one `update` event being emitted.
+
+```ts
+tolgee.on('update', handler: CombinedHandler<UpdateEvent>)
+```
+
+You can check what events triggered this change event from the first argument of the handler.
+
+```ts
+tolgee.on('update', (events) => events.forEach(e => ...))
+```
+
+### error
+
+Emitted when there is an error. You can intercept different types of errors, connected to fetching language data, detecting language or loading/storing language, you can filter them by `name` property on the error, which can be:
+ - `RecordFetchError` - error when fetching translations record, you can also read `language` and `namespace` properties, to see which record has failed
+ - `LanguageDetectorError` - error when detecting language through language detector plugin
+ - `LanguageStorageError` - error when loading/saving language through language storage plugin
+
+```ts
+tolgee.on('error', handler: Handler<ErrorEvent>)
+```
+

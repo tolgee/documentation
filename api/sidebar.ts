@@ -1364,6 +1364,96 @@ const sidebar: SidebarsConfig = {
     },
     {
       type: "category",
+      label: "Ai prompt controller",
+      link: {
+        type: "doc",
+        id: "tag_ai-prompt-controller",
+      },
+      collapsible: false,
+      collapsed: false,
+      items: [
+        {
+          type: "doc",
+          id: "get-all-paged",
+          label: "Get all prompts",
+          className: "api-method get",
+        },
+        {
+          type: "doc",
+          id: "create-prompt",
+          label: "Create prompt",
+          className: "api-method post",
+        },
+        {
+          type: "doc",
+          id: "get-default-prompt",
+          label: "Get default prompt",
+          className: "api-method get",
+        },
+        {
+          type: "doc",
+          id: "variables",
+          label: "Get variables",
+          className: "api-method get",
+        },
+        {
+          type: "doc",
+          id: "run",
+          label: "Run prompt",
+          className: "api-method post",
+        },
+        {
+          type: "doc",
+          id: "get-prompt",
+          label: "Get prompt by id",
+          className: "api-method get",
+        },
+        {
+          type: "doc",
+          id: "update-prompt",
+          label: "Update prompt",
+          className: "api-method put",
+        },
+        {
+          type: "doc",
+          id: "delete-prompt",
+          label: "Delete prompt",
+          className: "api-method delete",
+        },
+      ],
+    },
+    {
+      type: "category",
+      label: "Export",
+      link: {
+        type: "doc",
+        id: "tag_export",
+      },
+      collapsible: false,
+      collapsed: false,
+      items: [
+        {
+          type: "doc",
+          id: "do-export-json-zip",
+          label: "Export to ZIP of jsons",
+          className: "menu__list-item--deprecated api-method get",
+        },
+        {
+          type: "doc",
+          id: "export-data",
+          label: "Export data",
+          className: "api-method get",
+        },
+        {
+          type: "doc",
+          id: "export-post",
+          label: "Export data (post)",
+          className: "api-method post",
+        },
+      ],
+    },
+    {
+      type: "category",
       label: "Projects",
       link: {
         type: "doc",
@@ -1466,114 +1556,6 @@ const sidebar: SidebarsConfig = {
     },
     {
       type: "category",
-      label: "Ai prompt controller",
-      link: {
-        type: "doc",
-        id: "tag_ai-prompt-controller",
-      },
-      collapsible: false,
-      collapsed: false,
-      items: [
-        {
-          type: "doc",
-          id: "get-all-paged",
-          label: "Get all prompts",
-          className: "api-method get",
-        },
-        {
-          type: "doc",
-          id: "create-prompt",
-          label: "Create prompt",
-          className: "api-method post",
-        },
-        {
-          type: "doc",
-          id: "get-default-prompt",
-          label: "Get default prompt",
-          className: "api-method get",
-        },
-        {
-          type: "doc",
-          id: "variables",
-          label: "Get variables",
-          className: "api-method get",
-        },
-        {
-          type: "doc",
-          id: "run",
-          label: "Run prompt",
-          className: "api-method post",
-        },
-        {
-          type: "doc",
-          id: "get-prompt",
-          label: "Get prompt by id",
-          className: "api-method get",
-        },
-        {
-          type: "doc",
-          id: "update-prompt",
-          label: "Update prompt",
-          className: "api-method put",
-        },
-        {
-          type: "doc",
-          id: "delete-prompt",
-          label: "Delete prompt",
-          className: "api-method delete",
-        },
-      ],
-    },
-    {
-      type: "category",
-      label: "Export",
-      link: {
-        type: "doc",
-        id: "tag_export",
-      },
-      collapsible: false,
-      collapsed: false,
-      items: [
-        {
-          type: "doc",
-          id: "do-export-json-zip",
-          label: "Export to ZIP of jsons",
-          className: "menu__list-item--deprecated api-method get",
-        },
-        {
-          type: "doc",
-          id: "export-data",
-          label: "Export data",
-          className: "api-method get",
-        },
-        {
-          type: "doc",
-          id: "export-post",
-          label: "Export data (post)",
-          className: "api-method post",
-        },
-      ],
-    },
-    {
-      type: "category",
-      label: "Ai Playground result controller",
-      link: {
-        type: "doc",
-        id: "tag_ai-playground-result-controller",
-      },
-      collapsible: false,
-      collapsed: false,
-      items: [
-        {
-          type: "doc",
-          id: "get-ai-playground-result",
-          label: "Get ai playground result",
-          className: "api-method post",
-        },
-      ],
-    },
-    {
-      type: "category",
       label: "Llm providers",
       link: {
         type: "doc",
@@ -1617,6 +1599,24 @@ const sidebar: SidebarsConfig = {
           id: "delete-provider",
           label: "Delete organization-specific provider",
           className: "api-method delete",
+        },
+      ],
+    },
+    {
+      type: "category",
+      label: "Ai Playground result controller",
+      link: {
+        type: "doc",
+        id: "tag_ai-playground-result-controller",
+      },
+      collapsible: false,
+      collapsed: false,
+      items: [
+        {
+          type: "doc",
+          id: "get-ai-playground-result",
+          label: "Get ai playground result",
+          className: "api-method post",
         },
       ],
     },
@@ -2442,6 +2442,12 @@ const sidebar: SidebarsConfig = {
         },
         {
           type: "doc",
+          id: "qa-check",
+          label: "Rerun QA checks for translations of selected keys",
+          className: "api-method post",
+        },
+        {
+          type: "doc",
           id: "restore-keys",
           label: "Restore soft-deleted keys",
           className: "api-method post",
@@ -2680,6 +2686,68 @@ const sidebar: SidebarsConfig = {
     },
     {
       type: "category",
+      label: "QA Settings",
+      collapsible: false,
+      collapsed: false,
+      items: [
+        {
+          type: "doc",
+          id: "get-settings",
+          label: "Get QA check settings for the project",
+          className: "api-method get",
+        },
+        {
+          type: "doc",
+          id: "update-settings",
+          label: "Update QA check settings for the project",
+          className: "api-method put",
+        },
+        {
+          type: "doc",
+          id: "get-check-types",
+          label: "Get QA check types grouped by category",
+          className: "api-method get",
+        },
+        {
+          type: "doc",
+          id: "set-qa-enabled",
+          label: "Enable or disable QA checks for the project",
+          className: "api-method put",
+        },
+        {
+          type: "doc",
+          id: "get-all-language-settings",
+          label: "Get per-language QA settings overrides for all project languages",
+          className: "api-method get",
+        },
+        {
+          type: "doc",
+          id: "get-language-settings",
+          label: "Get QA settings overrides for a specific language",
+          className: "api-method get",
+        },
+        {
+          type: "doc",
+          id: "update-language-settings",
+          label: "Set per-language QA settings override",
+          className: "api-method put",
+        },
+        {
+          type: "doc",
+          id: "delete-language-settings",
+          label: "Reset language QA settings to global defaults",
+          className: "api-method delete",
+        },
+        {
+          type: "doc",
+          id: "get-language-settings-resolved",
+          label: "Get resolved QA settings for a specific language",
+          className: "api-method get",
+        },
+      ],
+    },
+    {
+      type: "category",
       label: "Project Stats",
       collapsible: false,
       collapsed: false,
@@ -2694,6 +2762,12 @@ const sidebar: SidebarsConfig = {
           type: "doc",
           id: "get-project-daily-activity",
           label: "Get project daily amount of events",
+          className: "api-method get",
+        },
+        {
+          type: "doc",
+          id: "get-qa-issue-counts-by-check-type",
+          label: "Get QA issue counts grouped by check type for a language",
           className: "api-method get",
         },
       ],
@@ -2721,6 +2795,44 @@ const sidebar: SidebarsConfig = {
           id: "suggest-translation-memory",
           label: "Get suggestions from translation memory",
           className: "api-method post",
+        },
+      ],
+    },
+    {
+      type: "category",
+      label: "QA Issues",
+      collapsible: false,
+      collapsed: false,
+      items: [
+        {
+          type: "doc",
+          id: "get-issues",
+          label: "Get persisted QA issues for a translation",
+          className: "api-method get",
+        },
+        {
+          type: "doc",
+          id: "create-suppression",
+          label: "Create a QA issue suppression by match parameters",
+          className: "api-method post",
+        },
+        {
+          type: "doc",
+          id: "remove-suppression",
+          label: "Remove a QA issue suppression by match parameters",
+          className: "api-method delete",
+        },
+        {
+          type: "doc",
+          id: "ignore-issue",
+          label: "Ignore a QA issue",
+          className: "api-method put",
+        },
+        {
+          type: "doc",
+          id: "unignore-issue",
+          label: "Unignore a QA issue",
+          className: "api-method put",
         },
       ],
     },
