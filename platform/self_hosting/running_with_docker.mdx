@@ -120,7 +120,7 @@ services:
     depends_on:
       - db
   db:
-    image: postgres:13
+    image: postgres:15
     environment:
       POSTGRES_DB: postgres
       POSTGRES_USER: postgres
@@ -131,7 +131,7 @@ services:
       - '25432:5432' # <-- If you want to access your postgres from outside of docker network
 ```
 
-This configuration creates a separate Postgres 13 container. Now, you have to modify the Tolgee configuration to use this database.
+This configuration creates a separate Postgres 15 container. Now, you have to modify the Tolgee configuration to use this database.
 
 ```yaml title=config.yaml
 tolgee:
