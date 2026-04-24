@@ -18,7 +18,7 @@ For local development, supply `apiUrl`, `apiKey` options (see [Integration](/pla
 
 ## One-click screenshots
 
-To generate screenshots automatically, you have to have installed Tolgee Tools extension for [Google Chrome](https://chrome.google.com/webstore/detail/tolgee-tools/hacnbapajkkfohnonhbmegojnddagfnj) or add-on for [Mozilla firefox](https://addons.mozilla.org/en-US/firefox/addon/tolgee-tools/). With this tool, you can generate screenshots by clicking camera icon in Tolgee UI translation dialog.
+To generate screenshots automatically, you have to have installed Tolgee Tools extension for [Google Chrome](https://chrome.google.com/webstore/detail/tolgee-tools/hacnbapajkkfohnonhbmegojnddagfnj) or add-on for [Mozilla Firefox](https://addons.mozilla.org/en-US/firefox/addon/tolgee-tools/). With this tool, you can generate screenshots by clicking camera icon in Tolgee UI translation dialog.
 
 import { ScreenshotWrapper } from '../platform/shared/_ScreenshotWrapper';
 
@@ -35,16 +35,18 @@ import { ScreenshotWrapper } from '../platform/shared/_ScreenshotWrapper';
 
 If you want to enable in-context on production build, there are two options:
 
-### 1. Tolgee Chrome plugin
+### 1. Tolgee Chrome/Firefox plugin
 
-To enable in-context translating on production you can pass `apiKey` and `apiUrl` through [Tolgee Tools](https://chrome.google.com/webstore/detail/tolgee-tools/hacnbapajkkfohnonhbmegojnddagfnj) plugin, that way Tolgee will switch to development mode (plugin will also supply `@tolgee/ui` package automatically).
+To enable in-context translating on production you can pass `apiKey` and `apiUrl` through Tolgee Tools for [Google Chrome](https://chrome.google.com/webstore/detail/tolgee-tools/hacnbapajkkfohnonhbmegojnddagfnj) or [Mozilla Firefox](https://addons.mozilla.org/en-US/firefox/addon/tolgee-tools/), that way Tolgee will switch to development mode (plugin will also supply `@tolgee/ui` package automatically).
 
 :::warning
-Never include `apiKey` in Tolgee configuration on production.
-This property is intended only for local development, as it's not meant to be publicly visible.
+Your `apiKey` should stay private and never be included in Tolgee configuration on production.
+
+- *Local development*: You can pass apiKey directly in your Tolgee configuration.
+- *Production*: Always supply your API key through the Tolgee Tools browser extension instead.
 :::
 
-1.  Install [Tolgee Tools](https://chrome.google.com/webstore/detail/tolgee-tools/hacnbapajkkfohnonhbmegojnddagfnj) plugin
+1.  Install Tolgee Tools
 2.  Go to the production version of your website
 3.  Click on Tolgee Tools extension and apply your API key (you might need to reload if you just installed the plugin)
 4.  In-context translating should work
@@ -53,9 +55,9 @@ This property is intended only for local development, as it's not meant to be pu
 
 #### A few notes about Tolgee Tools plugin
 
-- You can turn off development mode by switching "Applied" toggle, which will turn it off, but stores credentials locally so you don't have to fill it again next time
-- Plugin will supply `apiUrl` from Tolgee configuration if it's present (if not you can fill it manually)
-- Plugin changes its icon if Tolgee is present on the page or if credentials are set
+- You can turn off development mode by switching "Applied" toggle, which will turn it off, but stores credentials locally so you don't have to fill it again next time.
+- Plugin will supply `apiUrl` from Tolgee configuration if it's present (if not you can fill it manually).
+- Plugin changes its icon to pink if Tolgee is present on the page or if credentials are set.
 
 ### 2. Using InContextTools instead of DevTools
 
