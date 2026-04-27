@@ -1364,6 +1364,54 @@ const sidebar: SidebarsConfig = {
     },
     {
       type: "category",
+      label: "Llm providers",
+      link: {
+        type: "doc",
+        id: "tag_llm-providers",
+      },
+      collapsible: false,
+      collapsed: false,
+      items: [
+        {
+          type: "doc",
+          id: "get-all-11",
+          label: "Get all organization-specific providers",
+          className: "api-method get",
+        },
+        {
+          type: "doc",
+          id: "create-provider",
+          label: "Create organization-specific provider",
+          className: "api-method post",
+        },
+        {
+          type: "doc",
+          id: "get-available-providers",
+          label: "Get all available llm providers",
+          className: "api-method get",
+        },
+        {
+          type: "doc",
+          id: "get-server-providers",
+          label: "Get all server-configured providers",
+          className: "api-method get",
+        },
+        {
+          type: "doc",
+          id: "update-provider",
+          label: "Update organization-specific provider",
+          className: "api-method put",
+        },
+        {
+          type: "doc",
+          id: "delete-provider",
+          label: "Delete organization-specific provider",
+          className: "api-method delete",
+        },
+      ],
+    },
+    {
+      type: "category",
       label: "Ai prompt controller",
       link: {
         type: "doc",
@@ -1419,36 +1467,6 @@ const sidebar: SidebarsConfig = {
           id: "delete-prompt",
           label: "Delete prompt",
           className: "api-method delete",
-        },
-      ],
-    },
-    {
-      type: "category",
-      label: "Export",
-      link: {
-        type: "doc",
-        id: "tag_export",
-      },
-      collapsible: false,
-      collapsed: false,
-      items: [
-        {
-          type: "doc",
-          id: "do-export-json-zip",
-          label: "Export to ZIP of jsons",
-          className: "menu__list-item--deprecated api-method get",
-        },
-        {
-          type: "doc",
-          id: "export-data",
-          label: "Export data",
-          className: "api-method get",
-        },
-        {
-          type: "doc",
-          id: "export-post",
-          label: "Export data (post)",
-          className: "api-method post",
         },
       ],
     },
@@ -1556,54 +1574,6 @@ const sidebar: SidebarsConfig = {
     },
     {
       type: "category",
-      label: "Llm providers",
-      link: {
-        type: "doc",
-        id: "tag_llm-providers",
-      },
-      collapsible: false,
-      collapsed: false,
-      items: [
-        {
-          type: "doc",
-          id: "get-all-11",
-          label: "Get all organization-specific providers",
-          className: "api-method get",
-        },
-        {
-          type: "doc",
-          id: "create-provider",
-          label: "Create organization-specific provider",
-          className: "api-method post",
-        },
-        {
-          type: "doc",
-          id: "get-available-providers",
-          label: "Get all available llm providers",
-          className: "api-method get",
-        },
-        {
-          type: "doc",
-          id: "get-server-providers",
-          label: "Get all server-configured providers",
-          className: "api-method get",
-        },
-        {
-          type: "doc",
-          id: "update-provider",
-          label: "Update organization-specific provider",
-          className: "api-method put",
-        },
-        {
-          type: "doc",
-          id: "delete-provider",
-          label: "Delete organization-specific provider",
-          className: "api-method delete",
-        },
-      ],
-    },
-    {
-      type: "category",
       label: "Ai Playground result controller",
       link: {
         type: "doc",
@@ -1616,6 +1586,36 @@ const sidebar: SidebarsConfig = {
           type: "doc",
           id: "get-ai-playground-result",
           label: "Get ai playground result",
+          className: "api-method post",
+        },
+      ],
+    },
+    {
+      type: "category",
+      label: "Export",
+      link: {
+        type: "doc",
+        id: "tag_export",
+      },
+      collapsible: false,
+      collapsed: false,
+      items: [
+        {
+          type: "doc",
+          id: "do-export-json-zip",
+          label: "Export to ZIP of jsons",
+          className: "menu__list-item--deprecated api-method get",
+        },
+        {
+          type: "doc",
+          id: "export-data",
+          label: "Export data",
+          className: "api-method get",
+        },
+        {
+          type: "doc",
+          id: "export-post",
+          label: "Export data (post)",
           className: "api-method post",
         },
       ],
