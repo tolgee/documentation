@@ -1194,6 +1194,24 @@ We don't collect any other data. Please leave telemetry enabled to help us impro
 
   Whether telemetry is enabled (default: `true`)
 
+### Webhooks \{#tolgee-_-webhook}
+
+Prefix: `tolgee.webhook`
+
+Configuration for webhook behavior.
+
+- ##### `auto-disable-after-days` \{#tolgee-webhook-_-auto-disable-after-days}
+
+  Number of days of continuous failure before a webhook is automatically disabled. (default: `3`)
+
+- ##### `auto-disable-enabled` \{#tolgee-webhook-_-auto-disable-enabled}
+
+  Whether the automatic disabling of failing webhooks is enabled. (default: `true`)
+
+- ##### `auto-disable-warning-after-hours` \{#tolgee-webhook-_-auto-disable-warning-after-hours}
+
+  Number of hours of continuous failure before a warning email is sent. (default: `6`)
+
 ### Websocket \{#tolgee-_-websocket}
 
 Prefix: `tolgee.websocket`
@@ -1442,6 +1460,10 @@ tolgee:
     username:
   telemetry:
     enabled: true
+  webhook:
+    auto-disable-after-days: 3
+    auto-disable-enabled: true
+    auto-disable-warning-after-hours: 6
   websocket:
     use-redis: false
 ```
@@ -2627,6 +2649,24 @@ We don't collect any other data. Please leave telemetry enabled to help us impro
 
   Whether telemetry is enabled (default: `true`)
 
+### Webhooks \{#tolgee-_-webhook}
+
+Prefix: `TOLGEE_WEBHOOK`
+
+Configuration for webhook behavior.
+
+- ##### `AUTO_DISABLE_AFTER_DAYS` \{#tolgee-webhook-_-auto-disable-after-days}
+
+  Number of days of continuous failure before a webhook is automatically disabled. (default: `3`)
+
+- ##### `AUTO_DISABLE_ENABLED` \{#tolgee-webhook-_-auto-disable-enabled}
+
+  Whether the automatic disabling of failing webhooks is enabled. (default: `true`)
+
+- ##### `AUTO_DISABLE_WARNING_AFTER_HOURS` \{#tolgee-webhook-_-auto-disable-warning-after-hours}
+
+  Number of hours of continuous failure before a warning email is sent. (default: `6`)
+
 ### Websocket \{#tolgee-_-websocket}
 
 Prefix: `TOLGEE_WEBSOCKET`
@@ -2836,6 +2876,9 @@ TOLGEE_SMTP_TLS_ENABLED=false
 TOLGEE_SMTP_TLS_REQUIRED=false
 TOLGEE_SMTP_USERNAME=
 TOLGEE_TELEMETRY_ENABLED=true
+TOLGEE_WEBHOOK_AUTO_DISABLE_AFTER_DAYS=3
+TOLGEE_WEBHOOK_AUTO_DISABLE_ENABLED=true
+TOLGEE_WEBHOOK_AUTO_DISABLE_WARNING_AFTER_HOURS=6
 TOLGEE_WEBSOCKET_USE_REDIS=false
 ```
 
@@ -4020,6 +4063,24 @@ We don't collect any other data. Please leave telemetry enabled to help us impro
 
   Whether telemetry is enabled (default: `true`)
 
+### Webhooks \{#tolgee-_-webhook}
+
+Prefix: `tolgee.webhook`
+
+Configuration for webhook behavior.
+
+- ##### `auto-disable-after-days` \{#tolgee-webhook-_-auto-disable-after-days}
+
+  Number of days of continuous failure before a webhook is automatically disabled. (default: `3`)
+
+- ##### `auto-disable-enabled` \{#tolgee-webhook-_-auto-disable-enabled}
+
+  Whether the automatic disabling of failing webhooks is enabled. (default: `true`)
+
+- ##### `auto-disable-warning-after-hours` \{#tolgee-webhook-_-auto-disable-warning-after-hours}
+
+  Number of hours of continuous failure before a warning email is sent. (default: `6`)
+
 ### Websocket \{#tolgee-_-websocket}
 
 Prefix: `tolgee.websocket`
@@ -4229,6 +4290,9 @@ tolgee.smtp.tls-enabled = false
 tolgee.smtp.tls-required = false
 tolgee.smtp.username =
 tolgee.telemetry.enabled = true
+tolgee.webhook.auto-disable-after-days = 3
+tolgee.webhook.auto-disable-enabled = true
+tolgee.webhook.auto-disable-warning-after-hours = 6
 tolgee.websocket.use-redis = false
 ```
 
