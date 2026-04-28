@@ -59,6 +59,7 @@ module.exports = {
       type: 'category',
       items: [
         'translation_process/translation_memory',
+        'translation_process/managing_translation_memories',
         'translation_process/machine_translation',
         'translation_process/ai_translator',
         'translation_process/ai-playground',
