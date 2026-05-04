@@ -92,7 +92,7 @@ Configuration specific to Tolgee.
 
 - ##### `translations-view-languages-limit` \{#tolgee-_-translations-view-languages-limit}
 
-  Maximum amount of languages that can be selected in the Translations view (default: `10`)
+  Maximum amount of languages that can be selected in the Translations view. Set to -1 for no limit. (default: `-1`)
 
 ### Authentication \{#tolgee-_-authentication}
 
@@ -1194,6 +1194,24 @@ We don't collect any other data. Please leave telemetry enabled to help us impro
 
   Whether telemetry is enabled (default: `true`)
 
+### Webhooks \{#tolgee-_-webhook}
+
+Prefix: `tolgee.webhook`
+
+Configuration for webhook behavior.
+
+- ##### `auto-disable-after-days` \{#tolgee-webhook-_-auto-disable-after-days}
+
+  Number of days of continuous failure before a webhook is automatically disabled. (default: `3`)
+
+- ##### `auto-disable-enabled` \{#tolgee-webhook-_-auto-disable-enabled}
+
+  Whether the automatic disabling of failing webhooks is enabled. (default: `true`)
+
+- ##### `auto-disable-warning-after-hours` \{#tolgee-webhook-_-auto-disable-warning-after-hours}
+
+  Number of hours of continuous failure before a warning email is sent. (default: `6`)
+
 ### Websocket \{#tolgee-_-websocket}
 
 Prefix: `tolgee.websocket`
@@ -1224,7 +1242,7 @@ tolgee:
   max-screenshots-per-key: 20
   max-translation-text-length: 10000
   max-upload-file-size: 51200
-  translations-view-languages-limit: 10
+  translations-view-languages-limit: -1
   authentication:
     create-demo-for-initial-user: true
     enabled: true
@@ -1442,6 +1460,10 @@ tolgee:
     username:
   telemetry:
     enabled: true
+  webhook:
+    auto-disable-after-days: 3
+    auto-disable-enabled: true
+    auto-disable-warning-after-hours: 6
   websocket:
     use-redis: false
 ```
@@ -1525,7 +1547,7 @@ Configuration specific to Tolgee.
 
 - ##### `TRANSLATIONS_VIEW_LANGUAGES_LIMIT` \{#tolgee-_-translations-view-languages-limit}
 
-  Maximum amount of languages that can be selected in the Translations view (default: `10`)
+  Maximum amount of languages that can be selected in the Translations view. Set to -1 for no limit. (default: `-1`)
 
 ### Authentication \{#tolgee-_-authentication}
 
@@ -2627,6 +2649,24 @@ We don't collect any other data. Please leave telemetry enabled to help us impro
 
   Whether telemetry is enabled (default: `true`)
 
+### Webhooks \{#tolgee-_-webhook}
+
+Prefix: `TOLGEE_WEBHOOK`
+
+Configuration for webhook behavior.
+
+- ##### `AUTO_DISABLE_AFTER_DAYS` \{#tolgee-webhook-_-auto-disable-after-days}
+
+  Number of days of continuous failure before a webhook is automatically disabled. (default: `3`)
+
+- ##### `AUTO_DISABLE_ENABLED` \{#tolgee-webhook-_-auto-disable-enabled}
+
+  Whether the automatic disabling of failing webhooks is enabled. (default: `true`)
+
+- ##### `AUTO_DISABLE_WARNING_AFTER_HOURS` \{#tolgee-webhook-_-auto-disable-warning-after-hours}
+
+  Number of hours of continuous failure before a warning email is sent. (default: `6`)
+
 ### Websocket \{#tolgee-_-websocket}
 
 Prefix: `TOLGEE_WEBSOCKET`
@@ -2653,7 +2693,7 @@ TOLGEE_FRONT_END_URL=
 TOLGEE_MAX_SCREENSHOTS_PER_KEY=20
 TOLGEE_MAX_TRANSLATION_TEXT_LENGTH=10000
 TOLGEE_MAX_UPLOAD_FILE_SIZE=51200
-TOLGEE_TRANSLATIONS_VIEW_LANGUAGES_LIMIT=10
+TOLGEE_TRANSLATIONS_VIEW_LANGUAGES_LIMIT=-1
 TOLGEE_AUTHENTICATION_CREATE_DEMO_FOR_INITIAL_USER=true
 TOLGEE_AUTHENTICATION_ENABLED=true
 TOLGEE_AUTHENTICATION_INITIAL_PASSWORD=
@@ -2836,6 +2876,9 @@ TOLGEE_SMTP_TLS_ENABLED=false
 TOLGEE_SMTP_TLS_REQUIRED=false
 TOLGEE_SMTP_USERNAME=
 TOLGEE_TELEMETRY_ENABLED=true
+TOLGEE_WEBHOOK_AUTO_DISABLE_AFTER_DAYS=3
+TOLGEE_WEBHOOK_AUTO_DISABLE_ENABLED=true
+TOLGEE_WEBHOOK_AUTO_DISABLE_WARNING_AFTER_HOURS=6
 TOLGEE_WEBSOCKET_USE_REDIS=false
 ```
 
@@ -2918,7 +2961,7 @@ Configuration specific to Tolgee.
 
 - ##### `translations-view-languages-limit` \{#tolgee-_-translations-view-languages-limit}
 
-  Maximum amount of languages that can be selected in the Translations view (default: `10`)
+  Maximum amount of languages that can be selected in the Translations view. Set to -1 for no limit. (default: `-1`)
 
 ### Authentication \{#tolgee-_-authentication}
 
@@ -4020,6 +4063,24 @@ We don't collect any other data. Please leave telemetry enabled to help us impro
 
   Whether telemetry is enabled (default: `true`)
 
+### Webhooks \{#tolgee-_-webhook}
+
+Prefix: `tolgee.webhook`
+
+Configuration for webhook behavior.
+
+- ##### `auto-disable-after-days` \{#tolgee-webhook-_-auto-disable-after-days}
+
+  Number of days of continuous failure before a webhook is automatically disabled. (default: `3`)
+
+- ##### `auto-disable-enabled` \{#tolgee-webhook-_-auto-disable-enabled}
+
+  Whether the automatic disabling of failing webhooks is enabled. (default: `true`)
+
+- ##### `auto-disable-warning-after-hours` \{#tolgee-webhook-_-auto-disable-warning-after-hours}
+
+  Number of hours of continuous failure before a warning email is sent. (default: `6`)
+
 ### Websocket \{#tolgee-_-websocket}
 
 Prefix: `tolgee.websocket`
@@ -4046,7 +4107,7 @@ tolgee.front-end-url =
 tolgee.max-screenshots-per-key = 20
 tolgee.max-translation-text-length = 10000
 tolgee.max-upload-file-size = 51200
-tolgee.translations-view-languages-limit = 10
+tolgee.translations-view-languages-limit = -1
 tolgee.authentication.create-demo-for-initial-user = true
 tolgee.authentication.enabled = true
 tolgee.authentication.initial-password =
@@ -4229,6 +4290,9 @@ tolgee.smtp.tls-enabled = false
 tolgee.smtp.tls-required = false
 tolgee.smtp.username =
 tolgee.telemetry.enabled = true
+tolgee.webhook.auto-disable-after-days = 3
+tolgee.webhook.auto-disable-enabled = true
+tolgee.webhook.auto-disable-warning-after-hours = 6
 tolgee.websocket.use-redis = false
 ```
 
