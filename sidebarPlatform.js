@@ -65,11 +65,6 @@ module.exports = {
           items: [
             {
               type: 'doc',
-              id: 'translation_process/translation_memory',
-              label: 'Matches in the editor',
-            },
-            {
-              type: 'doc',
               id: 'translation_process/managing_translation_memories',
               label: 'Manage memories',
             },
