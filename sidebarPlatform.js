@@ -58,7 +58,18 @@ module.exports = {
       label: 'Translation Process',
       type: 'category',
       items: [
-        'translation_process/translation_memory',
+        {
+          label: 'Translation Memory',
+          type: 'category',
+          link: { type: 'doc', id: 'translation_process/translation_memory' },
+          items: [
+            {
+              type: 'doc',
+              id: 'translation_process/managing_translation_memories',
+              label: 'Manage memories',
+            },
+          ],
+        },
         'translation_process/machine_translation',
         'translation_process/ai_translator',
         'translation_process/ai-playground',

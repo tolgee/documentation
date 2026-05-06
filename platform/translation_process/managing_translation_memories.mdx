@@ -1,0 +1,186 @@
+---
+id: managing_translation_memories
+title: Manage Translation Memories
+sidebar_label: Manage Translation Memories
+image: /img/og-images/platform.png
+description: Create shared translation memories, manage entries, import and export TMX files, and assign memories to projects.
+---
+
+import { ScreenshotWrapper } from '../shared/_ScreenshotWrapper';
+
+When a team translates the same product across many projects, the same phrases keep getting re-translated. A login screen string in one project, a button label in another, an error message in a third — all written by different people, each making slightly different choices. The result is inconsistent wording across products and wasted translator time.
+
+Translation memory management lets your organization curate one or more shared memories, fill them with approved translations, and reuse them across every project that should follow the same wording. The [Translation Memory](/platform/translation_process/translation_memory) feature in the editor then surfaces matches from any memory connected to the current project.
+
+:::info
+Translation memory management is available on advanced plans. The feature must be enabled for your organization for the management UI to appear.
+:::
+
+## Translation memory types
+
+Tolgee distinguishes two kinds of memories.
+
+A **shared** memory lives at the organization level and stores its own entries. You add entries by importing a TMX file, by manual entry, or automatically as translators save translations in any assigned project. Multiple projects can read from and write to the same shared memory, so a translation reviewed once becomes available everywhere.
+
+A **project-only** memory is created automatically when the Translation Memory feature is enabled on an organization, one per project. Its content is **virtual**, computed on the fly from the project's own translations. You cannot import into a project-only memory or add entries manually, but you can configure whether it should suggest only reviewed translations.
+
+In the memory list, each row shows a `Shared` or `Project only` chip so you can tell them apart at a glance.
+
+## Open the translation memories list
+
+The list of memories lives in organization settings.
+
+1. Open `Organization settings`
+2. Select `Translation memories` in the side menu
+
+Anyone in the organization can see the list. Only an organization maintainer or owner can create, edit, or delete a memory, and only a maintainer can manage entries inside one. If you cannot see the `+ Translation memory` button, ask an organization owner to grant you the maintainer role.
+
+<ScreenshotWrapper
+  src="/img/docs/platform/translation-memory/translation-memories-list.webp"
+  alt="Translation memories list in organization settings"
+/>
+
+## Create a shared translation memory
+
+Create a shared memory when you want a single source of approved translations that several projects should reuse.
+
+1. On the translation memories list, click `+ Translation memory`
+2. Enter a `Name` that describes its scope (for example, `Marketing copy` or `iOS app`)
+3. Pick a `Base language` — every project assigned to this memory must use the same base language
+4. Set a `Default penalty` (0–100%) — the penalty is subtracted from match scores when suggestions from this memory appear in the editor
+5. Optionally toggle `Only accept reviewed translations` to gate writes (see [Configure write rules](#configure-write-rules) below)
+6. Optionally add the projects this memory should cover, with read or write access and a per-project penalty
+7. Click `Create`
+
+<ScreenshotWrapper
+  src="/img/docs/platform/translation-memory/create-translation-memory.webp"
+  alt="Create translation memory dialog"
+/>
+
+The base language is locked once any project is assigned. If you need to change it later, disconnect every project first.
+
+## Add entries manually
+
+Open the memory by clicking its row in the list. The entries view shows every stored translation, grouped by source text, with one column per language.
+
+1. Click `+ Entry`
+2. Type the source text in the base language column
+3. Type translations in any of the other language columns
+4. Click `Save`
+
+<ScreenshotWrapper
+  src="/img/docs/platform/translation-memory/add-entry-dialog.webp"
+  alt="Add a manual translation memory entry"
+/>
+
+To edit an entry, click any cell in its row. To delete entries, select them with the row checkboxes and use the `Delete` action in the batch toolbar that appears at the top.
+
+The entries view supports two layouts. Use the toolbar buttons to switch between **One row per entry** (a compact grid that shows every language in a single row) and **Stack languages vertically** (one row per language, useful when entries have many translations). Filter by language with the language picker, and use the search field to find entries by source or target text.
+
+## Import a TMX file
+
+Importing TMX is the fastest way to seed a memory with translations you already have, for example after migrating from another translation system or after exporting from a CAT tool.
+
+1. Open the memory you want to import into
+2. Click the `Import TMX` button (cloud-upload icon) in the toolbar
+3. Drop a `.tmx` file into the upload area, or click to browse
+4. If the memory already has entries, choose how to handle conflicts:
+   - `Keep existing entries` — new entries are added, previously imported entries are kept unchanged
+   - `Override existing entries` — new entries are added, previously imported entries are replaced with the new translations
+5. Click `Import`
+
+Only **TMX 1.4b** files are supported. Once the import finishes, a summary shows how many entries were created, updated, or skipped.
+
+<ScreenshotWrapper
+  src="/img/docs/platform/translation-memory/import-tmx-dialog.webp"
+  alt="Import TMX dialog"
+/>
+
+You cannot import into a project-only memory because its content is computed from the project translations.
+
+## Export a TMX file
+
+Export a memory to TMX when you need to back it up, share it with an external translator, or move it to another organization.
+
+1. Open the memory
+2. Click the `Export TMX` button (download icon) in the toolbar
+
+The browser downloads a TMX 1.4b file containing every entry in the memory.
+
+## Assign a memory to projects
+
+Assigning a memory to a project lets translators see suggestions from that memory in the editor and, if write access is enabled, lets the project contribute new translations back to the memory.
+
+You can manage assignments in two places.
+
+**From the memory** — open the memory's `Settings` (three-dot menu on the list, or click `Manage all TMs` from the project's translation memory section). The settings dialog has a `Used in projects` section where you can add or remove projects, toggle each project's `Read` and `Write` access, and set a per-project `Penalty` that overrides the memory's default.
+
+**From the project** — open `Project settings` → `Translation memory`. This view lists every memory assigned to the project in priority order. Drag a row by its handle to change priority — memories higher in the list are preferred when scoring is tied.
+
+<ScreenshotWrapper
+  src="/img/docs/platform/translation-memory/project-settings-tm.webp"
+  alt="Project settings translation memory section"
+/>
+
+Only projects whose base language matches the memory's base language can be assigned. Projects with different base languages are hidden from the project picker so the assignment cannot fail at submit.
+
+## Configure write rules
+
+The `Only accept reviewed translations` switch controls when a translation flows from a project into a shared memory.
+
+When the switch is **off** (default), every saved translation is written to the memory, including translations still in progress. This builds the memory faster but mixes draft and final wording.
+
+When the switch is **on**, only translations marked `Reviewed` are written. If a previously reviewed translation is later un-reviewed, the corresponding entry is removed from the memory. TMX import and direct edits in the entries view bypass this filter — they always succeed.
+
+For shared memories, this setting is fixed at creation time. To change behaviour, create a new shared memory. Project-only memories carry the same switch (under the label `Only include reviewed translations`) and can be toggled at any time.
+
+## Delete a translation memory
+
+Deleting a shared memory permanently removes it and every entry it contains. The action cannot be undone, so you must confirm by typing the memory's name in upper case.
+
+1. Open the three-dot menu on the memory's row
+2. Select `Delete`
+3. Type the memory name in upper case to confirm
+
+Project-only memories cannot be deleted manually — they are removed automatically if the Translation Memory feature is disabled for the organization.
+
+## Reference
+
+### Memory types
+
+| Type           | Stored entries | TMX import | Manual entries | Multi-project |
+|----------------|----------------|------------|----------------|---------------|
+| `Shared`       | Yes            | Yes        | Yes            | Yes           |
+| `Project only` | No (virtual)   | No         | No             | No (one project) |
+
+### Per-project assignment options
+
+| Option       | Effect |
+|--------------|--------|
+| `Read`       | Suggestions from this memory appear in the editor |
+| `Write`      | New translations saved in this project are written into the memory |
+| `Priority`   | Order in the project's memory list — higher priority wins ties |
+| `Penalty`    | Lowers the match score for suggestions from this memory in this project, overriding the memory's default penalty |
+
+### Suggestion ordering
+
+When the editor needs to pick a TM match, it considers every memory the project can read from. Each candidate match is scored by:
+
+1. Similarity between the source text and the candidate's source text
+2. Minus the applicable penalty (per-project override, or the memory's default)
+
+Matches below 50% similarity are not shown. Ties are broken by the memory's priority in the project's translation memory list. See [Translation Memory](/platform/translation_process/translation_memory) for how matches appear in the editor.
+
+### Permissions
+
+| Action | Required role |
+|--------|---------------|
+| View the list of memories | Any organization member with project access |
+| Create, edit, delete a memory | Organization owner or maintainer |
+| Manage entries (add, edit, delete, import) | Organization owner or maintainer |
+| Configure project's TM list, priority, per-project access | Project user with `project.edit` permission |
+| Configure project-only memory's `Only include reviewed translations` | Project user with `project.edit` permission |
+
+### TMX format
+
+Tolgee imports and exports **TMX 1.4b**. Other TMX revisions are not supported. The TMX `srclang` is taken from the memory's base language; `tuv` elements outside the memory's languages are ignored on import.

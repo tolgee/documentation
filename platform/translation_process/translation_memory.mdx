@@ -3,26 +3,43 @@ id: translation_memory
 title: Translation Memory
 sidebar_label: Translation Memory
 image: /img/og-images/platform.png
+description: Reuse previously translated phrases through translation memory matches in the editor.
 ---
 
 import { ScreenshotWrapper } from '../shared/_ScreenshotWrapper';
 
-Translation memory (TM) searches for similar texts in your project and suggests them to you. This helps you to reuse translations and save time.
+Translators waste time re-translating the same phrase. A button label, an error message, a marketing line — the same source text appears across keys, projects, and products, but each translation is rewritten from scratch and worded slightly differently each time.
+
+Translation memory (TM) searches for similar texts your team has translated before and suggests them in the editor. Matches come from the project's own translations and from any shared memory connected to the project, so a phrase translated and reviewed once becomes available everywhere it appears again.
+
+To curate, share, and import memories at the organization level, see [Manage translation memories](/platform/translation_process/managing_translation_memories).
 
 ## Translation memory matches
 
-Translation memory matches are shown in the editor. Suggestions with match percentages lower than 50% won't be displayed.
+Matches appear in the editor as a ranked list. Matches below 50% similarity are not shown.
 
-For each TM match, the following information is shown:
+For each TM match, the panel shows:
 
-- Translation of the base text
-- Base text
-- Match percentage (similarity)
-- Key name
+- The translation in the target language
+- The source text it was translated from
+- A match-score pill, coloured by tier (high / medium / low) so strong matches stand out
+- The translation memory name, the source key, and how long ago the entry was added
 
-To add the TM match to the editor, simply click on the suggestion.
+To insert a match into the editor, click the suggestion. To insert it as-is without picking up its formatting, hold a modifier as you click — see the editor's keyboard shortcut hints.
 
 <ScreenshotWrapper
   src="/img/docs/platform/translation-memory.webp"
-  alt="Translation memory"
+  alt="Translation memory matches in the editor"
 />
+
+## How matches are scored
+
+Each candidate match is scored by similarity between its source text and the text being translated, then reduced by any **penalty** configured on the memory or its assignment. A penalty is useful when one memory is less authoritative than another — for example, a draft memory penalised by 20% will only beat a high-quality memory when its raw similarity is much higher.
+
+When two matches end up with the same score, the memory's priority in the project's translation memory list breaks the tie. You can reorder memories from `Project settings` → `Translation memory`.
+
+## Where matches come from
+
+Every project has a project-only memory that mirrors its own translations. Beyond that, an organization owner or maintainer can connect one or more shared memories to the project, each with its own read or write access and penalty. The editor merges results from every connected memory and shows the strongest matches first.
+
+See [Manage translation memories](/platform/translation_process/managing_translation_memories) for how to create shared memories, import TMX files, and assign memories to projects.
