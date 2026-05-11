@@ -1,14 +1,18 @@
 ---
 id: ai_translator
 title: AI Translator
-description: AI Translator is based on ChatGPT and can translate with included Tolgee Context, key description, project description, language notes and results from TM.
+description: Tolgee AI Translator is powered by large language models and can translate with included Tolgee Context, key description, project description, language notes and results from TM.
 image: /img/og-images/machine-translation.png
 ---
 
 import { ScreenshotWrapper } from '../shared/_ScreenshotWrapper';
 
-AI Translator is based on ChatGPT and can translate with included screenshots, [Tolgee Context](/js-sdk#automatic-context-collection),
+Tolgee AI Translator is powered by large language models (LLMs) and can translate with included screenshots, [Tolgee Context](/js-sdk#automatic-context-collection),
 key description, project description, language notes and results from the translation memory.
+
+On Tolgee Cloud, the AI Translator natively uses Anthropic Claude and OpenAI (ChatGPT) models. You can also configure your own
+[LLM providers](/platform/projects_and_organizations/llm-providers) — both on Tolgee Cloud (per organization) and when self-hosting — including OpenAI,
+Azure OpenAI, Anthropic Claude, Google AI (Gemini), or any OpenAI-compatible API such as LM Studio.
 
 ## AI Translator with context
 
