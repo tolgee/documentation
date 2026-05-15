@@ -40,11 +40,6 @@ The list of memories lives in organization settings.
 
 Anyone in the organization can see the list. Only an organization maintainer or owner can create, edit, or delete a memory, and only a maintainer can manage entries inside one. If you cannot see the `+ Translation memory` button, ask an organization owner to grant you the maintainer role.
 
-{/* TODO screenshot: translation-memories-list.webp
-    What to show: the org's TM list with a realistic mix —
-      - 3 shared memories (e.g. Common UI, Marketing voice, Legal & compliance) each with non-zero entry counts and a few project names visible
-      - 2–3 project-only memories below them
-    Make sure the `+ Translation memory` button is visible top-right and the Shared / Project only chips are easy to spot. */}
 <ScreenshotWrapper
   src="/img/docs/platform/translation-memory/translation-memories-list.webp"
   alt="Translation memories list in organization settings"
@@ -62,13 +57,6 @@ Create a shared memory when you want a single source of approved translations th
 6. Optionally add the projects this memory should cover, with read or write access and a per-project penalty
 7. Click `Create`
 
-{/* TODO screenshot: create-translation-memory.webp
-    What to show: the dialog while creating Marketing voice (or similar) —
-      - Name + base language filled
-      - Default penalty set to a non-zero value (e.g. 10%) so the field is visibly populated
-      - 2 projects already added in the `Used in projects` autocomplete, one with Read only and one with Read + Write
-      - Per-project penalty populated on at least one row
-    Goal: a single shot that exercises every configurable column. */}
 <ScreenshotWrapper
   src="/img/docs/platform/translation-memory/create-translation-memory.webp"
   alt="Create translation memory dialog"
@@ -102,12 +90,6 @@ Importing TMX is the fastest way to seed a memory with translations you already 
 
 Only **TMX 1.4b** files are supported. Once the import finishes, a summary shows how many entries were created, updated, or skipped.
 
-{/* TODO screenshot: import-tmx-dialog.webp
-    What to show: the import dialog with a file staged into a TM that already has entries —
-      - File name + size visible
-      - Both radio buttons visible, "Override existing entries" selected
-      - Submit button enabled
-    Pick an import scenario where the keep/override choice is meaningful. */}
 <ScreenshotWrapper
   src="/img/docs/platform/translation-memory/import-tmx-dialog.webp"
   alt="Import TMX dialog"
@@ -125,12 +107,6 @@ Open the memory by clicking its row in the list. The entries view shows every st
 4. Type translations in any of the inputs
 5. Click `Save`
 
-{/* TODO screenshot: add-entry-dialog.webp
-    What to show: the redesigned new-entry dialog —
-      - Source text filled in (e.g. `Delete project`)
-      - Header multi-select with 3–4 target languages selected (de, fr, es, cs) and at least one more visible-but-unselected
-      - Each selected language renders an input row with text filled
-    Critical: the header multi-select is the headline of this redesign, so it should be obvious which control adds/removes language rows. */}
 <ScreenshotWrapper
   src="/img/docs/platform/translation-memory/add-entry-dialog.webp"
   alt="Add a manual translation memory entry"
@@ -154,12 +130,6 @@ Each row in the `Used in projects` table has these columns:
 - **Write** — when on, translations saved in this project are written into the memory
 - **Penalty** — lowers the match score for this project, overriding the memory's default penalty. Any penalty also stops auto-translate from using the memory for this project
 
-{/* TODO screenshot: assigned-projects-table.webp
-    What to show: the memory's settings dialog open on its `Used in projects` section, with 2–3 projects in the table —
-      - One project with Read + Write enabled, no penalty
-      - One project with Read only and a non-zero penalty
-      - The autocomplete input visible above the table
-    Goal: every column of an assignment row is visible at least once. */}
 <ScreenshotWrapper
   src="/img/docs/platform/translation-memory/assigned-projects-table.webp"
   alt="Used in projects table inside a memory's settings"
