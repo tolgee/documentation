@@ -84,9 +84,9 @@ You have three ways to populate a memory. When the memory is empty, the same thr
 
 Available on shared memories only — project-only memories are already populated this way without configuration.
 
-When a project has write access to a shared memory, every translation saved in that project also lands in the memory as a stored entry, keyed by the project's base text. The next project that reads from the same memory then sees those translations as suggestions, and an exact base-text match also lets auto-translate use the entry (see [Suggestions vs auto-translate](#suggestions-vs-auto-translate)). Nothing to set up beyond the assignment itself — the writes happen as translators work.
+When a project has write access to a shared memory, every translation saved in that project also lands in the memory as a stored entry, keyed by the project's base text. The next project that reads from the same memory then sees those translations as suggestions, and an exact base-text match also lets auto-translate use the entry (see [Auto-translate from memory](/platform/translation_process/translation_memory#auto-translate-from-memory)). Nothing to set up beyond the assignment itself — the writes happen as translators work.
 
-To set up the assignment, click the `Sync from projects` card in the wizard or open the memory's settings and add a project with `Write` enabled. See [Use a memory from a project](#use-a-memory-from-a-project).
+To set up the assignment, click the `Sync from projects` card in the wizard or open the memory's settings and add a project with `Write` enabled. See [Assign a memory to projects](#assign-a-memory-to-projects).
 
 ### Import from file
 
@@ -145,14 +145,13 @@ The entries view supports two layouts. Use the toolbar buttons to switch between
 Assigning a memory to a project lets translators see suggestions from that memory in the editor and, if write access is enabled, lets the project contribute new translations back to the memory. Assignments are managed from the memory's settings.
 
 1. Open `Organization settings` → `Translation memories`
-2. Open the three-dot menu on the memory's row and choose `Settings`
+2. Open the memory's settings — either through the three-dot menu on its row, or by clicking the row to open the memory and then clicking the gear icon in the toolbar
 3. In the `Used in projects` section, type in the autocomplete to add a project, or click the remove icon on a row to detach one
 
 Each row in the `Used in projects` table has these columns:
 
 - **Read** — when on, suggestions from this memory show in the editor for this project; auto-translate may also use it
 - **Write** — when on, translations saved in this project are written into the memory
-- **Priority** — order in the project's memory list; higher priority wins ties when match scores are equal
 - **Penalty** — lowers the match score for this project, overriding the memory's default penalty. Any penalty also stops auto-translate from using the memory for this project
 
 {/* TODO screenshot: assigned-projects-table.webp
@@ -166,7 +165,9 @@ Each row in the `Used in projects` table has these columns:
   alt="Used in projects table inside a memory's settings"
 />
 
-Only projects whose base language matches the memory's base language can be assigned. Projects with different base languages are hidden from the project picker so the assignment cannot fail at submit.
+:::info
+Only projects whose base language matches the memory's base language can be assigned. Projects with different base languages are hidden from the project picker, so the assignment can't fail at submit time.
+:::
 
 For how matches are surfaced once a memory is assigned, see the [Translation Memory](/platform/translation_process/translation_memory) page.
 
@@ -178,7 +179,7 @@ When the switch is **off** (default), every saved translation is written to the 
 
 When the switch is **on**, only translations marked `Reviewed` are written. If a previously reviewed translation is later un-reviewed, the matching entry is removed from the memory. TMX import and direct edits in the entries view skip this rule — they always succeed.
 
-You can change the switch at any time on both shared and project-only memories. Project-only memories carry the same toggle under the label `Only include reviewed translations`. Flipping it from off to on does not retroactively remove draft entries already in the memory; only future writes are filtered.
+You can change the switch at any time on both shared and project-only memories. Turning it on removes entries that came from project translations not currently in `Reviewed` state — manual entries and TMX imports stay because they bypass the rule.
 
 ## Delete a translation memory
 
@@ -198,7 +199,7 @@ Project-only memories cannot be deleted manually — they are removed automatica
 | Create, rename, or delete a shared memory | Organization owner or maintainer |
 | Add, edit, or import entries in a shared memory | Organization owner or maintainer |
 | Pick which memories a project uses, set their priority, read or write access | Anyone allowed to edit project settings |
-| Toggle `Only include reviewed translations` on a project-only memory | Anyone allowed to edit project settings |
+| Toggle `Accept only reviewed translations` on a project-only memory | Anyone allowed to edit project settings |
 
 ## TMX format
 
