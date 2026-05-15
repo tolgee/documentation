@@ -10,23 +10,28 @@ import { ScreenshotWrapper } from '../shared/_ScreenshotWrapper';
 
 When a team translates the same product across many projects, the same phrases keep getting re-translated. A login screen string in one project, a button label in another, an error message in a third — all written by different people, each making slightly different choices. The result is inconsistent wording across products and wasted translator time.
 
-Translation memory management lets your organization curate one or more shared memories, fill them with approved translations, and reuse them across every project that should follow the same wording. The [Translation Memory](/platform/translation_process/translation_memory) feature in the editor then surfaces matches from any memory connected to the current project.
+Translation memory management lets your organization keep one or more shared memories — collections of translations you've already done — and use them across every project that needs to follow the same wording. The [Translation Memory](/platform/translation_process/translation_memory) panel in the editor then shows matches from any memory connected to the current project.
 
 :::info
-Translation memory management is available on advanced plans. The feature must be enabled for your organization for the management UI to appear.
+Every project gets its own project-only memory regardless of plan. Creating and managing **shared** memories needs the Translation Memory feature on your plan.
 :::
 
 ## Translation memory types
 
 Tolgee distinguishes two kinds of memories.
 
-A **shared** memory lives at the organization level and stores its own entries. You add entries by importing a TMX file, by manual entry, or automatically as translators save translations in any assigned project. Multiple projects can read from and write to the same shared memory, so a translation reviewed once becomes available everywhere.
+A **shared** memory lives at the organization level. Multiple projects can read from and write to it, so a translation done once becomes available everywhere it's assigned. Its content comes from three sources, in any combination: manual entries, TMX imports, and translations saved in projects that have write access.
 
-A **project-only** memory is created automatically when the Translation Memory feature is enabled on an organization, one per project. Its content is **virtual**, computed on the fly from the project's own translations. You cannot import into a project-only memory or add entries manually, but you can configure whether it should suggest only reviewed translations.
+A **project-only** memory is created automatically for every project. It always reflects the project's own translations — every translation saved in the project becomes a match in the memory, with no extra setup. You can also import TMX into it and add entries by hand on top of that. Unlike a shared memory it belongs to a single project and has no per-project access settings.
 
 In the memory list, each row shows a `Shared` or `Project only` chip so you can tell them apart at a glance.
 
-## Open the translation memories list
+| Type           | Reflects project translations | Manual + TMX entries | Multi-project |
+|----------------|-------------------------------|----------------------|---------------|
+| `Shared`       | Only when a project writes to it | Yes               | Yes           |
+| `Project only` | Always                        | Yes                  | No (one project) |
+
+## Find your memories
 
 The list of memories lives in organization settings.
 
@@ -35,6 +40,11 @@ The list of memories lives in organization settings.
 
 Anyone in the organization can see the list. Only an organization maintainer or owner can create, edit, or delete a memory, and only a maintainer can manage entries inside one. If you cannot see the `+ Translation memory` button, ask an organization owner to grant you the maintainer role.
 
+{/* TODO screenshot: translation-memories-list.webp
+    What to show: the org's TM list with a realistic mix —
+      - 3 shared memories (e.g. Common UI, Marketing voice, Legal & compliance) each with non-zero entry counts and a few project names visible
+      - 2–3 project-only memories below them
+    Make sure the `+ Translation memory` button is visible top-right and the Shared / Project only chips are easy to spot. */}
 <ScreenshotWrapper
   src="/img/docs/platform/translation-memory/translation-memories-list.webp"
   alt="Translation memories list in organization settings"
@@ -47,11 +57,18 @@ Create a shared memory when you want a single source of approved translations th
 1. On the translation memories list, click `+ Translation memory`
 2. Enter a `Name` that describes its scope (for example, `Marketing copy` or `iOS app`)
 3. Pick a `Base language` — every project assigned to this memory must use the same base language
-4. Set a `Default penalty` (0–100%) — the penalty is subtracted from match scores when suggestions from this memory appear in the editor
+4. Set a `Default penalty` (0–100%) — the penalty is subtracted from match scores when suggestions from this memory show in the editor, and any penalty also stops the memory from being used by auto-translate (see [Auto-translate from memory](/platform/translation_process/translation_memory#auto-translate-from-memory))
 5. Optionally toggle `Only accept reviewed translations` to gate writes (see [Configure write rules](#configure-write-rules) below)
 6. Optionally add the projects this memory should cover, with read or write access and a per-project penalty
 7. Click `Create`
 
+{/* TODO screenshot: create-translation-memory.webp
+    What to show: the dialog while creating Marketing voice (or similar) —
+      - Name + base language filled
+      - Default penalty set to a non-zero value (e.g. 10%) so the field is visibly populated
+      - 2 projects already added in the `Used in projects` autocomplete, one with Read only and one with Read + Write
+      - Per-project penalty populated on at least one row
+    Goal: a single shot that exercises every configurable column. */}
 <ScreenshotWrapper
   src="/img/docs/platform/translation-memory/create-translation-memory.webp"
   alt="Create translation memory dialog"
@@ -59,15 +76,61 @@ Create a shared memory when you want a single source of approved translations th
 
 The base language is locked once any project is assigned. If you need to change it later, disconnect every project first.
 
-## Add entries manually
+## Fill a memory
+
+You have three ways to populate a memory. When the memory is empty, the same three options appear as cards in an in-page wizard — picking a card just opens the relevant flow.
+
+### Sync from projects
+
+Available on shared memories only — project-only memories are already populated this way without configuration.
+
+When a project has write access to a shared memory, every translation saved in that project also lands in the memory as a stored entry, keyed by the project's base text. The next project that reads from the same memory then sees those translations as suggestions, and an exact base-text match also lets auto-translate use the entry (see [Suggestions vs auto-translate](#suggestions-vs-auto-translate)). Nothing to set up beyond the assignment itself — the writes happen as translators work.
+
+To set up the assignment, click the `Sync from projects` card in the wizard or open the memory's settings and add a project with `Write` enabled. See [Use a memory from a project](#use-a-memory-from-a-project).
+
+### Import from file
+
+Importing TMX is the fastest way to seed a memory with translations you already have, for example after migrating from another translation system or after exporting from a CAT tool.
+
+1. Open the memory you want to import into
+2. Click the `Import from file` card in the wizard, or the cloud-upload icon in the toolbar
+3. Drop a `.tmx` file into the upload area, or click to browse
+4. If the memory already has entries, choose how to handle conflicts:
+   - `Keep existing entries` — new entries are added, previously imported entries are kept unchanged
+   - `Override existing entries` — new entries are added, previously imported entries are replaced with the new translations
+5. Click `Import`
+
+Only **TMX 1.4b** files are supported. Once the import finishes, a summary shows how many entries were created, updated, or skipped.
+
+{/* TODO screenshot: import-tmx-dialog.webp
+    What to show: the import dialog with a file staged into a TM that already has entries —
+      - File name + size visible
+      - Both radio buttons visible, "Override existing entries" selected
+      - Submit button enabled
+    Pick an import scenario where the keep/override choice is meaningful. */}
+<ScreenshotWrapper
+  src="/img/docs/platform/translation-memory/import-tmx-dialog.webp"
+  alt="Import TMX dialog"
+/>
+
+The memory's base language wins — the TMX file's `srclang` is ignored when it disagrees, and any `<tu>` without a `<tuv>` in the memory's base language is skipped.
+
+### Add manually
 
 Open the memory by clicking its row in the list. The entries view shows every stored translation, grouped by source text, with one column per language.
 
-1. Click `+ Entry`
+1. Click the `Add manually` card in the wizard, or `+ Entry` in the toolbar
 2. Type the source text in the base language column
-3. Type translations in any of the other language columns
-4. Click `Save`
+3. Use the language picker in the dialog header to choose which target languages get a translation input — toggling a language on adds its input, off removes it
+4. Type translations in any of the inputs
+5. Click `Save`
 
+{/* TODO screenshot: add-entry-dialog.webp
+    What to show: the redesigned new-entry dialog —
+      - Source text filled in (e.g. `Delete project`)
+      - Header multi-select with 3–4 target languages selected (de, fr, es, cs) and at least one more visible-but-unselected
+      - Each selected language renders an input row with text filled
+    Critical: the header multi-select is the headline of this redesign, so it should be obvious which control adds/removes language rows. */}
 <ScreenshotWrapper
   src="/img/docs/platform/translation-memory/add-entry-dialog.webp"
   alt="Add a manual translation memory entry"
@@ -77,52 +140,35 @@ To edit an entry, click any cell in its row. To delete entries, select them with
 
 The entries view supports two layouts. Use the toolbar buttons to switch between **One row per entry** (a compact grid that shows every language in a single row) and **Stack languages vertically** (one row per language, useful when entries have many translations). Filter by language with the language picker, and use the search field to find entries by source or target text.
 
-## Import a TMX file
-
-Importing TMX is the fastest way to seed a memory with translations you already have, for example after migrating from another translation system or after exporting from a CAT tool.
-
-1. Open the memory you want to import into
-2. Click the `Import TMX` button (cloud-upload icon) in the toolbar
-3. Drop a `.tmx` file into the upload area, or click to browse
-4. If the memory already has entries, choose how to handle conflicts:
-   - `Keep existing entries` — new entries are added, previously imported entries are kept unchanged
-   - `Override existing entries` — new entries are added, previously imported entries are replaced with the new translations
-5. Click `Import`
-
-Only **TMX 1.4b** files are supported. Once the import finishes, a summary shows how many entries were created, updated, or skipped.
-
-<ScreenshotWrapper
-  src="/img/docs/platform/translation-memory/import-tmx-dialog.webp"
-  alt="Import TMX dialog"
-/>
-
-You cannot import into a project-only memory because its content is computed from the project translations.
-
-## Export a TMX file
-
-Export a memory to TMX when you need to back it up, share it with an external translator, or move it to another organization.
-
-1. Open the memory
-2. Click the `Export TMX` button (download icon) in the toolbar
-
-The browser downloads a TMX 1.4b file containing every entry in the memory.
-
 ## Assign a memory to projects
 
-Assigning a memory to a project lets translators see suggestions from that memory in the editor and, if write access is enabled, lets the project contribute new translations back to the memory.
+Assigning a memory to a project lets translators see suggestions from that memory in the editor and, if write access is enabled, lets the project contribute new translations back to the memory. Assignments are managed from the memory's settings.
 
-You can manage assignments in two places.
+1. Open `Organization settings` → `Translation memories`
+2. Open the three-dot menu on the memory's row and choose `Settings`
+3. In the `Used in projects` section, type in the autocomplete to add a project, or click the remove icon on a row to detach one
 
-**From the memory** — open the memory's `Settings` (three-dot menu on the list, or click `Manage all TMs` from the project's translation memory section). The settings dialog has a `Used in projects` section where you can add or remove projects, toggle each project's `Read` and `Write` access, and set a per-project `Penalty` that overrides the memory's default.
+Each row in the `Used in projects` table has these columns:
 
-**From the project** — open `Project settings` → `Translation memory`. This view lists every memory assigned to the project in priority order. Drag a row by its handle to change priority — memories higher in the list are preferred when scoring is tied.
+- **Read** — when on, suggestions from this memory show in the editor for this project; auto-translate may also use it
+- **Write** — when on, translations saved in this project are written into the memory
+- **Priority** — order in the project's memory list; higher priority wins ties when match scores are equal
+- **Penalty** — lowers the match score for this project, overriding the memory's default penalty. Any penalty also stops auto-translate from using the memory for this project
 
+{/* TODO screenshot: assigned-projects-table.webp
+    What to show: the memory's settings dialog open on its `Used in projects` section, with 2–3 projects in the table —
+      - One project with Read + Write enabled, no penalty
+      - One project with Read only and a non-zero penalty
+      - The autocomplete input visible above the table
+    Goal: every column of an assignment row is visible at least once. */}
 <ScreenshotWrapper
-  src="/img/docs/platform/translation-memory/project-settings-tm.webp"
-  alt="Project settings translation memory section"
+  src="/img/docs/platform/translation-memory/assigned-projects-table.webp"
+  alt="Used in projects table inside a memory's settings"
 />
 
 Only projects whose base language matches the memory's base language can be assigned. Projects with different base languages are hidden from the project picker so the assignment cannot fail at submit.
+
+For how matches are surfaced once a memory is assigned, see the [Translation Memory](/platform/translation_process/translation_memory) page.
 
 ## Configure write rules
 
@@ -130,9 +176,9 @@ The `Only accept reviewed translations` switch controls when a translation flows
 
 When the switch is **off** (default), every saved translation is written to the memory, including translations still in progress. This builds the memory faster but mixes draft and final wording.
 
-When the switch is **on**, only translations marked `Reviewed` are written. If a previously reviewed translation is later un-reviewed, the corresponding entry is removed from the memory. TMX import and direct edits in the entries view bypass this filter — they always succeed.
+When the switch is **on**, only translations marked `Reviewed` are written. If a previously reviewed translation is later un-reviewed, the matching entry is removed from the memory. TMX import and direct edits in the entries view skip this rule — they always succeed.
 
-For shared memories, this setting is fixed at creation time. To change behaviour, create a new shared memory. Project-only memories carry the same switch (under the label `Only include reviewed translations`) and can be toggled at any time.
+You can change the switch at any time on both shared and project-only memories. Project-only memories carry the same toggle under the label `Only include reviewed translations`. Flipping it from off to on does not retroactively remove draft entries already in the memory; only future writes are filtered.
 
 ## Delete a translation memory
 
@@ -144,43 +190,16 @@ Deleting a shared memory permanently removes it and every entry it contains. The
 
 Project-only memories cannot be deleted manually — they are removed automatically if the Translation Memory feature is disabled for the organization.
 
-## Reference
+## Who can do what
 
-### Memory types
+| What you want to do | Who can do it |
+|---|---|
+| See the list of memories | Anyone in the organization |
+| Create, rename, or delete a shared memory | Organization owner or maintainer |
+| Add, edit, or import entries in a shared memory | Organization owner or maintainer |
+| Pick which memories a project uses, set their priority, read or write access | Anyone allowed to edit project settings |
+| Toggle `Only include reviewed translations` on a project-only memory | Anyone allowed to edit project settings |
 
-| Type           | Stored entries | TMX import | Manual entries | Multi-project |
-|----------------|----------------|------------|----------------|---------------|
-| `Shared`       | Yes            | Yes        | Yes            | Yes           |
-| `Project only` | No (virtual)   | No         | No             | No (one project) |
+## TMX format
 
-### Per-project assignment options
-
-| Option       | Effect |
-|--------------|--------|
-| `Read`       | Suggestions from this memory appear in the editor |
-| `Write`      | New translations saved in this project are written into the memory |
-| `Priority`   | Order in the project's memory list — higher priority wins ties |
-| `Penalty`    | Lowers the match score for suggestions from this memory in this project, overriding the memory's default penalty |
-
-### Suggestion ordering
-
-When the editor needs to pick a TM match, it considers every memory the project can read from. Each candidate match is scored by:
-
-1. Similarity between the source text and the candidate's source text
-2. Minus the applicable penalty (per-project override, or the memory's default)
-
-Matches below 50% similarity are not shown. Ties are broken by the memory's priority in the project's translation memory list. See [Translation Memory](/platform/translation_process/translation_memory) for how matches appear in the editor.
-
-### Permissions
-
-| Action | Required role |
-|--------|---------------|
-| View the list of memories | Any organization member with project access |
-| Create, edit, delete a memory | Organization owner or maintainer |
-| Manage entries (add, edit, delete, import) | Organization owner or maintainer |
-| Configure project's TM list, priority, per-project access | Project user with `project.edit` permission |
-| Configure project-only memory's `Only include reviewed translations` | Project user with `project.edit` permission |
-
-### TMX format
-
-Tolgee imports and exports **TMX 1.4b**. Other TMX revisions are not supported. The TMX `srclang` is taken from the memory's base language; `tuv` elements outside the memory's languages are ignored on import.
+Tolgee imports and exports **TMX 1.4b**. Other TMX revisions are not supported. On import, the memory's base language wins — the file's `<header srclang>` is ignored, and `<tu>` elements that don't carry a `<tuv>` in the memory's base language are dropped.

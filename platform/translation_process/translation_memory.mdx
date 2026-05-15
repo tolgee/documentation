@@ -12,7 +12,11 @@ Translators waste time re-translating the same phrase. A button label, an error 
 
 Translation memory (TM) searches for similar texts your team has translated before and suggests them in the editor. Matches come from the project's own translations and from any shared memory connected to the project, so a phrase translated and reviewed once becomes available everywhere it appears again.
 
-To curate, share, and import memories at the organization level, see [Manage translation memories](/platform/translation_process/managing_translation_memories).
+:::info
+Translation memory only works on a project's **default branch**. Translations on other branches are not written to the memory, and matches from non-default-branch keys are not surfaced as suggestions or used by auto-translate. See [Branching](/platform/branching/overview) for the general rule on what branch-scoped data is and isn't shared across branches.
+:::
+
+To create shared memories, import them, and share them across projects at the organization level, see [Manage translation memories](/platform/translation_process/managing_translation_memories).
 
 ## Translation memory matches
 
@@ -34,7 +38,7 @@ To insert a match into the editor, click the suggestion. To insert it as-is with
 
 ## How matches are scored
 
-Each candidate match is scored by similarity between its source text and the text being translated, then reduced by any **penalty** configured on the memory or its assignment. A penalty is useful when one memory is less authoritative than another — for example, a draft memory penalised by 20% will only beat a high-quality memory when its raw similarity is much higher.
+Each candidate match is scored by similarity between its source text and the text being translated, then reduced by any **penalty** set on the memory or on its assignment to your project. A penalty is useful when one memory is less trusted than another — for example, a draft memory with a 20% penalty will only beat a high-quality memory when its raw similarity is much higher.
 
 When two matches end up with the same score, the memory's priority in the project's translation memory list breaks the tie. You can reorder memories from `Project settings` → `Translation memory`.
 
@@ -43,3 +47,16 @@ When two matches end up with the same score, the memory's priority in the projec
 Every project has a project-only memory that mirrors its own translations. Beyond that, an organization owner or maintainer can connect one or more shared memories to the project, each with its own read or write access and penalty. The editor merges results from every connected memory and shows the strongest matches first.
 
 See [Manage translation memories](/platform/translation_process/managing_translation_memories) for how to create shared memories, import TMX files, and assign memories to projects.
+
+## Auto-translate from memory
+
+The same memories that drive the suggestion panel can also fill empty translations automatically — either as you save (with auto-translate enabled in the project) or in bulk via the pre-translate batch job. The two features look at the same memories but follow different rules.
+
+| Feature | Triggered by | What it looks at | Threshold |
+|---|---|---|---|
+| Editor suggestion panel | Opening or focusing a translation cell | Trigram similarity with penalty subtracted | Similarity (post-penalty) ≥ 50% |
+| Auto-translate / pre-translate by TM | Saving with auto-translate on, or running the pre-translate batch job | Exact source-text match | Exact equality **and** the memory carries no penalty for the receiving project |
+
+A memory marked with any penalty (its default or a per-project override) still shows up as suggestions, but auto-translate is skipped. The penalty is the project's way of saying "show me this, but don't let it fill empty cells on its own".
+
+One other case the panel can show but auto-translate skips: a draft target while the memory is in `Only accept reviewed translations` mode — auto-translate also follows the reviewed-only rule.
