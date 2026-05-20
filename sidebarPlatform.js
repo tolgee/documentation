@@ -61,8 +61,12 @@ module.exports = {
         {
           label: 'Translation Memory',
           type: 'category',
-          link: { type: 'doc', id: 'translation_process/translation_memory' },
           items: [
+            {
+              type: 'doc',
+              id: 'translation_process/using_translation_memory',
+              label: 'Use translation memory',
+            },
             {
               type: 'doc',
               id: 'translation_process/managing_translation_memories',
