@@ -65,12 +65,12 @@ module.exports = {
             {
               type: 'doc',
               id: 'translation_process/using_translation_memory',
-              label: 'Use translation memory',
+              label: 'Use Translation Memory',
             },
             {
               type: 'doc',
               id: 'translation_process/managing_translation_memories',
-              label: 'Manage memories',
+              label: 'Manage Translation Memories',
             },
           ],
         },
