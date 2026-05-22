@@ -8,7 +8,7 @@ description: Reuse previously translated phrases through translation memory matc
 
 import { ScreenshotWrapper } from '../shared/_ScreenshotWrapper';
 
-Translators waste time re-translating the same phrase. A button label, an error message, a marketing line — the same source text appears across keys, projects, and products, but each translation is rewritten from scratch and worded slightly differently each time.
+Translators waste time re-translating the same phrase. A button label, an error message, a marketing line: the same source text appears across keys, projects, and products, but each translation is rewritten from scratch and worded slightly differently each time.
 
 Translation memory (TM) searches for similar texts your team has translated before and suggests them in the editor. Matches come from the project's own translations and from any shared memory connected to the project, so a phrase translated and reviewed once becomes available everywhere it appears again.
 
@@ -29,7 +29,7 @@ For each TM match, the panel shows:
 - A match-score pill, coloured by tier (high / medium / low) so strong matches stand out
 - The translation memory name, the source key, and how long ago the entry was added
 
-To insert a match into the editor, click the suggestion. To insert it as-is without picking up its formatting, hold a modifier as you click — see the editor's keyboard shortcut hints.
+To insert a match into the editor, click the suggestion. To insert it as-is without picking up its formatting, hold a modifier as you click. See the editor's keyboard shortcut hints.
 
 <ScreenshotWrapper
   src="/img/docs/platform/translation-memory.webp"
@@ -38,7 +38,7 @@ To insert a match into the editor, click the suggestion. To insert it as-is with
 
 ## How matches are scored
 
-Each candidate match is scored by similarity between its source text and the text being translated, then reduced by any **penalty** set on the memory or on its assignment to your project. A penalty is useful when one memory is less trusted than another — for example, a draft memory with a 20% penalty will only beat a high-quality memory when its raw similarity is much higher.
+Each candidate match is scored by similarity between its source text and the text being translated, then reduced by any **penalty** set on the memory or on its assignment to your project. A penalty is useful when one memory is less trusted than another. For example, a draft memory with a 20% penalty will only beat a high-quality memory when its raw similarity is much higher.
 
 When two matches end up with the same score, the memory's priority in the project's translation memory list breaks the tie. You can reorder memories from `Project settings` → `Translation memory`.
 
@@ -50,7 +50,7 @@ See [Manage translation memories](/platform/translation_process/managing_transla
 
 ## Auto-translate from memory
 
-The same memories that drive the suggestion panel can also fill empty translations automatically — either as you save (with auto-translate enabled in the project) or in bulk via the pre-translate batch job. The two features look at the same memories but follow different rules.
+The same memories that drive the suggestion panel can also fill empty translations automatically, either as you save (with auto-translate enabled in the project) or in bulk via the pre-translate batch job. The two features look at the same memories but follow different rules.
 
 | Feature | Triggered by | What it looks at | Threshold |
 |---|---|---|---|
@@ -59,4 +59,28 @@ The same memories that drive the suggestion panel can also fill empty translatio
 
 A memory marked with any penalty (its default or a per-project override) still shows up as suggestions, but auto-translate is skipped. The penalty is the project's way of saying "show me this, but don't let it fill empty cells on its own".
 
-One other case the panel can show but auto-translate skips: a draft target while the memory is in `Only accept reviewed translations` mode — auto-translate also follows the reviewed-only rule.
+One other case the panel can show but auto-translate skips: a draft target while the memory is in `Only accept reviewed translations` mode. Auto-translate also follows the reviewed-only rule.
+
+## FAQ
+
+### What's the difference between translation memory and machine translation?
+
+Translation memory stores **human translations your team has already done**, so every match is a real translation of a real source string written by a real translator. Machine translation generates a fresh translation from a model (DeepL, Google, OpenAI, Tolgee's own AI providers, and others) every time it's called. The editor shows both, with TM matches ranked first because they reflect your team's wording. See [Machine translation](/platform/translation_process/machine_translation) for how to configure MT providers.
+
+### Why aren't I seeing matches from a memory in the editor?
+
+A memory match only appears when several conditions line up. Check, in order:
+
+- The project has **read access** to the memory in `Project settings` → `Translation memory`.
+- The memory's **base language** matches the project's base language.
+- The source text of the key being translated has **above 50% similarity** with at least one entry in the memory. Matches below 50% are not shown.
+- The key is on the project's **default branch**. Translation memory does not work on other branches.
+- For shared memories, the memory actually has entries. Sync from a project only happens when the project has write access AND a translator has saved a translation there.
+
+### Why does the suggestion panel show a match that auto-translate didn't use?
+
+Auto-translate is stricter than the suggestion panel. It only fires when the source text is an **exact** match (100% similarity) and the memory carries **no penalty** for the receiving project. The suggestion panel shows everything down to 50% similarity, with penalties applied to the score. See [Auto-translate from memory](#auto-translate-from-memory) for the full rule.
+
+### Does the translation memory update in real time as my team translates?
+
+Yes. As soon as a translator saves a translation in a project with **write access** to a memory, that entry becomes a candidate match for every other project that has read access to the same memory. There is no indexing delay or rebuild step.
