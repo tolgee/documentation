@@ -160,10 +160,11 @@ it leads to a `SET_TRANSLATIONS` activity. The `modifiedEntities` would contain 
 ]
 ```
 
-These operations don't provide all the information about modifications since the amount of changes might be extremely large. You will have to handle such events differently.
+For the following activity types, `modifiedEntities` is omitted from the webhook payload because the amount of changes can be extremely large:
 
-`KEY_DELETE`, `IMPORT`, `DELETE_LANGUAGE`, `BATCH_PRE_TRANSLATE_BY_TM`, `BATCH_MACHINE_TRANSLATE`, `AUTO_TRANSLATE`, `BATCH_CLEAR_TRANSLATIONS
-BATCH_COPY_TRANSLATIONS`, `BATCH_SET_TRANSLATION_STATE`, `BATCH_TAG_KEYS`, `BATCH_UNTAG_KEYS`, `BATCH_SET_KEYS_NAMESPACE`, `AUTOMATION`, `BATCH_ASSIGN_TRANSLATION_LABEL`, `BATCH_UNASSIGN_TRANSLATION_LABEL`
+`KEY_DELETE`, `IMPORT`, `DELETE_LANGUAGE`, `BATCH_PRE_TRANSLATE_BY_TM`, `BATCH_MACHINE_TRANSLATE`, `AUTO_TRANSLATE`, `BATCH_CLEAR_TRANSLATIONS`, `BATCH_COPY_TRANSLATIONS`, `BATCH_SET_TRANSLATION_STATE`, `BATCH_TAG_KEYS`, `BATCH_UNTAG_KEYS`, `BATCH_SET_KEYS_NAMESPACE`, `AUTOMATION`, `BATCH_ASSIGN_TRANSLATION_LABEL`, `BATCH_UNASSIGN_TRANSLATION_LABEL`
+
+To retrieve the modifications for these events, use the `revisionId` from the webhook payload with the [Get modified entities by revision](/api/get-modified-entities-by-revision) endpoint. The response is paginated and supports filtering by entity class (e.g. `Translation`, `Key`). You can also fetch summary information about the revision itself via the [Get single revision](/api/get-single-revision) endpoint.
 
 ## Failing webhooks
 When the execution fails, the webhook is retried several times. Because of this, it is a good idea to check the timestamp
