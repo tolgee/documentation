@@ -29,7 +29,7 @@ For each TM match, the panel shows:
 - A match-score pill, coloured by tier (high / medium / low) so strong matches stand out
 - The translation memory name, the source key, and how long ago the entry was added
 
-To insert a match into the editor, click the suggestion. To insert it as-is without picking up its formatting, hold a modifier as you click. See the editor's keyboard shortcut hints.
+To insert a match into the editor, click the suggestion.
 
 <ScreenshotWrapper
   src="/img/docs/platform/translation-memory.webp"
@@ -38,9 +38,7 @@ To insert a match into the editor, click the suggestion. To insert it as-is with
 
 ## How matches are scored
 
-Each candidate match is scored by similarity between its source text and the text being translated, then reduced by any **penalty** set on the memory or on its assignment to your project. A penalty is useful when one memory is less trusted than another. For example, a draft memory with a 20% penalty will only beat a high-quality memory when its raw similarity is much higher.
-
-When two matches end up with the same score, the memory's priority in the project's translation memory list breaks the tie. You can reorder memories from `Project settings` → `Translation memory`.
+Each match is scored by similarity between its source text and the text being translated. Scores can be lowered by a [penalty](/platform/translation_process/managing_translation_memories#penalty) an organization owner has configured on a shared memory. When two matches end up with the same final score, the memory's priority in the project's translation memory list breaks the tie. You can reorder memories from `Project settings` → `Advanced` → `Translation memory`.
 
 ## Where matches come from
 
@@ -57,7 +55,7 @@ The same memories that drive the suggestion panel can also fill empty translatio
 | Editor suggestion panel | Opening or focusing a translation cell | Trigram similarity with penalty subtracted | Similarity (post-penalty) ≥ 50% |
 | Auto-translate / pre-translate by TM | Saving with auto-translate on, or running the pre-translate batch job | Exact source-text match | Exact equality **and** the memory carries no penalty for the receiving project |
 
-A memory marked with any penalty (its default or a per-project override) still shows up as suggestions, but auto-translate is skipped. The penalty is the project's way of saying "show me this, but don't let it fill empty cells on its own".
+A memory marked with any [penalty](/platform/translation_process/managing_translation_memories#penalty) (its default or a per-project override) still shows up as suggestions, but auto-translate is skipped.
 
 One other case the panel can show but auto-translate skips: a draft target while the memory is in `Only accept reviewed translations` mode. Auto-translate also follows the reviewed-only rule.
 
@@ -71,7 +69,7 @@ Translation memory stores **human translations your team has already done**, so 
 
 A memory match only appears when several conditions line up. Check, in order:
 
-- The project has **read access** to the memory in `Project settings` → `Translation memory`.
+- The project has **read access** to the memory in `Project settings` → `Advanced` → `Translation memory`.
 - The memory's **base language** matches the project's base language.
 - The source text of the key being translated has **above 50% similarity** with at least one entry in the memory. Matches below 50% are not shown.
 - The key is on the project's **default branch**. Translation memory does not work on other branches.

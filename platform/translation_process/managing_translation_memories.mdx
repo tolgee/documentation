@@ -170,7 +170,7 @@ Assigning a memory to a project lets translators see suggestions from that memor
 
 Each row in the `Shared with` table has these columns:
 
-- **Penalty**: lowers the [match score](/platform/translation_process/using_translation_memory#translation-memory-matches) for this project, overriding the memory's default penalty. Any penalty also stops auto-translate from using the memory for this project
+- **Penalty**: overrides the memory's default [penalty](#penalty) for this project
 - **Read**: when on, suggestions from this memory show in the editor for this project; auto-translate may also use it
 - **Write**: when on, translations saved in this project are written into the memory
 
@@ -183,7 +183,7 @@ Each row in the `Shared with` table has these columns:
 You can only assign projects that use the same base language as the memory. Projects with a different base language are hidden from the picker. The TM base language cannot be changed while any project is assigned to the memory. To change it, disconnect every project first.
 :::
 
-Picking which memories a project uses (and toggling read/write/penalty per project) is done by anyone allowed to edit project settings; it doesn't require the organization maintainer role.
+Picking which memories a project uses (and toggling its read/write access and priority) is done by anyone with the project's **Edit** role; it doesn't require the organization maintainer role. The per-project [penalty](#penalty) is set from the memory's settings dialog (org-side), which does require the maintainer or owner role.
 
 ### Control which translations enter the memory
 
@@ -191,9 +191,24 @@ The `Only accept reviewed translations` switch controls when a translation flows
 
 When the switch is **off** (default), every saved translation is written to the memory, including translations still in progress. This builds the memory faster but mixes draft and final wording.
 
-When the switch is **on**, only translations marked `Reviewed` are written. If a previously reviewed translation is later un-reviewed, the matching entry is removed from the memory. TMX import and direct edits in the entries view skip this rule; they always succeed.
+When the switch is **on**, only translations marked `Reviewed` are written. If a previously reviewed translation is later un-reviewed, the matching entry is removed from the memory. The rule applies only to sync from projects — manual entries and TMX imports go in regardless of the switch.
 
 You can change the switch at any time on both shared and project-only memories. Turning it on removes entries that came from project translations not currently in `Reviewed` state. Manual entries and TMX imports stay because they bypass the rule.
+
+### Penalty
+
+A **penalty** (0–100%) lowers the [match score](/platform/translation_process/using_translation_memory#translation-memory-matches) of every suggestion from a memory before it's ranked in the editor, so a higher penalty pushes its suggestions further down. Set one when you want a memory to compete only if its raw similarity is much higher. For example, a draft memory with a 20% penalty only beats a high-quality memory when its similarity is roughly 20% higher.
+
+Any non-zero penalty also disables [auto-translate from memory](/platform/translation_process/using_translation_memory#auto-translate-from-memory) for that memory. Its suggestions still appear in the editor, but auto-translate and pre-translate skip the memory entirely.
+
+You can set a penalty in two places:
+
+- **Default penalty**: configured on the memory itself when you create it. Applies to every project unless overridden.
+- **Per-project penalty**: configured in the `Shared with` table. Overrides the default penalty for that one project.
+
+:::info
+Penalty applies only to shared memories. Project-only memories don't have a penalty setting.
+:::
 
 ### What an assigned project sees
 
@@ -208,9 +223,91 @@ Deleting a shared memory permanently removes it and every entry it contains. The
 2. Select `Delete`.
 3. Type the memory name in upper case to confirm.
 
-Project-only memories cannot be deleted. They are always available in all pojects. 
+:::info
+Project-only memories cannot be deleted. They are always available in all projects.
+:::
+
 
 Deleting a shared memory requires the **maintainer** or **owner** role.
+
+## Permissions reference
+
+| What you want to do                                                            | Who can do it                              |
+|--------------------------------------------------------------------------------|--------------------------------------------|
+| See the list of memories                                                       | Anyone in the organization                 |
+| Create, rename, or delete a shared memory                                      | Organization owner or maintainer           |
+| Add, edit, or import entries in a shared memory                                | Organization owner or maintainer           |
+| Pick which memories a project uses, set their priority, read or write access  | Anyone allowed to edit project settings    |
+| Toggle `Accept only reviewed translations` on a project-only memory            | Anyone allowed to edit project settings    |
+
+## TMX format reference
+
+Tolgee imports and exports **TMX 1.4b**. Other TMX revisions are not supported.
+
+### Example
+
+A TMX file Tolgee can import:
+
+```xml
+<?xml version="1.0" encoding="UTF-8"?>
+<tmx version="1.4">
+  <header
+    creationtool="Tolgee"
+    creationtoolversion="1.0"
+    datatype="PlainText"
+    segtype="sentence"
+    srclang="en" />
+  <body>
+    <tu tuid="welcome-message">
+      <tuv xml:lang="en"><seg>Welcome back, {name}.</seg></tuv>
+      <tuv xml:lang="de"><seg>Willkommen zurück, {name}.</seg></tuv>
+      <tuv xml:lang="cs"><seg>Vítej zpět, {name}.</seg></tuv>
+    </tu>
+    <tu>
+      <tuv xml:lang="en"><seg>Save changes</seg></tuv>
+      <tuv xml:lang="de"><seg>Änderungen speichern</seg></tuv>
+    </tu>
+  </body>
+</tmx>
+```
+
+### What Tolgee reads on import
+
+For each `<tu>`:
+
+- The `<tuv>` whose language matches the memory's base language becomes the **source text**. All other `<tuv>` elements become target translations, indexed by their `xml:lang`.
+- A `<tu>` with no `<tuv>` in the memory's base language is dropped.
+- The optional `tuid` attribute is preserved and reused on re-export, so round-tripping a TMX keeps the same IDs.
+
+For each `<tuv>`:
+
+- The language tag is read from `xml:lang` (preferred) or a bare `lang` attribute. Matching against the memory's base language is **case-insensitive**.
+- The text inside `<seg>` becomes the translation, trimmed of leading and trailing whitespace.
+- Inline TMX markup inside `<seg>` (`<ph>`, `<bpt>`, `<ept>`, `<it>`, etc.) is not preserved — only the text content is kept.
+
+What's ignored:
+
+- `<header srclang>` is ignored entirely. The memory's configured base language is authoritative — this avoids mis-importing TMX files that declare a different source language than the TM you're importing into.
+- All other `<header>` attributes (`creationtool`, `creationdate`, `o-tmf`, etc.).
+- `<note>`, `<prop>`, and other non-segment metadata elements.
+
+### What Tolgee writes on export
+
+Exports follow the same shape as the example above:
+
+- Encoding is **UTF-8**.
+- `<header srclang>` is set to the memory's base language.
+- Each entry becomes one `<tu>`. The source-language `<tuv>` is written first, followed by every target translation.
+- `tuid` values preserved from an earlier import are written back; entries without one get a sequential number.
+
+### Limits
+
+Each source or target segment can be at most **10,000 characters**. On import:
+
+- A `<tu>` whose source segment exceeds the limit is dropped entirely.
+- An oversize target on an otherwise valid `<tu>` is dropped, but other targets in the same `<tu>` are kept.
+
+The import summary reports how many segments were skipped for being too long.
 
 ## FAQ
 
@@ -229,7 +326,7 @@ Open the memory and click the gear icon in the toolbar to access its settings. C
 ### Can I import a TMX from another translation tool?
 
 Yes. Tolgee imports the standard TMX 1.4b format, which is supported as an export option by most translation tools. See [Import from file](#import-from-file) for the steps, and the [TMX format reference](#tmx-format-reference) for which parts of the file Tolgee uses on import.
-  
+
 ### Will deleting an entry from a translation memory affect existing translations in my projects?
 
 No. Project translations and memory entries are stored independently. Deleting an entry removes only the suggestion the memory would show in the editor; it does not change any translation already saved in a project.
@@ -240,18 +337,4 @@ Yes. A project can have any number of shared memories assigned to it. The editor
 
 ### What happens to my project-only memory if the Translation Memory feature is removed from my plan?
 
-Project-only memories are deleted automatically when the Translation Memory feature is disabled for the organization. They cannot be deleted manually. If you re-enable the feature later, a fresh empty project-only memory is created and refills from new translations going forward. Past project translations are not retroactively imported.
-
-## Permissions reference
-
-| What you want to do                                                            | Who can do it                              |
-|--------------------------------------------------------------------------------|--------------------------------------------|
-| See the list of memories                                                       | Anyone in the organization                 |
-| Create, rename, or delete a shared memory                                      | Organization owner or maintainer           |
-| Add, edit, or import entries in a shared memory                                | Organization owner or maintainer           |
-| Pick which memories a project uses, set their priority, read or write access  | Anyone allowed to edit project settings    |
-| Toggle `Accept only reviewed translations` on a project-only memory            | Anyone allowed to edit project settings    |
-
-## TMX format reference
-
-Tolgee imports and exports **TMX 1.4b**. Other TMX revisions are not supported. On import, the file's `<header srclang>` is ignored (even when mismatching), and `<tu>` elements that don't carry a `<tuv>` in the memory's base language are dropped.
+Nothing. Project-only memories work regardless of plan and are not deleted when the Translation Memory feature is disabled — only access to shared memories is affected. A project-only memory is removed only when its project is deleted.
