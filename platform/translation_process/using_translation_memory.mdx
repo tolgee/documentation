@@ -10,7 +10,7 @@ import { ScreenshotWrapper } from '../shared/_ScreenshotWrapper';
 
 Translators waste time re-translating the same phrase. A button label, an error message, a marketing line: the same source text appears across keys, projects, and products, but each translation is rewritten from scratch and worded slightly differently each time.
 
-Translation memory (TM) searches for similar texts your team has translated before and suggests them in the editor. Matches come from the project's own translations and from any shared memory connected to the project, so a phrase translated and reviewed once becomes available everywhere it appears again.
+Translation memory (TM) searches for similar texts your team has translated before and suggests them in the editor. Matches come from the project's own translations and from any shared memory connected to the project, so a phrase translated once becomes available everywhere it appears again.
 
 :::info
 Translation memory only works on a project's **default branch**. Translations on other branches are not written to the memory, and matches from non-default-branch keys are not surfaced as suggestions or used by auto-translate. See [Branching](/platform/branching/overview) for the general rule on what branch-scoped data is and isn't shared across branches.
@@ -20,7 +20,7 @@ To create shared memories, import them, and share them across projects at the or
 
 ## Translation memory matches
 
-Matches appear in the editor as a ranked list. Matches below 50% similarity are not shown.
+Matches appear in the editor as a ranked list. Matches with less than 50% raw similarity (before any penalty is applied) are not shown — so the score pill, which displays the post-penalty score, can sometimes be below 50%.
 
 For each TM match, the panel shows:
 
@@ -52,7 +52,7 @@ The same memories that drive the suggestion panel can also fill empty translatio
 
 | Feature | Triggered by | What it looks at | Threshold |
 |---|---|---|---|
-| Editor suggestion panel | Opening or focusing a translation cell | Trigram similarity with penalty subtracted | Similarity (post-penalty) ≥ 50% |
+| Editor suggestion panel | Opening or focusing a translation cell | Trigram similarity with penalty subtracted | Raw similarity ≥ 50% (penalty does not affect inclusion, only the displayed score) |
 | Auto-translate / pre-translate by TM | Saving with auto-translate on, or running the pre-translate batch job | Exact source-text match | Exact equality **and** the memory carries no penalty for the receiving project |
 
 A memory marked with any [penalty](/platform/translation_process/managing_translation_memories#penalty) (its default or a per-project override) still shows up as suggestions, but auto-translate is skipped.
