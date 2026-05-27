@@ -440,7 +440,11 @@ module.exports.redirects = {
     },
     {
       from: '/platform/translation_tools',
-      to: '/platform/translation_process/translation_memory',
+      to: '/platform/translation_process/using_translation_memory',
+    },
+    {
+      from: '/platform/translation_process/translation_memory',
+      to: '/platform/translation_process/using_translation_memory',
     },
     {
       from: '/platform/api-keys-and-pat-tokens',
