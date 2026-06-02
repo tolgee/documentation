@@ -1556,24 +1556,6 @@ const sidebar: SidebarsConfig = {
     },
     {
       type: "category",
-      label: "Ai Playground result controller",
-      link: {
-        type: "doc",
-        id: "tag_ai-playground-result-controller",
-      },
-      collapsible: false,
-      collapsed: false,
-      items: [
-        {
-          type: "doc",
-          id: "get-ai-playground-result",
-          label: "Get ai playground result",
-          className: "api-method post",
-        },
-      ],
-    },
-    {
-      type: "category",
       label: "Llm providers",
       link: {
         type: "doc",
@@ -1617,6 +1599,24 @@ const sidebar: SidebarsConfig = {
           id: "delete-provider",
           label: "Delete organization-specific provider",
           className: "api-method delete",
+        },
+      ],
+    },
+    {
+      type: "category",
+      label: "Ai Playground result controller",
+      link: {
+        type: "doc",
+        id: "tag_ai-playground-result-controller",
+      },
+      collapsible: false,
+      collapsed: false,
+      items: [
+        {
+          type: "doc",
+          id: "get-ai-playground-result",
+          label: "Get ai playground result",
+          className: "api-method post",
         },
       ],
     },
