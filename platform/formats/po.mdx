@@ -49,9 +49,14 @@ Tolgee converts the placeholders to the [Tolgee Universal ICU placeholders](/pla
 when enabled.
 
 ## Feature support
-Tolgee supports importing of basic `msgid` and `msgstr` fields, the plural `msgid_plural` and `msgstr[..]` arrays,
-the optional `msgctxt` (see [msgctxt and key names](#msgctxt-and-key-names) below), and it imports the
-`extracted comments` (`#.`) as the key descriptions. No other fields are supported.
+Tolgee supports importing of the following fields:
+
+- the basic `msgid` and `msgstr` fields
+- the plural `msgid_plural` and `msgstr[..]` arrays
+- the optional `msgctxt` (see [msgctxt and key names](#msgctxt-and-key-names) below)
+- the `extracted comments` (`#.`), imported as the key descriptions
+
+No other fields are supported.
 
 ## The message format and placeholder conversion
 import {
