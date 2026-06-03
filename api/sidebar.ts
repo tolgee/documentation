@@ -1364,66 +1364,6 @@ const sidebar: SidebarsConfig = {
     },
     {
       type: "category",
-      label: "Ai prompt controller",
-      link: {
-        type: "doc",
-        id: "tag_ai-prompt-controller",
-      },
-      collapsible: false,
-      collapsed: false,
-      items: [
-        {
-          type: "doc",
-          id: "get-all-paged",
-          label: "Get all prompts",
-          className: "api-method get",
-        },
-        {
-          type: "doc",
-          id: "create-prompt",
-          label: "Create prompt",
-          className: "api-method post",
-        },
-        {
-          type: "doc",
-          id: "get-default-prompt",
-          label: "Get default prompt",
-          className: "api-method get",
-        },
-        {
-          type: "doc",
-          id: "variables",
-          label: "Get variables",
-          className: "api-method get",
-        },
-        {
-          type: "doc",
-          id: "run",
-          label: "Run prompt",
-          className: "api-method post",
-        },
-        {
-          type: "doc",
-          id: "get-prompt",
-          label: "Get prompt by id",
-          className: "api-method get",
-        },
-        {
-          type: "doc",
-          id: "update-prompt",
-          label: "Update prompt",
-          className: "api-method put",
-        },
-        {
-          type: "doc",
-          id: "delete-prompt",
-          label: "Delete prompt",
-          className: "api-method delete",
-        },
-      ],
-    },
-    {
-      type: "category",
       label: "Projects",
       link: {
         type: "doc",
@@ -1526,6 +1466,24 @@ const sidebar: SidebarsConfig = {
     },
     {
       type: "category",
+      label: "Ai Playground result controller",
+      link: {
+        type: "doc",
+        id: "tag_ai-playground-result-controller",
+      },
+      collapsible: false,
+      collapsed: false,
+      items: [
+        {
+          type: "doc",
+          id: "get-ai-playground-result",
+          label: "Get ai playground result",
+          className: "api-method post",
+        },
+      ],
+    },
+    {
+      type: "category",
       label: "Export",
       link: {
         type: "doc",
@@ -1556,19 +1514,61 @@ const sidebar: SidebarsConfig = {
     },
     {
       type: "category",
-      label: "Ai Playground result controller",
+      label: "Ai prompt controller",
       link: {
         type: "doc",
-        id: "tag_ai-playground-result-controller",
+        id: "tag_ai-prompt-controller",
       },
       collapsible: false,
       collapsed: false,
       items: [
         {
           type: "doc",
-          id: "get-ai-playground-result",
-          label: "Get ai playground result",
+          id: "get-all-paged",
+          label: "Get all prompts",
+          className: "api-method get",
+        },
+        {
+          type: "doc",
+          id: "create-prompt",
+          label: "Create prompt",
           className: "api-method post",
+        },
+        {
+          type: "doc",
+          id: "get-default-prompt",
+          label: "Get default prompt",
+          className: "api-method get",
+        },
+        {
+          type: "doc",
+          id: "variables",
+          label: "Get variables",
+          className: "api-method get",
+        },
+        {
+          type: "doc",
+          id: "run",
+          label: "Run prompt",
+          className: "api-method post",
+        },
+        {
+          type: "doc",
+          id: "get-prompt",
+          label: "Get prompt by id",
+          className: "api-method get",
+        },
+        {
+          type: "doc",
+          id: "update-prompt",
+          label: "Update prompt",
+          className: "api-method put",
+        },
+        {
+          type: "doc",
+          id: "delete-prompt",
+          label: "Delete prompt",
+          className: "api-method delete",
         },
       ],
     },
