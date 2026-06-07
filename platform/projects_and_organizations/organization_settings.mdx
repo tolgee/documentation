@@ -38,31 +38,26 @@ You can also set the permissions granularly. The **granular permissions are a pa
 
 ## View and Manage Subscriptions
 
-This page shows your **organization's subscription information**, including the current plan and usage.
+This page shows your **organization's subscription information**, including the current plan and usage. You can also **change your plan** here.
 
-You can also **change your plan** to a different one here.
-Plans differ based on the chosen hosting option- you can choose between Tolgee Cloud or self hosted. To switch between them click the toggle in the centre.
+Tolgee is available as [Tolgee Cloud](https://app.tolgee.io/login) (the default, fully managed option) or as a [self-hosted](/platform/self_hosting/getting_started) installation.
 
 <ScreenshotWrapper
   src="/img/docs/platform/subscriptions.webp"
   alt="Tolgee subscriptions"
 />
 
-The usage shown on this page is the **total usage of all projects in your organization**. The information regarding usage covers the following:
+The usage shown on this page is the **total usage of all projects in your organization**, covering:
 
-- **Used keys** – The total number of keys used in your organization, regardless of how many langauages they are translated to.
-- **Used seats** - The total number of users who are a part of your organization or any project owned by the organization.
-- **Used MT credits** – The number of Machine Translation credits that have been used in your organization since the last refill.
+- **Used keys** – The total number of keys used in your organization, regardless of how many languages they are translated to.
+- **Used seats** – The total number of users who are part of your organization or any project owned by it.
+- **Used MT credits** – The number of Machine Translation credits used since the last monthly refill.
 - **Next credits refill** – The date when your MT credits will be refilled.
 
-:::info
-A **key** is a unique identifier for a translatable text. Each distinct key in your project (regardless of how many languages it covers) counts towards your usage.
-Each user, regardless of the role, occupies one seat.
-:::
+### What happens when you reach a limit?
 
-:::tip
-More information about the plans can be found on the [Pricing](https://tolgee.io/pricing) page.
-:::
+- **Free plan** – Limits are enforced per resource: you cannot add new users when the seat limit is reached, cannot add new keys when the key limit is reached, and cannot use machine translation when MT credits are exhausted. Everything else continues to work. Upgrade your plan to lift these limits.
+- **Paid plans** – All self-served paid plans are pay-as-you-go. If you exceed your plan's included allowance, the additional usage continues uninterrupted and is invoiced at the end of the month according to the [current pricing](https://tolgee.io/pricing).
 
 ## Access Invoices and Billing History
 
