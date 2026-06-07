@@ -9,9 +9,9 @@ To set up the Tolgee MCP server, add an HTTP MCP entry to your AI client's confi
 
 ## Prerequisites
 
-- A Tolgee account (cloud or self-hosted)
-- A **Project API key (PAK)** or a **Personal Access Token (PAT)** — see [API keys and PAT tokens](/platform/account_settings/api_keys_and_pat_tokens)
-- An MCP-compatible AI client
+- A Tolgee account (cloud or self-hosted).
+- A **Project API key (PAK)** or a **Personal Access Token (PAT)**, see [API keys and PAT tokens](/platform/account_settings/api_keys_and_pat_tokens).
+- An MCP-compatible AI client.
 
 ## How do I connect Tolgee to Claude Desktop / Claude Code?
 
@@ -61,12 +61,16 @@ If you prefer file-based config, add this block to `~/.cursor/mcp.json`:
 
 ## How do I authenticate the Tolgee MCP server?
 
-The Tolgee MCP server authenticates via the **`X-API-Key`** HTTP header on every request, using either a Tolgee **Project API Key (PAK)** or a **Personal Access Token (PAT)**. A PAK is scoped to a single project and avoids passing `projectId` on every call. A PAT inherits your full user permissions across every project you can access. Use a PAK for day-to-day work on one project; use a PAT when you need to switch projects or call global tools like `list_projects` or `create_project`.
+The Tolgee MCP server authenticates via the **`X-API-Key`** HTTP header on every request, using either a Tolgee **Project API Key (PAK)** or a **Personal Access Token (PAT)**. 
+
+A **PAK** is scoped to a single project and avoids passing `projectId` on every call. 
+
+A **PAT** inherits your full user permissions across every project you can access. Use a PAK for day-to-day work on one project; use a PAT when you need to switch projects or call global tools like `list_projects` or `create_project`.
 
 | | Project API Key (PAK) | Personal Access Token (PAT) |
 |---|---|---|
 | Scope | A single project | All projects you can access |
-| `projectId` in tool calls | Not needed — resolved from the PAK | Required for project-scoped tools |
+| `projectId` in tool calls | Not needed, resolved from the PAK | Required for project-scoped tools |
 | Permissions | Per-key scopes (configurable) | Inherits your user role |
 | Global tools (`list_projects`, `create_project`) | Not available | Available |
 | Best for | Daily work on one project | Cross-project work, admin tasks |
@@ -75,7 +79,7 @@ The Tolgee MCP server authenticates via the **`X-API-Key`** HTTP header on every
 Some tools are restricted to one token type. If you use the wrong one, the Tolgee MCP server returns `PAK_ACCESS_NOT_ALLOWED` or `PAT_ACCESS_NOT_ALLOWED`. Switch tokens and retry.
 
 :::info
-- Treat the token like a database password — anyone holding it gets the same scopes the token has.
+- Treat the token like a database password. Anyone holding it gets the same scopes the token has.
 - Prefer per-agent tokens. If you have an automated AI bot, give it a dedicated PAK with the minimum scopes, separate from your personal one.
 - Rotate tokens on a schedule. Revoke a token immediately if a config file containing it is shared or committed.
 - Use your MCP client's secret store if it has one, rather than committing the token to a config file.
@@ -103,17 +107,17 @@ Most Tolgee MCP server problems fall into five buckets: bad credentials, wrong t
 
 | Symptom | Likely cause | Fix |
 |---|---|---|
-| `401 Unauthorized` | `X-API-Key` header missing, token invalid, or token revoked | Re-check the header in your MCP client config. Regenerate the token in Tolgee if needed. |
-| `PAK_ACCESS_NOT_ALLOWED` | Tool is PAT-only, you used a PAK | Use a PAT for this specific tool |
-| `PAT_ACCESS_NOT_ALLOWED` | Tool is PAK-only, you used a PAT | Use a PAK for this specific tool |
-| `403 Permission denied` on a scope | The PAK lacks the required scope | Regenerate the PAK with the missing scope (e.g. add `translations.edit`) |
-| `Operation not permitted in read-only mode` | Organization or instance is in read-only mode | Disable read-only mode in org settings, or stick to read tools |
-| `Feature not enabled` (e.g. Branching) | Tool requires an EE feature your plan doesn't include | Enable the feature on your plan, or use the equivalent REST API call from a different surface |
-| `Project not selected` | Using a PAT on a project-scoped tool without supplying `projectId` | Mention the project explicitly in the prompt, or switch to a PAK |
-| `429 Too Many Requests` | Hit the per-user rate limit for that tool | Slow down; rate limits refill on a sliding window |
-| AI never actually calls Tolgee tools | MCP server not connected in the client | Check the connection indicator (Claude: green check; Cursor: green dot in Settings → MCP). Restart the client after editing config. |
-| Self-hosted instance unreachable | Network, firewall, or HTTPS misconfiguration | Confirm `curl -i https://your-tolgee.com/mcp/developer` returns a response from the MCP transport; verify the TLS certificate is valid |
-| Session lost mid-conversation (self-hosted) | Redis not configured + request hit a different load-balanced node | Configure Redis in your Tolgee deployment so MCP sessions persist across nodes |
+| `401 Unauthorized` | `X-API-Key` header missing, token invalid, or token revoked. | Re-check the header in your MCP client config. Regenerate the token in Tolgee if needed. |
+| `PAK_ACCESS_NOT_ALLOWED` | Tool is PAT-only, you used a PAK. | Use a PAT for this specific tool. |
+| `PAT_ACCESS_NOT_ALLOWED` | Tool is PAK-only, you used a PAT. | Use a PAK for this specific tool. |
+| `403 Permission denied` on a scope | The PAK lacks the required scope. | Regenerate the PAK with the missing scope (e.g. add `translations.edit`). |
+| `Operation not permitted in read-only mode` | Organization or instance is in read-only mode. | Disable read-only mode in org settings, or stick to read tools. |
+| `Feature not enabled` (e.g. [Branching](/platform/branching/overview)) | Tool requires an EE feature your plan doesn't include. | Enable the feature on your plan, or use the equivalent REST API call from a different surface. |
+| `Project not selected` | Using a PAT on a project-scoped tool without supplying `projectId`. | Mention the project explicitly in the prompt, or switch to a PAK. |
+| `429 Too Many Requests` | Hit the per-user rate limit for that tool. | Slow down; rate limits refill on a sliding window. |
+| AI never actually calls Tolgee tools | MCP server not connected in the client. | Check the connection indicator (Claude: green check; Cursor: green dot in Settings → MCP). Restart the client after editing config. |
+| Self-hosted instance unreachable | Network, firewall, or HTTPS misconfiguration. | Confirm `curl -i https://your-tolgee.com/mcp/developer` returns a response from the MCP transport; verify the TLS certificate is valid. |
+| Session lost mid-conversation (self-hosted) | Redis not configured + request hit a different load-balanced node. | Configure Redis in your Tolgee deployment so MCP sessions persist across nodes. |
 
 ## Can I use the Tolgee MCP server with self-hosted Tolgee?
 
