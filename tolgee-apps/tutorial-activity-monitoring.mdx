@@ -5,6 +5,11 @@ sidebar_label: "Tutorial: Activity monitoring"
 description: Build a Tolgee App that records translation edits via webhooks and shows per-cell activity.
 ---
 
+This tutorial builds a Tolgee App that monitors translation activity. The app subscribes to
+translation-edit webhooks, stores per-cell edit timestamps, decorates translation cells with a
+recent-edit count badge, and renders an activity sparkline in a panel when a cell is focused. You
+scaffold it with `create-tolgee-app` and verify it against a live project. Tolgee Apps is alpha.
+
 :::warning Experimental
 Tolgee Apps is in **alpha** — APIs may change.
 :::

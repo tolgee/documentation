@@ -5,6 +5,11 @@ sidebar_label: "Tutorial: Back-translation"
 description: Build a Tolgee App that uses an LLM to back-translate edits and flag semantic drift.
 ---
 
+This tutorial builds a Tolgee App that checks translation quality with an LLM. When a translation
+changes, a webhook triggers a back-translation to the base language, compares the meaning, and assigns
+a verdict. Drifting cells get a warning or error decorator, and a panel explains the verdict. You
+scaffold it with `create-tolgee-app` and the Claude API. Tolgee Apps is alpha.
+
 :::warning Experimental
 Tolgee Apps is in **alpha** — APIs may change.
 :::

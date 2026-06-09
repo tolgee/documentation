@@ -5,6 +5,13 @@ sidebar_label: API reference
 description: Manifest schema, SDK, postMessage protocol, webhooks, decorators, scopes, and the CLI.
 ---
 
+import Head from '@docusaurus/Head';
+
+This reference documents the Tolgee Apps contract: the manifest schema, the `@tolgee/apps-sdk` browser
+and server APIs, the iframe `postMessage` protocol, the context token, the webhook signature scheme,
+the decorators request and response, permission scopes, the app REST endpoints, and the `tolgee-app`
+CLI. Use it alongside the [setup guide](./setup) and the tutorials when building a Tolgee App.
+
 :::warning Experimental
 Tolgee Apps is in **alpha** — the contracts on this page may change.
 :::
@@ -304,3 +311,87 @@ The `tolgee-app` binary (from `@tolgee/apps-dev`) powers local development:
 | `tolgee-app register` | One-time install via the browser consent flow. `--pat=tgpat_…` for a headless install. |
 
 Both read `.env.local` (`TOLGEE_URL`, ports) and the install record at `.tolgee-dev/install.json`.
+
+## Frequently asked questions
+
+<Head>
+  <script type="application/ld+json">
+    {JSON.stringify({
+      '@context': 'https://schema.org',
+      '@type': 'FAQPage',
+      mainEntity: [
+        {
+          '@type': 'Question',
+          name: 'How are Tolgee App webhooks authenticated?',
+          acceptedAnswer: {
+            '@type': 'Answer',
+            text: 'Each webhook carries a Tolgee-Signature header containing a timestamp and an HMAC-SHA256 signature over "timestamp.rawBody", keyed with the install’s webhookSecret. Verify it over the raw request bytes; the @tolgee/apps-sdk helpers verifyWebhookSignature and receiveWebhook do this for you.',
+          },
+        },
+        {
+          '@type': 'Question',
+          name: 'What does the Tolgee App context token grant?',
+          acceptedAnswer: {
+            '@type': 'Answer',
+            text: 'The context token is a short-lived JWT (audience tg.app) identifying the install, project, and user. Pass it as a Bearer token to call the Tolgee REST API. Effective permissions are the intersection of the app’s granted scopes and the user’s project permissions.',
+          },
+        },
+        {
+          '@type': 'Question',
+          name: 'How do dynamic decorators work in a Tolgee App?',
+          acceptedAnswer: {
+            '@type': 'Answer',
+            text: 'For action modules marked dynamic: true, Tolgee POSTs the keys and languages currently in view to your manifest decoratorsUrl. You return items referencing a manifest actionKey, optionally overriding url, count, and visibility. The icon and tooltip come from the manifest action.',
+          },
+        },
+        {
+          '@type': 'Question',
+          name: 'Which Tolgee App manifest modules render an iframe?',
+          acceptedAnswer: {
+            '@type': 'Answer',
+            text: 'project-dashboard-page, translation-tools-panel, key-edit-tab, and modal render an iframe from your baseUrl. The action modules (key-action, translation-action, bulk-action, translations-toolbar-action, project-menu-action, shortcut) are triggers configured entirely in the manifest.',
+          },
+        },
+        {
+          '@type': 'Question',
+          name: 'How do I verify a Tolgee webhook signature?',
+          acceptedAnswer: {
+            '@type': 'Answer',
+            text: 'Read the request body as raw text, then call verifyWebhookSignature({ header, rawBody, secret }) from @tolgee/apps-sdk/server, or use receiveWebhook to verify and parse in one step. Never parse JSON before verifying, because the signature is computed over the raw bytes.',
+          },
+        },
+      ],
+    })}
+  </script>
+</Head>
+
+### How are Tolgee App webhooks authenticated?
+
+Each webhook carries a `Tolgee-Signature` header containing a timestamp and an HMAC-SHA256 signature
+over `"timestamp.rawBody"`, keyed with the install's `webhookSecret`. Verify it over the raw request
+bytes; the SDK helpers `verifyWebhookSignature` and `receiveWebhook` do this for you.
+
+### What does the Tolgee App context token grant?
+
+The context token is a short-lived JWT (audience `tg.app`) identifying the install, project, and user.
+Pass it as a Bearer token to call the Tolgee REST API. Effective permissions are the intersection of
+the app's granted scopes and the user's project permissions.
+
+### How do dynamic decorators work in a Tolgee App?
+
+For action modules marked `dynamic: true`, Tolgee POSTs the keys and languages currently in view to
+your manifest `decoratorsUrl`. You return items referencing a manifest `actionKey`, optionally
+overriding `url`, `count`, and `visibility`. The icon and tooltip come from the manifest action.
+
+### Which Tolgee App manifest modules render an iframe?
+
+`project-dashboard-page`, `translation-tools-panel`, `key-edit-tab`, and `modal` render an iframe from
+your `baseUrl`. The action modules (`key-action`, `translation-action`, `bulk-action`,
+`translations-toolbar-action`, `project-menu-action`, `shortcut`) are triggers configured entirely in
+the manifest.
+
+### How do I verify a Tolgee webhook signature?
+
+Read the request body as raw text, then call `verifyWebhookSignature({ header, rawBody, secret })` from
+`@tolgee/apps-sdk/server`, or use `receiveWebhook` to verify and parse in one step. Never parse JSON
+before verifying, because the signature is computed over the raw bytes.

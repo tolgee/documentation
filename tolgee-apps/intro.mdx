@@ -5,6 +5,14 @@ sidebar_label: Introduction
 description: Build apps that extend the Tolgee UI, react to project events, and decorate translation rows.
 ---
 
+import Head from '@docusaurus/Head';
+
+Tolgee Apps are hosted web plugins that extend Tolgee with custom UI — dashboard pages, side panels,
+key-edit tabs, modals, and row action icons — while reacting to project events through signed
+webhooks and decorating translation rows with live data. A Tolgee App calls the Tolgee REST API
+scoped to the permissions granted at install time. You build one with the `create-tolgee-app`
+scaffolder and the `@tolgee/apps-sdk`.
+
 :::warning Experimental
 Tolgee Apps is in **alpha**. The packages are published under the npm `alpha` dist-tag and the
 APIs described here may change without notice. Don't build production-critical workflows on it yet.
@@ -119,3 +127,86 @@ granted scopes and the user's project permissions (see [Scopes & permissions](./
   [Setup](./setup#local-development)).
 
 These are alpha constraints and will change as the platform matures.
+
+## Frequently asked questions
+
+<Head>
+  <script type="application/ld+json">
+    {JSON.stringify({
+      '@context': 'https://schema.org',
+      '@type': 'FAQPage',
+      mainEntity: [
+        {
+          '@type': 'Question',
+          name: 'What can a Tolgee App do?',
+          acceptedAnswer: {
+            '@type': 'Answer',
+            text: 'A Tolgee App can add UI to the Tolgee interface (dashboard pages, panels, key-edit tabs, modals, row action icons, and keyboard shortcuts), subscribe to project events through signed webhooks, decorate translation rows with live badges, and call the Tolgee REST API scoped to the permissions granted at install.',
+          },
+        },
+        {
+          '@type': 'Question',
+          name: 'How is a Tolgee App different from a Tolgee integration like Figma or Slack?',
+          acceptedAnswer: {
+            '@type': 'Answer',
+            text: 'Tolgee integrations are first-party connectors maintained by Tolgee. Tolgee Apps are a developer platform: you build and host your own app, describe it with a manifest, and install it into your organization. Apps run in a sandboxed iframe and react to webhooks.',
+          },
+        },
+        {
+          '@type': 'Question',
+          name: 'Do Tolgee Apps work on self-hosted Tolgee?',
+          acceptedAnswer: {
+            '@type': 'Answer',
+            text: 'Yes. A Tolgee App targets any Tolgee instance that has Apps enabled, including self-hosted ones. You point the install at your instance URL. For local development against a localhost instance, you must enable an SSRF bypass so Tolgee can fetch your manifest.',
+          },
+        },
+        {
+          '@type': 'Question',
+          name: 'What permissions does a Tolgee App get?',
+          acceptedAnswer: {
+            '@type': 'Answer',
+            text: 'A Tolgee App requests permission scopes in its manifest, approved by an organization owner at install. At runtime the effective permissions are the intersection of the app’s granted scopes and the calling user’s own project permissions, so an app can never do more than the user.',
+          },
+        },
+        {
+          '@type': 'Question',
+          name: 'Is Tolgee Apps production-ready?',
+          acceptedAnswer: {
+            '@type': 'Answer',
+            text: 'Not yet. Tolgee Apps is in alpha and its packages are published under the npm alpha dist-tag. The contracts may change, so avoid production-critical workflows for now.',
+          },
+        },
+      ],
+    })}
+  </script>
+</Head>
+
+### What can a Tolgee App do?
+
+A Tolgee App can add UI to the Tolgee interface (dashboard pages, panels, key-edit tabs, modals, row
+action icons, and keyboard shortcuts), subscribe to project events through signed webhooks, decorate
+translation rows with live badges, and call the Tolgee REST API scoped to the permissions granted at
+install.
+
+### How is a Tolgee App different from a Tolgee integration like Figma or Slack?
+
+Tolgee integrations are first-party connectors maintained by Tolgee. Tolgee Apps are a developer
+platform: you build and host your own app, describe it with a manifest, and install it into your
+organization. Apps run in a sandboxed iframe and react to webhooks.
+
+### Do Tolgee Apps work on self-hosted Tolgee?
+
+Yes. A Tolgee App targets any Tolgee instance that has Apps enabled, including self-hosted ones. You
+point the install at your instance URL. For local development against a localhost instance, you must
+enable an SSRF bypass so Tolgee can fetch your manifest (see [Setup](./setup#local-development)).
+
+### What permissions does a Tolgee App get?
+
+A Tolgee App requests permission scopes in its manifest, approved by an organization owner at install.
+At runtime the effective permissions are the intersection of the app's granted scopes and the calling
+user's own project permissions, so an app can never do more than the user.
+
+### Is Tolgee Apps production-ready?
+
+Not yet. Tolgee Apps is in alpha and its packages are published under the npm `alpha` dist-tag. The
+contracts may change, so avoid production-critical workflows for now.

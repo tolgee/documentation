@@ -97,6 +97,7 @@ const docs = [
       sidebarPath: require.resolve('./sidebarTolgeeApps.js'),
       lastVersion: 'current',
       includeCurrentVersion: true,
+      showLastUpdateTime: true,
       editUrl: 'https://github.com/tolgee/documentation/tree/main',
       versions: {
         current: {
