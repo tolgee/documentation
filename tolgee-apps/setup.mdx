@@ -16,6 +16,47 @@ receiving webhooks. Tolgee Apps is alpha, so expect rough edges.
 Tolgee Apps is in **alpha** — packages are published under the npm `alpha` dist-tag and APIs may change.
 :::
 
+## Build it with Claude
+
+The fastest way to start is to let an AI coding agent scaffold and build the app together with you.
+In an empty folder, open an agent that can use your terminal (such as Claude Code) and paste this
+prompt:
+
+{/* TODO: when the Apps docs are published, replace the preview URL below with https://docs.tolgee.io/apps/intro */}
+
+```text
+You are helping me create a new Tolgee App (a plugin for the Tolgee localization platform).
+
+1. First, read the Tolgee Apps docs:
+   https://deploy-preview-1116--tolgee-docs.netlify.app/apps/intro
+   and the linked Setup, API reference, and tutorial pages.
+
+2. Then ask me these questions and wait for my answers:
+   - What should the app do? (one or two sentences)
+   - Which parts of the Tolgee UI should it add? (dashboard page, translations panel,
+     key-edit tab, modal, row action icons, keyboard shortcut)
+   - Which project events should it react to, if any? (e.g. translation changed, key created)
+   - Which permission scopes does it need? (e.g. read translations, edit keys)
+   - What should the app be called? (kebab-case)
+
+3. Scaffold the project with `npm create tolgee-app@alpha <app-name>` using my answers.
+   Keep the scaffolder's DEFAULT Tolgee URL — do not change it unless I explicitly ask
+   for a different instance.
+
+4. From the new project, run `npm run pull-context` to download the SDK source, the
+   example apps, and the docs into `.context/`. Use those as the source of truth while building.
+
+5. Build the app following the docs and the example apps, using the typed SDK. Run
+   `npm run typecheck` after every change and do not stop until it passes.
+
+6. Do NOT run the dev server or the install yourself. Instead, tell me to run them:
+   `npm run dev` in one terminal, then `npm run register` in a second terminal (first run
+   only) to approve the install in my browser. Start `dev` before `register`.
+```
+
+The prompt runs `npm` commands, so use it with a terminal-capable agent. Everything it does is also
+covered step by step below, if you'd rather scaffold manually.
+
 ## Prerequisites
 
 - **Node.js ≥ 20**
