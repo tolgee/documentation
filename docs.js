@@ -91,6 +91,24 @@ const docs = [
   [
     '@docusaurus/plugin-content-docs',
     {
+      id: 'tolgee-apps',
+      path: 'tolgee-apps',
+      routeBasePath: 'apps',
+      sidebarPath: require.resolve('./sidebarTolgeeApps.js'),
+      lastVersion: 'current',
+      includeCurrentVersion: true,
+      editUrl: 'https://github.com/tolgee/documentation/tree/main',
+      versions: {
+        current: {
+          banner: 'none',
+          label: 'alpha',
+        },
+      },
+    },
+  ],
+  [
+    '@docusaurus/plugin-content-docs',
+    {
       id: 'rest-api',
       path: 'api',
       breadcrumbs: true,

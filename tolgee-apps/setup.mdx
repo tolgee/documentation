@@ -1,0 +1,148 @@
+---
+id: setup
+title: Setup & quickstart
+sidebar_label: Setup & quickstart
+description: Scaffold, run, and install your first Tolgee App with create-tolgee-app and the SDK.
+---
+
+:::warning Experimental
+Tolgee Apps is in **alpha** — packages are published under the npm `alpha` dist-tag and APIs may change.
+:::
+
+This guide takes you from nothing to a running app installed on a project.
+
+## Prerequisites
+
+- **Node.js ≥ 20**
+- A **Tolgee instance** with Apps enabled, and the URL where you open its UI (e.g.
+  `https://app.tolgee.io`, or `http://localhost:3000` for local development).
+- An organization where you have the **owner** role (installing an app is owner-only).
+
+## 1. Scaffold an app
+
+```bash
+npm create tolgee-app@alpha my-app
+```
+
+The wizard asks, in order:
+
+1. **App identifier** — kebab-case; becomes the folder name and the manifest `id`.
+2. **Display name** — shown in the Tolgee admin UI.
+3. **Modules** — which UI surfaces to contribute (multiselect).
+4. **Permission scopes** — what the app may do via the REST API (multiselect).
+5. **Webhook events** — which project events to subscribe to (multiselect; optional).
+6. **Tolgee URL** — the instance to target.
+7. **Dev ports** — a free Vite/server port pair (auto-detected; editable).
+8. **Install dependencies now?**
+9. **Initialize a git repo?**
+
+### Non-interactive (CI / scripted)
+
+Pass `--yes` (or `-y`) and provide answers as flags:
+
+```bash
+npm create tolgee-app@alpha my-app -- --yes \
+  --modules=project-dashboard-page,translation-tools-panel \
+  --scopes=translations.view,keys.view \
+  --webhooks=SET_TRANSLATIONS,CREATE_KEY \
+  --tolgee-url=http://localhost:3000
+```
+
+Other flags: `--vite-port` / `--server-port` (auto-picked if omitted), `--install`, `--git`.
+
+## 2. What you get
+
+```
+my-app/
+  manifest.template.json   # your manifest; __BASE_URL__ is substituted at request time
+  src/                     # iframe modules (one entry per UI module)
+  server/                  # Express: /manifest.json, /webhook, /decorators routes
+  .env.local               # TOLGEE_URL + dev ports (generated, gitignored)
+  package.json             # dev / register / build scripts
+```
+
+Notable scripts:
+
+| Script | What it does |
+| --- | --- |
+| `npm run dev` | Runs Vite + the Express server + the dev tunnel together |
+| `npm run register` | One-time browser install against your Tolgee instance |
+| `npm run build` | Production build (`tsc` + `vite build`) |
+
+`npm run dev` and `npm run register` delegate to the `tolgee-app` CLI (from
+[`@tolgee/apps-dev`](./api#cli)).
+
+## 3. Run it
+
+Open **two terminals** in the project. Start `dev` **first** — `register` checks that your app's
+manifest is reachable, so the server has to be up.
+
+```bash
+# terminal 1 — Vite + Express + tunnel
+npm run dev
+```
+
+`dev` boots a **Cloudflare quick tunnel** so a remote Tolgee can reach your local app, and repoints
+the install at the fresh tunnel URL on every restart. When `TOLGEE_URL` is `localhost`, it skips the
+tunnel — Tolgee reaches your app directly.
+
+```bash
+# terminal 2 — one-time install
+npm run register
+```
+
+`register` opens your Tolgee instance's install page in the browser. Review the requested scopes,
+pick an organization, and approve. Credentials (including the `webhookSecret`) are written to
+`.tolgee-dev/install.json`; the dev server reads the webhook secret from there — you don't copy it
+anywhere.
+
+:::tip Headless install
+For CI or headless machines, skip the browser: `npm run register -- --pat=tgpat_…` with a
+[Personal Access Token](/platform/account_settings/api_keys_and_pat_tokens).
+:::
+
+## 4. Enable it on a project
+
+Installing makes the app available to the organization; you still enable it per project:
+
+1. Open a project in Tolgee.
+2. Enable **my-app** in the project's apps settings.
+3. Open the module you scaffolded (e.g. the dashboard page or the translations panel) — your iframe
+   loads and completes the context handshake.
+
+Edit `src/` to change the UI (Vite hot-reloads) and `manifest.template.json` to change what your app
+contributes (restart `npm run dev` so Tolgee re-fetches the manifest).
+
+## 5. Building without the scaffolder
+
+If you'd rather wire an existing project, install the SDK directly:
+
+```bash
+npm i @tolgee/apps-sdk@alpha
+npm i -D @tolgee/apps-dev@alpha   # the tolgee-app dev/register CLI
+```
+
+`@tolgee/apps-sdk/browser` powers iframe modules and `@tolgee/apps-sdk/server` powers your webhook /
+decorator endpoints — see the [API reference](./api).
+
+## Local development
+
+`create-tolgee-app` defaults `TOLGEE_URL` to your chosen instance. To develop against a **local**
+Tolgee, Tolgee must fetch your manifest from `localhost`, which its SSRF protection blocks by
+default. Enable the bypass in your local Tolgee config (`application-dev.yaml`):
+
+```yaml
+tolgee:
+  internal:
+    disable-url-ssrf-protection: true
+```
+
+:::warning
+This bypass is for local development only. Never enable it on a publicly reachable instance.
+:::
+
+## Next steps
+
+- [API reference](./api) — manifest schema, SDK, webhooks, decorators, scopes.
+- [Tutorial: activity monitoring](./tutorial-activity-monitoring) — webhooks + a panel + decorators.
+- [Tutorial: back-translation](./tutorial-back-translation) — an LLM-powered QA app.

@@ -1,0 +1,250 @@
+---
+id: tutorial-back-translation
+title: "Tutorial: Back-translation QA app"
+sidebar_label: "Tutorial: Back-translation"
+description: Build a Tolgee App that uses an LLM to back-translate edits and flag semantic drift.
+---
+
+:::warning Experimental
+Tolgee Apps is in **alpha** — APIs may change.
+:::
+
+In this tutorial you'll build a quality-assurance app that, whenever a translation changes:
+
+1. **back-translates** it to the base language with an LLM,
+2. **compares** the back-translation to the original and assigns a verdict (`match` / `close` /
+   `mismatch`),
+3. **decorates** drifting cells with a warning/error icon, and
+4. shows the back-translation + verdict in a **panel**.
+
+It's a trimmed version of the [`back-translate`](https://github.com/tolgee/tolgee-platform) example —
+full source linked at the end. It uses the [Claude API](https://docs.claude.com); set
+`ANTHROPIC_API_KEY` in your server environment.
+
+## 1. Scaffold
+
+```bash
+npm create tolgee-app@alpha back-translate -- --yes \
+  --modules=translation-tools-panel,translation-action \
+  --scopes=translations.view,keys.view \
+  --webhooks=SET_TRANSLATIONS \
+  --tolgee-url=http://localhost:3000
+cd back-translate && npm install
+npm i @anthropic-ai/sdk
+```
+
+Edit `manifest.template.json` so the `translation-action` declares **two dynamic actions** — one for
+each severity — both opening the panel:
+
+```json
+"translation-action": [
+  { "key": "warning", "type": "panel", "panelKey": "panel", "dynamic": true,
+    "icon": "AlertCircle", "tooltip": "Back-translation drifts from base — review" },
+  { "key": "error", "type": "panel", "panelKey": "panel", "dynamic": true,
+    "icon": "AlertOctagon", "tooltip": "Back-translation differs from base — likely wrong" }
+]
+```
+
+## 2. The analyzer (LLM)
+
+```ts
+// server/backTranslation.ts
+import Anthropic from '@anthropic-ai/sdk';
+
+const client = process.env.ANTHROPIC_API_KEY
+  ? new Anthropic({ apiKey: process.env.ANTHROPIC_API_KEY })
+  : null;
+
+export type Analysis = { backTranslation: string; verdict: 'match' | 'close' | 'mismatch'; explanation: string };
+
+const prompt = (baseLang: string, baseText: string, lang: string, text: string) =>
+  `You evaluate a translation by back-translating it and comparing semantically.
+
+Original (${baseLang}): "${baseText}"
+Translation (${lang}): "${text}"
+
+Steps:
+1. Translate the ${lang} text back to ${baseLang}.
+2. Compare to the original:
+   - "match"    — identical meaning
+   - "close"    — same intent, minor word-choice differences
+   - "mismatch" — different meaning
+
+Respond ONLY with valid JSON:
+{ "backTranslation": "...", "verdict": "match" | "close" | "mismatch", "explanation": "one short sentence" }`;
+
+export async function analyse(baseLang: string, baseText: string, lang: string, text: string): Promise<Analysis> {
+  if (!client) throw new Error('ANTHROPIC_API_KEY is not set');
+  const res = await client.messages.create({
+    model: 'claude-sonnet-4-6',
+    max_tokens: 400,
+    messages: [{ role: 'user', content: prompt(baseLang, baseText, lang, text) }],
+  });
+  const raw = res.content[0]?.type === 'text' ? res.content[0].text : '';
+  const json = raw.slice(raw.indexOf('{'), raw.lastIndexOf('}') + 1);
+  return JSON.parse(json) as Analysis;
+}
+```
+
+A tiny store keyed by `(keyId, languageTag)` holds the latest verdict:
+
+```ts
+// server/analysisStore.ts
+import type { Analysis } from './backTranslation';
+const cache = new Map<string, Analysis & { text: string }>();
+const k = (keyId: number, tag: string) => `${keyId}:${tag}`;
+export const store = {
+  get: (keyId: number, tag: string) => cache.get(k(keyId, tag)),
+  set: (keyId: number, tag: string, a: Analysis & { text: string }) => cache.set(k(keyId, tag), a),
+};
+```
+
+## 3. Webhook → analyze in the background
+
+Translation analysis is slow (an LLM call), so acknowledge the webhook immediately and do the work
+after. In the generated `server/routes/webhook.ts` handler:
+
+```ts
+import { onWebhook, receiveWebhook } from '@tolgee/apps-sdk/server';
+
+const result = await receiveWebhook({ rawBody: raw, signatureHeader: req.header('Tolgee-Signature'), secret: WEBHOOK_SECRET });
+if (!result.ok) return res.status(result.status).json({ error: result.error });
+
+onWebhook(result.payload, 'SET_TRANSLATIONS', (typed) => {
+  void analyseModifiedTranslations(typed).catch((e) => console.error('analysis failed', e));
+});
+res.status(204).end();   // ack now; analysis runs async
+```
+
+`analyseModifiedTranslations` uses the context to read the base text, skips base-language edits, and
+stores a verdict per derived-language cell. To read translations it calls the Tolgee REST API with a
+[Personal Access Token or the app's credentials](./api#rest-endpoints) — see the full example for the
+`tolgeeApi` helper. The core loop:
+
+```ts
+for (const m of modified) {
+  if (m.languageTag === baseLang) continue;                 // base edit: nothing to back-translate
+  const { baseText, text } = await fetchPair(projectId, m.keyId, baseLang, m.languageTag);
+  const analysis = await analyse(baseLang, baseText, m.languageTag, text);
+  store.set(m.keyId, m.languageTag, { ...analysis, text });
+}
+```
+
+## 4. Decorate drifting cells
+
+Map the stored verdict to one of the two manifest actions; clean matches get no decorator:
+
+```ts
+// server/routes/decorators.ts
+const handleDecorators = (req, res) => {
+  const { keyIds = [], languageTags = [] } = req.body ?? {};
+  const items = [];
+  for (const keyId of keyIds) {
+    for (const tag of languageTags) {
+      const cached = store.get(keyId, tag);
+      if (!cached || cached.verdict === 'match') continue;
+      items.push({ keyId, languageTag: tag, actionKey: cached.verdict === 'close' ? 'warning' : 'error' });
+    }
+  }
+  res.json({ items });
+};
+```
+
+## 5. On-demand endpoint for the panel
+
+When the user focuses a cell, the panel asks for the analysis (reusing the cached webhook result):
+
+```ts
+// server/routes/translateBack.ts
+app.post('/translate-back', express.json(), async (req, res) => {
+  const { keyId, languageTag, baseLang, baseText, text } = req.body;
+  const cached = store.get(keyId, languageTag);
+  if (cached && cached.text === text) return res.json({ ...cached, cached: true });
+  const analysis = await analyse(baseLang, baseText, languageTag, text);
+  store.set(keyId, languageTag, { ...analysis, text });
+  res.json(analysis);
+});
+```
+
+## 6. The panel
+
+```tsx
+// src/modules/toolsPanel/index.tsx
+import { useEffect, useState } from 'react';
+import { createTolgeeApp, createTolgeeAppClient, type TolgeeAppContext, type TolgeeAppSelection } from '@tolgee/apps-sdk/browser';
+
+export default function ToolsPanel() {
+  const [ctx, setCtx] = useState<TolgeeAppContext | null>(null);
+  const [sel, setSel] = useState<TolgeeAppSelection>({});
+  const [baseLang, setBaseLang] = useState<string | null>(null);
+  const [analysis, setAnalysis] = useState<{ backTranslation: string; verdict: string; explanation: string } | null>(null);
+
+  useEffect(() => {
+    const app = createTolgeeApp();
+    app.context.then(setCtx);
+    return app.onSelectionChanged(setSel);
+  }, []);
+
+  // discover the project's base language
+  useEffect(() => {
+    if (!ctx) return;
+    createTolgeeAppClient(ctx)
+      .GET('/v2/projects/{projectId}', { params: { path: { projectId: ctx.projectId } } })
+      .then(({ data }) => setBaseLang(data?.baseLanguage?.tag ?? null));
+  }, [ctx]);
+
+  // on a non-base cell, fetch the pair and ask the server
+  useEffect(() => {
+    if (!ctx || !baseLang || !sel.keyId || !sel.languageTag || sel.languageTag === baseLang) return;
+    createTolgeeAppClient(ctx)
+      .GET('/v2/projects/{projectId}/translations', {
+        params: { path: { projectId: ctx.projectId }, query: { filterKeyId: [sel.keyId], languages: [baseLang, sel.languageTag], size: 1 } },
+      })
+      .then(({ data }) => {
+        const row = data?._embedded?.keys?.[0];
+        return fetch('/translate-back', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({
+            keyId: sel.keyId, languageTag: sel.languageTag, baseLang,
+            baseText: row?.translations?.[baseLang]?.text,
+            text: row?.translations?.[sel.languageTag!]?.text,
+          }),
+        }).then((r) => r.json());
+      })
+      .then(setAnalysis);
+  }, [ctx, baseLang, sel.keyId, sel.languageTag]);
+
+  if (!analysis) return <p>Select a translation cell…</p>;
+  return (
+    <div>
+      <p><strong>Back-translation:</strong> {analysis.backTranslation}</p>
+      <p><strong>Verdict:</strong> {analysis.verdict} — {analysis.explanation}</p>
+    </div>
+  );
+}
+```
+
+## 7. Run
+
+```bash
+export ANTHROPIC_API_KEY=sk-ant-...
+# terminal 1
+npm run dev
+# terminal 2
+npm run register
+```
+
+Enable the app on a project, edit a non-base-language translation, and watch the cell get a
+warning/error icon when the back-translation drifts — open the panel to see why.
+
+:::info Base-language edits
+When the **base** text changes, every derived translation for that key may become stale. The full
+example invalidates the cached analyses for the key so they're re-checked on next edit/focus.
+:::
+
+## Full source
+
+Based on the `back-translate` example app (`apps/example-apps/back-translate`), which adds proper
+base-language detection and invalidation, caching indicators in the panel, and a `tolgeeApi` helper
+for server-side REST calls. Use it as the complete reference.
