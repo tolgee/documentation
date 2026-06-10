@@ -61,29 +61,11 @@ If you prefer file-based config, add this block to `~/.cursor/mcp.json`:
 
 ## How do I authenticate the Tolgee MCP server?
 
-The Tolgee MCP server authenticates via the **`X-API-Key`** HTTP header on every request, using either a Tolgee **Project API Key (PAK)** or a **Personal Access Token (PAT)**. 
+The Tolgee MCP server authenticates via the **`X-API-Key`** HTTP header on every request, using either a Tolgee **Project API Key (PAK)** or a **Personal Access Token (PAT)**. A **PAK** is scoped to a single project and avoids passing `projectId` on every call; a **PAT** inherits your full user permissions across every project you can access. Use a PAK for day-to-day work on one project; use a PAT when you need to switch projects or call global tools like `list_projects` or `create_project`.
 
-A **PAK** is scoped to a single project and avoids passing `projectId` on every call. 
-
-A **PAT** inherits your full user permissions across every project you can access. Use a PAK for day-to-day work on one project; use a PAT when you need to switch projects or call global tools like `list_projects` or `create_project`.
-
-| | Project API Key (PAK) | Personal Access Token (PAT) |
-|---|---|---|
-| Scope | A single project | All projects you can access |
-| `projectId` in tool calls | Not needed, resolved from the PAK | Required for project-scoped tools |
-| Permissions | Per-key scopes (configurable) | Inherits your user role |
-| Global tools (`list_projects`, `create_project`) | Not available | Available |
-| Best for | Daily work on one project | Cross-project work, admin tasks |
-| Where to create | **Project → Integrate → API keys** | **User settings → Personal access tokens** |
+See [API keys and PAT tokens](/platform/account_settings/api_keys_and_pat_tokens) for how to create and manage each token type.
 
 Some tools are restricted to one token type. If you use the wrong one, the Tolgee MCP server returns `PAK_ACCESS_NOT_ALLOWED` or `PAT_ACCESS_NOT_ALLOWED`. Switch tokens and retry.
-
-:::info
-- Treat the token like a database password. Anyone holding it gets the same scopes the token has.
-- Prefer per-agent tokens. If you have an automated AI bot, give it a dedicated PAK with the minimum scopes, separate from your personal one.
-- Rotate tokens on a schedule. Revoke a token immediately if a config file containing it is shared or committed.
-- Use your MCP client's secret store if it has one, rather than committing the token to a config file.
-:::
 
 ## How do I verify the connection?
 
@@ -101,7 +83,9 @@ For self-hosted instances, replace `https://app.tolgee.io` with your own Tolgee 
 
 ## How do I troubleshoot the Tolgee MCP server?
 
-Most Tolgee MCP server problems fall into five buckets: bad credentials, wrong token type, missing scopes, the AI client not actually reaching the server, or a self-hosted instance unreachable from the client's network. Start every diagnosis by asking your AI assistant *"List my Tolgee projects"*. This calls a read-only global tool and surfaces auth and connection problems without changing any data. The error returned tells you which layer failed.
+Most Tolgee MCP server problems fall into a few buckets: bad credentials, wrong token type, missing scopes, or the AI client not actually reaching the server. Start every diagnosis by asking your AI assistant *"List my Tolgee projects"*. This calls a read-only global tool and surfaces auth and connection problems without changing any data. The error returned tells you which layer failed.
+
+For non-MCP-specific issues (rate limits, read-only mode, EE features, self-hosted unreachable, etc.) see the [platform FAQs](/platform/faq).
 
 **Common errors and fixes:**
 
@@ -111,17 +95,13 @@ Most Tolgee MCP server problems fall into five buckets: bad credentials, wrong t
 | `PAK_ACCESS_NOT_ALLOWED` | Tool is PAT-only, you used a PAK. | Use a PAT for this specific tool. |
 | `PAT_ACCESS_NOT_ALLOWED` | Tool is PAK-only, you used a PAT. | Use a PAK for this specific tool. |
 | `403 Permission denied` on a scope | The PAK lacks the required scope. | Regenerate the PAK with the missing scope (e.g. add `translations.edit`). |
-| `Operation not permitted in read-only mode` | Organization or instance is in read-only mode. | Disable read-only mode in org settings, or stick to read tools. |
-| `Feature not enabled` (e.g. [Branching](/platform/branching/overview)) | Tool requires an EE feature your plan doesn't include. | Enable the feature on your plan, or use the equivalent REST API call from a different surface. |
 | `Project not selected` | Using a PAT on a project-scoped tool without supplying `projectId`. | Mention the project explicitly in the prompt, or switch to a PAK. |
-| `429 Too Many Requests` | Hit the per-user rate limit for that tool. | Slow down; rate limits refill on a sliding window. |
 | AI never actually calls Tolgee tools | MCP server not connected in the client. | Check the connection indicator (Claude: green check; Cursor: green dot in Settings → MCP). Restart the client after editing config. |
-| Self-hosted instance unreachable | Network, firewall, or HTTPS misconfiguration. | Confirm `curl -i https://your-tolgee.com/mcp/developer` returns a response from the MCP transport; verify the TLS certificate is valid. |
 | Session lost mid-conversation (self-hosted) | Redis not configured + request hit a different load-balanced node. | Configure Redis in your Tolgee deployment so MCP sessions persist across nodes. |
 
 ## Can I use the Tolgee MCP server with self-hosted Tolgee?
 
-Yes, the Tolgee MCP server is built into the Tolgee platform itself, so every self-hosted Tolgee instance exposes it automatically at `/mcp/developer`. To connect, replace the Tolgee Cloud URL in your MCP client config with your own server's base URL. There is no extra deployment, your self-hosted instance just needs to be reachable over HTTPS from wherever your AI client runs.
+Yes, the Tolgee MCP server is built into the Tolgee platform itself, so every self-hosted Tolgee instance exposes it automatically at `/mcp/developer`. To connect, replace the Tolgee Cloud URL in your MCP client config with your own server's base URL. There is no extra deployment, your self-hosted instance just needs to be reachable from wherever your AI client runs.
 
 ```diff
  {
@@ -140,5 +120,5 @@ Yes, the Tolgee MCP server is built into the Tolgee platform itself, so every se
 
 **Requirements for self-hosted:**
 - A Tolgee version that includes the MCP server (check the [changelog](https://github.com/tolgee/tolgee-platform/releases)).
-- HTTPS reachable from the network your AI client runs in. Local Tolgee on `http://localhost:8200` works for desktop clients on the same machine; remote clients (ChatGPT custom connector, hosted Cursor, etc.) require a public HTTPS endpoint.
+- HTTP(S) reachable from the network your AI client runs in. Local Tolgee on `http://localhost:8200` works for desktop clients on the same machine; remote clients require a public HTTPS endpoint.
 - **Redis recommended for production.** MCP session state is persisted to Redis when configured. Without Redis, sessions live only in the JVM memory of the node that handled the handshake. Load-balanced deployments without Redis will lose sessions on subsequent requests.

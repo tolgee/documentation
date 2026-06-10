@@ -1,6 +1,6 @@
 ---
 id: about
-title: The Official Tolgee MCP Server
+title: Tolgee MCP Server
 sidebar_label: About
 description: 'Connect AI assistants like Claude, Cursor, or ChatGPT to Tolgee using the Model Context Protocol (MCP) server.'
 ---
@@ -8,28 +8,15 @@ The Tolgee MCP Server brings the full power of Tolgee into your AI coding assist
 
 ## What is the Tolgee MCP server?
 
-The Tolgee MCP server is the official [Model Context Protocol](https://modelcontextprotocol.io/) endpoint built into the Tolgee platform. It lets AI assistants (Claude Desktop, Claude Code, Cursor, Windsurf, ChatGPT, and any other MCP-compatible client) manage your Tolgee localization projects through natural language. 
+The Tolgee MCP server is the [Model Context Protocol](https://modelcontextprotocol.io/) endpoint built into the Tolgee platform. It lets AI assistants (Claude Desktop, Claude Code, Cursor, Windsurf, ChatGPT, and any other MCP-compatible client) manage your Tolgee localization projects through natural language. 
 
-It is hosted at `https://app.tolgee.io/mcp/developer` for Tolgee Cloud and is available on every self-hosted Tolgee instance. No proxy, no separate process. Your AI client talks to Tolgee directly over HTTPS.
+It is hosted at `https://app.tolgee.io/mcp/developer` for Tolgee Cloud and is available on every self-hosted Tolgee instance. No proxy, no separate process. Your AI client talks to Tolgee directly over HTTP.
 
-The server is **official**, maintained by the Tolgee team, and listed in the [Official MCP Registry](https://registry.modelcontextprotocol.io/) as `io.github.tolgee/tolgee`.
+The server is maintained by the Tolgee team and listed in the [MCP Registry](https://registry.modelcontextprotocol.io/) as `io.github.tolgee/tolgee`.
 
 ## Which MCP clients are supported?
 
-The Tolgee MCP server uses the standard **streamable-HTTP** MCP transport, so it works with any MCP-compatible client that supports remote HTTP servers and custom request headers. Officially tested clients are **Claude Desktop**, **Claude Code**, **Cursor**, **Windsurf**, and **ChatGPT** (via custom MCP connectors). Authentication is always via the `X-API-Key` header. Clients that only support the local stdio transport are not supported directly, but they can connect through an HTTP-to-stdio bridge if needed.
-
-| Client | Status | Transport |
-|---|---|---|
-| Claude Desktop | Supported | HTTP |
-| Claude Code | Supported | HTTP |
-| Cursor | Supported | HTTP |
-| Windsurf | Supported | HTTP |
-| ChatGPT (custom connector) | Supported | HTTP |
-| VS Code MCP | Supported | HTTP |
-| Zed | Supported | HTTP |
-| Any stdio-only client | Use an HTTP bridge | — |
-
-If your client supports MCP but is not listed here, it almost certainly works. [File an issue](https://github.com/tolgee/tolgee-platform/issues) if it doesn't and we'll look into it.
+The Tolgee MCP server uses the standard **streamable-HTTP** MCP transport, so it works with any MCP-compatible client that supports remote HTTP servers and custom request headers. Authentication is always via the `X-API-Key` header.
 
 ## Available Roles
 
@@ -53,14 +40,11 @@ All three talk to the same underlying Tolgee API but target different workflows.
 | | Tolgee MCP server | Tolgee CLI | Tolgee REST API |
 |---|---|---|---|
 | **Best for** | Conversational use from AI assistants | Scripts, CI sync/push/pull | Building your own apps & integrations |
-| **Surface** | Claude, Cursor, ChatGPT, Windsurf… | Terminal | Your code (any language) |
+| **Where you use it** | Claude, Cursor, ChatGPT, Windsurf… | Terminal | Your code (any language) |
 | **Auth** | PAK or PAT via `X-API-Key` | PAK or PAT | PAK or PAT |
 | **Discoverability** | High (AI lists tools and prompts for missing params) | Medium (use `tolgee --help`) | Low (read the OpenAPI spec) |
 | **Determinism** | Lower — natural language can be ambiguous | High | High |
 | **Bulk / batch ops** | ✔ | ✔ | ✔ |
-| **Latency per call** | One HTTP round-trip | One HTTP round-trip | One HTTP round-trip |
-| **Sandboxed by client** | ✔ (client shows confirmation for destructive ops) | ❌ runs whatever you type | ❌ runs whatever you call |
-
 A common end-state of our users:
 
 - **MCP server** — day-to-day exploratory work and one-off fixes from inside Claude or Cursor.
