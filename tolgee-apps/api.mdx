@@ -69,7 +69,11 @@ type AppIframeModule = {
 };
 ```
 
-Used by: `project-dashboard-page`, `translation-tools-panel`, `key-edit-tab`, `modal`.
+Used by: `project-dashboard-page`, `translation-tools-panel`, `translation-tools-panel-empty`, `key-edit-tab`, `modal`.
+
+`translation-tools-panel-empty` renders in the translations tools area when **no cell is
+selected**. Instead of a key/language selection it receives the view's selected language tags via
+`selection.selectedLanguages`, which updates as the user changes the language selector.
 
 Action modules are triggers; they don't render their own page but point at an iframe module or a link:
 
@@ -150,6 +154,7 @@ type TolgeeAppSelection = {
   languageId?: number;
   languageTag?: string;
   translationId?: number;
+  selectedLanguages?: string[];   // tags shown in the view (translation-tools-panel-empty only)
 };
 ```
 
@@ -199,7 +204,7 @@ If you don't use the SDK, the iframe ↔ host messages are:
 | --- | --- | --- |
 | iframe → host | `tolgee-app:ready` | — (signals the iframe is listening) |
 | host → iframe | `tolgee-app:init` | `{ token, apiUrl, organizationId, projectId, selection…, extra… }` |
-| host → iframe | `tolgee-app:selection-changed` | `{ keyId?, languageId?, languageTag?, translationId? }` |
+| host → iframe | `tolgee-app:selection-changed` | `{ keyId?, languageId?, languageTag?, translationId?, selectedLanguages? }` |
 | iframe → host | `tolgee-app:resize` | `{ height }` |
 | iframe → host | `tolgee-app:close` | — |
 
@@ -349,7 +354,7 @@ Both read `.env.local` (`TOLGEE_URL`, ports) and the install record at `.tolgee-
           name: 'Which Tolgee App manifest modules render an iframe?',
           acceptedAnswer: {
             '@type': 'Answer',
-            text: 'project-dashboard-page, translation-tools-panel, key-edit-tab, and modal render an iframe from your baseUrl. The action modules (key-action, translation-action, bulk-action, translations-toolbar-action, project-menu-action, shortcut) are triggers configured entirely in the manifest.',
+            text: 'project-dashboard-page, translation-tools-panel, translation-tools-panel-empty, key-edit-tab, and modal render an iframe from your baseUrl. The action modules (key-action, translation-action, bulk-action, translations-toolbar-action, project-menu-action, shortcut) are triggers configured entirely in the manifest.',
           },
         },
         {
@@ -385,10 +390,10 @@ overriding `url`, `count`, and `visibility`. The icon and tooltip come from the 
 
 ### Which Tolgee App manifest modules render an iframe?
 
-`project-dashboard-page`, `translation-tools-panel`, `key-edit-tab`, and `modal` render an iframe from
-your `baseUrl`. The action modules (`key-action`, `translation-action`, `bulk-action`,
-`translations-toolbar-action`, `project-menu-action`, `shortcut`) are triggers configured entirely in
-the manifest.
+`project-dashboard-page`, `translation-tools-panel`, `translation-tools-panel-empty`, `key-edit-tab`,
+and `modal` render an iframe from your `baseUrl`. The action modules (`key-action`,
+`translation-action`, `bulk-action`, `translations-toolbar-action`, `project-menu-action`,
+`shortcut`) are triggers configured entirely in the manifest.
 
 ### How do I verify a Tolgee webhook signature?
 
