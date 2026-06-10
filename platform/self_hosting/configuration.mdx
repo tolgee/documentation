@@ -1204,6 +1204,16 @@ Prefix: `tolgee.webhook`
 
 Configuration for webhook behavior.
 
+- ##### `allow-local-addresses` \{#tolgee-webhook-_-allow-local-addresses}
+
+  When enabled, webhook URLs may target otherwise-blocked address ranges — loopback, private/site-local, link-local, IPv6 unique-local, multicast and wildcard/any-local addresses. Useful for local development and integration testing.
+  
+  :::danger
+  This removes SSRF protection for webhook targets. Keep it **disabled** on production and multi-tenant servers — anyone able to configure a webhook could otherwise reach internal services.
+  :::
+  
+   (default: `false`)
+
 - ##### `auto-disable-after-days` \{#tolgee-webhook-_-auto-disable-after-days}
 
   Number of days of continuous failure before a webhook is automatically disabled. (default: `3`)
@@ -1466,6 +1476,7 @@ tolgee:
   telemetry:
     enabled: true
   webhook:
+    allow-local-addresses: false
     auto-disable-after-days: 3
     auto-disable-enabled: true
     auto-disable-warning-after-hours: 6
@@ -2664,6 +2675,16 @@ Prefix: `TOLGEE_WEBHOOK`
 
 Configuration for webhook behavior.
 
+- ##### `ALLOW_LOCAL_ADDRESSES` \{#tolgee-webhook-_-allow-local-addresses}
+
+  When enabled, webhook URLs may target otherwise-blocked address ranges — loopback, private/site-local, link-local, IPv6 unique-local, multicast and wildcard/any-local addresses. Useful for local development and integration testing.
+  
+  :::danger
+  This removes SSRF protection for webhook targets. Keep it **disabled** on production and multi-tenant servers — anyone able to configure a webhook could otherwise reach internal services.
+  :::
+  
+   (default: `false`)
+
 - ##### `AUTO_DISABLE_AFTER_DAYS` \{#tolgee-webhook-_-auto-disable-after-days}
 
   Number of days of continuous failure before a webhook is automatically disabled. (default: `3`)
@@ -2886,6 +2907,7 @@ TOLGEE_SMTP_TLS_ENABLED=false
 TOLGEE_SMTP_TLS_REQUIRED=false
 TOLGEE_SMTP_USERNAME=
 TOLGEE_TELEMETRY_ENABLED=true
+TOLGEE_WEBHOOK_ALLOW_LOCAL_ADDRESSES=false
 TOLGEE_WEBHOOK_AUTO_DISABLE_AFTER_DAYS=3
 TOLGEE_WEBHOOK_AUTO_DISABLE_ENABLED=true
 TOLGEE_WEBHOOK_AUTO_DISABLE_WARNING_AFTER_HOURS=6
@@ -4083,6 +4105,16 @@ Prefix: `tolgee.webhook`
 
 Configuration for webhook behavior.
 
+- ##### `allow-local-addresses` \{#tolgee-webhook-_-allow-local-addresses}
+
+  When enabled, webhook URLs may target otherwise-blocked address ranges — loopback, private/site-local, link-local, IPv6 unique-local, multicast and wildcard/any-local addresses. Useful for local development and integration testing.
+  
+  :::danger
+  This removes SSRF protection for webhook targets. Keep it **disabled** on production and multi-tenant servers — anyone able to configure a webhook could otherwise reach internal services.
+  :::
+  
+   (default: `false`)
+
 - ##### `auto-disable-after-days` \{#tolgee-webhook-_-auto-disable-after-days}
 
   Number of days of continuous failure before a webhook is automatically disabled. (default: `3`)
@@ -4305,6 +4337,7 @@ tolgee.smtp.tls-enabled = false
 tolgee.smtp.tls-required = false
 tolgee.smtp.username =
 tolgee.telemetry.enabled = true
+tolgee.webhook.allow-local-addresses = false
 tolgee.webhook.auto-disable-after-days = 3
 tolgee.webhook.auto-disable-enabled = true
 tolgee.webhook.auto-disable-warning-after-hours = 6
