@@ -1,15 +1,22 @@
 ---
 id: about
-title: Tolgee MCP Server Overview
+title: Tolgee MCP Server
 sidebar_label: About
 description: 'Connect AI assistants like Claude, Cursor, or ChatGPT to Tolgee using the Model Context Protocol (MCP) server.'
 ---
+The Tolgee MCP Server brings the full power of Tolgee into your AI coding assistant, letting you manage translations without ever leaving your editor. Connect Claude Code, Cursor, or any MCP-compatible AI assistant to your Tolgee project and start managing localization tasks conversationally.
 
-## What is MCP?
+## What is the Tolgee MCP server?
 
-The [Model Context Protocol (MCP)](https://modelcontextprotocol.io/) is an open standard that allows AI assistants to interact with external tools and services. Tolgee's MCP server lets you manage your localization projects directly from AI-powered tools like Claude Desktop, Cursor, Windsurf, ChatGPT, and others.
+The Tolgee MCP server is the [Model Context Protocol](https://modelcontextprotocol.io/) endpoint built into the Tolgee platform. It lets AI assistants (Claude Desktop, Claude Code, Cursor, Windsurf, ChatGPT, and any other MCP-compatible client) manage your Tolgee localization projects through natural language. 
 
-Instead of switching between your IDE and the Tolgee UI, you can ask your AI assistant to list keys, update translations, trigger machine translation, and more — all through natural language.
+It is hosted at `https://app.tolgee.io/mcp/developer` for Tolgee Cloud and is available on every self-hosted Tolgee instance. No proxy, no separate process. Your AI client talks to Tolgee directly over HTTP.
+
+The server is maintained by the Tolgee team and listed in the [MCP Registry](https://registry.modelcontextprotocol.io/) as `io.github.tolgee/tolgee`.
+
+## Which MCP clients are supported?
+
+The Tolgee MCP server uses the standard **streamable-HTTP** MCP transport, so it works with any MCP-compatible client that supports remote HTTP servers and custom request headers. Authentication is always via the `X-API-Key` header.
 
 ## Available Roles
 
@@ -25,3 +32,21 @@ More roles (e.g. translator, project manager) are planned for future releases.
 
 1. Follow the [setup guide](/platform/integrations/mcp_server/setup) to connect your AI client to Tolgee.
 2. Check the [usage guide](/platform/integrations/mcp_server/usage) for example workflows and best practices.
+
+## How does the Tolgee MCP server compare to the Tolgee CLI and REST API?
+
+All three talk to the same underlying Tolgee API but target different workflows. The Tolgee **MCP server** is for natural-language use from inside an AI assistant. The Tolgee [CLI](/tolgee-cli) is for scripted, repeatable operations such as `push` and `pull` in CI pipelines. The Tolgee [REST API](/api) is for building your own integrations, dashboards, or in-product features. They are complementary, not alternatives, most teams end up using two or three.
+
+| | Tolgee MCP server | Tolgee CLI | Tolgee REST API |
+|---|---|---|---|
+| **Best for** | Conversational use from AI assistants | Scripts, CI sync/push/pull | Building your own apps & integrations |
+| **Where you use it** | Claude, Cursor, ChatGPT, Windsurf… | Terminal | Your code (any language) |
+| **Auth** | PAK or PAT via `X-API-Key` | PAK or PAT | PAK or PAT |
+| **Discoverability** | High (AI lists tools and prompts for missing params) | Medium (use `tolgee --help`) | Low (read the OpenAPI spec) |
+| **Determinism** | Lower — natural language can be ambiguous | High | High |
+| **Bulk / batch ops** | ✔ | ✔ | ✔ |
+A common end-state of our users:
+
+- **MCP server** — day-to-day exploratory work and one-off fixes from inside Claude or Cursor.
+- **CLI** — committed sync between repo and Tolgee in CI (e.g. `tolgee push` on merge to `main`).
+- **REST API** — in-app translation lookup, custom dashboards, or webhooks.

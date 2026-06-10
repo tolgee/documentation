@@ -4,6 +4,25 @@ title: Usage Tolgee MCP Server
 sidebar_label: Usage
 description: 'Examples and best practices for using Tolgee MCP Server with AI assistants.'
 ---
+Once the Tolgee MCP server is connected, you manage your localization project by asking your AI assistant in natural language: list and search translation keys, get and set translations, trigger batch machine translation, and manage languages, tags, namespaces and branches. This page shows example prompts plus best practices for keeping your AI-driven localization workflow safe, fast, and accurate.
+
+## What can I do with the Tolgee MCP server?
+
+The Tolgee MCP server exposes tools covering the full localization workflow: list, search, create, update and delete translation keys; get and set translations; manage languages, tags, namespaces and branches; run batch machine-translation jobs; store context for better MT quality; and query project statistics. In short, anything you'd normally do in the Tolgee UI can be done from your AI assistant in natural language.
+
+**Tools by category:**
+
+| Category | Tools |
+|---|---|
+| Projects | `list_projects`, `create_project`, `get_project_language_statistics` |
+| Keys | `list_keys`, `search_keys`, `get_key`, `create_keys`, `update_key`, `delete_keys` |
+| Translations | `get_translations`, `set_translation` |
+| Languages | `list_languages`, `create_language` |
+| Tags | `list_tags`, `tag_keys` |
+| Namespaces | `list_namespaces` |
+| Branches | `list_branches`, `create_branch`, `delete_branch` |
+| Batch / Machine translation | `machine_translate`, `get_batch_job_status` |
+| Context for MT | `store_big_meta` |
 
 ## Example Workflow
 
@@ -12,9 +31,9 @@ Once connected, you can interact with Tolgee in natural language. For example:
 > **You:** List all keys in the "homepage" namespace that contain "welcome"
 >
 > **AI:** Found 3 keys in namespace "homepage":
-> - `homepage.welcome_title` — "Welcome to our platform"
-> - `homepage.welcome_subtitle` — "Get started in minutes"
-> - `homepage.welcome_cta` — "Sign up free"
+> - `homepage.welcome_title` — "Welcome to our platform."
+> - `homepage.welcome_subtitle` — "Get started in minutes."
+> - `homepage.welcome_cta` — "Sign up free."
 
 > **You:** Translate these keys to German and French using machine translation
 >
