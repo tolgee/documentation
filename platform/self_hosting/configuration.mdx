@@ -456,6 +456,18 @@ Prefix: `tolgee.content-delivery.cache-purging`
 
 Several services can be used as cache. Tolgee is able to purge the cache when new files are published when this configuration is set.
 
+##### aws-cloudfront \{#tolgee-content-delivery-cache-purging-_-aws-cloudfront}
+
+Prefix: `tolgee.content-delivery.cache-purging.aws-cloudfront`
+
+- ##### `access-key` \{#tolgee-content-delivery-cache-purging-aws-cloudfront-_-access-key}
+
+- ##### `content-root` \{#tolgee-content-delivery-cache-purging-aws-cloudfront-_-content-root}
+
+- ##### `distribution-id` \{#tolgee-content-delivery-cache-purging-aws-cloudfront-_-distribution-id}
+
+- ##### `secret-key` \{#tolgee-content-delivery-cache-purging-aws-cloudfront-_-secret-key}
+
 ##### azure-front-door \{#tolgee-content-delivery-cache-purging-_-azure-front-door}
 
 Prefix: `tolgee.content-delivery.cache-purging.azure-front-door`
@@ -475,6 +487,18 @@ Prefix: `tolgee.content-delivery.cache-purging.azure-front-door`
 - ##### `subscription-id` \{#tolgee-content-delivery-cache-purging-azure-front-door-_-subscription-id}
 
 - ##### `tenant-id` \{#tolgee-content-delivery-cache-purging-azure-front-door-_-tenant-id}
+
+##### bunny \{#tolgee-content-delivery-cache-purging-_-bunny}
+
+Prefix: `tolgee.content-delivery.cache-purging.bunny`
+
+- ##### `api-key` \{#tolgee-content-delivery-cache-purging-bunny-_-api-key}
+
+- ##### `content-delivery-cache-purging-type` \{#tolgee-content-delivery-cache-purging-bunny-_-content-delivery-cache-purging-type}
+
+- ##### `enabled` \{#tolgee-content-delivery-cache-purging-bunny-_-enabled}
+
+- ##### `url-prefix` \{#tolgee-content-delivery-cache-purging-bunny-_-url-prefix}
 
 ##### cloudflare \{#tolgee-content-delivery-cache-purging-_-cloudflare}
 
@@ -1323,6 +1347,11 @@ tolgee:
   content-delivery:
     public-url-prefix:
     cache-purging:
+      aws-cloudfront:
+        access-key:
+        content-root:
+        distribution-id:
+        secret-key:
       azure-front-door:
         client-id:
         client-secret:
@@ -1332,6 +1361,11 @@ tolgee:
         resource-group-name:
         subscription-id:
         tenant-id:
+      bunny:
+        api-key:
+        content-delivery-cache-purging-type: BUNNY
+        enabled: false
+        url-prefix:
       cloudflare:
         api-key:
         content-delivery-cache-purging-type: CLOUDFLARE
@@ -1927,6 +1961,18 @@ Prefix: `TOLGEE_CONTENT_DELIVERY_CACHE_PURGING`
 
 Several services can be used as cache. Tolgee is able to purge the cache when new files are published when this configuration is set.
 
+##### AWS_CLOUDFRONT \{#tolgee-content-delivery-cache-purging-_-aws-cloudfront}
+
+Prefix: `TOLGEE_CONTENT_DELIVERY_CACHE_PURGING_AWS_CLOUDFRONT`
+
+- ##### `ACCESS_KEY` \{#tolgee-content-delivery-cache-purging-aws-cloudfront-_-access-key}
+
+- ##### `CONTENT_ROOT` \{#tolgee-content-delivery-cache-purging-aws-cloudfront-_-content-root}
+
+- ##### `DISTRIBUTION_ID` \{#tolgee-content-delivery-cache-purging-aws-cloudfront-_-distribution-id}
+
+- ##### `SECRET_KEY` \{#tolgee-content-delivery-cache-purging-aws-cloudfront-_-secret-key}
+
 ##### AZURE_FRONT_DOOR \{#tolgee-content-delivery-cache-purging-_-azure-front-door}
 
 Prefix: `TOLGEE_CONTENT_DELIVERY_CACHE_PURGING_AZURE_FRONT_DOOR`
@@ -1946,6 +1992,18 @@ Prefix: `TOLGEE_CONTENT_DELIVERY_CACHE_PURGING_AZURE_FRONT_DOOR`
 - ##### `SUBSCRIPTION_ID` \{#tolgee-content-delivery-cache-purging-azure-front-door-_-subscription-id}
 
 - ##### `TENANT_ID` \{#tolgee-content-delivery-cache-purging-azure-front-door-_-tenant-id}
+
+##### BUNNY \{#tolgee-content-delivery-cache-purging-_-bunny}
+
+Prefix: `TOLGEE_CONTENT_DELIVERY_CACHE_PURGING_BUNNY`
+
+- ##### `API_KEY` \{#tolgee-content-delivery-cache-purging-bunny-_-api-key}
+
+- ##### `CONTENT_DELIVERY_CACHE_PURGING_TYPE` \{#tolgee-content-delivery-cache-purging-bunny-_-content-delivery-cache-purging-type}
+
+- ##### `ENABLED` \{#tolgee-content-delivery-cache-purging-bunny-_-enabled}
+
+- ##### `URL_PREFIX` \{#tolgee-content-delivery-cache-purging-bunny-_-url-prefix}
 
 ##### CLOUDFLARE \{#tolgee-content-delivery-cache-purging-_-cloudflare}
 
@@ -2780,6 +2838,10 @@ TOLGEE_CACHE_DEFAULT_TTL=7200000
 TOLGEE_CACHE_ENABLED=false
 TOLGEE_CACHE_USE_REDIS=false
 TOLGEE_CONTENT_DELIVERY_PUBLIC_URL_PREFIX=
+TOLGEE_CONTENT_DELIVERY_CACHE_PURGING_AWS_CLOUDFRONT_ACCESS_KEY=
+TOLGEE_CONTENT_DELIVERY_CACHE_PURGING_AWS_CLOUDFRONT_CONTENT_ROOT=
+TOLGEE_CONTENT_DELIVERY_CACHE_PURGING_AWS_CLOUDFRONT_DISTRIBUTION_ID=
+TOLGEE_CONTENT_DELIVERY_CACHE_PURGING_AWS_CLOUDFRONT_SECRET_KEY=
 TOLGEE_CONTENT_DELIVERY_CACHE_PURGING_AZURE_FRONT_DOOR_CLIENT_ID=
 TOLGEE_CONTENT_DELIVERY_CACHE_PURGING_AZURE_FRONT_DOOR_CLIENT_SECRET=
 TOLGEE_CONTENT_DELIVERY_CACHE_PURGING_AZURE_FRONT_DOOR_CONTENT_ROOT=
@@ -2788,6 +2850,10 @@ TOLGEE_CONTENT_DELIVERY_CACHE_PURGING_AZURE_FRONT_DOOR_PROFILE_NAME=
 TOLGEE_CONTENT_DELIVERY_CACHE_PURGING_AZURE_FRONT_DOOR_RESOURCE_GROUP_NAME=
 TOLGEE_CONTENT_DELIVERY_CACHE_PURGING_AZURE_FRONT_DOOR_SUBSCRIPTION_ID=
 TOLGEE_CONTENT_DELIVERY_CACHE_PURGING_AZURE_FRONT_DOOR_TENANT_ID=
+TOLGEE_CONTENT_DELIVERY_CACHE_PURGING_BUNNY_API_KEY=
+TOLGEE_CONTENT_DELIVERY_CACHE_PURGING_BUNNY_CONTENT_DELIVERY_CACHE_PURGING_TYPE=BUNNY
+TOLGEE_CONTENT_DELIVERY_CACHE_PURGING_BUNNY_ENABLED=false
+TOLGEE_CONTENT_DELIVERY_CACHE_PURGING_BUNNY_URL_PREFIX=
 TOLGEE_CONTENT_DELIVERY_CACHE_PURGING_CLOUDFLARE_API_KEY=
 TOLGEE_CONTENT_DELIVERY_CACHE_PURGING_CLOUDFLARE_CONTENT_DELIVERY_CACHE_PURGING_TYPE=CLOUDFLARE
 TOLGEE_CONTENT_DELIVERY_CACHE_PURGING_CLOUDFLARE_ENABLED=false
@@ -3357,6 +3423,18 @@ Prefix: `tolgee.content-delivery.cache-purging`
 
 Several services can be used as cache. Tolgee is able to purge the cache when new files are published when this configuration is set.
 
+##### aws-cloudfront \{#tolgee-content-delivery-cache-purging-_-aws-cloudfront}
+
+Prefix: `tolgee.content-delivery.cache-purging.aws-cloudfront`
+
+- ##### `access-key` \{#tolgee-content-delivery-cache-purging-aws-cloudfront-_-access-key}
+
+- ##### `content-root` \{#tolgee-content-delivery-cache-purging-aws-cloudfront-_-content-root}
+
+- ##### `distribution-id` \{#tolgee-content-delivery-cache-purging-aws-cloudfront-_-distribution-id}
+
+- ##### `secret-key` \{#tolgee-content-delivery-cache-purging-aws-cloudfront-_-secret-key}
+
 ##### azure-front-door \{#tolgee-content-delivery-cache-purging-_-azure-front-door}
 
 Prefix: `tolgee.content-delivery.cache-purging.azure-front-door`
@@ -3376,6 +3454,18 @@ Prefix: `tolgee.content-delivery.cache-purging.azure-front-door`
 - ##### `subscription-id` \{#tolgee-content-delivery-cache-purging-azure-front-door-_-subscription-id}
 
 - ##### `tenant-id` \{#tolgee-content-delivery-cache-purging-azure-front-door-_-tenant-id}
+
+##### bunny \{#tolgee-content-delivery-cache-purging-_-bunny}
+
+Prefix: `tolgee.content-delivery.cache-purging.bunny`
+
+- ##### `api-key` \{#tolgee-content-delivery-cache-purging-bunny-_-api-key}
+
+- ##### `content-delivery-cache-purging-type` \{#tolgee-content-delivery-cache-purging-bunny-_-content-delivery-cache-purging-type}
+
+- ##### `enabled` \{#tolgee-content-delivery-cache-purging-bunny-_-enabled}
+
+- ##### `url-prefix` \{#tolgee-content-delivery-cache-purging-bunny-_-url-prefix}
 
 ##### cloudflare \{#tolgee-content-delivery-cache-purging-_-cloudflare}
 
@@ -4210,6 +4300,10 @@ tolgee.cache.default-ttl = 7200000
 tolgee.cache.enabled = false
 tolgee.cache.use-redis = false
 tolgee.content-delivery.public-url-prefix =
+tolgee.content-delivery.cache-purging.aws-cloudfront.access-key =
+tolgee.content-delivery.cache-purging.aws-cloudfront.content-root =
+tolgee.content-delivery.cache-purging.aws-cloudfront.distribution-id =
+tolgee.content-delivery.cache-purging.aws-cloudfront.secret-key =
 tolgee.content-delivery.cache-purging.azure-front-door.client-id =
 tolgee.content-delivery.cache-purging.azure-front-door.client-secret =
 tolgee.content-delivery.cache-purging.azure-front-door.content-root =
@@ -4218,6 +4312,10 @@ tolgee.content-delivery.cache-purging.azure-front-door.profile-name =
 tolgee.content-delivery.cache-purging.azure-front-door.resource-group-name =
 tolgee.content-delivery.cache-purging.azure-front-door.subscription-id =
 tolgee.content-delivery.cache-purging.azure-front-door.tenant-id =
+tolgee.content-delivery.cache-purging.bunny.api-key =
+tolgee.content-delivery.cache-purging.bunny.content-delivery-cache-purging-type = BUNNY
+tolgee.content-delivery.cache-purging.bunny.enabled = false
+tolgee.content-delivery.cache-purging.bunny.url-prefix =
 tolgee.content-delivery.cache-purging.cloudflare.api-key =
 tolgee.content-delivery.cache-purging.cloudflare.content-delivery-cache-purging-type = CLOUDFLARE
 tolgee.content-delivery.cache-purging.cloudflare.enabled = false
