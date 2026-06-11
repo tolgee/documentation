@@ -100,6 +100,28 @@ Prefix: `tolgee.authentication`
 
 Configuration of Tolgee's authentication.
 
+- ##### `allowed-email-domains` \{#tolgee-authentication-_-allowed-email-domains}
+
+  Email domains that are always allowed to register, even if present in the bundled disposable-domain list or in `blockedEmailDomains`. Takes precedence over both. Useful for rescuing a domain that the bundled list flags by mistake. (default: `[]`)
+
+- ##### `block-disposable-emails` \{#tolgee-authentication-_-block-disposable-emails}
+
+  When enabled, registrations from disposable / throw-away email providers (e.g. `mailinator.com`) are rejected. The blocklist is a bundled snapshot of the community-maintained [disposable-email-domains](https://github.com/disposable-email-domains/disposable-email-domains) list.
+  
+  Use `blockedEmailDomains` to block additional domains and `allowedEmailDomains` to allow domains that the bundled list flags by mistake. (default: `true`)
+
+- ##### `block-email-aliases` \{#tolgee-authentication-_-block-email-aliases}
+
+  When enabled, sign-ups whose email is a [subaddressing](https://en.wikipedia.org/wiki/Email_address#Subaddressing) alias of an existing account are rejected. For example, when `foo@gmail.com` already exists, `foo+anything@gmail.com` is treated as the same account. The comparison is also case-insensitive.
+  
+  :::note
+  This only affects **new registrations** — existing accounts and login are unaffected.
+  ::: (default: `true`)
+
+- ##### `blocked-email-domains` \{#tolgee-authentication-_-blocked-email-domains}
+
+  Additional email domains to block from registration, on top of the bundled disposable-domain list. Matched case-insensitively against the domain part of the email. (default: `[]`)
+
 - ##### `create-demo-for-initial-user` \{#tolgee-authentication-_-create-demo-for-initial-user}
 
   When enabled, creates Demo project and quick start guide for inital user
@@ -1282,6 +1304,10 @@ tolgee:
   max-upload-file-size: 51200
   translations-view-languages-limit: -1
   authentication:
+    allowed-email-domains: []
+    block-disposable-emails: true
+    block-email-aliases: true
+    blocked-email-domains: []
     create-demo-for-initial-user: true
     enabled: true
     initial-password:
@@ -1604,6 +1630,28 @@ Configuration specific to Tolgee.
 Prefix: `TOLGEE_AUTHENTICATION`
 
 Configuration of Tolgee's authentication.
+
+- ##### `ALLOWED_EMAIL_DOMAINS` \{#tolgee-authentication-_-allowed-email-domains}
+
+  Email domains that are always allowed to register, even if present in the bundled disposable-domain list or in `blockedEmailDomains`. Takes precedence over both. Useful for rescuing a domain that the bundled list flags by mistake. (default: `[]`)
+
+- ##### `BLOCK_DISPOSABLE_EMAILS` \{#tolgee-authentication-_-block-disposable-emails}
+
+  When enabled, registrations from disposable / throw-away email providers (e.g. `mailinator.com`) are rejected. The blocklist is a bundled snapshot of the community-maintained [disposable-email-domains](https://github.com/disposable-email-domains/disposable-email-domains) list.
+  
+  Use `blockedEmailDomains` to block additional domains and `allowedEmailDomains` to allow domains that the bundled list flags by mistake. (default: `true`)
+
+- ##### `BLOCK_EMAIL_ALIASES` \{#tolgee-authentication-_-block-email-aliases}
+
+  When enabled, sign-ups whose email is a [subaddressing](https://en.wikipedia.org/wiki/Email_address#Subaddressing) alias of an existing account are rejected. For example, when `foo@gmail.com` already exists, `foo+anything@gmail.com` is treated as the same account. The comparison is also case-insensitive.
+  
+  :::note
+  This only affects **new registrations** — existing accounts and login are unaffected.
+  ::: (default: `true`)
+
+- ##### `BLOCKED_EMAIL_DOMAINS` \{#tolgee-authentication-_-blocked-email-domains}
+
+  Additional email domains to block from registration, on top of the bundled disposable-domain list. Matched case-insensitively against the domain part of the email. (default: `[]`)
 
 - ##### `CREATE_DEMO_FOR_INITIAL_USER` \{#tolgee-authentication-_-create-demo-for-initial-user}
 
@@ -2782,6 +2830,10 @@ TOLGEE_MAX_SCREENSHOTS_PER_KEY=20
 TOLGEE_MAX_TRANSLATION_TEXT_LENGTH=10000
 TOLGEE_MAX_UPLOAD_FILE_SIZE=51200
 TOLGEE_TRANSLATIONS_VIEW_LANGUAGES_LIMIT=-1
+TOLGEE_AUTHENTICATION_ALLOWED_EMAIL_DOMAINS=[]
+TOLGEE_AUTHENTICATION_BLOCK_DISPOSABLE_EMAILS=true
+TOLGEE_AUTHENTICATION_BLOCK_EMAIL_ALIASES=true
+TOLGEE_AUTHENTICATION_BLOCKED_EMAIL_DOMAINS=[]
 TOLGEE_AUTHENTICATION_CREATE_DEMO_FOR_INITIAL_USER=true
 TOLGEE_AUTHENTICATION_ENABLED=true
 TOLGEE_AUTHENTICATION_INITIAL_PASSWORD=
@@ -3066,6 +3118,28 @@ Configuration specific to Tolgee.
 Prefix: `tolgee.authentication`
 
 Configuration of Tolgee's authentication.
+
+- ##### `allowed-email-domains` \{#tolgee-authentication-_-allowed-email-domains}
+
+  Email domains that are always allowed to register, even if present in the bundled disposable-domain list or in `blockedEmailDomains`. Takes precedence over both. Useful for rescuing a domain that the bundled list flags by mistake. (default: `[]`)
+
+- ##### `block-disposable-emails` \{#tolgee-authentication-_-block-disposable-emails}
+
+  When enabled, registrations from disposable / throw-away email providers (e.g. `mailinator.com`) are rejected. The blocklist is a bundled snapshot of the community-maintained [disposable-email-domains](https://github.com/disposable-email-domains/disposable-email-domains) list.
+  
+  Use `blockedEmailDomains` to block additional domains and `allowedEmailDomains` to allow domains that the bundled list flags by mistake. (default: `true`)
+
+- ##### `block-email-aliases` \{#tolgee-authentication-_-block-email-aliases}
+
+  When enabled, sign-ups whose email is a [subaddressing](https://en.wikipedia.org/wiki/Email_address#Subaddressing) alias of an existing account are rejected. For example, when `foo@gmail.com` already exists, `foo+anything@gmail.com` is treated as the same account. The comparison is also case-insensitive.
+  
+  :::note
+  This only affects **new registrations** — existing accounts and login are unaffected.
+  ::: (default: `true`)
+
+- ##### `blocked-email-domains` \{#tolgee-authentication-_-blocked-email-domains}
+
+  Additional email domains to block from registration, on top of the bundled disposable-domain list. Matched case-insensitively against the domain part of the email. (default: `[]`)
 
 - ##### `create-demo-for-initial-user` \{#tolgee-authentication-_-create-demo-for-initial-user}
 
@@ -4244,6 +4318,10 @@ tolgee.max-screenshots-per-key = 20
 tolgee.max-translation-text-length = 10000
 tolgee.max-upload-file-size = 51200
 tolgee.translations-view-languages-limit = -1
+tolgee.authentication.allowed-email-domains = []
+tolgee.authentication.block-disposable-emails = true
+tolgee.authentication.block-email-aliases = true
+tolgee.authentication.blocked-email-domains = []
 tolgee.authentication.create-demo-for-initial-user = true
 tolgee.authentication.enabled = true
 tolgee.authentication.initial-password =
