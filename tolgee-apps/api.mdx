@@ -135,6 +135,7 @@ app.dispose();                            // detach the message listener
 | --- | --- | --- |
 | `context` | `Promise<TolgeeAppContext>` | Resolves when the parent posts `tolgee-app:init`. |
 | `onSelectionChanged` | `(handler: (s: TolgeeAppSelection) => void) => () => void` | Subscribe to focus changes; returns an unsubscribe fn; fires once with the initial selection. |
+| `onThemeChanged` | `(handler: (t: TolgeeAppTheme) => void) => () => void` | Subscribe to light/dark theme changes; returns an unsubscribe fn; fires once with the initial theme. |
 | `resize` | `(height: number) => void` | Request an iframe height. |
 | `close` | `() => void` | Close the containing modal/panel. |
 | `dispose` | `() => void` | Remove the listener. |
@@ -146,6 +147,7 @@ type TolgeeAppContext = {
   organizationId: number;
   projectId: number;
   selection: TolgeeAppSelection;
+  theme: TolgeeAppTheme;            // host light/dark + palette; see onThemeChanged
   extra: Record<string, unknown>;   // trigger-specific extras (e.g. selectedKeyIds for bulk actions)
 };
 
@@ -156,7 +158,34 @@ type TolgeeAppSelection = {
   translationId?: number;
   selectedLanguages?: string[];   // tags shown in the view (translation-tools-panel-empty only)
 };
+
+type TolgeeAppTheme = {
+  mode: 'light' | 'dark';
+  colors: {
+    background: string; backgroundPaper: string;
+    text: string; textSecondary: string;
+    primary: string; primaryContrast: string;
+    divider: string; error: string;
+  };
+};
 ```
+
+### `applyTolgeeTheme(theme, root?)`
+
+Applies the host theme to the iframe document so the plugin matches Tolgee: exposes each color as a
+`--tg-color-*` CSS variable (`--tg-color-background`, `--tg-color-text-secondary`, …), sets
+`[data-tg-theme="light|dark"]`, and sets `color-scheme`. Call it on init and from `onThemeChanged` to
+follow live toggles:
+
+```ts
+import { createTolgeeApp, applyTolgeeTheme } from '@tolgee/apps-sdk/browser';
+
+const app = createTolgeeApp();
+app.onThemeChanged(applyTolgeeTheme);   // fires once with the initial theme, then on every toggle
+```
+
+Then key your CSS off the variables, e.g. `background: var(--tg-color-background); color: var(--tg-color-text);`.
+Don't use `@media (prefers-color-scheme)` — Tolgee's theme can differ from the OS.
 
 ### `createTolgeeAppClient(context): TolgeeRestClient`
 
@@ -203,8 +232,9 @@ If you don't use the SDK, the iframe ↔ host messages are:
 | Direction | Message | Payload |
 | --- | --- | --- |
 | iframe → host | `tolgee-app:ready` | — (signals the iframe is listening) |
-| host → iframe | `tolgee-app:init` | `{ token, apiUrl, organizationId, projectId, selection…, extra… }` |
+| host → iframe | `tolgee-app:init` | `{ token, apiUrl, organizationId, projectId, selection…, theme, extra… }` |
 | host → iframe | `tolgee-app:selection-changed` | `{ keyId?, languageId?, languageTag?, translationId?, selectedLanguages? }` |
+| host → iframe | `tolgee-app:theme-changed` | `{ theme: { mode, colors } }` |
 | iframe → host | `tolgee-app:resize` | `{ height }` |
 | iframe → host | `tolgee-app:close` | — |
 
