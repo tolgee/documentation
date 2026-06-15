@@ -1574,6 +1574,24 @@ const sidebar: SidebarsConfig = {
     },
     {
       type: "category",
+      label: "Ai Playground result controller",
+      link: {
+        type: "doc",
+        id: "tag_ai-playground-result-controller",
+      },
+      collapsible: false,
+      collapsed: false,
+      items: [
+        {
+          type: "doc",
+          id: "get-ai-playground-result",
+          label: "Get ai playground result",
+          className: "api-method post",
+        },
+      ],
+    },
+    {
+      type: "category",
       label: "Export",
       link: {
         type: "doc",
@@ -1598,24 +1616,6 @@ const sidebar: SidebarsConfig = {
           type: "doc",
           id: "export-post",
           label: "Export data (post)",
-          className: "api-method post",
-        },
-      ],
-    },
-    {
-      type: "category",
-      label: "Ai Playground result controller",
-      link: {
-        type: "doc",
-        id: "tag_ai-playground-result-controller",
-      },
-      collapsible: false,
-      collapsed: false,
-      items: [
-        {
-          type: "doc",
-          id: "get-ai-playground-result",
-          label: "Get ai playground result",
           className: "api-method post",
         },
       ],
