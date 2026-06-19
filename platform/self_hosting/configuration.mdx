@@ -100,6 +100,28 @@ Prefix: `tolgee.authentication`
 
 Configuration of Tolgee's authentication.
 
+- ##### `allowed-email-domains` \{#tolgee-authentication-_-allowed-email-domains}
+
+  Email domains that are always allowed to register, even if present in the bundled disposable-domain list or in `blockedEmailDomains`. Takes precedence over both. Useful for rescuing a domain that the bundled list flags by mistake. (default: `[]`)
+
+- ##### `block-disposable-emails` \{#tolgee-authentication-_-block-disposable-emails}
+
+  When enabled, registrations from disposable / throw-away email providers (e.g. `mailinator.com`) are rejected. The blocklist is a bundled snapshot of the community-maintained [disposable-email-domains](https://github.com/disposable-email-domains/disposable-email-domains) list.
+  
+  Use `blockedEmailDomains` to block additional domains and `allowedEmailDomains` to allow domains that the bundled list flags by mistake. (default: `true`)
+
+- ##### `block-email-aliases` \{#tolgee-authentication-_-block-email-aliases}
+
+  When enabled, sign-ups whose email is a [subaddressing](https://en.wikipedia.org/wiki/Email_address#Subaddressing) alias of an existing account are rejected. For example, when `foo@gmail.com` already exists, `foo+anything@gmail.com` is treated as the same account. The comparison is also case-insensitive.
+  
+  :::note
+  This only affects **new registrations** — existing accounts and login are unaffected.
+  ::: (default: `true`)
+
+- ##### `blocked-email-domains` \{#tolgee-authentication-_-blocked-email-domains}
+
+  Additional email domains to block from registration, on top of the bundled disposable-domain list. Matched case-insensitively against the domain part of the email. (default: `[]`)
+
 - ##### `create-demo-for-initial-user` \{#tolgee-authentication-_-create-demo-for-initial-user}
 
   When enabled, creates Demo project and quick start guide for inital user
@@ -339,6 +361,16 @@ Single sign-on (SSO) is an authentication process that allows a user to access m
 
 There is a significant difference between global and per organization SSO: Global SSO can handle authentication for all server users no matter which organizations they belong to, while per organization SSO can handle authentication only for users of the organization and such users cannot be members of any other organization. SSO users associated with per organization SSO have no rights to create or manage organizations. Global SSO users should be invited to organizations they need to have access to. Per organization SSO users are automatically added to the organization they belong to.
 
+- ##### `allow-local-addresses` \{#tolgee-authentication-sso-organizations-_-allow-local-addresses}
+
+  When enabled, per-organization SSO provider URLs (`tokenUri`, `authorizationUri`) may target otherwise-blocked address ranges — loopback, private/site-local, link-local, IPv6 unique-local, multicast and wildcard/any-local addresses. Useful when the identity provider runs on an internal network in a self-hosted deployment.
+  
+  :::danger
+  This removes SSRF protection for SSO provider URLs. Keep it **disabled** on production and multi-tenant servers — an organization owner able to configure SSO could otherwise make the server reach internal services.
+  :::
+  
+   (default: `false`)
+
 - ##### `enabled` \{#tolgee-authentication-sso-organizations-_-enabled}
 
   Enables SSO authentication (default: `false`)
@@ -456,6 +488,18 @@ Prefix: `tolgee.content-delivery.cache-purging`
 
 Several services can be used as cache. Tolgee is able to purge the cache when new files are published when this configuration is set.
 
+##### aws-cloudfront \{#tolgee-content-delivery-cache-purging-_-aws-cloudfront}
+
+Prefix: `tolgee.content-delivery.cache-purging.aws-cloudfront`
+
+- ##### `access-key` \{#tolgee-content-delivery-cache-purging-aws-cloudfront-_-access-key}
+
+- ##### `content-root` \{#tolgee-content-delivery-cache-purging-aws-cloudfront-_-content-root}
+
+- ##### `distribution-id` \{#tolgee-content-delivery-cache-purging-aws-cloudfront-_-distribution-id}
+
+- ##### `secret-key` \{#tolgee-content-delivery-cache-purging-aws-cloudfront-_-secret-key}
+
 ##### azure-front-door \{#tolgee-content-delivery-cache-purging-_-azure-front-door}
 
 Prefix: `tolgee.content-delivery.cache-purging.azure-front-door`
@@ -475,6 +519,18 @@ Prefix: `tolgee.content-delivery.cache-purging.azure-front-door`
 - ##### `subscription-id` \{#tolgee-content-delivery-cache-purging-azure-front-door-_-subscription-id}
 
 - ##### `tenant-id` \{#tolgee-content-delivery-cache-purging-azure-front-door-_-tenant-id}
+
+##### bunny \{#tolgee-content-delivery-cache-purging-_-bunny}
+
+Prefix: `tolgee.content-delivery.cache-purging.bunny`
+
+- ##### `api-key` \{#tolgee-content-delivery-cache-purging-bunny-_-api-key}
+
+- ##### `content-delivery-cache-purging-type` \{#tolgee-content-delivery-cache-purging-bunny-_-content-delivery-cache-purging-type}
+
+- ##### `enabled` \{#tolgee-content-delivery-cache-purging-bunny-_-enabled}
+
+- ##### `url-prefix` \{#tolgee-content-delivery-cache-purging-bunny-_-url-prefix}
 
 ##### cloudflare \{#tolgee-content-delivery-cache-purging-_-cloudflare}
 
@@ -617,6 +673,10 @@ Properties for importing data to Tolgee and bulk-imports exported json files in 
   :::
   
   
+
+- ##### `flush-batch-size` \{#tolgee-import-_-flush-batch-size}
+
+  Number of keys/translations persisted per flushAndClear batch by the data importer. Smaller values reduce peak memory at the cost of more flushes; larger values do the opposite. Lower this in environments where the import OOMs at scale. (default: `10000`)
 
 - ##### `store-files-for-debugging` \{#tolgee-import-_-store-files-for-debugging}
 
@@ -1200,6 +1260,16 @@ Prefix: `tolgee.webhook`
 
 Configuration for webhook behavior.
 
+- ##### `allow-local-addresses` \{#tolgee-webhook-_-allow-local-addresses}
+
+  When enabled, webhook URLs may target otherwise-blocked address ranges — loopback, private/site-local, link-local, IPv6 unique-local, multicast and wildcard/any-local addresses. Useful for local development and integration testing.
+  
+  :::danger
+  This removes SSRF protection for webhook targets. Keep it **disabled** on production and multi-tenant servers — anyone able to configure a webhook could otherwise reach internal services.
+  :::
+  
+   (default: `false`)
+
 - ##### `auto-disable-after-days` \{#tolgee-webhook-_-auto-disable-after-days}
 
   Number of days of continuous failure before a webhook is automatically disabled. (default: `3`)
@@ -1244,6 +1314,10 @@ tolgee:
   max-upload-file-size: 51200
   translations-view-languages-limit: -1
   authentication:
+    allowed-email-domains: []
+    block-disposable-emails: true
+    block-email-aliases: true
+    blocked-email-domains: []
     create-demo-for-initial-user: true
     enabled: true
     initial-password:
@@ -1287,6 +1361,7 @@ tolgee:
       session-expiration-minutes: 10
       token-uri:
     sso-organizations:
+      allow-local-addresses: false
       enabled: false
       session-expiration-minutes: 10
   batch:
@@ -1309,6 +1384,11 @@ tolgee:
   content-delivery:
     public-url-prefix:
     cache-purging:
+      aws-cloudfront:
+        access-key:
+        content-root:
+        distribution-id:
+        secret-key:
       azure-front-door:
         client-id:
         client-secret:
@@ -1318,6 +1398,11 @@ tolgee:
         resource-group-name:
         subscription-id:
         tenant-id:
+      bunny:
+        api-key:
+        content-delivery-cache-purging-type: BUNNY
+        enabled: false
+        url-prefix:
       cloudflare:
         api-key:
         content-delivery-cache-purging-type: CLOUDFLARE
@@ -1351,6 +1436,7 @@ tolgee:
     base-language-tag: en
     create-implicit-api-key: false
     dir:
+    flush-batch-size: 10000
     store-files-for-debugging: false
   language-tool:
     connect-timeout-seconds: 5
@@ -1461,6 +1547,7 @@ tolgee:
   telemetry:
     enabled: true
   webhook:
+    allow-local-addresses: false
     auto-disable-after-days: 3
     auto-disable-enabled: true
     auto-disable-warning-after-hours: 6
@@ -1554,6 +1641,28 @@ Configuration specific to Tolgee.
 Prefix: `TOLGEE_AUTHENTICATION`
 
 Configuration of Tolgee's authentication.
+
+- ##### `ALLOWED_EMAIL_DOMAINS` \{#tolgee-authentication-_-allowed-email-domains}
+
+  Email domains that are always allowed to register, even if present in the bundled disposable-domain list or in `blockedEmailDomains`. Takes precedence over both. Useful for rescuing a domain that the bundled list flags by mistake. (default: `[]`)
+
+- ##### `BLOCK_DISPOSABLE_EMAILS` \{#tolgee-authentication-_-block-disposable-emails}
+
+  When enabled, registrations from disposable / throw-away email providers (e.g. `mailinator.com`) are rejected. The blocklist is a bundled snapshot of the community-maintained [disposable-email-domains](https://github.com/disposable-email-domains/disposable-email-domains) list.
+  
+  Use `blockedEmailDomains` to block additional domains and `allowedEmailDomains` to allow domains that the bundled list flags by mistake. (default: `true`)
+
+- ##### `BLOCK_EMAIL_ALIASES` \{#tolgee-authentication-_-block-email-aliases}
+
+  When enabled, sign-ups whose email is a [subaddressing](https://en.wikipedia.org/wiki/Email_address#Subaddressing) alias of an existing account are rejected. For example, when `foo@gmail.com` already exists, `foo+anything@gmail.com` is treated as the same account. The comparison is also case-insensitive.
+  
+  :::note
+  This only affects **new registrations** — existing accounts and login are unaffected.
+  ::: (default: `true`)
+
+- ##### `BLOCKED_EMAIL_DOMAINS` \{#tolgee-authentication-_-blocked-email-domains}
+
+  Additional email domains to block from registration, on top of the bundled disposable-domain list. Matched case-insensitively against the domain part of the email. (default: `[]`)
 
 - ##### `CREATE_DEMO_FOR_INITIAL_USER` \{#tolgee-authentication-_-create-demo-for-initial-user}
 
@@ -1794,6 +1903,16 @@ Single sign-on (SSO) is an authentication process that allows a user to access m
 
 There is a significant difference between global and per organization SSO: Global SSO can handle authentication for all server users no matter which organizations they belong to, while per organization SSO can handle authentication only for users of the organization and such users cannot be members of any other organization. SSO users associated with per organization SSO have no rights to create or manage organizations. Global SSO users should be invited to organizations they need to have access to. Per organization SSO users are automatically added to the organization they belong to.
 
+- ##### `ALLOW_LOCAL_ADDRESSES` \{#tolgee-authentication-sso-organizations-_-allow-local-addresses}
+
+  When enabled, per-organization SSO provider URLs (`tokenUri`, `authorizationUri`) may target otherwise-blocked address ranges — loopback, private/site-local, link-local, IPv6 unique-local, multicast and wildcard/any-local addresses. Useful when the identity provider runs on an internal network in a self-hosted deployment.
+  
+  :::danger
+  This removes SSRF protection for SSO provider URLs. Keep it **disabled** on production and multi-tenant servers — an organization owner able to configure SSO could otherwise make the server reach internal services.
+  :::
+  
+   (default: `false`)
+
 - ##### `ENABLED` \{#tolgee-authentication-sso-organizations-_-enabled}
 
   Enables SSO authentication (default: `false`)
@@ -1911,6 +2030,18 @@ Prefix: `TOLGEE_CONTENT_DELIVERY_CACHE_PURGING`
 
 Several services can be used as cache. Tolgee is able to purge the cache when new files are published when this configuration is set.
 
+##### AWS_CLOUDFRONT \{#tolgee-content-delivery-cache-purging-_-aws-cloudfront}
+
+Prefix: `TOLGEE_CONTENT_DELIVERY_CACHE_PURGING_AWS_CLOUDFRONT`
+
+- ##### `ACCESS_KEY` \{#tolgee-content-delivery-cache-purging-aws-cloudfront-_-access-key}
+
+- ##### `CONTENT_ROOT` \{#tolgee-content-delivery-cache-purging-aws-cloudfront-_-content-root}
+
+- ##### `DISTRIBUTION_ID` \{#tolgee-content-delivery-cache-purging-aws-cloudfront-_-distribution-id}
+
+- ##### `SECRET_KEY` \{#tolgee-content-delivery-cache-purging-aws-cloudfront-_-secret-key}
+
 ##### AZURE_FRONT_DOOR \{#tolgee-content-delivery-cache-purging-_-azure-front-door}
 
 Prefix: `TOLGEE_CONTENT_DELIVERY_CACHE_PURGING_AZURE_FRONT_DOOR`
@@ -1930,6 +2061,18 @@ Prefix: `TOLGEE_CONTENT_DELIVERY_CACHE_PURGING_AZURE_FRONT_DOOR`
 - ##### `SUBSCRIPTION_ID` \{#tolgee-content-delivery-cache-purging-azure-front-door-_-subscription-id}
 
 - ##### `TENANT_ID` \{#tolgee-content-delivery-cache-purging-azure-front-door-_-tenant-id}
+
+##### BUNNY \{#tolgee-content-delivery-cache-purging-_-bunny}
+
+Prefix: `TOLGEE_CONTENT_DELIVERY_CACHE_PURGING_BUNNY`
+
+- ##### `API_KEY` \{#tolgee-content-delivery-cache-purging-bunny-_-api-key}
+
+- ##### `CONTENT_DELIVERY_CACHE_PURGING_TYPE` \{#tolgee-content-delivery-cache-purging-bunny-_-content-delivery-cache-purging-type}
+
+- ##### `ENABLED` \{#tolgee-content-delivery-cache-purging-bunny-_-enabled}
+
+- ##### `URL_PREFIX` \{#tolgee-content-delivery-cache-purging-bunny-_-url-prefix}
 
 ##### CLOUDFLARE \{#tolgee-content-delivery-cache-purging-_-cloudflare}
 
@@ -2072,6 +2215,10 @@ Properties for importing data to Tolgee and bulk-imports exported json files in 
   :::
   
   
+
+- ##### `FLUSH_BATCH_SIZE` \{#tolgee-import-_-flush-batch-size}
+
+  Number of keys/translations persisted per flushAndClear batch by the data importer. Smaller values reduce peak memory at the cost of more flushes; larger values do the opposite. Lower this in environments where the import OOMs at scale. (default: `10000`)
 
 - ##### `STORE_FILES_FOR_DEBUGGING` \{#tolgee-import-_-store-files-for-debugging}
 
@@ -2655,6 +2802,16 @@ Prefix: `TOLGEE_WEBHOOK`
 
 Configuration for webhook behavior.
 
+- ##### `ALLOW_LOCAL_ADDRESSES` \{#tolgee-webhook-_-allow-local-addresses}
+
+  When enabled, webhook URLs may target otherwise-blocked address ranges — loopback, private/site-local, link-local, IPv6 unique-local, multicast and wildcard/any-local addresses. Useful for local development and integration testing.
+  
+  :::danger
+  This removes SSRF protection for webhook targets. Keep it **disabled** on production and multi-tenant servers — anyone able to configure a webhook could otherwise reach internal services.
+  :::
+  
+   (default: `false`)
+
 - ##### `AUTO_DISABLE_AFTER_DAYS` \{#tolgee-webhook-_-auto-disable-after-days}
 
   Number of days of continuous failure before a webhook is automatically disabled. (default: `3`)
@@ -2694,6 +2851,10 @@ TOLGEE_MAX_SCREENSHOTS_PER_KEY=20
 TOLGEE_MAX_TRANSLATION_TEXT_LENGTH=10000
 TOLGEE_MAX_UPLOAD_FILE_SIZE=51200
 TOLGEE_TRANSLATIONS_VIEW_LANGUAGES_LIMIT=-1
+TOLGEE_AUTHENTICATION_ALLOWED_EMAIL_DOMAINS=[]
+TOLGEE_AUTHENTICATION_BLOCK_DISPOSABLE_EMAILS=true
+TOLGEE_AUTHENTICATION_BLOCK_EMAIL_ALIASES=true
+TOLGEE_AUTHENTICATION_BLOCKED_EMAIL_DOMAINS=[]
 TOLGEE_AUTHENTICATION_CREATE_DEMO_FOR_INITIAL_USER=true
 TOLGEE_AUTHENTICATION_ENABLED=true
 TOLGEE_AUTHENTICATION_INITIAL_PASSWORD=
@@ -2732,6 +2893,7 @@ TOLGEE_AUTHENTICATION_SSO_GLOBAL_ENABLED=false
 TOLGEE_AUTHENTICATION_SSO_GLOBAL_FORCE=false
 TOLGEE_AUTHENTICATION_SSO_GLOBAL_SESSION_EXPIRATION_MINUTES=10
 TOLGEE_AUTHENTICATION_SSO_GLOBAL_TOKEN_URI=
+TOLGEE_AUTHENTICATION_SSO_ORGANIZATIONS_ALLOW_LOCAL_ADDRESSES=false
 TOLGEE_AUTHENTICATION_SSO_ORGANIZATIONS_ENABLED=false
 TOLGEE_AUTHENTICATION_SSO_ORGANIZATIONS_SESSION_EXPIRATION_MINUTES=10
 TOLGEE_BATCH_CANCELLATION_TIMEOUT_MS=30000
@@ -2750,6 +2912,10 @@ TOLGEE_CACHE_DEFAULT_TTL=7200000
 TOLGEE_CACHE_ENABLED=false
 TOLGEE_CACHE_USE_REDIS=false
 TOLGEE_CONTENT_DELIVERY_PUBLIC_URL_PREFIX=
+TOLGEE_CONTENT_DELIVERY_CACHE_PURGING_AWS_CLOUDFRONT_ACCESS_KEY=
+TOLGEE_CONTENT_DELIVERY_CACHE_PURGING_AWS_CLOUDFRONT_CONTENT_ROOT=
+TOLGEE_CONTENT_DELIVERY_CACHE_PURGING_AWS_CLOUDFRONT_DISTRIBUTION_ID=
+TOLGEE_CONTENT_DELIVERY_CACHE_PURGING_AWS_CLOUDFRONT_SECRET_KEY=
 TOLGEE_CONTENT_DELIVERY_CACHE_PURGING_AZURE_FRONT_DOOR_CLIENT_ID=
 TOLGEE_CONTENT_DELIVERY_CACHE_PURGING_AZURE_FRONT_DOOR_CLIENT_SECRET=
 TOLGEE_CONTENT_DELIVERY_CACHE_PURGING_AZURE_FRONT_DOOR_CONTENT_ROOT=
@@ -2758,6 +2924,10 @@ TOLGEE_CONTENT_DELIVERY_CACHE_PURGING_AZURE_FRONT_DOOR_PROFILE_NAME=
 TOLGEE_CONTENT_DELIVERY_CACHE_PURGING_AZURE_FRONT_DOOR_RESOURCE_GROUP_NAME=
 TOLGEE_CONTENT_DELIVERY_CACHE_PURGING_AZURE_FRONT_DOOR_SUBSCRIPTION_ID=
 TOLGEE_CONTENT_DELIVERY_CACHE_PURGING_AZURE_FRONT_DOOR_TENANT_ID=
+TOLGEE_CONTENT_DELIVERY_CACHE_PURGING_BUNNY_API_KEY=
+TOLGEE_CONTENT_DELIVERY_CACHE_PURGING_BUNNY_CONTENT_DELIVERY_CACHE_PURGING_TYPE=BUNNY
+TOLGEE_CONTENT_DELIVERY_CACHE_PURGING_BUNNY_ENABLED=false
+TOLGEE_CONTENT_DELIVERY_CACHE_PURGING_BUNNY_URL_PREFIX=
 TOLGEE_CONTENT_DELIVERY_CACHE_PURGING_CLOUDFLARE_API_KEY=
 TOLGEE_CONTENT_DELIVERY_CACHE_PURGING_CLOUDFLARE_CONTENT_DELIVERY_CACHE_PURGING_TYPE=CLOUDFLARE
 TOLGEE_CONTENT_DELIVERY_CACHE_PURGING_CLOUDFLARE_ENABLED=false
@@ -2784,6 +2954,7 @@ TOLGEE_FILE_STORAGE_S3_SIGNING_REGION=
 TOLGEE_IMPORT_BASE_LANGUAGE_TAG=en
 TOLGEE_IMPORT_CREATE_IMPLICIT_API_KEY=false
 TOLGEE_IMPORT_DIR=
+TOLGEE_IMPORT_FLUSH_BATCH_SIZE=10000
 TOLGEE_IMPORT_STORE_FILES_FOR_DEBUGGING=false
 TOLGEE_LANGUAGE_TOOL_CONNECT_TIMEOUT_SECONDS=5
 TOLGEE_LANGUAGE_TOOL_MAX_CONCURRENT_REQUESTS=2
@@ -2876,6 +3047,7 @@ TOLGEE_SMTP_TLS_ENABLED=false
 TOLGEE_SMTP_TLS_REQUIRED=false
 TOLGEE_SMTP_USERNAME=
 TOLGEE_TELEMETRY_ENABLED=true
+TOLGEE_WEBHOOK_ALLOW_LOCAL_ADDRESSES=false
 TOLGEE_WEBHOOK_AUTO_DISABLE_AFTER_DAYS=3
 TOLGEE_WEBHOOK_AUTO_DISABLE_ENABLED=true
 TOLGEE_WEBHOOK_AUTO_DISABLE_WARNING_AFTER_HOURS=6
@@ -2968,6 +3140,28 @@ Configuration specific to Tolgee.
 Prefix: `tolgee.authentication`
 
 Configuration of Tolgee's authentication.
+
+- ##### `allowed-email-domains` \{#tolgee-authentication-_-allowed-email-domains}
+
+  Email domains that are always allowed to register, even if present in the bundled disposable-domain list or in `blockedEmailDomains`. Takes precedence over both. Useful for rescuing a domain that the bundled list flags by mistake. (default: `[]`)
+
+- ##### `block-disposable-emails` \{#tolgee-authentication-_-block-disposable-emails}
+
+  When enabled, registrations from disposable / throw-away email providers (e.g. `mailinator.com`) are rejected. The blocklist is a bundled snapshot of the community-maintained [disposable-email-domains](https://github.com/disposable-email-domains/disposable-email-domains) list.
+  
+  Use `blockedEmailDomains` to block additional domains and `allowedEmailDomains` to allow domains that the bundled list flags by mistake. (default: `true`)
+
+- ##### `block-email-aliases` \{#tolgee-authentication-_-block-email-aliases}
+
+  When enabled, sign-ups whose email is a [subaddressing](https://en.wikipedia.org/wiki/Email_address#Subaddressing) alias of an existing account are rejected. For example, when `foo@gmail.com` already exists, `foo+anything@gmail.com` is treated as the same account. The comparison is also case-insensitive.
+  
+  :::note
+  This only affects **new registrations** — existing accounts and login are unaffected.
+  ::: (default: `true`)
+
+- ##### `blocked-email-domains` \{#tolgee-authentication-_-blocked-email-domains}
+
+  Additional email domains to block from registration, on top of the bundled disposable-domain list. Matched case-insensitively against the domain part of the email. (default: `[]`)
 
 - ##### `create-demo-for-initial-user` \{#tolgee-authentication-_-create-demo-for-initial-user}
 
@@ -3208,6 +3402,16 @@ Single sign-on (SSO) is an authentication process that allows a user to access m
 
 There is a significant difference between global and per organization SSO: Global SSO can handle authentication for all server users no matter which organizations they belong to, while per organization SSO can handle authentication only for users of the organization and such users cannot be members of any other organization. SSO users associated with per organization SSO have no rights to create or manage organizations. Global SSO users should be invited to organizations they need to have access to. Per organization SSO users are automatically added to the organization they belong to.
 
+- ##### `allow-local-addresses` \{#tolgee-authentication-sso-organizations-_-allow-local-addresses}
+
+  When enabled, per-organization SSO provider URLs (`tokenUri`, `authorizationUri`) may target otherwise-blocked address ranges — loopback, private/site-local, link-local, IPv6 unique-local, multicast and wildcard/any-local addresses. Useful when the identity provider runs on an internal network in a self-hosted deployment.
+  
+  :::danger
+  This removes SSRF protection for SSO provider URLs. Keep it **disabled** on production and multi-tenant servers — an organization owner able to configure SSO could otherwise make the server reach internal services.
+  :::
+  
+   (default: `false`)
+
 - ##### `enabled` \{#tolgee-authentication-sso-organizations-_-enabled}
 
   Enables SSO authentication (default: `false`)
@@ -3325,6 +3529,18 @@ Prefix: `tolgee.content-delivery.cache-purging`
 
 Several services can be used as cache. Tolgee is able to purge the cache when new files are published when this configuration is set.
 
+##### aws-cloudfront \{#tolgee-content-delivery-cache-purging-_-aws-cloudfront}
+
+Prefix: `tolgee.content-delivery.cache-purging.aws-cloudfront`
+
+- ##### `access-key` \{#tolgee-content-delivery-cache-purging-aws-cloudfront-_-access-key}
+
+- ##### `content-root` \{#tolgee-content-delivery-cache-purging-aws-cloudfront-_-content-root}
+
+- ##### `distribution-id` \{#tolgee-content-delivery-cache-purging-aws-cloudfront-_-distribution-id}
+
+- ##### `secret-key` \{#tolgee-content-delivery-cache-purging-aws-cloudfront-_-secret-key}
+
 ##### azure-front-door \{#tolgee-content-delivery-cache-purging-_-azure-front-door}
 
 Prefix: `tolgee.content-delivery.cache-purging.azure-front-door`
@@ -3344,6 +3560,18 @@ Prefix: `tolgee.content-delivery.cache-purging.azure-front-door`
 - ##### `subscription-id` \{#tolgee-content-delivery-cache-purging-azure-front-door-_-subscription-id}
 
 - ##### `tenant-id` \{#tolgee-content-delivery-cache-purging-azure-front-door-_-tenant-id}
+
+##### bunny \{#tolgee-content-delivery-cache-purging-_-bunny}
+
+Prefix: `tolgee.content-delivery.cache-purging.bunny`
+
+- ##### `api-key` \{#tolgee-content-delivery-cache-purging-bunny-_-api-key}
+
+- ##### `content-delivery-cache-purging-type` \{#tolgee-content-delivery-cache-purging-bunny-_-content-delivery-cache-purging-type}
+
+- ##### `enabled` \{#tolgee-content-delivery-cache-purging-bunny-_-enabled}
+
+- ##### `url-prefix` \{#tolgee-content-delivery-cache-purging-bunny-_-url-prefix}
 
 ##### cloudflare \{#tolgee-content-delivery-cache-purging-_-cloudflare}
 
@@ -3486,6 +3714,10 @@ Properties for importing data to Tolgee and bulk-imports exported json files in 
   :::
   
   
+
+- ##### `flush-batch-size` \{#tolgee-import-_-flush-batch-size}
+
+  Number of keys/translations persisted per flushAndClear batch by the data importer. Smaller values reduce peak memory at the cost of more flushes; larger values do the opposite. Lower this in environments where the import OOMs at scale. (default: `10000`)
 
 - ##### `store-files-for-debugging` \{#tolgee-import-_-store-files-for-debugging}
 
@@ -4069,6 +4301,16 @@ Prefix: `tolgee.webhook`
 
 Configuration for webhook behavior.
 
+- ##### `allow-local-addresses` \{#tolgee-webhook-_-allow-local-addresses}
+
+  When enabled, webhook URLs may target otherwise-blocked address ranges — loopback, private/site-local, link-local, IPv6 unique-local, multicast and wildcard/any-local addresses. Useful for local development and integration testing.
+  
+  :::danger
+  This removes SSRF protection for webhook targets. Keep it **disabled** on production and multi-tenant servers — anyone able to configure a webhook could otherwise reach internal services.
+  :::
+  
+   (default: `false`)
+
 - ##### `auto-disable-after-days` \{#tolgee-webhook-_-auto-disable-after-days}
 
   Number of days of continuous failure before a webhook is automatically disabled. (default: `3`)
@@ -4108,6 +4350,10 @@ tolgee.max-screenshots-per-key = 20
 tolgee.max-translation-text-length = 10000
 tolgee.max-upload-file-size = 51200
 tolgee.translations-view-languages-limit = -1
+tolgee.authentication.allowed-email-domains = []
+tolgee.authentication.block-disposable-emails = true
+tolgee.authentication.block-email-aliases = true
+tolgee.authentication.blocked-email-domains = []
 tolgee.authentication.create-demo-for-initial-user = true
 tolgee.authentication.enabled = true
 tolgee.authentication.initial-password =
@@ -4146,6 +4392,7 @@ tolgee.authentication.sso-global.enabled = false
 tolgee.authentication.sso-global.force = false
 tolgee.authentication.sso-global.session-expiration-minutes = 10
 tolgee.authentication.sso-global.token-uri =
+tolgee.authentication.sso-organizations.allow-local-addresses = false
 tolgee.authentication.sso-organizations.enabled = false
 tolgee.authentication.sso-organizations.session-expiration-minutes = 10
 tolgee.batch.cancellation-timeout-ms = 30000
@@ -4164,6 +4411,10 @@ tolgee.cache.default-ttl = 7200000
 tolgee.cache.enabled = false
 tolgee.cache.use-redis = false
 tolgee.content-delivery.public-url-prefix =
+tolgee.content-delivery.cache-purging.aws-cloudfront.access-key =
+tolgee.content-delivery.cache-purging.aws-cloudfront.content-root =
+tolgee.content-delivery.cache-purging.aws-cloudfront.distribution-id =
+tolgee.content-delivery.cache-purging.aws-cloudfront.secret-key =
 tolgee.content-delivery.cache-purging.azure-front-door.client-id =
 tolgee.content-delivery.cache-purging.azure-front-door.client-secret =
 tolgee.content-delivery.cache-purging.azure-front-door.content-root =
@@ -4172,6 +4423,10 @@ tolgee.content-delivery.cache-purging.azure-front-door.profile-name =
 tolgee.content-delivery.cache-purging.azure-front-door.resource-group-name =
 tolgee.content-delivery.cache-purging.azure-front-door.subscription-id =
 tolgee.content-delivery.cache-purging.azure-front-door.tenant-id =
+tolgee.content-delivery.cache-purging.bunny.api-key =
+tolgee.content-delivery.cache-purging.bunny.content-delivery-cache-purging-type = BUNNY
+tolgee.content-delivery.cache-purging.bunny.enabled = false
+tolgee.content-delivery.cache-purging.bunny.url-prefix =
 tolgee.content-delivery.cache-purging.cloudflare.api-key =
 tolgee.content-delivery.cache-purging.cloudflare.content-delivery-cache-purging-type = CLOUDFLARE
 tolgee.content-delivery.cache-purging.cloudflare.enabled = false
@@ -4198,6 +4453,7 @@ tolgee.file-storage.s3.signing-region =
 tolgee.import.base-language-tag = en
 tolgee.import.create-implicit-api-key = false
 tolgee.import.dir =
+tolgee.import.flush-batch-size = 10000
 tolgee.import.store-files-for-debugging = false
 tolgee.language-tool.connect-timeout-seconds = 5
 tolgee.language-tool.max-concurrent-requests = 2
@@ -4290,6 +4546,7 @@ tolgee.smtp.tls-enabled = false
 tolgee.smtp.tls-required = false
 tolgee.smtp.username =
 tolgee.telemetry.enabled = true
+tolgee.webhook.allow-local-addresses = false
 tolgee.webhook.auto-disable-after-days = 3
 tolgee.webhook.auto-disable-enabled = true
 tolgee.webhook.auto-disable-warning-after-hours = 6

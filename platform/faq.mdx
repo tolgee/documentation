@@ -140,3 +140,19 @@ When some key seems unused, the CLI can remove it from the Tolgee Platform.
 To get started, Sign up for the [Tolgee Cloud](https://app.tolgee.io) or learn how to
 [self-host](/platform/self_hosting/running_with_docker#running-with-docker-compose-recommended) Tolgee,
 or read [integration docs](https://tolgee.io/integrations).
+
+### I'm getting a `429 Too Many Requests` error. What does it mean?
+
+You've hit the per-user rate limit for that API call. Slow down and retry. Rate limits refill on a sliding window, so the call will succeed again shortly without any action on your side.
+
+### I'm getting `Operation not permitted in read-only mode`. What does it mean?
+
+Your organization or Tolgee instance is in read-only mode, so write operations are rejected. Disable read-only mode in the organization settings, or stick to read-only operations until it's turned off.
+
+### I'm getting `Feature not enabled` for something like [Branching](/platform/branching/overview). What does it mean?
+
+The operation requires an Enterprise feature that your plan doesn't include. Enable the feature on your plan.
+
+### My self-hosted Tolgee instance is unreachable from my client. How do I debug it?
+
+Most often it's a network, firewall, or TLS misconfiguration. Confirm `curl -i https://your-tolgee.com/` returns a response from your Tolgee server, and verify the TLS certificate is valid. Remote clients (e.g. ChatGPT custom connectors, hosted IDEs) require a public HTTPS endpoint; local clients on the same machine can reach a local instance over `http://localhost`.

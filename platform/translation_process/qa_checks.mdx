@@ -216,15 +216,8 @@ Language-level settings always take precedence over project-level settings. Chan
 
 QA checks run in real time as you type in the translation editor, so you get immediate feedback without saving first. When you save a translation, all enabled checks run again and results are persisted. This also applies to [imported](/platform/projects_and_organizations/import) translations. The QA badge and issue counts are updated accordingly.
 
-The system is designed to handle all rechecking automatically, so you should never need to trigger a manual recheck under normal circumstances. However, as a last resort, you can manually trigger a full QA recheck for all translations in a project from the translations view using [batch operations](/platform/translation_keys/batch_operations).
-
-<ScreenRecording
-  src="/img/docs/platform/qa-checks/recheck_batch.webm"
-  alt="Triggering a full QA recheck via batch operations"
-/>
-
 Checks are also automatically re-run when the base language translation changes, a language tag is changed, or [branches are merged](/platform/branching/merging_branches).
 
 ### Plural Translations
 
-For translations that use plural forms, QA checks run separately on each plural variant. Issues are reported per variant, so you can see exactly which form has the problem.
+For translations that use plural forms, QA checks run separately on each plural form. Issues are reported per form, so you can see exactly which form has the problem.
