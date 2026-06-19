@@ -1,0 +1,1 @@
+{"title":"Body","body":{"content":{"application/json":{"schema":{"type":"object","properties":{"deleteBranch":{"type":"boolean"}},"required":["deleteBranch"],"title":"ApplyBranchMergeRequest"}}}}}

@@ -1,0 +1,1 @@
+{"parameters":[{"name":"organizationId","in":"path","required":true,"schema":{"type":"integer","format":"int64"}},{"name":"scopes","in":"query","description":"Granted scopes to all projects for all organization users without direct project permissions set.","required":true,"schema":{"type":"array","items":{"type":"string"}},"example":["translations.view","translations.edit"]}]}

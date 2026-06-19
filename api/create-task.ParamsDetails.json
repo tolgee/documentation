@@ -1,0 +1,1 @@
+{"parameters":[{"name":"filterState","in":"query","required":false,"schema":{"type":"array","items":{"type":"string","enum":["UNTRANSLATED","TRANSLATED","REVIEWED","DISABLED"]}}},{"name":"filterOutdated","in":"query","required":false,"schema":{"type":"boolean"}},{"name":"projectId","in":"path","required":true,"allowEmptyValue":false,"schema":{"type":"integer","format":"int64"}}]}

@@ -1,0 +1,1 @@
+{"title":"Body","body":{"content":{"application/json":{"schema":{"type":"object","properties":{"isProtected":{"type":"boolean","description":"Whether the branch is protected","example":true}},"required":["isProtected"],"title":"SetBranchProtectedModel"}}},"required":true}}

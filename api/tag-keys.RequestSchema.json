@@ -1,0 +1,1 @@
+{"title":"Body","body":{"content":{"application/json":{"schema":{"type":"object","properties":{"keyIds":{"type":"array","items":{"type":"integer","format":"int64"},"minItems":1},"tags":{"type":"array","items":{"type":"string"},"minItems":1}},"required":["keyIds","tags"],"title":"TagKeysRequest"}}},"required":true}}

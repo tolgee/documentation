@@ -1,0 +1,1 @@
+{"title":"Body","body":{"content":{"application/json":{"schema":{"type":"object","properties":{"name":{"type":"string","minLength":1},"oldSlug":{"type":"string"}},"required":["name"],"title":"GenerateSlugDto"}}},"required":true}}

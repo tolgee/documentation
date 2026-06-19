@@ -1,0 +1,1 @@
+{"title":"Body","body":{"content":{"application/json":{"schema":{"type":"object","properties":{"description":{"type":"string","description":"New description of the PAT","minLength":1}},"required":["description"],"title":"UpdatePatDto"}}},"required":true}}

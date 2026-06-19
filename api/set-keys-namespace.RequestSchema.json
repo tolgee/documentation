@@ -1,0 +1,1 @@
+{"title":"Body","body":{"content":{"application/json":{"schema":{"type":"object","properties":{"keyIds":{"type":"array","items":{"type":"integer","format":"int64"},"minItems":1},"namespace":{"type":"string","maxLength":100,"minLength":0}},"required":["keyIds"],"title":"SetKeysNamespaceRequest"}}},"required":true}}
