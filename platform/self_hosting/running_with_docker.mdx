@@ -38,7 +38,7 @@ services:
       - ./data:/data
       - ./config.yaml:/config.yaml
     ports:
-      - '25432:25432' # if you would like to access the DB
+      - '25432:5432' # if you would like to access the DB
       - '8080:8080'
     environment:
       spring.config.additional-location: file:///config.yaml
@@ -63,7 +63,7 @@ services:
     volumes:
       - ./data:/data
     ports:
-      - '25432:25432'
+      - '25432:5432'
       - '8080:8080'
     env_file:
       - .env
