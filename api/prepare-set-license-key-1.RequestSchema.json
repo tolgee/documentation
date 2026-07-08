@@ -1,0 +1,1 @@
+{"title":"Body","body":{"content":{"application/json":{"schema":{"type":"object","properties":{"licenseKey":{"type":"string","minLength":1}},"required":["licenseKey"],"title":"SetLicenseKeyDto"}}},"required":true}}

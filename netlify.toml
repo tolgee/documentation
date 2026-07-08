@@ -1,0 +1,4 @@
+[build.environment]
+  # The openapi-docs v5 build peaks at ~5 GB heap; without this Netlify's
+  # default Node heap limit aborts the build with exit code 134 (OOM).
+  NODE_OPTIONS = "--max-old-space-size=6144"

@@ -1,0 +1,1 @@
+{"title":"Body","body":{"content":{"application/json":{"schema":{"type":"object","properties":{"description":{"type":"string"},"scopes":{"type":"array","items":{"type":"string"},"uniqueItems":true}},"required":["scopes"],"title":"V2EditApiKeyDto"}}},"required":true}}

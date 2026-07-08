@@ -1,0 +1,1 @@
+{"title":"Body","body":{"content":{"multipart/form-data":{"schema":{"type":"object","properties":{"image":{"type":"string","format":"binary"},"info":{"type":"object","properties":{"location":{"type":"string"}},"title":"ImageUploadInfoDto"}},"required":["image"]},"encoding":{"info":{"contentType":"application/json"}}}}}}

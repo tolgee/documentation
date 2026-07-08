@@ -1,0 +1,1 @@
+{"parameters":[{"name":"branch","in":"query","required":false,"schema":{"type":"string"}},{"name":"projectId","in":"path","required":true,"allowEmptyValue":false,"schema":{"type":"integer","format":"int64"}}]}

@@ -1,0 +1,1 @@
+{"parameters":[{"name":"data","in":"query","description":"The encrypted data about the desired connection between Slack account and Tolgee account","required":true,"schema":{"type":"string"}}]}

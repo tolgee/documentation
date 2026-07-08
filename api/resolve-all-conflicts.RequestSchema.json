@@ -1,0 +1,1 @@
+{"title":"Body","body":{"content":{"application/json":{"schema":{"type":"object","properties":{"resolve":{"type":"string","enum":["SOURCE","TARGET"]}},"required":["resolve"],"title":"ResolveAllBranchMergeConflictsRequest"}}},"required":true}}

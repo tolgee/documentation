@@ -1,0 +1,1 @@
+{"title":"Body","body":{"content":{"application/json":{"schema":{"type":"object","properties":{"keyIds":{"type":"array","items":{"type":"integer","format":"int64"},"minItems":1},"languageIds":{"type":"array","items":{"type":"integer","format":"int64"},"maxItems":2147483647,"minItems":1}},"required":["keyIds","languageIds"],"title":"ClearTranslationsRequest"}}},"required":true}}

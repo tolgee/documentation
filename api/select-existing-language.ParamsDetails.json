@@ -1,0 +1,1 @@
+{"parameters":[{"name":"importLanguageId","in":"path","required":true,"schema":{"type":"integer","format":"int64"}},{"name":"existingLanguageId","in":"path","required":true,"schema":{"type":"integer","format":"int64"}},{"name":"projectId","in":"path","required":true,"allowEmptyValue":false,"schema":{"type":"integer","format":"int64"}}]}

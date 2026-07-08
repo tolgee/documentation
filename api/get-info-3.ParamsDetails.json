@@ -1,0 +1,1 @@
+{"parameters":[{"name":"data","in":"query","description":"The encrypted data","required":true,"schema":{"type":"string"}}]}

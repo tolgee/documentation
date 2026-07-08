@@ -1,0 +1,1 @@
+{"title":"Body","body":{"content":{"application/json":{"schema":{"type":"object","properties":{"keyId":{"type":"integer","format":"int64"},"labelId":{"type":"integer","format":"int64"},"languageId":{"type":"integer","format":"int64"}},"required":["keyId","labelId","languageId"],"title":"TranslationLabelRequest"}}},"required":true}}

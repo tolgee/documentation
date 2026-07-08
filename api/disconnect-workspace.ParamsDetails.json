@@ -1,0 +1,1 @@
+{"parameters":[{"name":"workspaceId","in":"path","required":true,"schema":{"type":"integer","format":"int64"}},{"name":"organizationId","in":"path","required":true,"schema":{"type":"integer","format":"int64"}}]}

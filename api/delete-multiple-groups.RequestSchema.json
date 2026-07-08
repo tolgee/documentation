@@ -1,0 +1,1 @@
+{"title":"Body","body":{"content":{"application/json":{"schema":{"type":"object","properties":{"entryIds":{"type":"array","items":{"type":"integer","format":"int64"},"uniqueItems":true}},"required":["entryIds"],"title":"DeleteMultipleTranslationMemoryEntriesRequest"}}},"required":true}}

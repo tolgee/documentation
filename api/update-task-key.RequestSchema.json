@@ -1,0 +1,1 @@
+{"title":"Body","body":{"content":{"application/json":{"schema":{"type":"object","properties":{"done":{"type":"boolean"}},"required":["done"],"title":"UpdateTaskKeyRequest"}}},"required":true}}

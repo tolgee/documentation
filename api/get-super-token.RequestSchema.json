@@ -1,0 +1,1 @@
+{"title":"Body","body":{"content":{"application/json":{"schema":{"type":"object","properties":{"otp":{"type":"string","description":"Has to be provided when TOTP enabled"},"password":{"type":"string","description":"Has to be provided when TOTP not enabled"}},"title":"SuperTokenRequest"}}},"required":true}}
