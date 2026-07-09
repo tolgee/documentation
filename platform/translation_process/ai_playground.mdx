@@ -164,35 +164,6 @@ Common properties for translation/language of `source`, `target` and `other.{tag
 | .isCJK                    | Is Chinese, Japanese or Korean                                                          | false                                                                 |
 
 
-## List of available helpers
-
-Helpers transform a value before it is inserted into the prompt. To use one, type it right after
-`{{` and pass the variable as its argument.
-
-| Name       | Description                                                                                                     | Example                            |
-|------------|-----------------------------------------------------------------------------------------------------------------|------------------------------------|
-| escapeJson | Escapes quotes, newlines and backslashes in the value, so it can be safely embedded inside a JSON string        | \{\{escapeJson key.description}}   |
-
-### Building a structured prompt
-
-Some models expect a structured payload rather than prose. Without escaping, a key description that
-contains a quote or a newline produces invalid JSON. Wrap each value in `escapeJson` to prevent that:
-
-```handlebars
-{
-  "context": "{{escapeJson key.name}} {{escapeJson key.description}}",
-  "text": "{{escapeJson source.translation}}",
-  "locale": "{{target.languageTag}}"
-}
-```
-
-`escapeJson` is safe to use on any variable — applying it to a value that is already escaped returns
-the value unchanged, so it never escapes twice.
-
-The result is escaped for a JSON string. It is also valid inside a **double-quoted** YAML scalar, but
-not inside single-quoted, plain or block scalars, where a backslash is a literal character.
-
-
 ## List of available fragments
 
 Fragments are logical sections for the default prompt. They are accessible the same way as
@@ -222,3 +193,34 @@ Rendered prompts can contain system text placeholders, which signify non-text in
 
  - `[[screenshot_*]]` signifies a place where the screenshot will be placed
  - `[[output_valid_json]]` signifies that we want to force the model to return JSON. Some models support this, and some don't, so for the non-supporting one, this is just replaced with worded instructions.
+
+## The escapeJson helper
+
+Helpers transform a value before it is inserted into the prompt. To use one, type it right after
+`{{` and pass the variable as its argument:
+
+```handlebars
+{{escapeJson key.description}}
+```
+
+`escapeJson` escapes quotes, newlines and backslashes, so the value can be safely embedded inside a
+JSON string.
+
+Most models are happy with a plain prose prompt, so you rarely need this. It becomes useful when you
+send the prompt to a model or a service that expects a structured payload, and when you want to keep
+a value from breaking out of the string that holds it — a key description ending with a quote could
+otherwise be read as instructions rather than as data, which is one way prompt injection happens.
+
+```handlebars
+{
+  "context": "{{escapeJson key.name}} {{escapeJson key.description}}",
+  "text": "{{escapeJson source.translation}}",
+  "locale": "{{target.languageTag}}"
+}
+```
+
+`escapeJson` is safe to use on any variable — applying it to a value that is already escaped returns
+the value unchanged, so it never escapes twice.
+
+The result is escaped for a JSON string. It is also valid inside a **double-quoted** YAML scalar, but
+not inside single-quoted, plain or block scalars, where a backslash is a literal character.
