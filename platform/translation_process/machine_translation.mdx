@@ -26,6 +26,16 @@ Currently, we support the following machine translation providers:
 - Microsoft Azure Translator
 - [AI Translator](ai_translator)
 
+## Context for machine translations
+
+When Tolgee requests a translation from DeepL, it also sends the key description as context. DeepL uses the description to choose the right meaning, tone and grammatical form of the translated text.
+
+There is nothing to configure. If a key has a description, Tolgee passes it to DeepL automatically. Keys without a description are translated the same way as before.
+
+:::tip
+This helps most with short and ambiguous strings. Describe where the text appears and what it does, for example "Label of the delete button in project settings". Short and factual descriptions work best. 
+:::
+
 ## Machine translation suggestions
 
 Machine translation suggestions are available in the translation editor.
