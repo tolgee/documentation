@@ -6,10 +6,15 @@ slug: /self_hosting/running_with_docker
 image: /img/og-images/self-hosting.png
 ---
 
-:::info
-Since v2, Tolgee runs PostgreSQL database in its container by default. To disable embedded Postgres, set
-`tolgee.postgres-autostart.enabled` property to `false`. Then you can use external database as
-[described below](/platform/self_hosting/running_with_docker#running-with-docker-compose-with-external-postgresql-database).
+:::caution
+Tolgee runs a PostgreSQL database in its container by default, and Tolgee v4 removes it from the `tolgee/tolgee`
+image. Every setup that relies on the bundled database has to move to an external PostgreSQL database before
+upgrading to v4.
+
+You can make this move today, on your current version, by following
+[migrate from the bundled database](/platform/self_hosting/running_with_docker#migrate-from-the-bundled-database).
+It keeps your data where it is, so it needs no dump and restore. Once your data lives in an external database,
+upgrading to v4 needs no further changes.
 :::
 
 ## Running with Docker Compose (recommended)
@@ -88,6 +93,11 @@ cat data/initial.pwd
 
 For simple local development or testing, you can run Tolgee in a single container with embedded PostgreSQL database.
 
+:::caution
+This setup depends on the bundled PostgreSQL database, so it will stop working in Tolgee v4. Don't use it for data
+you want to keep.
+:::
+
 ```
 docker run -v tolgee_data:/data/ -p 8085:8080 tolgee/tolgee{{dockerTagVersion}}
 ```
@@ -101,7 +111,9 @@ This will:
 Now you should be able to access Tolgee web application on [http://localhost:8085](http://localhost:8085)
 
 ## Running with docker compose with external PostgreSQL database
-For some users, running the PostgreSQL database in a separate container is beneficial. Here is how you can do it.
+
+Running the PostgreSQL database in a separate container gives you full control over your data, and it keeps backups,
+upgrades and monitoring independent of Tolgee itself. Here is how you can do it.
 
 ```yaml title=docker-compose.yaml
 services:
@@ -120,7 +132,7 @@ services:
     depends_on:
       - db
   db:
-    image: postgres:15
+    image: postgres:17
     environment:
       POSTGRES_DB: postgres
       POSTGRES_USER: postgres
@@ -131,7 +143,7 @@ services:
       - '25432:5432' # <-- If you want to access your postgres from outside of docker network
 ```
 
-This configuration creates a separate Postgres 15 container. Now, you have to modify the Tolgee configuration to use this database.
+This configuration creates a separate Postgres 17 container. Now, you have to modify the Tolgee configuration to use this database.
 
 ```yaml title=config.yaml
 tolgee:
@@ -145,6 +157,167 @@ spring:
 ```
 
 Don't forget to change the `POSTGRES_USER`, `POSTGRES_PASSWORD`, `username` and `password` properties to your values.
+
+:::note
+This example sets up a new, empty database. If you already have data in the bundled PostgreSQL, follow
+[migrate from the bundled database](#migrate-from-the-bundled-database) instead. PostgreSQL 17 cannot read the files
+the bundled server left behind.
+:::
+
+## Migrate from the bundled database
+
+If you run Tolgee with the bundled PostgreSQL, your data has to move to an external database before you can upgrade
+to v4. The bundled server is PostgreSQL 13, which reached its end of life in November 2025 and no longer receives
+security fixes.
+
+There are two ways to do this. Moving to PostgreSQL 17 leaves you on a database that is supported until 2029, and it
+is the one to pick unless you have a reason not to. Reusing the existing files is quicker and needs no dump, but it
+keeps you on PostgreSQL 13.
+
+:::caution
+Whichever you pick, keep the `./data:/data` mount on the app. Tolgee keeps your file storage and the generated admin
+password there. If you drop the mount and your admin has never changed their password, Tolgee generates a new
+password on the next start and resets the admin account to it.
+:::
+
+### Move to PostgreSQL 17
+
+Dump the bundled database while Tolgee is still running. The bundled image ships the PostgreSQL client tools, so
+`pg_dump` is available inside the container.
+
+```
+docker compose exec -T app pg_dump -U postgres -d postgres > tolgee-dump.sql
+```
+
+Then stop Tolgee.
+
+```
+docker compose down
+```
+
+Add a `db` service on PostgreSQL 17. Give it a directory of its own, so it doesn't collide with the files the bundled
+server left behind in `data/postgres`.
+
+```yaml title=docker-compose.yaml
+services:
+  app:
+    image: tolgee/tolgee{{dockerTagVersion}}
+    volumes:
+      - ./data:/data
+      - ./config.yaml:/config.yaml
+    ports:
+      - '8080:8080'
+    environment:
+      spring.config.additional-location: file:///config.yaml
+    depends_on:
+      - db
+  db:
+    image: postgres:17
+    environment:
+      POSTGRES_DB: postgres
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: postgres
+    volumes:
+      - ./data/postgres17:/var/lib/postgresql/data
+```
+
+Start the database on its own and load the dump into it.
+
+```
+docker compose up -d db
+docker compose exec -T db psql -U postgres -d postgres < tolgee-dump.sql
+```
+
+Then tell Tolgee to stop starting a database of its own and to use the new one.
+
+```yaml title=config.yaml
+tolgee:
+  postgres-autostart:
+    enabled: false
+spring:
+  datasource:
+    url: jdbc:postgresql://db:5432/postgres
+    username: postgres
+    password: postgres
+```
+
+Start everything again.
+
+```
+docker compose up -d
+```
+
+Your projects, translations and users are all still there, and your existing passwords keep working. Once you have
+checked everything is in place, you can delete the old `data/postgres` directory.
+
+### Keep the existing files on PostgreSQL 13
+
+If you would rather not dump and restore, you can hand the bundled server's files straight to a PostgreSQL container.
+The bundled server keeps them in `data/postgres`, which is exactly where a separate PostgreSQL container looks for
+them, so the data stays where it is.
+
+:::caution
+The container has to be `postgres:13`. A newer PostgreSQL refuses to start on PostgreSQL 13 files and fails with
+`database files are incompatible with server`. This leaves you on an end of life database, so treat it as a step on
+the way to a supported version rather than a destination.
+:::
+
+Stop Tolgee first, so the bundled server shuts down cleanly and leaves its files consistent.
+
+```
+docker compose down
+```
+
+Add a `db` service pointed at the directory the bundled server already uses.
+
+```yaml title=docker-compose.yaml
+services:
+  app:
+    image: tolgee/tolgee{{dockerTagVersion}}
+    volumes:
+      - ./data:/data
+      - ./config.yaml:/config.yaml
+    ports:
+      - '8080:8080'
+    environment:
+      spring.config.additional-location: file:///config.yaml
+    depends_on:
+      - db
+  db:
+    image: postgres:13
+    environment:
+      POSTGRES_DB: postgres
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: postgres
+    volumes:
+      - ./data/postgres:/var/lib/postgresql/data
+```
+
+Because the data directory already exists, the `POSTGRES_*` variables don't create or change anything, and the users
+inside your database stay as they are. What matters is that the datasource credentials match what the bundled server
+used. Unless you changed `tolgee.postgres-autostart.user` or `tolgee.postgres-autostart.password`, both are
+`postgres`.
+
+Then tell Tolgee to stop starting a database of its own and to use the new one.
+
+```yaml title=config.yaml
+tolgee:
+  postgres-autostart:
+    enabled: false
+spring:
+  datasource:
+    url: jdbc:postgresql://db:5432/postgres
+    username: postgres
+    password: postgres
+```
+
+Start everything again.
+
+```
+docker compose up -d
+```
+
+Your projects, translations and users are all still there, and your existing passwords keep working.
 
 ## Optional: Spelling & Grammar checks (LanguageTool)
 
