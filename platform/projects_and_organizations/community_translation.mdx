@@ -1,0 +1,103 @@
+---
+id: community_translation
+title: Community Translation
+sidebar_label: Community Translation
+image: /img/og-images/platform.png
+description: Make a project public so anyone signed in can help translate it. Community members propose suggestions and comment without becoming paid members.
+---
+
+Open-source and community-driven projects often want help from their users to reach more
+languages, but inviting every willing volunteer as a project member does not scale. Each member
+takes up a paid seat, gains access to project internals, and can change translations directly.
+You want the reach of a crowd without handing out that level of access.
+
+Community Translation solves this. Make a project **public** and anyone signed in can find it,
+open a limited view, and propose [translation suggestions](./suggestions.mdx) or leave
+[comments](/platform/translation_process/comments). They never become members, never take a paid
+seat, and can never overwrite your existing translations. You stay in control and accept only the
+suggestions you want.
+
+## Make a project public
+
+Publishing a project is what turns on community translation for it. Only the **organization
+owner** (or a server administrator on self-hosted instances) can change this, because it exposes
+the project's translations to anyone with an account.
+
+Go to `Project settings` > `Advanced` and find the `Public project` section. Turn on
+`Make this project public`.
+
+Tolgee asks you to confirm, because publishing changes who can reach the project. When you make a
+project public, anyone signed in will be able to find it on the public projects page and propose
+suggestions. They will not become members and cannot edit existing translations.
+
+If you can't see the `Public project` section or the switch is disabled, you are not the
+organization owner. Ask an owner to publish the project for you.
+
+## What community members can do
+
+When a project is public, every signed-in user gets a **community permission** on it. This
+permission is a limited subset of the [`View` role](./members.mdx#permissions) plus the ability to
+suggest and comment. A community member can
+
+- View translations and screenshots in **all languages**
+- View the project activity
+- Propose [translation suggestions](./suggestions.mdx)
+- [Comment](/platform/translation_process/comments) on translations, for example to flag a wrong
+  or machine-generated translation
+
+The community permission never lets anyone
+
+- Overwrite an existing translation or change its [state](/platform/translation_process/translation_states)
+  (translated or reviewed)
+- Add or remove languages
+- See the project members or their email addresses
+- Change project settings
+
+Community members are **not** project members. They do not appear in your members list, they do
+not use a paid seat, and publishing a project never changes your billing. To give someone the
+ability to edit translations directly, [invite them as a member](./members.mdx#how-to-add-members-to-your-project)
+instead.
+
+:::info
+The community permission applies only to **signed-in** users. Visitors who are not logged in can
+browse the public projects page but must log in before they can open a project or suggest anything.
+:::
+
+## How contributors find your project
+
+Public projects are listed on the community translations page at
+[`/public-projects`](https://app.tolgee.io/public-projects). Anyone can open this page, even
+without an account, browse the projects, and search for one to help with.
+
+Visitors who are not signed in see `Log in` and `Sign up` buttons in the top bar. Opening a
+project or proposing a suggestion requires an account, so a new contributor registers or logs in
+first, then opens your project in the limited community view.
+
+Each row shows the project name with an outlined `public` badge and the owning organization,
+along with the key count, translation-state bar, and languages, so a contributor can pick a
+project and a language that needs work at a glance.
+
+## Review community suggestions
+
+Community members propose changes as suggestions, never as direct edits, so nothing they submit
+goes live until you accept it. Open the translation in the editor and review the incoming
+suggestions the same way you review any other suggestion.
+
+When a suggestion is good, you have two ways to accept it. `Accept only` promotes that suggestion
+to the live translation and leaves the other suggestions open, which is useful when you want to
+keep comparing alternatives. `Accept and decline others` promotes the suggestion and dismisses the
+competing ones in a single step.
+
+For the full suggestion workflow, including how to enable direct suggestions for your own members,
+read [Translation Suggestions](./suggestions.mdx).
+
+## Make a project private again
+
+To stop accepting community translations, go back to `Project settings` > `Advanced` and turn off
+`Make this project public`. Tolgee confirms the change, because the community loses access
+immediately.
+
+Once the project is private, it is no longer listed on the public projects page and community
+members can no longer open it. Members you invited directly keep their access and everything they
+contributed stays in place. Nothing about the project view changes for your members, the community
+simply loses the permission to reach it.

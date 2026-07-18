@@ -10,6 +10,8 @@ import { ScreenshotWrapper } from '../shared/_ScreenshotWrapper';
 
 Suggestions allow users to propose changes to strings without editing them directly. The actual string value is changed after a reviewer approves the suggestion.
 
+Suggestions are also how [community translation](./community_translation.mdx) works. On a public project, anyone signed in can suggest without becoming a member.
+
 ### How to enable suggestions
 
 Go to `Project settings` > `Advanced` > `Suggestions mode`.
@@ -51,9 +53,13 @@ This is the moment when it will replace the existing translation.
   alt="Suggestion is accepted"
 />
 
-If there are multiple suggestions, you are declining the others by accepting one.
+When there are multiple suggestions on a string, you choose how accepting one affects the rest.
+`Accept only` promotes the suggestion to the live translation and leaves the other suggestions
+open, so you can keep comparing them. `Accept and decline others`, in the suggestion's `⋮` menu,
+promotes the suggestion and dismisses the competing ones in a single step.
 
-All previously accepted/declined suggestions are found under a "Show all" checkbox.
+Tolgee shows up to three suggestions on a string at once. If there are more, use `Show all` to see
+the rest. All previously accepted and declined suggestions are also found under `Show all`.
 
 <ScreenshotWrapper
   src="/img/docs/platform/suggestions/suggestions-inactive.webp"
