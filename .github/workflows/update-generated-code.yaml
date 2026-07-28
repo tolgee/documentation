@@ -10,6 +10,19 @@ jobs:
   main:
     name: Update docs
     runs-on: ubuntu-latest
+    services:
+      postgres:
+        image: postgres:17
+        env:
+          POSTGRES_PASSWORD: postgres
+          POSTGRES_DB: postgres
+        ports:
+          - 5432:5432
+        options: >-
+          --health-cmd pg_isready
+          --health-interval 5s
+          --health-timeout 3s
+          --health-retries 10
     steps:
       - uses: actions/checkout@v6
         with:
@@ -34,7 +47,12 @@ jobs:
 
       - name: Run the app & wait
         run: |
-          docker run --rm -d -p 8080:8080 -e tolgee.billing.createPlansOnStartup=true ghcr.io/tolgee/tolgee-ee:${{ github.event.inputs.version }}
+          docker run --rm -d --network host \
+            -e tolgee.billing.createPlansOnStartup=true \
+            -e SPRING_DATASOURCE_URL=jdbc:postgresql://localhost:5432/postgres \
+            -e SPRING_DATASOURCE_USERNAME=postgres \
+            -e SPRING_DATASOURCE_PASSWORD=postgres \
+            ghcr.io/tolgee/tolgee-ee:${{ github.event.inputs.version }}
           curl --retry 200 --retry-delay 1 -s --retry-all-errors "http://localhost:8080/swagger-ui/index.html" > /dev/null
 
       - name: Generate the code
