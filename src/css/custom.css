@@ -199,6 +199,22 @@ html[data-theme='dark'] .navbar__title {
   color: unset;
 }
 
+/* Logo, wordmark and GitHub stars stay visible at every width. */
+.navbar-github-button {
+  display: flex;
+  align-items: center;
+}
+
+@media (max-width: 1320px) {
+  .navbar__toggle {
+    display: inherit;
+  }
+
+  .navbar__items > .navbar__item {
+    display: none;
+  }
+}
+
 .navbar .dropdown__menu {
   display: grid;
   grid-auto-flow: column;

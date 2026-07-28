@@ -114,7 +114,7 @@ In this view, you can change each language's machine translation settings global
 
 ## Handlebars templating system
 
-To use a variable, start by typing `{{` (double curly bracket), and the editor will hint you at available variables and fragments.
+To use a variable, start by typing `{{` (double curly bracket), and the editor will hint you at available variables, fragments and helpers.
 
 <ScreenshotWrapper
   alt="Providing project description"
@@ -193,3 +193,34 @@ Rendered prompts can contain system text placeholders, which signify non-text in
 
  - `[[screenshot_*]]` signifies a place where the screenshot will be placed
  - `[[output_valid_json]]` signifies that we want to force the model to return JSON. Some models support this, and some don't, so for the non-supporting one, this is just replaced with worded instructions.
+
+## The escapeJson helper
+
+Helpers transform a value before it is inserted into the prompt. To use one, type it right after
+`{{` and pass the variable as its argument:
+
+```handlebars
+{{escapeJson key.description}}
+```
+
+`escapeJson` escapes quotes, newlines and backslashes, so the value can be safely embedded inside a
+JSON string.
+
+Most models are happy with a plain prose prompt, so you rarely need this. It becomes useful when you
+send the prompt to a model or a service that expects a structured payload, and when you want to keep
+a value from breaking out of the string that holds it — a key description ending with a quote could
+otherwise be read as instructions rather than as data, which is one way prompt injection happens.
+
+```handlebars
+{
+  "context": "{{escapeJson key.name}} {{escapeJson key.description}}",
+  "text": "{{escapeJson source.translation}}",
+  "locale": "{{target.languageTag}}"
+}
+```
+
+`escapeJson` is safe to use on any variable — applying it to a value that is already escaped returns
+the value unchanged, so it never escapes twice.
+
+The result is escaped for a JSON string. It is also valid inside a **double-quoted** YAML scalar, but
+not inside single-quoted, plain or block scalars, where a backslash is a literal character.

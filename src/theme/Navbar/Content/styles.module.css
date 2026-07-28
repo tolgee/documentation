@@ -1,7 +1,9 @@
 /*
-Hide color mode toggle in small viewports
+Hide color mode toggle while the navbar is collapsed (it moves into the
+hamburger drawer header). Mirrors NAVBAR_COLLAPSE_QUERY in
+src/component/navbar/useNavbarCollapsed.ts.
  */
-@media (max-width: 996px) {
+@media (max-width: 1320px) {
   .colorModeToggle {
     display: none;
   }

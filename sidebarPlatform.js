@@ -78,6 +78,7 @@ module.exports = {
         'translation_process/ai_translator',
         'translation_process/ai-playground',
         'translation_process/comments',
+        'translation_process/scoped_search',
         'translation_process/labels',
         'translation_process/icu_message_format',
         'translation_process/tolgee_universal_icu_placeholders',

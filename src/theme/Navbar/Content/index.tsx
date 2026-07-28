@@ -1,4 +1,4 @@
-import React, { type ReactNode } from 'react';
+import React, { type ReactNode, useEffect } from 'react';
 import { useThemeConfig, ErrorCauseBoundary } from '@docusaurus/theme-common';
 import {
   splitNavbarItems,
@@ -13,6 +13,7 @@ import NavbarSearch from '@theme/Navbar/Search';
 
 import styles from './styles.module.css';
 import { GithubButton } from '../../../component/githubButton/GithubButton';
+import { useNavbarCollapsed } from '../../../component/navbar/useNavbarCollapsed';
 
 function useNavbarItems() {
   // TODO temporary casting until ThemeConfig type is improved
@@ -58,6 +59,15 @@ function NavbarContentLayout({
 
 export default function NavbarContent(): ReactNode {
   const mobileSidebar = useNavbarMobileSidebar();
+  const collapsed = useNavbarCollapsed();
+
+  // Close the drawer if the viewport widens past the collapse breakpoint while
+  // it's open (Docusaurus only auto-closes on the mobile→desktop transition).
+  useEffect(() => {
+    if (!collapsed && mobileSidebar.shown) {
+      mobileSidebar.toggle();
+    }
+  }, [collapsed, mobileSidebar]);
 
   const items = useNavbarItems();
   const [leftItems, rightItems] = splitNavbarItems(items);
@@ -71,7 +81,7 @@ export default function NavbarContent(): ReactNode {
         <>
           {!mobileSidebar.disabled && <NavbarMobileSidebarToggle />}
           <NavbarLogo />
-          <div className="hidden xl:flex">
+          <div className="navbar-github-button">
             <GithubButton />
           </div>
           <NavbarItems items={leftItems} />
