@@ -42,7 +42,7 @@ After you have registered and configured the OIDC application, you need to provi
     data={[
         {
             item: 'Domain name',
-            description: 'Used to identify the organization on login page',
+            description: 'E-mail domain used to identify the organization on the login page. Only a server administrator can set or change it',
         },
         {
             item: 'Client ID',
@@ -63,6 +63,15 @@ After you have registered and configured the OIDC application, you need to provi
     ]}
 />
 
+:::caution Domain name is set by a server administrator
+The `Domain name` field is read-only for organization owners, so you cannot fill it in or change it yourself. Ask a
+server administrator to set it for your organization. On Tolgee Cloud, contact us via the chat on our website or our
+community [Slack channel](https://Tolg.ee/slack). On a self-hosted instance, ask the user who administers your Tolgee
+server.
+
+The domain name is required for an enabled SSO configuration, so you cannot turn SSO on until an administrator has set
+it. Members are matched to your organization by their e-mail domain when they log in.
+:::
 
 After you have provided this information, click the **Save** button. You can now log in to your Tolgee account using SSO.
 For this purpose, you can use the **Login with SSO** button on the login page and provide your organization's domain name.
