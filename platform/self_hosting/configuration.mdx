@@ -442,10 +442,6 @@ data it needs faster. Cache is also used to track certain states, such as rate l
   This has no effect when Redis cache is used. See
   [Caffeine's documentation about size-based eviction](https://github.com/ben-manes/caffeine/wiki/Eviction#size-based) (default: `-1`)
 
-- ##### `clean-on-startup` \{#tolgee-cache-_-clean-on-startup}
-
-  Whether to clean the cache on Tolgee startup (default: `true`)
-
 - ##### `default-ttl` \{#tolgee-cache-_-default-ttl}
 
   TTL of cache data, in milliseconds. (default: `7200000` ≈ 2 hours)
@@ -1014,7 +1010,9 @@ Defines whether and how is PostgreSQL started on Tolgee startup.
   
   Options:
   - `DOCKER` - Tolgee tries to run Postgres Docker container in your machine. This is default option when running Tolgee using Java. See [Running with Java](/self_hosting/running_with_java.mdx).
-  - `EMBEDDED` - Tolgee tries to run it's embedded PostgreSQL which is bundled in the `tolgee/tolgee` Docker image. (default: `DOCKER`)
+  - `EMBEDDED` - Tolgee tries to run it's embedded PostgreSQL which is bundled in the `tolgee/tolgee` Docker image.
+  
+  `EMBEDDED` is deprecated. Tolgee v4 removes the bundled PostgreSQL from the `tolgee/tolgee` image, so setups using it have to move to an external database before upgrading. See [Migrate from the bundled database](/self_hosting/running_with_docker#migrate-from-the-bundled-database). (default: `DOCKER`)
 
 - ##### `password` \{#tolgee-postgres-autostart-_-password}
 
@@ -1377,7 +1375,6 @@ tolgee:
     old-job-cleanup-enabled: true
   cache:
     caffeine-max-size: -1
-    clean-on-startup: true
     default-ttl: 7200000
     enabled: false
     use-redis: false
@@ -1984,10 +1981,6 @@ data it needs faster. Cache is also used to track certain states, such as rate l
   This has no effect when Redis cache is used. See
   [Caffeine's documentation about size-based eviction](https://github.com/ben-manes/caffeine/wiki/Eviction#size-based) (default: `-1`)
 
-- ##### `CLEAN_ON_STARTUP` \{#tolgee-cache-_-clean-on-startup}
-
-  Whether to clean the cache on Tolgee startup (default: `true`)
-
 - ##### `DEFAULT_TTL` \{#tolgee-cache-_-default-ttl}
 
   TTL of cache data, in milliseconds. (default: `7200000` ≈ 2 hours)
@@ -2556,7 +2549,9 @@ Defines whether and how is PostgreSQL started on Tolgee startup.
   
   Options:
   - `DOCKER` - Tolgee tries to run Postgres Docker container in your machine. This is default option when running Tolgee using Java. See [Running with Java](/self_hosting/running_with_java.mdx).
-  - `EMBEDDED` - Tolgee tries to run it's embedded PostgreSQL which is bundled in the `tolgee/tolgee` Docker image. (default: `DOCKER`)
+  - `EMBEDDED` - Tolgee tries to run it's embedded PostgreSQL which is bundled in the `tolgee/tolgee` Docker image.
+  
+  `EMBEDDED` is deprecated. Tolgee v4 removes the bundled PostgreSQL from the `tolgee/tolgee` image, so setups using it have to move to an external database before upgrading. See [Migrate from the bundled database](/self_hosting/running_with_docker#migrate-from-the-bundled-database). (default: `DOCKER`)
 
 - ##### `PASSWORD` \{#tolgee-postgres-autostart-_-password}
 
@@ -2907,7 +2902,6 @@ TOLGEE_BATCH_MAX_PER_MT_JOB_CONCURRENCY=-1
 TOLGEE_BATCH_OLD_JOB_CLEANUP_DELAY_IN_MS=28800000
 TOLGEE_BATCH_OLD_JOB_CLEANUP_ENABLED=true
 TOLGEE_CACHE_CAFFEINE_MAX_SIZE=-1
-TOLGEE_CACHE_CLEAN_ON_STARTUP=true
 TOLGEE_CACHE_DEFAULT_TTL=7200000
 TOLGEE_CACHE_ENABLED=false
 TOLGEE_CACHE_USE_REDIS=false
@@ -3483,10 +3477,6 @@ data it needs faster. Cache is also used to track certain states, such as rate l
   This has no effect when Redis cache is used. See
   [Caffeine's documentation about size-based eviction](https://github.com/ben-manes/caffeine/wiki/Eviction#size-based) (default: `-1`)
 
-- ##### `clean-on-startup` \{#tolgee-cache-_-clean-on-startup}
-
-  Whether to clean the cache on Tolgee startup (default: `true`)
-
 - ##### `default-ttl` \{#tolgee-cache-_-default-ttl}
 
   TTL of cache data, in milliseconds. (default: `7200000` ≈ 2 hours)
@@ -4055,7 +4045,9 @@ Defines whether and how is PostgreSQL started on Tolgee startup.
   
   Options:
   - `DOCKER` - Tolgee tries to run Postgres Docker container in your machine. This is default option when running Tolgee using Java. See [Running with Java](/self_hosting/running_with_java.mdx).
-  - `EMBEDDED` - Tolgee tries to run it's embedded PostgreSQL which is bundled in the `tolgee/tolgee` Docker image. (default: `DOCKER`)
+  - `EMBEDDED` - Tolgee tries to run it's embedded PostgreSQL which is bundled in the `tolgee/tolgee` Docker image.
+  
+  `EMBEDDED` is deprecated. Tolgee v4 removes the bundled PostgreSQL from the `tolgee/tolgee` image, so setups using it have to move to an external database before upgrading. See [Migrate from the bundled database](/self_hosting/running_with_docker#migrate-from-the-bundled-database). (default: `DOCKER`)
 
 - ##### `password` \{#tolgee-postgres-autostart-_-password}
 
@@ -4406,7 +4398,6 @@ tolgee.batch.max-per-mt-job-concurrency = -1
 tolgee.batch.old-job-cleanup-delay-in-ms = 28800000
 tolgee.batch.old-job-cleanup-enabled = true
 tolgee.cache.caffeine-max-size = -1
-tolgee.cache.clean-on-startup = true
 tolgee.cache.default-ttl = 7200000
 tolgee.cache.enabled = false
 tolgee.cache.use-redis = false
