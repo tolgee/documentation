@@ -715,6 +715,14 @@ LLM Providers configuration
 
   Whether to use llm machine translation as a primary translation engine. (default: `true`)
 
+- ##### `default-provider` \{#tolgee-llm-_-default-provider}
+
+  
+      Name of the provider used when a prompt selects the `default` provider. The name must match
+      one of the configured providers (the `fallbacks` mapping is applied if the provider was renamed).
+      When unset, the first enabled provider is used.
+    
+
 - ##### `enabled` \{#tolgee-llm-_-enabled}
 
   Enable/disable AI translator (default: enabled if there is at least one provider)
@@ -1443,6 +1451,7 @@ tolgee:
   llm:
     default-enabled: true
     default-primary: true
+    default-provider:
     enabled:
     fallbacks: {}
     provider-defaults: {}
@@ -2254,6 +2263,14 @@ LLM Providers configuration
 
   Whether to use llm machine translation as a primary translation engine. (default: `true`)
 
+- ##### `DEFAULT_PROVIDER` \{#tolgee-llm-_-default-provider}
+
+  
+      Name of the provider used when a prompt selects the `default` provider. The name must match
+      one of the configured providers (the `fallbacks` mapping is applied if the provider was renamed).
+      When unset, the first enabled provider is used.
+    
+
 - ##### `ENABLED` \{#tolgee-llm-_-enabled}
 
   Enable/disable AI translator (default: enabled if there is at least one provider)
@@ -2956,6 +2973,7 @@ TOLGEE_LANGUAGE_TOOL_READ_TIMEOUT_SECONDS=60
 TOLGEE_LANGUAGE_TOOL_URL=
 TOLGEE_LLM_DEFAULT_ENABLED=true
 TOLGEE_LLM_DEFAULT_PRIMARY=true
+TOLGEE_LLM_DEFAULT_PROVIDER=
 TOLGEE_LLM_ENABLED=
 TOLGEE_LLM_FALLBACKS={}
 TOLGEE_LLM_PROVIDER_DEFAULTS={}
@@ -3750,6 +3768,14 @@ LLM Providers configuration
 
   Whether to use llm machine translation as a primary translation engine. (default: `true`)
 
+- ##### `default-provider` \{#tolgee-llm-_-default-provider}
+
+  
+      Name of the provider used when a prompt selects the `default` provider. The name must match
+      one of the configured providers (the `fallbacks` mapping is applied if the provider was renamed).
+      When unset, the first enabled provider is used.
+    
+
 - ##### `enabled` \{#tolgee-llm-_-enabled}
 
   Enable/disable AI translator (default: enabled if there is at least one provider)
@@ -4452,6 +4478,7 @@ tolgee.language-tool.read-timeout-seconds = 60
 tolgee.language-tool.url =
 tolgee.llm.default-enabled = true
 tolgee.llm.default-primary = true
+tolgee.llm.default-provider =
 tolgee.llm.enabled =
 tolgee.llm.fallbacks = {}
 tolgee.llm.provider-defaults = {}
