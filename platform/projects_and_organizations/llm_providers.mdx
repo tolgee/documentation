@@ -154,3 +154,20 @@ tolgee:
 ```
 
 Fill in the necessary fields according to the documentation above; you can leave other fields empty.
+
+### Default model
+
+When users create a prompt in the [AI Playground](/platform/translation_process/ai-playground#choose-a-model), the model
+selector offers a `default` option that always resolves to the server's default model. This lets users benefit from
+model upgrades without editing their prompts. As a server administrator, you control which provider that is with the
+`tolgee.llm.default-provider` configuration field.
+
+```
+tolgee:
+  llm:
+    default-provider: my-provider-name
+```
+
+The value must match the `name` of one of the configured providers. If the provider was renamed, the `fallbacks`
+mapping is applied to resolve the new name. When the field is not set, the first enabled provider is used as the
+default. A provider explicitly named `default` takes precedence over this setting.
