@@ -9,15 +9,11 @@ description: Make a project public so anyone signed in can help translate it. Co
 import { ScreenshotWrapper } from '../shared/_ScreenshotWrapper';
 
 Open-source and community-driven projects often want help from their users to reach more
-languages, but inviting every willing volunteer as a project member does not scale. Each member
-takes up a paid seat, gains access to project internals, and can change translations directly.
-You want the reach of a crowd without handing out that level of access.
+languages, but inviting every willing volunteer as a project member does not scale.
 
 Community Translation solves this. Make a project **public** and anyone signed in can find it,
 open a limited view, and propose [translation suggestions](./suggestions.mdx) or leave
-[comments](/platform/translation_process/comments). They never become members, never take a paid
-seat, and can never overwrite your existing translations. You stay in control and accept only the
-suggestions you want.
+[comments](/platform/translation_process/comments).
 
 ## Make a project public
 
@@ -33,72 +29,51 @@ Go to `Project settings` > `Advanced` and find the `Public project` section. Tur
   alt="Make this project public toggle in advanced project settings"
 />
 
-Tolgee asks you to confirm, because publishing changes who can reach the project. When you make a
-project public, anyone signed in will be able to find it on the public projects page and propose
-suggestions. They will not become members and cannot edit existing translations.
+When you make a project public, anyone signed in will be able to find it on the public projects
+page and propose suggestions (if suggestions are enabled). They will not become members and cannot
+edit existing translations.
 
 If you can't see the `Public project` section or the switch is disabled, you are not the
 organization owner. Ask an owner to publish the project for you.
 
 ## What community members can do
 
-When a project is public, every signed-in user gets a **community permission** on it. This
-permission is a limited subset of the [`View` role](./members.mdx#permissions) plus the ability to
-suggest and comment. A community member can
+When a project is public, every signed-in user gets **community permissions** on it. These are a
+limited subset of the [`View` role](./members.mdx#permissions) plus the ability to suggest and
+comment. A community member can
 
 - View translations and screenshots in **all languages**
 - View the project activity
-- Propose [translation suggestions](./suggestions.mdx)
+- Propose [translation suggestions](./suggestions.mdx) (if suggestions are enabled)
 - [Comment](/platform/translation_process/comments) on translations, for example to flag a wrong
-  or machine-generated translation
+  translation
 
-The community permission never lets anyone
+Community permissions never let anyone change an existing translation or change its
+[state](/platform/translation_process/translation_states) (translated or reviewed).
 
-- Overwrite an existing translation or change its [state](/platform/translation_process/translation_states)
-  (translated or reviewed)
-- Add or remove languages
-- See the project members or their email addresses
-- Change project settings
-
-Community members are **not** project members. They do not appear in your members list, they do
-not use a paid seat, and publishing a project never changes your billing. To give someone the
-ability to edit translations directly, [invite them as a member](./members.mdx#how-to-add-members-to-your-project)
-instead.
+Community members are **not** project members. They do not use a paid seat, and publishing a
+project doesn't affect your billing. To allow someone to edit translations directly,
+[invite them as a member](./members.mdx#how-to-add-members-to-your-project) instead.
 
 :::info
-The community permission applies only to **signed-in** users. Visitors who are not logged in can
-browse the public projects page but must log in before they can open a project or suggest anything.
+If your project is published under an open source license, contact us for a free Team license.
 :::
 
 ## How contributors find your project
 
 Public projects are listed on the community translations page at
-[`/public-projects`](https://app.tolgee.io/public-projects). Anyone can open this page, even
-without an account, browse the projects, and search for one to help with.
-
-Visitors who are not signed in see `Log in` and `Sign up` buttons in the top bar. Opening a
-project or proposing a suggestion requires an account, so a new contributor registers or logs in
-first, then opens your project in the limited community view.
+[`/public-projects`](https://app.tolgee.io/public-projects).
 
 <ScreenshotWrapper
   src="/img/docs/platform/community-translation/public-projects.webp"
   alt="Public projects page with the community translations banner and a public project row"
 />
 
-Each row shows the project name with an outlined `public` badge and the owning organization,
-along with the key count, translation-state bar, and languages, so a contributor can pick a
-project and a language that needs work at a glance.
-
 ## Find projects you have contributed to
 
 Once you have suggested or commented on at least one public project, a `Community translation`
 entry appears in the organization switcher at the top of the projects list. It sits alongside your
-organizations, but instead of switching organization it opens your community projects.
-
-The community projects page lists public projects across every organization, not just your own. By
-default the `My contributions only` toggle is on, so the page shows the public projects you have
-contributed to as a non-member, which is the quickest way back to the strings you have been
-translating. Turn the toggle off to browse all public projects instead.
+organizations.
 
 <ScreenshotWrapper
   src="/img/docs/platform/community-translation/community-projects.webp"
@@ -121,7 +96,7 @@ competing ones in a single step.
   alt="Two community suggestions on a translation with the Accept only button and the Accept and decline others menu action"
 />
 
-For the full suggestion workflow, including how to enable direct suggestions for your own members,
+For the full suggestion workflow, including how to enable suggestions for your project,
 read [Translation Suggestions](./suggestions.mdx).
 
 ## See who has contributed
@@ -132,9 +107,7 @@ ones to join your team.
 
 Contributors appear on the project's [Members](./members.mdx) page. As soon as a public project has
 its first contributor, the page splits into two tabs. The `Team` tab lists your project members as
-usual, and the `Community` tab lists everyone who has contributed without being a member. Each
-contributor row shows their name along with `First contribution` and `Last contribution` dates, so
-you can see who started helping recently and who has been around the longest.
+usual, and the `Community` tab lists everyone who has contributed without being a member.
 
 <ScreenshotWrapper
   src="/img/docs/platform/community-translation/members-community-tab.webp"
@@ -143,17 +116,5 @@ you can see who started helping recently and who has been around the longest.
 
 If you want a frequent contributor to become a full member, for example so they can edit
 translations directly, use the `Invite to Team` button on their row. This sends them the same
-[project invitation](./members.mdx#how-to-add-members-to-your-project) you would send anyone else,
-with their email already filled in. While the invitation is waiting to be accepted, the row shows
-`Invitation pending`. You need the permission to manage members to invite a contributor.
-
-## Make a project private again
-
-To stop accepting community translations, go back to `Project settings` > `Advanced` and turn off
-`Make this project public`. Tolgee confirms the change, because the community loses access
-immediately.
-
-Once the project is private, it is no longer listed on the public projects page and community
-members can no longer open it. Members you invited directly keep their access and everything they
-contributed stays in place. Nothing about the project view changes for your members, the community
-simply loses the permission to reach it.
+[project invitation](./members.mdx#how-to-add-members-to-your-project) you would send anyone else.
+You need the permission to manage members to invite a contributor.
