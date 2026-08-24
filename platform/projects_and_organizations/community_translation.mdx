@@ -6,6 +6,8 @@ image: /img/og-images/platform.png
 description: Make a project public so anyone signed in can help translate it. Community members propose suggestions and comment without becoming paid members.
 ---
 
+import { ScreenshotWrapper } from '../shared/_ScreenshotWrapper';
+
 Open-source and community-driven projects often want help from their users to reach more
 languages, but inviting every willing volunteer as a project member does not scale. Each member
 takes up a paid seat, gains access to project internals, and can change translations directly.
@@ -25,6 +27,11 @@ the project's translations to anyone with an account.
 
 Go to `Project settings` > `Advanced` and find the `Public project` section. Turn on
 `Make this project public`.
+
+<ScreenshotWrapper
+  src="/img/docs/platform/community-translation/public-toggle.webp"
+  alt="Make this project public toggle in advanced project settings"
+/>
 
 Tolgee asks you to confirm, because publishing changes who can reach the project. When you make a
 project public, anyone signed in will be able to find it on the public projects page and propose
@@ -73,9 +80,30 @@ Visitors who are not signed in see `Log in` and `Sign up` buttons in the top bar
 project or proposing a suggestion requires an account, so a new contributor registers or logs in
 first, then opens your project in the limited community view.
 
+<ScreenshotWrapper
+  src="/img/docs/platform/community-translation/public-projects.webp"
+  alt="Public projects page with the community translations banner and a public project row"
+/>
+
 Each row shows the project name with an outlined `public` badge and the owning organization,
 along with the key count, translation-state bar, and languages, so a contributor can pick a
 project and a language that needs work at a glance.
+
+## Find projects you have contributed to
+
+Once you have suggested or commented on at least one public project, a `Community translation`
+entry appears in the organization switcher at the top of the projects list. It sits alongside your
+organizations, but instead of switching organization it opens your community projects.
+
+The community projects page lists public projects across every organization, not just your own. By
+default the `My contributions only` toggle is on, so the page shows the public projects you have
+contributed to as a non-member, which is the quickest way back to the strings you have been
+translating. Turn the toggle off to browse all public projects instead.
+
+<ScreenshotWrapper
+  src="/img/docs/platform/community-translation/community-projects.webp"
+  alt="Community projects page with the My contributions only toggle enabled"
+/>
 
 ## Review community suggestions
 
@@ -88,8 +116,36 @@ to the live translation and leaves the other suggestions open, which is useful w
 keep comparing alternatives. `Accept and decline others` promotes the suggestion and dismisses the
 competing ones in a single step.
 
+<ScreenshotWrapper
+  src="/img/docs/platform/community-translation/suggestions-accept.webp"
+  alt="Two community suggestions on a translation with the Accept only button and the Accept and decline others menu action"
+/>
+
 For the full suggestion workflow, including how to enable direct suggestions for your own members,
 read [Translation Suggestions](./suggestions.mdx).
+
+## See who has contributed
+
+When someone who is not a member suggests or comments on your public project, Tolgee records them
+as a **contributor**. This lets you recognize the people helping out and invite the most active
+ones to join your team.
+
+Contributors appear on the project's [Members](./members.mdx) page. As soon as a public project has
+its first contributor, the page splits into two tabs. The `Team` tab lists your project members as
+usual, and the `Community` tab lists everyone who has contributed without being a member. Each
+contributor row shows their name along with `First contribution` and `Last contribution` dates, so
+you can see who started helping recently and who has been around the longest.
+
+<ScreenshotWrapper
+  src="/img/docs/platform/community-translation/members-community-tab.webp"
+  alt="Community tab on the Members page listing contributors with contribution dates and an Invite to Team button"
+/>
+
+If you want a frequent contributor to become a full member, for example so they can edit
+translations directly, use the `Invite to Team` button on their row. This sends them the same
+[project invitation](./members.mdx#how-to-add-members-to-your-project) you would send anyone else,
+with their email already filled in. While the invitation is waiting to be accepted, the row shows
+`Invitation pending`. You need the permission to manage members to invite a contributor.
 
 ## Make a project private again
 
