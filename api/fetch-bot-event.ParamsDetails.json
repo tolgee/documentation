@@ -1,0 +1,1 @@
+{"parameters":[{"name":"X-Slack-Signature","in":"header","required":true,"schema":{"type":"string"}},{"name":"X-Slack-Request-Timestamp","in":"header","required":true,"schema":{"type":"string"}}]}

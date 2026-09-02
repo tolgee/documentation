@@ -1,0 +1,1 @@
+{"parameters":[{"name":"translationId","in":"path","required":true,"schema":{"type":"integer","format":"int64"}},{"name":"state","in":"path","required":true,"schema":{"type":"boolean"}},{"name":"projectId","in":"path","required":true,"allowEmptyValue":false,"schema":{"type":"integer","format":"int64"}}]}

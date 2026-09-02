@@ -1,0 +1,1 @@
+{"parameters":[{"name":"projectId","in":"path","required":true,"schema":{"type":"integer","format":"int64"}},{"name":"ignoreVersion","in":"query","description":"Bypass the schema-version check. Unsupported; intended only for cross-version admin recovery — the import may complete yet silently corrupt data.","required":false,"schema":{"type":"boolean","default":false}}]}

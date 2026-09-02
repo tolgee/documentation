@@ -1,0 +1,1 @@
+{"parameters":[{"name":"projectId","in":"query","description":"Required when using with PAT","required":false,"schema":{"type":"integer","format":"int64"}}]}

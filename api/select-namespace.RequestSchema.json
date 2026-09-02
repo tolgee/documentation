@@ -1,0 +1,1 @@
+{"title":"Body","body":{"content":{"application/json":{"schema":{"properties":{"namespace":{"type":"string"}},"title":"SetFileNamespaceRequest"}}},"required":true}}

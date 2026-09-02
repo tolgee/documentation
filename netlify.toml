@@ -1,0 +1,4 @@
+[build.environment]
+  # The generated API reference is large enough that the default Node heap
+  # limit on Netlify build containers is not enough for `docusaurus build`.
+  NODE_OPTIONS = "--max-old-space-size=4096"

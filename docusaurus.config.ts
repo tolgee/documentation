@@ -78,6 +78,15 @@ const config: Config = {
     openApiPluginConfig,
     ...docs,
     tailwindPlugin,
+    // docusaurus-theme-openapi-docs 4.x pulls postman-code-generators 2.x, which
+    // requires 'path' in the browser bundle without polyfilling it. Fixed upstream in
+    // 4.8.0 (PaloAltoNetworks/docusaurus-openapi-docs#1353); drop this once on it.
+    () => ({
+      name: 'node-path-polyfill',
+      configureWebpack: () => ({
+        resolve: { fallback: { path: require.resolve('path-browserify') } },
+      }),
+    }),
   ],
   customFields: {
     googleTrackingId: process.env.DOCUSAURUS_GOOGLE_TRACKING_ID,

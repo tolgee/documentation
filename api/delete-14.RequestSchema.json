@@ -1,0 +1,1 @@
+{"title":"Body","body":{"content":{"application/json":{"schema":{"properties":{"ids":{"type":"array","description":"IDs of keys to delete","items":{"type":"integer","format":"int64","description":"IDs of keys to delete"},"uniqueItems":true}},"required":["ids"],"title":"DeleteKeysDto"}}},"required":true}}

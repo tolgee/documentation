@@ -1,0 +1,1 @@
+{"parameters":[{"name":"open","in":"path","required":true,"schema":{"type":"boolean"}}]}
