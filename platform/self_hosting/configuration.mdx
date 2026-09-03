@@ -651,6 +651,24 @@ Configuration of Tolgee file storage.
 
   Path to directory where Tolgee will store its files. (default: `~/.tolgee/` , with docker `/data/`)
 
+#### Azure Blob Storage \{#tolgee-file-storage-_-azure}
+
+Prefix: `tolgee.file-storage.azure`
+
+Tolgee supports storing its files in Azure Blob Storage. When enabled, Tolgee will store all its files in the configured container rather than in filesystem. The container has to exist already.
+
+- ##### `connection-string` \{#tolgee-file-storage-azure-_-connection-string}
+
+  Connection string of the Azure Storage account.
+
+- ##### `container-name` \{#tolgee-file-storage-azure-_-container-name}
+
+  Name of the container where Tolgee will store its files.
+
+- ##### `enabled` \{#tolgee-file-storage-azure-_-enabled}
+
+  Whether Azure Blob Storage is enabled. If enabled, you need to set all remaining properties below. Cannot be enabled together with S3. (default: `false`)
+
 #### S3 \{#tolgee-file-storage-_-s3}
 
 Prefix: `tolgee.file-storage.s3`
@@ -1491,6 +1509,10 @@ tolgee:
         signing-region:
   file-storage:
     fs-data-path: ~/.tolgee/
+    azure:
+      connection-string:
+      container-name:
+      enabled: false
     s3:
       access-key:
       bucket-name:
@@ -2260,6 +2282,24 @@ Configuration of Tolgee file storage.
 - ##### `FS_DATA_PATH` \{#tolgee-file-storage-_-fs-data-path}
 
   Path to directory where Tolgee will store its files. (default: `~/.tolgee/` , with docker `/data/`)
+
+#### Azure Blob Storage \{#tolgee-file-storage-_-azure}
+
+Prefix: `TOLGEE_FILE_STORAGE_AZURE`
+
+Tolgee supports storing its files in Azure Blob Storage. When enabled, Tolgee will store all its files in the configured container rather than in filesystem. The container has to exist already.
+
+- ##### `CONNECTION_STRING` \{#tolgee-file-storage-azure-_-connection-string}
+
+  Connection string of the Azure Storage account.
+
+- ##### `CONTAINER_NAME` \{#tolgee-file-storage-azure-_-container-name}
+
+  Name of the container where Tolgee will store its files.
+
+- ##### `ENABLED` \{#tolgee-file-storage-azure-_-enabled}
+
+  Whether Azure Blob Storage is enabled. If enabled, you need to set all remaining properties below. Cannot be enabled together with S3. (default: `false`)
 
 #### S3 \{#tolgee-file-storage-_-s3}
 
@@ -3076,6 +3116,9 @@ TOLGEE_CONTENT_DELIVERY_STORAGE_S3_PATH=
 TOLGEE_CONTENT_DELIVERY_STORAGE_S3_SECRET_KEY=
 TOLGEE_CONTENT_DELIVERY_STORAGE_S3_SIGNING_REGION=
 TOLGEE_FILE_STORAGE_FS_DATA_PATH=~/.tolgee/
+TOLGEE_FILE_STORAGE_AZURE_CONNECTION_STRING=
+TOLGEE_FILE_STORAGE_AZURE_CONTAINER_NAME=
+TOLGEE_FILE_STORAGE_AZURE_ENABLED=false
 TOLGEE_FILE_STORAGE_S3_ACCESS_KEY=
 TOLGEE_FILE_STORAGE_S3_BUCKET_NAME=
 TOLGEE_FILE_STORAGE_S3_ENABLED=false
@@ -3824,6 +3867,24 @@ Configuration of Tolgee file storage.
 - ##### `fs-data-path` \{#tolgee-file-storage-_-fs-data-path}
 
   Path to directory where Tolgee will store its files. (default: `~/.tolgee/` , with docker `/data/`)
+
+#### Azure Blob Storage \{#tolgee-file-storage-_-azure}
+
+Prefix: `tolgee.file-storage.azure`
+
+Tolgee supports storing its files in Azure Blob Storage. When enabled, Tolgee will store all its files in the configured container rather than in filesystem. The container has to exist already.
+
+- ##### `connection-string` \{#tolgee-file-storage-azure-_-connection-string}
+
+  Connection string of the Azure Storage account.
+
+- ##### `container-name` \{#tolgee-file-storage-azure-_-container-name}
+
+  Name of the container where Tolgee will store its files.
+
+- ##### `enabled` \{#tolgee-file-storage-azure-_-enabled}
+
+  Whether Azure Blob Storage is enabled. If enabled, you need to set all remaining properties below. Cannot be enabled together with S3. (default: `false`)
 
 #### S3 \{#tolgee-file-storage-_-s3}
 
@@ -4640,6 +4701,9 @@ tolgee.content-delivery.storage.s3.path =
 tolgee.content-delivery.storage.s3.secret-key =
 tolgee.content-delivery.storage.s3.signing-region =
 tolgee.file-storage.fs-data-path = ~/.tolgee/
+tolgee.file-storage.azure.connection-string =
+tolgee.file-storage.azure.container-name =
+tolgee.file-storage.azure.enabled = false
 tolgee.file-storage.s3.access-key =
 tolgee.file-storage.s3.bucket-name =
 tolgee.file-storage.s3.enabled = false
