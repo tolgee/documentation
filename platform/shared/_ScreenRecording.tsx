@@ -16,6 +16,7 @@ export const ScreenRecording = ({ style, ...props }: Props) => {
         loop
         autoPlay
         muted
+        playsInline
         {...props}
         onLoadedData={() => {
           setVisible(true);
