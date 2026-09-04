@@ -1,0 +1,212 @@
+---
+id: intro
+title: Tolgee Apps — introduction & architecture
+sidebar_label: Introduction
+description: Build apps that extend the Tolgee UI, react to project events, and decorate translation rows.
+---
+
+import Head from '@docusaurus/Head';
+
+Tolgee Apps are hosted web plugins that extend Tolgee with custom UI — dashboard pages, side panels,
+key-edit tabs, modals, and row action icons — while reacting to project events through signed
+webhooks and decorating translation rows with live data. A Tolgee App calls the Tolgee REST API
+scoped to the permissions granted at install time. You build one with the `create-tolgee-app`
+scaffolder and the `@tolgee/apps-sdk`.
+
+:::warning Experimental
+Tolgee Apps is in **alpha**. The packages are published under the npm `alpha` dist-tag and the
+APIs described here may change without notice. Don't build production-critical workflows on it yet.
+:::
+
+## Overview
+
+**Tolgee Apps** let you extend Tolgee with your own hosted web app. An app can:
+
+- **Add UI** to the Tolgee interface — full dashboard pages, side panels, key-edit tabs, modals,
+  icon buttons on key/translation rows, and keyboard shortcuts.
+- **React to project events** — receive signed **webhooks** when translations change, keys are
+  created, imports finish, and more.
+- **Decorate rows dynamically** — push badges/icons onto specific keys and translation cells based
+  on your own data.
+- **Call the Tolgee REST API** on behalf of the current user, scoped to the permissions the app was
+  granted at install time.
+
+An app is just a web service you host. Tolgee loads its UI in a sandboxed `<iframe>` and talks to it
+over `postMessage`; your backend receives webhooks and serves decorator data. You describe everything
+in a **manifest** (a JSON file your app hosts).
+
+To go from zero to a running app, use the scaffolder and SDK:
+
+- **`create-tolgee-app`** — scaffolds a working app (Vite + React frontend, Express backend, dev
+  tunnel, manifest) in one command.
+- **`@tolgee/apps-sdk`** — the postMessage handshake, a typed REST client, webhook signature
+  verification, and the manifest types.
+- **`@tolgee/apps-dev`** (the `tolgee-app` CLI) — the dev tunnel and one-time browser install.
+
+See [Setup & quickstart](./setup) to build your first app, the [API reference](./api) for the full
+contract, and the [tutorials](./tutorial-activity-monitoring) for end-to-end examples.
+
+## How it fits together
+
+```
+   your app (hosted)                         Tolgee
+   ─────────────────                         ──────
+   manifest.json  ───────── install ───────▶ Organization install + consent (scopes)
+                                                      │
+                                              enable per project
+                                                      │
+   iframe module  ◀──── load + context token ─────────┤   postMessage handshake
+        │                                              │   (init / selection / resize / close)
+        └──── REST call (Bearer token) ──────────────▶ REST API   (scopes = app ∩ user)
+                                                      │
+   /webhook       ◀──── signed webhook ───────────────┤   on translation/key/import events
+   /decorators    ◀──── POST (keyIds, langs) ─────────┘   render badges on rows
+```
+
+1. **Install & consent** — an organization **owner** installs your app by pointing Tolgee at your
+   manifest URL. Tolgee shows the requested **scopes** and the owner approves. Installation returns
+   a `clientId`, `clientSecret`, and a per-install `webhookSecret`.
+2. **Enable per project** — a project member enables the installed app on a specific project. Only
+   then do its modules appear and its webhooks fire for that project.
+3. **Modules in an iframe** — when a user opens one of your modules, Tolgee renders your `entry` URL
+   in a sandboxed iframe and completes a `postMessage` handshake, delivering a **context token** (a
+   short-lived JWT with `aud=tg.app` carrying the install, project, and user ids) plus the current
+   selection (focused key/language/translation).
+4. **REST API access** — your iframe uses the context token as a Bearer token to call the Tolgee
+   REST API. The app's effective permissions are the **intersection** of the scopes granted to the
+   install and the calling user's own project permissions — an app can never do more than the user.
+5. **Webhooks** — Tolgee POSTs subscribed events to your `webhooks.url`, signed with the install's
+   `webhookSecret` (a `Tolgee-Signature` header). Your backend verifies the signature and reacts.
+6. **Decorators** — for dynamic row badges, Tolgee POSTs the keys/languages currently in view to your
+   `decoratorsUrl`; you return the items to render.
+
+## Capabilities
+
+### UI modules
+
+A manifest declares modules under these keys. The first four render an iframe (your web page); the
+rest are lightweight triggers configured entirely in the manifest.
+
+| Module | Renders | Use it for |
+| --- | --- | --- |
+| `project-dashboard-page` | iframe | A full-area page in the project sidebar |
+| `translation-tools-panel` | iframe | A collapsible panel in the translations view; receives selection updates |
+| `key-edit-tab` | iframe | A tab inside the key-edit dialog |
+| `modal` | iframe | A dialog opened from any action |
+| `key-action` | icon button on a key row | Opens a `key-edit-tab` or an external `link` |
+| `translation-action` | icon button on a translation cell | Opens a `translation-tools-panel` or a `link` |
+| `bulk-action` | item in the bulk-action bar | Opens a `modal` or a `link` for selected keys |
+| `translations-toolbar-action` | button in the translations toolbar | Opens a `modal` or a `link` |
+| `project-menu-action` | entry in the project sidebar | Opens a `modal` or a `link` |
+| `shortcut` | keyboard shortcut | Triggers a `modal` or a `link` |
+
+Action modules can be **dynamic** (`dynamic: true`): their visibility/badge is driven by your
+`decoratorsUrl` response rather than shown statically on every row.
+
+### Events (webhooks)
+
+Subscribe to Tolgee [activity types](/platform/projects_and_organizations/webhooks) such as
+`SET_TRANSLATIONS`, `SET_TRANSLATION_STATE`, `CREATE_KEY`, `KEY_DELETE`, `IMPORT`, and their batch
+variants. Deliveries are HMAC-signed; the SDK verifies them for you.
+
+### REST API
+
+Call any Tolgee REST endpoint with the context token. Permissions are the intersection of the app's
+granted scopes and the user's project permissions (see [Scopes & permissions](./api#scopes--permissions)).
+
+## Limitations (alpha)
+
+- **Hosted only.** Your app must be reachable at an HTTPS URL; there is no zip/bundle upload yet.
+- **No incremental consent.** An app's scopes are approved once at install time — request everything
+  you need up front. Adding scopes later requires an owner to re-approve.
+- **Webhook secret at rest.** Per-install `webhookSecret` is currently stored unencrypted.
+- **Shared signing key.** Context tokens are signed with the platform's JWT key (distinguished by
+  `aud=tg.app`); a dedicated key/JWKS is planned.
+- **Local development needs an SSRF bypass.** Tolgee refuses to fetch manifests from private/loopback
+  addresses; when developing against a local Tolgee, enable the documented bypass (see
+  [Setup](./setup#local-development)).
+
+These are alpha constraints and will change as the platform matures.
+
+## Frequently asked questions
+
+<Head>
+  <script type="application/ld+json">
+    {JSON.stringify({
+      '@context': 'https://schema.org',
+      '@type': 'FAQPage',
+      mainEntity: [
+        {
+          '@type': 'Question',
+          name: 'What can a Tolgee App do?',
+          acceptedAnswer: {
+            '@type': 'Answer',
+            text: 'A Tolgee App can add UI to the Tolgee interface (dashboard pages, panels, key-edit tabs, modals, row action icons, and keyboard shortcuts), subscribe to project events through signed webhooks, decorate translation rows with live badges, and call the Tolgee REST API scoped to the permissions granted at install.',
+          },
+        },
+        {
+          '@type': 'Question',
+          name: 'How is a Tolgee App different from a Tolgee integration like Figma or Slack?',
+          acceptedAnswer: {
+            '@type': 'Answer',
+            text: 'Tolgee integrations are first-party connectors maintained by Tolgee. Tolgee Apps are a developer platform: you build and host your own app, describe it with a manifest, and install it into your organization. Apps run in a sandboxed iframe and react to webhooks.',
+          },
+        },
+        {
+          '@type': 'Question',
+          name: 'Do Tolgee Apps work on self-hosted Tolgee?',
+          acceptedAnswer: {
+            '@type': 'Answer',
+            text: 'Yes. A Tolgee App targets any Tolgee instance that has Apps enabled, including self-hosted ones. You point the install at your instance URL. For local development against a localhost instance, you must enable an SSRF bypass so Tolgee can fetch your manifest.',
+          },
+        },
+        {
+          '@type': 'Question',
+          name: 'What permissions does a Tolgee App get?',
+          acceptedAnswer: {
+            '@type': 'Answer',
+            text: 'A Tolgee App requests permission scopes in its manifest, approved by an organization owner at install. At runtime the effective permissions are the intersection of the app’s granted scopes and the calling user’s own project permissions, so an app can never do more than the user.',
+          },
+        },
+        {
+          '@type': 'Question',
+          name: 'Is Tolgee Apps production-ready?',
+          acceptedAnswer: {
+            '@type': 'Answer',
+            text: 'Not yet. Tolgee Apps is in alpha and its packages are published under the npm alpha dist-tag. The contracts may change, so avoid production-critical workflows for now.',
+          },
+        },
+      ],
+    })}
+  </script>
+</Head>
+
+### What can a Tolgee App do?
+
+A Tolgee App can add UI to the Tolgee interface (dashboard pages, panels, key-edit tabs, modals, row
+action icons, and keyboard shortcuts), subscribe to project events through signed webhooks, decorate
+translation rows with live badges, and call the Tolgee REST API scoped to the permissions granted at
+install.
+
+### How is a Tolgee App different from a Tolgee integration like Figma or Slack?
+
+Tolgee integrations are first-party connectors maintained by Tolgee. Tolgee Apps are a developer
+platform: you build and host your own app, describe it with a manifest, and install it into your
+organization. Apps run in a sandboxed iframe and react to webhooks.
+
+### Do Tolgee Apps work on self-hosted Tolgee?
+
+Yes. A Tolgee App targets any Tolgee instance that has Apps enabled, including self-hosted ones. You
+point the install at your instance URL. For local development against a localhost instance, you must
+enable an SSRF bypass so Tolgee can fetch your manifest (see [Setup](./setup#local-development)).
+
+### What permissions does a Tolgee App get?
+
+A Tolgee App requests permission scopes in its manifest, approved by an organization owner at install.
+At runtime the effective permissions are the intersection of the app's granted scopes and the calling
+user's own project permissions, so an app can never do more than the user.
+
+### Is Tolgee Apps production-ready?
+
+Not yet. Tolgee Apps is in alpha and its packages are published under the npm `alpha` dist-tag. The
+contracts may change, so avoid production-critical workflows for now.

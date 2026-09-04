@@ -36,6 +36,10 @@ module.exports.navbar = {
       label: 'CLI',
     },
     {
+      to: 'apps/intro',
+      label: 'Apps',
+    },
+    {
       to: 'api',
       label: 'REST API',
     },
