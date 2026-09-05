@@ -1043,6 +1043,50 @@ See [Google Cloud Translation](https://cloud.google.com/translate) page for more
 
   Whether to use Google Cloud Translation as a primary translation engine. (default: `true`)
 
+### OAuth2 authorization server \{#tolgee-_-oauth2}
+
+Prefix: `tolgee.oauth2`
+
+Settings for Tolgee acting as an OAuth 2.1 authorization server (browser-extension login, MCP).
+
+- ##### `access-token-validity-minutes` \{#tolgee-oauth2-_-access-token-validity-minutes}
+
+  How long an issued OAuth access token stays valid, in minutes. (default: `30`)
+
+- ##### `authorization-code-validity-seconds` \{#tolgee-oauth2-_-authorization-code-validity-seconds}
+
+  How long an authorization code can be exchanged for tokens after it was issued, in seconds. (default: `300`)
+
+- ##### `browser-extension-redirect-uris` \{#tolgee-oauth2-_-browser-extension-redirect-uris}
+
+  Exact redirect URIs of the Tolgee browser extension, e.g. `https://<extension-id>.chromiumapp.org/`. The extension OAuth client is only registered when this is set. (default: `[]`)
+
+- ##### `cli-redirect-uris` \{#tolgee-oauth2-_-cli-redirect-uris}
+
+  Loopback redirect URIs of the Tolgee CLI (RFC 8252), e.g. `http://127.0.0.1:9876/callback`. Prefer the loopback IP literal over `localhost`, which RFC 8252 section 7.3 marks NOT RECOMMENDED: a client resolving `localhost` may end up listening on interfaces other than the loopback one. The CLI OAuth client is only registered when this is set.
+  
+  :::info
+  A loopback redirect cannot be tied to one local application, so any process on the machine that knows the client id can start an authorization for it. The user still has to approve the consent screen, but leave this unset unless the CLI is actually in use.
+  :::
+  
+   (default: `[]`)
+
+- ##### `consent-validity-seconds` \{#tolgee-oauth2-_-consent-validity-seconds}
+
+  How long the user has to complete the consent screen before the pending authorization goes stale, in seconds. (default: `900`)
+
+- ##### `grant-cleanup-cron` \{#tolgee-oauth2-_-grant-cleanup-cron}
+
+  Cron expression for the job that removes spent grants past their retention window and consents the user never completed. Spring's six-field format (second, minute, hour, day, month, weekday). (default: `0 0 3 * * *`)
+
+- ##### `grant-retention-days` \{#tolgee-oauth2-_-grant-retention-days}
+
+  How long a spent OAuth grant is kept after its last credential expired, in days. It holds a used code's row so a replayed code is still recognised. A consent the user never completed is not kept for this window — it is deleted once its own short deadline passes. (default: `7`)
+
+- ##### `refresh-token-validity-days` \{#tolgee-oauth2-_-refresh-token-validity-days}
+
+  How long an issued OAuth refresh token stays valid, in days. Each refresh issues a new one and restarts this window, so it bounds how long a grant may sit unused — not how long it may live. (default: `30`)
+
 ### Postgres autostart \{#tolgee-_-postgres-autostart}
 
 Prefix: `tolgee.postgres-autostart`
@@ -1560,6 +1604,15 @@ tolgee:
       api-key:
       default-enabled: true
       default-primary: true
+  oauth2:
+    access-token-validity-minutes: 30
+    authorization-code-validity-seconds: 300
+    browser-extension-redirect-uris: []
+    cli-redirect-uris: []
+    consent-validity-seconds: 900
+    grant-cleanup-cron: 0 0 3 * * *
+    grant-retention-days: 7
+    refresh-token-validity-days: 30
   postgres-autostart:
     container-name: tolgee_postgres
     database-name: postgres
@@ -2653,6 +2706,50 @@ See [Google Cloud Translation](https://cloud.google.com/translate) page for more
 
   Whether to use Google Cloud Translation as a primary translation engine. (default: `true`)
 
+### OAuth2 authorization server \{#tolgee-_-oauth2}
+
+Prefix: `TOLGEE_OAUTH2`
+
+Settings for Tolgee acting as an OAuth 2.1 authorization server (browser-extension login, MCP).
+
+- ##### `ACCESS_TOKEN_VALIDITY_MINUTES` \{#tolgee-oauth2-_-access-token-validity-minutes}
+
+  How long an issued OAuth access token stays valid, in minutes. (default: `30`)
+
+- ##### `AUTHORIZATION_CODE_VALIDITY_SECONDS` \{#tolgee-oauth2-_-authorization-code-validity-seconds}
+
+  How long an authorization code can be exchanged for tokens after it was issued, in seconds. (default: `300`)
+
+- ##### `BROWSER_EXTENSION_REDIRECT_URIS` \{#tolgee-oauth2-_-browser-extension-redirect-uris}
+
+  Exact redirect URIs of the Tolgee browser extension, e.g. `https://<extension-id>.chromiumapp.org/`. The extension OAuth client is only registered when this is set. (default: `[]`)
+
+- ##### `CLI_REDIRECT_URIS` \{#tolgee-oauth2-_-cli-redirect-uris}
+
+  Loopback redirect URIs of the Tolgee CLI (RFC 8252), e.g. `http://127.0.0.1:9876/callback`. Prefer the loopback IP literal over `localhost`, which RFC 8252 section 7.3 marks NOT RECOMMENDED: a client resolving `localhost` may end up listening on interfaces other than the loopback one. The CLI OAuth client is only registered when this is set.
+  
+  :::info
+  A loopback redirect cannot be tied to one local application, so any process on the machine that knows the client id can start an authorization for it. The user still has to approve the consent screen, but leave this unset unless the CLI is actually in use.
+  :::
+  
+   (default: `[]`)
+
+- ##### `CONSENT_VALIDITY_SECONDS` \{#tolgee-oauth2-_-consent-validity-seconds}
+
+  How long the user has to complete the consent screen before the pending authorization goes stale, in seconds. (default: `900`)
+
+- ##### `GRANT_CLEANUP_CRON` \{#tolgee-oauth2-_-grant-cleanup-cron}
+
+  Cron expression for the job that removes spent grants past their retention window and consents the user never completed. Spring's six-field format (second, minute, hour, day, month, weekday). (default: `0 0 3 * * *`)
+
+- ##### `GRANT_RETENTION_DAYS` \{#tolgee-oauth2-_-grant-retention-days}
+
+  How long a spent OAuth grant is kept after its last credential expired, in days. It holds a used code's row so a replayed code is still recognised. A consent the user never completed is not kept for this window — it is deleted once its own short deadline passes. (default: `7`)
+
+- ##### `REFRESH_TOKEN_VALIDITY_DAYS` \{#tolgee-oauth2-_-refresh-token-validity-days}
+
+  How long an issued OAuth refresh token stays valid, in days. Each refresh issues a new one and restarts this window, so it bounds how long a grant may sit unused — not how long it may live. (default: `30`)
+
 ### Postgres autostart \{#tolgee-_-postgres-autostart}
 
 Prefix: `TOLGEE_POSTGRES_AUTOSTART`
@@ -3133,6 +3230,14 @@ TOLGEE_MACHINE_TRANSLATION_DEEPL_OPTIONAL_PARAMETERS=
 TOLGEE_MACHINE_TRANSLATION_GOOGLE_API_KEY=
 TOLGEE_MACHINE_TRANSLATION_GOOGLE_DEFAULT_ENABLED=true
 TOLGEE_MACHINE_TRANSLATION_GOOGLE_DEFAULT_PRIMARY=true
+TOLGEE_OAUTH2_ACCESS_TOKEN_VALIDITY_MINUTES=30
+TOLGEE_OAUTH2_AUTHORIZATION_CODE_VALIDITY_SECONDS=300
+TOLGEE_OAUTH2_BROWSER_EXTENSION_REDIRECT_URIS=[]
+TOLGEE_OAUTH2_CLI_REDIRECT_URIS=[]
+TOLGEE_OAUTH2_CONSENT_VALIDITY_SECONDS=900
+TOLGEE_OAUTH2_GRANT_CLEANUP_CRON=0 0 3 * * *
+TOLGEE_OAUTH2_GRANT_RETENTION_DAYS=7
+TOLGEE_OAUTH2_REFRESH_TOKEN_VALIDITY_DAYS=30
 TOLGEE_POSTGRES_AUTOSTART_CONTAINER_NAME=tolgee_postgres
 TOLGEE_POSTGRES_AUTOSTART_DATABASE_NAME=postgres
 TOLGEE_POSTGRES_AUTOSTART_ENABLED=true
@@ -4217,6 +4322,50 @@ See [Google Cloud Translation](https://cloud.google.com/translate) page for more
 
   Whether to use Google Cloud Translation as a primary translation engine. (default: `true`)
 
+### OAuth2 authorization server \{#tolgee-_-oauth2}
+
+Prefix: `tolgee.oauth2`
+
+Settings for Tolgee acting as an OAuth 2.1 authorization server (browser-extension login, MCP).
+
+- ##### `access-token-validity-minutes` \{#tolgee-oauth2-_-access-token-validity-minutes}
+
+  How long an issued OAuth access token stays valid, in minutes. (default: `30`)
+
+- ##### `authorization-code-validity-seconds` \{#tolgee-oauth2-_-authorization-code-validity-seconds}
+
+  How long an authorization code can be exchanged for tokens after it was issued, in seconds. (default: `300`)
+
+- ##### `browser-extension-redirect-uris` \{#tolgee-oauth2-_-browser-extension-redirect-uris}
+
+  Exact redirect URIs of the Tolgee browser extension, e.g. `https://<extension-id>.chromiumapp.org/`. The extension OAuth client is only registered when this is set. (default: `[]`)
+
+- ##### `cli-redirect-uris` \{#tolgee-oauth2-_-cli-redirect-uris}
+
+  Loopback redirect URIs of the Tolgee CLI (RFC 8252), e.g. `http://127.0.0.1:9876/callback`. Prefer the loopback IP literal over `localhost`, which RFC 8252 section 7.3 marks NOT RECOMMENDED: a client resolving `localhost` may end up listening on interfaces other than the loopback one. The CLI OAuth client is only registered when this is set.
+  
+  :::info
+  A loopback redirect cannot be tied to one local application, so any process on the machine that knows the client id can start an authorization for it. The user still has to approve the consent screen, but leave this unset unless the CLI is actually in use.
+  :::
+  
+   (default: `[]`)
+
+- ##### `consent-validity-seconds` \{#tolgee-oauth2-_-consent-validity-seconds}
+
+  How long the user has to complete the consent screen before the pending authorization goes stale, in seconds. (default: `900`)
+
+- ##### `grant-cleanup-cron` \{#tolgee-oauth2-_-grant-cleanup-cron}
+
+  Cron expression for the job that removes spent grants past their retention window and consents the user never completed. Spring's six-field format (second, minute, hour, day, month, weekday). (default: `0 0 3 * * *`)
+
+- ##### `grant-retention-days` \{#tolgee-oauth2-_-grant-retention-days}
+
+  How long a spent OAuth grant is kept after its last credential expired, in days. It holds a used code's row so a replayed code is still recognised. A consent the user never completed is not kept for this window — it is deleted once its own short deadline passes. (default: `7`)
+
+- ##### `refresh-token-validity-days` \{#tolgee-oauth2-_-refresh-token-validity-days}
+
+  How long an issued OAuth refresh token stays valid, in days. Each refresh issues a new one and restarts this window, so it bounds how long a grant may sit unused — not how long it may live. (default: `30`)
+
 ### Postgres autostart \{#tolgee-_-postgres-autostart}
 
 Prefix: `tolgee.postgres-autostart`
@@ -4697,6 +4846,14 @@ tolgee.machine-translation.deepl.optional-parameters =
 tolgee.machine-translation.google.api-key =
 tolgee.machine-translation.google.default-enabled = true
 tolgee.machine-translation.google.default-primary = true
+tolgee.oauth2.access-token-validity-minutes = 30
+tolgee.oauth2.authorization-code-validity-seconds = 300
+tolgee.oauth2.browser-extension-redirect-uris = []
+tolgee.oauth2.cli-redirect-uris = []
+tolgee.oauth2.consent-validity-seconds = 900
+tolgee.oauth2.grant-cleanup-cron = 0 0 3 * * *
+tolgee.oauth2.grant-retention-days = 7
+tolgee.oauth2.refresh-token-validity-days = 30
 tolgee.postgres-autostart.container-name = tolgee_postgres
 tolgee.postgres-autostart.database-name = postgres
 tolgee.postgres-autostart.enabled = true
