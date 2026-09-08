@@ -1,0 +1,107 @@
+---
+id: bulk_operations
+title: Bulk Operations
+sidebar_label: Bulk Operations
+description: Name, connect, disconnect and organise many strings at once instead of working through a screen row by row
+image: /img/og-images/figma-plugin.png
+---
+
+import { FigmaScreenshotWrapper } from '../../shared/_FigmaScreenshotWrapper';
+import { RoundedImageWrapper } from '../../shared/_RoundedImageWrapper';
+
+Naming forty texts one row at a time is the slowest part of localizing a screen. Bulk operations do the same work on a whole selection at once, which turns an afternoon of typing into a couple of clicks.
+
+## Running an Operation
+
+Select strings using the checkboxes on their rows, or use the checkbox in the action bar to select everything currently shown. The action bar at the bottom then replaces the `Upload` and `Download` buttons with a counter and an operations menu.
+
+Open `Choose operation…` and pick what you want to do. Every operation shows in brackets how many strings it will affect, so you can check the number before running anything.
+
+The menu only offers what makes sense for your current selection. An operation that would not apply, or would do something destructive to part of the selection, is simply not listed.
+
+:::tip
+Filters and bulk operations work well together. Filter the list down to `Not connected`, select all, and generate names for exactly those strings. See [searching and filtering](/platform/integrations/figma_plugin/usage#searching-and-filtering).
+:::
+
+## Naming Keys
+
+### Generate key names
+
+Fills in a name for every selected string, built from the `Key format` you defined in [settings](/platform/integrations/figma_plugin/setup#key-name). This is the fastest way to start on a screen that has no keys yet.
+
+Because names come from where each text sits in your design, the results are consistent in a way hand-typing rarely is. You can still edit any of them afterwards.
+
+The format itself appears in the action bar when you run the operation, so you can change it for this one run without opening settings. Click `OK` to apply it.
+
+<RoundedImageWrapper
+  alt="Generating key names for a whole selection, with the key format shown in the action bar and the generated names filling the key fields"
+  src="/img/docs/platform/figma-plugin/bulk-key-generation.gif"
+/>
+
+### Edit key name
+
+Writes one key name across the whole selection. Use it when several texts genuinely are the same string, for example a `Save` button repeated across screens.
+
+This is offered only when nothing in your selection is connected yet, because writing a key onto a connected row would disconnect it.
+
+<FigmaScreenshotWrapper
+  alt="Two identical unconnected strings selected, with the operations menu offering Edit key name alongside the other operations valid for them"
+  src="/img/docs/platform/figma-plugin/bulk-rename-same-key-name.webp"
+/>
+
+### Clear key name
+
+Empties the key field on the selected strings, so you can start over.
+
+## Connecting to Existing Keys
+
+### Auto-connect by exact match
+
+Looks for a Tolgee key whose text exactly matches each selected string, and connects the two. This is the operation to reach for when a design was built from copy that already lives in Tolgee.
+
+Nothing is applied straight away. The plugin searches, then shows you a preview with two numbers.
+
+- `To connect` is how many strings it found a single confident match for
+- `Skipped` is how many it is leaving alone
+
+Every skipped string is listed with the reason, so you can see what to do about it.
+
+- `No exact match in Tolgee` means there is nothing to connect to, so either create the key or connect it manually
+- `Several keys match this text exactly` means the plugin found more than one candidate and will not guess. Open `Connect` on that row and pick the right one, where the exact match is shown at the top
+
+Click `Connect` to apply the previewed matches, or `Cancel` to walk away with nothing changed.
+
+<RoundedImageWrapper
+  alt="Selecting every string, choosing Auto-connect by exact match, and the preview showing how many will be connected and how many skipped"
+  src="/img/docs/platform/figma-plugin/bulk-auto-connect.gif"
+/>
+
+When your project uses namespaces, you can narrow the search to one namespace before it runs.
+
+### Connect to key
+
+Links every selected string to one single key. Use it when the same wording appears in several places and should share a translation.
+
+This is offered when the unconnected strings in your selection all have the same text.
+
+### Disconnect connected keys
+
+Removes the connection from every connected string in the selection. The texts stay on the canvas exactly as they are, they just stop being synced with Tolgee.
+
+<RoundedImageWrapper
+  alt="The operations menu offering Disconnect connected keys, with the number it would affect in brackets"
+  src="/img/docs/platform/figma-plugin/bulk-disconnect.webp"
+/>
+
+## Organising
+
+### Set namespace
+
+Applies one [namespace](/platform/translation_keys/namespaces) to all selected strings. The picker offers namespaces that already exist in your project alongside any you are using in the file, and is seeded with the default you set in settings.
+
+This is the fast way to move existing keys into a namespace. The `Default namespace` setting only applies to newly created keys, and editing the field row by row is fine for a few, but this does the whole selection in one go.
+
+<FigmaScreenshotWrapper
+  alt="Setting a namespace on a whole selection, typing a name the project does not have yet and choosing to create it"
+  src="/img/docs/platform/figma-plugin/bulk-namespace.webp"
+/>

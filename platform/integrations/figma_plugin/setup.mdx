@@ -1,103 +1,159 @@
 ---
 id: setup
-title: Setup & Settings
-sidebar_label: Setup & Settings
-description: Learn how to install and setup Tolgee Figma plugin. First, you need to install the plugin from the Figma Community by clicking on the Try it out button.
+title: Setup and Settings
+sidebar_label: Setup and Settings
+description: Install the Tolgee Figma plugin, connect it to your project, and configure how it names keys, which texts it skips, and what it sends on upload
 image: /img/og-images/figma-plugin.png
 ---
 
 import { FigmaScreenshotWrapper } from '../../shared/_FigmaScreenshotWrapper';
+import ThemedImage from '@theme/ThemedImage';
 
 ## Installation
 
-First, you need to install the plugin from the [Figma Community](https://www.figma.com/community/plugin/1212381421658754793/Tolgee) by clicking on the ”**Open in…**” or “Open in Dev Mode” button.
+Install the plugin from the [Figma Community](https://www.figma.com/community/plugin/1212381421658754793/Tolgee) by clicking `Open in…` or `Open in Dev Mode`.
 
-You can find the Tolgee plugin in Figma by clicking the **Actions icon** (shortcut CTRL + K or ⌘ + K) **→ “Plugins & widgets”** in the toolbar, search for "Tolgee," and click Run. 
+You can find the Tolgee plugin in Figma by clicking the `Actions` icon in the toolbar (shortcut CTRL + K or ⌘ + K), choosing `Plugins & widgets`, then searching for Tolgee and clicking `Run`.
 
-Alternatively, click the Figma button in the top left corner, then select **Plugins → Manage Plugins…** and search for Tolgee
+Alternatively, click the Figma button in the top left corner, then select `Plugins` → `Manage Plugins…` and search for Tolgee.
 
-## Setup
+## First Run
 
-After installing and launching the plugin, you need to insert an **API key**. If you don't have one, you can check out our documentation on [how to generate an API key](/platform/account_settings/api_keys_and_pat_tokens#generation).
+The first time you open the plugin it walks you through three steps. They are named after the three settings tabs, so what you fill in here is exactly what you will find later under `Settings`.
 
-If you are using the self-hosted version, you can update the "Tolgee URL" field to the URL of your instance.
+1. `Project` connects the plugin to Tolgee and picks your language
+2. `Strings & Keys` decides how keys get named and which texts are skipped
+3. `Upload options` decides what travels with your keys when you upload
 
-Then you need to click on **Validate** to validate the provided credentials.
+You can move back and forth with `Back` and `Next`, and everything you set here can be changed later in `Settings`.
 
-<FigmaScreenshotWrapper src="/img/docs/platform/figma-plugin/setup-before-validation.webp" />
+<ThemedImage
+  alt="The three-step first run, which mirrors the three settings tabs"
+  sources={{
+    light: '/img/docs/platform/figma-plugin/setup-first-run.webp',
+    dark: '/img/docs/platform/figma-plugin/setup-first-run-dark.webp',
+  }}
+/>
 
-After the credentials are validated, you can see the name of the connected project. Clicking on the name will take you to the project page on the platform. Next, you can select the current language of your Figma file.
+## Project
 
-<FigmaScreenshotWrapper src="/img/docs/platform/figma-plugin/setup-during-validation.webp" />
+This tab connects the plugin to Tolgee and sets the language your designs are written in.
 
-### Use Namespaces
+### Connection
 
-After connecting to the project with an API key, you will see a checkbox for using [namespaces](/platform/translation_keys/namespaces).
+Paste your key into `Tolgee Project API key`. If you do not have one yet, see [how to generate an API key](/platform/account_settings/api_keys_and_pat_tokens#generation).
 
-When ticking the checkbox, additional settings appear under it. Make sure to scroll down as they may be outside your current window size.
+Leave `Tolgee URL` as it is unless you run a self-hosted instance, in which case enter the URL of your own instance.
 
-In the default namespaces selector, you can choose from existing ones or create a new one by clicking **+ Set custom**, and then you can choose a name for it.
+Once the key is accepted, the plugin shows the name of the connected project. Click it to open that project on the Tolgee platform, which is handy when you want to check something without leaving Figma.
 
-<FigmaScreenshotWrapper src="/img/docs/platform/figma-plugin/namespaces-set-up.webp" />
+<FigmaScreenshotWrapper
+  alt="The Project step of the first run, with fields for the Tolgee URL and the project API key, and a Connect button"
+  src="/img/docs/platform/figma-plugin/setup-project-api.webp"
+/>
 
-## Settings
+### Language
 
-In this section, you can find out how to use more detailed features of the plugin, such as prefilling keys, omitting numbers or text that does not need translating.
+`Current language` is the language your Figma texts are currently written in. Set it to the same base language your project uses in Tolgee, because everything you upload is treated as a translation in this language.
 
-### Strings and Keys
+:::tip
+Changing this selector later downloads that language into the current page, covered in the [Usage guide](/platform/integrations/figma_plugin/usage). You can also create a translated copy of the whole page instead, which leaves the original untouched, covered in [Page copies](/platform/integrations/figma_plugin/page_copies).
+:::
 
-After initial setup and clicking **Next**, you can see additional settings that have two parts **Key name** and **Ignore strings**.
+### Advanced
 
-<FigmaScreenshotWrapper src="/img/docs/platform/figma-plugin/setup-after-validation.webp" />
+Two settings appear here only when the matching feature is switched on in Tolgee itself. When one is off, the plugin says `is disabled for this project` instead of showing the field, so you always know whether it is missing or simply not available.
+
+`Default namespace` is applied to keys you newly create. It does not touch keys that already exist, so to move those you either edit the namespace field on the row, or select several and run the bulk `Set namespace` operation. See [namespaces](/platform/translation_keys/namespaces) for what they are.
+
+`Branch` sets which [branch](/platform/branching/overview) your uploads and downloads target, defaulting to the main branch. A branch selector also appears in the plugin header, so you can switch without opening settings.
+
+<FigmaScreenshotWrapper
+  alt="The Project tab once connected, showing the project name with a Disconnect button, the current language, and an Advanced section holding the default namespace and the branch"
+  src="/img/docs/platform/figma-plugin/setup-advanced.webp"
+/>
+
+## Strings and Keys
 
 ### Key Name
 
-Prefill key name section helps you automatically generate names for the [translation keys](/platform/translation_keys/keys) based on the information that you have in figma using information like the name of the element or the frame.
+Naming keys by hand is slow, and a team doing it by hand ends up with three different conventions in the same project. Turn on `Prefill key name` and the plugin proposes a name for every new string, built from where that text sits in your design.
 
-After clicking on the checkbox **prefill key name**, you will see a field called **Key format** and a selector **Formatting style**. When you start choosing the options, there will also be a preview at the bottom so you can see what it will look like before continuing.  
+`Key format` is the template. You build it from variables, your own text, and separators such as `.` or `:`. Click the field to pick from the available variables.
 
-**Working with Key format:**
+| Variable | What it inserts |
+|---|---|
+| `{elementName}` | Name of the text layer |
+| `{elementText}` | The text itself |
+| `{group}` | Name of the nearest group |
+| `{component}` | Name of the nearest component |
+| `{instance}` | Name of the nearest component instance |
+| `{frame}` | Name of the nearest frame |
+| `{artboard}` | Name of the artboard frame |
+| `{section}` | Name of the nearest section |
 
-The key format field lets you customize how the prefilled keys will look like. It creates a template for all the keys that will be prefilled. The template can be defined with text, separators, and variables.
+A format like `{artboard}.{elementName}` turns a layer called `Submit` inside a `Checkout` artboard into `checkout.submit`.
 
-When clicking on **Key format**, you will see the following variables to choose from:
-- artboard (name of the artboard frame)
-- component (name of the nearest component)
-- element name (name of the string)
-- element text (displayed text of the string)
-- frame (name of the nearest frame)
-- group (name of the nearest group)
-- section (name of the nearest section)
+Not every text has every variable. A layer that sits outside any component has nothing to put in `{component}`, and in that case the plugin drops the variable together with the separator next to it, so you never end up with a stray dot in the middle of a key.
 
-You can click on whichever variables you like and add them. Between the parts, you can use separators like ".", ":", etc., or static text.
+`Formatting style` keeps the casing consistent no matter how the layers were named. It is applied to the variables automatically.
 
-<FigmaScreenshotWrapper src="/img/docs/platform/figma-plugin/prefill-key-names.gif" />
+- `keep original format`
+- `snake_case (element_name)`
+- `Snake_case (Element_name)`
+- `camelCase (elementName)`
+- `PascalCase (ElementName)`
+- `noSpaces (elementname)`
 
-**Formatting style** lets you choose how auto-generated keys will be formatted. It helps you maintain consistent formatting by automatically handling spaces and capitalization.
+A preview at the bottom shows the result as you build the format, so you can see the shape of your keys before committing to it.
 
-The following options for **Formatting style** are available:
-- keep original format 
-- element_name
-- Element_name 
-- elementName
-- ElementName 
-- elementname
+:::tip
+A generated name is only ever a starting point. You can edit any key by hand, generate names for part of a screen and fill in the rest yourself, or change them later with [bulk operations](/platform/integrations/figma_plugin/bulk_operations).
+:::
 
-So if the original text is "Element name", it will change it according to the format that you choose.
+<FigmaScreenshotWrapper
+  alt="The Strings and Keys tab with Prefill key name turned on, a key format being assembled from variables offered in a dropdown, a formatting style of snake_case, and a preview of the resulting key"
+  src="/img/docs/platform/figma-plugin/prefill-key-name.webp"
+/>
 
 ### Ignore Strings
 
-These checkboxes allow you to choose which string will not be used for localization. Hidden layers and numbers are hidden by default, as in most cases, they do not need to be translated. Additionally, you can also hide text layers with a specific prefix of your choise. By default, it is prefilled with an underscore sign, but you can change it.
+Not every text layer is a translatable string. Prices, spacing labels, placeholder numbers and scratch notes all clutter the list and slow you down. These settings keep them out of the plugin so what you see is what you actually want to translate.
 
-### Push
+- `Numbers` skips strings made only of digits, such as `100` or `42`. Turn on `Including formatted numbers` to also skip values like `1,234.00`
+- `Hidden layers` skips layers whose visibility is turned off in Figma. By default only the hidden layer itself is ignored, so turn on `Including all child texts` to skip everything inside a hidden frame too
+- `Text layers with prefix` skips layers whose name starts with the prefix you set in `Ignore prefix`. It is prefilled with an underscore, and you can change it to anything. This lets you mark scratch content in the layer list itself
 
-The last part of the initial setup is called **Push**. Here you can choose if you want to update screenshots when pushing, which is turned on by default. 
+Ignored texts stay in your design exactly as they are. They simply stop appearing in the plugin.
 
-Another option is **Add tags**. It will include [tags](/platform/translation_keys/tags) together with the [keys](/platform/translation_keys/keys) that you push to the Tolgee platform. Pushing means adding the information from Figma to the Tolgee platform.
+<FigmaScreenshotWrapper
+  alt="The Ignore Strings settings, with numbers, hidden layers and prefixed text layers all ticked, each with its extra option, and an underscore set as the prefix"
+  src="/img/docs/platform/figma-plugin/setup-ignore.webp"
+/>
 
-Here you can choose from existing tags or add new tags by typing and then clicking **Add** or pressing Enter on your keyboard.
+## Upload Options
 
-> Note: if someone adds a tag on the platform, it will not appear here - this function is just one way from Figma
->
+This tab decides what travels alongside your keys when you upload them to Tolgee.
 
-<FigmaScreenshotWrapper src="/img/docs/platform/figma-plugin/usage-push-setup.webp" />
+`Update screenshots` is on by default. Screenshots are what let a translator see where a string actually appears, which is often the difference between a correct translation and a plausible one.
+
+`Add tags` attaches [tags](/platform/translation_keys/tags) to every key you upload. Choose from existing tags or type a new one and press Enter. Tagging everything that comes from Figma is a common way to find design-originated keys on the platform later.
+
+:::info
+Tags travel one way only. A tag someone adds on the Tolgee platform does not appear back here.
+:::
+
+<FigmaScreenshotWrapper
+  alt="The Upload options tab, with update screenshots and add tags both ticked, and the tag field offering the tags the project already has"
+  src="/img/docs/platform/figma-plugin/setup-upload.webp"
+/>
+
+## Setting Up a Page
+
+Settings apply to the whole file, but each page also needs to declare which language its text is written in. The first time you open the plugin on a new page, it asks with a short `Set up this page` screen.
+
+Pick the language and click `Confirm`. You can change it later from the plugin header.
+
+## What Next
+
+With the plugin connected, the [Usage guide](/platform/integrations/figma_plugin/usage) covers the everyday work of connecting texts to keys, uploading them, and bringing translations back into your designs.

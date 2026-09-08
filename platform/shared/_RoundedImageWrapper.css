@@ -1,0 +1,12 @@
+/* Rounded in both themes. Screenshots sit on white often enough that the
+   corners read as intentional rather than clipped, and it matches the radius
+   FigmaScreenshotWrapper gives its own frame. */
+.rounded-image-wrapper--img {
+  border-radius: 7px;
+}
+
+/* The shadow stays dark-mode only: it lifts a light screenshot off a dark
+   page, where on a light page the image already blends into the background. */
+html[data-theme='dark'] .rounded-image-wrapper--img {
+  box-shadow: 0 8px 20px 4px rgba(0, 0, 0, 0.36);
+}

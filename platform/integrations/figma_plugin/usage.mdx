@@ -2,141 +2,225 @@
 id: usage
 title: Usage Guide
 sidebar_label: Usage Guide
-description: Learn how to push texts from Figma into Tolgee, connect them to existing keys and pull texts from Tolgee into Figma
+description: Find your way around the plugin, connect texts to translation keys, upload them to Tolgee, and bring translations back into your designs
 image: /img/og-images/figma-plugin.png
 ---
 
 import { FigmaScreenshotWrapper } from '../../shared/_FigmaScreenshotWrapper';
+import { RoundedImageWrapper } from '../../shared/_RoundedImageWrapper';
+import { UiChip } from '../../shared/_UiChip';
 
-The Figma plugin helps designers to cooperate seamlessly with developers and translators. With the plugin, designers can see how different translations will look in the project and adjust everything accordingly. It helps to see changes as they are made and add the keys and information for developers to ensure proper development.
+Designers and developers usually work from different sources of truth. The wording in the design file doesn't match the wording in the code, and translators only see the result once it ships. The plugin closes that gap by connecting the text in your designs to [translation keys](/platform/translation_keys/keys) in Tolgee.
 
-Here is a step-by-step guide on how to use the Tolgee Figma Plugin to work with localization straight from your Figma projects.
+If you have not connected the plugin yet, start with [Setup and Settings](/platform/integrations/figma_plugin/setup).
 
-## Installing and Connecting the Plugin
+## The Strings List
 
-After installing the plugin from the [Figma plugin page](https://www.figma.com/community/plugin/1212381421658754793/tolgee-localization), go back to your Figma project and do the following: 
+Everything the plugin does applies to what you have selected on the canvas. Select one or more frames, or individual text layers, and the plugin lists the strings it found.
 
-1. Access the plugin by clicking the **Actions** icon in the toolbar (shortcut CTRL + K or ⌘ + K), or click the Figma button in the top left corner, then select **Plugins → Manage Plugins…**
-2. Find and open “Tolgee”
-3. Insert your [API key](/platform/account_settings/api_keys_and_pat_tokens)
-4. Keep the Tolgee URL default if you are not self-hosting
-5. Click **Validate** and then **Next**
-6. Done!
+A large selection makes that list harder to navigate and slows the plugin down, so it is usually better to work through one screen at a time.
 
-A full guide can be found on the [Setup](/platform/integrations/figma_plugin/setup) docs page
-
-![Installing and Connecting the Plugin Video Guide](/img/docs/platform/figma-plugin/installing-and-connecting-the-plugin.gif)
-
-## Push: Adding New Strings and Translations
-
-If you are working on a **new project** and would like to start localizing, you need to provide key names to each text that you want to translate with Tolgee. To add the keys, you should:
-
-1. Choose the frame or just the text for which you want to add the keys
-2. [Name your key](https://tolgee.io/blog/naming-translation-keys)
-3. Click **Push** to upload the changes to Tolgee
-4. By default, the plugin will create (or update) screenshots to the keys - you can disable this by unchecking the checkbox in the settings.
-5. Then, if everything is okay, click **Push to Togee** to add the new keys
-6. Now you should be able to find the key on the Tolgee platform, together with the screenshot of the text in your base language
-
-> The plugin uses Figma `frames` to decide what a "screen" is, so if the screenshots are not properly created, check if you wrap each screen in a `frame`. If a string occurs in multiple frames, the top-level one is taken.
->
-
-![Adding New Strings and Translations Video Guide](/img/docs/platform/figma-plugin/adding-new-strings-and-translations.gif)
-
-## Pull: Working with existing translations and keys
-
-If you are working on **a Figma file that** **already has the [keys](/platform/translation_keys/keys)** added on Tolgee, you can select the whole frame or just the text string and click “**Pull**” in the Tolgee plugin window to update them. 
-
-### Connecting Figma to Existing Translations on Toggle
-
-In case **you have the keys on Tolgee, but not yet on Figma,** you can connect them in this way:
-
-First, click on the “Link” icon.
-
-<FigmaScreenshotWrapper
-  aria-label="Usage - connect to existing key"
-  src="/img/docs/platform/figma-plugin/usage-connect-to-existing-key.webp"
+<RoundedImageWrapper
+  alt="Selecting frames and text layers on the canvas populates the strings list"
+  src="/img/docs/platform/figma-plugin/usage-selection.webp"
 />
 
-Second, select a key from the list of keys that you want to connect the text to. You can edit the text in the Search field to find any key in Tolgee. After you connect an existing key to the text, the "link" icon will be darker (or lighter when using the Dark theme).
+### The Header
+
+Above the list sit the controls that apply to everything below it.
+
+- The **language selector** shows which language you are looking at. Changing it opens the download screen for that language
+- The **branch selector** appears when your project uses [branching](/platform/branching/overview). It decides which branch uploads and downloads target
+- <UiChip icon="files">Create page copy</UiChip> builds a translated or key-name copy of the page, covered in [Page copies](/platform/integrations/figma_plugin/page_copies)
+- <UiChip icon="settings">Open settings</UiChip> takes you to the three settings tabs
 
 <FigmaScreenshotWrapper
-  aria-label="Usage - select existing key"
-  src="/img/docs/platform/figma-plugin/usage-connect-key-select.webp"
+  alt="The plugin header, with the language selector set to English on the left and the page copy and settings buttons on the right, above the search field and a count of four strings"
+  src="/img/docs/platform/figma-plugin/usage-header.webp"
 />
 
-To **remove a connection**, click on the "link" icon again and click **Remove connection**
+### Search, Filter, and Select
+
+Between the header and the list sit the controls for narrowing it down and acting on more than one string at a time.
+
+- <UiChip icon="search">Search</UiChip> and <UiChip icon="filter">Filter</UiChip> narrow the list down, covered in [Searching and Filtering](#searching-and-filtering)
+- A count of how many strings are currently shown sits above the list, next to a checkbox that selects or deselects all of them
+- Checking any row's checkbox replaces the `Upload` and `Download` buttons at the bottom with a menu of [bulk operations](/platform/integrations/figma_plugin/bulk_operations)
+
+### Reading a String Row
+
+Each row is one text on your canvas, and the key field tells you where it stands.
+
+- A **connected** string shows its key name, and when your project uses namespaces a second field beside it holds the namespace. It reads `<none>` until you set one, and you can edit it straight from the row
+- An **unconnected** string shows an empty key field waiting to be filled
+- A key in **red** means the string is connected to something that is no longer there. Hovering it says `This key is no longer in Tolgee`, which usually means the key was deleted or renamed on the platform
+
+A <UiChip>Plural</UiChip> or <UiChip>Formatted</UiChip> chip next to the text itself means the string uses plurals or ICU variables and markup, covered in [Formatting and variables](/platform/integrations/figma_plugin/formatting_text_and_variables).
+
+A row can also carry one of these badges, and each one explains itself on hover.
+
+- <UiChip icon="copy">2</UiChip> means **that many layers in your selection share the exact same text**. Click the badge to filter the list down to all of them
+- <UiChip icon="warning" label="Same key conflict" /> means **several strings share this key name but have different text**. Only one of them can be uploaded, so click the marker to filter the list down to exactly those strings and sort them out
+- <UiChip icon="penOff" label="Formatting mismatch" /> means **a string with a plural, a variable or formatting was edited directly on the canvas**, so its formatting no longer matches. Open `String details` to fix it, which is covered in [Formatting and variables](/platform/integrations/figma_plugin/formatting_text_and_variables)
 
 <FigmaScreenshotWrapper
-  aria-label="Usage - remove connection to key"
-  src="/img/docs/platform/figma-plugin/usage-remove-connection.webp"
+  alt="A list of strings, some tagged Plural or Formatted, two carrying a duplicate count, and others marked in red where one key name covers different texts or where formatting was edited on the canvas"
+  src="/img/docs/platform/figma-plugin/usage-rows.webp"
 />
 
-## How to Switch Languages and Add New Translations from the Platform
+### Row Actions
 
-In the previous steps, we managed to add the keys to existing strings in your base language (English in this example). Once the keys are translated, you can change the language and import the translation from Tolgee into Figma. To do so:
+The `more` button on a row opens the actions for that one string.
 
-1. Open the Tolgee plugin in FIgma
-2. Select a language on the main screen 
-3. Click **Replace**.
-
-![Switch Languages Video Guide](/img/docs/platform/figma-plugin/switch-languages.gif)
-
-If there are some keys with missing translation in the selected language, they will be displayed on this screen.
+- `String details` opens the editor, where you can rename the key, edit the translation, and work with plurals and variables
+- `Move to string` scrolls and zooms your Figma view so the text is centred on screen. This is the fastest way to find a string you only know by its key
+- `Connection detail` shows what the string is connected to, and appears only for connected strings
 
 <FigmaScreenshotWrapper
-  aria-label="Usage - pull all when selecting language"
-  src="/img/docs/platform/figma-plugin/usage-pull-change-language.png"
-/>
-
-If you want to update only some translations, select the keys and click **Pull**.
-
-If you want to update new translations for all texts, click **Pull all**.
-
-> It works similarly for pushing, where you can select objects or push all.
->
-
-<FigmaScreenshotWrapper
-  aria-label="Usage - pull all"
-  src="/img/docs/platform/figma-plugin/usage-pull-all.webp"
-/>
-
-## Creating and Updating Page Copies
-
-Copies can be used to work with the translated versions of the project without constantly switching between them in the same file. With our plugin, you can create the following **page copies**:
-
-- **Copy with key names** - this creates a copy with all texts replaced with the corresponding key names. Duplicate pages that contain key names are particularly useful for developers, as they provide clear guidance on which key names to use in the code.
-- **Copy with languages** - this creates a copy for each selected language with texts replaced with their translation in given language.
-1. To create a page copy, first click **"Create a copy"**
-2. Choose whether you would like to create a copy with key names or with translations:
-3. After you click **Create**, the plugin will automatically create new page(s) according to what you selected.
-
-![Creating and Updating Page Copies Video Guide](/img/docs/platform/figma-plugin/creating-and-updating-page-copies.gif)
-
-To update a copy to reflect the latest changes in the translation:
-
-1. Open the copy of the page
-2. Open the Tolgee plugin
-3. Click **Pull all** to update all translations when no texts are selected.
-
-If you want to update only translations of some text, first select the text and then click **Pull**.
-
-![Updating A Copy Video Guide](/img/docs/platform/figma-plugin/updating-a-copy.gif)
-
-## Locating Translation on the Page
-
-If you want to locate a string on the page, click on the **more** button and then on the **Move to string** button, which will align your Figma view so that the text is in the center of your screen.
-
-<FigmaScreenshotWrapper
-  aria-label="Usage - locate string on the page"
+  alt="The row menu on a connected string, offering String details, Move to string and Connection detail"
   src="/img/docs/platform/figma-plugin/usage-locate-string.webp"
 />
 
-## Changing Window Size
+### Resizing the Window
 
-There is an "icon" in the bottom right corner. Click and hold to change the window size using it. It can help to see more data, especially when you have long lists of keys.
+Long lists are hard to work with in a small panel. Click and hold the icon in the bottom right corner to resize the plugin window.
 
-<FigmaScreenshotWrapper
-  aria-label="Usage - locate string on the page"
+<RoundedImageWrapper
+  alt="Dragging the corner handle to make the plugin window larger"
   src="/img/docs/platform/figma-plugin/window-resize.gif"
 />
+
+## Searching and Filtering
+
+A busy screen can produce a list far longer than the panel, so two controls narrow it down.
+
+`Search` matches both key names and the source text, which means you can usually find a string by typing the words your design already shows.
+
+`Filter` works in two layers. The first is connection status, and each option shows how many strings it covers.
+
+- `All`
+- `Connected`
+- `Not connected`
+- `Missing in Tolgee`, which appears only when some connected key no longer exists on the platform
+
+Under that you can narrow to one subset at a time.
+
+- `Plural` for strings with plural forms
+- `Formatted` for strings carrying variables or formatting
+- `Same string` for texts that appear more than once
+- `Same key (conflict)` for the clash described above, where one key name covers different texts
+
+<FigmaScreenshotWrapper
+  alt="The filter menu, with connection status at the top and the advanced and grouped subsets below it"
+  src="/img/docs/platform/figma-plugin/usage-filter.webp"
+/>
+
+When your project uses namespaces, you can also filter by one or more of them. Every active filter shows as a chip you can remove individually, and `Clear filters` resets everything.
+
+## Connecting Texts to Keys
+
+A text has to be connected to a key before it can be uploaded or translated. There are two situations, and they work differently.
+
+### The Key Does Not Exist Yet
+
+Type the name straight into the key field on the row. If you turned on `Prefill key name` during setup, a name is already proposed and you can accept or edit it. For advice on choosing names, see [naming translation keys](https://tolgee.io/blog/naming-translation-keys).
+
+The key itself is created in Tolgee when you upload.
+
+### The Key Already Exists
+
+Sometimes the key is already in Tolgee but the text in Figma does not know about it. Connecting the two is what lets the plugin keep them in sync from then on.
+
+Click the link icon on the string's row.
+
+<FigmaScreenshotWrapper
+  alt="Hovering the link icon on an unconnected string's row, which opens the screen for connecting it to a key"
+  src="/img/docs/platform/figma-plugin/usage-connect-to-key.webp"
+/>
+
+Search for the key you want and click `Connect` next to it. The search looks at key names and source text alike, so the words in your design are usually enough to find it.
+
+<FigmaScreenshotWrapper
+  alt="Searching Tolgee for a key by its text, with an exact match listed first and a Connect button beside it"
+  src="/img/docs/platform/figma-plugin/usage-connect-to-key-2.webp"
+/>
+
+To break the link, click `Disconnect` on the row. The text stays on the canvas, it simply stops being synced.
+
+<FigmaScreenshotWrapper
+  alt="Hovering the disconnect icon on a connected row, showing its Disconnect tooltip"
+  src="/img/docs/platform/figma-plugin/usage-disconnect.webp"
+/>
+
+:::tip
+Doing this row by row is fine for a handful of strings. For a whole screen, [bulk operations](/platform/integrations/figma_plugin/bulk_operations) can name, connect and disconnect many strings at once.
+:::
+
+## Uploading to Tolgee
+
+Uploading creates your named texts as translation keys, so developers can reference them in code and translators can start work.
+
+1. Click `Upload` to review what will be sent
+2. Check the `Upload screenshots` option, which is on by default and controls whether screenshots are created or refreshed
+3. Click `Upload to Tolgee`
+
+The review screen splits everything into `New`, `Changed` and `Unchanged`, so nothing is sent before you have seen its effect. When a key is listed as changed although its text looks identical, the plugin explains what else will change, such as a tag being added.
+
+<RoundedImageWrapper
+  alt="Selecting a frame, naming its keys, and uploading them, with the review screen listing four new keys before they are sent"
+  src="/img/docs/platform/figma-plugin/upload-keys-to-tolgee.gif"
+/>
+
+:::info
+The plugin uses Figma frames to decide what a screen is. If screenshots do not come out right, check that each screen is wrapped in a frame. When a string appears in several frames, the top-level one is used.
+:::
+
+### When Tolgee Already Has a Different Translation
+
+If a translation was changed on the platform since you last synced, the plugin does not overwrite it silently. It stops and shows you both versions side by side, the one from Figma and the one from Tolgee, and asks what to do with each key.
+
+- `Override` replaces the Tolgee translation with the one from Figma
+- `Keep` leaves the Tolgee translation alone and skips that key
+- `Force override` replaces it even when the platform has the translation marked in a state that normally protects it, such as reviewed
+
+Choose per key, then click `Apply resolutions` to continue the upload, or `Cancel` to abandon it.
+
+## Downloading Into Your Designs
+
+Seeing your layout in German or Japanese is often the fastest way to catch a text that will not fit. Select a language in the header and the plugin opens the download screen for it.
+
+Before anything is written to the canvas, the screen summarises what will happen.
+
+- `Changed` lists texts that will be updated
+- `Missing` lists connected keys with no translation in this language, or keys that no longer exist in Tolgee. They are shown so you know about them, and are never overwritten
+- `Unchanged` lists everything already up to date
+
+Click `Apply` to write the changes, or `Cancel` to leave your designs untouched. Choosing a language is only a preview until you confirm, so cancelling also leaves your saved language as it was.
+
+<RoundedImageWrapper
+  alt="Choosing a language, then reviewing the changed, missing and unchanged counts before applying the new translations to the canvas"
+  src="/img/docs/platform/figma-plugin/download-to-figma.gif"
+/>
+
+Because `Missing` lists every key with no translation yet, this screen doubles as a quick way to spot translation gaps before a release.
+
+Downloading follows your selection in the same way uploading does. With layers selected only those are updated, and with nothing selected the plugin offers to update the whole page.
+
+## Dev Mode
+
+Developers open the file to read specifications, not to change the design. In Figma's Dev Mode the plugin runs read-only, and anything that would write to the canvas is unavailable, so a layout someone else is still working on cannot be disturbed.
+
+The row menu drops `String details`, because editing a string would write to the canvas, and adds actions aimed at reading and reuse instead.
+
+- `Move to string` scrolls and zooms your Figma view to the text, the same as in design mode
+- `Connection detail` shows what the string is connected to
+- `Copy key` puts the key name on your clipboard, ready to paste into code
+- `Copy string` copies the text itself
+- `Open in Tolgee` opens that key on the platform, where you can see all its translations
+
+<RoundedImageWrapper
+  alt="The plugin running in Figma's Dev Mode, with a row menu offering Move to string, Connection detail, Copy key, Copy string and Open in Tolgee"
+  src="/img/docs/platform/figma-plugin/usage-figma-dev-mode.webp"
+/>
+
+Uploading still works, because it writes to Tolgee rather than to the canvas. Downloading is hidden, and page copies can be read but not created or rebuilt.

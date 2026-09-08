@@ -132,8 +132,11 @@ module.exports = {
           label: 'Figma plugin',
           type: 'category',
           items: [
+            'integrations/figma_plugin/about',
             'integrations/figma_plugin/setup',
             'integrations/figma_plugin/usage',
+            'integrations/figma_plugin/bulk_operations',
+            'integrations/figma_plugin/page_copies',
             'integrations/figma_plugin/formatting_text_and_variables',
           ],
         },

@@ -1,0 +1,52 @@
+---
+id: page_copies
+title: Page Copies
+sidebar_label: Page Copies
+description: Create pages that show your design in another language or with key names instead of text, and keep them up to date
+image: /img/og-images/figma-plugin.png
+---
+
+import { RoundedImageWrapper } from '../../shared/_RoundedImageWrapper';
+import { UiChip } from '../../shared/_UiChip';
+
+Switching one design back and forth between languages makes it hard to compare them and impossible to show two at once. Page copies solve that by giving each version its own page in the same file, so you can put German next to Japanese and see which layout breaks first.
+
+## Creating a Copy
+
+Click <UiChip icon="files">Create page copy</UiChip> in the plugin header and choose what kind you want.
+
+**`Create page with key names`** replaces every text with its key name. Developers use these to see exactly which key belongs to which element, without having to click through the plugin.
+
+**`Create page per language`** creates one page for each language you tick, with the texts replaced by their translations.
+
+Click `Create` and the plugin adds the new pages to your file.
+
+When your project uses [branching](/platform/branching/overview), the copy records which branch it was created from and keeps using it, so a copy made from a feature branch does not silently start pulling from main.
+
+<RoundedImageWrapper
+  alt="Choosing Create page per language, ticking the languages, and the new pages appearing in Figma's page list"
+  src="/img/docs/platform/figma-plugin/copy-page.gif"
+/>
+
+:::info
+A copy is a snapshot for reading, not a second place to work. Editing text on a copy does not send anything back to Tolgee, and a key-name page does not sync back at all.
+:::
+
+## Keeping a Copy Up to Date
+
+When translations change on the platform, open the copy and click `Download all` to refresh every string on the page. To update only part of it, select those texts first and click `Download`.
+
+## Recreating a Copy
+
+A copy reflects the page it was made from at the moment it was made. If you later connect new strings on the original page, or disconnect some, the copy no longer matches. Downloading cannot fix this on its own, because it only refreshes texts the copy already knows about.
+
+The plugin notices and shows a note at the top of the copy saying the original page has changed since the copy was made. Click `Recreate copy` to build it again from the current state of the original.
+
+<RoundedImageWrapper
+  alt="The note on an outdated copy saying the original page changed, with the Recreate copy button that rebuilds it"
+  src="/img/docs/platform/figma-plugin/page-recreate-copy.webp"
+/>
+
+:::caution
+Copies cannot be created or recreated from Figma's Dev Mode, because building a page writes to the document. You can still open a copy there and read it.
+:::
