@@ -2,47 +2,81 @@
 id: formatting_text_and_variables
 title: Formatting Text and Variables
 sidebar_label: Formatting Text and Variables
-description: Learn how to do advanced text editing, to use variables, and to work with plurals
+description: Work with variables, plurals and basic formatting in your Figma designs, and see how they will really look before you hand them over
 image: /img/og-images/figma-plugin.png
 ---
 
-import { FigmaScreenshotWrapper } from '../../shared/_FigmaScreenshotWrapper';
+import { RoundedImageWrapper } from '../../shared/_RoundedImageWrapper';
 
-There are a few syntaxes supported to format the text for Figma. Supported are the following HTML tags:
+Plenty of strings are not fixed text. A greeting carries a name, a counter changes wording depending on the number, and a sentence has one word in bold. These need to be marked up rather than typed out, so developers get a string they can actually use and translators know which parts move.
 
-- `<b>` or `<strong>` - bold
-- `<i>` or `<em>` - italic
-- `<u>` - underline
-- `<br>` - line break
+Everything on this page happens in `String details`, which you open from the `more` button on a string's row.
 
-If your text contains any of these tags, the plugin will automatically format the text in Figma. It will just work in the direction from Tolgee to Figma, so if you change the font weight or decoration for any of the connected texts in figma, this plugin won't recognize these changes.
-
-<FigmaScreenshotWrapper
-  aria-label="Usage - formatting text"
-  src="/img/docs/platform/figma-plugin/usage-formatting.webp"
+<RoundedImageWrapper
+  alt="Opening String details from the row menu, on a string the plugin marks as Formatted"
+  src="/img/docs/platform/figma-plugin/string-details.webp"
 />
 
-# Using Plurals and Variables
+## Text Formatting
 
-You can use Tolgee's Plurals and Variables in Figma. To define a variable or mark a string as plural, you need to go to the **String details** page in the plugin by clicking on the **More** button for a text.
+The plugin understands basic HTML tags and renders them as real formatting on the canvas.
 
-<FigmaScreenshotWrapper
-  aria-label="Usage - string details"
-  src="/img/docs/platform/figma-plugin/usage-string-details.webp"
+- `<b>` or `<strong>` for bold
+- `<i>` or `<em>` for italic
+- `<u>` for underline
+- `<br>` for a line break
+
+This works in one direction only, from Tolgee into Figma. If you change the font weight or decoration of a connected text using Figma's own controls, the plugin does not read that back as formatting.
+
+<RoundedImageWrapper
+  alt="String details on a bold string, showing the b tags in the translation and the rendered result in the preview"
+  src="/img/docs/platform/figma-plugin/advanced-html.webp"
 />
 
-On the page, when you open **String details**, you can define a variable by using the [ICU syntax](https://docs.tolgee.io/platform/translation_process/tolgee_universal_icu_placeholders) you know from Tolgee (`{varName}`). This way, you can later find it on the Tolgee platform, and the developers will know how to approach it.
+## Variables
 
-<FigmaScreenshotWrapper
-  aria-label="Usage - string details"
-  src="/img/docs/platform/figma-plugin/usage-string-details-variable.webp"
+A variable marks the part of a string that gets filled in at runtime, such as a user's name. Write it in the translation field using the [ICU syntax](/platform/translation_process/tolgee_universal_icu_placeholders) you already know from Tolgee, for example `Hello {name}`.
+
+The variable travels with the key, so it shows up on the platform and developers can see exactly what the string expects.
+
+<RoundedImageWrapper
+  alt="String details on a string with a name variable, with a sample value filled in under Values for Figma"
+  src="/img/docs/platform/figma-plugin/advanced-param.webp"
 />
 
-In the **String details** page, you can also mark a string as plural by checking the **Plural** checkbox. This allows to define two different texts. One for a singular form, and the other for more the amount grater than one. It is also possible to add one for a zero. In the "Values for Figma" field, you can set a default value that will be shown in Figma so you can work with the design with the text and see an example. The "Values for Figma" works for both variables and plurals alike.
+### Values for Figma
 
-To add a number to the fields simply write a "#" sign.
+A design showing `Hello {name}` tells you nothing about whether the layout survives a long name. `Values for Figma` is where you give each variable a sample value, and the canvas then shows that instead of the placeholder.
 
-<FigmaScreenshotWrapper
-  aria-label="Usage - string details"
-  src="/img/docs/platform/figma-plugin/usage-string-details-plural.webp"
+These samples are for the design only. They are never uploaded as part of the translation.
+
+## Plurals
+
+A string whose wording depends on a number is a plural, not a variable. Tick `Plural` in `String details` and you can write a separate text for each form, typically one for a single item and one for several, with an optional form for zero.
+
+Write `#` wherever the number itself should appear.
+
+As with variables, the sample count you set under `Values for Figma` decides which form the canvas shows, so you can check each one against the layout.
+
+<RoundedImageWrapper
+  alt="String details on a plural string, with a text for One and Other and a sample count deciding what the canvas shows"
+  src="/img/docs/platform/figma-plugin/advanced-plural.webp"
 />
+
+:::info
+Sometimes the `Plural` checkbox is locked, with a note saying you cannot change it here. That means the key is already defined as a plural, or not a plural, on the Tolgee platform, and the plugin will not override that. Change it in Tolgee and the plugin follows.
+:::
+
+## Editing Advanced Strings
+
+A string with a plural, a variable or formatting carries structure that plain text does not. When you open one, the plugin points this out with a note saying an advanced text format was detected and asking you to edit it through the plugin rather than on the canvas.
+
+The reason is that the canvas only holds the rendered result. Typing over `You have 3 messages` directly in Figma replaces the whole plural with a fixed sentence, and the structure is gone.
+
+### Recovering a String Edited on the Canvas
+
+If it happens anyway, the plugin catches it. The row shows a crossed-out pen marker, and opening `String details` explains that the string was edited in Figma and no longer matches its formatting.
+
+Click `Revert string in design` to restore the canvas text from the version stored in Tolgee, with its plural or variables intact.
+
+Plain strings are not affected by any of this. Editing an ordinary text on the canvas is a normal change, and uploading sends it to Tolgee like any other edit.
