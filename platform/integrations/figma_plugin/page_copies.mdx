@@ -21,7 +21,7 @@ Click <UiChip icon="files">Create page copy</UiChip> in the plugin header and ch
 
 Click `Create` and the plugin adds the new pages to your file.
 
-When your project uses [branching](/platform/branching/overview), the copy records which branch it was created from and keeps using it, so a copy made from a feature branch does not silently start pulling from main.
+When your project uses [branching](/platform/branching/overview), the branch is a setting of the whole file, while the language belongs to the page. A copy keeps its language, but follows the file's branch: the selector on a copy is read-only, and the branch is changed in `Settings` or from the main page.
 
 <RoundedImageWrapper
   alt="Choosing Create page per language, ticking the languages, and the new pages appearing in Figma's page list"
