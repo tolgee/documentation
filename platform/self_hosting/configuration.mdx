@@ -94,6 +94,60 @@ Configuration specific to Tolgee.
 
   Maximum amount of languages that can be selected in the Translations view. Set to -1 for no limit. (default: `-1`)
 
+### Asynchronous execution \{#tolgee-_-async}
+
+Prefix: `tolgee.async`
+
+Sizing of the thread pools Tolgee uses for work that runs outside the HTTP request thread.
+
+By default both are derived from the size of the database connection pool, so a larger instance automatically gets more concurrency without any extra configuration.
+
+:::warning
+Every in-flight streaming response holds one database connection for its entire duration. That is why `streaming.max-threads` is derived from, and must stay well below, your database connection pool size — together with `tolgee.batch.concurrency` and the connections ordinary requests need.
+:::
+
+#### Background tasks \{#tolgee-async-_-background}
+
+Prefix: `tolgee.async.background`
+
+Thread pool serving background (`@Async`) work: e-mail sending, analytics reporting, translation statistics recomputation and project hard-deletes. Websocket activity broadcasts and automation triggers run on their own single-threaded pools, so their ordering and debouncing are preserved, and are not affected by this setting.
+
+Its queue is unbounded — background work is queued, never dropped and never run on the thread that submitted it.
+
+- ##### `keep-alive-seconds` \{#tolgee-async-background-_-keep-alive-seconds}
+
+  How long an idle background thread is kept alive before it is released, in seconds. (default: `60` 1 minute)
+
+- ##### `max-threads` \{#tolgee-async-background-_-max-threads}
+
+  How many background tasks Tolgee runs in parallel on this instance.
+  
+  There is no way to switch background processing off: `0` and any negative value mean *derive it*, not *disable it*. (default: `-1` A sixth of the database connection pool size, never less than 2)
+
+#### Streaming responses \{#tolgee-async-_-streaming}
+
+Prefix: `tolgee.async.streaming`
+
+Thread pool serving streaming HTTP responses: project and glossary export, import progress streaming and machine-translation suggestion streaming.
+
+- ##### `keep-alive-seconds` \{#tolgee-async-streaming-_-keep-alive-seconds}
+
+  How long an idle streaming thread is kept alive before it is released, in seconds. (default: `60` 1 minute)
+
+- ##### `max-threads` \{#tolgee-async-streaming-_-max-threads}
+
+  How many streaming responses this instance can produce at the same time.
+  
+  Each one occupies one thread **and one database connection** until the response is finished, so this must stay well below your database connection pool size.
+  
+  There is no way to switch streaming off: `0` and any negative value mean *derive it*, not *disable it*. (default: `-1` A third of the database connection pool size, never less than 2)
+
+- ##### `queue-capacity` \{#tolgee-async-streaming-_-queue-capacity}
+
+  How many streaming requests may wait for a free thread before Tolgee replies `503 Service Unavailable`.
+  
+  A queued request already counts against `spring.mvc.async.request-timeout`, so the queue cannot make a request wait longer than that — it absorbs bursts while threads turn over, and requests that still cannot be served in time are answered rather than left hanging. (default: `-1` 50, or max-threads if that is larger)
+
 ### Authentication \{#tolgee-_-authentication}
 
 Prefix: `tolgee.authentication`
@@ -597,6 +651,24 @@ Configuration of Tolgee file storage.
 
   Path to directory where Tolgee will store its files. (default: `~/.tolgee/` , with docker `/data/`)
 
+#### Azure Blob Storage \{#tolgee-file-storage-_-azure}
+
+Prefix: `tolgee.file-storage.azure`
+
+Tolgee supports storing its files in Azure Blob Storage. When enabled, Tolgee will store all its files in the configured container rather than in filesystem. The container has to exist already.
+
+- ##### `connection-string` \{#tolgee-file-storage-azure-_-connection-string}
+
+  Connection string of the Azure Storage account.
+
+- ##### `container-name` \{#tolgee-file-storage-azure-_-container-name}
+
+  Name of the container where Tolgee will store its files.
+
+- ##### `enabled` \{#tolgee-file-storage-azure-_-enabled}
+
+  Whether Azure Blob Storage is enabled. If enabled, you need to set all remaining properties below. Cannot be enabled together with S3. (default: `false`)
+
 #### S3 \{#tolgee-file-storage-_-s3}
 
 Prefix: `tolgee.file-storage.s3`
@@ -989,6 +1061,50 @@ See [Google Cloud Translation](https://cloud.google.com/translate) page for more
 
   Whether to use Google Cloud Translation as a primary translation engine. (default: `true`)
 
+### OAuth2 authorization server \{#tolgee-_-oauth2}
+
+Prefix: `tolgee.oauth2`
+
+Settings for Tolgee acting as an OAuth 2.1 authorization server (browser-extension login, MCP).
+
+- ##### `access-token-validity-minutes` \{#tolgee-oauth2-_-access-token-validity-minutes}
+
+  How long an issued OAuth access token stays valid, in minutes. (default: `30`)
+
+- ##### `authorization-code-validity-seconds` \{#tolgee-oauth2-_-authorization-code-validity-seconds}
+
+  How long an authorization code can be exchanged for tokens after it was issued, in seconds. (default: `300`)
+
+- ##### `browser-extension-redirect-uris` \{#tolgee-oauth2-_-browser-extension-redirect-uris}
+
+  Exact redirect URIs of the Tolgee browser extension, e.g. `https://<extension-id>.chromiumapp.org/`. The extension OAuth client is only registered when this is set. (default: `[]`)
+
+- ##### `cli-redirect-uris` \{#tolgee-oauth2-_-cli-redirect-uris}
+
+  Loopback redirect URIs of the Tolgee CLI (RFC 8252), e.g. `http://127.0.0.1:9876/callback`. Prefer the loopback IP literal over `localhost`, which RFC 8252 section 7.3 marks NOT RECOMMENDED: a client resolving `localhost` may end up listening on interfaces other than the loopback one. The CLI OAuth client is only registered when this is set.
+  
+  :::info
+  A loopback redirect cannot be tied to one local application, so any process on the machine that knows the client id can start an authorization for it. The user still has to approve the consent screen, but leave this unset unless the CLI is actually in use.
+  :::
+  
+   (default: `[]`)
+
+- ##### `consent-validity-seconds` \{#tolgee-oauth2-_-consent-validity-seconds}
+
+  How long the user has to complete the consent screen before the pending authorization goes stale, in seconds. (default: `900`)
+
+- ##### `grant-cleanup-cron` \{#tolgee-oauth2-_-grant-cleanup-cron}
+
+  Cron expression for the job that removes spent grants past their retention window and consents the user never completed. Spring's six-field format (second, minute, hour, day, month, weekday). (default: `0 0 3 * * *`)
+
+- ##### `grant-retention-days` \{#tolgee-oauth2-_-grant-retention-days}
+
+  How long a spent OAuth grant is kept after its last credential expired, in days. It holds a used code's row so a replayed code is still recognised. A consent the user never completed is not kept for this window — it is deleted once its own short deadline passes. (default: `7`)
+
+- ##### `refresh-token-validity-days` \{#tolgee-oauth2-_-refresh-token-validity-days}
+
+  How long an issued OAuth refresh token stays valid, in days. Each refresh issues a new one and restarts this window, so it bounds how long a grant may sit unused — not how long it may live. (default: `30`)
+
 ### Postgres autostart \{#tolgee-_-postgres-autostart}
 
 Prefix: `tolgee.postgres-autostart`
@@ -1319,6 +1435,14 @@ tolgee:
   max-translation-text-length: 10000
   max-upload-file-size: 51200
   translations-view-languages-limit: -1
+  async:
+    background:
+      keep-alive-seconds: 60
+      max-threads: -1
+    streaming:
+      keep-alive-seconds: 60
+      max-threads: -1
+      queue-capacity: -1
   authentication:
     allowed-email-domains: []
     block-disposable-emails: true
@@ -1429,6 +1553,10 @@ tolgee:
         signing-region:
   file-storage:
     fs-data-path: ~/.tolgee/
+    azure:
+      connection-string:
+      container-name:
+      enabled: false
     s3:
       access-key:
       bucket-name:
@@ -1498,6 +1626,15 @@ tolgee:
       api-key:
       default-enabled: true
       default-primary: true
+  oauth2:
+    access-token-validity-minutes: 30
+    authorization-code-validity-seconds: 300
+    browser-extension-redirect-uris: []
+    cli-redirect-uris: []
+    consent-validity-seconds: 900
+    grant-cleanup-cron: 0 0 3 * * *
+    grant-retention-days: 7
+    refresh-token-validity-days: 30
   postgres-autostart:
     container-name: tolgee_postgres
     database-name: postgres
@@ -1641,6 +1778,60 @@ Configuration specific to Tolgee.
 - ##### `TRANSLATIONS_VIEW_LANGUAGES_LIMIT` \{#tolgee-_-translations-view-languages-limit}
 
   Maximum amount of languages that can be selected in the Translations view. Set to -1 for no limit. (default: `-1`)
+
+### Asynchronous execution \{#tolgee-_-async}
+
+Prefix: `TOLGEE_ASYNC`
+
+Sizing of the thread pools Tolgee uses for work that runs outside the HTTP request thread.
+
+By default both are derived from the size of the database connection pool, so a larger instance automatically gets more concurrency without any extra configuration.
+
+:::warning
+Every in-flight streaming response holds one database connection for its entire duration. That is why `streaming.max-threads` is derived from, and must stay well below, your database connection pool size — together with `tolgee.batch.concurrency` and the connections ordinary requests need.
+:::
+
+#### Background tasks \{#tolgee-async-_-background}
+
+Prefix: `TOLGEE_ASYNC_BACKGROUND`
+
+Thread pool serving background (`@Async`) work: e-mail sending, analytics reporting, translation statistics recomputation and project hard-deletes. Websocket activity broadcasts and automation triggers run on their own single-threaded pools, so their ordering and debouncing are preserved, and are not affected by this setting.
+
+Its queue is unbounded — background work is queued, never dropped and never run on the thread that submitted it.
+
+- ##### `KEEP_ALIVE_SECONDS` \{#tolgee-async-background-_-keep-alive-seconds}
+
+  How long an idle background thread is kept alive before it is released, in seconds. (default: `60` 1 minute)
+
+- ##### `MAX_THREADS` \{#tolgee-async-background-_-max-threads}
+
+  How many background tasks Tolgee runs in parallel on this instance.
+  
+  There is no way to switch background processing off: `0` and any negative value mean *derive it*, not *disable it*. (default: `-1` A sixth of the database connection pool size, never less than 2)
+
+#### Streaming responses \{#tolgee-async-_-streaming}
+
+Prefix: `TOLGEE_ASYNC_STREAMING`
+
+Thread pool serving streaming HTTP responses: project and glossary export, import progress streaming and machine-translation suggestion streaming.
+
+- ##### `KEEP_ALIVE_SECONDS` \{#tolgee-async-streaming-_-keep-alive-seconds}
+
+  How long an idle streaming thread is kept alive before it is released, in seconds. (default: `60` 1 minute)
+
+- ##### `MAX_THREADS` \{#tolgee-async-streaming-_-max-threads}
+
+  How many streaming responses this instance can produce at the same time.
+  
+  Each one occupies one thread **and one database connection** until the response is finished, so this must stay well below your database connection pool size.
+  
+  There is no way to switch streaming off: `0` and any negative value mean *derive it*, not *disable it*. (default: `-1` A third of the database connection pool size, never less than 2)
+
+- ##### `QUEUE_CAPACITY` \{#tolgee-async-streaming-_-queue-capacity}
+
+  How many streaming requests may wait for a free thread before Tolgee replies `503 Service Unavailable`.
+  
+  A queued request already counts against `spring.mvc.async.request-timeout`, so the queue cannot make a request wait longer than that — it absorbs bursts while threads turn over, and requests that still cannot be served in time are answered rather than left hanging. (default: `-1` 50, or max-threads if that is larger)
 
 ### Authentication \{#tolgee-_-authentication}
 
@@ -2145,6 +2336,24 @@ Configuration of Tolgee file storage.
 
   Path to directory where Tolgee will store its files. (default: `~/.tolgee/` , with docker `/data/`)
 
+#### Azure Blob Storage \{#tolgee-file-storage-_-azure}
+
+Prefix: `TOLGEE_FILE_STORAGE_AZURE`
+
+Tolgee supports storing its files in Azure Blob Storage. When enabled, Tolgee will store all its files in the configured container rather than in filesystem. The container has to exist already.
+
+- ##### `CONNECTION_STRING` \{#tolgee-file-storage-azure-_-connection-string}
+
+  Connection string of the Azure Storage account.
+
+- ##### `CONTAINER_NAME` \{#tolgee-file-storage-azure-_-container-name}
+
+  Name of the container where Tolgee will store its files.
+
+- ##### `ENABLED` \{#tolgee-file-storage-azure-_-enabled}
+
+  Whether Azure Blob Storage is enabled. If enabled, you need to set all remaining properties below. Cannot be enabled together with S3. (default: `false`)
+
 #### S3 \{#tolgee-file-storage-_-s3}
 
 Prefix: `TOLGEE_FILE_STORAGE_S3`
@@ -2537,6 +2746,50 @@ See [Google Cloud Translation](https://cloud.google.com/translate) page for more
 
   Whether to use Google Cloud Translation as a primary translation engine. (default: `true`)
 
+### OAuth2 authorization server \{#tolgee-_-oauth2}
+
+Prefix: `TOLGEE_OAUTH2`
+
+Settings for Tolgee acting as an OAuth 2.1 authorization server (browser-extension login, MCP).
+
+- ##### `ACCESS_TOKEN_VALIDITY_MINUTES` \{#tolgee-oauth2-_-access-token-validity-minutes}
+
+  How long an issued OAuth access token stays valid, in minutes. (default: `30`)
+
+- ##### `AUTHORIZATION_CODE_VALIDITY_SECONDS` \{#tolgee-oauth2-_-authorization-code-validity-seconds}
+
+  How long an authorization code can be exchanged for tokens after it was issued, in seconds. (default: `300`)
+
+- ##### `BROWSER_EXTENSION_REDIRECT_URIS` \{#tolgee-oauth2-_-browser-extension-redirect-uris}
+
+  Exact redirect URIs of the Tolgee browser extension, e.g. `https://<extension-id>.chromiumapp.org/`. The extension OAuth client is only registered when this is set. (default: `[]`)
+
+- ##### `CLI_REDIRECT_URIS` \{#tolgee-oauth2-_-cli-redirect-uris}
+
+  Loopback redirect URIs of the Tolgee CLI (RFC 8252), e.g. `http://127.0.0.1:9876/callback`. Prefer the loopback IP literal over `localhost`, which RFC 8252 section 7.3 marks NOT RECOMMENDED: a client resolving `localhost` may end up listening on interfaces other than the loopback one. The CLI OAuth client is only registered when this is set.
+  
+  :::info
+  A loopback redirect cannot be tied to one local application, so any process on the machine that knows the client id can start an authorization for it. The user still has to approve the consent screen, but leave this unset unless the CLI is actually in use.
+  :::
+  
+   (default: `[]`)
+
+- ##### `CONSENT_VALIDITY_SECONDS` \{#tolgee-oauth2-_-consent-validity-seconds}
+
+  How long the user has to complete the consent screen before the pending authorization goes stale, in seconds. (default: `900`)
+
+- ##### `GRANT_CLEANUP_CRON` \{#tolgee-oauth2-_-grant-cleanup-cron}
+
+  Cron expression for the job that removes spent grants past their retention window and consents the user never completed. Spring's six-field format (second, minute, hour, day, month, weekday). (default: `0 0 3 * * *`)
+
+- ##### `GRANT_RETENTION_DAYS` \{#tolgee-oauth2-_-grant-retention-days}
+
+  How long a spent OAuth grant is kept after its last credential expired, in days. It holds a used code's row so a replayed code is still recognised. A consent the user never completed is not kept for this window — it is deleted once its own short deadline passes. (default: `7`)
+
+- ##### `REFRESH_TOKEN_VALIDITY_DAYS` \{#tolgee-oauth2-_-refresh-token-validity-days}
+
+  How long an issued OAuth refresh token stays valid, in days. Each refresh issues a new one and restarts this window, so it bounds how long a grant may sit unused — not how long it may live. (default: `30`)
+
 ### Postgres autostart \{#tolgee-_-postgres-autostart}
 
 Prefix: `TOLGEE_POSTGRES_AUTOSTART`
@@ -2863,6 +3116,11 @@ TOLGEE_MAX_SCREENSHOTS_PER_KEY=20
 TOLGEE_MAX_TRANSLATION_TEXT_LENGTH=10000
 TOLGEE_MAX_UPLOAD_FILE_SIZE=51200
 TOLGEE_TRANSLATIONS_VIEW_LANGUAGES_LIMIT=-1
+TOLGEE_ASYNC_BACKGROUND_KEEP_ALIVE_SECONDS=60
+TOLGEE_ASYNC_BACKGROUND_MAX_THREADS=-1
+TOLGEE_ASYNC_STREAMING_KEEP_ALIVE_SECONDS=60
+TOLGEE_ASYNC_STREAMING_MAX_THREADS=-1
+TOLGEE_ASYNC_STREAMING_QUEUE_CAPACITY=-1
 TOLGEE_AUTHENTICATION_ALLOWED_EMAIL_DOMAINS=[]
 TOLGEE_AUTHENTICATION_BLOCK_DISPOSABLE_EMAILS=true
 TOLGEE_AUTHENTICATION_BLOCK_EMAIL_ALIASES=true
@@ -2955,6 +3213,9 @@ TOLGEE_CONTENT_DELIVERY_STORAGE_S3_PATH=
 TOLGEE_CONTENT_DELIVERY_STORAGE_S3_SECRET_KEY=
 TOLGEE_CONTENT_DELIVERY_STORAGE_S3_SIGNING_REGION=
 TOLGEE_FILE_STORAGE_FS_DATA_PATH=~/.tolgee/
+TOLGEE_FILE_STORAGE_AZURE_CONNECTION_STRING=
+TOLGEE_FILE_STORAGE_AZURE_CONTAINER_NAME=
+TOLGEE_FILE_STORAGE_AZURE_ENABLED=false
 TOLGEE_FILE_STORAGE_S3_ACCESS_KEY=
 TOLGEE_FILE_STORAGE_S3_BUCKET_NAME=
 TOLGEE_FILE_STORAGE_S3_ENABLED=false
@@ -3012,6 +3273,14 @@ TOLGEE_MACHINE_TRANSLATION_DEEPL_OPTIONAL_PARAMETERS=
 TOLGEE_MACHINE_TRANSLATION_GOOGLE_API_KEY=
 TOLGEE_MACHINE_TRANSLATION_GOOGLE_DEFAULT_ENABLED=true
 TOLGEE_MACHINE_TRANSLATION_GOOGLE_DEFAULT_PRIMARY=true
+TOLGEE_OAUTH2_ACCESS_TOKEN_VALIDITY_MINUTES=30
+TOLGEE_OAUTH2_AUTHORIZATION_CODE_VALIDITY_SECONDS=300
+TOLGEE_OAUTH2_BROWSER_EXTENSION_REDIRECT_URIS=[]
+TOLGEE_OAUTH2_CLI_REDIRECT_URIS=[]
+TOLGEE_OAUTH2_CONSENT_VALIDITY_SECONDS=900
+TOLGEE_OAUTH2_GRANT_CLEANUP_CRON=0 0 3 * * *
+TOLGEE_OAUTH2_GRANT_RETENTION_DAYS=7
+TOLGEE_OAUTH2_REFRESH_TOKEN_VALIDITY_DAYS=30
 TOLGEE_POSTGRES_AUTOSTART_CONTAINER_NAME=tolgee_postgres
 TOLGEE_POSTGRES_AUTOSTART_DATABASE_NAME=postgres
 TOLGEE_POSTGRES_AUTOSTART_ENABLED=true
@@ -3146,6 +3415,60 @@ Configuration specific to Tolgee.
 - ##### `translations-view-languages-limit` \{#tolgee-_-translations-view-languages-limit}
 
   Maximum amount of languages that can be selected in the Translations view. Set to -1 for no limit. (default: `-1`)
+
+### Asynchronous execution \{#tolgee-_-async}
+
+Prefix: `tolgee.async`
+
+Sizing of the thread pools Tolgee uses for work that runs outside the HTTP request thread.
+
+By default both are derived from the size of the database connection pool, so a larger instance automatically gets more concurrency without any extra configuration.
+
+:::warning
+Every in-flight streaming response holds one database connection for its entire duration. That is why `streaming.max-threads` is derived from, and must stay well below, your database connection pool size — together with `tolgee.batch.concurrency` and the connections ordinary requests need.
+:::
+
+#### Background tasks \{#tolgee-async-_-background}
+
+Prefix: `tolgee.async.background`
+
+Thread pool serving background (`@Async`) work: e-mail sending, analytics reporting, translation statistics recomputation and project hard-deletes. Websocket activity broadcasts and automation triggers run on their own single-threaded pools, so their ordering and debouncing are preserved, and are not affected by this setting.
+
+Its queue is unbounded — background work is queued, never dropped and never run on the thread that submitted it.
+
+- ##### `keep-alive-seconds` \{#tolgee-async-background-_-keep-alive-seconds}
+
+  How long an idle background thread is kept alive before it is released, in seconds. (default: `60` 1 minute)
+
+- ##### `max-threads` \{#tolgee-async-background-_-max-threads}
+
+  How many background tasks Tolgee runs in parallel on this instance.
+  
+  There is no way to switch background processing off: `0` and any negative value mean *derive it*, not *disable it*. (default: `-1` A sixth of the database connection pool size, never less than 2)
+
+#### Streaming responses \{#tolgee-async-_-streaming}
+
+Prefix: `tolgee.async.streaming`
+
+Thread pool serving streaming HTTP responses: project and glossary export, import progress streaming and machine-translation suggestion streaming.
+
+- ##### `keep-alive-seconds` \{#tolgee-async-streaming-_-keep-alive-seconds}
+
+  How long an idle streaming thread is kept alive before it is released, in seconds. (default: `60` 1 minute)
+
+- ##### `max-threads` \{#tolgee-async-streaming-_-max-threads}
+
+  How many streaming responses this instance can produce at the same time.
+  
+  Each one occupies one thread **and one database connection** until the response is finished, so this must stay well below your database connection pool size.
+  
+  There is no way to switch streaming off: `0` and any negative value mean *derive it*, not *disable it*. (default: `-1` A third of the database connection pool size, never less than 2)
+
+- ##### `queue-capacity` \{#tolgee-async-streaming-_-queue-capacity}
+
+  How many streaming requests may wait for a free thread before Tolgee replies `503 Service Unavailable`.
+  
+  A queued request already counts against `spring.mvc.async.request-timeout`, so the queue cannot make a request wait longer than that — it absorbs bursts while threads turn over, and requests that still cannot be served in time are answered rather than left hanging. (default: `-1` 50, or max-threads if that is larger)
 
 ### Authentication \{#tolgee-_-authentication}
 
@@ -3650,6 +3973,24 @@ Configuration of Tolgee file storage.
 
   Path to directory where Tolgee will store its files. (default: `~/.tolgee/` , with docker `/data/`)
 
+#### Azure Blob Storage \{#tolgee-file-storage-_-azure}
+
+Prefix: `tolgee.file-storage.azure`
+
+Tolgee supports storing its files in Azure Blob Storage. When enabled, Tolgee will store all its files in the configured container rather than in filesystem. The container has to exist already.
+
+- ##### `connection-string` \{#tolgee-file-storage-azure-_-connection-string}
+
+  Connection string of the Azure Storage account.
+
+- ##### `container-name` \{#tolgee-file-storage-azure-_-container-name}
+
+  Name of the container where Tolgee will store its files.
+
+- ##### `enabled` \{#tolgee-file-storage-azure-_-enabled}
+
+  Whether Azure Blob Storage is enabled. If enabled, you need to set all remaining properties below. Cannot be enabled together with S3. (default: `false`)
+
 #### S3 \{#tolgee-file-storage-_-s3}
 
 Prefix: `tolgee.file-storage.s3`
@@ -4042,6 +4383,50 @@ See [Google Cloud Translation](https://cloud.google.com/translate) page for more
 
   Whether to use Google Cloud Translation as a primary translation engine. (default: `true`)
 
+### OAuth2 authorization server \{#tolgee-_-oauth2}
+
+Prefix: `tolgee.oauth2`
+
+Settings for Tolgee acting as an OAuth 2.1 authorization server (browser-extension login, MCP).
+
+- ##### `access-token-validity-minutes` \{#tolgee-oauth2-_-access-token-validity-minutes}
+
+  How long an issued OAuth access token stays valid, in minutes. (default: `30`)
+
+- ##### `authorization-code-validity-seconds` \{#tolgee-oauth2-_-authorization-code-validity-seconds}
+
+  How long an authorization code can be exchanged for tokens after it was issued, in seconds. (default: `300`)
+
+- ##### `browser-extension-redirect-uris` \{#tolgee-oauth2-_-browser-extension-redirect-uris}
+
+  Exact redirect URIs of the Tolgee browser extension, e.g. `https://<extension-id>.chromiumapp.org/`. The extension OAuth client is only registered when this is set. (default: `[]`)
+
+- ##### `cli-redirect-uris` \{#tolgee-oauth2-_-cli-redirect-uris}
+
+  Loopback redirect URIs of the Tolgee CLI (RFC 8252), e.g. `http://127.0.0.1:9876/callback`. Prefer the loopback IP literal over `localhost`, which RFC 8252 section 7.3 marks NOT RECOMMENDED: a client resolving `localhost` may end up listening on interfaces other than the loopback one. The CLI OAuth client is only registered when this is set.
+  
+  :::info
+  A loopback redirect cannot be tied to one local application, so any process on the machine that knows the client id can start an authorization for it. The user still has to approve the consent screen, but leave this unset unless the CLI is actually in use.
+  :::
+  
+   (default: `[]`)
+
+- ##### `consent-validity-seconds` \{#tolgee-oauth2-_-consent-validity-seconds}
+
+  How long the user has to complete the consent screen before the pending authorization goes stale, in seconds. (default: `900`)
+
+- ##### `grant-cleanup-cron` \{#tolgee-oauth2-_-grant-cleanup-cron}
+
+  Cron expression for the job that removes spent grants past their retention window and consents the user never completed. Spring's six-field format (second, minute, hour, day, month, weekday). (default: `0 0 3 * * *`)
+
+- ##### `grant-retention-days` \{#tolgee-oauth2-_-grant-retention-days}
+
+  How long a spent OAuth grant is kept after its last credential expired, in days. It holds a used code's row so a replayed code is still recognised. A consent the user never completed is not kept for this window — it is deleted once its own short deadline passes. (default: `7`)
+
+- ##### `refresh-token-validity-days` \{#tolgee-oauth2-_-refresh-token-validity-days}
+
+  How long an issued OAuth refresh token stays valid, in days. Each refresh issues a new one and restarts this window, so it bounds how long a grant may sit unused — not how long it may live. (default: `30`)
+
 ### Postgres autostart \{#tolgee-_-postgres-autostart}
 
 Prefix: `tolgee.postgres-autostart`
@@ -4368,6 +4753,11 @@ tolgee.max-screenshots-per-key = 20
 tolgee.max-translation-text-length = 10000
 tolgee.max-upload-file-size = 51200
 tolgee.translations-view-languages-limit = -1
+tolgee.async.background.keep-alive-seconds = 60
+tolgee.async.background.max-threads = -1
+tolgee.async.streaming.keep-alive-seconds = 60
+tolgee.async.streaming.max-threads = -1
+tolgee.async.streaming.queue-capacity = -1
 tolgee.authentication.allowed-email-domains = []
 tolgee.authentication.block-disposable-emails = true
 tolgee.authentication.block-email-aliases = true
@@ -4460,6 +4850,9 @@ tolgee.content-delivery.storage.s3.path =
 tolgee.content-delivery.storage.s3.secret-key =
 tolgee.content-delivery.storage.s3.signing-region =
 tolgee.file-storage.fs-data-path = ~/.tolgee/
+tolgee.file-storage.azure.connection-string =
+tolgee.file-storage.azure.container-name =
+tolgee.file-storage.azure.enabled = false
 tolgee.file-storage.s3.access-key =
 tolgee.file-storage.s3.bucket-name =
 tolgee.file-storage.s3.enabled = false
@@ -4517,6 +4910,14 @@ tolgee.machine-translation.deepl.optional-parameters =
 tolgee.machine-translation.google.api-key =
 tolgee.machine-translation.google.default-enabled = true
 tolgee.machine-translation.google.default-primary = true
+tolgee.oauth2.access-token-validity-minutes = 30
+tolgee.oauth2.authorization-code-validity-seconds = 300
+tolgee.oauth2.browser-extension-redirect-uris = []
+tolgee.oauth2.cli-redirect-uris = []
+tolgee.oauth2.consent-validity-seconds = 900
+tolgee.oauth2.grant-cleanup-cron = 0 0 3 * * *
+tolgee.oauth2.grant-retention-days = 7
+tolgee.oauth2.refresh-token-validity-days = 30
 tolgee.postgres-autostart.container-name = tolgee_postgres
 tolgee.postgres-autostart.database-name = postgres
 tolgee.postgres-autostart.enabled = true
