@@ -27,3 +27,13 @@ tolgee:
 ```
 
 Restart your Tolgee server to apply the changes, then follow the [SSO Getting Started](/platform/sso/sso_getting_started) guide to set up the SSO for specific organizations.
+
+## Set the domain name for an organization
+
+Organization owners can fill in all SSO fields except the domain name, which only a server administrator can set. This
+prevents an organization from claiming an e-mail domain it does not own, because every user signing in with that domain
+is routed to the organization.
+
+To set it, sign in with an account that has server administrator rights, go to the `Administration` section, find the
+organization in the `Organizations` list, click its `Settings` button, and fill in the `Domain name` field in the
+`Single Sign-On (SSO)` section. For everyone else the field stays read-only.
