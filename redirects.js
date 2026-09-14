@@ -354,11 +354,11 @@ module.exports.redirects = {
     // Structural moves — pages that once lived at these paths now live under a subdirectory or a different section.
     {
       from: '/formats',
-      to: '/platform/formats/',
+      to: '/platform/supported_formats',
     },
     {
       from: '/js-sdk/using_with_angular',
-      to: '/js-sdk/integrations/angular',
+      to: '/js-sdk/integrations/angular/overview',
     },
     {
       // /platform/self_hosting is a category directory with no index page.
