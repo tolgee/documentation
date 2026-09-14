@@ -323,6 +323,53 @@ const BLOG_REDIRECTS = [
 
 module.exports.redirects = {
   redirects: [
+    // API reference pages are generated from the OpenAPI spec and get
+    // renumbered when endpoints are added/removed. Backlinks to old
+    // numbered slugs point them at the current file for the same endpoint.
+    {
+      // "List trashed keys" — renumbered from list-5 to list-8
+      from: '/api/list-5',
+      to: '/api/list-8',
+    },
+    {
+      // "Create organization" — renumbered from create-12 to create-14
+      from: '/api/create-12',
+      to: '/api/create-14',
+    },
+    {
+      // "Get all public plans" — renumbered from get-plans-2 to get-plans-3
+      from: '/api/get-plans-2',
+      to: '/api/get-plans-3',
+    },
+    {
+      // "Get all server organizations" — renumbered from get-organizations to get-organizations-1
+      from: '/api/get-organizations',
+      to: '/api/get-organizations-1',
+    },
+    {
+      // "Get all server users" — renumbered from get-users to get-users-1
+      from: '/api/get-users',
+      to: '/api/get-users-1',
+    },
+    // Structural moves — pages that once lived at these paths now live under a subdirectory or a different section.
+    {
+      from: '/formats',
+      to: '/platform/formats/',
+    },
+    {
+      from: '/js-sdk/using_with_angular',
+      to: '/js-sdk/integrations/angular',
+    },
+    {
+      // /platform/self_hosting is a category directory with no index page.
+      from: '/platform/self_hosting',
+      to: '/platform/self_hosting/getting_started',
+    },
+    {
+      // /platform/api was ambiguous; external and internal links point at the API reference.
+      from: '/platform/api',
+      to: '/api/',
+    },
     // fixing legacy backlinks
     {
       from: '/docs/get_started/hello_world',
