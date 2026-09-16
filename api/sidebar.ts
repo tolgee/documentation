@@ -1884,6 +1884,18 @@ const sidebar: SidebarsConfig = {
         },
         {
           type: "doc",
+          id: "disable-managed-user",
+          label: "Disable a managed user",
+          className: "api-method put",
+        },
+        {
+          type: "doc",
+          id: "enable-managed-user",
+          label: "Enable a managed user",
+          className: "api-method put",
+        },
+        {
+          type: "doc",
           id: "set-user-role",
           label: "Set user role",
           className: "api-method put",
