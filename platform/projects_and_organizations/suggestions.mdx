@@ -21,6 +21,8 @@ Go to `Project settings` > `Advanced` > `Suggestions mode`.
   alt="Project settings > Advanced > Suggestions mode"
 />
 
+The setting applies to every way of creating a suggestion, not only to the Tolgee web app. While suggestions mode is off, the [Create translation suggestion](/api/create-suggestion) API endpoint rejects new suggestions with the `suggestions_disabled` error (HTTP 400), and the [in-context dialog](/js-sdk/in-context#suggest-translations-in-context) doesn't offer suggesting. Suggestions created earlier are not lost. They can still be listed, accepted, declined, and deleted.
+
 ### How to Add Translation Suggestions
 
 Once suggestions mode is enabled, users can edit a translation or add a suggestion.
@@ -100,6 +102,12 @@ Here you can, for example, only allow the user to `Suggest`, so they can't edit 
   alt="Suggestions granular permissions"
 />
 
-> Accepting the suggestions is tied to the "Change state" permission (which is what all reviewers have).
+> Accepting the suggestions is tied to the `Change state` permission (which is what all reviewers have).
+
+Deleting your own suggestion is a separate permission in the `Suggestions` group. Every [role](./members.mdx#permissions) from `View` up includes it. With granular permissions you can withhold it, and then the user can't take back a suggestion once it's sent. The `Manage` permission in the same group covers deleting anyone's suggestions, including your own.
+
+On a [public project](./community_translation.mdx) this permission can't be withheld. Every signed-in user gets it there as part of the community permissions, including members whose granular permission leaves it out.
+
+API keys and applications connected to your account, such as the Tolgee Tools browser plugin, carry their own permissions. Whatever the project is, they can delete the suggestions you made only when this permission is part of the key or of the access you granted.
 
 

@@ -1,0 +1,87 @@
+---
+id: community_translation_in_context
+title: Community Translation in Context
+sidebar_label: Community Translation in Context
+image: /img/og-images/platform.png
+description: Let community contributors suggest translations directly on your live website with the Tolgee Tools browser plugin, without giving anyone an API key.
+---
+
+A [public project](./community_translation.mdx) lets anyone with a Tolgee account suggest translations, but only inside the Tolgee platform. The contributor has to find your project, find the right key, and guess where the string appears in your product. Most people who notice a clumsy translation on your website never get that far.
+
+With in-context suggesting, the contributor stays on your website. They hold `Alt` (`Option` on Mac), click the string, and propose a better translation in the dialog that opens. You review the suggestion like any other, and nothing changes on your site until you accept it.
+
+For example, a Czech user of your open-source app notices that a checkout button says "Zaplatit nyní" where "Zaplatit" would read better. They Alt+click the button, type the new text, and click `Suggest`. The next time you open the key in Tolgee, the suggestion is waiting for you.
+
+## Prepare your project
+
+Contributors can only suggest when the project is open to them and accepts suggestions. Both switches are in `Project settings` > `Advanced`.
+
+1. [Make the project public](./community_translation.mdx#make-a-project-public).
+2. Turn on [`Suggestions mode`](./suggestions.mdx#how-to-enable-suggestions). While it is off, nobody can create a suggestion, in the platform, in context, or through the API.
+
+If you use self-hosted Tolgee, update the server to TODO_PLATFORM_VERSION or newer first. On an older server the browser plugin can't sign contributors in at all, so nothing below will work.
+
+## Prepare your website
+
+The browser plugin has to know which Tolgee server and which project your website belongs to. It reads both from the configuration of the [Tolgee JS SDK](/js-sdk) on the page, so declare [`apiUrl`](/js-sdk/api/core_package/options#apiurl) and [`projectId`](/js-sdk/api/core_package/options#projectid) in your production build. Without `projectId`, the plugin can't offer signing in on your site, and contributors could only connect with an API key, which they don't have.
+
+```ts
+const tolgee = Tolgee()
+  .use(FormatSimple())
+  .init({
+    language: 'en',
+    apiUrl: 'https://app.tolgee.io',
+    projectId: 1234,
+    staticData: {
+      ...
+    },
+  });
+```
+
+You find the project ID in the URL of your project in Tolgee, for example `https://app.tolgee.io/projects/1234`.
+
+:::warning
+Don't add an `apiKey` to your production configuration. It isn't needed here. Each contributor signs in with their own Tolgee account through the plugin, and Tolgee decides what they can do from that account.
+:::
+
+You don't need to ship the in-context tools to every visitor either. The plugin adds them to the page for the people who use it, the same way it does for your team. Read more in [In-context on production](/js-sdk/in-context#tolgee-browser-plugin).
+
+Keep the SDK on your website up to date. The plugin loads the in-context dialog in the same version of `@tolgee/web` as your website uses, so contributors on a website with an older SDK get a dialog that can't suggest, whatever version of the plugin they have. [Signing in through the plugin](/js-sdk/in-context#sign-in-with-tolgee-account) has its own minimum SDK version.
+
+## What contributors need
+
+Contributing takes no invitation and no setup on your side for each person. A contributor needs
+
+- A Tolgee account on the server your project lives on. Anyone can [sign up for free](https://app.tolgee.io/sign_up) on Tolgee Cloud.
+- The Tolgee Tools plugin for [Google Chrome](https://chrome.google.com/webstore/detail/tolgee-tools/hacnbapajkkfohnonhbmegojnddagfnj) or [Mozilla Firefox](https://addons.mozilla.org/en-US/firefox/addon/tolgee-tools/).
+
+To start, the contributor opens your website, clicks the Tolgee Tools icon, and chooses `Connect to Tolgee`. Tolgee asks them to sign in and to allow the plugin to work with your project. After that, holding `Alt` and clicking a string opens the dialog.
+
+It helps to describe these steps where your contributors will look for them, for example in your contributing guide, and to link to [Suggest translations in context](/js-sdk/in-context#suggest-translations-in-context), which explains the dialog from their point of view.
+
+## What contributors can and can't do
+
+In the dialog, a community contributor gets the same [community permissions](./community_translation.mdx#what-community-members-can-do) as in the platform. The dialog shows only what they can use, so they never face a disabled form.
+
+A contributor can
+
+- See the translations of the string in the languages they choose
+- See the key's screenshots
+- See the suggestions other people have already made
+- Suggest a new translation in any language
+- Delete their own suggestion, which the community permissions always allow on a public project
+
+A contributor can't
+
+- Change a live translation or its [state](/platform/translation_process/translation_states)
+- Accept or decline suggestions, or delete suggestions made by others
+- Create keys, so a string that has no key in your project yet can't receive suggestions
+- Edit tags, plural settings, or the character limit, or upload screenshots
+
+## Review the suggestions
+
+Suggestions made in context are ordinary suggestions. You find them in the translations view, and you can [review them](./community_translation.mdx#review-community-suggestions) there.
+
+Your team members can also review without leaving your website. With the plugin connected, they see the pending suggestions under each language in the same dialog and can accept, decline, or delete them according to their permissions. Read more in [Review suggestions in the dialog](/js-sdk/in-context#review-suggestions-in-the-dialog).
+
+The people who suggested appear in the `Community` tab of the [Members](./members.mdx#community-contributors) page, where you can invite the most active ones to your team.
