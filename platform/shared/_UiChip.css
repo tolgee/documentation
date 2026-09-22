@@ -1,0 +1,39 @@
+/* Takes on the look of a markdown code span, so a chip sits in a sentence next
+   to `Upload` without reading as a different kind of thing. The values come
+   from Infima's own `code` rule; only the horizontal padding is opened up,
+   because Infima's 0.1rem leaves no room around a glyph. The chip is a wrapper
+   and nothing more, so it carries no colour of its own. */
+.ui-chip {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  /* Breathing room on both sides so the chip never touches the words around
+     it, which is what made the bare icons read as part of the sentence. */
+  margin: 0 0.2em;
+  padding: var(--ifm-code-padding-vertical) 0.4em;
+  border: 0.1rem solid rgba(0, 0, 0, 0.1);
+  border-radius: var(--ifm-code-border-radius);
+  background: var(--ifm-code-background);
+  color: inherit;
+  font-family: var(--ifm-font-family-monospace);
+  font-size: var(--ifm-code-font-size);
+  /* An inline-flex box takes its height from line-height, while the inline
+     `code` next to it takes it from the font metrics. Without this the chip
+     does not line up with `Upload` on the same line. */
+  line-height: 1.19;
+  white-space: nowrap;
+  vertical-align: middle;
+}
+
+/* Without a label the horizontal padding would look lopsided around a single
+   square glyph. */
+.ui-chip--icon-only {
+  padding: var(--ifm-code-padding-vertical) 0.3em;
+}
+
+/* No dark-mode override on purpose: Infima leaves the `code` border at
+   rgba(0,0,0,.1) in both themes, and the chip has to match it. */
+
+.ui-chip--icon {
+  flex: none;
+}

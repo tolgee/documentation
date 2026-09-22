@@ -1,0 +1,41 @@
+---
+id: about
+title: Tolgee Figma Plugin
+sidebar_label: About
+description: Connect the text in your Figma designs to Tolgee translation keys, preview any language on the canvas, and give translators the context they need
+image: /img/og-images/figma-plugin.png
+---
+
+import { RoundedImageWrapper } from '../../shared/_RoundedImageWrapper';
+
+Designers write the words, developers retype them in code, and translators meet them as a list of strings with no pictures attached. The Tolgee Figma plugin closes that gap: it connects each text layer in your design to a [translation key](/platform/translation_keys/keys) in Tolgee, so the design file and the translation platform describe the same strings. It is free, and works with Tolgee Cloud as well as self-hosted instances.
+
+<RoundedImageWrapper
+  alt="A Figma file with two screens on the canvas and the Tolgee plugin beside it, listing each text on the screen next to the translation key it is connected to"
+  src="/img/docs/platform/figma-plugin/figma-plugin-img.webp"
+/>
+
+## What It Gives You
+
+- **Any language on the canvas.** Switch a screen to German or Japanese and catch the layout breaking in Figma, not after release
+- **Context for translators.** Uploading a key sends a screenshot with it, so nobody translates a button label blind
+- **One source of truth.** Designers name and upload the strings, translators work on the platform, developers read key names in Dev Mode, and nothing is retyped along the way
+- **Variables, plurals and formatting survive the round trip**, and the canvas still shows a realistic rendering
+
+## How It Works
+
+1. Select frames or text layers, and the plugin lists the strings it finds
+2. Name the keys, let the plugin generate names from your layer structure, or connect the texts to keys that already exist in Tolgee
+3. `Upload` sends them to Tolgee, with screenshots attached
+4. Translators do their work on the platform
+5. `Download` brings the finished translations back onto the canvas
+
+Steps 3 and 5 are the loop you repeat. The rest is setup you do once.
+
+## Where to Go Next
+
+- [Setup and Settings](/platform/integrations/figma_plugin/setup) installs the plugin and connects it to your project
+- [Usage Guide](/platform/integrations/figma_plugin/usage) covers the everyday work
+- [Bulk Operations](/platform/integrations/figma_plugin/bulk_operations) does the same actions on a whole selection
+- [Page Copies](/platform/integrations/figma_plugin/page_copies) puts each language on its own page
+- [Formatting and Variables](/platform/integrations/figma_plugin/formatting_text_and_variables) explains plurals, variables and inline formatting

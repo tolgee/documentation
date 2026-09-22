@@ -44,6 +44,16 @@ In Advanced mode, you can edit the resulting prompt directly via text input. We 
 
 Other than fragments, you can also use variables, which give you direct access to information about the current key, source and target translations and so on.
 
+## Choose a model
+
+New models come out often, and the model that translates best today may fall behind in a few months. If your prompt pinned a concrete model, you would need to come back and update it every time a better model appears.
+
+To avoid this, the model selector at the top of the playground offers a `default` option, displayed with the model it currently points to, for example `default (gpt-5.4)`. This option doesn't pin any concrete model. It always resolves to the server's current default model, so every prompt using it switches to the better model automatically whenever the default is upgraded. On Tolgee Cloud, the default model is regularly updated to the model that performs best for translation in the latest benchmarks.
+
+New prompts use the `default` option unless you change it. Pick a concrete model from the list only when you need translations to keep coming from that exact model, for example when you have fine-tuned your prompt wording for it.
+
+When self-hosting, you control what the `default` option resolves to. See the [LLM providers configuration](/platform/projects_and_organizations/llm-providers#default-model).
+
 ## Running prompts
 
 You can test your current prompt by hitting the `Preview` button, and it will run the prompt on the currently selected translation (if the button is disabled, you need to select some translation first).
