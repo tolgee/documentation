@@ -7,6 +7,7 @@ module.exports = {
         'getting_started/about_tolgee',
         'getting_started/creating_project',
         'getting_started/files_and_integrations',
+        'translate_with_tolgee',
       ],
     },
     {

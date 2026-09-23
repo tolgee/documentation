@@ -57,7 +57,37 @@ Contributing takes no invitation and no setup on your side for each person. A co
 
 To start, the contributor opens your website, clicks the Tolgee Tools icon, and chooses `Connect to Tolgee`. Tolgee asks them to sign in and to allow the plugin to work with your project. After that, holding `Alt` and clicking a string opens the dialog.
 
-It helps to describe these steps where your contributors will look for them, for example in your contributing guide, and to link to [Suggest translations in context](/js-sdk/in-context#suggest-translations-in-context), which explains the dialog from their point of view.
+You don't have to write these steps down yourself. The badge below links to a page that walks a first-time contributor through them.
+
+## Invite contributors with a badge
+
+Someone who notices a clumsy translation on your website has no way of knowing they are allowed to fix it. A `Translate with Tolgee` badge tells them, and links to [Translate a website with Tolgee](../translate_with_tolgee.mdx), a page with the three steps and nothing else: install the plugin, sign in, Alt+click the text.
+
+[![Translate with Tolgee](/img/badges/translate-with-tolgee.svg)](../translate_with_tolgee.mdx)
+
+Put it where people who read your text will see it, in the footer of your website, next to your language switcher, or in your README.
+
+For a website, paste this HTML.
+
+```html
+<a href="https://docs.tolgee.io/translate-with-tolgee" target="_blank" rel="noopener">
+  <img src="https://docs.tolgee.io/img/badges/translate-with-tolgee.svg" alt="Translate with Tolgee" height="28">
+</a>
+```
+
+For a README or anything else that takes Markdown, paste this.
+
+```markdown
+[![Translate with Tolgee](https://docs.tolgee.io/img/badges/translate-with-tolgee.svg)](https://docs.tolgee.io/translate-with-tolgee)
+```
+
+The badge does its work on the running website, because that is where a contributor can Alt+click the text. In a README it still tells people the project accepts translations, but they have to open the website before anything happens.
+
+You can also download the badge and serve it with your own assets, instead of loading it from `docs.tolgee.io`.
+
+:::caution
+The badge sends people to a page that assumes your website is ready for them. Before you publish it, check that your project is public, that `Suggestions mode` is on, and that your site declares `apiUrl` and `projectId`, as described above. Without those, a contributor follows all three steps and then finds nothing to click.
+:::
 
 ## What contributors can and can't do
 
