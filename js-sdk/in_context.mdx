@@ -11,7 +11,7 @@ For local development, supply `apiUrl`, `apiKey` options (see [Integration](/pla
 1.  Press and hold `Alt`/`Option` key
 2.  Navigate mouse over any translation on your website
 3.  It should get highlighted
-4.  Click on it to open "Quick translation" dialog
+4.  Click on it to open `Quick translation` dialog
 5.  You can edit translations (changes will get stored to Tolgee platform)
 
 > NOTE: If you use Tolgee without any integration, make sure you call [`run`](./api/core_package/tolgee.mdx#run) method.
@@ -43,15 +43,19 @@ To enable in-context translating on production you can pass `apiKey` and `apiUrl
 Your `apiKey` should stay private and never be included in Tolgee configuration on production.
 
 - *Local development*: You can pass apiKey directly in your Tolgee configuration.
-- *Production*: Always supply your API key through the Tolgee Tools browser extension instead.
+- *Production*: Supply your API key through the Tolgee Tools browser extension instead, or [sign in with your Tolgee account](#sign-in-with-tolgee-account).
 :::
 
 1.  Install Tolgee Tools
 2.  Go to the production version of your website
-3.  Click on Tolgee Tools extension and apply your API key (you might need to reload if you just installed the plugin)
+3.  Click on Tolgee Tools extension and apply your API key, or [sign in with your Tolgee account](#sign-in-with-tolgee-account) (you might need to reload if you just installed the plugin)
 4.  In-context translating should work
 
 > You can also check [Step-by-step tutorial](https://tolgee.io/blog/in-context-production)
+
+#### Sign in with a Tolgee account instead of an API key {#sign-in-with-tolgee-account}
+
+Handing out API keys doesn't work for everyone, for example for community contributors who [suggest translations on your live website](/platform/projects_and_organizations/community_translation_in_context). When your Tolgee configuration declares `apiUrl` and [`projectId`](./api/core_package/options.mdx#projectid), people can click `Connect to Tolgee` in the plugin and sign in with their own Tolgee account. What they can do in the dialog then follows their permissions in the project. Signing in requires `@tolgee/web` 7.2.0 or newer on the page.
 
 #### A few notes about Tolgee Tools plugin
 
@@ -88,6 +92,76 @@ if (shouldIncludeInContextTools) {
 #### Using parts of InContextTools functionality
 
 [`InContextTools`](/api/web_package/tools.mdx#incontexttools) (or `DevTools` in development) are a combination of multiple plugins, which you can include independently, check [`InContextTools`](/api/web_package/tools.mdx#incontexttools) documentation for more info.
+
+## Suggest translations in context
+
+Not everyone who spots a wrong string should be able to change it. A translator may be allowed to edit German but only propose changes to the reviewed English copy, and a community contributor on a [public project](/platform/projects_and_organizations/community_translation) can't edit anything at all. They still see the string in its real context, which is the best place to notice that it is wrong.
+
+When the project has [suggestions](/platform/projects_and_organizations/suggestions) enabled, the `Quick translation` dialog lets you propose a change in every language where you are allowed to suggest but not to edit. A suggestion doesn't change the live translation. It waits until a reviewer accepts it.
+
+### Save, suggest, or both
+
+Permissions in Tolgee are set per language, so the dialog decides for each language field what happens with your change.
+
+- You can edit the language, so the change is **saved** as the translation.
+- You can only suggest in the language, so the change is **sent as a suggestion**. The same happens when the project [protects reviewed translations](/platform/projects_and_organizations/suggestions#protecting-reviewed-translations), the translation is already reviewed, and you are not allowed to change its state.
+- You can do neither, so the field is read-only.
+
+A field whose change will become a suggestion says so under the input before you submit, so you always know what a click will do. When the reason is the project's protection of reviewed translations, the note says that too. If you clear a suggest field instead of rewriting it, the note tells you the field is left unchanged, because an empty suggestion can't be sent.
+
+The dialog also shows the key's description under the key name, when the key has one. It is the quickest way to find out what a string is for before you propose new wording.
+
+The dialog keeps a single button, and its label follows the fields you have changed.
+
+| Button | What happens to your changes |
+| --- | --- |
+| `Save` | All of them are saved as translations |
+| `Suggest` | All of them are sent as suggestions |
+| `Save & suggest` | Some are saved, the others are sent as suggestions |
+
+For example, you fix a typo in German, which you translate, and reword the English source text, which only reviewers may touch. The button reads `Save & suggest`. One click stores the German translation, sends the English change as a suggestion, and closes the dialog.
+
+The saved fields are written first, and the suggestions go out only once that has succeeded. So if the save fails, nothing is suggested either, and you can correct the form and submit it again without Tolgee rejecting your suggestions as duplicates.
+
+If a suggestion itself fails, the dialog stays open with the error under the field it belongs to. The saved fields and the other suggestions stand, so you only fix the one that failed. A typical cause is proposing text that someone has already proposed, because Tolgee doesn't accept a suggestion that already exists on the translation.
+
+### Review suggestions in the dialog
+
+Reviewers usually judge a suggestion better when they see it where it will appear. Under each language field, the dialog lists the three most recent pending suggestions with their authors, and lets you load the rest. Each one shows who wrote it and how long ago, counted from now for the first month and as a date after that.
+
+The actions you are allowed to use sit on the suggestion itself, and the rarer ones sit behind the `⋮` menu next to them. `Accept` and `Decline` are the buttons on the row, and the menu holds `Accept and decline others` and `Delete`. When accepting can also dismiss the competing suggestions, the button on the row reads `Accept only`, so the two outcomes can't be confused.
+
+What you can do with a suggestion depends on your permissions for that language.
+
+| Action | Who can do it |
+| --- | --- |
+| Accept the suggestion, or accept it and decline the others | Users who can edit translations and change their [state](/platform/translation_process/translation_states) in the language |
+| Decline the suggestion | Users who can change the translation state in the language |
+| Delete the suggestion | Its author, if they have the [permission to delete their own suggestions](/platform/projects_and_organizations/suggestions#granular-protection), or anyone who can manage suggestions in the language |
+
+Accepting a suggestion replaces the translation and refreshes the field in the dialog. Read more about the accept actions in [Translation Suggestions](/platform/projects_and_organizations/suggestions#review-and-approve-suggestions).
+
+The dialog shows only suggestions that are waiting for a decision. To look at accepted or declined suggestions, or to reverse a decision, open the key in the Tolgee platform.
+
+### Use the dialog with suggest-only permissions
+
+When suggesting is all you are allowed to do, the dialog shows only what you can use. You see the translations, the suggestions on them, the key's screenshots, and the `Suggest` button. Controls for translation state, tags, plural forms, character limit, and screenshot upload are hidden.
+
+A suggestion always belongs to an existing key. If the string you clicked has no key in the Tolgee project yet, you can't suggest a translation for it, and someone with permission to create keys has to add the key first.
+
+### Troubleshoot missing suggestions
+
+When the dialog shows nothing related to suggestions, check these causes first.
+
+- `Suggestions mode` is turned off in the [project settings](/platform/projects_and_organizations/suggestions#how-to-enable-suggestions).
+- The website runs a version of `@tolgee/web` older than TODO_SDK_VERSION. The browser plugin loads the dialog in the version the website uses, so updating the plugin doesn't help. The website has to update the SDK.
+- Your self-hosted Tolgee server is older than TODO_PLATFORM_VERSION. Suggesting in context needs that release. On an older server the plugin can't sign you in at all, and fails with an authorization error.
+
+When you see the suggestions of others but the dialog never offers `Suggest` to you, first check whether you can edit the language. Where you can edit, your change is always saved directly, so there is nothing to suggest.
+
+If you can't edit either, the dialog tells you which of the two is missing. When your account has the permission but the credential the page uses doesn't carry it, a note under the field says so and points at the fix: sign in again in the plugin, or use an API key with more permissions. When your own account doesn't have the permission in that language, the field is simply read-only, since no key and no new sign-in would change that. Ask someone who manages the project.
+
+The plugin also checks this by itself. If your account has permissions that the sign-in on this page doesn't include, its popup shows an alert listing what is missing, with a `Sign in again` button. You stay connected if you cancel it.
 
 ## Modals, popovers and other focus-stealing elements
 Some elements like modals or popovers can steal focus from the Tolgee dev tools,

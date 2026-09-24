@@ -7,6 +7,7 @@ module.exports = {
         'getting_started/about_tolgee',
         'getting_started/creating_project',
         'getting_started/files_and_integrations',
+        'translate_with_tolgee',
       ],
     },
     {
@@ -36,6 +37,7 @@ module.exports = {
         'projects_and_organizations/export',
         'projects_and_organizations/suggestions',
         'projects_and_organizations/community_translation',
+        'projects_and_organizations/community_translation_in_context',
         'projects_and_organizations/organization_settings',
         'projects_and_organizations/llm-providers',
         'projects_and_organizations/content_delivery',
