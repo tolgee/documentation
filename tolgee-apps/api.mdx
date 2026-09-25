@@ -1,0 +1,432 @@
+---
+id: api
+title: Tolgee Apps API reference
+sidebar_label: API reference
+description: Manifest schema, SDK, postMessage protocol, webhooks, decorators, scopes, and the CLI.
+---
+
+import Head from '@docusaurus/Head';
+
+This reference documents the Tolgee Apps contract: the manifest schema, the `@tolgee/apps-sdk` browser
+and server APIs, the iframe `postMessage` protocol, the context token, the webhook signature scheme,
+the decorators request and response, permission scopes, the app REST endpoints, and the `tolgee-app`
+CLI. Use it alongside the [setup guide](./setup) and the tutorials when building a Tolgee App.
+
+:::warning Experimental
+Tolgee Apps is in **alpha** — the contracts on this page may change.
+:::
+
+## Manifest
+
+Your app hosts a manifest JSON describing what it contributes. Tolgee fetches it at install time and
+on refresh.
+
+```json
+{
+  "id": "my-app",
+  "name": "My App",
+  "version": "0.1.0",
+  "baseUrl": "https://my-app.example.com",
+  "decoratorsUrl": "https://my-app.example.com/decorators",
+  "scopes": ["translations.view", "keys.view"],
+  "webhooks": {
+    "events": ["SET_TRANSLATIONS", "CREATE_KEY"],
+    "url": "/webhook"
+  },
+  "modules": {
+    "project-dashboard-page": [
+      { "key": "home", "title": "My App", "icon": "LayoutAlt04", "entry": "/dashboard" }
+    ]
+  }
+}
+```
+
+### Top-level fields
+
+| Field | Type | Notes |
+| --- | --- | --- |
+| `id` | string | Stable, unique identifier. Cannot change after install. |
+| `name` | string | Display name. |
+| `version` | string | semver recommended. |
+| `baseUrl` | string | Where module `entry` paths and a relative `webhooks.url` resolve. HTTPS in production. |
+| `decoratorsUrl` | string? | Absolute URL of your decorators endpoint (see [Decorators](#decorators)). |
+| `scopes` | string[]? | Permission scopes requested at install (see [Scopes](#scopes--permissions)). |
+| `webhooks` | object? | `{ events: string[], url: string }` — event names + delivery URL (relative to `baseUrl` or absolute). |
+| `modules` | object? | The UI contributions, keyed by module type. |
+
+### Modules
+
+Iframe modules render a page from your `baseUrl`:
+
+```ts
+type AppIframeModule = {
+  key: string;        // unique within the plugin
+  title: string;
+  icon?: string;      // emoji or a platform icon name (e.g. "LayoutAlt04")
+  entry: string;      // path under baseUrl
+  width?: number;     // modal only
+  height?: number;    // modal only
+};
+```
+
+Used by: `project-dashboard-page`, `translation-tools-panel`, `translation-tools-panel-empty`, `key-edit-tab`, `modal`.
+
+`translation-tools-panel-empty` renders in the translations tools area when **no cell is
+selected**. Instead of a key/language selection it receives the view's selected language tags via
+`selection.selectedLanguages`, which updates as the user changes the language selector.
+
+Action modules are triggers; they don't render their own page but point at an iframe module or a link:
+
+```ts
+type AppAction = {
+  key: string;
+  type: 'link' | 'tab' | 'panel' | 'modal';
+  icon?: string;
+  tooltip?: string;
+  title?: string;
+  urlTemplate?: string;  // link: target URL, may contain placeholders (below)
+  tabKey?: string;       // tab: a key-edit-tab key
+  panelKey?: string;     // panel: a translation-tools-panel key
+  modalKey?: string;     // modal: a modal key
+  dynamic?: boolean;     // visibility/badge driven by decoratorsUrl
+};
+
+type AppShortcut = Omit<AppAction, 'type'> & {
+  combination: string;             // e.g. "Mod+Shift+E" (Mod = ⌘ / Ctrl)
+  type: 'link' | 'modal';
+};
+```
+
+Allowed action `type` per module (enforced at install time):
+
+| Module | Allowed types | Required ref |
+| --- | --- | --- |
+| `key-action` | `link`, `tab`, `modal` | `tabKey` / `modalKey` (or `urlTemplate` for link) |
+| `translation-action` | `link`, `panel`, `modal` | `panelKey` / `modalKey` (or `urlTemplate`) |
+| `bulk-action` | `link`, `modal` | `modalKey` (or `urlTemplate`) |
+| `translations-toolbar-action` | `link`, `modal` | `modalKey` (or `urlTemplate`) |
+| `project-menu-action` | `link`, `modal` | `modalKey` (or `urlTemplate`) |
+| `shortcut` | `link`, `modal` | `combination` + `modalKey` (or `urlTemplate`) |
+
+A `link` action requires `urlTemplate` **unless** it is `dynamic` (then the URL comes from the
+decorators response). `urlTemplate` may contain `{keyId}`, `{keyName}`, `{keyNamespace}`,
+`{projectId}`, `{languageTag}`, `{languageId}`, `{translationId}`.
+
+## SDK — browser (`@tolgee/apps-sdk/browser`)
+
+For iframe modules.
+
+### `createTolgeeApp(): TolgeeApp`
+
+Sets up the `postMessage` handshake with Tolgee.
+
+```ts
+import { createTolgeeApp } from '@tolgee/apps-sdk/browser';
+
+const app = createTolgeeApp();
+const ctx = await app.context;            // resolves once Tolgee sends init
+const off = app.onSelectionChanged((s) => { /* s: TolgeeAppSelection */ });
+app.resize(420);                          // ask the host to resize the iframe
+app.close();                              // close the containing modal/panel
+app.dispose();                            // detach the message listener
+```
+
+| Member | Signature | Description |
+| --- | --- | --- |
+| `context` | `Promise<TolgeeAppContext>` | Resolves when the parent posts `tolgee-app:init`. |
+| `onSelectionChanged` | `(handler: (s: TolgeeAppSelection) => void) => () => void` | Subscribe to focus changes; returns an unsubscribe fn; fires once with the initial selection. |
+| `onThemeChanged` | `(handler: (t: TolgeeAppTheme) => void) => () => void` | Subscribe to light/dark theme changes; returns an unsubscribe fn; fires once with the initial theme. |
+| `resize` | `(height: number) => void` | Request an iframe height. |
+| `close` | `() => void` | Close the containing modal/panel. |
+| `dispose` | `() => void` | Remove the listener. |
+
+```ts
+type TolgeeAppContext = {
+  token: string;            // context JWT — use as a Bearer token to call Tolgee
+  apiUrl: string;
+  organizationId: number;
+  projectId: number;
+  selection: TolgeeAppSelection;
+  theme: TolgeeAppTheme;            // host light/dark + palette; see onThemeChanged
+  extra: Record<string, unknown>;   // trigger-specific extras (e.g. selectedKeyIds for bulk actions)
+};
+
+type TolgeeAppSelection = {
+  keyId?: number;
+  languageId?: number;
+  languageTag?: string;
+  translationId?: number;
+  selectedLanguages?: string[];   // tags shown in the view (translation-tools-panel-empty only)
+};
+
+type TolgeeAppTheme = {
+  mode: 'light' | 'dark';
+  colors: {
+    background: string; backgroundPaper: string;
+    text: string; textSecondary: string;
+    primary: string; primaryContrast: string;
+    divider: string; error: string;
+  };
+};
+```
+
+### `applyTolgeeTheme(theme, root?)`
+
+Applies the host theme to the iframe document so the plugin matches Tolgee: exposes each color as a
+`--tg-color-*` CSS variable (`--tg-color-background`, `--tg-color-text-secondary`, …), sets
+`[data-tg-theme="light|dark"]`, and sets `color-scheme`. Call it on init and from `onThemeChanged` to
+follow live toggles:
+
+```ts
+import { createTolgeeApp, applyTolgeeTheme } from '@tolgee/apps-sdk/browser';
+
+const app = createTolgeeApp();
+app.onThemeChanged(applyTolgeeTheme);   // fires once with the initial theme, then on every toggle
+```
+
+Then key your CSS off the variables, e.g. `background: var(--tg-color-background); color: var(--tg-color-text);`.
+Don't use `@media (prefers-color-scheme)` — Tolgee's theme can differ from the OS.
+
+### `createTolgeeAppClient(context): TolgeeRestClient`
+
+A typed Tolgee REST client wired with the context token, base URL, and project id. Errors are
+returned in the `error` field (no throwing).
+
+```ts
+import { createTolgeeAppClient } from '@tolgee/apps-sdk/browser';
+
+const tolgee = createTolgeeAppClient(ctx);
+const { data, error } = await tolgee.GET('/v2/projects/{projectId}/translations', {
+  params: { path: { projectId: ctx.projectId }, query: { size: 20 } },
+});
+```
+
+## SDK — server (`@tolgee/apps-sdk/server`)
+
+Framework-agnostic helpers for your backend (no Express dependency).
+
+| Export | Signature | Description |
+| --- | --- | --- |
+| `receiveWebhook` | `(input: { rawBody: string; signatureHeader: string \| null \| undefined; secret: string \| null \| undefined }) => Promise<{ ok: true; payload } \| { ok: false; status: 401 \| 400; error: string }>` | Verifies the signature over the **raw** body and parses the typed payload. |
+| `onWebhook` | `(payload, types: T \| readonly T[], handler: (typed) => void) => boolean` | Type-narrowing dispatcher by activity type; returns true if the handler ran. |
+| `verifyWebhookSignature` | `({ header, rawBody, secret }) => Promise<boolean>` | HMAC-SHA256 verification (WebCrypto, timing-safe). |
+| `decodeContextToken` | `(jwt: string) => AppContextClaims` | Decodes (does **not** verify) the context token into `{ installId, projectId, userId, audience, expiresAt }`. |
+| `tolgeeAppCorsHeaders` | `() => Record<string, string>` | CORS headers your decorator/API endpoints must return (wildcard origin + `Authorization`). |
+| `renderManifest` | `(template: string, baseUrl: string) => string` | Replaces `__BASE_URL__` in a manifest template with the live URL. |
+| `loadTolgeeAppConfig` | `(env?) => { tolgeeUrl, webhookSecret, vitePort, serverPort }` | Reads the standard env vars (`TOLGEE_URL`, `TOLGEE_WEBHOOK_SECRET`, `VITE_PORT`, `SERVER_PORT`). |
+
+```ts
+import { receiveWebhook, onWebhook } from '@tolgee/apps-sdk/server';
+
+const r = await receiveWebhook({ rawBody, signatureHeader, secret });
+if (!r.ok) return res.status(r.status).json({ error: r.error });
+onWebhook(r.payload, 'SET_TRANSLATIONS', (typed) => {
+  // typed is narrowed to the SET_TRANSLATIONS payload
+});
+```
+
+## postMessage protocol
+
+If you don't use the SDK, the iframe ↔ host messages are:
+
+| Direction | Message | Payload |
+| --- | --- | --- |
+| iframe → host | `tolgee-app:ready` | — (signals the iframe is listening) |
+| host → iframe | `tolgee-app:init` | `{ token, apiUrl, organizationId, projectId, selection…, theme, extra… }` |
+| host → iframe | `tolgee-app:selection-changed` | `{ keyId?, languageId?, languageTag?, translationId?, selectedLanguages? }` |
+| host → iframe | `tolgee-app:theme-changed` | `{ theme: { mode, colors } }` |
+| iframe → host | `tolgee-app:resize` | `{ height }` |
+| iframe → host | `tolgee-app:close` | — |
+
+## Context token
+
+The init message carries a short-lived JWT:
+
+- **Audience** `tg.app`; claims `sub` (userId), `tg.app.inst` (installId), `tg.app.proj` (projectId),
+  plus `iat`/`exp`.
+- Pass it as `Authorization: Bearer <token>` on REST calls; Tolgee verifies the signature server-side.
+- It is **not** a substitute for verifying user identity yourself — your backend should treat it as
+  an opaque bearer credential and let Tolgee enforce permissions.
+
+## Webhooks
+
+Tolgee POSTs subscribed events to `webhooks.url`. The request carries a signature header:
+
+```
+Tolgee-Signature: {"timestamp": 1717000000000, "signature": "<hex>"}
+```
+
+The signature is `HMAC-SHA256(secret, "<timestamp>.<raw-request-body>")`, where `secret` is the
+install's `webhookSecret`. **Verify over the raw bytes** — read the body as text before any JSON
+parsing. The SDK's `receiveWebhook` / `verifyWebhookSignature` do this for you.
+
+Batch events (e.g. `BATCH_KEY_DELETE`) carry a `revisionId`; fetch the full set of changes from the
+activity API. See the platform [webhooks docs](/platform/projects_and_organizations/webhooks) for the
+event list and payload shapes.
+
+## Decorators
+
+For dynamic action modules (`dynamic: true`), Tolgee asks your app which keys/cells to decorate. It
+POSTs to `manifest.decoratorsUrl` with a user context token as `Authorization: Bearer`:
+
+**Request**
+
+```ts
+{
+  installId: number,
+  projectId: number,
+  keyIds?: number[],       // key rows currently in view
+  languageTags?: string[]  // language columns in view
+}
+```
+
+**Response**
+
+```ts
+{
+  items?: Array<{
+    keyId: number,
+    languageTag?: string | null,   // omit for a key-row decoration; set for a translation cell
+    actionKey: string,             // must match a declared key-action / translation-action key
+    url?: string,                  // for link actions: overrides the manifest urlTemplate
+    count?: number,                // badge count
+    visibility?: 'always' | 'on-hover'
+  }>
+}
+```
+
+The decoration's `icon` and `tooltip` come from the matching **manifest action**; the response only
+references it by `actionKey` and may override `url`, `count`, and `visibility`. Your endpoint must
+return the CORS headers from `tolgeeAppCorsHeaders()` (see the server SDK above) and allow the
+`Authorization` header.
+
+## Scopes & permissions
+
+Apps request scopes in the manifest; the wizard offers this common set:
+
+```
+translations.view, translations.edit, translations.state-edit, translations.suggest,
+keys.view, keys.create, keys.edit, keys.delete,
+screenshots.view, screenshots.upload,
+activity.view
+```
+
+At runtime, an app's effective permissions on a project are the **intersection** of the scopes
+granted to the install and the calling **user's** own project permissions (scopes are expanded by
+hierarchy first — e.g. `keys.edit` implies `keys.view`). An app can never exceed what the user can do.
+
+Because there is no incremental consent yet, request every scope you need at install time. The
+plugin-authenticated self-service endpoint can only **narrow** scopes, never widen them.
+
+## REST endpoints
+
+Apps reuse the standard Tolgee [REST API](/api). The app-management endpoints:
+
+| Endpoint | Purpose |
+| --- | --- |
+| `POST /v2/organizations/{orgId}/apps/preview` | Validate a manifest without installing |
+| `POST /v2/organizations/{orgId}/apps` | Install (owner only) — returns clientId/secret + webhookSecret |
+| `GET /v2/organizations/{orgId}/apps` | List installs |
+| `POST /v2/organizations/{orgId}/apps/{installId}/refresh` | Re-fetch the manifest |
+| `PATCH /v2/organizations/{orgId}/apps/{installId}/manifest-url` | Repoint at a new manifest URL |
+| `DELETE /v2/organizations/{orgId}/apps/{installId}` | Uninstall |
+| `PATCH /v2/apps/self/manifest-url` | App repoints its own manifest URL (auth: `X-API-Key: tgapps_<clientSecret>`) |
+| `GET /v2/projects/{projectId}/apps` | List installs + per-project enablement |
+| `PUT /v2/projects/{projectId}/apps/{installId}` | Enable for a project |
+| `DELETE /v2/projects/{projectId}/apps/{installId}` | Disable for a project |
+| `POST /v2/projects/{projectId}/apps/{installId}/token` | Mint a user context token |
+
+## CLI
+
+The `tolgee-app` binary (from `@tolgee/apps-dev`) powers local development:
+
+| Command | What it does |
+| --- | --- |
+| `tolgee-app dev` | Boots a Cloudflare quick tunnel to your local app and repoints the install's manifest URL on every restart (skips the tunnel when Tolgee is local). |
+| `tolgee-app register` | One-time install via the browser consent flow. `--pat=tgpat_…` for a headless install. |
+
+Both read `.env.local` (`TOLGEE_URL`, ports) and the install record at `.tolgee-dev/install.json`.
+
+## Frequently asked questions
+
+<Head>
+  <script type="application/ld+json">
+    {JSON.stringify({
+      '@context': 'https://schema.org',
+      '@type': 'FAQPage',
+      mainEntity: [
+        {
+          '@type': 'Question',
+          name: 'How are Tolgee App webhooks authenticated?',
+          acceptedAnswer: {
+            '@type': 'Answer',
+            text: 'Each webhook carries a Tolgee-Signature header containing a timestamp and an HMAC-SHA256 signature over "timestamp.rawBody", keyed with the install’s webhookSecret. Verify it over the raw request bytes; the @tolgee/apps-sdk helpers verifyWebhookSignature and receiveWebhook do this for you.',
+          },
+        },
+        {
+          '@type': 'Question',
+          name: 'What does the Tolgee App context token grant?',
+          acceptedAnswer: {
+            '@type': 'Answer',
+            text: 'The context token is a short-lived JWT (audience tg.app) identifying the install, project, and user. Pass it as a Bearer token to call the Tolgee REST API. Effective permissions are the intersection of the app’s granted scopes and the user’s project permissions.',
+          },
+        },
+        {
+          '@type': 'Question',
+          name: 'How do dynamic decorators work in a Tolgee App?',
+          acceptedAnswer: {
+            '@type': 'Answer',
+            text: 'For action modules marked dynamic: true, Tolgee POSTs the keys and languages currently in view to your manifest decoratorsUrl. You return items referencing a manifest actionKey, optionally overriding url, count, and visibility. The icon and tooltip come from the manifest action.',
+          },
+        },
+        {
+          '@type': 'Question',
+          name: 'Which Tolgee App manifest modules render an iframe?',
+          acceptedAnswer: {
+            '@type': 'Answer',
+            text: 'project-dashboard-page, translation-tools-panel, translation-tools-panel-empty, key-edit-tab, and modal render an iframe from your baseUrl. The action modules (key-action, translation-action, bulk-action, translations-toolbar-action, project-menu-action, shortcut) are triggers configured entirely in the manifest.',
+          },
+        },
+        {
+          '@type': 'Question',
+          name: 'How do I verify a Tolgee webhook signature?',
+          acceptedAnswer: {
+            '@type': 'Answer',
+            text: 'Read the request body as raw text, then call verifyWebhookSignature({ header, rawBody, secret }) from @tolgee/apps-sdk/server, or use receiveWebhook to verify and parse in one step. Never parse JSON before verifying, because the signature is computed over the raw bytes.',
+          },
+        },
+      ],
+    })}
+  </script>
+</Head>
+
+### How are Tolgee App webhooks authenticated?
+
+Each webhook carries a `Tolgee-Signature` header containing a timestamp and an HMAC-SHA256 signature
+over `"timestamp.rawBody"`, keyed with the install's `webhookSecret`. Verify it over the raw request
+bytes; the SDK helpers `verifyWebhookSignature` and `receiveWebhook` do this for you.
+
+### What does the Tolgee App context token grant?
+
+The context token is a short-lived JWT (audience `tg.app`) identifying the install, project, and user.
+Pass it as a Bearer token to call the Tolgee REST API. Effective permissions are the intersection of
+the app's granted scopes and the user's project permissions.
+
+### How do dynamic decorators work in a Tolgee App?
+
+For action modules marked `dynamic: true`, Tolgee POSTs the keys and languages currently in view to
+your manifest `decoratorsUrl`. You return items referencing a manifest `actionKey`, optionally
+overriding `url`, `count`, and `visibility`. The icon and tooltip come from the manifest action.
+
+### Which Tolgee App manifest modules render an iframe?
+
+`project-dashboard-page`, `translation-tools-panel`, `translation-tools-panel-empty`, `key-edit-tab`,
+and `modal` render an iframe from your `baseUrl`. The action modules (`key-action`,
+`translation-action`, `bulk-action`, `translations-toolbar-action`, `project-menu-action`,
+`shortcut`) are triggers configured entirely in the manifest.
+
+### How do I verify a Tolgee webhook signature?
+
+Read the request body as raw text, then call `verifyWebhookSignature({ header, rawBody, secret })` from
+`@tolgee/apps-sdk/server`, or use `receiveWebhook` to verify and parse in one step. Never parse JSON
+before verifying, because the signature is computed over the raw bytes.

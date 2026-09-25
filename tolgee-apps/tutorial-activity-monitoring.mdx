@@ -1,0 +1,219 @@
+---
+id: tutorial-activity-monitoring
+title: "Tutorial: Activity monitoring app"
+sidebar_label: "Tutorial: Activity monitoring"
+description: Build a Tolgee App that records translation edits via webhooks and shows per-cell activity.
+---
+
+This tutorial builds a Tolgee App that monitors translation activity. The app subscribes to
+translation-edit webhooks, stores per-cell edit timestamps, decorates translation cells with a
+recent-edit count badge, and renders an activity sparkline in a panel when a cell is focused. You
+scaffold it with `create-tolgee-app` and verify it against a live project. Tolgee Apps is alpha.
+
+:::warning Experimental
+Tolgee Apps is in **alpha** — APIs may change.
+:::
+
+In this tutorial you'll build an app that:
+
+- **records** every translation edit it hears about via a webhook,
+- **decorates** translation cells with a recent-edit **count badge**, and
+- shows a small **activity sparkline** in a panel when a cell is focused.
+
+It's a trimmed-down version of the [`dev-plugin`](https://github.com/tolgee/tolgee-platform) example —
+link to the full source at the end.
+
+## 1. Scaffold
+
+```bash
+npm create tolgee-app@alpha activity-monitor -- --yes \
+  --modules=translation-tools-panel,translation-action \
+  --scopes=translations.view,keys.view \
+  --webhooks=SET_TRANSLATIONS \
+  --tolgee-url=http://localhost:3000
+cd activity-monitor && npm install
+```
+
+This gives you a `translation-tools-panel` (the iframe panel) and a `translation-action` (the row
+icon), and subscribes to the `SET_TRANSLATIONS` event.
+
+## 2. Record edits (webhook → store)
+
+First a tiny in-memory store keyed by translation id (the real example persists to disk and prunes
+old events):
+
+```ts
+// server/activityStore.ts
+const events = new Map<number, string[]>();
+
+export const store = {
+  record(translationId: number, isoTime: string) {
+    const log = events.get(translationId) ?? [];
+    log.push(isoTime);
+    events.set(translationId, log);
+  },
+  forIds(ids: number[]): Record<number, string[]> {
+    const out: Record<number, string[]> = {};
+    for (const id of ids) out[id] = events.get(id) ?? [];
+    return out;
+  },
+};
+```
+
+The scaffold already generated `server/routes/webhook.ts` with signature verification via
+`receiveWebhook`. Fill in the handler to record the modified translations:
+
+```ts
+// server/routes/webhook.ts (handler body)
+import { onWebhook, receiveWebhook } from '@tolgee/apps-sdk/server';
+import { store } from '../activityStore';
+import { WEBHOOK_SECRET } from '../config';
+
+// inside the POST /webhook handler, after reading the raw body:
+const result = await receiveWebhook({
+  rawBody: raw,
+  signatureHeader: req.header('Tolgee-Signature'),
+  secret: WEBHOOK_SECRET,
+});
+if (!result.ok) return res.status(result.status).json({ error: result.error });
+
+onWebhook(result.payload, 'SET_TRANSLATIONS', (typed) => {
+  const occurredAt = new Date(typed.activityData?.timestamp ?? Date.now()).toISOString();
+  for (const t of typed.activityData?.modifiedEntities?.Translation ?? []) {
+    if (typeof t.entityId === 'number') store.record(t.entityId, occurredAt);
+  }
+});
+res.status(204).end();
+```
+
+`receiveWebhook` verifies the `Tolgee-Signature` over the raw body and parses a typed payload;
+`onWebhook` narrows it to the `SET_TRANSLATIONS` shape. Each modified `Translation` carries its
+`entityId` (the translation id) and `activityData.timestamp`.
+
+## 3. Serve the data to the iframe
+
+Add a small read endpoint the panel can call:
+
+```ts
+// server/routes/state.ts
+import type { Express, Request, Response } from 'express';
+import { store } from '../activityStore';
+
+export const registerStateRoute = (app: Express): void => {
+  app.get('/api/state', (req: Request, res: Response) => {
+    const ids = String(req.query.ids ?? '')
+      .split(',')
+      .map(Number)
+      .filter((n) => Number.isFinite(n));
+    res.json({ events: store.forIds(ids) });
+  });
+};
+```
+
+Register it in `server/index.ts` alongside the generated routes.
+
+## 4. Decorate rows (count badge)
+
+Edit the generated `server/routes/decorators.ts` to return a badge for the `translation-action` you
+declared. Tolgee POSTs the keys/languages in view; you return one item per cell to decorate:
+
+```ts
+// server/routes/decorators.ts
+const handleDecorators = (req, res) => {
+  const { keyIds = [], languageTags = [] } = req.body ?? {};
+  const items = [];
+  for (const keyId of keyIds) {
+    for (const tag of languageTags) {
+      // count = recent edits you have for that cell (demo uses a synthetic value)
+      const count = recentEditCount(keyId, tag);
+      items.push({
+        keyId,
+        languageTag: tag,
+        actionKey: 'show-activity',           // matches your translation-action key
+        count,
+        visibility: count === 0 ? 'on-hover' : 'always',
+      });
+    }
+  }
+  res.json({ items });
+};
+```
+
+The `icon`/`tooltip` come from the manifest action; the response references it by `actionKey` and
+sets the `count` badge and `visibility`. Make sure the action in `manifest.template.json` is
+`"dynamic": true` so Tolgee queries your decorators endpoint.
+
+## 5. Show the sparkline (panel)
+
+The panel iframe subscribes to the focused cell and fetches its activity:
+
+```tsx
+// src/modules/toolsPanel/index.tsx
+import { useEffect, useState } from 'react';
+import { createTolgeeApp, type TolgeeAppSelection } from '@tolgee/apps-sdk/browser';
+
+export default function ToolsPanel() {
+  const [selection, setSelection] = useState<TolgeeAppSelection>({});
+  const [buckets, setBuckets] = useState<number[]>([]);
+
+  useEffect(() => {
+    const app = createTolgeeApp();
+    app.context.then((ctx) => setSelection(ctx.selection));
+    return app.onSelectionChanged(setSelection);
+  }, []);
+
+  useEffect(() => {
+    if (selection.translationId == null) return;
+    fetch(`/api/state?ids=${selection.translationId}`)
+      .then((r) => r.json())
+      .then((data) => setBuckets(bucketByDay(data.events[selection.translationId!] ?? [], 14)));
+  }, [selection.translationId]);
+
+  return (
+    <div style={{ display: 'flex', gap: 2, alignItems: 'flex-end', height: 40 }}>
+      {buckets.map((n, i) => (
+        <div key={i} style={{ width: 6, height: Math.max(2, n * 8), background: '#3b82f6' }} />
+      ))}
+    </div>
+  );
+}
+
+// group ISO timestamps into N day-buckets (most recent last)
+function bucketByDay(times: string[], days: number): number[] {
+  const out = new Array(days).fill(0);
+  const dayMs = 86_400_000;
+  const now = Date.now();
+  for (const iso of times) {
+    const age = Math.floor((now - Date.parse(iso)) / dayMs);
+    if (age >= 0 && age < days) out[days - 1 - age]++;
+  }
+  return out;
+}
+```
+
+`createTolgeeApp().onSelectionChanged` fires whenever the user focuses a different cell. Call
+`app.resize(height)` if your panel content grows.
+
+## 6. Run and try it
+
+```bash
+# terminal 1
+npm run dev
+# terminal 2
+npm run register
+```
+
+Enable **activity-monitor** on a project, edit a translation, then focus that cell — the webhook
+records the edit, the decorator shows a count badge, and the panel renders the sparkline.
+
+:::tip
+Webhooks only fire for projects where the app is **enabled**, and only for the events your manifest
+subscribes to.
+:::
+
+## Full source
+
+This tutorial is based on the `dev-plugin` example app in the Tolgee platform repo
+(`apps/example-apps/dev-plugin`), which additionally persists activity to disk, prunes old events,
+adds a dashboard page and a key-edit audit tab, and serves emoji annotations. Use it as a complete
+reference.
