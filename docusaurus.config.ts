@@ -83,12 +83,22 @@ const config: Config = {
     googleTrackingId: process.env.DOCUSAURUS_GOOGLE_TRACKING_ID,
     cookieYesId: process.env.DOCUSAURUS_COOKIE_YES_ID,
     utmCookieDomain: process.env.DOCUSAURUS_UTM_COOKIE_DOMAIN || 'tolgee.io',
+    // An empty value makes reportMarketingTouch a no-op, so a preview build with nothing configured posts
+    // nothing rather than posting to production.
+    marketingSessionEndpoint:
+      process.env.DOCUSAURUS_MARKETING_SESSION_ENDPOINT ||
+      'https://app.tolgee.io/v2/public/session',
     chatwootToken: process.env.DOCUSAURUS_CHATWOOT_TOKEN,
     hotjarId: process.env.DOCUSAURUS_HOTJAR_ID,
     typebotToken: process.env.DOCOSAURUS_TYPEBOT_TOKEN,
-    posthogToken: process.env.DOCOSAURUS_POSTHOG_TOKEN,
+    // Both spellings, so the deploy environment and this file can be corrected in either order.
+    posthogToken:
+      process.env.DOCUSAURUS_POSTHOG_TOKEN ||
+      process.env.DOCOSAURUS_POSTHOG_TOKEN,
     posthogApiHost:
-      process.env.DOCOSAURUS_POSTHOG_API_HOST || 'https://app.posthog.com',
+      process.env.DOCUSAURUS_POSTHOG_API_HOST ||
+      process.env.DOCOSAURUS_POSTHOG_API_HOST ||
+      'https://app.posthog.com',
     plausibleTrackingDomain: process.env.DOCOSAURUS_PLAUSIBLE_TRACKING_DOMAIN,
   },
   scripts: [
