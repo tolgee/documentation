@@ -35,6 +35,7 @@ module.exports = {
         'projects_and_organizations/import',
         'projects_and_organizations/export',
         'projects_and_organizations/suggestions',
+        'projects_and_organizations/community_translation',
         'projects_and_organizations/organization_settings',
         'projects_and_organizations/llm-providers',
         'projects_and_organizations/content_delivery',
