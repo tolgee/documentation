@@ -16,7 +16,7 @@ The server is maintained by the Tolgee team and listed in the [MCP Registry](htt
 
 ## Which MCP clients are supported?
 
-The Tolgee MCP server uses the standard **streamable-HTTP** MCP transport, so it works with any MCP-compatible client that supports remote HTTP servers and custom request headers. Authentication is always via the `X-API-Key` header.
+The Tolgee MCP server uses the standard **streamable-HTTP** MCP transport, so it works with any MCP-compatible client that supports remote HTTP servers. You authenticate in one of two ways: sign in with your Tolgee account in the browser (OAuth, supported by clients such as Claude Code and VS Code), or pass a Project API Key or Personal Access Token in the `X-API-Key` header. The [setup guide](/platform/integrations/mcp_server/setup) covers both.
 
 ## Available Roles
 
@@ -41,7 +41,7 @@ All three talk to the same underlying Tolgee API but target different workflows.
 |---|---|---|---|
 | **Best for** | Conversational use from AI assistants | Scripts, CI sync/push/pull | Building your own apps & integrations |
 | **Where you use it** | Claude, Cursor, ChatGPT, Windsurf… | Terminal | Your code (any language) |
-| **Auth** | PAK or PAT via `X-API-Key` | PAK or PAT | PAK or PAT |
+| **Auth** | Sign in with your Tolgee account, or PAK/PAT via `X-API-Key` | Sign in with your Tolgee account, or PAK/PAT | PAK or PAT |
 | **Discoverability** | High (AI lists tools and prompts for missing params) | Medium (use `tolgee --help`) | Low (read the OpenAPI spec) |
 | **Determinism** | Lower — natural language can be ambiguous | High | High |
 | **Bulk / batch ops** | ✔ | ✔ | ✔ |

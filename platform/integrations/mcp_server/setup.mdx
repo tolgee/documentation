@@ -5,15 +5,76 @@ sidebar_label: Setup
 description: 'Learn how to connect your AI assistant to Tolgee via the MCP server.'
 ---
 
-To set up the Tolgee MCP server, add an HTTP MCP entry to your AI client's configuration pointing at `https://app.tolgee.io/mcp/developer` (or your self-hosted Tolgee URL), and authenticate with a Tolgee **Project API Key (PAK)** or **Personal Access Token (PAT)** in the `X-API-Key` header. This page covers config snippets for Claude Desktop, Claude Code, Cursor, and any other MCP-compatible client, plus how to verify the connection works.
+To set up the Tolgee MCP server, add an HTTP MCP entry to your AI client's configuration pointing at `https://app.tolgee.io/mcp/developer` (or your self-hosted Tolgee URL). Then authenticate. The easiest way is to **sign in with your Tolgee account** in the browser. The other way is a Tolgee **Project API Key (PAK)** or **Personal Access Token (PAT)** in the `X-API-Key` header. This page covers both, with config snippets for Claude Code, VS Code, Claude Desktop, Cursor, and any other MCP-compatible client, plus how to verify the connection works.
 
 ## Prerequisites
 
 - A Tolgee account (cloud or self-hosted).
-- A **Project API key (PAK)** or a **Personal Access Token (PAT)**, see [API keys and PAT tokens](/platform/account_settings/api_keys_and_pat_tokens).
 - An MCP-compatible AI client.
+- For the API key way only: a **Project API key (PAK)** or a **Personal Access Token (PAT)**, see [API keys and PAT tokens](/platform/account_settings/api_keys_and_pat_tokens).
 
-## How do I connect Tolgee to Claude Desktop / Claude Code?
+## How do I sign in with my Tolgee account?
+
+Add the server without any header. When the client first calls a Tolgee tool, Tolgee answers that a sign-in is
+needed, and the client opens your browser. You log in to Tolgee, choose a project and the permissions, and click
+**Allow**. The client stores a short-lived token and renews it on its own. No key is copied anywhere.
+
+[Sign in with Tolgee (OAuth)](/platform/account_settings/sign_in_with_tolgee) explains the consent screen in detail.
+Two things matter for MCP:
+
+- **Pick "A single project"** if you work on one project. Project tools then run against it, and you do not have to
+  name the project in every prompt. Pick **All projects** if you switch between projects. Then mention the project
+  in your prompt, or ask the assistant to use a specific project ID.
+- **Your AI client shows up as an unverified app.** This is expected. Tolgee has no list of AI clients, so it reads
+  the client's own description and shows its name and web address. Only continue if you started the sign-in from
+  your own client.
+
+**Claude Code**
+
+```bash
+claude mcp add --transport http tolgee https://app.tolgee.io/mcp/developer
+```
+
+Then run `/mcp` inside Claude Code, or `claude mcp login tolgee` in your terminal, and follow the steps in the
+browser. Claude Code 2.1.81 or newer is needed. Older versions report that the server does not support dynamic
+client registration.
+
+**VS Code**
+
+Add the server to your `mcp.json`:
+
+```json
+{
+  "servers": {
+    "tolgee": {
+      "type": "http",
+      "url": "https://app.tolgee.io/mcp/developer"
+    }
+  }
+}
+```
+
+VS Code asks you to sign in the first time it starts the server.
+
+**Other clients**
+
+Any client that supports MCP authorization with Client ID Metadata Documents works the same way: add the server
+without a header and sign in when asked. If your client only supports dynamic client registration, or asks you for a
+client ID and secret, use an API key instead. Tolgee does not offer dynamic client registration.
+
+### Tools that need a Personal Access Token
+
+A sign-in is tied to the project or projects you approved. Tools that work above the project level, such as
+`list_projects` and `create_project`, are refused for a signed-in client with the error `oauth_access_not_allowed`.
+If you need them, connect with a PAT instead. Everything else, from listing keys to batch machine translation, works
+with a sign-in.
+
+## How do I connect with an API key?
+
+Use an API key when your client cannot sign in, when you need the project-level tools above, or for a shared
+or automated setup.
+
+### Claude Desktop / Claude Code
 
 To connect Tolgee to **Claude Desktop**, add the Tolgee MCP server to your `claude_desktop_config.json` using the HTTP transport, then restart Claude Desktop. Authentication uses your Tolgee **Project API Key (PAK)** or **Personal Access Token (PAT)**, passed in the `X-API-Key` header. The server URL is `https://app.tolgee.io/mcp/developer` for Tolgee Cloud.
 
@@ -39,7 +100,7 @@ claude mcp add --transport http tolgee https://app.tolgee.io/mcp/developer \
 ```
 
 
-## How do I connect Tolgee to Cursor?
+### Cursor
 
 Open **Settings > MCP** and add a new server with the HTTP transport pointing to `https://app.tolgee.io/mcp/developer`. Pass your token via the `X-API-Key` header. After saving, Cursor shows a green "connected" indicator next to the Tolgee server in the MCP settings panel.
 
@@ -59,9 +120,9 @@ If you prefer file-based config, add this block to `~/.cursor/mcp.json`:
 }
 ```
 
-## How do I authenticate the Tolgee MCP server?
+### Which key should I use?
 
-The Tolgee MCP server authenticates via the **`X-API-Key`** HTTP header on every request, using either a Tolgee **Project API Key (PAK)** or a **Personal Access Token (PAT)**. A **PAK** is scoped to a single project and avoids passing `projectId` on every call; a **PAT** inherits your full user permissions across every project you can access. Use a PAK for day-to-day work on one project; use a PAT when you need to switch projects or call global tools like `list_projects` or `create_project`.
+With a key, the Tolgee MCP server authenticates via the **`X-API-Key`** HTTP header on every request, using either a Tolgee **Project API Key (PAK)** or a **Personal Access Token (PAT)**. A **PAK** is scoped to a single project and avoids passing `projectId` on every call; a **PAT** inherits your full user permissions across every project you can access. Use a PAK for day-to-day work on one project; use a PAT when you need to switch projects or call global tools like `list_projects` or `create_project`.
 
 See [API keys and PAT tokens](/platform/account_settings/api_keys_and_pat_tokens) for how to create and manage each token type.
 
@@ -75,7 +136,8 @@ After configuring your client, try a read-only command to confirm everything wor
 
 If the connection is successful, the AI assistant will return a list of projects accessible with your token.
 
-If it returns an error, double-check that the API key is valid and has access to at least one project.
+If it returns an error, double-check that the API key is valid and has access to at least one project. For a
+sign-in, check that you approved a project the account can reach.
 
 :::info
 For self-hosted instances, replace `https://app.tolgee.io` with your own Tolgee server URL.
@@ -83,7 +145,7 @@ For self-hosted instances, replace `https://app.tolgee.io` with your own Tolgee 
 
 ## How do I troubleshoot the Tolgee MCP server?
 
-Most Tolgee MCP server problems fall into a few buckets: bad credentials, wrong token type, missing scopes, or the AI client not actually reaching the server. Start every diagnosis by asking your AI assistant *"List my Tolgee projects"*. This calls a read-only global tool and surfaces auth and connection problems without changing any data. The error returned tells you which layer failed.
+Most Tolgee MCP server problems fall into a few buckets: bad credentials, wrong credential type, missing permissions, or the AI client not actually reaching the server. Start every diagnosis by asking your AI assistant *"List my Tolgee projects"*. This calls a read-only global tool and surfaces auth and connection problems without changing any data. The error returned tells you which layer failed.
 
 For non-MCP-specific issues (rate limits, read-only mode, EE features, self-hosted unreachable, etc.) see the [platform FAQs](/platform/faq).
 
@@ -91,17 +153,23 @@ For non-MCP-specific issues (rate limits, read-only mode, EE features, self-host
 
 | Symptom | Likely cause | Fix |
 |---|---|---|
-| `401 Unauthorized` | `X-API-Key` header missing, token invalid, or token revoked. | Re-check the header in your MCP client config. Regenerate the token in Tolgee if needed. |
+| `401 Unauthorized` | `X-API-Key` header missing, token invalid, or token revoked. With a sign-in: the access ended (sign-out, password change, 30 days unused). | Re-check the header in your MCP client config. Regenerate the token in Tolgee if needed. With a sign-in, remove and re-add the server, or run your client's login command again. |
+| Client says the server does not support dynamic client registration | The client is too old for Client ID Metadata Documents. | Update the client (Claude Code 2.1.81 or newer), or connect with an API key. |
+| `oauth_access_not_allowed` | Tool works above the project level (`list_projects`, `create_project`), and you signed in with your account. | Connect with a PAT for this tool. |
+| `user_has_no_project_access` after a sign-in | You signed in for a single project and the tool was called with another one. | Sign in again and pick **All projects**, or that project. |
+| `403 Permission denied` after a sign-in | You unticked the permission on the consent screen, or your own project permission does not include it. | Sign in again with the permission ticked, or ask the project team for the permission. |
 | `PAK_ACCESS_NOT_ALLOWED` | Tool is PAT-only, you used a PAK. | Use a PAT for this specific tool. |
 | `PAT_ACCESS_NOT_ALLOWED` | Tool is PAK-only, you used a PAT. | Use a PAK for this specific tool. |
 | `403 Permission denied` on a scope | The PAK lacks the required scope. | Regenerate the PAK with the missing scope (e.g. add `translations.edit`). |
-| `Project not selected` | Using a PAT on a project-scoped tool without supplying `projectId`. | Mention the project explicitly in the prompt, or switch to a PAK. |
+| `Project not selected` | Using a PAT, or a sign-in for **All projects**, on a project-scoped tool without supplying `projectId`. | Mention the project explicitly in the prompt, switch to a PAK, or sign in again for a single project. |
 | AI never actually calls Tolgee tools | MCP server not connected in the client. | Check the connection indicator (Claude: green check; Cursor: green dot in Settings → MCP). Restart the client after editing config. |
 | Session lost mid-conversation (self-hosted) | Redis not configured + request hit a different load-balanced node. | Configure Redis in your Tolgee deployment so MCP sessions persist across nodes. |
 
 ## Can I use the Tolgee MCP server with self-hosted Tolgee?
 
 Yes, the Tolgee MCP server is built into the Tolgee platform itself, so every self-hosted Tolgee instance exposes it automatically at `/mcp/developer`. To connect, replace the Tolgee Cloud URL in your MCP client config with your own server's base URL. There is no extra deployment, your self-hosted instance just needs to be reachable from wherever your AI client runs.
+
+Signing in with a Tolgee account works on self-hosted too, as long as `tolgee.back-end-url` (or `front-end-url` on a single-origin setup) is set and `tolgee.oauth2.cimd-enabled` was not turned off. [Sign-in for apps (OAuth)](/platform/self_hosting/oauth_sign_in) has the details for the operator.
 
 ```diff
  {

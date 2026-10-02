@@ -61,7 +61,9 @@ apiKey: string;
 
 ### projectId
 
-Project id is necessary if you are using PAT
+Project id is necessary if you are using PAT, or when users connect through the Tolgee Tools browser extension by
+signing in with their Tolgee account (see [in-context on production](../../in_context.mdx#tolgee-browser-plugin)).
+A Project API Key names its own project, so it does not need this option.
 
 ```ts
 projectId: number | string;
