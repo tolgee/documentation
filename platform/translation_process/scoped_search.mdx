@@ -35,17 +35,18 @@ When you search in a specific language, the filter applies even when that langua
 
 The set of recognized qualifiers can grow over time. Language tags made of letters, digits, `_`, `@` and `-` act as qualifiers too, and the reserved qualifiers above take precedence over an identically named language tag. To reach any language unambiguously, use the canonical form `translation:languageTag,term`, for example `translation:de,Warenkorb`. To search for a literal text that looks like a qualifier, wrap it in quotes, for example `"key:foo"`.
 
-## Match the beginning or end of a value
+## Match the beginning, end, or whole value
 
-Use `*` as a wildcard to anchor your search. This is handy when your keys follow naming conventions.
+Use `*` as a wildcard to anchor your search, or `=` to match the whole value. This is handy when your keys follow naming conventions, or when one key name is part of other key names.
 
 | Example | What it matches |
 |---|---|
 | `key:cart*` | Key names starting with "cart" |
 | `key:*_title` | Key names ending with "_title" |
 | `key:cart*title` | Key names starting with "cart" and ending with "title" |
+| `key:=cart.title` | Exactly the key "cart.title", not "my.cart.title" |
 
-Without a wildcard, the term matches anywhere inside the value. Matching is always case-insensitive. `%` and `_` are matched literally, while a literal `*` cannot be matched by a scoped term, so use a plain unqualified search for values containing asterisks. A scoped term may use at most 5 wildcards and 500 characters, and a query at most 20 terms per qualifier; anything beyond these limits is searched as plain text instead.
+Without a wildcard or `=`, the term matches anywhere inside the value. `*` still works after `=`, so `key:=cart*` is the same as `key:cart*`. To find a value that itself starts with `=`, use `key:*=foo*`. Matching is always case-insensitive. `%` and `_` are matched literally, while a literal `*` cannot be matched by a scoped term, so use a plain unqualified search for values containing asterisks. A scoped term may use at most 5 wildcards and 500 characters, and a query at most 20 terms per qualifier; anything beyond these limits is searched as plain text instead.
 
 ## Exclude matching keys
 
@@ -72,4 +73,4 @@ Click the help icon inside the search field to open a quick reference of all qua
 
 ## Use scoped search via the API
 
-The search field syntax is a convenience of the web application. If you integrate with the [API](/api), the same functionality is available as regular query parameters of the translations endpoints, such as `filterKeyPattern`, `filterDescriptionPattern`, `filterNamespacePattern`, and `filterTranslationPattern`, together with their negated `filterNo...` variants. Each accepts the same `*` wildcard syntax and can be used multiple times to combine conditions.
+The search field syntax is a convenience of the web application. If you integrate with the [API](/api), the same functionality is available as regular query parameters of the translations endpoints, such as `filterKeyPattern`, `filterDescriptionPattern`, `filterNamespacePattern`, and `filterTranslationPattern`, together with their negated `filterNo...` variants. Each accepts the same `*` wildcard and `=` exact-match syntax and can be used multiple times to combine conditions.
