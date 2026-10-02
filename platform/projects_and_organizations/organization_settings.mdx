@@ -34,7 +34,7 @@ This page allows you to **select the default permissions for all organization me
   alt="Organization member permissions"
 />
 
-You can also set the permissions granularly. The **granular permissions are a paid feature**; see [Granular permissions](members#advanced-granular-permissions) for more information.
+You can also set the permissions granularly. The **granular permissions are available in advanced plans**; see [Granular permissions](members#advanced-granular-permissions) for more information.
 
 ## View and Manage Subscriptions
 
@@ -42,22 +42,34 @@ This page shows your **organization's subscription information**, including the 
 
 Tolgee is available as [Tolgee Cloud](https://app.tolgee.io/login) (the default, fully managed option) or as a [self-hosted](/platform/self_hosting/getting_started) installation.
 
-<ScreenshotWrapper
-  src="/img/docs/platform/subscriptions.webp"
-  alt="Tolgee subscriptions"
-/>
+The usage shown on this page is the **total usage of all projects in your organization**, covering
 
-The usage shown on this page is the **total usage of all projects in your organization**, covering:
-
-- **Used keys** – The total number of keys used in your organization, regardless of how many languages they are translated to.
-- **Used seats** – The total number of users who are part of your organization or any project owned by it.
-- **Used MT credits** – The number of Machine Translation credits used since the last monthly refill.
+- **Used words** – The number of [hosted words](#hosted-words) stored in your organization.
+- **Used seats** – The number of users who are part of your organization or any project owned by it. Seats are unlimited in advanced plans. The Free plan includes 3 seats.
+- **Used MT credits** – The number of [Machine Translation credits](machine-translation-settings) used since the last monthly refill.
 - **Next credits refill** – The date when your MT credits will be refilled.
+
+### Hosted words
+
+Tolgee plans are priced by **hosted words**, not by keys. You can create as many keys and projects as you need, and what counts is how much text you store.
+
+A hosted word is each word in your base language texts and in every translation. **Each language counts separately.** For example, the key `signin.button` has the base text "Sign in" (2 words) and the German translation "Anmelden" (1 word). In total, this key uses 3 hosted words. Adding a new language or importing existing translations therefore increases your hosted words.
+
+If you use [branching](/platform/branching/overview), each key counts only once across all branches. For each translation, the longest version counts, so if a branch has a longer text than `main`, the branch version is counted.
+
+For the current plans and the number of hosted words included in each, see [pricing](https://tolgee.io/pricing). The Free plan includes 30,000 hosted words.
 
 ### What happens when you reach a limit?
 
-- **Free plan** – Limits are enforced per resource: you cannot add new users when the seat limit is reached, cannot add new keys when the key limit is reached, and cannot use machine translation when MT credits are exhausted. Everything else continues to work. Upgrade your plan to lift these limits.
-- **Paid plans** – All self-served paid plans are pay-as-you-go. If you exceed your plan's included allowance, the additional usage continues uninterrupted and is invoiced at the end of the month according to the [current pricing](https://tolgee.io/pricing).
+Imagine your organization is on a 50,000 word tier and you import a new language that brings you to 55,000 words. The import goes through, and your plan moves to the next tier at the end of the billing period, so your work isn't interrupted.
+
+- **Hosted words** – Advanced plans come in word tiers. With `Auto-upgrade word tier` turned on (the default), Tolgee lets you add or import content above your tier's limit. About 24 hours later, you get an email saying your subscription will move to the higher tier. The upgrade happens at the end of your current monthly billing period, based on your word count at that moment, so if you delete content and get back under the limit before then, nothing changes. On monthly billing, the new tier's price applies from your next renewal. On yearly billing, the price difference is prorated. There is no pay-as-you-go overage for hosted words. If you turn auto-upgrade off, you stay on your tier and can't add more content once you reach the limit.
+- **MT credits** – In advanced plans, translations continue if you use up your included MT credits, and the extra credits are billed with your next invoice according to the [current pricing](https://tolgee.io/pricing).
+- **Free plan** – You can't add content above 30,000 hosted words, add more than 3 seats, or use machine translation when MT credits run out. Everything else continues to work. Upgrade your plan to lift these limits.
+
+:::info
+If your organization is on a **legacy plan**, your plan may still be limited by keys, strings, or seats, and extra usage is billed as pay-as-you-go. You can keep using your legacy plan, or switch to a current plan on this page to get unlimited keys and seats.
+:::
 
 ## Access Invoices and Billing History
 
