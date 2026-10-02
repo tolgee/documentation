@@ -37,25 +37,72 @@ If you want to enable in-context on production build, there are two options:
 
 ### 1. Tolgee Chrome/Firefox plugin {#tolgee-browser-plugin}
 
-To enable in-context translating on production you can pass `apiKey` and `apiUrl` through Tolgee Tools for [Google Chrome](https://chrome.google.com/webstore/detail/tolgee-tools/hacnbapajkkfohnonhbmegojnddagfnj) or [Mozilla Firefox](https://addons.mozilla.org/en-US/firefox/addon/tolgee-tools/), that way Tolgee will switch to development mode (plugin will also supply `@tolgee/ui` package automatically).
+The Tolgee Tools extension for [Google Chrome](https://chrome.google.com/webstore/detail/tolgee-tools/hacnbapajkkfohnonhbmegojnddagfnj) or [Mozilla Firefox](https://addons.mozilla.org/en-US/firefox/addon/tolgee-tools/) turns in-context translating on for a production site. The page itself ships no credential. The extension supplies one in one of two ways, and the SDK switches to development mode (the extension also loads the in-context editor UI for you).
 
 :::warning
 Your `apiKey` should stay private and never be included in Tolgee configuration on production.
 
 - *Local development*: You can pass apiKey directly in your Tolgee configuration.
-- *Production*: Always supply your API key through the Tolgee Tools browser extension instead.
+- *Production*: Sign in with your Tolgee account in the Tolgee Tools extension, or apply an API key there.
 :::
+
+#### Sign in with your Tolgee account
+
+This is the recommended way. The user signs in with their Tolgee account, Tolgee shows a consent screen, and the
+extension keeps a short-lived token. The page never sees it.
 
 1.  Install Tolgee Tools
 2.  Go to the production version of your website
-3.  Click on Tolgee Tools extension and apply your API key (you might need to reload if you just installed the plugin)
+3.  Click on Tolgee Tools extension and choose **Connect to Tolgee**. Approve the access on the Tolgee consent screen.
 4.  In-context translating should work
+
+<div style={{ display: 'grid', gridTemplateColumns: '800fr 1021fr', columnGap: 24, alignItems: 'start', maxWidth: 900 }}>
+  <div style={{ display: 'grid' }}>
+    <ScreenshotWrapper
+      src="/img/docs/platform/oauth/tolgee-tools-sign-in.webp"
+      alt="The Tolgee Tools popup before signing in, with the Connect to Tolgee button"
+    />
+    <ScreenshotWrapper
+      src="/img/docs/platform/oauth/tolgee-tools-connected.webp"
+      alt="The Tolgee Tools popup after signing in: the account, the project and the in-context editing switch"
+    />
+  </div>
+  <ScreenshotWrapper
+    src="/img/docs/platform/oauth/consent-screen-browser-extension.webp"
+    alt="The Tolgee consent screen the Connect to Tolgee button opens, with the project pre-selected from the page"
+  />
+</div>
+
+What your site has to provide:
+
+- `projectId` in the Tolgee configuration. The sign-in is bound to one project, and the extension reads which one from
+  the page. See the [`projectId` option](./api/core_package/options.mdx#projectid).
+- `@tolgee/web` **7.2.0 or newer**. On an older SDK the extension asks for an update and offers the API key way instead.
+- `apiUrl` in the configuration if you use a self-hosted Tolgee. Otherwise the user fills it in the extension.
+
+How it works: the extension holds the token in its own service worker. The SDK sends every Tolgee API request to the
+extension, which adds the token, performs the request and returns the response. Screenshots are captured and uploaded
+by the extension too. A page can only reach the project it declares, on the server the user signed in to. The sign-in
+stays valid until the user signs out in the extension, or until it goes 30 days without use.
+
+If the user has no edit rights on the declared project, the consent screen says so and in-context editing does not
+work on that site for that account. The token still cannot do more than the user is allowed to do.
+
+Read [Sign in with Tolgee (OAuth)](/platform/account_settings/sign_in_with_tolgee) for the consent screen from the
+user's side.
+
+#### Apply an API key
+
+The older way still works. Click on Tolgee Tools extension and apply a Project API Key. With an SDK that supports
+the sign-in, the key stays in the extension as well, and requests go through it the same way. On an older SDK the
+key is written into the page's session storage and the page sends its own requests with it.
 
 > You can also check [Step-by-step tutorial](https://tolgee.io/blog/in-context-production)
 
 #### A few notes about Tolgee Tools plugin
 
-- You can turn off development mode by switching "Applied" toggle, which will turn it off, but stores credentials locally so you don't have to fill it again next time.
+- The in-context switch in the popup only turns alt+click editing on or off for the current page. It does not end the
+  sign-in. Use **Sign out** for that.
 - Plugin will supply `apiUrl` from Tolgee configuration if it's present (if not you can fill it manually).
 - Plugin changes its icon to pink if Tolgee is present on the page or if credentials are set.
 

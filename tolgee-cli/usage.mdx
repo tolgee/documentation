@@ -12,10 +12,12 @@ These options are available on all commands. They can be specified during the co
 in a [per-project configuration](./project-configuration.mdx).
 
 - `--api-url <URL>` (short: `-au`) – URL of the Tolgee server. Useful for [self-hosted installations](/platform/self_hosting/getting_started). Can be [configured per-project](./project-configuration.mdx).
-- `--api-key <PAT/PAK>` (short: `-ak`) – **Required**. API Key. Can be a [Personal Access Token or a Project API Key](/platform/account_settings/api_keys_and_pat_tokens).
-  May be omitted if you are [logged in](#logging-in). You can also set it via the `TOLGEE_API_KEY` environment variable (recommended for CI server use).
-- `--project-id <ID>` (short: `-p`) – **Required**. Project ID on the Tolgee server. May be omitted if you explicitly
-  specified a Project API Key via `--api-key` or `TOLGEE_API_KEY`. Can be [configured per-project](./project-configuration.mdx).
+- `--api-key <PAT/PAK>` (short: `-ak`) – API Key. Can be a [Personal Access Token or a Project API Key](/platform/account_settings/api_keys_and_pat_tokens).
+  Not needed if you are [logged in](#logging-in). You can also set it via the `TOLGEE_API_KEY` environment variable (recommended for CI server use).
+- `--project-id <ID>` (short: `-p`) – Project ID on the Tolgee server. Not needed if your login or Project API Key
+  already names the project. Can be [configured per-project](./project-configuration.mdx).
+- `--extra-header <name: value>` (short: `-H`) – An extra HTTP header for every request, for example a gateway
+  credential. Repeat it for more headers. The CLI sends it to the sign-in endpoints too.
 - `--branch <name>` (short: `-b`) – Project branch. Use when [branching](./branching.mdx) is enabled for the project. Can be set via the `TOLGEE_BRANCH` environment variable or [configured per-project](./project-configuration.mdx#branch).
 - `--format <format>` - Localization files format. [See all possible formats](./project-configuration.mdx#format)
 - `--extractor <extractor>` (short: `-e`) - A path to a custom extractor to use instead of the default one.
@@ -27,27 +29,94 @@ in a [per-project configuration](./project-configuration.mdx).
 
 ## Logging in
 
-To interact with the Tolgee server, you need to authenticate yourself. For security reasons, the CLI doesn't use your
-username/password combo, but rather Personal Access Tokens, or Project API Keys. You can learn more about these
-on the [Tolgee Platform docs](/platform/account_settings/api_keys_and_pat_tokens).
+To talk to the Tolgee server, the CLI needs a credential. There are two ways to get one:
 
-To make your life easier, the CLI allows you to store authentication tokens via `tolgee login` (and remove them via
-`tolgee logout`), so you don't have to specify your authentication tokens every single time.
+- **Sign in through your browser.** Run `tolgee login` with no arguments. Nothing to copy. This is the way to go on
+  your own machine.
+- **Use an API key.** Run `tolgee login <API key>` with a
+  [Personal Access Token or a Project API Key](/platform/account_settings/api_keys_and_pat_tokens), or pass the key
+  with `--api-key` or `TOLGEE_API_KEY`. This is the way to go in CI and on machines without a browser.
 
-### Saving credentials
+The CLI stores what you give it, so you do not repeat it on every command. `tolgee logout` removes it again.
 
-To save your credentials, you simply need to run `tolgee login <token>`. The CLI will figure out what type of token it
-is and save it appropriately. You can save multiple Project API Keys for different projects.
+### Signing in through the browser
+
+```sh
+tolgee login
+```
+
+The CLI opens your browser on the Tolgee consent screen. You log in if you are not already, choose a project and the
+permissions, and click **Allow**. The browser is sent back to a local address the CLI is listening on, and the CLI
+prints `Logged in as <name> on app.tolgee.io`.
+
+The CLI asks for the permissions its commands need: edit translations and their state, create, edit and delete keys,
+and manage branches. It never gets more than your account has. The access token is renewed in the background. After 30
+days without use the login ends by itself.
+
+A few things to know:
+
+- **The project comes from the approval.** If you pick **A single project** on the consent screen, the CLI uses that
+  project. You need no `--project-id` and no `projectId` in `.tolgeerc`, the same way a Project API Key names its own
+  project. A command that names another project is refused, and the message tells you which project the login covers.
+  If you pick **All projects**, name the project as before. If `.tolgeerc` already has a `projectId`, the consent
+  screen pre-selects it.
+- **The browser must reach your machine.** The sign-in ends with a redirect to `127.0.0.1`. With `--no-browser` the
+  CLI prints the URL instead of opening a browser, which helps on a desktop where `open` does not work. The browser
+  you paste it into still has to run on the same machine, or reach it through port forwarding.
+- **No browser in CI.** When the CLI detects a CI environment, `tolgee login` refuses to start a browser sign-in and
+  points you at API keys. If someone really can approve the sign-in from there, set `TOLGEE_BROWSER_LOGIN_IN_CI=1`.
+- **Older servers.** Browser sign-in needs a Tolgee server that runs the authorization server. Against an older
+  server, or one where the operator turned it off, the CLI says so and points you at API keys.
+- **Signing in again** replaces the previous browser login for that server and ends it on the server side.
+- **A key wins over the login.** If `TOLGEE_API_KEY` or `apiKey` in `.tolgeerc` is set, every command uses that key,
+  and `tolgee login` warns you about it.
+- **`pull --watch`** reconnects with a fresh token when the old one expires. When the login is ended on the server, the
+  watch stops with a message that says so.
+
+Read [Sign in with Tolgee (OAuth)](/platform/account_settings/sign_in_with_tolgee) for what the consent screen shows and
+how long the access lasts.
+
+### Saving an API key
+
+```sh
+tolgee login <API key>
+```
+
+The CLI will figure out what type of key it is and save it. You can save several Project API Keys for different
+projects next to each other, and a Personal Access Token or a browser login for the whole server.
+
+### What you are logged in as
+
+```sh
+tolgee login --list
+```
+
+Lists the browser logins and keys stored for every server.
+
+### Logging out
+
+```sh
+tolgee logout             # ends the browser login on the server, and drops every credential for this server
+tolgee logout --project   # drops only the Project API Key stored for the current project
+tolgee logout --all       # the same as logout, for every server you are logged in to
+```
 
 :::info
-Here's how the CLI attempts to fetch the authentication token, from highest priority to lowest:
+Here's how the CLI picks the credential for a command, from highest priority to lowest:
 
 1. `--api-key` option
-2. `TOLGEE_API_KEY` environment variable
-3. Personal Access Token saved in credentials store
-4. Project API Key saved in credentials store
+2. `TOLGEE_API_KEY` environment variable, or `apiKey` in `.tolgeerc`
+3. A browser login or Personal Access Token saved for the server. A browser login approved for a single project is
+   used only for that project. For another project, the CLI falls back to a saved Project API Key for it.
+4. Project API Key saved for the project
 
 :::
+
+### Where credentials are stored
+
+The CLI keeps them in `authentication.json` in its config directory: `~/.config/tolgee` on Linux,
+`~/Library/Application Support/tolgee` on macOS and `%APPDATA%\tolgee` on Windows. Set `TOLGEE_CLI_CONFIG_PATH`
+to use another directory. On Linux and macOS the file is readable by your user only.
 
 ### Using a self-hosted instance
 
@@ -55,9 +124,11 @@ If you are not using Tolgee Cloud, but you are running a [self-hosted instance](
 file for a whole project, or specify it when running commands via the `--api-url` flag.
 
 When running `tolgee login` in a project configured to use a different instance, Tolgee will automatically attempt to
-connect to this instance instead of Tolgee Cloud.
+connect to this instance instead of Tolgee Cloud. Browser sign-in works against a self-hosted server as soon as the
+server is configured for it. See [Sign-in for apps (OAuth)](/platform/self_hosting/oauth_sign_in).
 
 :::info
-You can be logged into multiple Tolgee instances at the same time. Tokens are stored separately for each instance, so
-you don't have to worry about conflicts.
+You can be logged into multiple Tolgee instances at the same time. Credentials are stored separately for each instance,
+so you don't have to worry about conflicts. The store is keyed by hostname, so two instances on one hostname (for
+example two local ports) cannot both stay signed in.
 :::

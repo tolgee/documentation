@@ -109,3 +109,8 @@ You can influence the behavior of this plugin through [`observer options`](../co
 ## `BrowserExtensionPlugin`
 
 Plugin which connects Tolgee to [Tolgee Tools browser extension](https://chrome.google.com/webstore/detail/tolgee-tools/hacnbapajkkfohnonhbmegojnddagfnj). This plugin is automatically included in Tolgee, if you import it from `@tolgee/web`.
+
+Since `@tolgee/web` 7.2.0 the plugin speaks the extension's protocol version 2. When the user signs in with their
+Tolgee account in the extension, the plugin routes the SDK's API requests through the extension instead of sending
+them with an API key. The page never receives the token. This needs `projectId` in the Tolgee options. See
+[in-context on production](../../in_context.mdx#tolgee-browser-plugin).

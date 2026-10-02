@@ -50,6 +50,10 @@ All the paths in the config are relative to the config file location.
 Integer or integer string (i.e. 4242 or "4242"). ID of the project on the Tolgee server.
 It is shown when you first add an API key, but you can also easily find it in the URL: `app.tolgee.io/projects/{projectId}`.
 
+You can leave it out when your [browser login](./usage.mdx#signing-in-through-the-browser) was approved for a single
+project, or when you use a Project API Key. Both name their own project. When it is set, `tolgee login` pre-selects
+this project on the consent screen.
+
 By default, Tolgee uses its own internal extractor which looks for use of the [Tolgee SDK](/js-sdk).
 
 ### `apiUrl`
