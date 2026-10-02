@@ -177,6 +177,7 @@ module.exports = {
       items: [
         'account_settings/password_and_2fa',
         'account_settings/api_keys_and_pat_tokens',
+        'account_settings/sign_in_with_tolgee',
       ],
     },
     {
@@ -207,6 +208,7 @@ module.exports = {
         'self_hosting/running_on_azure',
         'self_hosting/licensing',
         'self_hosting/configuration',
+        'self_hosting/oauth_sign_in',
         'self_hosting/slack_integration_self_hosted',
       ],
     },
