@@ -17,10 +17,11 @@ function Home() {
         {/* Using global default OG image - create /static/img/og-images/homepage.png for custom homepage image */}
         <script type="application/ld+json">{JSON.stringify(baseSchema)}</script>
       </Head>
-      <DecoratedLayout
-        title={baseSchema.slogan}
-        description={baseSchema.description}
-      >
+      <DecoratedLayout description={baseSchema.description}>
+        <Head>
+          <title>Tolgee Docs</title>
+          <meta property="og:title" content="Tolgee Docs" />
+        </Head>
         <div className="text-home-text pt-[60px]">
           <div className="max-w-[1200px] mx-auto px-6 md:px-12 py-[40px] md:py-[120px]">
             <div className="grid gap-10">
