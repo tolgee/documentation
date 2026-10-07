@@ -22,6 +22,11 @@ const COOKIE_LIFETIME_SECONDS = 90 * 24 * 3600;
  * to merge this id into the account at signup. The webapp carries the same project token and calls
  * `posthog.identify(userId)`, which is why the cookie value is prefixed rather than used raw, so an
  * anonymous id can never equal a logged-in customer's own distinct id.
+ *
+ * `person_profiles` is `'always'` rather than the cheaper `'identified_only'` because under
+ * `'identified_only'` an anonymous visitor has no person record, so that merge write fails silently and
+ * posthog-js clears the id without retrying. The cost is PostHog's person-profiles rate on every event plus
+ * a person per visitor, both of which sit inside the 1M free allowances at current traffic.
  */
 export function initPosthog({
   token,
@@ -35,7 +40,7 @@ export function initPosthog({
   const sessionId = readCookie(SESSION_COOKIE) || mintSessionCookie(cookieRoot);
   posthog.init(token, {
     api_host: host,
-    person_profiles: 'identified_only',
+    person_profiles: 'always',
     capture_pageview: false,
     persistence: 'memory',
     bootstrap: sessionId ? { distinctID: `tgs_${sessionId}` } : undefined,
