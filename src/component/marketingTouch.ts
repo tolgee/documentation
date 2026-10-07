@@ -34,10 +34,8 @@ function isExternalArrival(referrer: string, root: string): boolean {
 }
 
 /**
- * An arrival is new when this tab has not seen this referrer before, or when it carries campaign params it
- * has not seen before. Two keys, not one combined key: `document.referrer` survives a client-side route
- * change but `location.search` does not, so any fingerprint that mixes them re-reports one visit as two the
- * moment the visitor clicks an internal link.
+ * Two keys rather than one combined one: `document.referrer` survives a client-side route change but
+ * `location.search` does not, so a fingerprint mixing them re-reports one visit on the first internal click.
  */
 function alreadyReported(referrer: string, campaign: string): boolean {
   try {
@@ -59,17 +57,9 @@ function alreadyReported(referrer: string, campaign: string): boolean {
   return false;
 }
 
-/**
- * The campaign half of the arrival fingerprint: the campaign params only, never the whole query string.
- * `location.search` changes on the first internal navigation while `document.referrer` does not, so
- * fingerprinting the whole search re-reports one visit as two. Fingerprinting the referrer alone has the
- * opposite failure: a paid click landing in a tab that already saw an organic arrival from the same
- * referrer would be dropped, which would lose gclid capture that today's snippet gets right.
- */
 function campaignFingerprint(params: URLSearchParams): string {
   const values = CAMPAIGN_PARAMS.map((key) => params.get(key) ?? '');
-  // Empty string when the URL carries no campaign at all. Joining six empty values would give "|||||",
-  // which is a distinct fingerprint rather than the "no campaign" sentinel `alreadyReported` tests for.
+  // Empty string, not "|||||": `alreadyReported` tests for "" as the no-campaign sentinel.
   return values.some((value) => value !== '') ? values.join('|') : '';
 }
 
@@ -81,9 +71,8 @@ function short(value: string | null, max: number): string | undefined {
 }
 
 /**
- * The distinct id is passed in, never read off `window`. This site loads posthog-js as an ES module and
- * nothing assigns `window.posthog`, so reading the global here would leave `p` absent on every docs arrival
- * forever. The Framer site is the opposite case: its HTML snippet loader does create the global.
+ * `distinctId` is passed in rather than read off `window`: this site loads posthog-js as an ES module and
+ * never assigns the global, so reading it here would leave `p` absent on every docs arrival.
  */
 export function reportMarketingTouch(
   endpoint: string,

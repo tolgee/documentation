@@ -18,8 +18,7 @@ export const MarketingTouch = () => {
   useEffect(() => {
     let distinctId: string | undefined;
     try {
-      // Wrapped: get_distinct_id throws before init, and LayoutContent initialises posthog in its own
-      // effect, so the ordering between the two is not guaranteed.
+      // LayoutContent initialises posthog in its own effect, so this can run first and throw.
       distinctId = posthog.get_distinct_id() || undefined;
     } catch (e) {
       distinctId = undefined;
