@@ -184,6 +184,7 @@ module.exports = {
       type: 'category',
       items: [
         'sso/sso_getting_started',
+        'sso/sso_migrating_existing_users',
         'sso/sso_okta',
         'sso/sso_keycloak',
         {

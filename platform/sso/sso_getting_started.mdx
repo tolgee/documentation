@@ -53,11 +53,11 @@ After you have registered and configured the OIDC application, you need to provi
             description: 'Key used to authenticate the application',
         },
         {
-            item: 'Authorization URL',
+            item: 'Authorization Endpoint',
             description: 'URL to redirect users for authentication',
         },
         {
-            item: 'Token URL',
+            item: 'Token Endpoint',
             description: 'URL for exchanging authorization code for tokens',
         },
     ]}
@@ -66,6 +66,12 @@ After you have registered and configured the OIDC application, you need to provi
 
 After you have provided this information, click the **Save** button. You can now log in to your Tolgee account using SSO.
 For this purpose, you can use the **Login with SSO** button on the login page and provide your organization's domain name.
+
+The same form also carries the `Enforce SSO for Organization Users` switch, which decides what happens to accounts that
+existed before you set SSO up. Leave it off and those accounts keep working as before, turn it on and the people using
+them have to move to SSO before they can work in Tolgee again. See
+[Migrating Existing Users to SSO](/platform/sso/sso_migrating_existing_users) for both paths and for what migration
+changes about an account.
 
 ## Guides for popular Identity Providers
 - [Okta](/platform/sso/sso_okta)
