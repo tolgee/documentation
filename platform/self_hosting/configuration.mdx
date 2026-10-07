@@ -1220,6 +1220,20 @@ Per-endpoint and auth-related rate limits are fixed and cannot be configured.
 
   Size, in milliseconds, of the time window for IP-based limiting. (default: `300000` = 5 minutes)
 
+- ##### `lock-wait-ms` \{#tolgee-rate-limits-_-lock-wait-ms}
+
+  Maximum time, in milliseconds, a request waits for the internal per-bucket lock before it is
+  rejected with a `429` response. This prevents requests from queueing on a heavily contended
+  rate limit bucket and exhausting the server's worker threads. (default: `500`)
+
+- ##### `max-concurrent-per-bucket` \{#tolgee-rate-limits-_-max-concurrent-per-bucket}
+
+  Maximum number of requests processed concurrently (per node) for a single rate limit bucket.
+  Requests above this cap are rejected immediately with a `429` response, without waiting for
+  the bucket lock. This protects the server's worker threads when a single client floods the
+  API, while leaving room for legitimate bursts (e.g. an app fetching many namespaces in
+  parallel on startup). Set to 0 to disable the cap. (default: `50`)
+
 - ##### `max-strikes-before-block` \{#tolgee-rate-limits-_-max-strikes-before-block}
 
   Number of rate limit violations before the server stops responding to the client.
@@ -1647,6 +1661,8 @@ tolgee:
     global-limits: true
     ip-request-limit: 20000
     ip-request-window: 300000
+    lock-wait-ms: 500
+    max-concurrent-per-bucket: 50
     max-strikes-before-block: 3
     strike-reset-window-ms: 60000
     translation-request-limit: 100
@@ -2893,6 +2909,20 @@ Per-endpoint and auth-related rate limits are fixed and cannot be configured.
 
   Size, in milliseconds, of the time window for IP-based limiting. (default: `300000` = 5 minutes)
 
+- ##### `LOCK_WAIT_MS` \{#tolgee-rate-limits-_-lock-wait-ms}
+
+  Maximum time, in milliseconds, a request waits for the internal per-bucket lock before it is
+  rejected with a `429` response. This prevents requests from queueing on a heavily contended
+  rate limit bucket and exhausting the server's worker threads. (default: `500`)
+
+- ##### `MAX_CONCURRENT_PER_BUCKET` \{#tolgee-rate-limits-_-max-concurrent-per-bucket}
+
+  Maximum number of requests processed concurrently (per node) for a single rate limit bucket.
+  Requests above this cap are rejected immediately with a `429` response, without waiting for
+  the bucket lock. This protects the server's worker threads when a single client floods the
+  API, while leaving room for legitimate bursts (e.g. an app fetching many namespaces in
+  parallel on startup). Set to 0 to disable the cap. (default: `50`)
+
 - ##### `MAX_STRIKES_BEFORE_BLOCK` \{#tolgee-rate-limits-_-max-strikes-before-block}
 
   Number of rate limit violations before the server stops responding to the client.
@@ -3279,6 +3309,8 @@ TOLGEE_RATE_LIMITS_EXPORT_REQUEST_WINDOW=300000
 TOLGEE_RATE_LIMITS_GLOBAL_LIMITS=true
 TOLGEE_RATE_LIMITS_IP_REQUEST_LIMIT=20000
 TOLGEE_RATE_LIMITS_IP_REQUEST_WINDOW=300000
+TOLGEE_RATE_LIMITS_LOCK_WAIT_MS=500
+TOLGEE_RATE_LIMITS_MAX_CONCURRENT_PER_BUCKET=50
 TOLGEE_RATE_LIMITS_MAX_STRIKES_BEFORE_BLOCK=3
 TOLGEE_RATE_LIMITS_STRIKE_RESET_WINDOW_MS=60000
 TOLGEE_RATE_LIMITS_TRANSLATION_REQUEST_LIMIT=100
@@ -4518,6 +4550,20 @@ Per-endpoint and auth-related rate limits are fixed and cannot be configured.
 
   Size, in milliseconds, of the time window for IP-based limiting. (default: `300000` = 5 minutes)
 
+- ##### `lock-wait-ms` \{#tolgee-rate-limits-_-lock-wait-ms}
+
+  Maximum time, in milliseconds, a request waits for the internal per-bucket lock before it is
+  rejected with a `429` response. This prevents requests from queueing on a heavily contended
+  rate limit bucket and exhausting the server's worker threads. (default: `500`)
+
+- ##### `max-concurrent-per-bucket` \{#tolgee-rate-limits-_-max-concurrent-per-bucket}
+
+  Maximum number of requests processed concurrently (per node) for a single rate limit bucket.
+  Requests above this cap are rejected immediately with a `429` response, without waiting for
+  the bucket lock. This protects the server's worker threads when a single client floods the
+  API, while leaving room for legitimate bursts (e.g. an app fetching many namespaces in
+  parallel on startup). Set to 0 to disable the cap. (default: `50`)
+
 - ##### `max-strikes-before-block` \{#tolgee-rate-limits-_-max-strikes-before-block}
 
   Number of rate limit violations before the server stops responding to the client.
@@ -4904,6 +4950,8 @@ tolgee.rate-limits.export-request-window = 300000
 tolgee.rate-limits.global-limits = true
 tolgee.rate-limits.ip-request-limit = 20000
 tolgee.rate-limits.ip-request-window = 300000
+tolgee.rate-limits.lock-wait-ms = 500
+tolgee.rate-limits.max-concurrent-per-bucket = 50
 tolgee.rate-limits.max-strikes-before-block = 3
 tolgee.rate-limits.strike-reset-window-ms = 60000
 tolgee.rate-limits.translation-request-limit = 100
