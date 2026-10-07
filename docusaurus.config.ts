@@ -90,14 +90,9 @@ const config: Config = {
     chatwootToken: process.env.DOCUSAURUS_CHATWOOT_TOKEN,
     hotjarId: process.env.DOCUSAURUS_HOTJAR_ID,
     typebotToken: process.env.DOCOSAURUS_TYPEBOT_TOKEN,
-    // Both spellings, so the deploy environment and this file can be corrected in either order.
-    posthogToken:
-      process.env.DOCUSAURUS_POSTHOG_TOKEN ||
-      process.env.DOCOSAURUS_POSTHOG_TOKEN,
+    posthogToken: process.env.DOCOSAURUS_POSTHOG_TOKEN,
     posthogApiHost:
-      process.env.DOCUSAURUS_POSTHOG_API_HOST ||
-      process.env.DOCOSAURUS_POSTHOG_API_HOST ||
-      'https://app.posthog.com',
+      process.env.DOCOSAURUS_POSTHOG_API_HOST || 'https://app.posthog.com',
     plausibleTrackingDomain: process.env.DOCOSAURUS_PLAUSIBLE_TRACKING_DOMAIN,
   },
   scripts: [

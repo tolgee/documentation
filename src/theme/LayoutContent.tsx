@@ -66,11 +66,6 @@ export const LayoutContent = ({ children }) => {
     const posthogApiHost = siteConfig.customFields.posthogApiHost as
       | string
       | undefined;
-    // Calling init with an undefined token loads nothing and leaves get_distinct_id() meaningless, which
-    // every downstream check then passes vacuously.
-    if (!posthogToken || !posthogApiHost) {
-      return;
-    }
     initPosthog({ token: posthogToken, host: posthogApiHost });
   }, []);
 
