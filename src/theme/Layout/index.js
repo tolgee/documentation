@@ -13,6 +13,7 @@ import styles from './styles.module.css';
 
 import { LayoutContent } from '../LayoutContent';
 import { UtmToCookie } from '../../component/UtmToCookie';
+import { MarketingTouch } from '../../component/MarketingTouchMount';
 
 export default function Layout(props) {
   const {
@@ -53,6 +54,7 @@ export default function Layout(props) {
         {!noFooter && <Footer />}
       </LayoutProvider>
       <UtmToCookie />
+      <MarketingTouch />
     </div>
   );
 }
