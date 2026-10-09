@@ -2,35 +2,90 @@
 id: export
 title: Export Translation Files
 sidebar_label: Export Translation Files
-description: Translations can be exported from Tolgee. You can currently export translations in two formats (JSON and XLIFF)
+description: Export translations from Tolgee in many file formats, and choose exactly which languages, translation states, namespaces and tagged keys end up in the files.
 image: /img/og-images/platform.png
 ---
 
 import { ScreenshotWrapper } from '../shared/_ScreenshotWrapper';
 
-Translations can be exported from Tolgee. You can currently export translations in [many different formats](/platform/supported_formats), and you can also export only specific translations, e.g., only the ones that are not translated yet.
+Your app needs translation files, but rarely all of them at once. A release build should not ship strings that are still being written, a mobile team only needs its own namespace, and a translation agency may need just the keys for the next release. Tolgee lets you export translations in [many different formats](/platform/supported_formats) and choose exactly which translations end up in the exported files.
 
-## Export Translations from Tolgee Dashboard
+## Export translations from the Tolgee dashboard
 
-To export translations from Tolgee, select project, and then choose the "Export" item from the sidebar.
+To export translations, open your project and select `Export` in the sidebar.
 
-![img](/img/docs/platform/project_menu_export.webp)
+<ScreenshotWrapper
+  src="/img/docs/platform/export/export-menu-item.webp"
+  alt="Export item in the project sidebar"
+/>
 
-Then you can choose the following options:
+At the top of the export page, choose the `Languages` you want to export (all languages are selected by default) and the `Format` of the exported files. Then click `Export` and the file is downloaded. When you export more than one file, for example several languages, you get a zip archive.
 
-- **States** - which translations should be exported. You can choose multiple states.
-- **Languages** - which languages should be exported (all languages are exported by default).
-- **Format** - select the format of the exported file. Currently, we support only JSON and XLIFF formats.
-- **Namespaces** - which namespaces should be exported (all namespaces are exported by default). Learn more about namespaces in [this article](/platform/translation_keys/namespaces).
-- **Nested structure** - whether the exported file should be structured as nested objects or not (based on the "." separator in key names). This option is available **only for JSON format**.
+<ScreenshotWrapper
+  src="/img/docs/platform/export/export-default.webp"
+  alt="Export page with Languages, Format and the collapsed Advanced settings section"
+/>
 
-When you are done, click the `Export` button and the file will be downloaded.
+Everything else lives in the collapsed `Advanced settings` section. You don't need to open it for a typical export. Next to the title, a one line summary shows what the section is currently set to, for example `All states · All namespaces · No tag filters`. Values you changed from the defaults are shown in a darker color, so you can tell at a glance whether the export is filtered.
 
-<ScreenshotWrapper src="/img/docs/platform/export.webp" alt="Export options" />
+## Configure advanced settings
 
-> If you want to specify exactly which keys need to be exported, you can go to [Batch operations](../translation_keys/batch_operations.mdx) and export from there.
+Click `Advanced settings` (or the chevron on the right) to expand the section. It contains these options:
 
-## Export Translations via CLI
+- `States` selects which [translation states](/platform/translation_process/translation_states) are exported. All states (`Untranslated`, `Translated` and `Reviewed`) are selected by default. Unselect `Untranslated` if you only want strings that already have a translation. At least one state must be selected, otherwise the section stays open with an error and the `Export` button is disabled.
+- `Namespaces` selects which [namespaces](/platform/translation_keys/namespaces) are exported. All namespaces are exported by default. This option is only shown when namespaces are enabled for the project.
+- `Message & placeholder format` selects the syntax used for placeholders and plurals in the exported strings. It is only shown for formats that support more than one syntax.
+- Format specific options such as `Support arrays` or `Escape HTML` are only shown for formats that have them.
+- `Include keys with tags` and `Exclude keys with tags` limit the export to keys with specific [tags](/platform/translation_keys/tags). See [Export only keys with specific tags](#export-only-keys-with-specific-tags).
+
+<ScreenshotWrapper
+  src="/img/docs/platform/export/export-advanced-settings.webp"
+  alt="Expanded Advanced settings with states, namespaces, message format, Support arrays and tag filters"
+/>
+
+## Export only keys with specific tags
+
+Imagine you are preparing release 2.4 of your mobile app. Keys for the release are tagged `release-2.4`, and some keys are still marked `wip` because the copy is not final. Instead of exporting everything and cleaning up the files by hand, add `release-2.4` to `Include keys with tags` and `wip` to `Exclude keys with tags`. The exported files then contain only the release strings, without the unfinished ones.
+
+The two fields work like this:
+
+- `Include keys with tags` exports only keys that have **at least one** of the listed tags. With `release-2.4` and `onboarding`, a key tagged with either of them is exported.
+- `Exclude keys with tags` skips every key that has **any** of the listed tags. A key is exported only when it has none of them.
+- When you fill in both fields, a key must match the include list and must not match the exclude list.
+- Leave both fields empty to export all keys.
+
+Start typing in a field to see matching tags that already exist in the project, and pick one from the list. The fields only offer existing tags, so a typo can't silently produce an empty export.
+
+<ScreenshotWrapper
+  src="/img/docs/platform/export/export-tag-suggestions.webp"
+  alt="Tag field suggesting the existing tag release-2.4"
+/>
+
+To match a whole group of tags, use `*` as a wildcard. When the text you type contains `*`, the list offers a `Match "..."` option. For example, `release-*` matches `release-2.4`, `release-2.5` and any release tag you add in the future, which is handy for a content delivery configuration or a CI job that should not need updating every release.
+
+<ScreenshotWrapper
+  src="/img/docs/platform/export/export-tag-pattern.webp"
+  alt="Tag field offering the option Match release-* for a wildcard pattern"
+/>
+
+## Reuse your last export setup
+
+If you export the same way every time, you don't have to set everything up again. After a successful export, Tolgee remembers the setup for the project, including whether `Advanced settings` was open. The setup is stored for your user account, so it follows you to other devices and browsers, and it does not affect other members of the project.
+
+When you come back to the export page, your last setup is already filled in. The collapsed summary shows the remembered values in a darker color, so you can see right away that the export is filtered.
+
+<ScreenshotWrapper
+  src="/img/docs/platform/export/export-remembered-settings.webp"
+  alt="Export page with remembered settings shown in the Advanced settings summary and the Reset to defaults button enabled"
+/>
+
+To start from scratch, click `Reset to defaults` in the bottom left corner. It restores the default settings and forgets the remembered setup. The button is disabled when nothing differs from the defaults.
+
+If you open the export page from a link that already contains settings, for example `?languages=cs`, the values from the link take precedence over the matching remembered values.
+
+> If you want to pick exactly which keys to export, use [Batch operations](../translation_keys/batch_operations.mdx) and export from there.
+
+## Export translations via CLI
 
 You can also export translations via [Tolgee CLI](/tolgee-cli). To do so, you need to have the Tolgee CLI installed. You can find the installation instructions [here](/tolgee-cli/installation).
 
@@ -38,7 +93,7 @@ Then you can use the [`tolgee pull`](/tolgee-cli/push-pull-strings#pulling-strin
 
 The command exports strings from the platform, and saves them in a folder of your choice. You can use this to download strings from Tolgee before bundling your app for production.
 
-## Export Translations via REST API
+## Export translations via REST API
 
 You can also export translations via REST API, e.g., via the `curl` utility:
 
@@ -77,6 +132,17 @@ By default, all namespaces are exported. To export only some of them, provide `f
 ```bash
 curl "https://app.tolgee.io/v2/projects/export?filterNamespace=ns-1&filterNamespace=ns-2" -H "X-API-Key: <Your API key>" --output data.zip
 ```
+
+#### Exporting only keys with specific tags
+
+To export only keys that have at least one of the given tags, provide the `filterTagIn` parameter. To skip keys that have any of the given tags, provide `filterTagNotIn`. Both parameters accept `*` as a wildcard and can be repeated.
+
+```bash
+curl "https://app.tolgee.io/v2/projects/export?filterTagIn=release-*&filterTagNotIn=wip" \
+-H "X-API-Key: <Your API key>" --output data.zip
+```
+
+This exports keys tagged with any tag starting with `release-`, except keys tagged `wip`.
 
 #### Including untranslated strings
 
