@@ -1,0 +1,84 @@
+---
+id: oauth_sign_in
+title: Sign-in for apps (OAuth)
+sidebar_label: Sign-in for apps (OAuth)
+description: 'How a self-hosted Tolgee lets the Tolgee CLI, the browser extension and MCP clients sign users in with their Tolgee account, what is on by default, and how to narrow or turn it off.'
+image: /img/og-images/self-hosting.png
+---
+
+Tolgee includes an OAuth 2.1 authorization server. It lets apps sign a user in through the browser instead of asking
+for an API key. The user sees a consent screen in your Tolgee, clicks **Allow**, and the app gets a short-lived token.
+[Sign in with Tolgee (OAuth)](/platform/account_settings/sign_in_with_tolgee) explains the user's side.
+
+This page covers what you, the operator, need to know.
+
+## What is on by default
+
+The authorization server is live as soon as Tolgee knows its own address. That is `tolgee.back-end-url`, or
+`tolgee.front-end-url` when the API and the web app share one origin. With one of them set, the following works
+without any new setting:
+
+- **`tolgee login` in the Tolgee CLI** opens the browser and signs the user in against your instance.
+- **MCP clients** such as Claude Code or VS Code can sign in when they connect to `/mcp/developer`. An MCP client
+  identifies itself with a small JSON document at an HTTPS URL (a Client ID Metadata Document). Your Tolgee reads
+  that document and shows the client on the consent screen as an unverified app.
+- **The Tolgee Tools browser extension** needs one setting first. See below.
+
+Nothing here gives an app more than the user already has. Every token is checked against the user's live
+permissions on every request.
+
+:::info Set `back-end-url` when the API has its own address
+The sign-in endpoints live on the API. If your web app and API run on different origins, set `tolgee.back-end-url`
+to the API's public address. With only `front-end-url` set in such a setup, Tolgee publishes sign-in addresses that
+do not answer, and the apps fail to sign in. Tolgee does not fail at startup over this, so check it once.
+:::
+
+## Turn the browser extension on
+
+The browser extension's redirect address contains the extension's ID, which only you can know from the build you
+install. Add it, then restart Tolgee:
+
+```yaml
+tolgee:
+  oauth2:
+    browser-extension-redirect-uris:
+      - https://<extension-id>.chromiumapp.org/
+```
+
+The published Tolgee Tools extension from the Chrome Web Store has the ID `hacnbapajkkfohnonhbmegojnddagfnj`. Keep
+the trailing slash.
+
+## Narrow it or turn parts off
+
+| Setting | Default | What it does |
+|---|---|---|
+| `tolgee.oauth2.cli-enabled` | `true` | Set to `false` on an instance that will never see the Tolgee CLI. |
+| `tolgee.oauth2.cimd-enabled` | `true` | Set to `false` to refuse every app your instance does not know. MCP clients then cannot sign in. Only the CLI and the browser extension can. |
+| `tolgee.oauth2.cimd-allowed-hosts` | empty | A list of hosts whose documents you accept, for example `claude.ai`. Empty means any public host. |
+
+Why `cimd-enabled` has a switch: it is the one place where a visitor who is not logged in makes your server fetch a
+URL of their choosing. Tolgee limits that fetch in several ways. It allows only HTTPS, follows no redirects, caps the
+size and the time, pins the connection to the address it resolved, refuses private and loopback addresses, and rate
+limits the endpoint per IP. If you still do not want it, turn it off. The price is that no third-party app can
+connect without you registering it first, and today the only pre-registered apps are the CLI and the extension.
+
+## Token lifetimes
+
+| Setting | Default |
+|---|---|
+| `tolgee.oauth2.access-token-validity-minutes` | `30` |
+| `tolgee.oauth2.refresh-token-validity-days` | `30`. Each use restarts the window, so this is an idle limit, not a total lifetime. |
+| `tolgee.oauth2.consent-validity-seconds` | `900`. How long a user has to click **Allow**. |
+
+## What to watch
+
+Tolgee re-reads the document of every connected MCP client every 15 minutes. A publisher who takes a document down
+retires that client, and all its tokens stop working after the next re-read, normally within 15 minutes. Two metrics tell you whether this keeps up:
+
+- `tolgee.oauth2.cimd.check_backlog`: how many clients wait for a re-read. A number that keeps growing means
+  retirements are noticed late.
+- `tolgee.oauth2.cimd.capacity_refusals`: how often a document fetch was refused for lack of capacity. Single counts
+  are normal. A steady stream means someone is holding the fetch pool and is worth a look.
+
+The full list of settings, including the check interval, the grace window and the per-user cap on connected apps,
+is in the [configuration reference](/platform/self_hosting/configuration#tolgee-_-oauth2).
