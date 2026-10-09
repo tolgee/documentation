@@ -74,13 +74,13 @@ extension.
 
 ## What to watch
 
-Tolgee re-reads the document of every connected MCP client every 15 minutes. A publisher who takes a document down
-retires that client, and all its tokens stop working after the next re-read, normally within 15 minutes. Two metrics tell you whether this keeps up:
+Tolgee re-reads the document of a connected MCP client when one of its users refreshes a token, at most once every
+15 minutes per client. A publisher who takes a document down retires that client. Its next refresh is refused, and
+an access token it already holds stops working within 30 minutes. One metric is worth a look:
 
-- `tolgee.oauth2.cimd.check_backlog`: how many clients wait for a re-read. A number that keeps growing means
-  retirements are noticed late.
 - `tolgee.oauth2.cimd.capacity_refusals`: how often a document fetch was refused for lack of capacity. Single counts
-  are normal. A steady stream means someone is holding the fetch pool and is worth a look.
+  are normal. A steady stream means someone is holding the fetch pool and is worth a look. A refused fetch never
+  counts against the app's publisher.
 
 The full list of settings, including the check interval, the grace window and the per-user cap on connected apps,
 is in the [configuration reference](/platform/self_hosting/configuration#tolgee-_-oauth2).
