@@ -629,6 +629,8 @@ Configuration of S3 bucket
 
 - ##### `path` \{#tolgee-content-delivery-storage-s3-_-path}
 
+- ##### `public-read` \{#tolgee-content-delivery-storage-s3-_-public-read}
+
 - ##### `secret-key` \{#tolgee-content-delivery-storage-s3-_-secret-key}
 
 - ##### `signing-region` \{#tolgee-content-delivery-storage-s3-_-signing-region}
@@ -1277,6 +1279,16 @@ To enable it, you first need to [register a new site on reCAPTCHA](https://www.g
 
   Site key for use the HTML code your site serves to users.
 
+### Review ask \{#tolgee-_-review-ask}
+
+Prefix: `tolgee.review-ask`
+
+Once startup finishes, self-hosted instances print a short message asking for a review of Tolgee on G2.
+
+- ##### `enabled` \{#tolgee-review-ask-_-enabled}
+
+  Whether to print the review ask on startup (default: `true`)
+
 ### Sentry \{#tolgee-_-sentry}
 
 Prefix: `tolgee.sentry`
@@ -1551,6 +1563,7 @@ tolgee:
         bucket-name:
         endpoint:
         path:
+        public-read: false
         secret-key:
         signing-region:
   file-storage:
@@ -1672,6 +1685,8 @@ tolgee:
   recaptcha:
     secret-key:
     site-key:
+  review-ask:
+    enabled: true
   sentry:
     client-dsn:
     server-dsn:
@@ -2317,6 +2332,8 @@ Configuration of S3 bucket
 - ##### `ENDPOINT` \{#tolgee-content-delivery-storage-s3-_-endpoint}
 
 - ##### `PATH` \{#tolgee-content-delivery-storage-s3-_-path}
+
+- ##### `PUBLIC_READ` \{#tolgee-content-delivery-storage-s3-_-public-read}
 
 - ##### `SECRET_KEY` \{#tolgee-content-delivery-storage-s3-_-secret-key}
 
@@ -2966,6 +2983,16 @@ To enable it, you first need to [register a new site on reCAPTCHA](https://www.g
 
   Site key for use the HTML code your site serves to users.
 
+### Review ask \{#tolgee-_-review-ask}
+
+Prefix: `TOLGEE_REVIEW_ASK`
+
+Once startup finishes, self-hosted instances print a short message asking for a review of Tolgee on G2.
+
+- ##### `ENABLED` \{#tolgee-review-ask-_-enabled}
+
+  Whether to print the review ask on startup (default: `true`)
+
 ### Sentry \{#tolgee-_-sentry}
 
 Prefix: `TOLGEE_SENTRY`
@@ -3216,6 +3243,7 @@ TOLGEE_CONTENT_DELIVERY_STORAGE_S3_ACCESS_KEY=
 TOLGEE_CONTENT_DELIVERY_STORAGE_S3_BUCKET_NAME=
 TOLGEE_CONTENT_DELIVERY_STORAGE_S3_ENDPOINT=
 TOLGEE_CONTENT_DELIVERY_STORAGE_S3_PATH=
+TOLGEE_CONTENT_DELIVERY_STORAGE_S3_PUBLIC_READ=false
 TOLGEE_CONTENT_DELIVERY_STORAGE_S3_SECRET_KEY=
 TOLGEE_CONTENT_DELIVERY_STORAGE_S3_SIGNING_REGION=
 TOLGEE_FILE_STORAGE_FS_DATA_PATH=~/.tolgee/
@@ -3319,6 +3347,7 @@ TOLGEE_RATE_LIMITS_USER_REQUEST_LIMIT=400
 TOLGEE_RATE_LIMITS_USER_REQUEST_WINDOW=60000
 TOLGEE_RECAPTCHA_SECRET_KEY=
 TOLGEE_RECAPTCHA_SITE_KEY=
+TOLGEE_REVIEW_ASK_ENABLED=true
 TOLGEE_SENTRY_CLIENT_DSN=
 TOLGEE_SENTRY_SERVER_DSN=
 TOLGEE_SENTRY_TRACES_SAMPLE_RATE=
@@ -3958,6 +3987,8 @@ Configuration of S3 bucket
 - ##### `endpoint` \{#tolgee-content-delivery-storage-s3-_-endpoint}
 
 - ##### `path` \{#tolgee-content-delivery-storage-s3-_-path}
+
+- ##### `public-read` \{#tolgee-content-delivery-storage-s3-_-public-read}
 
 - ##### `secret-key` \{#tolgee-content-delivery-storage-s3-_-secret-key}
 
@@ -4607,6 +4638,16 @@ To enable it, you first need to [register a new site on reCAPTCHA](https://www.g
 
   Site key for use the HTML code your site serves to users.
 
+### Review ask \{#tolgee-_-review-ask}
+
+Prefix: `tolgee.review-ask`
+
+Once startup finishes, self-hosted instances print a short message asking for a review of Tolgee on G2.
+
+- ##### `enabled` \{#tolgee-review-ask-_-enabled}
+
+  Whether to print the review ask on startup (default: `true`)
+
 ### Sentry \{#tolgee-_-sentry}
 
 Prefix: `tolgee.sentry`
@@ -4857,6 +4898,7 @@ tolgee.content-delivery.storage.s3.access-key =
 tolgee.content-delivery.storage.s3.bucket-name =
 tolgee.content-delivery.storage.s3.endpoint =
 tolgee.content-delivery.storage.s3.path =
+tolgee.content-delivery.storage.s3.public-read = false
 tolgee.content-delivery.storage.s3.secret-key =
 tolgee.content-delivery.storage.s3.signing-region =
 tolgee.file-storage.fs-data-path = ~/.tolgee/
@@ -4960,6 +5002,7 @@ tolgee.rate-limits.user-request-limit = 400
 tolgee.rate-limits.user-request-window = 60000
 tolgee.recaptcha.secret-key =
 tolgee.recaptcha.site-key =
+tolgee.review-ask.enabled = true
 tolgee.sentry.client-dsn =
 tolgee.sentry.server-dsn =
 tolgee.sentry.traces-sample-rate =
