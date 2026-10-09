@@ -36,24 +36,34 @@ do not answer, and the apps fail to sign in. Tolgee does not fail at startup ove
 
 ## Turn the browser extension on
 
-The browser extension's redirect address contains the extension's ID, which only you can know from the build you
-install. Add it, then restart Tolgee:
+The browser extension is off by default. Not every self-hosted instance wants anyone with the published extension to
+sign in. Turn it on, then restart Tolgee:
 
 ```yaml
 tolgee:
   oauth2:
+    browser-extension-enabled: true
+```
+
+That is all for the Tolgee Tools extension from the Chrome Web Store and the Firefox add-on. Tolgee knows their
+redirect addresses. Only a custom build of the extension needs its own address, which contains the build's ID:
+
+```yaml
+tolgee:
+  oauth2:
+    browser-extension-enabled: true
     browser-extension-redirect-uris:
       - https://<extension-id>.chromiumapp.org/
 ```
 
-The published Tolgee Tools extension from the Chrome Web Store has the ID `hacnbapajkkfohnonhbmegojnddagfnj`. Keep
-the trailing slash.
+Keep the trailing slash. A list you set replaces the published addresses. An empty list keeps them.
 
 ## Narrow it or turn parts off
 
 | Setting | Default | What it does |
 |---|---|---|
 | `tolgee.oauth2.cli-enabled` | `true` | Set to `false` on an instance that will never see the Tolgee CLI. |
+| `tolgee.oauth2.browser-extension-enabled` | `false` | Set to `true` to let the Tolgee Tools browser extension sign users in. |
 | `tolgee.oauth2.cimd-enabled` | `true` | Set to `false` to refuse every app your instance does not know. MCP clients then cannot sign in. Only the CLI and the browser extension can. |
 | `tolgee.oauth2.cimd-allowed-hosts` | empty | A list of hosts whose documents you accept, for example `claude.ai`. Empty means any public host. |
 
