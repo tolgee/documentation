@@ -2,13 +2,13 @@
 id: export
 title: Export Translation Files
 sidebar_label: Export Translation Files
-description: Export translations from Tolgee in many file formats, and choose exactly which languages, translation states, namespaces and tagged keys end up in the files.
+description: Export translations from Tolgee in many file formats, filtered by language, state, namespace or tag.
 image: /img/og-images/platform.png
 ---
 
 import { ScreenshotWrapper } from '../shared/_ScreenshotWrapper';
 
-Your app needs translation files, but rarely all of them at once. A release build should not ship strings that are still being written, a mobile team only needs its own namespace, and a translation agency may need just the keys for the next release. Tolgee lets you export translations in [many different formats](/platform/supported_formats) and choose exactly which translations end up in the exported files.
+Translations can be exported from Tolgee. You can currently export translations in [many different formats](/platform/supported_formats), and you can also export only specific translations, e.g., only the ones that are not translated yet.
 
 ## Export translations from the Tolgee dashboard
 
@@ -67,21 +67,6 @@ To match a whole group of tags, use `*` as a wildcard. When the text you type co
   src="/img/docs/platform/export/export-tag-pattern.webp"
   alt="Tag field offering the option Match release-* for a wildcard pattern"
 />
-
-## Reuse your last export setup
-
-If you export the same way every time, you don't have to set everything up again. After a successful export, Tolgee remembers the setup for the project, including whether `Advanced settings` was open. The setup is stored for your user account, so it follows you to other devices and browsers, and it does not affect other members of the project.
-
-When you come back to the export page, your last setup is already filled in. The collapsed summary shows the remembered values in a darker color, so you can see right away that the export is filtered.
-
-<ScreenshotWrapper
-  src="/img/docs/platform/export/export-remembered-settings.webp"
-  alt="Export page with remembered settings shown in the Advanced settings summary and the Reset to defaults button enabled"
-/>
-
-To start from scratch, click `Reset to defaults` in the bottom left corner. It restores the default settings and forgets the remembered setup. The button is disabled when nothing differs from the defaults.
-
-If you open the export page from a link that already contains settings, for example `?languages=cs`, the values from the link take precedence over the matching remembered values.
 
 > If you want to pick exactly which keys to export, use [Batch operations](../translation_keys/batch_operations.mdx) and export from there.
 
