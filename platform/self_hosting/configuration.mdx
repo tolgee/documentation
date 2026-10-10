@@ -1059,7 +1059,7 @@ See [Google Cloud Translation](https://cloud.google.com/translate) page for more
 
 Prefix: `tolgee.oauth2`
 
-Settings for Tolgee acting as an OAuth 2.1 authorization server (browser-extension login, MCP).
+Settings for Tolgee acting as an OAuth 2.1 authorization server (CLI and browser-extension login, MCP).
 
 - ##### `access-token-validity-minutes` \{#tolgee-oauth2-_-access-token-validity-minutes}
 
@@ -1069,19 +1069,51 @@ Settings for Tolgee acting as an OAuth 2.1 authorization server (browser-extensi
 
   How long an authorization code can be exchanged for tokens after it was issued, in seconds. (default: `300`)
 
+- ##### `browser-extension-enabled` \{#tolgee-oauth2-_-browser-extension-enabled}
+
+  Whether the Tolgee Tools browser extension can sign users in against this instance. Off by default: an instance that turns it on lets anyone with the published extension sign in with their own account, which not every self-hosted instance wants. (default: `false`)
+
 - ##### `browser-extension-redirect-uris` \{#tolgee-oauth2-_-browser-extension-redirect-uris}
 
-  Exact redirect URIs of the Tolgee browser extension, e.g. `https://<extension-id>.chromiumapp.org/`. The extension OAuth client is only registered when this is set. (default: `[]`)
+  Exact redirect URIs of the browser extension, accepted instead of the published extension's own. Only needed for a custom build of the extension, whose id is part of the URI, e.g. `https://<extension-id>.chromiumapp.org/`. An empty list keeps the published extension's URIs. (default: `https://hacnbapajkkfohnonhbmegojnddagfnj.chromiumapp.org/, https://e262e73e8cbdd8d796b491acfa20a501bfc7b9c0.extensions.allizom.org/`)
+
+- ##### `cimd-allowed-hosts` \{#tolgee-oauth2-_-cimd-allowed-hosts}
+
+  Hosts allowed to present a Client ID Metadata Document (an HTTPS URL as `client_id`) so an unknown MCP client can register itself. Empty (the default) allows any public host; set it to restrict CIMD to a specific list, e.g. `claude.ai`. Loopback and private hosts are always refused regardless. (default: `[]`)
+
+- ##### `cimd-check-interval-minutes` \{#tolgee-oauth2-_-cimd-check-interval-minutes}
+
+  How long, in minutes, before the same client's metadata document is read again. The document is read when a user of the client refreshes their token, at most once per client within this interval. It is set by how quickly a publisher taking their document down should take effect, not by `cimd-verification-max-age-days`, which would be satisfied by reading a document once every few days. The cost of a short interval is outbound traffic to third-party hosts on the token endpoint; the cost of a long one is a retired client staying usable for longer. (default: `15`)
+
+- ##### `cimd-enabled` \{#tolgee-oauth2-_-cimd-enabled}
+
+  Whether an unknown client may identify itself with a Client ID Metadata Document (an HTTPS URL as `client_id`). This is what lets an MCP client an operator never registered ask for access, and it is the one path on which an unauthenticated caller makes this server fetch a URL of their choosing — bounded by the address checks, the fetch budget and the rate limit on the authorization endpoint. Turn it off on an instance that should only ever serve clients it registered itself. (default: `true`)
+
+- ##### `cimd-max-clients-per-user` \{#tolgee-oauth2-_-cimd-max-clients-per-user}
+
+  How many different clients identifying themselves with a metadata document one account may hold authorizations for. Each one is a publisher this server fetches from when that account refreshes, so without a cap a single scripted account decides how many third-party hosts this server talks to and how often. Raise it only if real users legitimately connect more third-party apps than this. (default: `25`)
+
+- ##### `cimd-verification-max-age-days` \{#tolgee-oauth2-_-cimd-verification-max-age-days}
+
+  How long, in days, a grant of a client that identifies itself with a metadata document may keep working while that document cannot be read. A short outage at the publisher must not sign every user out, so an unreadable document is tolerated - but not forever, because then anyone able to keep this server from reading it could keep a retired client alive. The time counts from the first failed read after the last successful one, so a client nobody refreshed for a month is not refused over one failed read when its users come back. Lower it on an instance that wants third-party grants checked more strictly. (default: `7`)
+
+- ##### `cimd-withdrawal-grace-minutes` \{#tolgee-oauth2-_-cimd-withdrawal-grace-minutes}
+
+  How long, in minutes, a recorded client withdrawal stays reversible. Taking the metadata document down ends every grant of that client; if the document answers again within this window the mark is lifted, which covers a mis-deploy. After it, the retirement is permanent for those grants, so a publisher who republishes a fixed build at the same `client_id` does not hand back a grant they retired on purpose. Users of that client simply consent again. A mark is also liftable while no read has happened since it was made, whatever this window says: the document is read when a user of the client refreshes, so a client nobody refreshed for a while has not had its chance to recover. (default: `60`)
+
+- ##### `cli-enabled` \{#tolgee-oauth2-_-cli-enabled}
+
+  Whether `tolgee login` can sign users in against this instance. The CLI is registered wherever the authorization server is live, so nothing has to be configured for browser login to work.
+  
+  :::info
+  A loopback redirect cannot be tied to one local application, so any process on the machine can start an authorization as the CLI. The user still has to approve the consent screen, and the token can never exceed what they are allowed to do, but an instance that will never see the CLI can turn it off here.
+  :::
+  
+   (default: `true` The client is registered only where the issuer resolves: without `tolgee.back-end-url` (or `tolgee.front-end-url`) the authorization server is off entirely and browser login cannot work.)
 
 - ##### `cli-redirect-uris` \{#tolgee-oauth2-_-cli-redirect-uris}
 
-  Loopback redirect URIs of the Tolgee CLI (RFC 8252), e.g. `http://127.0.0.1:9876/callback`. Prefer the loopback IP literal over `localhost`, which RFC 8252 section 7.3 marks NOT RECOMMENDED: a client resolving `localhost` may end up listening on interfaces other than the loopback one. The CLI OAuth client is only registered when this is set.
-  
-  :::info
-  A loopback redirect cannot be tied to one local application, so any process on the machine that knows the client id can start an authorization for it. The user still has to approve the consent screen, but leave this unset unless the CLI is actually in use.
-  :::
-  
-   (default: `[]`)
+  Loopback redirect URIs of the Tolgee CLI (RFC 8252), accepted instead of the `http://127.0.0.1/callback` the CLI uses by default. The port is ignored either way, since a CLI takes whatever port the OS gives it, so this is only needed for a build that listens elsewhere. Prefer the loopback IP literal over `localhost`, which RFC 8252 section 8.3 marks NOT RECOMMENDED: a client resolving `localhost` may end up listening on interfaces other than the loopback one. (default: `http://127.0.0.1/callback`)
 
 - ##### `consent-validity-seconds` \{#tolgee-oauth2-_-consent-validity-seconds}
 
@@ -1094,6 +1126,18 @@ Settings for Tolgee acting as an OAuth 2.1 authorization server (browser-extensi
 - ##### `grant-retention-days` \{#tolgee-oauth2-_-grant-retention-days}
 
   How long a spent OAuth grant is kept after its last credential expired, in days. It holds a used code's row so a replayed code is still recognised. A consent the user never completed is not kept for this window — it is deleted once its own short deadline passes. (default: `7`)
+
+- ##### `refresh-token-grace-seconds` \{#tolgee-oauth2-_-refresh-token-grace-seconds}
+
+  Grace window, in seconds, during which replaying a refresh token that was rotated away fails the request without revoking the grant. It absorbs innocent collisions (two tabs, a lost response) instead of signing the user out everywhere, and it covers every rotated-away token, not only the latest. A replay after the window is treated as theft. (default: `60`)
+
+- ##### `refresh-token-history-generations` \{#tolgee-oauth2-_-refresh-token-history-generations}
+
+  How many already-rotated refresh tokens are remembered per grant, so that replaying one is recognised as theft and revokes the grant. This is the bound that binds for a *slow* client — a CLI used once a week reaches this many weeks back. For a client rotating faster than this many times within `refresh-token-history-min-days`, that window is what decides instead. Beyond both, a replay is still refused, it just no longer revokes. (default: `50`)
+
+- ##### `refresh-token-history-min-days` \{#tolgee-oauth2-_-refresh-token-history-min-days}
+
+  Minimum age, in days, before a rotated refresh token can be dropped from that history. This is the bound that binds for a *fast* client, and the one to reach for if the table is growing. It also keeps the depth above from being something a thief can force: rank depends only on how many rotations followed a row, and a thief holding a stolen token can produce those in minutes — this makes eviction cost wall-clock time. (default: `7`)
 
 - ##### `refresh-token-validity-days` \{#tolgee-oauth2-_-refresh-token-validity-days}
 
@@ -1644,11 +1688,22 @@ tolgee:
   oauth2:
     access-token-validity-minutes: 30
     authorization-code-validity-seconds: 300
-    browser-extension-redirect-uris: []
-    cli-redirect-uris: []
+    browser-extension-enabled: false
+    browser-extension-redirect-uris: https://hacnbapajkkfohnonhbmegojnddagfnj.chromiumapp.org/, https://e262e73e8cbdd8d796b491acfa20a501bfc7b9c0.extensions.allizom.org/
+    cimd-allowed-hosts: []
+    cimd-check-interval-minutes: 15
+    cimd-enabled: true
+    cimd-max-clients-per-user: 25
+    cimd-verification-max-age-days: 7
+    cimd-withdrawal-grace-minutes: 60
+    cli-enabled: true
+    cli-redirect-uris: http://127.0.0.1/callback
     consent-validity-seconds: 900
     grant-cleanup-cron: 0 0 3 * * *
     grant-retention-days: 7
+    refresh-token-grace-seconds: 60
+    refresh-token-history-generations: 50
+    refresh-token-history-min-days: 7
     refresh-token-validity-days: 30
   postgres-autostart:
     container-name: tolgee_postgres
@@ -2763,7 +2818,7 @@ See [Google Cloud Translation](https://cloud.google.com/translate) page for more
 
 Prefix: `TOLGEE_OAUTH2`
 
-Settings for Tolgee acting as an OAuth 2.1 authorization server (browser-extension login, MCP).
+Settings for Tolgee acting as an OAuth 2.1 authorization server (CLI and browser-extension login, MCP).
 
 - ##### `ACCESS_TOKEN_VALIDITY_MINUTES` \{#tolgee-oauth2-_-access-token-validity-minutes}
 
@@ -2773,19 +2828,51 @@ Settings for Tolgee acting as an OAuth 2.1 authorization server (browser-extensi
 
   How long an authorization code can be exchanged for tokens after it was issued, in seconds. (default: `300`)
 
+- ##### `BROWSER_EXTENSION_ENABLED` \{#tolgee-oauth2-_-browser-extension-enabled}
+
+  Whether the Tolgee Tools browser extension can sign users in against this instance. Off by default: an instance that turns it on lets anyone with the published extension sign in with their own account, which not every self-hosted instance wants. (default: `false`)
+
 - ##### `BROWSER_EXTENSION_REDIRECT_URIS` \{#tolgee-oauth2-_-browser-extension-redirect-uris}
 
-  Exact redirect URIs of the Tolgee browser extension, e.g. `https://<extension-id>.chromiumapp.org/`. The extension OAuth client is only registered when this is set. (default: `[]`)
+  Exact redirect URIs of the browser extension, accepted instead of the published extension's own. Only needed for a custom build of the extension, whose id is part of the URI, e.g. `https://<extension-id>.chromiumapp.org/`. An empty list keeps the published extension's URIs. (default: `https://hacnbapajkkfohnonhbmegojnddagfnj.chromiumapp.org/, https://e262e73e8cbdd8d796b491acfa20a501bfc7b9c0.extensions.allizom.org/`)
+
+- ##### `CIMD_ALLOWED_HOSTS` \{#tolgee-oauth2-_-cimd-allowed-hosts}
+
+  Hosts allowed to present a Client ID Metadata Document (an HTTPS URL as `client_id`) so an unknown MCP client can register itself. Empty (the default) allows any public host; set it to restrict CIMD to a specific list, e.g. `claude.ai`. Loopback and private hosts are always refused regardless. (default: `[]`)
+
+- ##### `CIMD_CHECK_INTERVAL_MINUTES` \{#tolgee-oauth2-_-cimd-check-interval-minutes}
+
+  How long, in minutes, before the same client's metadata document is read again. The document is read when a user of the client refreshes their token, at most once per client within this interval. It is set by how quickly a publisher taking their document down should take effect, not by `cimd-verification-max-age-days`, which would be satisfied by reading a document once every few days. The cost of a short interval is outbound traffic to third-party hosts on the token endpoint; the cost of a long one is a retired client staying usable for longer. (default: `15`)
+
+- ##### `CIMD_ENABLED` \{#tolgee-oauth2-_-cimd-enabled}
+
+  Whether an unknown client may identify itself with a Client ID Metadata Document (an HTTPS URL as `client_id`). This is what lets an MCP client an operator never registered ask for access, and it is the one path on which an unauthenticated caller makes this server fetch a URL of their choosing — bounded by the address checks, the fetch budget and the rate limit on the authorization endpoint. Turn it off on an instance that should only ever serve clients it registered itself. (default: `true`)
+
+- ##### `CIMD_MAX_CLIENTS_PER_USER` \{#tolgee-oauth2-_-cimd-max-clients-per-user}
+
+  How many different clients identifying themselves with a metadata document one account may hold authorizations for. Each one is a publisher this server fetches from when that account refreshes, so without a cap a single scripted account decides how many third-party hosts this server talks to and how often. Raise it only if real users legitimately connect more third-party apps than this. (default: `25`)
+
+- ##### `CIMD_VERIFICATION_MAX_AGE_DAYS` \{#tolgee-oauth2-_-cimd-verification-max-age-days}
+
+  How long, in days, a grant of a client that identifies itself with a metadata document may keep working while that document cannot be read. A short outage at the publisher must not sign every user out, so an unreadable document is tolerated - but not forever, because then anyone able to keep this server from reading it could keep a retired client alive. The time counts from the first failed read after the last successful one, so a client nobody refreshed for a month is not refused over one failed read when its users come back. Lower it on an instance that wants third-party grants checked more strictly. (default: `7`)
+
+- ##### `CIMD_WITHDRAWAL_GRACE_MINUTES` \{#tolgee-oauth2-_-cimd-withdrawal-grace-minutes}
+
+  How long, in minutes, a recorded client withdrawal stays reversible. Taking the metadata document down ends every grant of that client; if the document answers again within this window the mark is lifted, which covers a mis-deploy. After it, the retirement is permanent for those grants, so a publisher who republishes a fixed build at the same `client_id` does not hand back a grant they retired on purpose. Users of that client simply consent again. A mark is also liftable while no read has happened since it was made, whatever this window says: the document is read when a user of the client refreshes, so a client nobody refreshed for a while has not had its chance to recover. (default: `60`)
+
+- ##### `CLI_ENABLED` \{#tolgee-oauth2-_-cli-enabled}
+
+  Whether `tolgee login` can sign users in against this instance. The CLI is registered wherever the authorization server is live, so nothing has to be configured for browser login to work.
+  
+  :::info
+  A loopback redirect cannot be tied to one local application, so any process on the machine can start an authorization as the CLI. The user still has to approve the consent screen, and the token can never exceed what they are allowed to do, but an instance that will never see the CLI can turn it off here.
+  :::
+  
+   (default: `true` The client is registered only where the issuer resolves: without `tolgee.back-end-url` (or `tolgee.front-end-url`) the authorization server is off entirely and browser login cannot work.)
 
 - ##### `CLI_REDIRECT_URIS` \{#tolgee-oauth2-_-cli-redirect-uris}
 
-  Loopback redirect URIs of the Tolgee CLI (RFC 8252), e.g. `http://127.0.0.1:9876/callback`. Prefer the loopback IP literal over `localhost`, which RFC 8252 section 7.3 marks NOT RECOMMENDED: a client resolving `localhost` may end up listening on interfaces other than the loopback one. The CLI OAuth client is only registered when this is set.
-  
-  :::info
-  A loopback redirect cannot be tied to one local application, so any process on the machine that knows the client id can start an authorization for it. The user still has to approve the consent screen, but leave this unset unless the CLI is actually in use.
-  :::
-  
-   (default: `[]`)
+  Loopback redirect URIs of the Tolgee CLI (RFC 8252), accepted instead of the `http://127.0.0.1/callback` the CLI uses by default. The port is ignored either way, since a CLI takes whatever port the OS gives it, so this is only needed for a build that listens elsewhere. Prefer the loopback IP literal over `localhost`, which RFC 8252 section 8.3 marks NOT RECOMMENDED: a client resolving `localhost` may end up listening on interfaces other than the loopback one. (default: `http://127.0.0.1/callback`)
 
 - ##### `CONSENT_VALIDITY_SECONDS` \{#tolgee-oauth2-_-consent-validity-seconds}
 
@@ -2798,6 +2885,18 @@ Settings for Tolgee acting as an OAuth 2.1 authorization server (browser-extensi
 - ##### `GRANT_RETENTION_DAYS` \{#tolgee-oauth2-_-grant-retention-days}
 
   How long a spent OAuth grant is kept after its last credential expired, in days. It holds a used code's row so a replayed code is still recognised. A consent the user never completed is not kept for this window — it is deleted once its own short deadline passes. (default: `7`)
+
+- ##### `REFRESH_TOKEN_GRACE_SECONDS` \{#tolgee-oauth2-_-refresh-token-grace-seconds}
+
+  Grace window, in seconds, during which replaying a refresh token that was rotated away fails the request without revoking the grant. It absorbs innocent collisions (two tabs, a lost response) instead of signing the user out everywhere, and it covers every rotated-away token, not only the latest. A replay after the window is treated as theft. (default: `60`)
+
+- ##### `REFRESH_TOKEN_HISTORY_GENERATIONS` \{#tolgee-oauth2-_-refresh-token-history-generations}
+
+  How many already-rotated refresh tokens are remembered per grant, so that replaying one is recognised as theft and revokes the grant. This is the bound that binds for a *slow* client — a CLI used once a week reaches this many weeks back. For a client rotating faster than this many times within `refresh-token-history-min-days`, that window is what decides instead. Beyond both, a replay is still refused, it just no longer revokes. (default: `50`)
+
+- ##### `REFRESH_TOKEN_HISTORY_MIN_DAYS` \{#tolgee-oauth2-_-refresh-token-history-min-days}
+
+  Minimum age, in days, before a rotated refresh token can be dropped from that history. This is the bound that binds for a *fast* client, and the one to reach for if the table is growing. It also keeps the depth above from being something a thief can force: rank depends only on how many rotations followed a row, and a thief holding a stolen token can produce those in minutes — this makes eviction cost wall-clock time. (default: `7`)
 
 - ##### `REFRESH_TOKEN_VALIDITY_DAYS` \{#tolgee-oauth2-_-refresh-token-validity-days}
 
@@ -3309,11 +3408,22 @@ TOLGEE_MACHINE_TRANSLATION_GOOGLE_DEFAULT_ENABLED=true
 TOLGEE_MACHINE_TRANSLATION_GOOGLE_DEFAULT_PRIMARY=true
 TOLGEE_OAUTH2_ACCESS_TOKEN_VALIDITY_MINUTES=30
 TOLGEE_OAUTH2_AUTHORIZATION_CODE_VALIDITY_SECONDS=300
-TOLGEE_OAUTH2_BROWSER_EXTENSION_REDIRECT_URIS=[]
-TOLGEE_OAUTH2_CLI_REDIRECT_URIS=[]
+TOLGEE_OAUTH2_BROWSER_EXTENSION_ENABLED=false
+TOLGEE_OAUTH2_BROWSER_EXTENSION_REDIRECT_URIS=https://hacnbapajkkfohnonhbmegojnddagfnj.chromiumapp.org/, https://e262e73e8cbdd8d796b491acfa20a501bfc7b9c0.extensions.allizom.org/
+TOLGEE_OAUTH2_CIMD_ALLOWED_HOSTS=[]
+TOLGEE_OAUTH2_CIMD_CHECK_INTERVAL_MINUTES=15
+TOLGEE_OAUTH2_CIMD_ENABLED=true
+TOLGEE_OAUTH2_CIMD_MAX_CLIENTS_PER_USER=25
+TOLGEE_OAUTH2_CIMD_VERIFICATION_MAX_AGE_DAYS=7
+TOLGEE_OAUTH2_CIMD_WITHDRAWAL_GRACE_MINUTES=60
+TOLGEE_OAUTH2_CLI_ENABLED=true
+TOLGEE_OAUTH2_CLI_REDIRECT_URIS=http://127.0.0.1/callback
 TOLGEE_OAUTH2_CONSENT_VALIDITY_SECONDS=900
 TOLGEE_OAUTH2_GRANT_CLEANUP_CRON=0 0 3 * * *
 TOLGEE_OAUTH2_GRANT_RETENTION_DAYS=7
+TOLGEE_OAUTH2_REFRESH_TOKEN_GRACE_SECONDS=60
+TOLGEE_OAUTH2_REFRESH_TOKEN_HISTORY_GENERATIONS=50
+TOLGEE_OAUTH2_REFRESH_TOKEN_HISTORY_MIN_DAYS=7
 TOLGEE_OAUTH2_REFRESH_TOKEN_VALIDITY_DAYS=30
 TOLGEE_POSTGRES_AUTOSTART_CONTAINER_NAME=tolgee_postgres
 TOLGEE_POSTGRES_AUTOSTART_DATABASE_NAME=postgres
@@ -4418,7 +4528,7 @@ See [Google Cloud Translation](https://cloud.google.com/translate) page for more
 
 Prefix: `tolgee.oauth2`
 
-Settings for Tolgee acting as an OAuth 2.1 authorization server (browser-extension login, MCP).
+Settings for Tolgee acting as an OAuth 2.1 authorization server (CLI and browser-extension login, MCP).
 
 - ##### `access-token-validity-minutes` \{#tolgee-oauth2-_-access-token-validity-minutes}
 
@@ -4428,19 +4538,51 @@ Settings for Tolgee acting as an OAuth 2.1 authorization server (browser-extensi
 
   How long an authorization code can be exchanged for tokens after it was issued, in seconds. (default: `300`)
 
+- ##### `browser-extension-enabled` \{#tolgee-oauth2-_-browser-extension-enabled}
+
+  Whether the Tolgee Tools browser extension can sign users in against this instance. Off by default: an instance that turns it on lets anyone with the published extension sign in with their own account, which not every self-hosted instance wants. (default: `false`)
+
 - ##### `browser-extension-redirect-uris` \{#tolgee-oauth2-_-browser-extension-redirect-uris}
 
-  Exact redirect URIs of the Tolgee browser extension, e.g. `https://<extension-id>.chromiumapp.org/`. The extension OAuth client is only registered when this is set. (default: `[]`)
+  Exact redirect URIs of the browser extension, accepted instead of the published extension's own. Only needed for a custom build of the extension, whose id is part of the URI, e.g. `https://<extension-id>.chromiumapp.org/`. An empty list keeps the published extension's URIs. (default: `https://hacnbapajkkfohnonhbmegojnddagfnj.chromiumapp.org/, https://e262e73e8cbdd8d796b491acfa20a501bfc7b9c0.extensions.allizom.org/`)
+
+- ##### `cimd-allowed-hosts` \{#tolgee-oauth2-_-cimd-allowed-hosts}
+
+  Hosts allowed to present a Client ID Metadata Document (an HTTPS URL as `client_id`) so an unknown MCP client can register itself. Empty (the default) allows any public host; set it to restrict CIMD to a specific list, e.g. `claude.ai`. Loopback and private hosts are always refused regardless. (default: `[]`)
+
+- ##### `cimd-check-interval-minutes` \{#tolgee-oauth2-_-cimd-check-interval-minutes}
+
+  How long, in minutes, before the same client's metadata document is read again. The document is read when a user of the client refreshes their token, at most once per client within this interval. It is set by how quickly a publisher taking their document down should take effect, not by `cimd-verification-max-age-days`, which would be satisfied by reading a document once every few days. The cost of a short interval is outbound traffic to third-party hosts on the token endpoint; the cost of a long one is a retired client staying usable for longer. (default: `15`)
+
+- ##### `cimd-enabled` \{#tolgee-oauth2-_-cimd-enabled}
+
+  Whether an unknown client may identify itself with a Client ID Metadata Document (an HTTPS URL as `client_id`). This is what lets an MCP client an operator never registered ask for access, and it is the one path on which an unauthenticated caller makes this server fetch a URL of their choosing — bounded by the address checks, the fetch budget and the rate limit on the authorization endpoint. Turn it off on an instance that should only ever serve clients it registered itself. (default: `true`)
+
+- ##### `cimd-max-clients-per-user` \{#tolgee-oauth2-_-cimd-max-clients-per-user}
+
+  How many different clients identifying themselves with a metadata document one account may hold authorizations for. Each one is a publisher this server fetches from when that account refreshes, so without a cap a single scripted account decides how many third-party hosts this server talks to and how often. Raise it only if real users legitimately connect more third-party apps than this. (default: `25`)
+
+- ##### `cimd-verification-max-age-days` \{#tolgee-oauth2-_-cimd-verification-max-age-days}
+
+  How long, in days, a grant of a client that identifies itself with a metadata document may keep working while that document cannot be read. A short outage at the publisher must not sign every user out, so an unreadable document is tolerated - but not forever, because then anyone able to keep this server from reading it could keep a retired client alive. The time counts from the first failed read after the last successful one, so a client nobody refreshed for a month is not refused over one failed read when its users come back. Lower it on an instance that wants third-party grants checked more strictly. (default: `7`)
+
+- ##### `cimd-withdrawal-grace-minutes` \{#tolgee-oauth2-_-cimd-withdrawal-grace-minutes}
+
+  How long, in minutes, a recorded client withdrawal stays reversible. Taking the metadata document down ends every grant of that client; if the document answers again within this window the mark is lifted, which covers a mis-deploy. After it, the retirement is permanent for those grants, so a publisher who republishes a fixed build at the same `client_id` does not hand back a grant they retired on purpose. Users of that client simply consent again. A mark is also liftable while no read has happened since it was made, whatever this window says: the document is read when a user of the client refreshes, so a client nobody refreshed for a while has not had its chance to recover. (default: `60`)
+
+- ##### `cli-enabled` \{#tolgee-oauth2-_-cli-enabled}
+
+  Whether `tolgee login` can sign users in against this instance. The CLI is registered wherever the authorization server is live, so nothing has to be configured for browser login to work.
+  
+  :::info
+  A loopback redirect cannot be tied to one local application, so any process on the machine can start an authorization as the CLI. The user still has to approve the consent screen, and the token can never exceed what they are allowed to do, but an instance that will never see the CLI can turn it off here.
+  :::
+  
+   (default: `true` The client is registered only where the issuer resolves: without `tolgee.back-end-url` (or `tolgee.front-end-url`) the authorization server is off entirely and browser login cannot work.)
 
 - ##### `cli-redirect-uris` \{#tolgee-oauth2-_-cli-redirect-uris}
 
-  Loopback redirect URIs of the Tolgee CLI (RFC 8252), e.g. `http://127.0.0.1:9876/callback`. Prefer the loopback IP literal over `localhost`, which RFC 8252 section 7.3 marks NOT RECOMMENDED: a client resolving `localhost` may end up listening on interfaces other than the loopback one. The CLI OAuth client is only registered when this is set.
-  
-  :::info
-  A loopback redirect cannot be tied to one local application, so any process on the machine that knows the client id can start an authorization for it. The user still has to approve the consent screen, but leave this unset unless the CLI is actually in use.
-  :::
-  
-   (default: `[]`)
+  Loopback redirect URIs of the Tolgee CLI (RFC 8252), accepted instead of the `http://127.0.0.1/callback` the CLI uses by default. The port is ignored either way, since a CLI takes whatever port the OS gives it, so this is only needed for a build that listens elsewhere. Prefer the loopback IP literal over `localhost`, which RFC 8252 section 8.3 marks NOT RECOMMENDED: a client resolving `localhost` may end up listening on interfaces other than the loopback one. (default: `http://127.0.0.1/callback`)
 
 - ##### `consent-validity-seconds` \{#tolgee-oauth2-_-consent-validity-seconds}
 
@@ -4453,6 +4595,18 @@ Settings for Tolgee acting as an OAuth 2.1 authorization server (browser-extensi
 - ##### `grant-retention-days` \{#tolgee-oauth2-_-grant-retention-days}
 
   How long a spent OAuth grant is kept after its last credential expired, in days. It holds a used code's row so a replayed code is still recognised. A consent the user never completed is not kept for this window — it is deleted once its own short deadline passes. (default: `7`)
+
+- ##### `refresh-token-grace-seconds` \{#tolgee-oauth2-_-refresh-token-grace-seconds}
+
+  Grace window, in seconds, during which replaying a refresh token that was rotated away fails the request without revoking the grant. It absorbs innocent collisions (two tabs, a lost response) instead of signing the user out everywhere, and it covers every rotated-away token, not only the latest. A replay after the window is treated as theft. (default: `60`)
+
+- ##### `refresh-token-history-generations` \{#tolgee-oauth2-_-refresh-token-history-generations}
+
+  How many already-rotated refresh tokens are remembered per grant, so that replaying one is recognised as theft and revokes the grant. This is the bound that binds for a *slow* client — a CLI used once a week reaches this many weeks back. For a client rotating faster than this many times within `refresh-token-history-min-days`, that window is what decides instead. Beyond both, a replay is still refused, it just no longer revokes. (default: `50`)
+
+- ##### `refresh-token-history-min-days` \{#tolgee-oauth2-_-refresh-token-history-min-days}
+
+  Minimum age, in days, before a rotated refresh token can be dropped from that history. This is the bound that binds for a *fast* client, and the one to reach for if the table is growing. It also keeps the depth above from being something a thief can force: rank depends only on how many rotations followed a row, and a thief holding a stolen token can produce those in minutes — this makes eviction cost wall-clock time. (default: `7`)
 
 - ##### `refresh-token-validity-days` \{#tolgee-oauth2-_-refresh-token-validity-days}
 
@@ -4964,11 +5118,22 @@ tolgee.machine-translation.google.default-enabled = true
 tolgee.machine-translation.google.default-primary = true
 tolgee.oauth2.access-token-validity-minutes = 30
 tolgee.oauth2.authorization-code-validity-seconds = 300
-tolgee.oauth2.browser-extension-redirect-uris = []
-tolgee.oauth2.cli-redirect-uris = []
+tolgee.oauth2.browser-extension-enabled = false
+tolgee.oauth2.browser-extension-redirect-uris = https://hacnbapajkkfohnonhbmegojnddagfnj.chromiumapp.org/, https://e262e73e8cbdd8d796b491acfa20a501bfc7b9c0.extensions.allizom.org/
+tolgee.oauth2.cimd-allowed-hosts = []
+tolgee.oauth2.cimd-check-interval-minutes = 15
+tolgee.oauth2.cimd-enabled = true
+tolgee.oauth2.cimd-max-clients-per-user = 25
+tolgee.oauth2.cimd-verification-max-age-days = 7
+tolgee.oauth2.cimd-withdrawal-grace-minutes = 60
+tolgee.oauth2.cli-enabled = true
+tolgee.oauth2.cli-redirect-uris = http://127.0.0.1/callback
 tolgee.oauth2.consent-validity-seconds = 900
 tolgee.oauth2.grant-cleanup-cron = 0 0 3 * * *
 tolgee.oauth2.grant-retention-days = 7
+tolgee.oauth2.refresh-token-grace-seconds = 60
+tolgee.oauth2.refresh-token-history-generations = 50
+tolgee.oauth2.refresh-token-history-min-days = 7
 tolgee.oauth2.refresh-token-validity-days = 30
 tolgee.postgres-autostart.container-name = tolgee_postgres
 tolgee.postgres-autostart.database-name = postgres
