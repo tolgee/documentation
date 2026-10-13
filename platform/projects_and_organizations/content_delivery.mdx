@@ -1,7 +1,7 @@
 ---
 id: content_delivery
-title: Content Delivery (Deploy Files to Cloud)
-sidebar_label: Content Delivery to Cloud
+title: Content Delivery (CDN)
+sidebar_label: Content Delivery (CDN)
 description: Content Delivery will deploy your localization files to reliable and fast cloud storage so you can confidently use them in your application.
 image: /img/og-images/platform.png
 ---
@@ -14,10 +14,10 @@ Content Delivery will deploy your localization files to reliable and fast cloud 
 In the Free plan, you can use only one content delivery configuration,
 and you cannot use custom storage.
 
-Custom storages are available in the Team plan and higher. Multiple content delivery configurations are available in the Business plan and higher. [Upgrade your plan](https://tolgee.io/pricing) to use these features.
+Custom storages are available in the Translate plan and higher. Multiple content delivery configurations are available in the Optimise plan and higher. [Upgrade your plan](https://tolgee.io/pricing) to use these features.
 
 If you use the self-hosted version, you can connect to your own storage in [server configuration](/platform/self_hosting/configuration#tolgee-_-content-delivery).
-With [Tolgee license](/platform/self_hosting/licensing) you can use Hosted Contend Delivery (same as on cloud).
+With [Tolgee license](/platform/self_hosting/licensing) you can use Hosted Content Delivery (same as on cloud).
 :::
 
 ## Setting up the Content Delivery
@@ -125,7 +125,7 @@ If you use namespaces, it should look like this:
 
 :::info Feature availability
 
-Custom delivery storages are available in the Team, Business, Advanced, and Enterprise plans. [Upgrade your plan](https://tolgee.io/pricing) to use this feature.
+Custom delivery storages are available in the Translate, Optimise, Manage, and Enterprise plans. [Upgrade your plan](https://tolgee.io/pricing) to use this feature.
 
 If you use the self-hosted version, you need to [set up the license](/platform/self_hosting/licensing) to use this feature.
 :::
@@ -135,8 +135,8 @@ You can also connect the content delivery to your custom storage.
 1. Open Content Storage settings
 
 <ScreenshotWrapper
-  src="/img/docs/platform/content-delivery/content-storage.png"
-  alt="Content Storage"
+  src="/img/docs/platform/content-delivery/content-storage.webp"
+  alt="Content storage tab in developer settings"
 />
 
 2. Add new storage
@@ -146,8 +146,8 @@ Tolgee supports S3 buckets and Azure blob storage. Fill in the settings that you
 You can also test if your configuration is valid with the `Test` button.
 
 <ScreenshotWrapper
-  src="/img/docs/platform/content-delivery/add-content-storage.png"
-  alt="Add Content Storage"
+  src="/img/docs/platform/content-delivery/add-content-storage.webp"
+  alt="Create content storage dialog for an S3 bucket"
 />
 
 3. Select the storage in the Content Delivery
@@ -155,6 +155,6 @@ You can also test if your configuration is valid with the `Test` button.
 After you create custom storage, the `Storage` field will appear in Content Delivery settings, so you can select your storage over the default one.
 
 <ScreenshotWrapper
-  src="/img/docs/platform/content-delivery/content-storage-select.png"
-  alt="Content Storage select"
+  src="/img/docs/platform/content-delivery/content-storage-select.webp"
+  alt="Storage select in the content delivery dialog"
 />
