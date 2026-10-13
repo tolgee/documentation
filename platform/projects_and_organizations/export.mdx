@@ -26,11 +26,11 @@ At the top of the export page, choose the `Languages` you want to export (all la
   alt="Export page with Languages, Format and the collapsed Advanced settings section"
 />
 
-Everything else lives in the collapsed `Advanced settings` section. You don't need to open it for a typical export. Next to the title, a one line summary shows what the section is currently set to, for example `All states · All namespaces · No tag filters`. Values you changed from the defaults are shown in a darker color, so you can tell at a glance whether the export is filtered.
+Everything else lives in the `Advanced settings` section, which is collapsed by default. You don't need to open it for a typical export. When any advanced setting differs from the defaults, for example because your last export used a tag filter, the section stays open and its chevron is hidden, so you always see what filters your export. Once all advanced settings are back at their defaults, the chevron comes back and you can collapse the section again.
 
 ## Configure advanced settings
 
-Click `Advanced settings` (or the chevron on the right) to expand the section. It contains these options:
+Click `Advanced settings` (or the chevron next to it) to expand the section. It contains these options:
 
 - `States` selects which [translation states](/platform/translation_process/translation_states) are exported. All states (`Untranslated`, `Translated` and `Reviewed`) are selected by default. Unselect `Untranslated` if you only want strings that already have a translation. At least one state must be selected, otherwise the section stays open with an error and the `Export` button is disabled.
 - `Namespaces` selects which [namespaces](/platform/translation_keys/namespaces) are exported. All namespaces are exported by default. This option is only shown when namespaces are enabled for the project.
@@ -40,7 +40,7 @@ Click `Advanced settings` (or the chevron on the right) to expand the section. I
 
 <ScreenshotWrapper
   src="/img/docs/platform/export/export-advanced-settings.webp"
-  alt="Expanded Advanced settings with states, namespaces, message format, Support arrays and tag filters"
+  alt="Advanced settings kept open because tag filters are set, with states, namespaces, message format, Support arrays and tag filters"
 />
 
 ## Export only keys with specific tags
@@ -54,7 +54,9 @@ The two fields work like this:
 - When you fill in both fields, a key must match the include list and must not match the exclude list.
 - Leave both fields empty to export all keys.
 
-Start typing in a field to see matching tags that already exist in the project, and pick one from the list. The fields only offer existing tags, so a typo can't silently produce an empty export.
+If you are not sure how the fields work, hover the info icon next to `Tags` for a short explanation of wildcards.
+
+Start typing in a field to see matching tags that already exist in the project, and pick one from the list. The fields only offer existing tags, so a typo can't silently produce an empty export. A tag you already added to one field is not offered in the other, because a key can't be both included and excluded.
 
 <ScreenshotWrapper
   src="/img/docs/platform/export/export-tag-suggestions.webp"

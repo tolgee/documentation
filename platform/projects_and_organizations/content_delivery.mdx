@@ -89,7 +89,7 @@ Your app usually should not load every string in the project. Unfinished copy, s
 - `Include keys with tags` publishes only keys that have at least one of the listed [tags](/platform/translation_keys/tags).
 - `Exclude keys with tags` skips keys that have any of the listed tags.
 
-Both tag fields offer the tags that already exist in the project and accept `*` as a wildcard. Leave them empty to publish all keys.
+Both tag fields offer the tags that already exist in the project and accept `*` as a wildcard. A tag used in one field is not offered in the other. Leave them empty to publish all keys.
 
 For example, imagine your production app should only get strings that are part of a release, and never strings your team still marks as `wip`. Add `release-*` to `Include keys with tags` and `wip` to `Exclude keys with tags`. Every key you tag for a new release, such as `release-2.5`, is included the next time the files are published, without editing the configuration, while unfinished keys stay out of your app until the `wip` tag is removed.
 
