@@ -80,9 +80,3 @@ Click the help icon inside the search field to open a quick reference of all qua
 ## Use scoped search via the API
 
 The search field syntax is a convenience of the web application. If you integrate with the [API](/api), the same functionality is available as query parameters of the [translations endpoint](/api/get-translations), such as `filterKeyPattern`, `filterDescriptionPattern`, `filterNamespacePattern`, and `filterTranslationPattern`. Each one has a negated variant that excludes matching keys, for example `filterNoKeyPattern`. The parameters accept the same `*` wildcard and `=` exact-match syntax and can be repeated to combine conditions.
-
-For example, this request returns keys whose name starts with "checkout" and does not end with ".legacy".
-
-```
-GET /v2/projects/{projectId}/translations?filterKeyPattern=checkout*&filterNoKeyPattern=*.legacy
-```
