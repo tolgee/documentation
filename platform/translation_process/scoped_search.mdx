@@ -46,7 +46,13 @@ Use `*` as a wildcard to anchor your search, or `=` to match the whole value. Th
 | `key:cart*title` | Key names starting with "cart" and ending with "title" |
 | `key:=cart.title` | Exactly the key "cart.title", not "my.cart.title" |
 
-Without a wildcard or `=`, the term matches anywhere inside the value. `*` still works after `=`, so `key:=cart*` is the same as `key:cart*`. To find a value that itself starts with `=`, use `key:*=foo*`. Matching is always case-insensitive. `%` and `_` are matched literally, while a literal `*` cannot be matched by a scoped term, so use a plain unqualified search for values containing asterisks. A scoped term may use at most 5 wildcards and 500 characters, and a query at most 20 terms per qualifier; anything beyond these limits is searched as plain text instead.
+Without a wildcard or `=`, the term matches anywhere inside the value. A few more rules apply to scoped terms.
+
+- Matching is always case-insensitive. `key:=Cart.Title` finds `cart.title`.
+- `*` still works after `=`. `key:=cart*` is the same as `key:cart*`.
+- To find a value that itself starts with `=`, wrap it in wildcards. `key:*=foo*` finds the key `=foo`.
+- `%` and `_` are matched literally. A literal `*` cannot be matched by a scoped term, so use a plain unqualified search for values that contain asterisks.
+- A scoped term may use at most 5 wildcards and 500 characters, and a query at most 20 terms per qualifier. Anything beyond these limits is searched as plain text instead.
 
 ## Exclude matching keys
 
@@ -73,4 +79,10 @@ Click the help icon inside the search field to open a quick reference of all qua
 
 ## Use scoped search via the API
 
-The search field syntax is a convenience of the web application. If you integrate with the [API](/api), the same functionality is available as regular query parameters of the translations endpoints, such as `filterKeyPattern`, `filterDescriptionPattern`, `filterNamespacePattern`, and `filterTranslationPattern`, together with their negated `filterNo...` variants. Each accepts the same `*` wildcard and `=` exact-match syntax and can be used multiple times to combine conditions.
+The search field syntax is a convenience of the web application. If you integrate with the [API](/api), the same functionality is available as query parameters of the [translations endpoint](/api/get-translations), such as `filterKeyPattern`, `filterDescriptionPattern`, `filterNamespacePattern`, and `filterTranslationPattern`. Each one has a negated variant that excludes matching keys, for example `filterNoKeyPattern`. The parameters accept the same `*` wildcard and `=` exact-match syntax and can be repeated to combine conditions.
+
+For example, this request returns keys whose name starts with "checkout" and does not end with ".legacy".
+
+```
+GET /v2/projects/{projectId}/translations?filterKeyPattern=checkout*&filterNoKeyPattern=*.legacy
+```
