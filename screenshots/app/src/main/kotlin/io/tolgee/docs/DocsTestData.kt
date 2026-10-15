@@ -1,6 +1,5 @@
 package io.tolgee.docs
 
-import io.tolgee.development.testDataBuilder.builders.LanguageBuilder
 import io.tolgee.development.testDataBuilder.builders.OrganizationBuilder
 import io.tolgee.development.testDataBuilder.builders.ProjectBuilder
 import io.tolgee.development.testDataBuilder.builders.TestDataBuilder
@@ -16,10 +15,6 @@ class DocsTestData {
   val reviewer: UserAccountBuilder
   val organization: OrganizationBuilder
   val shop: ProjectBuilder
-  lateinit var english: LanguageBuilder
-  lateinit var czech: LanguageBuilder
-  lateinit var german: LanguageBuilder
-  lateinit var spanish: LanguageBuilder
 
   init {
     owner =
@@ -42,6 +37,7 @@ class DocsTestData {
       root
         .addOrganization {
           name = "Acme Corp"
+          slug = "acme-corp"
         }.build {
           addRole {
             user = owner.self
@@ -72,15 +68,14 @@ class DocsTestData {
       }
 
     shop.build {
-      english = addEnglish()
-      czech = addCzech()
-      german = addGerman()
-      spanish =
-        addLanguage {
-          name = "Spanish"
-          originalName = "Español"
-          tag = "es"
-        }
+      addEnglish()
+      addCzech()
+      addGerman()
+      addLanguage {
+        name = "Spanish"
+        originalName = "Español"
+        tag = "es"
+      }
 
       addPermission {
         user = editor.self
