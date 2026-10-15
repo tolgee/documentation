@@ -1,4 +1,4 @@
-import { login } from 'tg.baseCommon/apiCalls/common';
+import { login, v2apiFetch } from 'tg.baseCommon/apiCalls/common';
 import { HOST } from 'tg.baseCommon/constants';
 import {
   generateTestDataObject,
@@ -42,7 +42,14 @@ export function defineScreenshots(configs: ScreenshotConfig[]) {
         const { width, height } = config.viewport ?? { width: 1512, height: 768 };
         cy.viewport(width, height);
         cy.clock(PINNED_DATE, ['Date']);
-        login(config.loginAs ?? OWNER);
+        cy.intercept({ url: '**', middleware: true }, (req) => {
+          req.on('response', (res) => {
+            delete res.headers['x-tolgee-test-clock'];
+          });
+        });
+        login(config.loginAs ?? OWNER).then(() =>
+          v2apiFetch('announcement/dismiss', { method: 'POST' })
+        );
         config.capture(data);
         config.highlight?.forEach((dataCy) => cy.highlight(dataCy));
         cy.captureDoc(config.src, { clip: config.clip });
