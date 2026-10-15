@@ -93,7 +93,11 @@ class DocsTestData {
             this.key = key.self
             this.language = getLanguageByTag(tag)!!.self
             this.text = text
-            this.state = if (tag == "en" || tag == "cs") TranslationState.REVIEWED else TranslationState.TRANSLATED
+            this.state =
+              when (tag) {
+                "en", "cs" -> TranslationState.REVIEWED
+                else -> TranslationState.TRANSLATED
+              }
           }
         }
       }

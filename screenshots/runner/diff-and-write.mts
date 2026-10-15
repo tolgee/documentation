@@ -4,6 +4,8 @@ import { fileURLToPath } from 'node:url';
 import pixelmatch from 'pixelmatch';
 import sharp from 'sharp';
 
+// Without this libvips serves a cached decode of a file rewritten at the same path, so a changed
+// capture is compared against stale pixels.
 sharp.cache(false);
 
 const MAX_CHANGED_RATIO = 0.005;
@@ -51,7 +53,8 @@ export async function main(outputDir: string, staticDir: string) {
   for (const png of pngs) {
     const webp = targetFor(png, staticDir);
     const outcome = await syncScreenshot(png, webp);
-    results.push({ target: webp.slice(staticDir.length), outcome });
+    const { width, height } = await sharp(png).metadata();
+    results.push({ target: webp.slice(staticDir.length), outcome, width, height });
     console.log(`${outcome.padEnd(9)} ${webp.slice(staticDir.length)}`);
   }
   writeFileSync(join(outputDir, 'summary.json'), JSON.stringify(results, null, 2));
