@@ -1,0 +1,31 @@
+{
+  "name": "tolgee-docs-screenshots",
+  "private": true,
+  "engines": {
+    "node": ">=22"
+  },
+  "scripts": {
+    "capture": "cypress run --browser chrome --headless",
+    "open": "cypress open",
+    "diff": "tsx runner/diff-and-write.mts",
+    "refresh": "npm run capture && npm run diff",
+    "backend:up": "docker compose up -d --wait",
+    "backend:down": "docker compose down -v",
+    "test": "tsx --test runner/*.test.mts",
+    "tsc": "tsc --noEmit",
+    "eslint": "eslint --ext .ts,.mts --max-warnings 0 --report-unused-disable-directives ."
+  },
+  "devDependencies": {
+    "@types/node": "^22.0.0",
+    "@types/pixelmatch": "^5.2.6",
+    "@typescript-eslint/eslint-plugin": "^8.0.0",
+    "@typescript-eslint/parser": "^8.0.0",
+    "cypress": "^13.14.2",
+    "cypress-xpath": "^2.0.1",
+    "eslint": "^8.57.1",
+    "pixelmatch": "^7.1.0",
+    "sharp": "^0.34.0",
+    "tsx": "^4.20.0",
+    "typescript": "^5.9.0"
+  }
+}
