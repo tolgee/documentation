@@ -23,7 +23,7 @@ export default defineConfig({
           );
           launchOptions.args.push(
             '--window-size=2400,1400',
-            '--force-device-scale-factor=1',
+            '--force-device-scale-factor=2',
             '--hide-scrollbars'
           );
         }
