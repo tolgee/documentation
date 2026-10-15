@@ -5,3 +5,13 @@ updates:
     schedule:
       interval: monthly
     target-branch: main
+    ignore:
+      - dependency-name: "*"
+        update-types: ["version-update:semver-major"]
+    # Splitting this group breaks every API reference page in the browser while
+    # the build and the deploy preview still pass.
+    groups:
+      openapi-docs:
+        patterns:
+          - "docusaurus-plugin-openapi-docs"
+          - "docusaurus-theme-openapi-docs"
