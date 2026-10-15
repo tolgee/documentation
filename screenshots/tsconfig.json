@@ -1,0 +1,24 @@
+{
+  "compilerOptions": {
+    "noEmit": true,
+    "module": "esnext",
+    "moduleResolution": "bundler",
+    "target": "ES2022",
+    "lib": ["ES2022", "dom"],
+    "types": ["cypress", "cypress-xpath/src", "node"],
+    "esModuleInterop": true,
+    "skipLibCheck": true,
+    "strict": false,
+    "baseUrl": "./",
+    "paths": {
+      "tg.baseCommon/*": ["../../tolgee-platform/e2e/cypress/common/*"]
+    }
+  },
+  "include": [
+    "./**/*.ts",
+    "./**/*.mts",
+    "../../tolgee-platform/e2e/cypress/common/**/*.ts",
+    "../../tolgee-platform/e2e/cypress/support/*.ts"
+  ],
+  "exclude": ["node_modules", "runner/output"]
+}
