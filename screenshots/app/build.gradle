@@ -1,0 +1,52 @@
+plugins {
+    id 'io.spring.dependency-management'
+    id 'org.springframework.boot' apply false
+    id 'java'
+    id 'org.jetbrains.kotlin.jvm'
+    id 'kotlin-allopen'
+}
+
+group = 'io.tolgee.docs'
+
+configurations {
+    ktlint
+}
+
+java {
+    toolchain {
+        languageVersion = JavaLanguageVersion.of(javaVersion.toInteger())
+    }
+}
+
+kotlin {
+    compilerOptions {
+        freeCompilerArgs.addAll("-Xjsr305=strict", "-Xannotation-default-target=param-property")
+    }
+}
+
+allOpen {
+    annotation("org.springframework.stereotype.Component")
+    annotation("org.springframework.transaction.annotation.Transactional")
+    annotation("org.springframework.stereotype.Service")
+}
+
+dependencies {
+    implementation 'org.springframework.boot:spring-boot-starter-web'
+    implementation project(':data')
+    implementation project(':development')
+    implementation project(':ee-app')
+    ktlint(project(':ktlint'))
+}
+
+dependencyManagement {
+    applyMavenExclusions = false
+    imports {
+        mavenBom(org.springframework.boot.gradle.plugin.SpringBootPlugin.BOM_COORDINATES) {
+            bomProperty "kotlin.version", "${kotlinVersion}"
+        }
+    }
+}
+
+tasks.named('jar', Jar) {
+    duplicatesStrategy(DuplicatesStrategy.EXCLUDE)
+}
