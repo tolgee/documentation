@@ -6,7 +6,7 @@
   },
   "scripts": {
     "capture": "cypress run --browser chrome --headless",
-    "open": "cypress open",
+    "open": "cypress open --browser chrome",
     "diff": "tsx runner/diff-and-write.mts",
     "refresh": "npm run capture && npm run diff",
     "backend:up": "docker compose up -d --wait",
