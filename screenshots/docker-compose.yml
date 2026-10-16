@@ -1,6 +1,6 @@
 services:
   app:
-    container_name: ${TOLGEE_DOCS_CONTAINER_NAME:-tolgee_docs_screenshots}
+    container_name: tolgee_docs_screenshots
     image: tolgee/tolgee:local
     ports:
       - "${TOLGEE_E2E_PORT:-8201}:8201"

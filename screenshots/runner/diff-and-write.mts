@@ -12,21 +12,30 @@ const MAX_CHANGED_RATIO = 0.005;
 
 type Outcome = 'created' | 'updated' | 'unchanged';
 
-const raw = async (file: string) =>
-  sharp(file).ensureAlpha().raw().toBuffer({ resolveWithObject: true });
-
-const writeWebp = async (png: string, webp: string) => {
-  mkdirSync(dirname(webp), { recursive: true });
-  await sharp(png).webp({ quality: 90 }).toFile(webp);
-};
+async function main(outputDir: string, staticDir: string) {
+  const pngs = readdirSync(outputDir, { recursive: true, encoding: 'utf8' }).filter((f) =>
+    f.endsWith('.png')
+  );
+  if (pngs.length === 0) throw new Error(`No PNGs under ${outputDir}; did cypress run?`);
+  const results = [];
+  for (const png of pngs) {
+    const target = targetFor(png);
+    const source = join(outputDir, png);
+    const outcome = await syncScreenshot(source, join(staticDir, target));
+    const { width, height } = await sharp(source).metadata();
+    results.push({ target, outcome, width, height });
+    console.log(`${outcome.padEnd(9)} ${target}`);
+  }
+  writeFileSync(join(outputDir, 'summary.json'), JSON.stringify(results, null, 2));
+}
 
 export async function syncScreenshot(png: string, webp: string): Promise<Outcome> {
   if (!existsSync(webp)) {
     await writeWebp(png, webp);
     return 'created';
   }
-  const next = await raw(png);
-  const prev = await raw(webp);
+  const next = await decodeRgba(png);
+  const prev = await decodeRgba(webp);
   const sameSize = next.info.width === prev.info.width && next.info.height === prev.info.height;
   if (sameSize) {
     const { width, height } = next.info;
@@ -37,29 +46,20 @@ export async function syncScreenshot(png: string, webp: string): Promise<Outcome
   return 'updated';
 }
 
-export function targetFor(png: string, staticDir: string): string {
-  const parts = png.split(sep);
-  const start = parts.indexOf('img');
-  if (start < 0) throw new Error(`No img/ segment in captured path: ${png}`);
-  return join(staticDir, ...parts.slice(start)).replace(/\.png$/, '.webp');
+// Cypress writes `<spec file>/<name>.png` under the output folder, and `<name>` is the MDX src.
+export function targetFor(capturedPng: string): string {
+  const [, ...srcParts] = capturedPng.split(sep);
+  if (srcParts[0] !== 'img') throw new Error(`Captured path does not start with img/: ${capturedPng}`);
+  return join(...srcParts).replace(/\.png$/, '.webp');
 }
 
-export async function main(outputDir: string, staticDir: string) {
-  const pngs = readdirSync(outputDir, { recursive: true, encoding: 'utf8' })
-    .filter((f) => f.endsWith('.png'))
-    .map((f) => join(outputDir, f));
-  if (pngs.length === 0) throw new Error(`No PNGs under ${outputDir}; did cypress run?`);
-  const results = [];
-  for (const png of pngs) {
-    const webp = targetFor(png, staticDir);
-    const outcome = await syncScreenshot(png, webp);
-    const { width, height } = await sharp(png).metadata();
-    results.push({ target: webp.slice(staticDir.length), outcome, width, height });
-    console.log(`${outcome.padEnd(9)} ${webp.slice(staticDir.length)}`);
-  }
-  writeFileSync(join(outputDir, 'summary.json'), JSON.stringify(results, null, 2));
-  return results;
-}
+const decodeRgba = async (file: string) =>
+  sharp(file).ensureAlpha().raw().toBuffer({ resolveWithObject: true });
+
+const writeWebp = async (png: string, webp: string) => {
+  mkdirSync(dirname(webp), { recursive: true });
+  await sharp(png).webp({ quality: 90 }).toFile(webp);
+};
 
 if (process.argv[1] === fileURLToPath(import.meta.url)) {
   const here = dirname(fileURLToPath(import.meta.url));

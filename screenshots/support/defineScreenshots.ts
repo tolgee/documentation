@@ -1,15 +1,21 @@
-import { login, v2apiFetch } from 'tg.baseCommon/apiCalls/common';
+import {
+  forceDate,
+  login,
+  releaseForcedDate,
+  v2apiFetch,
+} from 'tg.baseCommon/apiCalls/common';
 import { HOST } from 'tg.baseCommon/constants';
 import {
   generateTestDataObject,
   TestDataStandardResponse,
 } from 'tg.baseCommon/apiCalls/testData/generator';
+import { waitForGlobalLoading } from 'tg.baseCommon/loading';
 
-export const PINNED_DATE = new Date('2026-01-15T10:00:00Z');
-export const OWNER = 'olivia@acme.test';
 export { HOST };
 
-export const docsData = generateTestDataObject('docs');
+const PINNED_DATE = new Date('2026-01-15T10:00:00Z');
+const OWNER = 'olivia@acme.test';
+const docsData = generateTestDataObject('docs');
 
 export type ScreenshotConfig = {
   src: string;
@@ -17,13 +23,7 @@ export type ScreenshotConfig = {
   clip?: DataCy.Value;
   highlight?: DataCy.Value[];
   loginAs?: string;
-  capture: (data: TestDataStandardResponse) => void;
-};
-
-export const projectId = (data: TestDataStandardResponse, name: string) => {
-  const project = data.projects.find((p) => p.name === name);
-  if (!project) throw new Error(`Project "${name}" is not in the docs dataset`);
-  return project.id;
+  prepare: (data: TestDataStandardResponse) => void;
 };
 
 export function defineScreenshots(configs: ScreenshotConfig[]) {
@@ -31,29 +31,62 @@ export function defineScreenshots(configs: ScreenshotConfig[]) {
     let data: TestDataStandardResponse;
 
     before(() => {
+      forceDate(PINNED_DATE.getTime());
       docsData.clean();
       docsData.generateStandard().then((r) => {
         data = r.body;
       });
     });
 
+    after(() => {
+      releaseForcedDate();
+    });
+
     configs.forEach((config) => {
       it(config.src, () => {
-        const { width, height } = config.viewport ?? { width: 1512, height: 768 };
-        cy.viewport(width, height);
+        if (config.viewport) {
+          cy.viewport(config.viewport.width, config.viewport.height);
+        }
         cy.clock(PINNED_DATE, ['Date']);
-        cy.intercept({ url: '**', middleware: true }, (req) => {
-          req.on('response', (res) => {
-            delete res.headers['x-tolgee-test-clock'];
-          });
-        });
-        login(config.loginAs ?? OWNER).then(() =>
-          v2apiFetch('announcement/dismiss', { method: 'POST' })
-        );
-        config.capture(data);
-        config.highlight?.forEach((dataCy) => cy.highlight(dataCy));
-        cy.captureDoc(config.src, { clip: config.clip });
+        hideTestClockWidget();
+        login(config.loginAs ?? OWNER).then(dismissAnnouncements);
+        config.prepare(data);
+        config.highlight?.forEach(highlight);
+        takeScreenshot(config.src, config.clip);
       });
     });
   });
+}
+
+function hideTestClockWidget() {
+  cy.intercept({ url: '**', middleware: true }, (req) => {
+    req.on('response', (res) => {
+      delete res.headers['x-tolgee-test-clock'];
+    });
+  });
+}
+
+function dismissAnnouncements() {
+  v2apiFetch('announcement/dismiss', { method: 'POST' });
+}
+
+function highlight(dataCy: DataCy.Value) {
+  cy.gcy(dataCy).then(($el) => {
+    $el.css({
+      outline: '3px solid #e53935',
+      'outline-offset': '2px',
+      'border-radius': '4px',
+    });
+  });
+}
+
+function takeScreenshot(src: string, clip?: DataCy.Value) {
+  const name = src.replace(/^\//, '').replace(/\.\w+$/, '');
+  waitForGlobalLoading();
+  cy.document().then((doc) => doc.fonts.ready);
+  if (clip) {
+    cy.gcy(clip).screenshot(name, { overwrite: true, padding: 0 });
+    return;
+  }
+  cy.screenshot(name, { capture: 'viewport', overwrite: true });
 }

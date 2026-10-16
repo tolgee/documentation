@@ -1,4 +1,7 @@
-import './commands';
+import 'cypress-xpath';
+import { register } from '../../../tolgee-platform/e2e/cypress/support/registerCommands';
+
+register();
 
 Cypress.on('uncaught:exception', () => false);
 
