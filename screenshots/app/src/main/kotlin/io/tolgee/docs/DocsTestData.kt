@@ -19,7 +19,7 @@ class DocsTestData {
   init {
     owner =
       root.addUserAccount {
-        username = OWNER_USERNAME
+        username = "olivia@acme.test"
         name = "Olivia Martin"
       }
     editor =
@@ -115,7 +115,6 @@ class DocsTestData {
   }
 
   companion object {
-    const val OWNER_USERNAME = "olivia@acme.test"
     const val LLM_PROVIDER_NAME = "acme-openai"
 
     private val SHOP_KEYS: List<Pair<String, Map<String, String>>> =

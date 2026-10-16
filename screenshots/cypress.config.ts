@@ -1,7 +1,9 @@
 import { defineConfig } from 'cypress';
 import * as path from 'path';
 
-const HOST = process.env.CYPRESS_HOST ?? 'http://localhost:8201';
+const HOST =
+  process.env.CYPRESS_HOST ??
+  `http://localhost:${process.env.TOLGEE_E2E_PORT ?? 8201}`;
 
 export default defineConfig({
   viewportWidth: 1512,
@@ -11,7 +13,7 @@ export default defineConfig({
   screenshotOnRunFailure: false,
   chromeWebSecurity: false,
   e2e: {
-    specPattern: 'specs/**/*.screenshots.ts',
+    specPattern: 'specs/*.screenshots.ts',
     supportFile: 'support/e2e.ts',
     fixturesFolder: false,
     screenshotsFolder: path.join(__dirname, 'runner/output'),

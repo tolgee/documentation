@@ -64,10 +64,11 @@ test('writes when dimensions differ', async () => {
   assert.equal((await sharp(webp).metadata()).width, 12);
 });
 
-test('maps the img/ segment onto static/ and rejects paths without it', () => {
+test('maps a capture under its spec folder to the webp path and rejects paths outside img/', () => {
   assert.equal(
-    targetFor('/x/runner/output/spec.ts/img/docs/platform/a.png', '/docs/static'),
-    '/docs/static/img/docs/platform/a.webp'
+    targetFor(join('a.screenshots.ts', 'img', 'docs', 'platform', 'a.png')),
+    join('img', 'docs', 'platform', 'a.webp')
   );
-  assert.throws(() => targetFor('/x/runner/output/spec.ts/docs/a.png', '/docs/static'));
+  assert.throws(() => targetFor(join('img', 'docs', 'a.png')));
+  assert.throws(() => targetFor(join('a.screenshots.ts', 'docs', 'a.png')));
 });
