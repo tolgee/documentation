@@ -7,7 +7,6 @@ image: /img/og-images/platform.png
 ---
 
 import { ScreenshotWrapper } from "../shared/_ScreenshotWrapper";
-import { SsoFieldsTable } from "../../src/component/sso/SsoFieldsTable";
 
 :::info Feature availability
 Single Sign-On is available for enterprise plans. [Upgrade your plan](https://tolgee.io/pricing) to use this feature.
@@ -38,31 +37,23 @@ You can find a guide for popular IdPs in the [section below](#guides-for-popular
 
 After you have registered and configured the OIDC application, you need to provide the following information to Tolgee:
 
-<SsoFieldsTable
-    data={[
-        {
-            item: 'Domain name',
-            description: 'Used to identify the organization on login page',
-        },
-        {
-            item: 'Client ID',
-            description: 'Unique identifier for an application',
-        },
-        {
-            item: 'Client Secret',
-            description: 'Key used to authenticate the application',
-        },
-        {
-            item: 'Authorization URL',
-            description: 'URL to redirect users for authentication',
-        },
-        {
-            item: 'Token URL',
-            description: 'URL for exchanging authorization code for tokens',
-        },
-    ]}
-/>
+| Property | Description |
+|---|---|
+| Domain name | E-mail domain used to identify the organization on the login page. Only a server administrator can set or change it. |
+| Client ID | Unique identifier for an application. |
+| Client Secret | Key used to authenticate the application. |
+| Authorization URL | URL to redirect users for authentication. |
+| Token URL | URL for exchanging authorization code for tokens. |
 
+:::caution Domain name is set by a server administrator
+The `Domain name` field is read-only for organization owners, so you cannot fill it in or change it yourself. Ask a
+server administrator to set it for your organization. On Tolgee Cloud, contact us via the chat on our website or our
+community [Slack channel](https://Tolg.ee/slack). On a self-hosted instance, ask the user who administers your Tolgee
+server.
+
+The domain name is required for an enabled SSO configuration, so you cannot turn SSO on until an administrator has set
+it. Members are matched to your organization by their e-mail domain when they log in.
+:::
 
 After you have provided this information, click the **Save** button. You can now log in to your Tolgee account using SSO.
 For this purpose, you can use the **Login with SSO** button on the login page and provide your organization's domain name.
