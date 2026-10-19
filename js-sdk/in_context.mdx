@@ -6,6 +6,12 @@ description: 'Learn how to use in-context translating feature in Tolgee tool and
 image: /img/og-images/in-context.png
 ---
 
+In-context translating lets you edit translations directly in your running app. Hold `Alt`/`Option`,
+click a string, and change it in the `Quick translation` dialog without searching for its key in
+Tolgee. This page shows how to set it up for local development, take one-click screenshots, use it
+on production through the Tolgee Tools browser plugin, and suggest or review translations in the
+dialog.
+
 For local development, supply `apiUrl`, `apiKey` options (see [Integration](/platform/integrations/about_integrations)) and [`DevTools`](./api/web_package/plugins#devtools) plugin. If you set everything properly, you can use in-context translating:
 
 1.  Press and hold `Alt`/`Option` key
@@ -151,7 +157,7 @@ When the project has [suggestions](/platform/projects_and_organizations/suggesti
 
 ### Saving, Suggesting, or Both
 
-Permissions in Tolgee are set per language, so the dialog decides for each language field what happens with your change.
+Permissions in Tolgee are set per language, so the dialog decides for each language field what happens with your change. For example:
 
 - You can edit the language, so the change is **saved** as the translation.
 - You can only suggest in the language, so the change is **sent as a suggestion**. The same happens when the project [protects reviewed translations](/platform/projects_and_organizations/suggestions#protecting-reviewed-translations), the translation is already reviewed, and you are not allowed to change its state.
@@ -182,7 +188,7 @@ Reviewers usually judge a suggestion better when they see it where it will appea
 Each suggestion carries the actions you are allowed to use.
 
 - A check mark icon accepts the suggestion. Its tooltip reads `Accept` or, when accepting can also dismiss the competing suggestions, `Accept only`, so the two outcomes can't be confused.
-- A cross icon declines it. Its tooltip reads `Decline`.
+- A cross icon declines it.
 - The `⋮` menu next to them holds `Accept and decline others` and `Delete`.
 
 What you can do with a suggestion depends on your permissions for that language.

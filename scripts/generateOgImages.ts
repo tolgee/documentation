@@ -153,6 +153,13 @@ const IMAGE_CONFIGS: OgImageConfig[] = [
     category: 'LIVE EDITING',
   },
   {
+    filename: 'community-translation',
+    title: 'Community Translation',
+    subtitle: 'Let Your Community Suggest Translations',
+    gradient: true,
+    category: 'OPEN SOURCE',
+  },
+  {
     filename: 'machine-translation',
     title: 'Machine Translation',
     subtitle: 'AI-Powered Translation Services',

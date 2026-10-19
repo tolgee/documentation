@@ -10,7 +10,7 @@ import { ScreenshotWrapper } from '../shared/_ScreenshotWrapper';
 
 Suggestions allow users to propose changes to strings without editing them directly. The actual string value is changed after a reviewer approves the suggestion.
 
-Suggestions are also how [Community Translation](../translation_process/community-translation.mdx) works. On a public project, anyone with a Tolgee account can suggest without becoming a member.
+Suggestions are also how [Community Translation](../translation_process/community-translation.mdx) works. On a [public project](/platform/translation_process/community-translation#making-a-project-public), anyone with a Tolgee account can suggest without becoming a member.
 
 ### How to enable suggestions
 
@@ -21,7 +21,7 @@ Go to `Project settings` > `Advanced` > `Suggestions mode`.
   alt="Project settings > Advanced > Suggestions mode"
 />
 
-The setting applies to every way of creating a suggestion, not only to the Tolgee web app. While suggestions mode is off, the [Create translation suggestion](/api/create-suggestion) API endpoint rejects new suggestions with the `suggestions_disabled` error (HTTP 409), and the [in-context dialog](/js-sdk/in-context#suggesting-translations-in-context) doesn't offer suggesting. Suggestions created earlier are not lost. They can still be listed, accepted, declined, and deleted.
+The setting applies to every way of creating a suggestion, not only to the Tolgee platform. While suggestions mode is off, the [Create translation suggestion](/api/create-suggestion) API endpoint rejects new suggestions with the `suggestions_disabled` error (HTTP 409), and the [in-context dialog](/js-sdk/in-context#suggesting-translations-in-context) doesn't offer suggesting. Suggestions created earlier are not lost. They can still be listed, accepted, declined, and deleted.
 
 ### How to Add Translation Suggestions
 
@@ -108,7 +108,7 @@ Here you can, for example, only allow the user to `Suggest`, so they can't edit 
 
 Deleting your own suggestion is a separate permission, `Delete own`, in the `Suggestions` group. Every [role](./members.mdx#permissions) from `View` up includes it. With granular permissions you can withhold it, and then the user can't take back a suggestion once it's sent. The `Manage` permission in the same group covers deleting anyone's suggestions, including your own.
 
-On a [public project](../translation_process/community-translation.mdx#making-a-project-public) this permission can't be withheld. Everyone with a Tolgee account gets it there as part of the community permissions, including members whose granular permission leaves it out.
+On a [public project](../translation_process/community-translation.mdx#making-a-project-public) the `Delete own` permission can't be withheld. Everyone with a Tolgee account gets it there as part of the community permissions, including members whose granular permission leaves it out.
 
 API keys and applications connected to your account, such as the Tolgee Tools browser plugin, carry their own permissions. Whatever the project is, they can delete the suggestions you made only when this permission is part of the key or of the access you granted.
 
