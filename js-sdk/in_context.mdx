@@ -37,29 +37,79 @@ If you want to enable in-context on production build, there are two options:
 
 ### 1. Tolgee Chrome/Firefox plugin {#tolgee-browser-plugin}
 
-To enable in-context translating on production you can pass `apiKey` and `apiUrl` through Tolgee Tools for [Google Chrome](https://chrome.google.com/webstore/detail/tolgee-tools/hacnbapajkkfohnonhbmegojnddagfnj) or [Mozilla Firefox](https://addons.mozilla.org/en-US/firefox/addon/tolgee-tools/), that way Tolgee will switch to development mode (plugin will also supply `@tolgee/ui` package automatically).
+The Tolgee Tools extension for [Google Chrome](https://chrome.google.com/webstore/detail/tolgee-tools/hacnbapajkkfohnonhbmegojnddagfnj) or [Mozilla Firefox](https://addons.mozilla.org/en-US/firefox/addon/tolgee-tools/) turns in-context translating on for a production site. The page itself ships no credential. The extension gives the SDK a credential in one of two ways. The SDK then switches to development mode, and the extension loads the in-context editor for you.
 
 :::warning
 Your `apiKey` should stay private and never be included in Tolgee configuration on production.
 
 - *Local development*: You can pass apiKey directly in your Tolgee configuration.
-- *Production*: Supply your API key through the Tolgee Tools browser extension instead, or [sign in with your Tolgee account](#sign-in-with-tolgee-account).
+- *Production*: Sign in with your Tolgee account in the Tolgee Tools extension, or apply an API key there.
 :::
+
+#### Sign in with your Tolgee account
+
+This is the recommended way. The user signs in with their Tolgee account, Tolgee shows a consent screen, and the
+extension keeps a short-lived token. The page never sees it.
 
 1.  Install Tolgee Tools
 2.  Go to the production version of your website
-3.  Click on Tolgee Tools extension and apply your API key, or [sign in with your Tolgee account](#sign-in-with-tolgee-account) (you might need to reload if you just installed the plugin)
-4.  In-context translating should work
+3.  Click on Tolgee Tools extension and choose **Connect to Tolgee**
+
+    <ScreenshotWrapper
+      src="/img/docs/platform/oauth/tolgee-tools-sign-in.webp"
+      alt="The Tolgee Tools popup before signing in, with the Connect to Tolgee button"
+      style={{ maxWidth: 400 }}
+    />
+
+4.  Approve the access on the [Tolgee consent screen](/platform/account_settings/sign_in_with_tolgee)
+
+    <ScreenshotWrapper
+      src="/img/docs/platform/oauth/consent-screen-browser-extension.webp"
+      alt="The Tolgee consent screen the Connect to Tolgee button opens, with the project pre-selected from the page"
+      style={{ maxWidth: 420 }}
+    />
+
+5.  In-context translating should work
+
+    <ScreenshotWrapper
+      src="/img/docs/platform/oauth/tolgee-tools-connected.webp"
+      alt="The Tolgee Tools popup after signing in: the account, the project and the in-context editing switch"
+      style={{ maxWidth: 400 }}
+    />
+
+What your site has to provide:
+
+- `projectId` in the Tolgee configuration. The sign-in is bound to one project, and the extension reads which one from
+  the page. See the [`projectId` option](./api/core_package/options.mdx#projectid).
+- `@tolgee/web` **7.2.0 or newer**. On an older SDK the extension asks for an update and offers the API key way instead.
+- `apiUrl` in the configuration if you use a self-hosted Tolgee. Otherwise the user fills it in the extension.
+
+How it works: the extension holds the token in its own service worker. The SDK sends every Tolgee API request to the
+extension, which adds the token, performs the request and returns the response. Screenshots are captured and uploaded
+by the extension too. A page can only reach the project it declares, on the server the user signed in to. The sign-in
+stays valid until the user signs out in the extension, or until it goes 30 days without use.
+
+If the user has no access to the declared project, the consent screen says so and in-context editing does not
+work on that site for that account. The token still cannot do more than the user is allowed to do.
+
+Signing in is also how community contributors work on a [public project](/platform/translation_process/community-translation):
+they have no API key and no edit rights, and the dialog lets them [suggest translations](#suggesting-translations-in-context)
+instead. On a self-hosted server the operator has to
+[turn the browser extension on](/platform/self_hosting/oauth_sign_in#turn-the-browser-extension-on) first (Tolgee v3.230.0 or newer).
+
+#### Apply an API key
+
+The older way still works. Click on Tolgee Tools extension and apply a Project API Key. With an SDK that supports
+the sign-in, the key stays in the extension as well, and requests go through it the same way. On an older SDK the
+key is written into the page's session storage and the page sends its own requests with it.
 
 > You can also check [Step-by-step tutorial](https://tolgee.io/blog/in-context-production)
 
-#### Sign in with a Tolgee account instead of an API key {#sign-in-with-tolgee-account}
-
-Handing out API keys doesn't work for everyone, for example for community contributors who [suggest translations on your live website](/platform/projects_and_organizations/community_translation_in_context). When your Tolgee configuration declares `apiUrl` and [`projectId`](./api/core_package/options.mdx#projectid), people can click `Connect to Tolgee` in the plugin and sign in with their own Tolgee account. What they can do in the dialog then follows their permissions in the project. Signing in requires `@tolgee/web` 7.2.0 or newer on the page.
-
 #### A few notes about Tolgee Tools plugin
 
-- You can turn off development mode by switching "Applied" toggle, which will turn it off, but stores credentials locally so you don't have to fill it again next time.
+- The in-context switch in the popup only turns alt+click editing on or off for the current page. It does not end the
+  sign-in. Use **Sign out** for that, see
+  [how to end the access](/platform/account_settings/sign_in_with_tolgee#how-to-end-the-access).
 - Plugin will supply `apiUrl` from Tolgee configuration if it's present (if not you can fill it manually).
 - Plugin changes its icon to pink if Tolgee is present on the page or if credentials are set.
 
@@ -93,13 +143,13 @@ if (shouldIncludeInContextTools) {
 
 [`InContextTools`](/api/web_package/tools.mdx#incontexttools) (or `DevTools` in development) are a combination of multiple plugins, which you can include independently, check [`InContextTools`](/api/web_package/tools.mdx#incontexttools) documentation for more info.
 
-## Suggest translations in context
+## Suggesting Translations in Context
 
-Not everyone who spots a wrong string should be able to change it. A translator may be allowed to edit German but only propose changes to the reviewed English copy, and a community contributor on a [public project](/platform/projects_and_organizations/community_translation) can't edit anything at all. They still see the string in its real context, which is the best place to notice that it is wrong.
+Not everyone who spots a wrong string should be able to change it. A translator may be allowed to edit German but only propose changes to the reviewed English copy, and a community contributor on a [public project](/platform/translation_process/community-translation) can't edit anything at all. They still see the string in its real context, which is the best place to notice that it is wrong.
 
 When the project has [suggestions](/platform/projects_and_organizations/suggestions) enabled, the `Quick translation` dialog lets you propose a change in every language where you are allowed to suggest but not to edit. A suggestion doesn't change the live translation. It waits until a reviewer accepts it.
 
-### Save, suggest, or both
+### Saving, Suggesting, or Both
 
 Permissions in Tolgee are set per language, so the dialog decides for each language field what happens with your change.
 
@@ -125,11 +175,15 @@ The saved fields are written first, and the suggestions go out only once that ha
 
 If a suggestion itself fails, the dialog stays open with the error under the field it belongs to. The saved fields and the other suggestions stand, so you only fix the one that failed. A typical cause is proposing text that someone has already proposed, because Tolgee doesn't accept a suggestion that already exists on the translation.
 
-### Review suggestions in the dialog
+### Reviewing Suggestions in the Dialog
 
-Reviewers usually judge a suggestion better when they see it where it will appear. Under each language field, the dialog lists the three most recent pending suggestions with their authors, and lets you load the rest. Each one shows who wrote it and how long ago, counted from now for the first month and as a date after that.
+Reviewers usually judge a suggestion better when they see it where it will appear. Under each language field, the dialog lists the three most recent pending suggestions with their authors, and `Show more` loads ten more at a time. Each one shows who wrote it and how long ago, counted from now for the first month and as a date after that.
 
-The actions you are allowed to use sit on the suggestion itself, and the rarer ones sit behind the `⋮` menu next to them. `Accept` and `Decline` are the buttons on the row, and the menu holds `Accept and decline others` and `Delete`. When accepting can also dismiss the competing suggestions, the button on the row reads `Accept only`, so the two outcomes can't be confused.
+Each suggestion carries the actions you are allowed to use.
+
+- A check mark icon accepts the suggestion. Its tooltip reads `Accept` or, when accepting can also dismiss the competing suggestions, `Accept only`, so the two outcomes can't be confused.
+- A cross icon declines it. Its tooltip reads `Decline`.
+- The `⋮` menu next to them holds `Accept and decline others` and `Delete`.
 
 What you can do with a suggestion depends on your permissions for that language.
 
@@ -143,25 +197,33 @@ Accepting a suggestion replaces the translation and refreshes the field in the d
 
 The dialog shows only suggestions that are waiting for a decision. To look at accepted or declined suggestions, or to reverse a decision, open the key in the Tolgee platform.
 
-### Use the dialog with suggest-only permissions
+### Using the Dialog with Suggest-Only Permissions
 
 When suggesting is all you are allowed to do, the dialog shows only what you can use. You see the translations, the suggestions on them, the key's screenshots, and the `Suggest` button. Controls for translation state, tags, plural forms, character limit, and screenshot upload are hidden.
 
+The dialog below belongs to such a user. Both fields carry the suggestion note, the pending Czech suggestions have no accept or decline icons, and the only action is `Suggest`.
+
+<ScreenshotWrapper
+  src="/img/docs/platform/community-translation/in-context-suggest-dialog.webp"
+  alt="The Quick translation dialog for a user who may only suggest: English and Czech fields each with the note Your change will be sent as a suggestion, two pending Czech suggestions, and the Suggest button"
+  style={{ maxWidth: 560 }}
+/>
+
 A suggestion always belongs to an existing key. If the string you clicked has no key in the Tolgee project yet, you can't suggest a translation for it, and someone with permission to create keys has to add the key first.
 
-### Troubleshoot missing suggestions
+### Troubleshooting Missing Suggestions
 
 When the dialog shows nothing related to suggestions, check these causes first.
 
 - `Suggestions mode` is turned off in the [project settings](/platform/projects_and_organizations/suggestions#how-to-enable-suggestions).
-- The website runs a version of `@tolgee/web` older than TODO_SDK_VERSION. The browser plugin loads the dialog in the version the website uses, so updating the plugin doesn't help. The website has to update the SDK.
-- Your self-hosted Tolgee server is older than TODO_PLATFORM_VERSION. Suggesting in context needs that release. On an older server the plugin can't sign you in at all, and fails with an authorization error.
+- The website runs a version of `@tolgee/web` older than 7.3.0. The browser plugin loads the dialog in the version the website uses, so updating the plugin doesn't help. The website has to update the SDK.
+- Your self-hosted Tolgee server is older than v3.230.0, or it hasn't [turned the browser extension on](/platform/self_hosting/oauth_sign_in#turn-the-browser-extension-on). On such a server the plugin can't sign you in at all and fails with an authorization error.
 
-When you see the suggestions of others but the dialog never offers `Suggest` to you, first check whether you can edit the language. Where you can edit, your change is always saved directly, so there is nothing to suggest.
+When you see the suggestions of others but the dialog never offers `Suggest` to you, first check whether you can edit the language. Where you can edit, your change is saved directly, so there is nothing to suggest. The one exception is a reviewed translation on a project that protects reviewed translations, which is sent as a suggestion when you can't change its state.
 
 If you can't edit either, the dialog tells you which of the two is missing. When your account has the permission but the credential the page uses doesn't carry it, a note under the field says so and points at the fix: sign in again in the plugin, or use an API key with more permissions. When your own account doesn't have the permission in that language, the field is simply read-only, since no key and no new sign-in would change that. Ask someone who manages the project.
 
-The plugin also checks this by itself. If your account has permissions that the sign-in on this page doesn't include, its popup shows an alert listing what is missing, with a `Sign in again` button. You stay connected if you cancel it.
+The plugin also checks this by itself. If your account has permissions that the sign-in on this page doesn't include, its popup shows the alert `The Tolgee plugin is missing some permissions` with a `Sign in again` button. You stay connected if you close the alert instead.
 
 ## Modals, popovers and other focus-stealing elements
 Some elements like modals or popovers can steal focus from the Tolgee dev tools,

@@ -7,7 +7,7 @@ module.exports = {
         'getting_started/about_tolgee',
         'getting_started/creating_project',
         'getting_started/files_and_integrations',
-        'translate_with_tolgee',
+        'translate-with-tolgee',
       ],
     },
     {
@@ -36,8 +36,6 @@ module.exports = {
         'projects_and_organizations/import',
         'projects_and_organizations/export',
         'projects_and_organizations/suggestions',
-        'projects_and_organizations/community_translation',
-        'projects_and_organizations/community_translation_in_context',
         'projects_and_organizations/organization_settings',
         'projects_and_organizations/llm-providers',
         'projects_and_organizations/content_delivery',
@@ -81,6 +79,8 @@ module.exports = {
         'translation_process/ai_translator',
         'translation_process/ai-playground',
         'translation_process/comments',
+        'translation_process/community-translation',
+        'translation_process/community-translation-in-context',
         'translation_process/scoped_search',
         'translation_process/labels',
         'translation_process/icu_message_format',
@@ -180,6 +180,7 @@ module.exports = {
       items: [
         'account_settings/password_and_2fa',
         'account_settings/api_keys_and_pat_tokens',
+        'account_settings/sign_in_with_tolgee',
       ],
     },
     {
@@ -210,6 +211,7 @@ module.exports = {
         'self_hosting/running_on_azure',
         'self_hosting/licensing',
         'self_hosting/configuration',
+        'self_hosting/oauth_sign_in',
         'self_hosting/slack_integration_self_hosted',
       ],
     },
