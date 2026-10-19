@@ -1,7 +1,7 @@
 ---
 id: content_delivery
-title: Content Delivery (Deploy Files to Cloud)
-sidebar_label: Content Delivery to Cloud
+title: Content Delivery (CDN)
+sidebar_label: Content Delivery (CDN)
 description: Content Delivery will deploy your localization files to reliable and fast cloud storage so you can confidently use them in your application.
 image: /img/og-images/platform.png
 ---
@@ -14,10 +14,10 @@ Content Delivery will deploy your localization files to reliable and fast cloud 
 In the Free plan, you can use only one content delivery configuration,
 and you cannot use custom storage.
 
-Custom storages are available in the Team plan and higher. Multiple content delivery configurations are available in the Business plan and higher. [Upgrade your plan](https://tolgee.io/pricing) to use these features.
+Custom storages are available in the Translate plan and higher. Multiple content delivery configurations are available in the Optimise plan and higher. [Upgrade your plan](https://tolgee.io/pricing) to use these features.
 
 If you use the self-hosted version, you can connect to your own storage in [server configuration](/platform/self_hosting/configuration#tolgee-_-content-delivery).
-With [Tolgee license](/platform/self_hosting/licensing) you can use Hosted Contend Delivery (same as on cloud).
+With [Tolgee license](/platform/self_hosting/licensing) you can use Hosted Content Delivery (same as on cloud).
 :::
 
 ## Setting up the Content Delivery
@@ -31,18 +31,17 @@ You can set up Content Delivery in the `Developer settings` section of the Tolge
   alt="Developer Settings"
 />
 
-2. Click the `+ Content delivery button`
+2. Click the `+ Content Delivery` button
 
-You'll have to provide a name to the content delivery config and export settings. The content delivery uses the same export
-settings as described is the [export section](/platform/projects_and_organizations/export)
+Give the configuration a name and choose the `Languages` and `Format` of the published files. Below them, you can choose what gets published (see [Choose what gets published](#choose-what-gets-published)). These settings work the same way as on the [export page](/platform/projects_and_organizations/export).
 
 When the `Publish automatically` option is enabled, your localization files will be published automatically after every
 change in your localization data. If you deselect the checkbox, you will have to publish your localization files
 manually.
 
 <ScreenshotWrapper
-  src="/img/docs/platform/content-delivery/add-content-delivery.png"
-  alt="Add Content Delivery"
+  src="/img/docs/platform/content-delivery/add-content-delivery.webp"
+  alt="Add content delivery dialog"
 />
 
 3. Use the Content Delivery link
@@ -80,6 +79,25 @@ If you opted out of automatic publishing, you can do so manually in the list of 
   alt="Manual publish"
 />
 
+## Choose what gets published
+
+Your app usually should not load every string in the project. Unfinished copy, strings for a feature that has not shipped yet, or strings that belong to another app can end up in front of users once the files are published. In the content delivery dialog, you can limit what gets published with the same filters you know from the [export page](/platform/projects_and_organizations/export#configure-advanced-settings). They are always visible in the dialog, below `Languages` and `Format`.
+
+- `States` selects which [translation states](/platform/translation_process/translation_states) are published. Unlike the export page, content delivery publishes only `Translated` and `Reviewed` translations by default, so untranslated strings never reach your app.
+- `Namespaces` selects which [namespaces](/platform/translation_keys/namespaces) are published. It is only shown when namespaces are enabled for the project.
+- `Message & placeholder format` and format specific options such as `Support arrays` or `Escape HTML` are only shown for [formats](/platform/supported_formats) that support them.
+- `Include keys with tags` publishes only keys that have at least one of the listed [tags](/platform/translation_keys/tags).
+- `Exclude keys with tags` skips keys that have any of the listed tags.
+
+Both tag fields offer the tags that already exist in the project and accept `*` as a wildcard. A tag used in one field is not offered in the other. Leave them empty to publish all keys.
+
+For example, imagine your production app should only get strings that are part of a release, and never strings your team still marks as `wip`. Add `release-*` to `Include keys with tags` and `wip` to `Exclude keys with tags`. Every key you tag for a new release, such as `release-2.5`, is included the next time the files are published, without editing the configuration, while unfinished keys stay out of your app until the `wip` tag is removed.
+
+<ScreenshotWrapper
+  src="/img/docs/platform/content-delivery/content-delivery-filters.webp"
+  alt="Content delivery dialog with Translated and Reviewed states and tag filters release-* and wip"
+/>
+
 :::info Branching
 When branching is enabled, each content delivery configuration gains a **Branch** field and is pinned to a specific branch. See [Content Delivery and Branches](/platform/branching/content_delivery) for details.
 :::
@@ -107,7 +125,7 @@ If you use namespaces, it should look like this:
 
 :::info Feature availability
 
-Custom delivery storages are available in the Team, Business, Advanced, and Enterprise plans. [Upgrade your plan](https://tolgee.io/pricing) to use this feature.
+Custom delivery storages are available in advanced plans. [Upgrade your plan](https://tolgee.io/pricing) to use this feature.
 
 If you use the self-hosted version, you need to [set up the license](/platform/self_hosting/licensing) to use this feature.
 :::
@@ -117,8 +135,8 @@ You can also connect the content delivery to your custom storage.
 1. Open Content Storage settings
 
 <ScreenshotWrapper
-  src="/img/docs/platform/content-delivery/content-storage.png"
-  alt="Content Storage"
+  src="/img/docs/platform/content-delivery/content-storage.webp"
+  alt="Content storage tab in developer settings"
 />
 
 2. Add new storage
@@ -128,8 +146,8 @@ Tolgee supports S3 buckets and Azure blob storage. Fill in the settings that you
 You can also test if your configuration is valid with the `Test` button.
 
 <ScreenshotWrapper
-  src="/img/docs/platform/content-delivery/add-content-storage.png"
-  alt="Add Content Storage"
+  src="/img/docs/platform/content-delivery/add-content-storage.webp"
+  alt="Create content storage dialog for an S3 bucket"
 />
 
 3. Select the storage in the Content Delivery
@@ -137,6 +155,6 @@ You can also test if your configuration is valid with the `Test` button.
 After you create custom storage, the `Storage` field will appear in Content Delivery settings, so you can select your storage over the default one.
 
 <ScreenshotWrapper
-  src="/img/docs/platform/content-delivery/content-storage-select.png"
-  alt="Content Storage select"
+  src="/img/docs/platform/content-delivery/content-storage-select.webp"
+  alt="Storage select in the content delivery dialog"
 />

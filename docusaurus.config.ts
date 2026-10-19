@@ -83,6 +83,7 @@ const config: Config = {
     googleTrackingId: process.env.DOCUSAURUS_GOOGLE_TRACKING_ID,
     cookieYesId: process.env.DOCUSAURUS_COOKIE_YES_ID,
     utmCookieDomain: process.env.DOCUSAURUS_UTM_COOKIE_DOMAIN || 'tolgee.io',
+    marketingSessionEndpoint: process.env.DOCUSAURUS_MARKETING_SESSION_ENDPOINT,
     chatwootToken: process.env.DOCUSAURUS_CHATWOOT_TOKEN,
     hotjarId: process.env.DOCUSAURUS_HOTJAR_ID,
     typebotToken: process.env.DOCOSAURUS_TYPEBOT_TOKEN,

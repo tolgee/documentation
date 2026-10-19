@@ -66,7 +66,13 @@ export const LayoutContent = ({ children }) => {
     const posthogApiHost = siteConfig.customFields.posthogApiHost as
       | string
       | undefined;
-    initPosthog({ token: posthogToken, host: posthogApiHost });
+    const cookieRoot =
+      (siteConfig.customFields.utmCookieDomain as string) || 'tolgee.io';
+    initPosthog({
+      token: posthogToken,
+      host: posthogApiHost,
+      cookieRoot,
+    });
   }, []);
 
   useEffect(() => {

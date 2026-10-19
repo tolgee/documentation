@@ -31,7 +31,7 @@ These features are shared across all branches and are not affected by the branch
 | **Members & permissions** | Members and their permissions are managed at the project level, regardless of the active branch. |
 | **Project Settings** | All project settings (name, machine translation, AI, etc.) apply across all branches. |
 | **Project API keys** | API keys are scoped to the project and work across all branches. |
-| **Billing** | Plans and usage are tracked at the organization level, it applies to all branches of all projects. A key is counted once regardless of how many branches it appears in. |
+| **Billing** | Plans and usage are tracked at the organization level, it applies to all branches of all projects. Hosted words are counted once per key across all branches. For each translation, the longest version counts, so if a branch has a longer text than `main`, the branch version is counted. See [hosted words](/platform/projects_and_organizations/organization_settings#hosted-words). |
 
 ## Integrations
 
