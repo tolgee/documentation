@@ -7,6 +7,7 @@ module.exports = {
         'getting_started/about_tolgee',
         'getting_started/creating_project',
         'getting_started/files_and_integrations',
+        'translate-with-tolgee',
       ],
     },
     {
@@ -78,6 +79,8 @@ module.exports = {
         'translation_process/ai_translator',
         'translation_process/ai-playground',
         'translation_process/comments',
+        'translation_process/community-translation',
+        'translation_process/community-translation-in-context',
         'translation_process/scoped_search',
         'translation_process/labels',
         'translation_process/icu_message_format',

@@ -1,3 +1,6 @@
+# Short link for the "Translate with Tolgee" badge, pasted into other people's sites
+/translate-with-tolgee /platform/translate-with-tolgee 301
+
 /js/script.hash.outbound-links.pageview-props.revenue.tagged-events.js https://plausible.io/js/script.hash.outbound-links.pageview-props.revenue.tagged-events.js 200
 /api/event https://plausible.io/api/event 200
 

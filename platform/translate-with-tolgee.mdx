@@ -1,0 +1,99 @@
+---
+id: translate-with-tolgee
+title: Translating a Website with Tolgee
+sidebar_label: Translating a Website with Tolgee
+slug: /translate-with-tolgee
+image: /img/og-images/platform.png
+description: Found a wrong or missing translation on a website that uses Tolgee? Install the browser plugin, sign in, and suggest better wording where you found it.
+---
+
+import { ScreenshotWrapper } from './shared/_ScreenshotWrapper';
+
+Translating a website with Tolgee means suggesting better wording directly on a website whose
+owner lets their users help with translations. It is for anyone who spots text that is wrong,
+awkward, or missing in their language. You install the Tolgee Tools browser plugin, sign in with a
+Tolgee account, and Alt+click the text to propose your version. The website's maintainers review
+your suggestion and decide whether it goes live.
+
+It takes three steps, and you only do the first two once.
+
+## Installing the Browser Plugin
+
+Tolgee Tools is the browser plugin that lets you edit and suggest translations directly on a
+website. Install it from your browser's store.
+
+- [Add it to Google Chrome](https://chrome.google.com/webstore/detail/tolgee-tools/hacnbapajkkfohnonhbmegojnddagfnj)
+- [Add it to Mozilla Firefox](https://addons.mozilla.org/en-US/firefox/addon/tolgee-tools/)
+
+## Signing In with a Tolgee Account
+
+Signing in tells the website's Tolgee project who you are, so your suggestions carry your name.
+You don't need an invitation, and you don't need anything from the website's owner. Connect the
+plugin in four steps.
+
+1. Open the website you want to translate.
+2. Click the Tolgee Tools icon in your browser toolbar and choose `Connect to Tolgee`.
+
+   <ScreenshotWrapper
+     src="/img/docs/platform/oauth/tolgee-tools-sign-in.webp"
+     alt="The Tolgee Tools popup before signing in, with the Connect to Tolgee button"
+     style={{ maxWidth: 400 }}
+   />
+
+3. Sign in. Most websites use Tolgee Cloud, where you can
+   [create a free account](https://app.tolgee.io/sign_up). A website that runs its own Tolgee
+   server sends you to that server instead, and you need an account there.
+4. Click `Allow` on the `Allow access` screen. Leave the permissions as they are: if you remove the
+   permission to delete your own suggestions under `Modify`, you can't take a suggestion back.
+
+   <ScreenshotWrapper
+     src="/img/docs/platform/oauth/consent-screen-browser-extension.webp"
+     alt="The Tolgee consent screen for the browser plugin, with the website's project pre-selected"
+     style={{ maxWidth: 420 }}
+   />
+
+## Suggesting a Better Translation
+
+Once the plugin is connected, the website's text becomes editable for you. Suggest a change in
+three steps.
+
+1. Hold `Alt` (`Option` on a Mac) and move the mouse over the text you want to fix. It gets
+   highlighted.
+2. Click it. The `Quick translation` dialog opens, with the key's description under its name when
+   there is one, so you can check what the string is for.
+3. Type your version and click `Suggest`.
+
+You can suggest as many strings on that website as you like.
+
+## What Happens to Your Suggestion
+
+Your suggestion doesn't go live on the website straight away. It waits for someone who maintains
+the translations to accept it, and only then does it replace the text everyone sees. You can see
+the suggestions other people have made on the same text, and you can delete your own while it
+waits, as long as you allowed the plugin to delete your suggestions when you signed in.
+
+The website's owner reviews your suggestion in Tolgee, where everything you can do as a contributor
+is described in [Community Translation](./translation_process/community-translation.mdx#for-contributors).
+There you also find out how to list every project you have suggested on.
+
+## Fixing Common Problems
+
+Find the line that matches what you see, and do what it says.
+
+- **The `Connect to Tolgee` button is disabled, under the note `Sign-in not available on this
+  site`.** The website doesn't tell the plugin which Tolgee project it belongs to. Tell the people
+  who run the website, and point them to
+  [Community Translation in Context](./translation_process/community-translation-in-context.mdx).
+- **Signing in fails or ends in an error.** The website's Tolgee server may be too old or not set
+  up for signing in this way. Tell the people who run the website; the same page explains what
+  they need to change.
+- **Nothing gets highlighted when you hold `Alt`.** Reload the page after installing the plugin,
+  then click the Tolgee Tools icon and check that it shows you as connected.
+- **The plugin shows `Sign-in needs a newer Tolgee SDK` instead of `Connect to Tolgee`.** The
+  website uses an older version of the Tolgee SDK. Tell the people who run the website that it
+  needs `@tolgee/web` 7.3.0 or newer.
+- **You can open the dialog, but there is no `Suggest` button.** The website may use a Tolgee SDK
+  older than 7.3.0, the project may have suggestions turned off, or your account may not be
+  allowed to suggest there. Nothing on your side changes any of these. Tell the people who run the
+  website what you see, and point them to
+  [Troubleshooting Missing Suggestions](/js-sdk/in-context#troubleshooting-missing-suggestions).

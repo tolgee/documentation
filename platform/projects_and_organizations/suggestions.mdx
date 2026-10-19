@@ -10,6 +10,8 @@ import { ScreenshotWrapper } from '../shared/_ScreenshotWrapper';
 
 Suggestions allow users to propose changes to strings without editing them directly. The actual string value is changed after a reviewer approves the suggestion.
 
+Suggestions are also how [Community Translation](../translation_process/community-translation.mdx) works. On a [public project](/platform/translation_process/community-translation#making-a-project-public), anyone with a Tolgee account can suggest without becoming a member.
+
 ### How to enable suggestions
 
 Go to `Project settings` > `Advanced` > `Suggestions mode`.
@@ -18,6 +20,8 @@ Go to `Project settings` > `Advanced` > `Suggestions mode`.
   src="/img/docs/platform/suggestions/settings.webp"
   alt="Project settings > Advanced > Suggestions mode"
 />
+
+The setting applies to every way of creating a suggestion, not only to the Tolgee platform. While suggestions mode is off, the [Create translation suggestion](/api/create-suggestion) API endpoint rejects new suggestions with the `suggestions_disabled` error (HTTP 409), and the [in-context dialog](/js-sdk/in-context#suggesting-translations-in-context) doesn't offer suggesting. Suggestions created earlier are not lost. They can still be listed, accepted, declined, and deleted.
 
 ### How to Add Translation Suggestions
 
@@ -51,9 +55,20 @@ This is the moment when it will replace the existing translation.
   alt="Suggestion is accepted"
 />
 
-If there are multiple suggestions, you are declining the others by accepting one.
+When there are multiple suggestions on a string, you choose how accepting one affects the rest.
 
-All previously accepted/declined suggestions are found under a "Show all" checkbox.
+- The check mark icon on the suggestion, with the tooltip `Accept only`, promotes the suggestion to
+  the live translation and leaves the other suggestions open, so you can keep comparing them.
+- `Accept and decline others`, in the suggestion's `⋮` menu, promotes the suggestion and dismisses
+  the competing ones in a single step.
+
+<ScreenshotWrapper
+  src="/img/docs/platform/community-translation/suggestions-accept.webp"
+  alt="Multiple suggestions on a string with the Accept only button and the Accept and decline others menu action"
+/>
+
+Tolgee shows up to three suggestions on a string at once. If there are more, use `Show all` to see
+the rest. All previously accepted and declined suggestions are also found under `Show all`.
 
 <ScreenshotWrapper
   src="/img/docs/platform/suggestions/suggestions-inactive.webp"
@@ -89,6 +104,12 @@ Here you can, for example, only allow the user to `Suggest`, so they can't edit 
   alt="Suggestions granular permissions"
 />
 
-> Accepting the suggestions is tied to the "Change state" permission (which is what all reviewers have).
+> Accepting a suggestion needs both the `Edit` and the `Change state` permission in the language, and declining one needs only `Change state`. The `Review` role has both.
+
+Deleting your own suggestion is a separate permission, `Delete own`, in the `Suggestions` group. Every [role](./members.mdx#permissions) from `View` up includes it. With granular permissions you can withhold it, and then the user can't take back a suggestion once it's sent. The `Manage` permission in the same group covers deleting anyone's suggestions, including your own.
+
+On a [public project](../translation_process/community-translation.mdx#making-a-project-public) the `Delete own` permission can't be withheld. Everyone with a Tolgee account gets it there as part of the community permissions, including members whose granular permission leaves it out.
+
+API keys and applications connected to your account, such as the Tolgee Tools browser plugin, carry their own permissions. Whatever the project is, they can delete the suggestions you made only when this permission is part of the key or of the access you granted.
 
 
