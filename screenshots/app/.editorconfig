@@ -1,0 +1,32 @@
+root = true
+
+# WARNING: the patterns MUST NOT contain spaces, or they might be IGNORED by ktlint!
+# See: https://pinterest.github.io/ktlint/latest/rules/configuration-ktlint/
+# See: https://github.com/editorconfig/editorconfig/issues/148
+
+[*]
+insert_final_newline = true
+
+[*.{kt,kts}] # WARNING!! THERE MUST NOT BE ANY SPACE INSIDE THE BRACKETS!
+ij_kotlin_code_style_defaults = KOTLIN_OFFICIAL
+indent_style = space
+indent_size = 2
+max_line_length = 120
+
+# We don't follow these
+ktlint_standard_filename = disabled
+ktlint_standard_function-expression-body = disabled
+
+# Disable wildcard imports entirely
+ij_kotlin_name_count_to_use_star_import = 2147483647
+ij_kotlin_name_count_to_use_star_import_for_members = 2147483647
+ij_kotlin_packages_to_use_import_on_demand = unset
+
+# Match Ktlint's default import order
+ij_kotlin_imports_layout = *,java.**,javax.**,kotlin.**,^
+
+[backend/data/src/main/kotlin/io/tolgee/formats/pluralData/PluralData.kt]
+max_line_length = 500
+
+[**/in/**/*.{kt,kts}] # WARNING!! THERE MUST NOT BE ANY SPACE INSIDE THE BRACKETS!
+ktlint_standard_package-name = disabled

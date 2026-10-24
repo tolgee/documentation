@@ -1,0 +1,14 @@
+services:
+  app:
+    container_name: tolgee_docs_screenshots
+    image: tolgee/tolgee:local
+    ports:
+      - "${TOLGEE_E2E_PORT:-8201}:8201"
+    environment:
+      - SPRING_PROFILES_ACTIVE=docker,e2e
+      - HEALTHCHECK_PORT=8201
+      - tolgee.smtp.host=fakesmtp
+      - tolgee.smtp.port=1025
+      - tolgee.frontend-url=http://localhost:${TOLGEE_E2E_PORT:-8201}
+  fakesmtp:
+    image: axllent/mailpit:v1.29.2
