@@ -90,7 +90,8 @@ module.exports.footer = {
     <a class="footer__link-item" href="https://tolgee.io/privacy-policy">Privacy policy</a>
     <a class="footer__link-item" href="https://tolgee.io/terms_and_conditions">Terms &amp; conditions</a>
     <a class="footer__link-item" href="https://tolgee.io/cookie-statement">Cookie statement</a>
-    <a class="footer__link-item cky-banner-element" href="javascript:;">Cookie settings</a>
+    <a class="footer__link-item" href="https://tolgee.io/info-security-policy">Information security policy</a>
+    <a class="footer__link-item" href="https://tolgee.io/ee-license">EE licence</a>
   </div>
   <a class="footer__link-item" href="/">© 2021-${new Date().getFullYear()} Tolgee s.r.o. All rights reserved</a>`,
 };
