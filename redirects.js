@@ -561,6 +561,22 @@ module.exports.redirects = {
       from: '/platform/translation_process/tolgee_translator',
       to: '/platform/translation_process/ai_translator',
     },
+    {
+      from: '/docs/terms_of_use',
+      to: 'https://tolgee.io/terms_and_conditions',
+    },
+    {
+      from: '/docs/terms_and_conditions/terms_and_conditions',
+      to: 'https://tolgee.io/terms_and_conditions',
+    },
+    {
+      from: '/docs/terms_and_conditions/privacy_policy',
+      to: 'https://tolgee.io/privacy-policy',
+    },
+    {
+      from: '/docs/terms_and_conditions/cookie_policy',
+      to: 'https://tolgee.io/cookie-statement',
+    },
     ...BLOG_REDIRECTS,
   ],
   createRedirects(existingPath) {

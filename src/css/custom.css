@@ -159,6 +159,14 @@ h6 {
   color: var(--home-text);
 }
 
+.footer__legal-links {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 8px 24px;
+  margin-bottom: 8px;
+}
+
 .hero-svg {
   width: 100%;
   overflow: visible;
