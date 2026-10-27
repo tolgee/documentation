@@ -85,14 +85,23 @@ module.exports.footer = {
         },
         {
           label: 'Privacy policy',
-          href: '/docs/terms_and_conditions/privacy_policy',
+          href: 'https://tolgee.io/privacy-policy',
         },
         {
-          label: 'Terms of use',
-          href: '/docs/terms_of_use',
+          label: 'Terms & conditions',
+          href: 'https://tolgee.io/terms_and_conditions',
         },
         {
-          html: '<a class="footer__link-item cky-banner-element" href="javascript:;">Cookie settings</a>',
+          label: 'Cookie statement',
+          href: 'https://tolgee.io/cookie-statement',
+        },
+        {
+          label: 'Information security policy',
+          href: 'https://tolgee.io/info-security-policy',
+        },
+        {
+          label: 'EE licence',
+          href: 'https://tolgee.io/ee-license',
         },
       ],
     },
