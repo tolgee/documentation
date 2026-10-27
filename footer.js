@@ -83,15 +83,28 @@ module.exports.footer = {
           label: 'Facebook',
           href: 'https://www.facebook.com/Tolgee.i18n',
         },
+        {
+          label: 'Privacy policy',
+          href: 'https://tolgee.io/privacy-policy',
+        },
+        {
+          label: 'Terms & conditions',
+          href: 'https://tolgee.io/terms_and_conditions',
+        },
+        {
+          label: 'Cookie statement',
+          href: 'https://tolgee.io/cookie-statement',
+        },
+        {
+          label: 'Information security policy',
+          href: 'https://tolgee.io/info-security-policy',
+        },
+        {
+          label: 'EE licence',
+          href: 'https://tolgee.io/ee-license',
+        },
       ],
     },
   ],
-  copyright: `<div class="footer__legal-links">
-    <a class="footer__link-item" href="https://tolgee.io/privacy-policy">Privacy policy</a>
-    <a class="footer__link-item" href="https://tolgee.io/terms_and_conditions">Terms &amp; conditions</a>
-    <a class="footer__link-item" href="https://tolgee.io/cookie-statement">Cookie statement</a>
-    <a class="footer__link-item" href="https://tolgee.io/info-security-policy">Information security policy</a>
-    <a class="footer__link-item" href="https://tolgee.io/ee-license">EE licence</a>
-  </div>
-  <a class="footer__link-item" href="/">© 2021-${new Date().getFullYear()} Tolgee s.r.o. All rights reserved</a>`,
+  copyright: `<a class="footer__link-item" href="/">© 2021-${new Date().getFullYear()} Tolgee s.r.o. All rights reserved</a>`,
 };
