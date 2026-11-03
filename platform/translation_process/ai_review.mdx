@@ -1,0 +1,158 @@
+---
+id: ai_review
+title: AI Review
+sidebar_label: AI Review
+image: /img/og-images/platform.png
+description: Let AI review your translations automatically. Define rules that score new translations, mark good ones as reviewed, and flag the rest for human attention.
+---
+
+import { ScreenshotWrapper } from '../shared/_ScreenshotWrapper';
+
+When your project grows, reviewing every translation by hand stops scaling. Machine translation and AI translation fill languages fast, but someone still has to check the results. Reviewers spend hours approving translations that were fine all along, and the real problems hide in the pile.
+
+AI review solves this. You define rules that tell the AI which translations to review and how strict to be. The AI scores each new translation, marks good ones as `Reviewed`, and leaves the rest for your team. Your reviewers only look at translations that need them.
+
+<ScreenshotWrapper
+  src="/img/docs/platform/ai-review/rules_list.webp"
+  alt="The AI review tab with two rules, their scope chips and review counts"
+/>
+
+:::info Feature availability
+AI review is available in advanced plans. [Upgrade your plan](https://tolgee.io/pricing) to use this feature.
+
+If you use the self-hosted version, you must [set up the license](https://tolgee.io/pricing/self-hosted) to use this feature.
+:::
+
+## Create a rule
+
+A rule decides which translations the AI reviews and when they count as passed. Start with one rule that covers the content you trust the AI to judge, for example UI texts with a tag.
+
+1. Go to `AI` in the project menu and open the `AI review` tab
+2. Click `Add rule`
+3. Pick which keys the rule covers. You can include or exclude tags and namespaces, and limit the rule to some languages or branches
+4. Set the `Threshold`. Translations scoring at or above it are marked as reviewed automatically
+5. Keep the `Mode` on `Dry run` for now and save
+
+Each translation is reviewed by at most one rule. When several enabled rules match the same translation, the strictest one wins, so a `Never auto-review` rule always beats a scoring rule.
+
+<ScreenshotWrapper
+  src="/img/docs/platform/ai-review/rule_dialog.webp"
+  alt="The rule dialog with keys scope, languages, threshold and language overrides"
+/>
+
+Some content should never be approved by a machine. Legal texts or marketing claims often need human eyes no matter how well they score. For those keys, check `Never auto-review`. The AI skips them completely, so they always wait for a human review. You can add language overrides when one language needs a different threshold, or when only some languages should be reviewed automatically.
+
+## Test with a dry run
+
+In `Dry run` mode the AI scores translations but changes nothing. Use it to see how your threshold behaves on real content before you let the rule act.
+
+The rule card shows how many translations were scored and how many would have been auto-reviewed. Open the translations view and use the `AI review` filter to see which translations would pass or fail. When the numbers look right, you are ready to switch.
+
+## Switch to Active
+
+Edit the rule and set the `Mode` to `Active`. From now on, every new translation the rule covers is reviewed right after it is saved, machine translated, or imported
+
+- Translations scoring at or above the threshold are marked as `Reviewed`
+- Translations below the threshold stay `Translated` and show an orange badge with the score
+
+Reviews cost AI credits, like other AI features. The AI never overwrites human work. Translations a person already reviewed are left alone, and a human edit always removes the AI's result for that text.
+
+## Review the results
+
+Reviewed translations show a badge with the score in the translations view. Click the badge to see the details
+
+- The score, the threshold, and the rule that produced the result
+- The issues the AI found, each with a severity and the points it cost
+- `Confirm review` and `Reject` buttons for AI-approved translations. Confirm turns the result into a human review. Reject sets the translation back to `Translated`
+- `Retry` for failed reviews, for example after a provider outage
+
+<ScreenshotWrapper
+  src="/img/docs/platform/ai-review/badge_popover.webp"
+  alt="The review popover with the score, the rule, and the list of found issues"
+/>
+
+To work through results in bulk, use the `AI review` group in the translations filter. You can filter by outcome, such as `Below threshold` or `Not reviewed yet`, and limit the filter to one language.
+
+## Run on existing translations
+
+New rules only react to new changes. To review what already exists, the rule card shows a backlog line, such as "254 existing translations not reviewed", with a `Review now` link. It opens a preview with the exact counts and the reasons why some translations are skipped, and starts a normal background job you can watch and cancel.
+
+You can also select keys in the translations view and use the `AI review` [batch operation](/platform/translation_keys/batch_operations). Check `Also re-review translations that already have a result` to refresh older results. Human decisions are never re-reviewed.
+
+## Write a review prompt
+
+The default review prompt works without any setup. When your project has domain rules, like a brand voice or terminology, write your own criteria
+
+1. Open the [AI playground](/platform/translation_process/ai-playground) from any translation
+2. Switch the prompt type to `Review`
+3. Fill in `Review criteria` with plain instructions, for example "Use informal language"
+4. Test the prompt on a selected translation or preview it on many keys. The result shows the score and the found issues instead of a translation
+5. Save the prompt and pick it in your rule
+
+<ScreenshotWrapper
+  src="/img/docs/platform/ai-review/playground_review.webp"
+  alt="The AI playground in Review mode with the review criteria field"
+/>
+
+:::caution
+When an `Active` rule uses your prompt and you change it, the rule switches to `Dry run`. The old scores were produced by the old prompt, so Tolgee asks you to validate the new prompt before it approves translations again.
+:::
+
+## Reference
+
+### Rule fields
+
+| Field | Meaning |
+|-------|---------|
+| **Keys** | Tags and namespaces the rule covers. Both include and exclude lists are supported |
+| **Languages** | Languages the rule reviews. Empty means all languages |
+| **Branches** | Branch names or patterns like `feature/*`, shown when the project uses [branching](/platform/branching/overview) |
+| **Threshold** | Minimal score (0 to 100) for auto-review |
+| **Never auto-review** | The AI skips these keys completely. They always need a human review |
+| **Language overrides** | A different threshold or `Never` for single languages |
+| **Review prompt** | The prompt used for this rule. Defaults to the built-in review prompt |
+| **Mode** | `Dry run` only scores. `Active` marks passing translations as reviewed |
+| **Don't auto-review translations with open QA issues** | Skips translations with open [QA issues](/platform/translation_process/qa_checks) until they are resolved |
+
+### Review statuses
+
+| Badge | Meaning |
+|-------|---------|
+| Filled green | Passed an `Active` rule, marked as `Reviewed` |
+| Filled orange | Scored below the threshold, stays `Translated` |
+| Outlined green | Dry run, would have been auto-reviewed |
+| Outlined orange | Dry run, would not have been auto-reviewed |
+| Grey with an alert icon | The review failed, for example because of a provider error |
+
+A badge always describes the current text. Any edit removes the result, and the translation is reviewed again when a rule covers it.
+
+### Scoring
+
+Every translation starts at 100 points. Each issue the AI finds subtracts points based on its severity. The final score is compared with the rule's threshold. The popover and the playground show each issue with its point cost, so you can tune the threshold to your content.
+
+### When the source text changes
+
+A translation that was fine yesterday may be wrong after the source text changes. The `When the source text changes` section under the rules decides what happens per group
+
+| Group | Default |
+|-------|---------|
+| Machine translated | Translate again |
+| Approved by AI | Translate again |
+| Edited by a human | Keep, mark as outdated |
+| Reviewed by a human | Keep, mark as outdated |
+
+In projects with translation protection, the AI never moves a `Reviewed` translation back to `Translated`, so the protected rows are fixed and show the effective values.
+
+These actions run when someone edits the source text in Tolgee. An import that changes source texts keeps the existing translations and marks them as outdated, like in projects without AI review.
+
+### Permissions
+
+| Action | Needed permission |
+|--------|-------------------|
+| See the AI review tab and results | View prompts |
+| Create, edit, and delete rules | Edit prompts |
+| Run reviews (Review now, batch operation, Retry) | Batch machine translation |
+| Confirm or reject an AI review | Edit translation state |
+| Change the source text settings | Edit prompts and edit project |
+
+Activity entries made by the AI show `AI reviewer` as the actor. When a person started the run, the entry also shows who started it.
