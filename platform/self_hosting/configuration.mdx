@@ -605,6 +605,16 @@ Prefix: `tolgee.content-delivery.storage`
 
 Configuration of the storage. You have to configure exactly one storage.
 
+- ##### `allow-local-addresses` \{#tolgee-content-delivery-storage-_-allow-local-addresses}
+
+  When enabled, project-level content storage endpoints (S3 endpoint, Azure blob endpoint) may target otherwise-blocked address ranges — loopback, private/site-local, link-local, IPv6 unique-local, multicast and wildcard/any-local addresses. Useful for self-hosted setups with an internal S3-compatible store (e.g. MinIO) and for local development.
+  
+  :::danger
+  This removes SSRF protection for content storage targets. Keep it **disabled** on production and multi-tenant servers — anyone able to manage content delivery could otherwise reach internal services.
+  :::
+  
+   (default: `false`)
+
 ##### azure \{#tolgee-content-delivery-storage-_-azure}
 
 Prefix: `tolgee.content-delivery.storage.azure`
@@ -1599,6 +1609,7 @@ tolgee:
         url-prefix:
         zone-id:
     storage:
+      allow-local-addresses: false
       azure:
         connection-string:
         container-name:
@@ -2363,6 +2374,16 @@ Prefix: `TOLGEE_CONTENT_DELIVERY_CACHE_PURGING_CLOUDFLARE`
 Prefix: `TOLGEE_CONTENT_DELIVERY_STORAGE`
 
 Configuration of the storage. You have to configure exactly one storage.
+
+- ##### `ALLOW_LOCAL_ADDRESSES` \{#tolgee-content-delivery-storage-_-allow-local-addresses}
+
+  When enabled, project-level content storage endpoints (S3 endpoint, Azure blob endpoint) may target otherwise-blocked address ranges — loopback, private/site-local, link-local, IPv6 unique-local, multicast and wildcard/any-local addresses. Useful for self-hosted setups with an internal S3-compatible store (e.g. MinIO) and for local development.
+  
+  :::danger
+  This removes SSRF protection for content storage targets. Keep it **disabled** on production and multi-tenant servers — anyone able to manage content delivery could otherwise reach internal services.
+  :::
+  
+   (default: `false`)
 
 ##### AZURE \{#tolgee-content-delivery-storage-_-azure}
 
@@ -3336,6 +3357,7 @@ TOLGEE_CONTENT_DELIVERY_CACHE_PURGING_CLOUDFLARE_MAX_FILES_PER_REQUEST=30
 TOLGEE_CONTENT_DELIVERY_CACHE_PURGING_CLOUDFLARE_ORIGINS=
 TOLGEE_CONTENT_DELIVERY_CACHE_PURGING_CLOUDFLARE_URL_PREFIX=
 TOLGEE_CONTENT_DELIVERY_CACHE_PURGING_CLOUDFLARE_ZONE_ID=
+TOLGEE_CONTENT_DELIVERY_STORAGE_ALLOW_LOCAL_ADDRESSES=false
 TOLGEE_CONTENT_DELIVERY_STORAGE_AZURE_CONNECTION_STRING=
 TOLGEE_CONTENT_DELIVERY_STORAGE_AZURE_CONTAINER_NAME=
 TOLGEE_CONTENT_DELIVERY_STORAGE_S3_ACCESS_KEY=
@@ -4073,6 +4095,16 @@ Prefix: `tolgee.content-delivery.cache-purging.cloudflare`
 Prefix: `tolgee.content-delivery.storage`
 
 Configuration of the storage. You have to configure exactly one storage.
+
+- ##### `allow-local-addresses` \{#tolgee-content-delivery-storage-_-allow-local-addresses}
+
+  When enabled, project-level content storage endpoints (S3 endpoint, Azure blob endpoint) may target otherwise-blocked address ranges — loopback, private/site-local, link-local, IPv6 unique-local, multicast and wildcard/any-local addresses. Useful for self-hosted setups with an internal S3-compatible store (e.g. MinIO) and for local development.
+  
+  :::danger
+  This removes SSRF protection for content storage targets. Keep it **disabled** on production and multi-tenant servers — anyone able to manage content delivery could otherwise reach internal services.
+  :::
+  
+   (default: `false`)
 
 ##### azure \{#tolgee-content-delivery-storage-_-azure}
 
@@ -5046,6 +5078,7 @@ tolgee.content-delivery.cache-purging.cloudflare.max-files-per-request = 30
 tolgee.content-delivery.cache-purging.cloudflare.origins =
 tolgee.content-delivery.cache-purging.cloudflare.url-prefix =
 tolgee.content-delivery.cache-purging.cloudflare.zone-id =
+tolgee.content-delivery.storage.allow-local-addresses = false
 tolgee.content-delivery.storage.azure.connection-string =
 tolgee.content-delivery.storage.azure.container-name =
 tolgee.content-delivery.storage.s3.access-key =
