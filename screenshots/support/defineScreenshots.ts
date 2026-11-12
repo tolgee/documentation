@@ -14,7 +14,7 @@ import { waitForGlobalLoading } from 'tg.baseCommon/loading';
 export { HOST };
 
 const PINNED_DATE = new Date('2026-01-15T10:00:00Z');
-const OWNER = 'olivia@acme.test';
+const OWNER = 'alice@whattopack.test';
 const docsData = generateTestDataObject('docs');
 
 export type ScreenshotConfig = {

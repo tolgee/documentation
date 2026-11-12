@@ -1,8 +1,8 @@
 # Documentation screenshots
 
 Cypress specs under `specs/` capture product screenshots against a Tolgee image that bundles the
-`app/` module. That module seeds one canonical dataset (organization Acme Corp, project Acme Shop,
-users Olivia Martin, Noah Clark, Emma Lee) through `GET /internal/e2e-data/docs/generate-standard`.
+`app/` module. That module seeds one canonical dataset through
+`GET /internal/e2e-data/docs/generate-standard` (see [Example data](#example-data)).
 Every spec pins the server and browser clock to 2026-01-15, cleans and regenerates the data, and
 logs in as the owner unless `loginAs` says otherwise.
 
@@ -45,9 +45,9 @@ Add an entry to the spec for the documented feature (or a new `specs/<feature>.s
       viewport: { width: 1512, height: 768 },         // optional, this is the default
       clip: 'some-data-cy',                           // optional: screenshot only that element
       highlight: ['other-data-cy'],                   // optional: red outline before capture
-      loginAs: 'noah@acme.test',                      // optional: default is the owner
+      loginAs: 'bob@whattopack.test',                 // optional: default is the owner
       prepare: (data) => {                            // open the page; the screenshot is taken after
-        cy.visit(`${HOST}/projects/${getProjectByNameFromTestData(data, 'Acme Shop').id}/translations`);
+        cy.visit(`${HOST}/projects/${getProjectByNameFromTestData(data, 'Demo project').id}/translations`);
         cy.gcy('...').should('be.visible');
       },
     }]);
@@ -55,6 +55,22 @@ Add an entry to the spec for the documented feature (or a new `specs/<feature>.s
 `data` is the `TestDataStandardResponse` from the platform helpers. The dataset is generated once
 per spec file, so `prepare` must not change data. Captures are 2x, so the default viewport
 produces 3024x1536 images.
+
+## Example data
+
+Screenshots show the Demo project that Tolgee creates for every new user: the "What to pack"
+packing list app in English, German and French. `DocsTestData` builds it from the platform's
+`DemoProjectData`, so the keys, translations, tags and descriptions are the ones a reader sees in
+their own account.
+
+- Organization `What to pack`, project `Demo project`.
+- Alice Smith (`alice@whattopack.test`, owner), Bob Johnson (`bob@whattopack.test`, can edit) and
+  Charlie Brown (`charlie@whattopack.test`, can review).
+
+When a page needs data the dataset lacks (prompts, tasks, glossary terms), add it to `DocsTestData`
+and keep it about the packing list app: no new company, product or person names. Reuse the three
+users and the existing keys before adding more, and prefer names the product itself would suggest
+(`Prompt for German`, not `My prompt 1`).
 
 Every spec uses the same `docs` dataset; there is no way to add page-specific data yet. When a page
 needs it, add a controller at `internal/e2e-data/docs-<name>` that extends `DocsE2eDataController`

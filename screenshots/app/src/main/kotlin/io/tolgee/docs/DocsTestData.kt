@@ -1,5 +1,6 @@
 package io.tolgee.docs
 
+import io.tolgee.component.demoProject.DemoProjectData
 import io.tolgee.development.testDataBuilder.builders.OrganizationBuilder
 import io.tolgee.development.testDataBuilder.builders.ProjectBuilder
 import io.tolgee.development.testDataBuilder.builders.TestDataBuilder
@@ -14,30 +15,19 @@ class DocsTestData {
   val editor: UserAccountBuilder
   val reviewer: UserAccountBuilder
   val organization: OrganizationBuilder
-  val shop: ProjectBuilder
+  val demo: ProjectBuilder
 
   init {
-    owner =
-      root.addUserAccount {
-        username = "olivia@acme.test"
-        name = "Olivia Martin"
-      }
-    editor =
-      root.addUserAccount {
-        username = "noah@acme.test"
-        name = "Noah Clark"
-      }
-    reviewer =
-      root.addUserAccount {
-        username = "emma@acme.test"
-        name = "Emma Lee"
-      }
+    val (alice, bob, charlie) = DemoProjectData.demoUsers
+    owner = addUser(alice.name, OWNER_USERNAME)
+    editor = addUser(bob.name, "bob@whattopack.test")
+    reviewer = addUser(charlie.name, "charlie@whattopack.test")
 
     organization =
       root
         .addOrganization {
-          name = "Acme Corp"
-          slug = "acme-corp"
+          name = "What to pack"
+          slug = "what-to-pack"
         }.build {
           addRole {
             user = owner.self
@@ -60,21 +50,22 @@ class DocsTestData {
           }
         }
 
-    shop =
+    demo =
       root.addProject {
         organizationOwner = organization.self
-        name = "Acme Shop"
-        aiTranslatorPromptDescription = "Online store selling home and garden products"
+        name = PROJECT_NAME
+        description = "This is a demo project of a packing list app"
+        aiTranslatorPromptDescription = "A packing list app that helps travellers decide what to pack"
       }
 
-    shop.build {
-      addEnglish()
-      addCzech()
-      addGerman()
-      addLanguage {
-        name = "Spanish"
-        originalName = "Español"
-        tag = "es"
+    demo.build {
+      DemoProjectData.languages.forEach { language ->
+        addLanguage {
+          name = language.name
+          tag = language.tag
+          originalName = language.originalName
+          flagEmoji = language.flagEmoji
+        }
       }
 
       addPermission {
@@ -86,66 +77,66 @@ class DocsTestData {
         type = ProjectPermissionType.REVIEW
       }
 
-      SHOP_KEYS.forEach { (keyName, texts) ->
-        val key = addKey(keyName)
-        texts.forEach { (tag, text) ->
+      DemoProjectData.keys.forEach { keyName ->
+        val key =
+          addKey {
+            name = keyName
+            DemoProjectData.pluralArgNames[keyName]?.let {
+              isPlural = true
+              pluralArgName = it
+            }
+          }
+        DemoProjectData.descriptions[keyName]?.let(key::setDescription)
+        DemoProjectData.tags[keyName]?.forEach(key::addTag)
+        DemoProjectData.translations.forEach { (tag, texts) ->
           addTranslation {
             this.key = key.self
             this.language = getLanguageByTag(tag)!!.self
-            this.text = text
-            this.state =
-              when (tag) {
-                "en", "cs" -> TranslationState.REVIEWED
-                else -> TranslationState.TRANSLATED
-              }
+            this.text = texts[keyName]
+            this.state = stateOf(tag, keyName)
           }
         }
       }
 
-      addPrompt {
-        name = "Formal tone"
-        providerName = LLM_PROVIDER_NAME
-        template =
-          """
-          Translate the text for an online store. Use formal address and keep product names untranslated.
-          {{fragment.intro}}
-          """.trimIndent()
+      PROMPTS.forEach { (promptName, promptTemplate) ->
+        addPrompt {
+          name = promptName
+          providerName = LLM_PROVIDER_NAME
+          template = promptTemplate
+        }
       }
     }
   }
 
-  companion object {
-    const val LLM_PROVIDER_NAME = "acme-openai"
+  private fun addUser(
+    name: String,
+    username: String,
+  ) = root.addUserAccount {
+    this.name = name
+    this.username = username
+  }
 
-    private val SHOP_KEYS: List<Pair<String, Map<String, String>>> =
+  private fun stateOf(
+    languageTag: String,
+    keyName: String,
+  ): TranslationState {
+    if (DemoProjectData.inTranslatedState[languageTag] == keyName) return TranslationState.TRANSLATED
+    return TranslationState.REVIEWED
+  }
+
+  companion object {
+    const val PROJECT_NAME = "Demo project"
+    const val OWNER_USERNAME = "alice@whattopack.test"
+    const val LLM_PROVIDER_NAME = "gpt-4o"
+
+    private val PROMPTS =
       listOf(
-        "checkout.button.pay" to
-          mapOf("en" to "Pay now", "cs" to "Zaplatit", "de" to "Jetzt bezahlen", "es" to "Pagar ahora"),
-        "checkout.title" to mapOf("en" to "Checkout", "cs" to "Pokladna", "de" to "Kasse", "es" to "Pago"),
-        "cart.empty" to
-          mapOf("en" to "Your cart is empty", "cs" to "Váš košík je prázdný", "de" to "Ihr Warenkorb ist leer"),
-        "cart.items" to
-          mapOf(
-            "en" to "{count, plural, one {# item} other {# items}}",
-            "cs" to "{count, plural, one {# položka} few {# položky} other {# položek}}",
-          ),
-        "product.add_to_cart" to
-          mapOf(
-            "en" to "Add to cart",
-            "cs" to "Přidat do košíku",
-            "de" to "In den Warenkorb",
-            "es" to "Añadir al carrito",
-          ),
-        "product.out_of_stock" to mapOf("en" to "Out of stock", "cs" to "Vyprodáno"),
-        "nav.home" to mapOf("en" to "Home", "cs" to "Domů", "de" to "Startseite", "es" to "Inicio"),
-        "nav.garden" to mapOf("en" to "Garden", "cs" to "Zahrada", "de" to "Garten"),
-        "account.welcome" to
-          mapOf(
-            "en" to "Welcome back, {name}!",
-            "cs" to "Vítejte zpět, {name}!",
-            "es" to "¡Bienvenido de nuevo, {name}!",
-          ),
-        "footer.newsletter" to mapOf("en" to "Subscribe to our newsletter"),
+        "Prompt for German" to
+          "Translate the text for a packing list app. Use the informal \"du\" form.\n{{fragment.intro}}",
+        "Prompt for French" to
+          "Translate the text for a packing list app. Use the formal \"vous\" form.\n{{fragment.intro}}",
+        "Prompt without screenshots" to
+          "Translate the text for a packing list app. Do not rely on screenshots.\n{{fragment.intro}}",
       )
   }
 }
