@@ -1,6 +1,8 @@
 name: Refresh documentation screenshots
 
 on:
+  push:
+    branches: [jirikuchynka/doc-screenshots-wf-test]
   workflow_dispatch:
     inputs:
       tolgee_platform_ref:
@@ -24,7 +26,7 @@ jobs:
       - uses: actions/checkout@v4
         with:
           repository: tolgee/tolgee-platform
-          ref: ${{ inputs.tolgee_platform_ref }}
+          ref: ${{ inputs.tolgee_platform_ref || 'jirikuchynka/doc-screenshots' }}
           path: tolgee-platform
 
       - name: Setup environment
