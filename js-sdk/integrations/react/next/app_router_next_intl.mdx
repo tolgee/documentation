@@ -188,6 +188,7 @@ The next step is to wrap the children with the `TolgeeNextProvider`. Update the 
 ```tsx title="src/app/[locale]/layout.tsx"
 import React, { ReactNode } from 'react';
 import { notFound } from 'next/navigation';
+import { setRequestLocale } from 'next-intl/server';
 import { TolgeeNextProvider } from '@/tolgee/client';
 import { ALL_LANGUAGES } from '@/tolgee/shared';
 import { getTolgee } from '@/tolgee/server';
@@ -197,11 +198,18 @@ type Props = {
   params: Promise<{ locale: string }>;
 };
 
+export function generateStaticParams() {
+  return ALL_LANGUAGES.map((locale) => ({ locale }));
+}
+
 export default async function LocaleLayout({ children, params }: Props) {
   const { locale } = await params;
   if (!ALL_LANGUAGES.includes(locale)) {
     notFound();
   }
+  // enables static rendering, see "Static rendering" below
+  setRequestLocale(locale);
+
   const tolgee = await getTolgee();
   const records = await tolgee.loadRequired();
 
@@ -279,17 +287,42 @@ The `i18n/request.ts` is required by `next-intl` package, we don't actually need
 
 ```ts title="src/i18n/request.ts"
 import { getRequestConfig } from 'next-intl/server';
+import { DEFAULT_LANGUAGE } from '@/tolgee/shared';
 
 export default getRequestConfig(async ({ requestLocale }) => {
-  const locale = await requestLocale;
+  const locale = (await requestLocale) ?? DEFAULT_LANGUAGE;
   return {
-    // do this to make next-intl not emmit any warnings
-    messages: { locale: locale! },
+    // translations are handled by Tolgee, next-intl only needs the locale
+    locale,
+    messages: {},
   };
 });
 ```
 
 <AppRouterTranslating />
+
+## Static rendering
+
+`getTolgee` and `getTranslate` read the current locale with next-intl's `getLocale`. Unless the locale is set with [`setRequestLocale`](https://next-intl.dev/docs/getting-started/app-router/with-i18n-routing#static-rendering), next-intl reads it from the request headers, which opts the route into dynamic rendering.
+
+To render pages statically (SSG, ISR or `generateStaticParams`), call `setRequestLocale` before using Tolgee in the layout, as shown above, **and** in every page that uses `getTranslate`. Layouts and pages are rendered independently, so setting the locale in the layout is not enough.
+
+```tsx title="src/app/[locale]/page.tsx"
+import { setRequestLocale } from 'next-intl/server';
+import { getTranslate } from '@/tolgee/server';
+
+type Props = {
+  params: Promise<{ locale: string }>;
+};
+
+export default async function IndexPage({ params }: Props) {
+  const { locale } = await params;
+  setRequestLocale(locale);
+
+  const t = await getTranslate();
+  return <h1>{t('hello_world')}</h1>;
+}
+```
 
 ## Switching Languages
 
