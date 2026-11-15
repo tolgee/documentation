@@ -98,7 +98,7 @@ stays valid until the user signs out in the extension, or until it goes 30 days 
 If the user has no access to the declared project, the consent screen says so and in-context editing does not
 work on that site for that account. The token still cannot do more than the user is allowed to do.
 
-Signing in is also how community contributors work on a [public project](/platform/translation_process/community-translation):
+Signing in is also how community contributors work on a [community project](/platform/translation_process/community-translation):
 they have no API key and no edit rights, and the dialog lets them [suggest translations](#suggesting-translations-in-context)
 instead. On a self-hosted server the operator has to
 [turn the browser extension on](/platform/self_hosting/oauth_sign_in#turn-the-browser-extension-on) first (Tolgee v3.230.0 or newer).
@@ -151,7 +151,7 @@ if (shouldIncludeInContextTools) {
 
 ## Suggesting Translations in Context
 
-Not everyone who spots a wrong string should be able to change it. A translator may be allowed to edit German but only propose changes to the reviewed English copy, and a community contributor on a [public project](/platform/translation_process/community-translation) can't edit anything at all. They still see the string in its real context, which is the best place to notice that it is wrong.
+Not everyone who spots a wrong string should be able to change it. A translator may be allowed to edit German but only propose changes to the reviewed English copy, and a community contributor on a [community project](/platform/translation_process/community-translation) can't edit anything at all. They still see the string in its real context, which is the best place to notice that it is wrong.
 
 When the project has [suggestions](/platform/projects_and_organizations/suggestions) enabled, the `Quick translation` dialog lets you propose a change in every language where you are allowed to suggest but not to edit. A suggestion doesn't change the live translation. It waits until a reviewer accepts it.
 

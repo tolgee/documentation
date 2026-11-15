@@ -1,0 +1,105 @@
+---
+id: community-profile
+title: Community Profile
+sidebar_label: Community Profile
+image: /img/og-images/platform.png
+description: A community profile is a public page with the work a Tolgee user has done in community projects. See what it shows and how to hide it.
+---
+
+import { ScreenshotWrapper } from '../shared/_ScreenshotWrapper';
+
+A community profile is a public page in Tolgee that shows the work one user has done in community
+projects. It lets contributors show their translation work. It also tells project owners who is
+behind a suggestion. Tolgee builds the profile from the user's
+suggestions, translations, reviews and comments. The profile becomes public with the first
+contribution, and its owner can hide it at any time.
+
+A community project is a project that its owner opened to
+[Community Translation](./community-translation.mdx). Work in other projects never appears on a
+community profile. When an owner
+[closes a project to the community](./community-translation.mdx#making-a-project-private-again),
+the work done in it disappears from the profile too.
+
+## What Does a Community Profile Show?
+
+A community profile shows who the contributor is and what they have done in community projects.
+Everything on it comes from community projects only, including the work the person did there as a
+team member. The profile has these parts.
+
+- The name and avatar of the user, and the month of their first contribution
+- `Projects`, the community projects the user has contributed to, each linked to its community
+  project page
+- Four totals: `Suggestions`, `Accepted`, `Acceptance rate` and `Contributions`. A contribution
+  is a translation, a [suggestion](/platform/projects_and_organizations/suggestions), a review or
+  a [comment](./comments.mdx) made by hand.
+- A calendar of one year that shows how active the user was each day. You can switch it between
+  `Suggestions`, `Accepted` and `Contributions`, and between the current and the previous year.
+- `Recent activity`, the latest things the user did, each with the key, the text and the project
+
+<ScreenshotWrapper
+  src="/img/docs/platform/community-translation/community-profile.webp"
+  alt="Community profile of a contributor with the name and projects on the left, and the totals, the yearly activity calendar and the recent activity on the right"
+/>
+
+The acceptance rate compares accepted suggestions with all suggestions, including the ones still
+waiting for review. A contributor whose suggestions have not been reviewed yet has a low rate
+through no fault of their own.
+
+## Where Do I Find a Community Profile?
+
+A community profile lives at `/users/` followed by the ID of the user, for example
+`https://app.tolgee.io/users/1234`. On a self-hosted instance, the profile is at the same path on
+your own address. Anyone can open a public profile without an account. Tolgee links to profiles
+from these places.
+
+- The contributor cards on the [contributors page](./community-translation.mdx#seeing-who-has-contributed) of a community project
+- The [card that opens](./community-translation.mdx#reviewing-community-suggestions) when you
+  hover over the avatar of a suggestion's author in a community project, through its
+  `View profile` link
+- The names in the `Community` tab of the project's
+  [Members](/platform/projects_and_organizations/members#community-contributors) page
+- Your own account settings, through `Open profile`
+
+The cards link to a profile only when it is public. The names in the `Community` tab always
+link, so a hidden profile opens with the message `This profile is not available`.
+
+To share your own profile while it is public, open it and click the copy icon next to your name,
+with the tooltip `Copy profile link`.
+
+## Who Can See a Community Profile?
+
+A community profile is either public or private, and its owner decides. Until you contribute to
+a community project, you have no public profile. After your first contribution, the profile is
+public unless you hide it. If every community project you contributed to is later closed, you
+are back to having no public profile. A profile is in one of two states.
+
+- **Public.** Anyone can open the profile, with or without a Tolgee account.
+- **Private.** Only you can open the profile. Everyone else sees `This profile is not available`.
+  You see your own profile with the note `Your profile is private. Only you can see it.`
+
+Hiding the profile hides only the profile page. Your name still appears next to your suggestions
+and comments, on the contributors page of the project, and in the project's activity.
+
+## Hiding or Showing Your Community Profile
+
+Hide your community profile when you do not want other people to see a summary of your work
+across projects. You can show it again at any time. You need to be logged in, and you need at
+least one contribution to a community project. Until then, the switch is disabled with the note
+`Your profile appears after your first contribution.`
+
+To change who can see your profile, follow these steps.
+
+1. Click your avatar in the top right corner and choose `Account settings`. The `User profile`
+   page opens.
+2. Turn the `Public community profile` switch off to hide the profile, or on to show it. The line
+   under the switch says who can see the profile: `Anyone can see your profile.` or
+   `Only you can see your profile.`
+3. Click `Save`.
+
+<ScreenshotWrapper
+  src="/img/docs/platform/community-translation/profile-visibility-switch.webp"
+  alt="User profile page in the account settings with the Public community profile switch turned on, the line Anyone can see your profile, and the Open profile link"
+  style={{ maxWidth: 700 }}
+/>
+
+`Open profile` next to the switch opens your profile, so you can check what other people see.

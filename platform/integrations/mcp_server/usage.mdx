@@ -17,12 +17,15 @@ The Tolgee MCP server exposes tools covering the full localization workflow: lis
 | Projects | `list_projects`, `create_project`, `get_project_language_statistics` |
 | Keys | `list_keys`, `search_keys`, `get_key`, `create_keys`, `update_key`, `delete_keys` |
 | Translations | `get_translations`, `set_translation` |
+| Suggestions | `list_keys_with_suggestions`, `list_suggestions`, `accept_suggestion`, `decline_suggestion` |
 | Languages | `list_languages`, `create_language` |
 | Tags | `list_tags`, `tag_keys` |
 | Namespaces | `list_namespaces` |
 | Branches | `list_branches`, `create_branch`, `delete_branch` |
 | Batch / Machine translation | `machine_translate`, `get_batch_job_status` |
 | Context for MT | `store_big_meta` |
+
+The suggestion tools let an assistant review [translation suggestions](/platform/projects_and_organizations/suggestions), for example the ones from a [community project](/platform/translation_process/community-translation#reviewing-community-suggestions). `list_keys_with_suggestions` finds the keys with pending suggestions in one language, and `list_suggestions` lists the suggestions of one key. `accept_suggestion` and `decline_suggestion` need the same permissions as accepting and declining in the Tolgee platform. The suggestion tools are missing on a Tolgee instance built without the enterprise module.
 
 ## Example Workflow
 
@@ -43,6 +46,6 @@ Once connected, you can interact with Tolgee in natural language. For example:
 
 - **Start with read-only commands.** Use `list_keys`, `get_translations`, or `list_projects` first to verify that your connection works before making changes.
 - **Bind the connection to one project when you work on one.** Sign in and pick **A single project**, or use a Project API key. This avoids having to specify `projectId` with every request and limits the blast radius of accidental changes.
-- **Be careful with destructive operations.** Tools like `delete_keys` and `delete_branch` are irreversible. AI assistants are instructed to confirm with you before executing them, but always double-check.
+- **Be careful with destructive operations.** Tools like `delete_keys` and `delete_branch` are irreversible. `accept_suggestion` replaces the live translation, and `decline_suggestion` dismisses a contributor's proposal. AI assistants are instructed to confirm with you before executing them, but always double-check.
 - **Prefer signing in over pasting keys.** A [sign-in with your Tolgee account](/platform/account_settings/sign_in_with_tolgee) leaves no key in a config file, and it ends by itself after 30 days without use. If you do use API keys, store them in environment variables or a secrets manager. Don't commit them to version control. Use the minimum required scopes and rotate tokens regularly.
 - **Leverage Big Meta for better MT quality.** If you're using machine translation, store key relationships with `store_big_meta` so Tolgee can use translations of related keys as context.
