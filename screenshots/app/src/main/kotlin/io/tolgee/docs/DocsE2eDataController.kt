@@ -4,6 +4,7 @@ import io.tolgee.constants.Feature
 import io.tolgee.controllers.internal.InternalController
 import io.tolgee.controllers.internal.e2eData.AbstractE2eDataController
 import io.tolgee.data.StandardTestDataResult
+import io.tolgee.development.testDataBuilder.CommunityActivityReplayer
 import io.tolgee.development.testDataBuilder.builders.TestDataBuilder
 import io.tolgee.ee.component.PublicEnabledFeaturesProvider
 import io.tolgee.model.Organization
@@ -28,6 +29,34 @@ class DocsE2eDataController(
   override fun generate(): StandardTestDataResult {
     enabledFeaturesProvider?.forceEnabled = Feature.entries.toSet()
     return super.generate()
+  }
+
+  override fun afterTestDataStored(data: TestDataBuilder) {
+    val ownerId =
+      data.data.userAccounts
+        .single { it.self.username == DocsTestData.OWNER_USERNAME }
+        .self.id
+    val projectIds = data.data.projects.map { it.self.id }
+    spreadSuggestionsOverPastDays(projectIds)
+    CommunityActivityReplayer.replay(entityManager, projectIds, ownerId)
+  }
+
+  private fun spreadSuggestionsOverPastDays(projectIds: List<Long>) {
+    entityManager
+      .createNativeQuery(
+        """
+        update translation_suggestion s
+        set created_at = s.created_at - r.n * interval '2 day',
+            updated_at = s.updated_at - r.n * interval '2 day'
+        from (
+          select id, row_number() over (order by id) as n
+          from translation_suggestion
+          where project_id in (:projectIds)
+        ) r
+        where r.id = s.id
+        """,
+      ).setParameter("projectIds", projectIds)
+      .executeUpdate()
   }
 
   override fun cleanup(): Any? {

@@ -1,6 +1,7 @@
 import {
   forceDate,
   login,
+  logout,
   releaseForcedDate,
   v2apiFetch,
 } from 'tg.baseCommon/apiCalls/common';
@@ -22,7 +23,8 @@ export type ScreenshotConfig = {
   viewport?: { width: number; height: number };
   clip?: DataCy.Value;
   highlight?: DataCy.Value[];
-  loginAs?: string;
+  /** Username to log in as; `null` captures as a visitor without an account. Default: the owner. */
+  loginAs?: string | null;
   prepare: (data: TestDataStandardResponse) => void;
 };
 
@@ -49,13 +51,21 @@ export function defineScreenshots(configs: ScreenshotConfig[]) {
         }
         cy.clock(PINNED_DATE, ['Date']);
         hideTestClockWidget();
-        login(config.loginAs ?? OWNER).then(dismissAnnouncements);
+        logInOrOut(config.loginAs);
         config.prepare(data);
         config.highlight?.forEach(highlight);
         takeScreenshot(config.src, config.clip);
       });
     });
   });
+}
+
+function logInOrOut(loginAs: string | null | undefined) {
+  if (loginAs === null) {
+    logout();
+    return;
+  }
+  login(loginAs ?? OWNER).then(dismissAnnouncements);
 }
 
 function hideTestClockWidget() {

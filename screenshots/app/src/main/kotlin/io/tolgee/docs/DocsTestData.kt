@@ -7,7 +7,9 @@ import io.tolgee.development.testDataBuilder.builders.TestDataBuilder
 import io.tolgee.development.testDataBuilder.builders.UserAccountBuilder
 import io.tolgee.model.enums.OrganizationRoleType
 import io.tolgee.model.enums.ProjectPermissionType
+import io.tolgee.model.enums.SuggestionsMode
 import io.tolgee.model.enums.TranslationState
+import io.tolgee.model.enums.TranslationSuggestionState
 
 class DocsTestData {
   val root = TestDataBuilder()
@@ -56,6 +58,13 @@ class DocsTestData {
         name = PROJECT_NAME
         description = "This is a demo project of a packing list app"
         aiTranslatorPromptDescription = "A packing list app that helps travellers decide what to pack"
+        public = true
+        suggestionsMode = SuggestionsMode.ENABLED
+        communityDescription =
+          "What to pack is a packing list app for travellers. " +
+          "Help us bring it to your language. Source code: [whattopack.example](https://whattopack.example)"
+        communityInContext = true
+        communityAppUrl = "https://whattopack.example"
       }
 
     demo.build {
@@ -77,7 +86,17 @@ class DocsTestData {
         type = ProjectPermissionType.REVIEW
       }
 
-      DemoProjectData.keys.forEach { keyName ->
+      val spanish =
+        addLanguage {
+          name = "Spanish"
+          tag = "es"
+          originalName = "Español"
+          flagEmoji = "🇪🇸"
+        }.self
+      val french = getLanguageByTag("fr")!!.self
+      val (dana, eli, fatima) = COMMUNITY_CONTRIBUTORS.map(::addContributor)
+
+      DemoProjectData.translations.getValue("en").keys.forEach { keyName ->
         val key =
           addKey {
             name = keyName
@@ -94,6 +113,30 @@ class DocsTestData {
             this.language = getLanguageByTag(tag)!!.self
             this.text = texts[keyName]
             this.state = stateOf(tag, keyName)
+          }
+        }
+        SPANISH_BY_DANA[keyName]?.let { (text, state) ->
+          key.addSuggestion {
+            author = dana
+            language = spanish
+            translation = text
+            this.state = state
+          }
+          if (state == TranslationSuggestionState.ACCEPTED) {
+            addTranslation {
+              this.key = key.self
+              language = spanish
+              this.text = text
+              this.state = TranslationState.TRANSLATED
+            }
+          }
+        }
+        FRENCH_ALTERNATIVES[keyName]?.forEachIndexed { index, text ->
+          key.addSuggestion {
+            author = listOf(eli, fatima)[index]
+            language = french
+            translation = text
+            this.state = TranslationSuggestionState.ACTIVE
           }
         }
       }
@@ -116,6 +159,13 @@ class DocsTestData {
     this.username = username
   }
 
+  private fun addContributor(name: String) =
+    root
+      .addUserAccountWithoutOrganization {
+        this.name = name
+        username = name.lowercase().replace(' ', '.') + "@community.test"
+      }.self
+
   private fun stateOf(
     languageTag: String,
     keyName: String,
@@ -128,6 +178,25 @@ class DocsTestData {
     const val PROJECT_NAME = "Demo project"
     const val OWNER_USERNAME = "alice@whattopack.test"
     const val LLM_PROVIDER_NAME = "gpt-4o"
+
+    private val COMMUNITY_CONTRIBUTORS = listOf("Dana Diaz", "Eli Evans", "Fatima Farouk")
+
+    private val SPANISH_BY_DANA =
+      mapOf(
+        "add-item-add-button" to ("Añadir" to TranslationSuggestionState.ACCEPTED),
+        "add-item-input-placeholder" to ("Nuevo elemento de la lista" to TranslationSuggestionState.ACCEPTED),
+        "delete-item-button" to ("Eliminar" to TranslationSuggestionState.ACCEPTED),
+        "share-button" to ("Compartir" to TranslationSuggestionState.ACCEPTED),
+        "app-title" to ("Qué llevar" to TranslationSuggestionState.ACCEPTED),
+        "send-via-email" to ("Enviar por correo electrónico" to TranslationSuggestionState.ACTIVE),
+        "welcome-message" to ("¡Hola, {name}!" to TranslationSuggestionState.DECLINED),
+      )
+
+    private val FRENCH_ALTERNATIVES =
+      mapOf(
+        "app-title" to listOf("Quoi emporter", "Que mettre dans la valise"),
+        "share-button" to listOf("Partager la liste"),
+      )
 
     private val PROMPTS =
       listOf(
