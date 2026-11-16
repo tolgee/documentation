@@ -81,10 +81,21 @@ function dismissAnnouncements() {
 }
 
 function highlight(dataCy: DataCy.Value) {
-  cy.gcy(dataCy).then(($el) => {
+  highlightElement(cy.gcy(dataCy));
+}
+
+/**
+ * For an element `highlight` cannot name by its data-cy alone; call it at the end of `prepare`.
+ * `inset` draws the outline inside the element, for one whose parent clips what lies outside it.
+ */
+export function highlightElement(
+  element: Cypress.Chainable<JQuery>,
+  { inset = false } = {}
+) {
+  element.then(($el) => {
     $el.css({
       outline: '3px solid #e53935',
-      'outline-offset': '2px',
+      'outline-offset': inset ? '-3px' : '2px',
       'border-radius': '4px',
     });
   });

@@ -1,7 +1,11 @@
 import { getProjectByNameFromTestData } from 'tg.baseCommon/apiCalls/testData/testData';
 import { TestDataStandardResponse } from 'tg.baseCommon/apiCalls/testData/generator';
 import { gcyAdvanced } from 'tg.baseCommon/shared';
-import { defineScreenshots, HOST } from '../support/defineScreenshots';
+import {
+  defineScreenshots,
+  highlightElement,
+  HOST,
+} from '../support/defineScreenshots';
 
 const CONTRIBUTOR = 'dana.diaz@community.test';
 
@@ -27,7 +31,13 @@ defineScreenshots([
   {
     src: '/img/docs/platform/community-translation/public-toggle.webp',
     viewport: { width: 1280, height: 660 },
-    prepare: openAdvancedSettings,
+    prepare: (data) => {
+      openAdvancedSettings(data);
+      // The data-cy sits inside the toggle; the option's container is its third ancestor.
+      highlightElement(
+        cy.gcy('project-settings-public-switch').parents().eq(2)
+      );
+    },
   },
   {
     src: '/img/docs/platform/community-translation/public-projects.webp',
@@ -81,6 +91,16 @@ defineScreenshots([
         .first()
         .click({ force: true });
       cy.gcy('translation-suggestion-action-menu-item').should('be.visible');
+      highlightElement(
+        gcyAdvanced({ value: 'suggestion-action', action: 'accept' }).first()
+      );
+      highlightElement(
+        gcyAdvanced({
+          value: 'translation-suggestion-action-menu-item',
+          action: 'accept-decline-others',
+        }),
+        { inset: true }
+      );
     },
   },
   {
