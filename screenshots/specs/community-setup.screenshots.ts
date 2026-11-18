@@ -1,15 +1,13 @@
-import { getProjectByNameFromTestData } from 'tg.baseCommon/apiCalls/testData/testData';
-import { defineScreenshots, HOST } from '../support/defineScreenshots';
+import { defineScreenshots, demoProjectUrl } from '../support/defineScreenshots';
 
 // The setup dialog opens only right after a project is opened to the community, so this spec
-// closes and reopens the project. It has its own file because that changes the dataset.
+// closes and reopens the project.
 defineScreenshots([
   {
     src: '/img/docs/platform/community-translation/setup-dialog.webp',
     viewport: { width: 1100, height: 760 },
     prepare: (data) => {
-      const projectId = getProjectByNameFromTestData(data, 'Demo project').id;
-      cy.visit(`${HOST}/projects/${projectId}/manage/edit/advanced`);
+      cy.visit(demoProjectUrl(data, 'manage/edit/advanced'));
       const toggleCommunityTranslation = () => {
         cy.gcy('project-settings-public-switch')
           .find('input')

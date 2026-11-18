@@ -1,26 +1,37 @@
-import { getProjectByNameFromTestData } from 'tg.baseCommon/apiCalls/testData/testData';
 import { TestDataStandardResponse } from 'tg.baseCommon/apiCalls/testData/generator';
+import { getUserByUsernameFromTestData } from 'tg.baseCommon/apiCalls/testData/testData';
 import { gcyAdvanced } from 'tg.baseCommon/shared';
 import {
   defineScreenshots,
+  demoProjectUrl,
   highlightElement,
   HOST,
 } from '../support/defineScreenshots';
 
-const CONTRIBUTOR = 'dana.diaz@community.test';
+const DANA = 'dana.diaz@community.test';
+const ELI = 'eli.evans@community.test';
+const FATIMA = 'fatima.farouk@community.test';
 
-const projectUrl = (data: TestDataStandardResponse, path: string) =>
-  `${HOST}/projects/${getProjectByNameFromTestData(data, 'Demo project').id}/${path}`;
+const CHART_ANIMATION_MS = 1500;
 
 const openAdvancedSettings = (data: TestDataStandardResponse) => {
-  cy.visit(projectUrl(data, 'manage/edit/advanced'));
+  cy.visit(demoProjectUrl(data, 'manage/edit/advanced'));
   cy.gcy('project-settings-community-page').should('be.visible');
 };
 
-const openSuggestionsOfAppTitle = (data: TestDataStandardResponse) => {
-  cy.visit(projectUrl(data, 'translations?languages=fr&search=app-title'));
+const communityOption = () =>
+  cy.gcy('project-settings-public-switch').parents().eq(2);
+
+const openFrenchSuggestionsOfAppTitle = (data: TestDataStandardResponse) => {
+  cy.visit(demoProjectUrl(data, 'translations?languages=fr&search=app-title'));
   cy.gcy('translation-suggestion').should('have.length', 2);
 };
+
+const suggestionBy = (data: TestDataStandardResponse, username: string) =>
+  gcyAdvanced({
+    value: 'translation-suggestion',
+    'author-id': String(getUserByUsernameFromTestData(data, username).id),
+  });
 
 defineScreenshots([
   {
@@ -33,10 +44,7 @@ defineScreenshots([
     viewport: { width: 1280, height: 660 },
     prepare: (data) => {
       openAdvancedSettings(data);
-      // The data-cy sits inside the toggle; the option's container is its third ancestor.
-      highlightElement(
-        cy.gcy('project-settings-public-switch').parents().eq(2)
-      );
+      highlightElement(communityOption());
     },
   },
   {
@@ -53,7 +61,7 @@ defineScreenshots([
     viewport: { width: 1280, height: 700 },
     loginAs: null,
     prepare: (data) => {
-      cy.visit(projectUrl(data, 'community'));
+      cy.visit(demoProjectUrl(data, 'community'));
       cy.gcy('community-language-row').should('be.visible');
       cy.gcy('community-top-contributor').should('be.visible');
     },
@@ -63,11 +71,10 @@ defineScreenshots([
     viewport: { width: 1280, height: 800 },
     loginAs: null,
     prepare: (data) => {
-      cy.visit(projectUrl(data, 'community/contributors'));
+      cy.visit(demoProjectUrl(data, 'community/contributors'));
       cy.gcy('community-activity-chart').should('be.visible');
       cy.gcy('community-contributor-card').first().should('be.visible');
-      // The chart's bars grow in an animation.
-      cy.wait(1500);
+      cy.wait(CHART_ANIMATION_MS);
     },
   },
   {
@@ -75,8 +82,9 @@ defineScreenshots([
     viewport: { width: 1280, height: 1000 },
     loginAs: null,
     prepare: (data) => {
-      const contributor = data.users.find((u) => u.username === CONTRIBUTOR);
-      cy.visit(`${HOST}/users/${contributor.id}`);
+      cy.visit(
+        `${HOST}/users/${getUserByUsernameFromTestData(data, DANA).id}`
+      );
       cy.gcy('community-profile-calendar').should('be.visible');
       cy.gcy('community-profile-activity-item').should('exist');
     },
@@ -85,14 +93,17 @@ defineScreenshots([
     src: '/img/docs/platform/community-translation/suggestions-accept.webp',
     viewport: { width: 1200, height: 520 },
     prepare: (data) => {
-      openSuggestionsOfAppTitle(data);
-      cy.gcy('translations-table-cell-translation').first().click();
-      gcyAdvanced({ value: 'suggestion-action', action: 'menu' })
-        .first()
+      openFrenchSuggestionsOfAppTitle(data);
+      cy.gcy('translations-table-cell-translation').click();
+      suggestionBy(data, ELI)
+        .findDcyAdvanced({ value: 'suggestion-action', action: 'menu' })
         .click({ force: true });
       cy.gcy('translation-suggestion-action-menu-item').should('be.visible');
       highlightElement(
-        gcyAdvanced({ value: 'suggestion-action', action: 'accept' }).first()
+        suggestionBy(data, ELI).findDcyAdvanced({
+          value: 'suggestion-action',
+          action: 'accept',
+        })
       );
       highlightElement(
         gcyAdvanced({
@@ -107,9 +118,9 @@ defineScreenshots([
     src: '/img/docs/platform/community-translation/suggestion-author-card.webp',
     viewport: { width: 1200, height: 420 },
     prepare: (data) => {
-      openSuggestionsOfAppTitle(data);
-      cy.gcy('suggestion-author')
-        .last()
+      openFrenchSuggestionsOfAppTitle(data);
+      suggestionBy(data, FATIMA)
+        .findDcy('suggestion-author')
         .trigger('mouseover', { scrollBehavior: false });
       cy.gcy('community-contributor-card-suggestions').should('be.visible');
     },
@@ -118,7 +129,7 @@ defineScreenshots([
     src: '/img/docs/platform/community-translation/members-community-tab.webp',
     viewport: { width: 1100, height: 440 },
     prepare: (data) => {
-      cy.visit(projectUrl(data, 'manage/permissions'));
+      cy.visit(demoProjectUrl(data, 'manage/permissions'));
       cy.gcy('project-members-tab-community').click();
       cy.gcy('project-contributor-item').first().should('be.visible');
       cy.focused().blur();
@@ -127,7 +138,7 @@ defineScreenshots([
   {
     src: '/img/docs/platform/community-translation/profile-visibility-switch.webp',
     viewport: { width: 1100, height: 500 },
-    loginAs: CONTRIBUTOR,
+    loginAs: DANA,
     prepare: () => {
       cy.visit(`${HOST}/account/profile`);
       cy.gcy('user-profile-visibility-view-link').should('be.visible');
@@ -136,7 +147,7 @@ defineScreenshots([
   {
     src: '/img/docs/platform/community-translation/community-projects.webp',
     viewport: { width: 1100, height: 600 },
-    loginAs: CONTRIBUTOR,
+    loginAs: DANA,
     prepare: () => {
       cy.visit(`${HOST}/community-projects`);
       cy.gcy('community-my-contributions-toggle').should('be.visible');

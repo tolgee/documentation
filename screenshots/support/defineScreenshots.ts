@@ -10,6 +10,7 @@ import {
   generateTestDataObject,
   TestDataStandardResponse,
 } from 'tg.baseCommon/apiCalls/testData/generator';
+import { getProjectByNameFromTestData } from 'tg.baseCommon/apiCalls/testData/testData';
 import { waitForGlobalLoading } from 'tg.baseCommon/loading';
 
 export { HOST };
@@ -18,12 +19,15 @@ const PINNED_DATE = new Date('2026-01-15T10:00:00Z');
 const OWNER = 'alice@whattopack.test';
 const docsData = generateTestDataObject('docs');
 
+export const demoProjectUrl = (data: TestDataStandardResponse, path: string) =>
+  `${HOST}/projects/${getProjectByNameFromTestData(data, 'Demo project').id}/${path}`;
+
 export type ScreenshotConfig = {
   src: string;
   viewport?: { width: number; height: number };
   clip?: DataCy.Value;
   highlight?: DataCy.Value[];
-  /** Username to log in as; `null` captures as a visitor without an account. Default: the owner. */
+  /** `null` captures as a visitor without an account. Default: the owner. */
   loginAs?: string | null;
   prepare: (data: TestDataStandardResponse) => void;
 };

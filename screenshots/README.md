@@ -37,8 +37,7 @@ or a restart, unless billing is enabled and provides the features itself.
 
 Add an entry to the spec for the documented feature (or a new `specs/<feature>.screenshots.ts`):
 
-    import { getProjectByNameFromTestData } from 'tg.baseCommon/apiCalls/testData/testData';
-    import { defineScreenshots, HOST } from '../support/defineScreenshots';
+    import { defineScreenshots, demoProjectUrl } from '../support/defineScreenshots';
 
     defineScreenshots([{
       src: '/img/docs/platform/<page>/<name>.webp',   // exactly the src used in the MDX
@@ -47,7 +46,7 @@ Add an entry to the spec for the documented feature (or a new `specs/<feature>.s
       highlight: ['other-data-cy'],                   // optional: red outline before capture
       loginAs: 'bob@whattopack.test',                 // optional: default is the owner, null is a visitor without an account
       prepare: (data) => {                            // open the page; the screenshot is taken after
-        cy.visit(`${HOST}/projects/${getProjectByNameFromTestData(data, 'Demo project').id}/translations`);
+        cy.visit(demoProjectUrl(data, 'translations'));
         cy.gcy('...').should('be.visible');
       },
     }]);

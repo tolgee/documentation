@@ -10,6 +10,9 @@ import io.tolgee.model.enums.ProjectPermissionType
 import io.tolgee.model.enums.SuggestionsMode
 import io.tolgee.model.enums.TranslationState
 import io.tolgee.model.enums.TranslationSuggestionState
+import io.tolgee.model.enums.TranslationSuggestionState.ACCEPTED
+import io.tolgee.model.enums.TranslationSuggestionState.ACTIVE
+import io.tolgee.model.enums.TranslationSuggestionState.DECLINED
 
 class DocsTestData {
   val root = TestDataBuilder()
@@ -86,15 +89,12 @@ class DocsTestData {
         type = ProjectPermissionType.REVIEW
       }
 
-      val spanish =
-        addLanguage {
-          name = "Spanish"
-          tag = "es"
-          originalName = "Español"
-          flagEmoji = "🇪🇸"
-        }.self
-      val french = getLanguageByTag("fr")!!.self
-      val (dana, eli, fatima) = COMMUNITY_CONTRIBUTORS.map(::addContributor)
+      addLanguage {
+        name = "Spanish"
+        tag = "es"
+        originalName = "Español"
+        flagEmoji = "🇪🇸"
+      }
 
       DemoProjectData.translations.getValue("en").keys.forEach { keyName ->
         val key =
@@ -115,31 +115,9 @@ class DocsTestData {
             this.state = stateOf(tag, keyName)
           }
         }
-        SPANISH_BY_DANA[keyName]?.let { (text, state) ->
-          key.addSuggestion {
-            author = dana
-            language = spanish
-            translation = text
-            this.state = state
-          }
-          if (state == TranslationSuggestionState.ACCEPTED) {
-            addTranslation {
-              this.key = key.self
-              language = spanish
-              this.text = text
-              this.state = TranslationState.TRANSLATED
-            }
-          }
-        }
-        FRENCH_ALTERNATIVES[keyName]?.forEachIndexed { index, text ->
-          key.addSuggestion {
-            author = listOf(eli, fatima)[index]
-            language = french
-            translation = text
-            this.state = TranslationSuggestionState.ACTIVE
-          }
-        }
       }
+
+      addCommunitySuggestions()
 
       PROMPTS.forEach { (promptName, promptTemplate) ->
         addPrompt {
@@ -158,6 +136,36 @@ class DocsTestData {
     this.name = name
     this.username = username
   }
+
+  private fun ProjectBuilder.addCommunitySuggestions() {
+    val contributors = COMMUNITY_SUGGESTIONS.map { it.author }.distinct().associateWith(::addContributor)
+    COMMUNITY_SUGGESTIONS.forEach { suggestion ->
+      val key = data.keys.single { it.self.name == suggestion.keyName }
+      val language = getLanguageByTag(suggestion.languageTag)!!.self
+      key.addSuggestion {
+        author = contributors.getValue(suggestion.author)
+        this.language = language
+        translation = suggestion.text
+        state = suggestion.state
+      }
+      if (suggestion.state == ACCEPTED) {
+        addTranslation {
+          this.key = key.self
+          this.language = language
+          text = suggestion.text
+          state = TranslationState.TRANSLATED
+        }
+      }
+    }
+  }
+
+  private class CommunitySuggestion(
+    val author: String,
+    val languageTag: String,
+    val keyName: String,
+    val text: String,
+    val state: TranslationSuggestionState,
+  )
 
   private fun addContributor(name: String) =
     root
@@ -179,23 +187,18 @@ class DocsTestData {
     const val OWNER_USERNAME = "alice@whattopack.test"
     const val LLM_PROVIDER_NAME = "gpt-4o"
 
-    private val COMMUNITY_CONTRIBUTORS = listOf("Dana Diaz", "Eli Evans", "Fatima Farouk")
-
-    private val SPANISH_BY_DANA =
-      mapOf(
-        "add-item-add-button" to ("Añadir" to TranslationSuggestionState.ACCEPTED),
-        "add-item-input-placeholder" to ("Nuevo elemento de la lista" to TranslationSuggestionState.ACCEPTED),
-        "delete-item-button" to ("Eliminar" to TranslationSuggestionState.ACCEPTED),
-        "share-button" to ("Compartir" to TranslationSuggestionState.ACCEPTED),
-        "app-title" to ("Qué llevar" to TranslationSuggestionState.ACCEPTED),
-        "send-via-email" to ("Enviar por correo electrónico" to TranslationSuggestionState.ACTIVE),
-        "welcome-message" to ("¡Hola, {name}!" to TranslationSuggestionState.DECLINED),
-      )
-
-    private val FRENCH_ALTERNATIVES =
-      mapOf(
-        "app-title" to listOf("Quoi emporter", "Que mettre dans la valise"),
-        "share-button" to listOf("Partager la liste"),
+    private val COMMUNITY_SUGGESTIONS =
+      listOf(
+        CommunitySuggestion("Dana Diaz", "es", "add-item-add-button", "Añadir", ACCEPTED),
+        CommunitySuggestion("Dana Diaz", "es", "add-item-input-placeholder", "Nuevo elemento de la lista", ACCEPTED),
+        CommunitySuggestion("Dana Diaz", "es", "delete-item-button", "Eliminar", ACCEPTED),
+        CommunitySuggestion("Dana Diaz", "es", "share-button", "Compartir", ACCEPTED),
+        CommunitySuggestion("Dana Diaz", "es", "app-title", "Qué llevar", ACCEPTED),
+        CommunitySuggestion("Dana Diaz", "es", "send-via-email", "Enviar por correo electrónico", ACTIVE),
+        CommunitySuggestion("Dana Diaz", "es", "welcome-message", "¡Hola, {name}!", DECLINED),
+        CommunitySuggestion("Eli Evans", "fr", "app-title", "Quoi emporter", ACTIVE),
+        CommunitySuggestion("Fatima Farouk", "fr", "app-title", "Que mettre dans la valise", ACTIVE),
+        CommunitySuggestion("Eli Evans", "fr", "share-button", "Partager la liste", ACTIVE),
       )
 
     private val PROMPTS =
