@@ -1394,6 +1394,36 @@ const sidebar: SidebarsConfig = {
     },
     {
       type: "category",
+      label: "Export",
+      link: {
+        type: "doc",
+        id: "tag_export",
+      },
+      collapsible: false,
+      collapsed: false,
+      items: [
+        {
+          type: "doc",
+          id: "do-export-json-zip",
+          label: "Export to ZIP of jsons",
+          className: "menu__list-item--deprecated api-method get",
+        },
+        {
+          type: "doc",
+          id: "export-data",
+          label: "Export data",
+          className: "api-method get",
+        },
+        {
+          type: "doc",
+          id: "export-post",
+          label: "Export data (post)",
+          className: "api-method post",
+        },
+      ],
+    },
+    {
+      type: "category",
       label: "Ai prompt controller",
       link: {
         type: "doc",
@@ -1449,36 +1479,6 @@ const sidebar: SidebarsConfig = {
           id: "delete-prompt",
           label: "Delete prompt",
           className: "api-method delete",
-        },
-      ],
-    },
-    {
-      type: "category",
-      label: "Export",
-      link: {
-        type: "doc",
-        id: "tag_export",
-      },
-      collapsible: false,
-      collapsed: false,
-      items: [
-        {
-          type: "doc",
-          id: "do-export-json-zip",
-          label: "Export to ZIP of jsons",
-          className: "menu__list-item--deprecated api-method get",
-        },
-        {
-          type: "doc",
-          id: "export-data",
-          label: "Export data",
-          className: "api-method get",
-        },
-        {
-          type: "doc",
-          id: "export-post",
-          label: "Export data (post)",
-          className: "api-method post",
         },
       ],
     },
@@ -2552,6 +2552,76 @@ const sidebar: SidebarsConfig = {
     },
     {
       type: "category",
+      label: "AI review rules",
+      collapsible: false,
+      collapsed: false,
+      items: [
+        {
+          type: "doc",
+          id: "list-ai-review-rules",
+          label: "List AI review rules of the project",
+          className: "api-method get",
+        },
+        {
+          type: "doc",
+          id: "create-ai-review-rule",
+          label: "Create an AI review rule",
+          className: "api-method post",
+        },
+        {
+          type: "doc",
+          id: "set-project-ai-review-enabled",
+          label: "Enable or disable AI review for the project",
+          className: "api-method put",
+        },
+        {
+          type: "doc",
+          id: "get-ai-review-rule",
+          label: "Get an AI review rule",
+          className: "api-method get",
+        },
+        {
+          type: "doc",
+          id: "update-ai-review-rule",
+          label: "Update an AI review rule",
+          className: "api-method put",
+        },
+        {
+          type: "doc",
+          id: "delete-ai-review-rule",
+          label: "Delete an AI review rule",
+          className: "api-method delete",
+        },
+        {
+          type: "doc",
+          id: "set-ai-review-rule-enabled",
+          label: "Enable or disable an AI review rule",
+          className: "api-method put",
+        },
+      ],
+    },
+    {
+      type: "category",
+      label: "AI review runs",
+      collapsible: false,
+      collapsed: false,
+      items: [
+        {
+          type: "doc",
+          id: "start-ai-review-run",
+          label: "Start an AI review run",
+          className: "api-method post",
+        },
+        {
+          type: "doc",
+          id: "preview-ai-review-run",
+          label: "Preview an AI review run",
+          className: "api-method post",
+        },
+      ],
+    },
+    {
+      type: "category",
       label: "Batch Operations",
       collapsible: false,
       collapsed: false,
@@ -2962,6 +3032,26 @@ const sidebar: SidebarsConfig = {
     },
     {
       type: "category",
+      label: "AI review source change settings",
+      collapsible: false,
+      collapsed: false,
+      items: [
+        {
+          type: "doc",
+          id: "get-source-change-settings",
+          label: "Get the source change settings",
+          className: "api-method get",
+        },
+        {
+          type: "doc",
+          id: "set-source-change-settings",
+          label: "Set the source change settings",
+          className: "api-method put",
+        },
+      ],
+    },
+    {
+      type: "category",
       label: "Project Stats",
       collapsible: false,
       collapsed: false,
@@ -3008,6 +3098,26 @@ const sidebar: SidebarsConfig = {
           type: "doc",
           id: "suggest-translation-memory",
           label: "Get suggestions from translation memory",
+          className: "api-method post",
+        },
+      ],
+    },
+    {
+      type: "category",
+      label: "AI review of a translation",
+      collapsible: false,
+      collapsed: false,
+      items: [
+        {
+          type: "doc",
+          id: "get-ai-review",
+          label: "Get the AI review of a translation",
+          className: "api-method get",
+        },
+        {
+          type: "doc",
+          id: "retry-ai-review",
+          label: "Run the AI review again for one translation",
           className: "api-method post",
         },
       ],
