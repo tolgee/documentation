@@ -182,6 +182,7 @@ module.exports = {
         'account_settings/password_and_2fa',
         'account_settings/api_keys_and_pat_tokens',
         'account_settings/sign_in_with_tolgee',
+        { type: 'ref', id: 'translation_process/community-profile' },
       ],
     },
     {

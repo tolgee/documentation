@@ -3,7 +3,7 @@ id: community-translation
 title: Community Translation
 sidebar_label: Community Translation
 image: /img/og-images/community-translation.png
-description: Open a Tolgee project to community translation. Anyone can browse it, anyone with a Tolgee account can suggest and comment, and you review.
+description: Open a Tolgee project to community translation. Anyone can browse it, and anyone with a Tolgee account can suggest and comment.
 ---
 
 import { ScreenshotWrapper } from '../shared/_ScreenshotWrapper';
@@ -20,31 +20,29 @@ you can do on a community project and how to start.
 
 ## For Project Owners and Members
 
-As an owner you decide whether a project is open to the community, and as a reviewer you decide
-which of the contributors' suggestions go live. Community Translation is not gated by a plan. It
-is available on Tolgee Cloud and on self-hosted Tolgee v3.215.0 or newer.
+This part is for the people who open a project to the community and review the suggestions.
+Community Translation is available on every plan, on Tolgee Cloud and on self-hosted Tolgee
+v3.215.0 or newer.
 
 ### Opening a Project to Community Translation {#making-a-project-public}
 
-Opening a project turns on Community Translation for it. A project that is open is called a
-**community project**. Only the **organization owner** (or a server administrator on a
-self-hosted instance) can open a project, because it shows the project to everyone on the
-internet.
+A project that is open to community translation is called a **community project**. Only the **organization owner** (or a server administrator on a
+self-hosted instance) can open a project.
 
 Before you open the project, know what you expose.
 
-- Anyone, with or without an account, can read every translation and screenshot in every
-  language. Anyone with a Tolgee account can also export the whole project.
+- Anyone, with or without an account, can read every translation, comment and screenshot in
+  every language. Anyone with a Tolgee account can also export the whole project.
 - Anyone can see who on your team translated, reviewed or commented, and each of those members
   gets a public [community profile](./community-profile.mdx) unless they hide it.
 
-Do not open a project whose strings must stay private, and tell your team first.
+Do not open a project whose strings must stay private. Tell your team before you open it.
 
 To open the project, follow these steps.
 
 1. Open `Project settings` and switch to the `Advanced` tab.
 2. In the `Community translation` section, turn on `Open this project to community translation`.
-3. Confirm the dialog. Tolgee may then ask for your password.
+3. Confirm the dialog.
 
 <ScreenshotWrapper
   src="/img/docs/platform/community-translation/public-toggle.webp"
@@ -53,16 +51,13 @@ To open the project, follow these steps.
 
 Opening the project also turns on
 [`Suggestions mode`](/platform/projects_and_organizations/suggestions#how-to-enable-suggestions),
-because contributors can only suggest while it is on. If the switch does not react to your
-click, you are neither the organization owner nor a server administrator. Ask an owner to open
-the project for you.
+because contributors can only suggest while it is on.
 
 On a self-hosted instance, browsing without an account needs
 [`tolgee.authentication.enabled`](/platform/self_hosting/configuration#tolgee-authentication-_-enabled),
 and contributors can create accounts only with
 [`tolgee.authentication.registrations-allowed`](/platform/self_hosting/configuration#tolgee-authentication-_-registrations-allowed).
-Both are off in a default installation. An invitation would make the person a member, not a
-contributor.
+Both are off in a default installation.
 
 :::info
 If your project is open source and non-commercial, Tolgee offers a free Optimise plan for it.
@@ -72,8 +67,7 @@ Write to [sales@tolgee.io](mailto:sales@tolgee.io) with a link to the project.
 ### Setting Up the Community Project Page
 
 Every community project has a **community project page**, the first thing a visitor sees. Set
-it up so that newcomers know what the project is and how you want them to help. Only the
-organization owner or a server administrator can change it.
+it up so that newcomers know what the project is and how you want them to help.
 
 Right after you open a project, Tolgee walks you through four optional steps: a description of
 the project, your rules for contributors, a link and a badge to share, and a banner for websites
@@ -85,8 +79,8 @@ that support [in-context translation](./community-translation-in-context.mdx).
   style={{ maxWidth: 600 }}
 />
 
-To change any of it later, use the `Community project page` box under the switch. `View page` in
-the box opens the page as visitors see it.
+To change any of it later, use the `Community project page` box in `Project settings` >
+`Advanced`.
 
 ### Sharing the Project with Your Community
 
@@ -109,9 +103,8 @@ the site. Read more in [Community Translation in Context](./community-translatio
 ### Reviewing Community Suggestions
 
 Contributors propose changes as suggestions, so nothing they submit goes live until a reviewer
-accepts it. Accepting needs permission to both edit translations and change their state in the
-language. Declining needs only the permission to change their state. The `Review` role has
-both.
+accepts it. The permissions for accepting and declining are described in
+[Granular protection](/platform/projects_and_organizations/suggestions#granular-protection).
 
 Open the translation in the editor. When it has several suggestions, you have two ways to accept
 one of them.
@@ -138,8 +131,7 @@ For the full suggestion workflow, read
 
 ### Seeing Who Has Contributed
 
-Tolgee keeps track of the people who help with a community project, so you can recognize them
-and invite the most active ones to your team. You find them in two places.
+You can see who helped with a community project in two places.
 
 - The contributors page is public and counts everyone's work, your team's included. Open it
   with `All contributors` on the community project page.
@@ -153,7 +145,9 @@ and invite the most active ones to your team. You find them in two places.
 />
 
 To make a frequent contributor a full member, use `Invite to Team` on their row in the
-`Community` tab. You need the permission to manage members.
+`Community` tab. You need the
+[`Members` > `Edit`](/platform/projects_and_organizations/members#advanced-granular-permissions)
+permission.
 
 <ScreenshotWrapper
   src="/img/docs/platform/community-translation/members-community-tab.webp"
@@ -163,11 +157,11 @@ To make a frequent contributor a full member, use `Invite to Team` on their row 
 ### Closing a Project to the Community {#making-a-project-private-again}
 
 Close a project when you no longer want help from outside your team, or when its strings have to
-stop being visible to everyone. The organization owner or a server administrator can close it.
+stop being visible to everyone.
 
 1. Open `Project settings` and switch to the `Advanced` tab.
 2. In the `Community translation` section, turn off `Open this project to community translation`.
-3. Confirm the dialog. Tolgee may then ask for your password.
+3. Confirm the dialog.
 
 People who are not members lose access. The suggestions and comments they made stay in the
 project, but the project's work disappears from their
@@ -177,27 +171,26 @@ project, but the project's work disappears from their
 
 As a contributor you help translate a project you are not a member of. You can look around
 without an account. To suggest or comment, you need a Tolgee account on the server the project
-lives on, and nothing else: no invitation, no seat, and no approval from the project's owner.
+lives on. You do not need an invitation.
 
 ### What Contributors Can Do
 
 What you can do on a community project depends on whether you are logged in.
 
-- **Without an account**, you can read the translations and screenshots in all languages, and
+- **Without an account**, you can read the translations, comments and screenshots in all languages, and
   see who contributed. You cannot export.
 - **With a Tolgee account**, you get **community permissions**. You can also propose
   [translation suggestions](/platform/projects_and_organizations/suggestions),
   [comment](./comments.mdx) on translations, delete your own suggestions, and export.
 
 Nobody outside the team can change an existing translation or its
-[state](./translation_states.mdx). Contributors are not project members and do not use a seat.
+[state](./translation_states.mdx). Contributors are not project members.
 To edit translations directly, you have to be
 [invited as a member](/platform/projects_and_organizations/members#how-to-add-members-to-your-project).
 
 ### Starting to Translate a Community Project
 
-The community project page is where you pick a language and start. You do not need an account to
-open it.
+The community project page is where you pick a language and start.
 
 1. Open the [community projects list](https://app.tolgee.io/public-projects) and click a project,
    or follow a link from the project's website or README.
@@ -217,16 +210,34 @@ projects adds up on your [community profile](./community-profile.mdx).
 
 ### Finding Projects You Have Contributed To
 
-Once you have suggested or commented on a community project, Tolgee keeps a list of the projects
-you have helped with.
+Once you have suggested or commented on a community project, you can list the projects you have
+helped with.
 
 1. Log in to Tolgee. You land on your projects list.
 2. Open the organization switcher, the drop-down next to the `Projects` heading.
-3. Pick `Community translation` at the bottom of the list.
+3. Pick `Community translation` at the bottom of the list. The list of community projects opens
+   with `My contributions only` turned on.
 
 <ScreenshotWrapper
   src="/img/docs/platform/community-translation/community-projects.webp"
   alt="Projects list with the organization switcher set to Community translation and the My contributions only toggle turned on"
 />
 
-Turn off `My contributions only` to browse every community project.
+## FAQ
+
+### How Do I Make a Project Public?
+
+Open the project to community translation, as described in
+[Opening a Project to Community Translation](#making-a-project-public). Tolgee used to call such
+a project a public project.
+
+### How Do I Make a Public Project Private Again?
+
+Close the project to the community, as described in
+[Closing a Project to the Community](#making-a-project-private-again).
+
+### Can People Without an Account See My Project?
+
+Only when the project is a community project.
+[What Contributors Can Do](#what-contributors-can-do) lists what a visitor without an account
+can see.
