@@ -1,11 +1,10 @@
-import { getProjectByNameFromTestData } from 'tg.baseCommon/apiCalls/testData/testData';
-import { defineScreenshots, HOST } from '../support/defineScreenshots';
+import { defineScreenshots, demoProjectUrl } from '../support/defineScreenshots';
 
 defineScreenshots([
   {
     src: '/img/docs/platform/ai-settings/prompts-list.webp',
     prepare: (data) => {
-      cy.visit(`${HOST}/projects/${getProjectByNameFromTestData(data, 'Demo project').id}/ai/prompts`);
+      cy.visit(demoProjectUrl(data, 'ai/prompts'));
       cy.gcy('ai-prompt-item-name').should('be.visible');
     },
   },
