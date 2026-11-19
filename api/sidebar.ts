@@ -206,6 +206,36 @@ const sidebar: SidebarsConfig = {
     },
     {
       type: "category",
+      label: "Community stats",
+      link: {
+        type: "doc",
+        id: "tag_community-stats",
+      },
+      collapsible: false,
+      collapsed: false,
+      items: [
+        {
+          type: "doc",
+          id: "get-activity",
+          label: "Get community activity",
+          className: "api-method get",
+        },
+        {
+          type: "doc",
+          id: "get-contributors-1",
+          label: "Get community contributors",
+          className: "api-method get",
+        },
+        {
+          type: "doc",
+          id: "get-contributor",
+          label: "Get one community contributor",
+          className: "api-method get",
+        },
+      ],
+    },
+    {
+      type: "category",
       label: "Slack slack commands",
       link: {
         type: "doc",
@@ -663,6 +693,30 @@ const sidebar: SidebarsConfig = {
           id: "store",
           label: "Set Import Settings",
           className: "api-method put",
+        },
+      ],
+    },
+    {
+      type: "category",
+      label: "Community profile",
+      link: {
+        type: "doc",
+        id: "tag_community-profile",
+      },
+      collapsible: false,
+      collapsed: false,
+      items: [
+        {
+          type: "doc",
+          id: "get-activity-feed",
+          label: "Get community activity feed",
+          className: "api-method get",
+        },
+        {
+          type: "doc",
+          id: "get-profile",
+          label: "Get community profile",
+          className: "api-method get",
         },
       ],
     },
@@ -1160,24 +1214,6 @@ const sidebar: SidebarsConfig = {
     },
     {
       type: "category",
-      label: "Project Publishing",
-      link: {
-        type: "doc",
-        id: "tag_project-publishing",
-      },
-      collapsible: false,
-      collapsed: false,
-      items: [
-        {
-          type: "doc",
-          id: "set-project-public",
-          label: "Set project publishing state",
-          className: "api-method put",
-        },
-      ],
-    },
-    {
-      type: "category",
       label: "Invitations",
       link: {
         type: "doc",
@@ -1394,31 +1430,25 @@ const sidebar: SidebarsConfig = {
     },
     {
       type: "category",
-      label: "Export",
+      label: "Project Publishing",
       link: {
         type: "doc",
-        id: "tag_export",
+        id: "tag_project-publishing",
       },
       collapsible: false,
       collapsed: false,
       items: [
         {
           type: "doc",
-          id: "do-export-json-zip",
-          label: "Export to ZIP of jsons",
-          className: "menu__list-item--deprecated api-method get",
+          id: "set-community-page",
+          label: "Set community page settings",
+          className: "api-method put",
         },
         {
           type: "doc",
-          id: "export-data",
-          label: "Export data",
-          className: "api-method get",
-        },
-        {
-          type: "doc",
-          id: "export-post",
-          label: "Export data (post)",
-          className: "api-method post",
+          id: "set-project-public",
+          label: "Set project publishing state",
+          className: "api-method put",
         },
       ],
     },
@@ -1484,6 +1514,24 @@ const sidebar: SidebarsConfig = {
     },
     {
       type: "category",
+      label: "Ai Playground result controller",
+      link: {
+        type: "doc",
+        id: "tag_ai-playground-result-controller",
+      },
+      collapsible: false,
+      collapsed: false,
+      items: [
+        {
+          type: "doc",
+          id: "get-ai-playground-result",
+          label: "Get ai playground result",
+          className: "api-method post",
+        },
+      ],
+    },
+    {
+      type: "category",
       label: "Projects",
       link: {
         type: "doc",
@@ -1524,7 +1572,7 @@ const sidebar: SidebarsConfig = {
         },
         {
           type: "doc",
-          id: "get-activity",
+          id: "get-activity-1",
           label: "Get project activity",
           className: "api-method get",
         },
@@ -1634,18 +1682,30 @@ const sidebar: SidebarsConfig = {
     },
     {
       type: "category",
-      label: "Ai Playground result controller",
+      label: "Export",
       link: {
         type: "doc",
-        id: "tag_ai-playground-result-controller",
+        id: "tag_export",
       },
       collapsible: false,
       collapsed: false,
       items: [
         {
           type: "doc",
-          id: "get-ai-playground-result",
-          label: "Get ai playground result",
+          id: "do-export-json-zip",
+          label: "Export to ZIP of jsons",
+          className: "menu__list-item--deprecated api-method get",
+        },
+        {
+          type: "doc",
+          id: "export-data",
+          label: "Export data",
+          className: "api-method get",
+        },
+        {
+          type: "doc",
+          id: "export-post",
+          label: "Export data (post)",
           className: "api-method post",
         },
       ],
