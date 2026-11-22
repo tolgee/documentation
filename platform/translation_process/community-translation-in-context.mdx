@@ -9,10 +9,10 @@ description: Let community contributors suggest translations on your live websit
 import { ScreenshotWrapper } from '../shared/_ScreenshotWrapper';
 
 Community Translation in Context lets contributors suggest translations on your live website
-instead of inside Tolgee. It is for owners of community projects whose site uses the Tolgee JS SDK.
+instead of inside Tolgee. This feature is available to all projects whose site uses the Tolgee JS SDK.
 A contributor installs the [Tolgee Tools browser plugin](/js-sdk/in-context#tolgee-browser-plugin), signs in with their own Tolgee account,
-Alt+clicks a string on your site, and proposes a better translation. You review the suggestion in
-Tolgee, and nothing changes on the site until you accept it.
+Alt+clicks a string on your site, and proposes a better translation. The project maintainer reviews the suggestion in Tolgee to
+propagate it to the live website.
 
 This page is for the project owner: what to switch on in the project, what to declare on the
 website, and what contributors can and cannot do in the dialog. If you came here to translate
@@ -27,43 +27,13 @@ open-source app who notices that a checkout button says "Zaplatit nyní" where "
 read better can Alt+click the button, type the new text, and click `Suggest`. The next time you
 open the key in Tolgee, the suggestion is waiting for you.
 
-## Preparing Your Project
-
-Contributors can only suggest when the project is open to them and accepts suggestions. All the
-settings are in `Project settings` > `Advanced`.
-
-1. [Open the project to community translation](./community-translation.mdx#making-a-project-public).
-   Opening the project turns on `Suggestions mode` as well.
-2. Check that [`Suggestions mode`](/platform/projects_and_organizations/suggestions#how-to-enable-suggestions)
-   is still on. While it is off, nobody can create a suggestion, in the platform, in context, or through the
-   API.
-3. Once your website is ready, tell visitors of your
-   [community project page](./community-translation.mdx#setting-up-the-community-project-page)
-   about it. In the `Community project page` box, edit `In-context translation` and turn on
-   `Show on public page`.
-
-On Tolgee Cloud, that is all. A self-hosted instance needs three more things before contributors
-can sign in through the plugin.
-
-- Tolgee v3.230.0 or newer.
-- The browser extension [turned on](/platform/self_hosting/oauth_sign_in#turn-the-browser-extension-on)
-  with `tolgee.oauth2.browser-extension-enabled`, together with `tolgee.front-end-url` set to your
-  public address. With the extension enabled, Tolgee refuses to start until it knows its own
-  address.
-- Open sign-up, so contributors can create their own accounts. A default installation has
-  authentication off and registrations closed, so turn on
-  [`tolgee.authentication.enabled`](/platform/self_hosting/configuration#tolgee-authentication-_-enabled)
-  and
-  [`tolgee.authentication.registrations-allowed`](/platform/self_hosting/configuration#tolgee-authentication-_-registrations-allowed).
-
 ## Preparing Your Website
 
 The browser plugin has to know which Tolgee server and which project your website belongs to. It
 reads both from the configuration of the [Tolgee JS SDK](/js-sdk) on the page, so declare
 [`apiUrl`](/js-sdk/api/core_package/options#apiurl) and
 [`projectId`](/js-sdk/api/core_package/options#projectid) in your production build. Without
-`projectId`, the plugin can't offer signing in on your site, and contributors could only connect
-with an API key, which they don't have.
+`projectId`, the plugin can't offer signing in on your site.
 
 ```ts
 import { Tolgee, FormatSimple } from '@tolgee/web';
@@ -100,6 +70,34 @@ a dialog that can't suggest, whatever version of the plugin they have. Suggestin
 needs `@tolgee/web` 7.3.0 or newer, and
 [signing in through the plugin](/js-sdk/in-context#sign-in-with-your-tolgee-account) needs 7.2.0
 or newer.
+
+## Preparing Your Project
+
+Contributors can only suggest when the project is open to them and accepts suggestions. All the
+settings are in `Project settings` > `Advanced`.
+
+1. [Open the project to community translation](./community-translation.mdx#making-a-project-public).
+   This also turns on [`Suggestions mode`](/platform/projects_and_organizations/suggestions#how-to-enable-suggestions).
+   While it is off, nobody can create a suggestion, in the platform, in context, or through the
+   API.
+2. Tell visitors of your
+   [community project page](./community-translation.mdx#setting-up-the-community-project-page)
+   about your website. In the `Community project page` box, edit `In-context translation` and turn on
+   `Show on public page`.
+
+On Tolgee Cloud, that is all. On a self-hosted instance, continue with these steps before
+contributors can sign in through the plugin.
+
+3. Upgrade to Tolgee v3.230.0 or newer.
+4. [Turn on](/platform/self_hosting/oauth_sign_in#turn-the-browser-extension-on) the browser
+   extension with `tolgee.oauth2.browser-extension-enabled`, and set `tolgee.front-end-url` to your
+   public address. With the extension enabled, Tolgee refuses to start until it knows its own
+   address.
+5. Open sign-up, so contributors can create their own accounts. A default installation has
+   authentication off and registrations closed, so turn on
+   [`tolgee.authentication.enabled`](/platform/self_hosting/configuration#tolgee-authentication-_-enabled)
+   and
+   [`tolgee.authentication.registrations-allowed`](/platform/self_hosting/configuration#tolgee-authentication-_-registrations-allowed).
 
 ## What Contributors Need
 
