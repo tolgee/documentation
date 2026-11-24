@@ -37,35 +37,39 @@ or a restart, unless billing is enabled and provides the features itself.
 
 Add an entry to the spec for the documented feature (or a new `specs/<feature>.screenshots.ts`):
 
-    import { getProjectByNameFromTestData } from 'tg.baseCommon/apiCalls/testData/testData';
-    import { defineScreenshots, HOST } from '../support/defineScreenshots';
+    import { defineScreenshots, demoProjectUrl } from '../support/defineScreenshots';
 
     defineScreenshots([{
       src: '/img/docs/platform/<page>/<name>.webp',   // exactly the src used in the MDX
       viewport: { width: 1512, height: 768 },         // optional, this is the default
       clip: 'some-data-cy',                           // optional: screenshot only that element
       highlight: ['other-data-cy'],                   // optional: red outline before capture
-      loginAs: 'bob@whattopack.test',                 // optional: default is the owner
+      loginAs: 'bob@whattopack.test',                 // optional: default is the owner, null is a visitor without an account
       prepare: (data) => {                            // open the page; the screenshot is taken after
-        cy.visit(`${HOST}/projects/${getProjectByNameFromTestData(data, 'Demo project').id}/translations`);
+        cy.visit(demoProjectUrl(data, 'translations'));
         cy.gcy('...').should('be.visible');
       },
     }]);
 
 `data` is the `TestDataStandardResponse` from the platform helpers. The dataset is generated once
-per spec file, so `prepare` must not change data. Captures are 2x, so the default viewport
+per spec file, so `prepare` must not change data. A capture that has to change data gets its own
+spec file, as `specs/community-setup.screenshots.ts` does. Captures are 2x, so the default viewport
 produces 3024x1536 images.
 
 ## Example data
 
 Screenshots show the Demo project that Tolgee creates for every new user: the "What to pack"
-packing list app in English, German and French. `DocsTestData` builds it from the platform's
+packing list app in English, German and French, plus Spanish. `DocsTestData` builds it from the platform's
 `DemoProjectData`, so the keys, translations, tags and descriptions are the ones a reader sees in
 their own account.
 
 - Organization `What to pack`, project `Demo project`.
 - Alice Smith (`alice@whattopack.test`, owner), Bob Johnson (`bob@whattopack.test`, can edit) and
   Charlie Brown (`charlie@whattopack.test`, can review).
+- The project is open to community translation. Dana Diaz (`dana.diaz@community.test`), Eli Evans
+  and Fatima Farouk are contributors who are not members: Dana suggested the Spanish translations,
+  Eli and Fatima suggested French alternatives. The suggestions are spread over the 20 days before
+  the pinned date.
 
 When a page needs data the dataset lacks (prompts, tasks, glossary terms), add it to `DocsTestData`
 and keep it about the packing list app: no new company, product or person names. Reuse the three

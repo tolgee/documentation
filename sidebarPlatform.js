@@ -81,6 +81,7 @@ module.exports = {
         'translation_process/comments',
         'translation_process/community-translation',
         'translation_process/community-translation-in-context',
+        'translation_process/community-profile',
         'translation_process/scoped_search',
         'translation_process/labels',
         'translation_process/icu_message_format',
@@ -181,6 +182,7 @@ module.exports = {
         'account_settings/password_and_2fa',
         'account_settings/api_keys_and_pat_tokens',
         'account_settings/sign_in_with_tolgee',
+        { type: 'ref', id: 'translation_process/community-profile' },
       ],
     },
     {
