@@ -33,7 +33,7 @@ export default defineConfig({
       });
     },
   },
-  env: {
+  expose: {
     HOST,
     API_URL: process.env.CYPRESS_API_URL ?? HOST,
   },

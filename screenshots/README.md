@@ -6,6 +6,9 @@ Cypress specs under `specs/` capture product screenshots against a Tolgee image 
 Every spec pins the server and browser clock to 2026-01-15, cleans and regenerates the data, and
 logs in as the owner unless `loginAs` says otherwise.
 
+The specs import the platform's e2e helpers, so the Cypress major version here must match the one
+in `tolgee-platform/e2e`.
+
 ## Run locally
 
 Needs Chrome, Docker, and a sibling `tolgee-platform` checkout (the feature worktree layout gives
